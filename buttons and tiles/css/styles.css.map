@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"../sass/styles.scss",
+		"../sass/_partials/shared/variables.scss",
+		"../sass/_partials/shared/colors.scss",
+		"../sass/_partials/shared/buttons.scss",
+		"../sass/_partials/shared/forms.scss",
+		"../sass/_partials/components/tiles.scss"
+	],
+	"mappings": "AKAA,kBAAkB;AAClB,KAAK,AACH,aAAa,CAAA;EACb,KAAK,EAAC,OAAQ;CACd;;AAHF,KAAK,AAIH,WAAW,CAAA;EACX,KAAK,EAAC,OAAQ;CACd;;AANF,KAAK,AAOH,UAAU,CAAA;EACV,KAAK,EAAC,OAAQ;CACd",
+	"names": []
+}

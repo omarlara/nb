@@ -1,0 +1,122 @@
+.enbridge-btn {
+    border-radius: rem(4);
+    border-width: 0;
+    display: inline-block;
+    font-weight: bolder;
+    font-size: rem(14);
+    line-height: 1.42857143;
+    padding: rem(6) rem(9);
+    margin-bottom: 0;
+
+    background: transparent;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+
+    cursor: pointer;
+
+    &.green {
+        background-color: $chelsea-cucumber;
+
+        &:hover,
+        &:active {
+            background-color: $chelsea-cucumber;
+        }
+    }
+
+    &.yellow {
+        background-color: $buttercup;
+
+        &:hover,
+        &:active {
+            background-color: $buttercup;
+        }
+    }
+
+    &.black {
+        background-color: $chelsea-cucumber;
+
+        &:hover,
+        &:active {
+            background-color: $chelsea-cucumber;
+        }
+    }
+
+    &.blue {
+        background-color: $lochmara;
+
+        &:hover,
+        &:active {
+            background-color: $lochmara;
+        }
+    }
+
+    &.gray {
+        background-color: $moon-mist;
+
+        &:hover,
+        &:active {
+            background-color: $moon-mist;
+        }
+    }
+
+    &.social-media {
+        border-radius: rem(18);
+        font-weight: 500;
+        text-transform: none;
+
+        color: $lochmara;
+    }
+
+    &.like {
+        color: $lochmara;
+        background-color: $moon-mist;
+
+        &:before {
+            content: url("img/like.png");
+        }
+
+        &:hover {
+            background-color: $lochmara;
+            color: white;
+        }
+        &:active{
+            background-color: $torea-bay;
+        }
+    }
+
+    &.dislike {
+        background-color: $moon-mist;
+
+        &:before {
+            content: url("img/dislike.png");
+        }
+
+        &:hover {
+            background-color: $moon-mist;
+        }
+        &:active{
+            background-color: $moon-mist;
+        }
+    }
+
+    &.big-button {
+        padding: rem(6) 0;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        width: 100%;
+
+        &:after {
+            content: '>';
+        }
+    }
+
+    &:hover,
+    &:active {
+        text-decoration: none;
+    }
+}
+

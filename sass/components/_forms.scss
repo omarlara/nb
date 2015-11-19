@@ -35,6 +35,10 @@
         &+ .fake-input {
             border-radius: 50%;
         }
+
+        &:checked {
+
+        }
     }
 
     input[type="checkbox"]{

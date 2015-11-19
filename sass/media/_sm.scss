@@ -1,0 +1,15 @@
+@media (min-width: rem($small-size)) {
+
+    .container {
+
+        .row {
+            @include getGrid('sm');
+        }
+
+    }
+
+}
+
+@media (min-width: rem($small-size)) and (max-width: rem($normal-size - 1) ) {
+    @include  hiddenRes('sm');
+}

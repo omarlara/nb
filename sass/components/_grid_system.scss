@@ -1,0 +1,36 @@
+.clearfix {
+    display: block;
+    clear: both;
+    min-height: rem(1);
+    min-width: rem(1);
+}
+
+.endbridge-container {
+    display: block;
+    padding-right: $normal-padding;
+    padding-left: $normal-padding;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: rem($max-size);
+
+    .row {
+        margin-right: -$normal-padding;
+        margin-left: -$normal-padding;
+
+        &:after,
+        &:before {
+            content: '';
+
+            display: table;
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            padding-left: $normal-padding;
+            padding-right: $normal-padding;
+        }
+
+    }
+
+}

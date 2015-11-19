@@ -1,0 +1,20 @@
+@media (min-width: rem($normal-size)) {
+
+    .container {
+        display: block;
+
+        .row {
+            @include getGrid('md');
+        }
+
+    }
+
+    .show-info{
+        min-height: rem(583);
+    }
+
+}
+
+@media (min-width: rem($normal-size)) and (max-width: rem($big-size - 1) ) {
+    @include  hiddenRes('md');
+}

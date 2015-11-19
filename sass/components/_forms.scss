@@ -1,0 +1,18 @@
+.enbridge-form {
+    #{$all-text-inputs} {
+        border: rem(1) solid $moon-mist;
+        border-radius: rem(2);
+        font-size: (13);
+        margin:  rem(10);
+        padding: rem(14);
+
+        color: $moon-mist;
+    }
+
+    #{$all-text-inputs-focus},
+    #{$all-text-inputs-active} {
+        border-color: $jumbo;
+
+        color: $jumbo;
+    }
+}

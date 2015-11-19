@@ -1,0 +1,2 @@
+# nb
+research about angular

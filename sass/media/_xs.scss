@@ -6,6 +6,6 @@
 }
 
 
-@media (max-width: rem($small-size - 1)) {
+@media (max-width: $small-size - 1) {
     @include hiddenRes('xs');
 }

@@ -1,8 +1,8 @@
 .clearfix {
     display: block;
     clear: both;
-    min-height: rem(1);
-    min-width: rem(1);
+    min-height: 1px;
+    min-width: 1px;
 }
 
 .enbridge-container {
@@ -11,7 +11,7 @@
     padding-left: $normal-padding;
     margin-right: auto;
     margin-left: auto;
-    max-width: rem($max-size);
+    max-width:$max-size;
 
     .row {
         margin-right: -$normal-padding;

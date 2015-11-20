@@ -28,14 +28,14 @@ $em-base: 14px;
 $max-cols: 12;
 $colSize: (1/$max-cols);
 
-$normal-padding: rem(15);
-$normal-margin: rem(15);
+$normal-padding: 15px;
+$normal-margin: 15px;
 
-$min-size: 320;
-$small-size: 769;
-$normal-size: 993;
-$big-size: 1201;
-$max-size: 1366;
+$min-size: 320px;
+$small-size: 769px;
+$normal-size: 993px;
+$big-size: 1201px;
+$max-size: 1366px;
 
 /*Times*/
 $xss-short-transition: .15s;

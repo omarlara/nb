@@ -1,9 +1,9 @@
 .tile {
-    border: rem(1) solid $moon-mist;
+    border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    height: rem(300);
-    width: rem(200);
+        width: 460px;
+    height: 464px;  
 
     background-color: $moon-mist;
 
@@ -13,12 +13,14 @@
 
         .title {
             display: block;
-            font-size: rem(18);
+            font-size: 41px;
+            margin-top: 7px;
+
         }
 
         .subtitle {
             display: block;
-            font-size: rem(16);
+            font-size: 16px;
         }
     }
 

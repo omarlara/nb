@@ -1,4 +1,4 @@
-@media (min-width: rem($big-size)) {
+@media (min-width: $big-size) {
 
     .container {
         display: block;
@@ -13,6 +13,6 @@
 
 }
 
-@media (min-width: rem($big-size)) {
+@media (min-width: $big-size) {
     @include  hiddenRes('bg');
 }

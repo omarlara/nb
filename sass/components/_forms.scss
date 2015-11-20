@@ -19,6 +19,8 @@
     input[type="radio"],
     input[type="checkbox"]{
 
+        display: none;
+
         &+ .fake-input {
             border: 1px solid $moon-mist;
             display: inline-block;
@@ -26,23 +28,15 @@
             height: 22px;
             width: 22px;
 
-
             color: $moon-mist;
             background: white;
             vertical-align: middle;
 
             cursor: pointer;
-        }
-    }
-
-    input[type="radio"] {
-        &+ .fake-input {
-            border-radius: 50%;
 
             &:before {
                 content: ' ';
 
-                border-radius: 50%;
                 display: block;
                 position: relative;
                 height: 14px;
@@ -51,7 +45,19 @@
                 left: 3px;
 
                 background-color:  $moon-mist;
+            }
 
+        }
+
+    }
+
+    input[type="radio"] {
+
+        &+ .fake-input {
+            border-radius: 50%;
+
+            &:before {
+                border-radius: 50%;
             }
 
         }
@@ -70,17 +76,7 @@
             border-radius: 2px;
 
             &:before {
-                content: ' ';
-
                 border-radius: 2px;
-                display: block;
-                position: relative;
-                height: 14px;
-                width: 14px;
-                top: 3px;
-                left: 3px;
-
-                background-color:  $moon-mist;
 
             }
 
@@ -91,13 +87,11 @@
                 &:before {
                     background-color: $buttercup;
                 }
+
             }
+
         }
+
     }
 
-    input[type="checkbox"]{
-        &+ .fake-input {
-            border-radius: rem(2);
-        }
-    }
 }

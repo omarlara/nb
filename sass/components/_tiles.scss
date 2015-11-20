@@ -1,0 +1,40 @@
+.tile {
+    border: rem(1) solid $moon-mist;
+    display: inline-block;
+    position: relative;
+    height: rem(300);
+    width: rem(200);
+
+    background-color: $moon-mist;
+
+    > .content {
+        padding: 5% 4% 0% 10%;
+        position:relative;
+
+        .title {
+            display: block;
+            font-size: rem(18);
+        }
+
+        .subtitle {
+            display: block;
+            font-size: rem(16);
+        }
+    }
+
+    &.common {
+         color: $mid-gray;
+    }
+
+    &.tile-generic {
+        color: $mako;
+    }
+
+    &.tile-image {
+        color: $mako;
+    }
+
+    &.tile-text {
+        color: $mako;
+    }
+}

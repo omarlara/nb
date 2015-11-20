@@ -65,42 +65,38 @@
     &.social-media {
         border-radius: rem(18);
         font-weight: 500;
+        line-height: 1;
         text-transform: none;
 
         color: $lochmara;
-    }
 
-    &.like {
-        color: $lochmara;
-        background-color: $moon-mist;
+        &.like {
+            background-color: $moon-mist;
 
-        &:before {
-            content: url("img/like.png");
+            &:before {
+                content: url("img/like.png");
+            }
+        }
+
+        &.dislike {
+            background-color: $moon-mist;
+
+            &:before {
+                content: url("img/dislike.png");
+            }
+
         }
 
         &:hover {
             background-color: $lochmara;
             color: white;
         }
-        &:active{
+
+        &:active {
             background-color: $torea-bay;
         }
     }
 
-    &.dislike {
-        background-color: $moon-mist;
-
-        &:before {
-            content: url("img/dislike.png");
-        }
-
-        &:hover {
-            background-color: $moon-mist;
-        }
-        &:active{
-            background-color: $moon-mist;
-        }
-    }
 
     &.big-button {
         padding: rem(6) 0;
@@ -111,6 +107,8 @@
 
         &:after {
             content: '>';
+            position: absolute;
+            right: rem(10);
         }
     }
 

@@ -1,88 +1,140 @@
 /* mixins */
 @mixin border-radius($size) {
-	border-radius:$size;
-	-moz-border-radius:$size;
-	-ms-border-radius:$size;
-	-webkit-border-radius:$size;
+    border-radius:$size;
+    -moz-border-radius:$size;
+    -ms-border-radius:$size;
+    -webkit-border-radius:$size;
 }
 
-@mixin blue()
-{
-	background-color:#007DBA;
-	&:hover{background-color:#007AAA;}
-	&:active{background-color:#006AAA;}
+@mixin blue(){
+    background-color:#007DBA;
+
+    &:hover{
+        background-color:#007AAA;
+    }
+
+    &:active{
+        background-color:#006AAA;
+    }
 }
 
-@mixin grey()
-{
-	background-color:#B9BCC2;
-	&:hover{background-color:#9E9E9E;}
-	&:active{background-color:#757575;}
+@mixin grey(){
+    background-color:#B9BCC2;
+
+    &:hover{
+        background-color:#9E9E9E;
+    }
+
+    &:active{
+        background-color:#757575;
+    }
 }
 
-@mixin black()
-{
-	background-color:#464E54;
-  	&:hover{background-color:#464E44;}
-	&:active{background-color:#464444;}
+@mixin black(){
+    background-color:#464E54;
+
+      &:hover{
+        background-color:#464E44;
+    }
+
+    &:active{
+        background-color:#464444;
+    }
 }
 
-@mixin yellow()
-{
-	background-color:#FFB81C;
-  	&:hover{background-color:#FFB11C;}
-	&:active{background-color:#FFA000;}
+@mixin yellow(){
+    background-color:#FFB81C;
+
+      &:hover{
+        background-color:#FFB11C;
+    }
+
+    &:active{
+        background-color:#FFA000;
+    }
 }
 
-@mixin green()
-{
-	background-color:#92B051;
-  	&:hover{background-color:#92B555;}
-	&:active{background-color:#92B000;}
+@mixin green(){
+    background-color:#92B051;
+
+      &:hover{
+        background-color:#92B555;
+    }
+
+    &:active{
+        background-color:#92B000;
+    }
 }
 
 /*Tile Component*/
 .tile{
-	background-color:#DDD6CC;
-	width:18em;
-	height:20em;
-	border:1px solid #ccc;
-	display:inline-block;
-	color:#636373;
-	position:relative;
-	a.btn{
-		
-    	width: 100%;
-    	text-align:center;
-    	border: 1px solid transparent;
-    	display: inline-block;
-		padding: 6px 0px;
-		text-decoration: none;
-		text-transform: uppercase;
-		color:#fff;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		&:after{content:" >"}
-		&.green{@include green();}
-		&.yellow{@include yellow();}
-		&.black{@include black();}
-		&.blue {@include blue();}
-    	 
-    }
-	.content{    padding: 5% 4% 0% 10%; position:relative;}
-	h2,h3{text-align:left;}
+    background-color:#DDD6CC;
+    width:18em;
+    height:20em;
+    border:1px solid #ccc;
+    display:inline-block;
+    color:#636373;
+    position:relative;
 
-	&.tile-generic{
-		color:#333333;
-	}
-	&.tile-image{
-		color:#333333;	
-	}
-	&.tile-text{
-		color:#333333;
-	}
+    a.btn{
+
+        width: 100%;
+        text-align:center;
+        border: 1px solid transparent;
+        display: inline-block;
+        padding: 6px 0px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &:after{
+            content:" >"
+        }
+
+        &.green{
+            @include green();
+        }
+
+        &.yellow{
+            @include yellow();
+        }
+
+        &.black{
+            @include black();
+        }
+
+        &.blue {
+            @include blue();
+        }
+
+    }
+
+    .content{
+        padding: 5% 4% 0% 10%;
+        position:relative;
+    }
+
+    h2,
+    h3{
+        text-align:left;
+    }
+
+    &.tile-generic{
+        color:#333333;
+    }
+
+    &.tile-image{
+        color:#333333;
+    }
+
+    &.tile-text{
+        color:#333333;
+    }
+
 }//tile
 
 /* button component*/
@@ -91,10 +143,10 @@
 
 .btn
 {
-	color:#fff;
-	text-decoration: none;
-	text-transform: uppercase;
-	display: inline-block;
+    color:#fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 14px;
@@ -104,35 +156,71 @@
     border: 1px solid transparent;
     cursor:pointer;
     vertical-align: middle;
-  	touch-action: manipulation;
-  	border-radius: 4px;
-  	@include border-radius(4px);
-  	&.green{@include green();}
-	&.yellow{@include yellow();}
-	&.black{@include black();}
-	&.blue {@include blue();}
-	&.grey{@include grey();}
-	&.like
-	{
-		color:#1084BD;
-		background-color:#F2F3F6;
-		text-transform: none;
-		@include border-radius(18px);
-		font-weight: 500;
-		&:before{content:url("../image/like.png");}
-		&:hover{background-color:#1084BD; color:#fff;}
-		&:active{background-color:#1033BB;}
-	}
+      touch-action: manipulation;
+      border-radius: 4px;
+      @include border-radius(4px);
 
-	&.dislike
-	{
-		color:#1084BD;
-		
-		text-transform: none;
-		@include border-radius(18px);
-		font-weight: 500;
-		&:before{content:url("../image/dislike.png");}
-		&:hover{background-color:#F2F3F6;}
-		&:active{background-color:#BDBDBD;}
-	}
+      &.green{
+        @include green();
+    }
+
+    &.yellow{
+        @include yellow();
+    }
+
+    &.black{
+        @include black();
+    }
+
+    &.blue {
+        @include blue();
+    }
+
+    &.grey{
+
+        @include grey();
+    }
+
+    &.like
+    {
+        color:#1084BD;
+        background-color:#F2F3F6;
+        text-transform: none;
+        @include border-radius(18px);
+        font-weight: 500;
+
+        &:before{
+            content:url("../image/like.png");
+        }
+
+        &:hover{
+            background-color:#1084BD;
+            color:#fff;
+        }
+
+        &:active{
+            background-color:#1033BB;
+        }
+    }
+
+    &.dislike
+    {
+        color: #1084BD;
+
+        text-transform: none;
+        @include border-radius(18px);
+        font-weight: 500;
+
+        &:before{
+            content:url("../image/dislike.png");
+        }
+
+        &:hover{
+            background-color: #F2F3F6;
+        }
+
+        &:active{
+            background-color: #BDBDBD;
+        }
+    }
 }

@@ -1,10 +1,10 @@
 .enbridge-form {
     #{$all-text-inputs} {
-        border: rem(1) solid $moon-mist;
-        border-radius: rem(2);
-        font-size: (13);
-        margin:  rem(10);
-        padding: rem(14);
+        border: 1px solid $moon-mist;
+        border-radius: 2px;
+        font-size: 13px;
+        margin:  10px;
+        padding: 14px;
 
         color: $moon-mist;
     }
@@ -19,31 +19,79 @@
     input[type="radio"],
     input[type="checkbox"]{
 
+        display: none;
+
         &+ .fake-input {
             border: 1px solid $moon-mist;
             display: inline-block;
-            height: rem(13);
-            width: rem(13);
+            position: relative;
+            height: 22px;
+            width: 22px;
 
             color: $moon-mist;
             background: white;
             vertical-align: middle;
+
+            cursor: pointer;
+
+            &:before {
+                content: ' ';
+
+                display: block;
+                position: relative;
+                height: 14px;
+                width: 14px;
+                top: 3px;
+                left: 3px;
+
+                background-color:  $moon-mist;
+            }
+
         }
+
     }
 
     input[type="radio"] {
+
         &+ .fake-input {
             border-radius: 50%;
+
+            &:before {
+                border-radius: 50%;
+            }
+
         }
 
         &:checked {
-
+            &+ .fake-input {
+                &:before {
+                    background-color: $buttercup;
+                }
+            }
         }
     }
 
-    input[type="checkbox"]{
+    input[type="checkbox"] {
         &+ .fake-input {
-            border-radius: rem(2);
+            border-radius: 2px;
+
+            &:before {
+                border-radius: 2px;
+
+            }
+
         }
+
+        &:checked {
+            &+ .fake-input {
+                &:before {
+                    background-color: $buttercup;
+                }
+
+            }
+
+        }
+
     }
+
 }

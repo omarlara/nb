@@ -15,4 +15,35 @@
 
         color: $jumbo;
     }
+
+    input[type="radio"],
+    input[type="checkbox"]{
+
+        &+ .fake-input {
+            border: 1px solid $moon-mist;
+            display: inline-block;
+            height: rem(13);
+            width: rem(13);
+
+            color: $moon-mist;
+            background: white;
+            vertical-align: middle;
+        }
+    }
+
+    input[type="radio"] {
+        &+ .fake-input {
+            border-radius: 50%;
+        }
+
+        &:checked {
+
+        }
+    }
+
+    input[type="checkbox"]{
+        &+ .fake-input {
+            border-radius: rem(2);
+        }
+    }
 }

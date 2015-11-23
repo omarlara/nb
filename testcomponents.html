@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="css/enbridge.css">
     <link rel="stylesheet" href="css/select2.min.css">
 </head>
+
 <body>
     <div class="enbridge-content-container">
-        <div class="enbridge-container">
+        <div class="enbridge-container ">
+
             <div class="row">
-                <div class="col xs6 xs3-off">
+                <div class="col md4 xs4 lg4">
                     <form action="" class="enbridge-form">
                         <input type="radio" id="example">
                         <label class="fake-input" for="example"></label>
+
                         <br>
                         <input type="checkbox" id="example2">
                         <label class="fake-input" for="example2"></label>
@@ -23,63 +27,69 @@
                         <input type="text">
                         <br>
                         <textarea name="" id=""></textarea>
-                        <br>
-                        Languages
+                        <br> Languages
 
 
-                       <select class="enbridge-select">
+                        <select class="enbridge-select">
                             <option value="PHP">PHP</option>
                             <option value="JSP">JSP</option>
                             <option value="JAVA">JAVA</option>
                         </select>
 
-                        <!--div class="enbridge-dropdown enbridge-dropdown">
-                            <input type="hidden" class="result">
-                            <div class="header"><span class="selected">Select Lenguage</span><span class="indicator"></span></div>
-                            <ul class="list-items">
-                                <li class="list-item">
-                                    <input type="hidden" value="php">PHP
-                                </li>
-                                <li class="list-item">
-                                    <input type="hidden" value="jsp">JSP
-                                </li>
-                                <li class="list-item">
-                                    <input type="hidden" value="python">Phyton
-                                </li>
-                                <li class="list-item">
-                                    <input type="hidden" value="node">Node
-                                </li>
-                            </ul>
-                        </div-->
-
-
-
-
                         <button class="enbridge-btn social-media like"> &nbsp;Like</button>
                         <button class="enbridge-btn social-media dislike"> &nbsp;Like</button>
                     </form>
-
-                        <div class="tile common">
-                            <div class="content">
-                                <h2 class="title">Existing Costumers</h2>
-                                <h3 class="sub-title">New customers moving within our service area.</h3>
-                                <div>
-                                    <label for="">You'll need:</label>
-
-                                    <ul>
-                                        <li>Your new address</li>
-                                        <li>Your move-in dates</li>
-                                    </ul>
-
-                                    <p>
-                                        <div class="circle"><span>i</span></div>If your property needs natural gas service instaled, cal our Customer Connections Contact Centre at 1-888-427-8888
-                                    </p>
-                                </div>
-                            </div>
-                            <a href="" class="enbridge-btn blue big-button">Sign In</a>
-                        </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="tile green col md4 xs4 lg4 md1-off">
+                    <div class="content">
+                        <h2 class="title">Existing Customers</h2>
+                        <h3 class="subtitle">Moving in/out of service <br>area or adding a property.</h3>
+                        <form action="">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email">
+                                <input type="checkbox">
+                                <label for="">Remember my emailfor next time</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="passwords">
+                            </div>
+                        </form>
+                    </div>
+                    <!- content-->
+                    <a href="" class="enbridge-btn black big-button">Sign In</a>
+                </div>
+
+                <div class="tile common col md4 xs4 lg4 ">
+                    <div class="content">
+                        <h2 class="title">New Customers</h2>
+                        <h3 class="sub-title">New customers moving within our service area.</h3>
+                        <div>
+                            <label for="">You'll need:</label>
+
+                            <ul>
+                                <li>Your new address</li>
+                                <li>Your move-in dates</li>
+                            </ul>
+
+                            <p>
+                                <div class="circle"><span>i</span></div>If your property needs natural gas service instaled, cal our Customer Connections Contact Centre at 1-888-427-8888
+                            </p>
+                        </div>
+                    </div>
+                    <!- content-->
+                    <a href="" class="enbridge-btn blue big-button">Sign In</a>
+                </div>
+            </div>
+            <!--  <a href="" class="enbridge-btn blue big-button">Sign In</a>
+                        </div>
+                </div>
+            </div>-->
         </div>
     </div>
 
@@ -87,4 +97,5 @@
     <script src="js/select2.full.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,13 @@
 .enbridge-form {
+
+    label{
+
+        &.field {
+            margin: 24px 0;
+        }
+
+    }
+
     #{$all-text-inputs} {
         border: 1px solid $moon-mist;
         border-radius: 2px;
@@ -7,6 +16,7 @@
         padding: 14px;
 
         color: $moon-mist;
+
     }
 
     #{$all-text-inputs-focus},
@@ -14,6 +24,16 @@
         border-color: $jumbo;
 
         color: $jumbo;
+    }
+
+    #{$all-text-inputs} {
+
+        &.input-error {
+            background-color: $we-peep;
+            border-color: $deep-blush;
+            color: $deep-blush;
+        }
+
     }
 
     .enbridge-select {

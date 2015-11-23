@@ -16,6 +16,10 @@
         color: $jumbo;
     }
 
+    .enbridge-select {
+        display: none;
+    }
+
     input[type="radio"],
     input[type="checkbox"]{
 
@@ -49,6 +53,14 @@
 
         }
 
+        &:checked {
+            &+ .fake-input {
+                &:before {
+                    background-color: $buttercup;
+                }
+            }
+        }
+
     }
 
     input[type="radio"] {
@@ -62,13 +74,6 @@
 
         }
 
-        &:checked {
-            &+ .fake-input {
-                &:before {
-                    background-color: $buttercup;
-                }
-            }
-        }
     }
 
     input[type="checkbox"] {
@@ -82,16 +87,10 @@
 
         }
 
-        &:checked {
-            &+ .fake-input {
-                &:before {
-                    background-color: $buttercup;
-                }
+    }
 
-            }
-
-        }
-
+    textarea {
+        resize: none;
     }
 
 }

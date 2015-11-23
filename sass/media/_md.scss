@@ -1,7 +1,6 @@
 @media (min-width: $normal-size) {
 
-    .container {
-        display: block;
+    .enbridge-container {
 
         .row {
             @include getGrid('md');

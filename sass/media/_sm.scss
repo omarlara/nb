@@ -1,6 +1,6 @@
 @media (min-width: $small-size) {
 
-    .container {
+    .enbridge-container {
 
         .row {
             @include getGrid('sm');

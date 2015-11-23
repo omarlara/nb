@@ -53,10 +53,12 @@
         background-repeat: no-repeat;
         background-position: 134px 99px;
         background-size: 79%;
+        font-weight: 500;
     }    
 
     &.tile-generic {
         color: $mako;
+
     }
 
     &.tile-image {

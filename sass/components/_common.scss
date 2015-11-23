@@ -1,9 +1,9 @@
 *{
-    box-sizing: border-box;
+    @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
     font-family: Arial,sans-serif;
     &:before,
     &:after{
-        box-sizing: border-box;
+        @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
     }
 }
 

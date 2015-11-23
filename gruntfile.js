@@ -37,8 +37,8 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'sass',
-                    src: ['*.scss'],
-                    dest: 'temp/',
+                    src: ['*.{scss,sass}'],
+                    dest: 'css/',
                     ext: '.css'
                 }],
                 options: {
@@ -56,9 +56,11 @@ module.exports = function (grunt) {
                 keepSpecialComments: 0
             },
             target: {
-                files: {
-                    'css/<%= pkg.name %>.css' : [ 'temp/main.css' ]
-                }
+                expand: true,
+                cwd: 'css/',
+                src: ['*.css', '!*.min.css'],
+                dest: 'css',
+                ext: '.min.css'
             }
         },
         compress: {
@@ -69,8 +71,8 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: false,
-                        src: ['css/<%= pkg.name %>.css'],
-                        dest: 'css/<%= pkg.name %>.css.gz'
+                        src: ['css/<%= pkg.name %>.min.css'],
+                        dest: 'css/<%= pkg.name %>.min.css.gz'
                     }
                 ]
             }

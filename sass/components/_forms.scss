@@ -49,6 +49,14 @@
 
         }
 
+        &:checked {
+            &+ .fake-input {
+                &:before {
+                    background-color: $buttercup;
+                }
+            }
+        }
+
     }
 
     input[type="radio"] {
@@ -62,13 +70,6 @@
 
         }
 
-        &:checked {
-            &+ .fake-input {
-                &:before {
-                    background-color: $buttercup;
-                }
-            }
-        }
     }
 
     input[type="checkbox"] {
@@ -82,16 +83,10 @@
 
         }
 
-        &:checked {
-            &+ .fake-input {
-                &:before {
-                    background-color: $buttercup;
-                }
+    }
 
-            }
-
-        }
-
+    textarea {
+        resize: none;
     }
 
 }

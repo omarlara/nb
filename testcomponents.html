@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="css/endbridge.css">
+    <link rel="stylesheet" href="css/enbridge.css">
+    <link rel="stylesheet" href="css/select2.min.css">
 </head>
 <body>
     <div class="enbridge-content-container">
@@ -13,11 +14,43 @@
                     <form action="" class="enbridge-form">
                         <input type="radio" id="example">
                         <label class="fake-input" for="example"></label>
-
+                        <br>
                         <input type="checkbox" id="example2">
                         <label class="fake-input" for="example2"></label>
+                        <br>
+                        <a href="" class="enbridge-btn blue">Sign In</a>
+                        <br>
+                        <input type="text">
+                        <br>
+                        <textarea name="" id=""></textarea>
+                        <br>
+                        Languages
+                        <input type="hidden" id="sup">
 
-                            <a href="" class="enbridge-btn blue">Sign In</a>
+                        <div class="enbridge-dropdown enbridge-dropdown">
+                            <div class="header">Select Lenguage</div>
+                            <ul class="list-items">
+                                <li class="list-item">
+                                    <input type="hidden" value="php">PHP
+                                </li>
+                                <li class="list-item">
+                                    <input type="hidden" value="jsp">JSP
+                                </li>
+                                <li class="list-item">
+                                    <input type="hidden" value="python">Phyton
+                                </li>
+                                <li class="list-item">
+                                    <input type="hidden" value="node">Node
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <select class="js-example-basic-single select-item">
+                            <option value="PHP">PHP</option>
+                            <option value="JSP">JSP</option>
+                            <option value="JAVA">JAVA</option>
+                        </select>
 
                         <button class="enbridge-btn social-media like"> &nbsp;Like</button>
                         <button class="enbridge-btn social-media dislike"> &nbsp;Like</button>
@@ -29,22 +62,26 @@
                                 <h3 class="sub-title">New customers moving within our service area.</h3>
                                 <div>
                                     <label for="">You'll need:</label>
-                                
-                                <ul>
-                                    <li>Your new address</li>
-                                    <li>Your move-in dates</li>
-                                </ul>
-                                
-                                <p>
-                                    <div class="circle"><span>i</span></div>If your property needs natural gas service instaled, cal our Customer Connections Contact Centre at 1-888-427-8888
-                                </p>
+
+                                    <ul>
+                                        <li>Your new address</li>
+                                        <li>Your move-in dates</li>
+                                    </ul>
+
+                                    <p>
+                                        <div class="circle"><span>i</span></div>If your property needs natural gas service instaled, cal our Customer Connections Contact Centre at 1-888-427-8888
+                                    </p>
                                 </div>
-                            </div><!- content-->
+                            </div>
                             <a href="" class="enbridge-btn blue big-button">Sign In</a>
                         </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="js/select2.full.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

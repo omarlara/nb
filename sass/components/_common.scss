@@ -1,5 +1,5 @@
 *{
-    box-sizing: border-box;
+    @include prefixer(box-sizing, border-box, webkit moz ms);
     font-family: Arial,sans-serif;
     &:before,
     &:after{

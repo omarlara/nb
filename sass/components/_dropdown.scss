@@ -1,42 +1,58 @@
 .enbridge-dropdown {
-    border: 1px solid $mako;
-    border-radius: $common-radius;
     display: block;
     position: relative;
     margin-bottom: 10px;
 
     .header {
-        border-bottom: 1px solid transparent;
+        border: 1px solid $mako;
+        border-radius: $common-radius;
         display: block;
+        height: 44px;
         width: 100%;
         padding: 14px;
         position: relative;
 
         cursor: pointer;
 
-        &:after {
-            content: '^';
-
+        .indicator {
             padding: 14px;
-            position: absolute;
+            position: absolute !important;
             right: 0;
             top: 0;
             text-align: center;
             line-height: 1.5;
-            height: 47px;
+            height: 42px;
             width: 43px;
 
             color: white;
 
             background-color: $mako;
+            &:after {
+                content: '^';
+            }
+
         }
 
     }
 
     .list-items {
+        border-bottom-color: $mako;
+        border-style: solid;
+        border-top-width: 0;
+        border-left-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-bottom-left-radius: $common-radius;
+        border-bottom-right-radius: $common-radius;
         list-style: none;
         padding: 0;
+        position: absolute;
         margin: 0;
+        width: 100%;
+
+        background-color: white;
+
+        z-index: 500;
 
         .list-item {
             padding: 14px;
@@ -59,10 +75,16 @@
 
         .header {
 
-            border-color:$moon-mist;
-            &:after {
-                content: 'v';
+            border-bottom-color:$moon-mist;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+
+            .indicator {
+                &:after {
+                    content: 'v';
+                }
             }
+
         }
 
         .list-items {

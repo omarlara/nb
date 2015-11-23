@@ -10,7 +10,7 @@
     color:#636372;
 
     > .content {
-        padding: 6% 4% 0% 25px;
+        padding: 6% 0px 0% 25px;
         position:relative;
 
         .title {
@@ -29,6 +29,7 @@
            list-style-position: inside;
            padding-left: 0;
         }
+        label{text-align:left;}
         .circle{
             width: 20px;
             height: 20px;
@@ -53,7 +54,7 @@
         background-repeat: no-repeat;
         background-position: 134px 99px;
         background-size: 79%;
-        font-weight: 500;
+        
     }    
 
     &.tile-generic {

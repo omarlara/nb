@@ -1,0 +1,97 @@
+@import "./config/main";
+
+body {
+    margin: 0;
+}
+
+.header  {
+    background-color: $lochmara;
+    color: white;
+}
+
+.component-list {
+    list-style: none;
+    padding: 0;
+    .component{
+        display: inline-block;
+        position: relative;
+
+        &:after {
+            content: ' ';
+
+            bottom: 0;
+            left: 0;
+            border-radius: 5px;
+            position: absolute;
+            height: 3px;
+            width: 0;
+
+            background:  white;
+
+            @include transition(width $short-transition ease);
+        }
+
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.example {
+    padding: ($normal-padding * 1.4);
+    position: relative;
+
+    background: white;
+    &:after {
+        content: 'Example';
+
+        position: absolute;
+        padding: 0;
+        right: ($normal-padding/2);
+        top: 0;
+
+        color: $mako;
+    }
+}
+
+.code {
+    border-radius: 6px;
+    border-left: 5px solid $lochmara !important;
+    border-bottom: 0 solid $lochmara !important;
+    border-right: 0 solid $lochmara !important;
+    border-top: 0 solid $lochmara !important;
+    font-family: 14px !important;
+    padding: 14px !important;
+    position: relative;
+
+    background: white;
+
+    &:after {
+        content: 'Code';
+
+        position: absolute;
+        padding: ($normal-padding/2);
+        right: 0;
+        top: 0;
+
+        color: $mako;
+    }
+
+    .tag {
+        color: $turquoise-blue !important;
+    }
+    .pln {
+        color: $mako !important;
+    }
+    .atv {
+        color: $deep-blush !important;
+    }
+
+    .atn {
+        color: #ee6e73 !important;
+    }
+}
+

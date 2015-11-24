@@ -117,17 +117,16 @@
         overflow: hidden;
         > label.control-label{
             float: left;
-            width: 80px;
+            width: 75px;
             text-align: left;
         }
         > div.fields{
             float: right;
-            width: 200px;
+            width: 210px;
             text-align: left; 
             input[type='text']{
-                margin-left: 0;
-                margin-top: 0;
-                margin-bottom:0;
+                margin: 0;
+                width: 100%;
             }
         }
     }

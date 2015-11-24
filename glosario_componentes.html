@@ -9,7 +9,7 @@
 <body>
     <div class="enbridge-content-container">
 
-        <div class="header">
+        <div class="header-component">
             <div class="enbridge-container">
                 <div class="row">
                     <div class="col xs-12">
@@ -21,9 +21,111 @@
                 </div>
             </div>
         </div>
+
         <div class="enbridge-container">
 
-            <div class="row"></div>
+            <div class="row">
+               <div class="col xs10 xs1-off">
+
+                    <h2>Forms</h2>
+
+                    <h3>Inputs type text</h3>
+                    <div class="example">
+                        <form action="" class="enbridge-form">
+                            <label for="example1" class="field">Input type text</label>
+                            <input type="text" class="example1" placeholder="text">
+                            <br>
+                            <label for="example2" class="field">Input type password</label>
+                            <input type="password" class="example2" placeholder="password">
+                        </form>
+                    </div>
+
+<pre class="prettyprint lang-html code">
+    &lt;form action=&quot;&quot; class=&quot;&quot;&gt;
+
+        &lt;label for=&quot;example1&quot; class=&quot;field&quot;&gt;Input type text&lt;/label&gt;
+        &lt;input type=&quot;text&quot; class=&quot;example1&quot; placeholder=&quot;text&quot;&gt;
+
+        &lt;label for=&quot;example2&quot; class=&quot;field&quot;&gt;Input type password&lt;/label&gt;
+        &lt;input type=&quot;password&quot; class=&quot;example2&quot; placeholder=&quot;password&quot;&gt;
+
+    &lt;/form&gt;
+</pre>
+                    <h3>Check Box and Radio Button</h3>
+                    <div class="example">
+                        <form action="" class="enbridge-form">
+                            <p>Select the language</p>
+                            <input type="radio"  name="lang" id="radio1" value="php">
+                            <label class="fake-input" for="radio1"></label>
+                            <label for="radio1">PHP</label>
+                            <br>
+                            <input type="radio" name="lang" id="radio2" value="java">
+                            <label class="fake-input" for="radio2"></label>
+                            <label for="radio2">Java</label>
+
+                            <p>Select the language</p>
+                            <input type="checkbox" id="checkbox1" value="php">
+                            <label class="fake-input" for="checkbox1"></label>
+                            <label for="checkbox1">PHP</label>
+                            <br>
+                            <input type="checkbox" id="checkbox2" value="java">
+                            <label class="fake-input" for="checkbox2"></label>
+                            <label for="checkbox2">Java</label>
+                        </form>
+                    </div>
+
+<pre class="prettyprint lang-html code">
+    &lt;form action=&quot;&quot; class=&quot;&quot;&gt;
+
+                            &lt;p&gt;Select the language&lt;/p&gt;
+                            &lt;input type=&quot;radio&quot; id=&quot;radio1&quot; value=&quot;php&quot;&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;radio1&quot;&gt;&lt;/label&gt;
+                            &lt;label for=&quot;radio1&quot;&gt;PHP&lt;/label&gt;
+
+                            &lt;input type=&quot;radio&quot; id=&quot;radio2&quot; value=&quot;java&quot;&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;radio2&quot;&gt;&lt;/label&gt;
+                            &lt;label for=&quot;radio2&quot;&gt;Java&lt;/label&gt;
+
+                            &lt;p&gt;Select the language&lt;/p&gt;
+                            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox1&quot; value=&quot;php&quot;&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox1&quot;&gt;&lt;/label&gt;
+                            &lt;label for=&quot;checkbox1&quot;&gt;PHP&lt;/label&gt;
+
+                            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox2&quot; value=&quot;java&quot;&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox&quot;&gt;&lt;/label&gt;
+                            &lt;label for=&quot;checkbox2&quot;&gt;Java&lt;/label&gt;
+
+    &lt;/form&gt;
+</pre>
+
+               <h3>Select</h3>
+                    <div class="example">
+                        <form action="" class="enbridge-form">
+                            <p>Select the language</p>
+                            <select class="enbridge-select">
+                                <option value="PHP">PHP</option>
+                                <option value="JSP">JSP</option>
+                                <option value="JAVA">JAVA</option>
+                            </select>
+                        </form>
+                    </div>
+
+<pre class="prettyprint lang-html code">
+    &lt;form action=&quot;&quot; class=&quot;&quot;&gt;
+
+        &lt;p&gt;Select the language&lt;/p&gt;
+        &lt;select class=&quot;enbridge-select&quot;&gt;
+            &lt;option value=&quot;PHP&quot;&gt;PHP&lt;/option&gt;
+            &lt;option value=&quot;JSP&quot;&gt;JSP&lt;/option&gt;
+            &lt;option value=&quot;JAVA&quot;&gt;JAVA&lt;/option&gt;
+        &lt;/select&gt;
+
+    &lt;/form&gt;
+</pre>
+
+               </div>
+
+            </div>
             <!--div class="row">
                 <h2 class="text-center">Tiles</h2>
 
@@ -78,5 +180,10 @@
                </div><!-- row-->
         </div><!-- enbridge-container -->
     </div><!-- enbridge-content-container -->
+
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="assets/google-code-prettify/prettify.js"></script>
+    <script src="js/app.js"></script>
+    <script> prettyPrint();</script>
 </body>
 </html>

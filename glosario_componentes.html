@@ -25,7 +25,7 @@
         <div class="enbridge-container">
 
             <div class="row">
-               <div class="col xs10 xs1-off">
+                <div class="col xs10 xs1-off">
 
                     <h2>Forms</h2>
 
@@ -41,7 +41,7 @@
                     </div>
 
 <pre class="prettyprint lang-html code">
-    &lt;form action=&quot;&quot; class=&quot;&quot;&gt;
+    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
 
         &lt;label for=&quot;example1&quot; class=&quot;field&quot;&gt;Input type text&lt;/label&gt;
         &lt;input type=&quot;text&quot; class=&quot;example1&quot; placeholder=&quot;text&quot;&gt;
@@ -75,7 +75,7 @@
                     </div>
 
 <pre class="prettyprint lang-html code">
-    &lt;form action=&quot;&quot; class=&quot;&quot;&gt;
+    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
 
                             &lt;p&gt;Select the language&lt;/p&gt;
                             &lt;input type=&quot;radio&quot; id=&quot;radio1&quot; value=&quot;php&quot;&gt;
@@ -111,7 +111,7 @@
                     </div>
 
 <pre class="prettyprint lang-html code">
-    &lt;form action=&quot;&quot; class=&quot;&quot;&gt;
+    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
 
         &lt;p&gt;Select the language&lt;/p&gt;
         &lt;select class=&quot;enbridge-select&quot;&gt;
@@ -123,7 +123,33 @@
     &lt;/form&gt;
 </pre>
 
-               </div>
+                </div>
+
+                <div class="col xs10 xs1-off">
+                    <h2>Error Forms</h2>
+                    <h3>Input type text</h3>
+
+                    <div class="example">
+                        <form action="" class="enbridge-form">
+                            <label for="example_error_1" class="field">Input type text</label>
+                            <input type="text" class="input-error" value="fakemail.com" id="example_error_1">
+                            <br>
+                            <label for="example_error_2" class="field">Input type password</label>
+                            <input type="password" class="input-error" value="fakemail.com" id="example_error_2">
+                        </form>
+                    </div>
+
+<pre class="prettyprint lang-html code">
+    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
+
+    &lt;label for=&quot;example_error_1&quot; class=&quot;field&quot;&gt;Input type text&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;input-error&quot; value=&quot;fakemail.com&quot; id=&quot;example_error_1&quot;&gt;
+
+    &lt;label for=&quot;example_error_2&quot; class=&quot;field&quot;&gt;Input type password&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;input-error&quot; value=&quot;fakemail.com&quot; id=&quot;example_error_2&quot;&gt;
+    &lt;/form&gt;
+</pre>
+                </div>
 
             </div>
             <!--div class="row">

@@ -9,8 +9,8 @@
     display: block;
     padding-right: $normal-padding;
     padding-left: $normal-padding;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 0;
+    margin-left: 0;
     max-width:$max-size;
 
     .row {
@@ -31,6 +31,9 @@
             padding-right: $normal-padding;
         }
 
+    }
+    .row + .row{
+        margin-top: $normal-margin * 2;
     }
 
 }

@@ -2,52 +2,69 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    width: 460px;
-    height: 464px; 
-    border-radius:2px; 
+    //width: 460px;
+    min-height: 420px; 
+    border-radius:3px; 
 
     background-color: $moon-mist;
     color:#636372;
 
     > .content {
-        padding: 6% 0px 0% 25px;
+        padding: 30px;
         position:relative;
-
+ 
         .title {
             display: block;
-            font-size: 41px;
-            margin-top: 7px;
+            font-size: 32px;
+            margin: 0 0 20px;
             letter-spacing: -1px;
+            font-weight: 400;
         }
 
-        .subtitle {
+        h3.subtitle {
             display: block;
-            font-size: 29px;
-            font-weight: 500;
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0 0 20px;
+            line-height: 1.2;
         }
         ul{
            list-style-position: inside;
            padding-left: 0;
+           margin-top: 7px;
+           li{
+            font-size: 14px;
+           }
+        }
+        label{
+            font-size: 14px;
+        }
+        p.information.common{
+            font-size: 14px;
+            margin-top:30px;
         }
         
-
         label.align{margin-top: 7%} 
         .form-group{margin-bottom: 2%;}
          a.logo{text-decoration: none; font-weight: 700;}
         .circle{
-            width: 20px;
-            height: 20px;
-            border-radius: 12px;
-            padding-top: 0.5%;
+           width: 17px;
+            height: 17px;
             background-color: blue;
             color: #fff;
             text-align: center;
-            margin-right: 3%;
+            margin-right: 5px;
             float: left;
             margin-top: -1%;
+            border-radius: 100% 100%;
+            overflow: hidden;
+           font-style: italic;
+           font-family: Times New Roman;
         }
     }
-
+    .enbridge-btn{
+        border-radius: 0 0 3px 3px;
+    }
     &.common {
          color: $mid-gray;
     }
@@ -56,7 +73,7 @@
         color:#fff;
         background-image: url("img/en-tile-bg.png");
         background-repeat: no-repeat;
-        background-position: 134px 99px;
+        background-position: right 90px;
         background-size: 79%;
         
     }    

@@ -20,52 +20,48 @@
 
     &.green {
         background-color: $chelsea-cucumber;
-
         &:hover,
         &:active {
-            background-color: $chelsea-cucumber;
+            background-color: darken($chelsea-cucumber, 10% );
         }
     }
 
     &.yellow {
         background-color: $buttercup;
-
         &:hover,
         &:active {
-            background-color: $buttercup;
+            background-color: darken($buttercup, 10% );
         }
     }
 
     &.black {
         background-color: $mako;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
-background: #7d7e7d; /* Old browsers */
-background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
-
+        background: #7d7e7d; /* Old browsers */
+        background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
         &:hover,
         &:active {
-            background-color: $mako;
+            background-color: darken($mako, 10% );
+            opacity:0.9;
         }
     }
 
     &.blue {
         background-color: $lochmara;
-
         &:hover,
         &:active {
-            background-color: $lochmara;
+            background-color:  darken( $lochmara, 10% );
         }
     }
 
     &.gray {
         background-color: $moon-mist;
-
         &:hover,
         &:active {
-            background-color: $moon-mist;
+            background-color: darken(  $moon-mist, 10% );
         }
     }
 
@@ -106,18 +102,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
 
 
     &.big-button {
-        padding: 9px 0;
+        padding: 8px 0 7px;
         position: absolute;
         bottom: 0;
         margin: 0;
         left:0;
         width: 100%;
         text-align:center;
-        font-size: 23px;
+        font-size: 18px;
+        font-weight: 400;
         &:after {
             content: '>';
             position: absolute;
-            right: s10px;
+            display: inline-block;
+            padding-left:5px;
+           // right: 10px;
         }
     }
 

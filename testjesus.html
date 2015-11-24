@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="css/enbridge.css">
 </head>
 <body>
@@ -16,26 +18,36 @@
                         <h3 class="subtitle">
                             Moving in/out of service area or adding a property.
                         </h3>
-                        <form class="enbridge-form">
-                            <div class="form-group col md12 no-padding">
-                                <label for="" class="pull-left field col md3">Email:</label>
-                                <input type="text" class="pull-right col md7 md1-off">
-                            </div>
-                            <div class="form-group col md12 no-padding md4-off">
-                                <input type="checkbox" id="example" class="col md3 md2-off">
-                                <label class="fake-input pull-left md3 md3-off" for="example"></label>
-                                <label for="">Remember my email for next time</label>
-                            </div>
-                            <div class="form-group col md12 no-padding">
-                                <label for="" class="pull-left field col md3">Passwords:</label>
-                                <input type="text" class="pull-right col md7 md1-off">
+                        <form class="enbridge-form form-horizontal">
+                            <div class="form-group">
+                                <label for="" class="control-label">Email:</label>
+                                <div class="fields">
+                                    <input type="text">  
+                                </div>                                                                                    
                             </div>
                             <div class="form-group">
-                                <a href="" style="text-decoration: none; font-weight: 700; color:#1082B0;">Register to</a> <img src="css/img/myEnbridge-sm.png" alt=""><a href="" style="text-decoration: none; font-weight: 700; color:#1082B0;"> I forgot my pasword?</a>
+                                <div class="fields">
+                                    <input type="checkbox" id="example">
+                                    <label class="fake-input" for="example"></label>
+                                    <label for="">Remember my email for next time</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="control-label">Passwords:</label>
+                                <div class="fields">
+                                    <input type="text">
+                                </div>                                
+                            </div>
+                            <div class="form-group">
+                                <a href="#">Register to</a> 
+                                <img src="css/img/myEnbridge-sm.png" alt="">
+                                <a href="#"> I forgot my pasword?</a>
                             </div>
                         </form>
                     </div>                    
-                    <a href="" class="enbridge-btn black big-button">Sign In</a>
+                    <a href="#" class="enbridge-btn black big-button">
+                        Sign In
+                    </a>
                 </div>
             </div>
             <div class="col md6 lg6">
@@ -52,7 +64,6 @@
                                 <li>Your move-in dates</li>
                             </ul>
                             <p class="information common">
-                                <span class="circle"><span>i</span></span>
                                 If your property needs natural gas service instaled, cal our Customer Connections Contact Centre at 1-888-427-8888
                             </p>                            
                         </div>
@@ -86,7 +97,7 @@
                 </div>    
             </div>
             <div class="col md6 lg6">
-                <div class="tile">
+                <div class="tile postal-code">
                     <div class="content">
                         <h2 class="title">Postal Code Lookup</h2>
                         <h3 class="subtitle">
@@ -94,7 +105,7 @@
                         </h3>
                         <div>
                            <form action="" class="enbridge-form">
-                               <input type="text" placeholder="C3C3C3">
+                               <input type="text" placeholder="Postal Code">
                            </form>
                         </div>
                     </div>

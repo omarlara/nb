@@ -13,7 +13,7 @@
         border-radius: 2px;
         font-size: 13px;
         margin:  10px;
-        padding: 14px;
+        padding: 12px 14px;
 
         color: $moon-mist;
 
@@ -49,8 +49,8 @@
             border: 1px solid $moon-mist;
             display: inline-block;
             position: relative;
-            height: 22px;
-            width: 22px;
+            height: 16px;
+            width: 16px;
 
             color: $moon-mist;
             background: white;
@@ -63,10 +63,10 @@
 
                 display: block;
                 position: relative;
-                height: 14px;
-                width: 14px;
-                top: 3px;
-                left: 3px;
+                height: 12px;
+                width: 12px;
+                top: 1px;
+                left: 1px;
 
                 background-color:  $moon-mist;
             }
@@ -112,5 +112,31 @@
     textarea {
         resize: none;
     }
+&.form-horizontal{
+    > .form-group{
+        overflow: hidden;
+        > label.control-label{
+            float: left;
+            width: 80px;
+            text-align: left;
+        }
+        > div.fields{
+            float: right;
+            width: 200px;
+            text-align: left; 
+            input[type='text']{
+                margin-left: 0;
+                margin-top: 0;
+                margin-bottom:0;
+            }
+        }
+    }
+    .control-label{
+        padding-top: 11px;
+        margin-bottom: 0;
+        text-align: right;
+        display: block;
+    }
 
+}
 }

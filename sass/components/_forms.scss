@@ -138,5 +138,61 @@
         display: block;
     }
 
+    .zip-code-tool {
+        border: 1px solid $athens-gray-border;
+        display: block;
+
+        background-color: $athens-gray;
+        color: $jumbo;
+        .opener {
+            padding: $normal-padding;
+            position: relative;
+
+            cursor: pointer;
+            i {
+                border-radius: 50%;
+                display: inline-block;
+                font-style: italic;
+                font-size: 12px;
+                line-height: 1.5;
+                margin: 0 5px;
+                height: 18px;
+                width: 18px;
+                text-align: center;
+                vertical-align: bottom;
+
+                color: white;
+                background-color: $chelsea-cucumber;
+            }
+
+            &:after {
+                content: '>';
+                position: absolute;
+                right: 15px;
+
+                color: $moon-mist;
+            }
+        }
+
+        .tool {
+            padding: $normal-padding;
+        }
+
+        &.closed {
+            .tool {
+                display: none;
+            }
+        }
+
+        &.opened {
+            .opener {
+                display: none;
+            }
+            .tool {
+                display: block;
+            }
+        }
+    }
+
 }
 }

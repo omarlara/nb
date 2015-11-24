@@ -67,9 +67,10 @@ body {
     border-bottom: 1px solid $moon-mist !important;
     border-right: 1px solid $moon-mist !important;
     border-top: 1px solid $moon-mist !important;
-    font-family: 14px !important;
+    font-size: 24px 14px !important;
     padding: 14px !important;
     position: relative;
+    word-break: break-word;
 
     background: white;
 

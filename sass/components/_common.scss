@@ -34,3 +34,40 @@
 .no-padding {
     padding: 0 !important;
 }
+
+.information {
+    padding-top: $normal-padding;
+    padding-bottom: $normal-padding;
+
+    color: $jumbo;
+
+    &:before{
+        content: 'I';
+
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 2.5;
+        height: 30px;
+        width: 30px;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    &.common {
+
+        &:before {
+            background-color: $lochmara;
+            color: white;
+        }
+    }
+
+    &.green {
+
+        &:before {
+            background-color: $chelsea-cucumber;
+            color: white;
+        }
+    }
+}

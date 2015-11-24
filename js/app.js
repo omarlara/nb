@@ -78,4 +78,36 @@
 
     })(jQuery);
 
+    /*Code Tool*/
+    ;(function($){
+
+        function CodeTool(element) {
+            this.element = element;
+
+            this.addMethods();
+        };
+
+        CodeTool.prototype.addMethods = function () {
+            var $element = $(this.element);
+
+            $element.find('.opener')
+                .bind('click', function (e) {
+                    e.stopPropagation();
+
+                    $element.toggleClass('opened closed');
+                });
+        }
+
+        $.fn.codeTool = function (element) {
+            return this.each(function() {
+                (new CodeTool(this));
+            });
+        };
+
+        $(window).ready(function() {
+           $('.zip-code-tool').codeTool();
+        });
+
+    })(jQuery);
+
 })(jQuery, window, document);

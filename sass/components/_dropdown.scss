@@ -5,7 +5,7 @@
 
     .header {
         border: 1px solid $mako;
-        border-radius: $common-radius;
+        border-radius: $normal-radius;
         display: block;
         height: 44px;
         width: 100%;
@@ -27,7 +27,14 @@
 
             background-color: $mako;
             &:after {
-                content: '^';
+                content: '';
+
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 5px 5px 0 5px;
+                border-color: white transparent transparent transparent;
+                line-height: 2.5;
             }
 
         }
@@ -41,8 +48,8 @@
         border-left-width: 1px;
         border-right-width: 1px;
         border-bottom-width: 1px;
-        border-bottom-left-radius: $common-radius;
-        border-bottom-right-radius: $common-radius;
+        border-bottom-left-radius: $normal-radius;
+        border-bottom-right-radius: $normal-radius;
         list-style: none;
         padding: 0;
         position: absolute;
@@ -74,13 +81,18 @@
 
         .header {
 
-            border-bottom-color:$moon-mist;
+            border-bottom-color: $moon-mist;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
 
             .indicator {
                 &:after {
-                    content: 'v';
+                    content: '';
+                    border-width: 0 5px 5px 5px;
+                    border-color: transparent transparent white transparent;
+
+                    display: block;
+                    margin: 4px 0 0 3px;
                 }
             }
 

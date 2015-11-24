@@ -11,6 +11,7 @@ module.exports = function (grunt) {
         watch: {
             dev: {
                 files: [
+                    '*.{htm,html}',
                     'sass/*.{scss,sass}',
                     'sass/**/*.{scss,sass}',
                     'sass/**/**/*.{scss,sass}'
@@ -22,6 +23,7 @@ module.exports = function (grunt) {
             },
             prod: {
                 files: [
+                    '*.{htm,html}',
                     'sass/*.{scss,sass}',
                     'sass/**/*.{scss,sass}',
                     'sass/**/**/*.{scss,sass}'

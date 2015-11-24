@@ -1,2 +1,2 @@
 # nb
-research about angular
+UI Skeleton for nb

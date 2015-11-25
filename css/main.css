@@ -8,8 +8,7 @@
   -moz-box-sizing: border-box !important;
   -ms-box-sizing: border-box !important;
   box-sizing: border-box !important;
-  font-family: Arial,sans-serif;
-  font-size: 14px; }
+  font-family: Arial,sans-serif; }
   .enbridge-content-container *:before, .enbridge-content-container *:after {
     -webkit-box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
@@ -31,31 +30,6 @@
   float: right; }
 .enbridge-content-container .no-padding {
   padding: 0 !important; }
-.enbridge-content-container .information {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  line-height: 1.5;
-  color: #636373; }
-  .enbridge-content-container .information:before {
-    content: 'i';
-    border-radius: 50%;
-    display: inline-block;
-    font-size: 16px;
-    line-height: 1.2;
-    margin: 0 8px;
-    height: 19px;
-    width: 19px;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    font-style: italic;
-    font-family: initial; }
-  .enbridge-content-container .information.common:before {
-    background-color: #007dba;
-    color: white; }
-  .enbridge-content-container .information.green:before {
-    background-color: #92b051;
-    color: white; }
 .enbridge-content-container .clearfix {
   display: block;
   clear: both;
@@ -88,7 +62,7 @@
   border-radius: 2px;
   font-size: 13px;
   margin: 10px;
-  padding: 12px 14px;
+  padding: 14px;
   color: #ddd6cc; }
 .enbridge-content-container .enbridge-form input[type="color"]:focus, .enbridge-content-container .enbridge-form input[type="date"]:focus, .enbridge-content-container .enbridge-form input[type="datetime"]:focus, .enbridge-content-container .enbridge-form input[type="datetime-local"]:focus, .enbridge-content-container .enbridge-form input[type="email"]:focus, .enbridge-content-container .enbridge-form input[type="month"]:focus, .enbridge-content-container .enbridge-form input[type="number"]:focus, .enbridge-content-container .enbridge-form input[type="password"]:focus, .enbridge-content-container .enbridge-form input[type="search"]:focus, .enbridge-content-container .enbridge-form input[type="tel"]:focus, .enbridge-content-container .enbridge-form input[type="text"]:focus, .enbridge-content-container .enbridge-form input[type="time"]:focus, .enbridge-content-container .enbridge-form input[type="url"]:focus, .enbridge-content-container .enbridge-form input[type="week"]:focus, .enbridge-content-container .enbridge-form input:not([type]):focus, .enbridge-content-container .enbridge-form textarea:focus,
 .enbridge-content-container .enbridge-form input[type="color"]:active, .enbridge-content-container .enbridge-form input[type="date"]:active, .enbridge-content-container .enbridge-form input[type="datetime"]:active, .enbridge-content-container .enbridge-form input[type="datetime-local"]:active, .enbridge-content-container .enbridge-form input[type="email"]:active, .enbridge-content-container .enbridge-form input[type="month"]:active, .enbridge-content-container .enbridge-form input[type="number"]:active, .enbridge-content-container .enbridge-form input[type="password"]:active, .enbridge-content-container .enbridge-form input[type="search"]:active, .enbridge-content-container .enbridge-form input[type="tel"]:active, .enbridge-content-container .enbridge-form input[type="text"]:active, .enbridge-content-container .enbridge-form input[type="time"]:active, .enbridge-content-container .enbridge-form input[type="url"]:active, .enbridge-content-container .enbridge-form input[type="week"]:active, .enbridge-content-container .enbridge-form input:not([type]):active, .enbridge-content-container .enbridge-form textarea:active {
@@ -108,8 +82,8 @@
     border: 1px solid #ddd6cc;
     display: inline-block;
     position: relative;
-    height: 16px;
-    width: 16px;
+    height: 22px;
+    width: 22px;
     color: #ddd6cc;
     background: white;
     vertical-align: middle;
@@ -119,10 +93,10 @@
       content: ' ';
       display: block;
       position: relative;
-      height: 12px;
-      width: 12px;
-      top: 1px;
-      left: 1px;
+      height: 14px;
+      width: 14px;
+      top: 3px;
+      left: 3px;
       background-color: #ddd6cc; }
   .enbridge-content-container .enbridge-form input[type="radio"]:checked + .fake-input:before,
   .enbridge-content-container .enbridge-form input[type="checkbox"]:checked + .fake-input:before {
@@ -137,110 +111,13 @@
     border-radius: 2px; }
 .enbridge-content-container .enbridge-form textarea {
   resize: none; }
-.enbridge-content-container .enbridge-form .zip-code-tool {
-  position: relative;
-  color: #7d7d8a; }
-  .enbridge-content-container .enbridge-form .zip-code-tool .opener {
-    border: 1px solid #ebecee;
-    position: relative;
-    margin: 0 auto;
-    width: 380px;
-    padding: 11px 15px;
-    background-color: #f3f4f7;
-    cursor: pointer; }
-    .enbridge-content-container .enbridge-form .zip-code-tool .opener i {
-      border-radius: 50%;
-      display: inline-block;
-      font-style: italic;
-      font-size: 12px;
-      line-height: 1.5;
-      margin: 0 5px;
-      height: 18px;
-      width: 18px;
-      text-align: center;
-      vertical-align: bottom;
-      color: white;
-      background-color: #92b051; }
-    .enbridge-content-container .enbridge-form .zip-code-tool .opener:after {
-      content: '>';
-      position: absolute;
-      right: 15px;
-      color: #ddd6cc; }
-  .enbridge-content-container .enbridge-form .zip-code-tool .tool {
-    border: 1px solid #ebecee;
-    display: block;
-    margin: 0 auto;
-    padding: 0 15px;
-    position: relative;
-    width: 380px;
-    background-color: #f3f4f7; }
-  .enbridge-content-container .enbridge-form .zip-code-tool .result {
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    display: none;
-    margin: 50px auto 0 auto;
-    padding: 8px 15px;
-    width: 460px; }
-    .enbridge-content-container .enbridge-form .zip-code-tool .result > span {
-      display: inline-block;
-      vertical-align: middle;
-      width: 92%; }
-    .enbridge-content-container .enbridge-form .zip-code-tool .result > img {
-      vertical-align: middle;
-      width: 7%; }
-    .enbridge-content-container .enbridge-form .zip-code-tool .result.success-code {
-      background-color: #e9efdc;
-      border-color: #82a041;
-      display: block;
-      color: #92b051; }
-    .enbridge-content-container .enbridge-form .zip-code-tool .result.error-code {
-      background-color: #f9e5ea;
-      border-color: #e18396;
-      display: block;
-      color: #e18396; }
-  .enbridge-content-container .enbridge-form .zip-code-tool.closed .tool {
-    display: none; }
-  .enbridge-content-container .enbridge-form .zip-code-tool.closed .result {
-    display: none; }
-  .enbridge-content-container .enbridge-form .zip-code-tool.opened .opener {
-    display: none; }
-  .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool {
-    display: block;
-    margin: 0 auto;
-    height: 175px; }
-    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool p {
-      margin: 0; }
-    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn) {
-      display: block;
-      margin: 0 auto 20px auto;
-      width: 200px; }
-.enbridge-content-container .enbridge-form.form-horizontal > .form-group {
-  overflow: hidden; }
-  .enbridge-content-container .enbridge-form.form-horizontal > .form-group > label.control-label {
-    float: left;
-    width: 80px;
-    text-align: left; }
-  .enbridge-content-container .enbridge-form.form-horizontal > .form-group > div.fields {
-    float: right;
-    width: 200px;
-    text-align: left; }
-    .enbridge-content-container .enbridge-form.form-horizontal > .form-group > div.fields input[type='text'] {
-      margin-left: 0;
-      margin-top: 0;
-      margin-bottom: 0; }
-.enbridge-content-container .enbridge-form.form-horizontal .control-label {
-  padding-top: 11px;
-  margin-bottom: 0;
-  text-align: right;
-  display: block; }
 .enbridge-content-container .enbridge-dropdown {
   display: block;
   position: relative;
   margin-bottom: 10px; }
   .enbridge-content-container .enbridge-dropdown .header {
     border: 1px solid #40484d;
-    border-radius: 4px;
+    border-radius: 0px;
     display: block;
     height: 44px;
     width: 100%;
@@ -259,13 +136,7 @@
       color: white;
       background-color: #40484d; }
       .enbridge-content-container .enbridge-dropdown .header .indicator:after {
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 5px 5px 0 5px;
-        border-color: white transparent transparent transparent;
-        line-height: 2.5; }
+        content: '^'; }
   .enbridge-content-container .enbridge-dropdown .list-items {
     border-bottom-color: #40484d;
     border-style: solid;
@@ -273,8 +144,8 @@
     border-left-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     list-style: none;
     padding: 0;
     position: absolute;
@@ -294,11 +165,7 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
     .enbridge-content-container .enbridge-dropdown.active .header .indicator:after {
-      content: '';
-      border-width: 0 5px 5px 5px;
-      border-color: transparent transparent white transparent;
-      display: block;
-      margin: 4px 0 0 3px; }
+      content: 'v'; }
   .enbridge-content-container .enbridge-dropdown.active .list-items {
     display: block; }
 .enbridge-content-container .enbridge-btn {
@@ -316,10 +183,7 @@
   text-decoration: none;
   touch-action: manipulation;
   vertical-align: middle;
-  cursor: pointer;
-  -webkit-transition: background-color 0.5s;
-  -moz-transition: background-color 0.5s;
-  transition: background-color 0.5s; }
+  cursor: pointer; }
   .enbridge-content-container .enbridge-btn.green {
     background-color: #92b051; }
     .enbridge-content-container .enbridge-btn.green:hover, .enbridge-content-container .enbridge-btn.green:active {
@@ -330,16 +194,20 @@
       background-color: #d89809; }
   .enbridge-content-container .enbridge-btn.black {
     background-color: #40484d;
-    background: #5D656C;
-    background: -moz-linear-gradient(top, #5D656C 0%, #40484D 100%);
-    background: -webkit-linear-gradient(top, #5D656C 0%, #40484D 100%);
-    background: linear-gradient(to bottom, #5D656C 0%, #40484D 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5D656C', endColorstr='#40484D',GradientType=0 ); }
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
+    background: #7d7e7d;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7d7e7d 0%, #0e0e0e 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+    /* IE6-9 */ }
     .enbridge-content-container .enbridge-btn.black:hover, .enbridge-content-container .enbridge-btn.black:active {
       background-color: #292e31;
-      opacity: 0.92; }
-    .enbridge-content-container .enbridge-btn.black.big-button:after {
-      background-image: url("img/yellow-arrow.svg"); }
+      opacity: 0.9; }
   .enbridge-content-container .enbridge-btn.blue {
     background-color: #007dba; }
     .enbridge-content-container .enbridge-btn.blue:hover, .enbridge-content-container .enbridge-btn.blue:active {
@@ -378,23 +246,17 @@
     font-size: 18px;
     font-weight: 400; }
     .enbridge-content-container .enbridge-btn.big-button:after {
-      content: '';
+      content: '>';
       position: absolute;
       display: inline-block;
-      margin-left: 2px;
-      background: url("img/white-arrow.svg") no-repeat transparent;
-      background-size: 100% auto;
-      width: 20px;
-      height: 20px;
-      position: relative;
-      top: 4px; }
+      padding-left: 5px; }
   .enbridge-content-container .enbridge-btn:hover, .enbridge-content-container .enbridge-btn:active {
     text-decoration: none; }
 .enbridge-content-container .tile {
   border: 1px solid #ddd6cc;
   display: inline-block;
   position: relative;
-  min-height: 400px;
+  min-height: 420px;
   border-radius: 3px;
   background-color: #ddd6cc;
   color: #636372; }
@@ -415,7 +277,7 @@
       line-height: 1.2; }
     .enbridge-content-container .tile > .content ul {
       list-style-position: inside;
-      padding-left: 10px;
+      padding-left: 0;
       margin-top: 7px; }
       .enbridge-content-container .tile > .content ul li {
         font-size: 14px; }
@@ -461,32 +323,6 @@
     color: #40484d; }
   .enbridge-content-container .tile.tile-text {
     color: #40484d; }
-  .enbridge-content-container .tile.postal-code input[type='text'] {
-    width: 200px;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 44px;
-    display: block; }
-  .enbridge-content-container .tile .footer-form-group {
-    text-align: right;
-    font-size: 13px;
-    color: #007dba;
-    text-decoration: none;
-    margin-top: 20px; }
-    .enbridge-content-container .tile .footer-form-group a {
-      font-size: 14px;
-      color: #007dba;
-      text-decoration: none; }
-      .enbridge-content-container .tile .footer-form-group a:hover {
-        text-decoration: underline; }
-    .enbridge-content-container .tile .footer-form-group img {
-      position: relative;
-      left: 0;
-      top: 5px;
-      display: inline-block;
-      margin-right: -3px;
-      width: 80px; }
 .enbridge-content-container .enbridge-container {
   display: block; }
   .enbridge-content-container .enbridge-container .row .col.xs1 {
@@ -710,4 +546,4 @@
   .enbridge-content-container .bg-hidden {
     display: none; } }
 
-/*# sourceMappingURL=enbridge.css.map */
+/*# sourceMappingURL=main.css.map */

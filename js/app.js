@@ -96,6 +96,34 @@
 
                     $element.toggleClass('opened closed');
                 });
+
+            $element.find('.submiter')
+                .bind('click', function (e) {
+                    e.preventDefault();
+
+                    var currentCode = $element.find('name=[zip-tool]').val(),
+                        success = 'Your new address is serviced by Enbridge.',
+                        error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
+                        request = null,
+                        result = null;
+
+                    request =  $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+                                    function(resp) {
+                                        if (resp && resp.result) {
+                                            $element
+                                                .find('.result')
+                                                    .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
+                                                    .addClass('success-code');
+                                        } else {
+                                            $element
+                                                .find('.result')
+                                                    .html('<img src="assets/img/error.png"> <span>' + error + '</span>')
+                                                    .addClass('error-code');
+                                        }
+
+                                },"json");
+
+                });
         }
 
         $.fn.codeTool = function (element) {
@@ -109,5 +137,27 @@
         });
 
     })(jQuery);
+
+    /*Common*/
+
+    /*Accordion*/
+
+    (function() {
+
+        $('.accordion .accordion-item >.header').bind('click', function(event) {
+            event.preventDefault();
+
+            var $current = $(this).closest('.accordion-item');
+
+            if ($current.hasClass('active') ||
+               $current.hasClass('processed') ||
+               $current.prev().length === 0) {
+                $current.toggleClass('active ');
+            }
+
+        });
+
+    })()
+
 
 })(jQuery, window, document);

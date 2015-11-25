@@ -2,7 +2,7 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    min-height: 420px; 
+    min-height: 410px; 
     border-radius:3px; 
     background-color: $moon-mist;
     color:#636372;
@@ -96,6 +96,29 @@
             text-align:center;
             margin-top:44px;
             display:block;
+        }
+    }
+    .footer-form-group{
+        text-align:right;
+        font-size: 13px;
+        color: #007dba;
+        text-decoration: none;
+        margin-top: 20px;
+        a{
+            font-size:14px; 
+            color:$lochmara; 
+            text-decoration:none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        img{
+            position: relative; 
+            left:0; 
+            top:5px; 
+            display: inline-block; 
+            margin-right:-3px;
+            width: 80px;
         }
     }
 }

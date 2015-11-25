@@ -112,43 +112,23 @@
     textarea {
         resize: none;
     }
-&.form-horizontal{
-    > .form-group{
-        overflow: hidden;
-        > label.control-label{
-            float: left;
-            width: 80px;
-            text-align: left;
-        }
-        > div.fields{
-            float: right;
-            width: 200px;
-            text-align: left; 
-            input[type='text']{
-                margin-left: 0;
-                margin-top: 0;
-                margin-bottom:0;
-            }
-        }
-    }
-    .control-label{
-        padding-top: 11px;
-        margin-bottom: 0;
-        text-align: right;
-        display: block;
-    }
+
 
     .zip-code-tool {
-        border: 1px solid $athens-gray-border;
-        display: block;
+        position: relative;
 
-        background-color: $athens-gray;
         color: $jumbo;
-        .opener {
-            padding: $normal-padding;
-            position: relative;
 
+        .opener {
+            border: 1px solid $athens-gray-border;
+            position: relative;
+            margin: 0 auto;
+            width: 380px;
+            padding: 11px $normal-padding;
+
+            background-color: rgb(243, 244, 247);
             cursor: pointer;
+
             i {
                 border-radius: 50%;
                 display: inline-block;
@@ -175,11 +155,60 @@
         }
 
         .tool {
-            padding: $normal-padding;
+            border: 1px solid $athens-gray-border;
+            display: block;
+            margin: 0 auto;
+            padding: 0 $normal-padding;
+            position: relative;
+            width: 380px;
+
+            background-color: rgb(243, 244, 247);
+        }
+
+        .result {
+            border-radius: $normal-radius;
+            border-width: 1px;
+            border-style: solid;
+            display: none;
+            margin: 50px auto 0 auto;
+            padding: 8px $normal-padding;
+            width: 460px;
+
+            > span {
+                display: inline-block;
+                vertical-align: middle;
+                width: 92%;
+            }
+
+            >img {
+                vertical-align: middle;
+                width: 7%;
+            }
+
+            &.success-code {
+                background-color: $kidnapper;
+                border-color: $sushi;
+                display: block;
+
+                color: $chelsea-cucumber;
+            }
+
+            &.error-code {
+                background-color: $we-peep;
+                border-color: $deep-blush;
+                display: block;
+
+                color: $deep-blush;
+            }
+
         }
 
         &.closed {
             .tool {
+                display: none;
+            }
+
+            .result {
                 display: none;
             }
         }
@@ -190,9 +219,55 @@
             }
             .tool {
                 display: block;
+                margin: 0 auto;
+                height: 175px;
+
+                p {
+                    margin: 0;
+                }
+
+                input:not(.enbridge-btn){
+                    display: block;
+                    margin: 0 auto 20px auto;
+                    width: 200px;
+                }
             }
         }
+
     }
 
-}
+    &.form-horizontal{
+
+        > .form-group{
+            overflow: hidden;
+
+            > label.control-label{
+                float: left;
+                width: 80px;
+                text-align: left;
+            }
+
+            > div.fields{
+                float: right;
+                width: 200px;
+                text-align: left;
+                input[type='text']{
+                    margin-left: 0;
+                    margin-top: 0;
+                    margin-bottom:0;
+                }
+
+            }
+
+        }
+
+        .control-label{
+            padding-top: 11px;
+            margin-bottom: 0;
+            text-align: right;
+            display: block;
+        }
+
+    }
+
 }

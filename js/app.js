@@ -122,37 +122,6 @@
                                         }
 
                                 },"json");
-                    /*
-                    $.ajax({
-                        method: "POST",
-                        url: "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
-                        data: {
-                            value: currentCode
-                        },
-                        statusCode: {
-                            200: function() {
-                                console.log('Yeeee');
-                            },
-                            404: function() {
-                                console.log( "page not found" );
-                            }
-                        }
-                    })
-                    .done(function(resp) {
-                        if (!!resp.result) {
-                            $element
-                                .find('.result')
-                                    .text(success)
-                                    .addClass('success-code');
-                        } else {
-
-                        }
-                    })
-                    .fail(function() {
-                        console.log('fail');
-                    });
-                    */
-                /**/
 
                 });
         }
@@ -168,5 +137,27 @@
         });
 
     })(jQuery);
+
+    /*Common*/
+
+    /*Accordion*/
+
+    (function() {
+
+        $('.accordion .accordion-item >.header').bind('click', function(event) {
+            event.preventDefault();
+
+            var $current = $(this).closest('.accordion-item');
+
+            if ($current.hasClass('active') ||
+               $current.hasClass('processed') ||
+               $current.prev().length === 0) {
+                $current.toggleClass('active ');
+            }
+
+        });
+
+    })()
+
 
 })(jQuery, window, document);

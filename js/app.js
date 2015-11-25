@@ -144,6 +144,29 @@
 
     (function() {
 
+        var validator = function formValidator ($form) {
+            var error = false,
+                radio = $form.find('input[type="radio"]').removeClass('input-error input-success');
+
+
+            for (var i = radio.length - 1; i >= 0; i--) {
+                if(radio[i].required && !(radio[i].className.indexOf('input-success') && radio[i].checked) ) {
+                    radio[i].className += 'input-error';
+                    error = true;
+                } else {
+                    var name = radio[i].name,
+                        elements = document.getElementsByName(name);
+
+                    for(var i = elements.length - 1; i >= 0; i-- ) {
+                        radio[i].className += 'input-success';
+                    }
+                }
+
+            }
+
+            return error;
+        };
+
         $('.accordion .accordion-item >.header').bind('click', function(event) {
             event.preventDefault();
 
@@ -152,10 +175,29 @@
             if ($current.hasClass('active') ||
                $current.hasClass('processed') ||
                $current.prev().length === 0) {
-                $current.toggleClass('active ');
+               $current.toggleClass('active ');
             }
 
         });
+
+        $('.accordion .accordion-item .validator').bind('click', function(e) {
+            e.preventDefault();
+
+            var $current = $(this).closest('.accordion-item'),
+                validateResult = validator($current.find('.enbridge-form'));
+
+
+        });
+
+
+        /*Forms*/
+        $('.enbridge-form input[type="radio"]').bind('click', function() {
+            var name = $(this).attr('name') || '';
+
+
+            $('input[name="' + name + '"]').removeClass('input-success input-error');
+        });
+
 
     })()
 

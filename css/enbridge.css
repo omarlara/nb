@@ -141,8 +141,14 @@
       top: 3px;
       left: 2px;
       background-color: #ddd6cc; }
-  .enbridge-content-container .enbridge-form input[type="radio"]:checked + .fake-input:before,
-  .enbridge-content-container .enbridge-form input[type="checkbox"]:checked + .fake-input:before {
+  .enbridge-content-container .enbridge-form input[type="radio"].input-error + .fake-input:before,
+  .enbridge-content-container .enbridge-form input[type="checkbox"].input-error + .fake-input:before {
+    border-color: #e18396; }
+  .enbridge-content-container .enbridge-form input[type="radio"].input-error + .fake-input:after,
+  .enbridge-content-container .enbridge-form input[type="checkbox"].input-error + .fake-input:after {
+    background-color: #f9e5ea; }
+  .enbridge-content-container .enbridge-form input[type="radio"]:checked + .fake-input:after,
+  .enbridge-content-container .enbridge-form input[type="checkbox"]:checked + .fake-input:after {
     background-color: #f6b31e; }
 .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:before {
   border-radius: 50%; }
@@ -196,7 +202,7 @@
     border-width: 1px;
     border-style: solid;
     display: none;
-    margin: 50px auto 0 auto;
+    margin: 20px auto 0 auto;
     padding: 8px 15px;
     width: 460px; }
     .enbridge-content-container .enbridge-form .zip-code-tool .result > span {

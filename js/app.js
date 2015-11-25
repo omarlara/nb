@@ -50,11 +50,21 @@
                 .find('.list-items .list-item')
                     .bind('click', function() {
                         var $current = $(this),
+                            $source = $(self.source)
                             text = $current.text() || '',
                             value = $current.find('input').val() || '';
 
                         $element.find('.header .selected').text(text);
                         $element.find('.result').val(value);
+
+                        $source
+                            .find('option:selected')
+                                .removeAttr('selected');
+
+                        $source
+                            .find('option[value="' + value +'"]')
+                                .attr('selected', true);
+
                     });
 
             $(document).click(function(e) {
@@ -111,6 +121,7 @@
                                     function(resp) {
                                         if (resp && resp.result) {
                                             $element
+                                                .addClass('success-zip')
                                                 .find('.result')
                                                     .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
                                                     .addClass('success-code');
@@ -144,18 +155,96 @@
 
     (function() {
 
+        var validator = function formValidator ($form) {
+            var error = false,
+                radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
+                select = $form.find('.enbridge-select').removeClass('input-error'),
+                zipTool = $form.find('.zip-code-tool');
+
+
+            for (var i = radio.length - 1; i >= 0; i--) {
+                if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
+                    radio[i].className += ' input-error';
+                } else {
+                    var name = radio[i].name,
+                        elements = document.getElementsByName(name);
+
+                    for(var i = elements.length - 1; i >= 0; i-- ) {
+                        radio[i].className += ' input-success';
+                        radio[i].className = radio[i].className.replace('input-error', '');
+                    }
+                }
+
+            }
+
+            if($form.find('input[type="radio"].input-error').length) {
+                error = true;
+            }
+
+            for (var i = zipTool.length - 1; i >= 0; i--) {
+                if (!$(zipTool[i]).hasClass('success-zip') ) {
+                    error = true;
+                }
+            }
+
+            for(var i = select.length - 1; i >= 0; i--) {
+                if(select[i].required && !select[i].value) {
+                    select[i].className += ' input-success';
+                    error = true;
+                }
+            }
+
+            return error;
+        };
+
         $('.accordion .accordion-item >.header').bind('click', function(event) {
             event.preventDefault();
 
             var $current = $(this).closest('.accordion-item');
 
-            if ($current.hasClass('active') ||
-               $current.hasClass('processed') ||
-               $current.prev().length === 0) {
-                $current.toggleClass('active ');
+            $current.toggleClass('active ');
+
+        });
+
+        $('.accordion .accordion-item .validator').bind('click', function(e) {
+            e.preventDefault();
+
+            var $current = $(this).closest('.accordion-item');
+
+            if(!validator($current.find('.enbridge-form'))) {
+                $current
+                    .removeClass('active')
+                    .addClass('processed');
+
+                if($current.next().length) {
+                    $current.next().addClass('active');
+                }
             }
 
         });
+
+        /*Flows*/
+        $('input[name="steps"]').change( function() {
+            if(this.value === 'stop') {
+                $('#stop-select')
+                    .removeClass('hide-flow')
+                    .attr('required', true);
+            } else {
+                $('#stop-select')
+                    .addClass('hide-flow')
+                    .attr('required', false);
+            }
+        });
+
+
+        /*Forms*/
+        $('.enbridge-form input[type="radio"]').bind('click', function() {
+            var name = $(this).attr('name') || '';
+
+
+            $('input[name="' + name + '"]').removeClass('input-success input-error');
+        });
+
 
     })()
 

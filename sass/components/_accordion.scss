@@ -10,7 +10,7 @@
 
         color: white;
 
-        .header {
+        >.header {
             padding: 10px $normal-padding;
         }
 
@@ -40,10 +40,15 @@
 
                 text-align: right !important;
             }
+
+
+            .zip-code-tool  {
+                height: 254px;
+            }
         }
 
         &:not(.active) {
-            .header {
+            >.header {
                 background-color: $moon-mist;
                 color: $jumbo;
             }
@@ -53,10 +58,9 @@
         }
 
         &.active,
-        &.processed,
         &:first-child {
 
-            .header {
+            >.header {
                 background-color: $my-sin;
                 color: white;
 
@@ -68,6 +72,17 @@
             .content {
                 display: block;
             }
+        }
+
+        &.processed {
+            >.header {
+                background-color: $scarpa-flow;
+            }
+
+        }
+
+        .hide-flow + .enbridge-dropdown{
+            display: none;
         }
 
     }

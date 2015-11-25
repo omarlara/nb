@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "startDev": "grunt dev",
+    "startQA": "grunt qa",
     "startProd": "grunt prod"
   },
   "author": "",

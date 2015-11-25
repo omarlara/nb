@@ -16,6 +16,18 @@ module.exports = function (grunt) {
                     'sass/**/*.{scss,sass}',
                     'sass/**/**/*.{scss,sass}'
                     ],
+                tasks: ['sass:dist'],
+                options: {
+                    livereload: true
+                }
+            },
+            qa: {
+                files: [
+                    '*.{htm,html}',
+                    'sass/*.{scss,sass}',
+                    'sass/**/*.{scss,sass}',
+                    'sass/**/**/*.{scss,sass}'
+                    ],
                 tasks: ['sass:dist', 'cssmin'],
                 options: {
                     livereload: true
@@ -86,6 +98,9 @@ module.exports = function (grunt) {
             dev: {
                 tasks: ['watch:dev']
             },
+            qa: {
+                tasks: ['watch:qa']
+            },
             prod: {
                 tasks: ['watch:prod']
             }
@@ -93,6 +108,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('dev', ['concurrent:dev']);
+    grunt.registerTask('qa', ['concurrent:dev']);
     grunt.registerTask('prod', ['concurrent:prod']);
 }
 

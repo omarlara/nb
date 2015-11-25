@@ -193,17 +193,29 @@
 
                                     <form class="enbridge-form">
 
-                                        <input type="radio" id="transfer" value="transfer">
-                                        <label class="fake-input" for="transfer"></label>
-                                        <label for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
+                                        <input type="radio" id="transfer" value="transfer" name="steps"  required>
+                                        <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
                                         <div class="clearfix "></div>
-                                        <input type="radio" id="stop" value="stop">
-                                        <label class="fake-input" for="stop"></label>
-                                        <label for="stop"><strong>Stop</strong> my gas services.</label>
+                                        <input type="radio" id="stop" value="stop" name="steps" required>
+                                        <label class="fake-input" for="stop"><strong>Stop</strong> my gas services.</label>
+                                        <select class="enbridge-select hide-flow" id="stop-select">
+                                            <option value="">
+                                                Please select a reson
+                                            </option>
+                                            <option value="1">
+                                                I'm moving but don't have the details at this time
+                                            </option>
+                                            <option value="2">
+                                                I'm moving out of the Enbridge serviced area
+                                            </option>
+                                            <option value="3">
+                                                Account holder is deseaced
+                                            </option>
+                                        </select>
+
                                         <div class="clearfix "></div>
-                                        <input type="radio" id="add" value="add">
-                                        <label class="fake-input" for="add"></label>
-                                        <label for="add"><strong>Add</strong> an additional service address to my account.</label>
+                                        <input type="radio" id="add" value="add" name="steps" required>
+                                        <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
 
 
                                     <div class="zip-code-tool closed">

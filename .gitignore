@@ -3,3 +3,4 @@ bower_components
 .sass-cache
 temp
 css/*.css
+css/*.min

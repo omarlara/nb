@@ -8,7 +8,8 @@
   -moz-box-sizing: border-box !important;
   -ms-box-sizing: border-box !important;
   box-sizing: border-box !important;
-  font-family: Arial,sans-serif; }
+  font-family: Arial,sans-serif;
+  font-size: 14px; }
   .enbridge-content-container *:before, .enbridge-content-container *:after {
     -webkit-box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
@@ -41,6 +42,7 @@
     display: inline-block;
     font-size: 16px;
     line-height: 1.2;
+    margin: 0 8px;
     height: 19px;
     width: 19px;
     position: relative;
@@ -135,6 +137,84 @@
     border-radius: 2px; }
 .enbridge-content-container .enbridge-form textarea {
   resize: none; }
+.enbridge-content-container .enbridge-form .zip-code-tool {
+  position: relative;
+  color: #7d7d8a; }
+  .enbridge-content-container .enbridge-form .zip-code-tool .opener {
+    border: 1px solid #ebecee;
+    position: relative;
+    margin: 0 auto;
+    width: 380px;
+    padding: 11px 15px;
+    background-color: #f3f4f7;
+    cursor: pointer; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .opener i {
+      border-radius: 50%;
+      display: inline-block;
+      font-style: italic;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0 5px;
+      height: 18px;
+      width: 18px;
+      text-align: center;
+      vertical-align: bottom;
+      color: white;
+      background-color: #92b051; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .opener:after {
+      content: '>';
+      position: absolute;
+      right: 15px;
+      color: #ddd6cc; }
+  .enbridge-content-container .enbridge-form .zip-code-tool .tool {
+    border: 1px solid #ebecee;
+    display: block;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    width: 380px;
+    background-color: #f3f4f7; }
+  .enbridge-content-container .enbridge-form .zip-code-tool .result {
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    display: none;
+    margin: 50px auto 0 auto;
+    padding: 8px 15px;
+    width: 460px; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .result > span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 92%; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .result > img {
+      vertical-align: middle;
+      width: 7%; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .result.success-code {
+      background-color: #e9efdc;
+      border-color: #82a041;
+      display: block;
+      color: #92b051; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .result.error-code {
+      background-color: #f9e5ea;
+      border-color: #e18396;
+      display: block;
+      color: #e18396; }
+  .enbridge-content-container .enbridge-form .zip-code-tool.closed .tool {
+    display: none; }
+  .enbridge-content-container .enbridge-form .zip-code-tool.closed .result {
+    display: none; }
+  .enbridge-content-container .enbridge-form .zip-code-tool.opened .opener {
+    display: none; }
+  .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool {
+    display: block;
+    margin: 0 auto;
+    height: 175px; }
+    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool p {
+      margin: 0; }
+    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn) {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 200px; }
 .enbridge-content-container .enbridge-form.form-horizontal > .form-group {
   overflow: hidden; }
   .enbridge-content-container .enbridge-form.form-horizontal > .form-group > label.control-label {
@@ -154,41 +234,6 @@
   margin-bottom: 0;
   text-align: right;
   display: block; }
-.enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool {
-  border: 1px solid #ebecee;
-  display: block;
-  background-color: #f3f4f7;
-  color: #7d7d8a; }
-  .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool .opener {
-    padding: 15px;
-    position: relative;
-    cursor: pointer; }
-    .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool .opener i {
-      border-radius: 50%;
-      display: inline-block;
-      font-style: italic;
-      font-size: 12px;
-      line-height: 1.5;
-      margin: 0 5px;
-      height: 18px;
-      width: 18px;
-      text-align: center;
-      vertical-align: bottom;
-      color: white;
-      background-color: #92b051; }
-    .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool .opener:after {
-      content: '>';
-      position: absolute;
-      right: 15px;
-      color: #ddd6cc; }
-  .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool .tool {
-    padding: 15px; }
-  .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool.closed .tool {
-    display: none; }
-  .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool.opened .opener {
-    display: none; }
-  .enbridge-content-container .enbridge-form.form-horizontal .zip-code-tool.opened .tool {
-    display: block; }
 .enbridge-content-container .enbridge-dropdown {
   display: block;
   position: relative;
@@ -285,17 +330,11 @@
       background-color: #d89809; }
   .enbridge-content-container .enbridge-btn.black {
     background-color: #40484d;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5D656C+0,0e0e0e+100;Black+3D */
     background: #5D656C;
-    /* Old browsers */
     background: -moz-linear-gradient(top, #5D656C 0%, #40484D 100%);
-    /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #5D656C 0%, #40484D 100%);
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #5D656C 0%, #40484D 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5D656C', endColorstr='#40484D',GradientType=0 );
-    /* IE6-9 */ }
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5D656C', endColorstr='#40484D',GradientType=0 ); }
     .enbridge-content-container .enbridge-btn.black:hover, .enbridge-content-container .enbridge-btn.black:active {
       background-color: #292e31;
       opacity: 0.92; }

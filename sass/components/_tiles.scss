@@ -2,15 +2,15 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    min-height: 420px; 
-    border-radius:3px; 
+    min-height: 420px;
+    border-radius:3px;
     background-color: $moon-mist;
     color:#636372;
 
     > .content {
         padding: 30px;
         position:relative;
- 
+
         .title {
             display: block;
             font-size: 32px;
@@ -41,8 +41,8 @@
             font-size: 14px;
             margin-top:30px;
         }
-        
-        label.align{margin-top: 7%} 
+
+        label.align{margin-top: 7%}
         .form-group{margin-bottom: 2%;}
          a.logo{text-decoration: none; font-weight: 700;}
         .circle{
@@ -73,8 +73,8 @@
         background-repeat: no-repeat;
         background-position: right 90px;
         background-size: 79%;
-        
-    }    
+
+    }
 
     &.tile-generic {
         color: $mako;

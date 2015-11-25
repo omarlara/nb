@@ -1,6 +1,7 @@
 *{
     @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
     font-family: Arial,sans-serif;
+    font-size: 14px;
     &:before,
     &:after{
         @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
@@ -51,6 +52,7 @@ h1,h2,h3,h4,h5,h6{
         display: inline-block;
         font-size: 16px;
         line-height: 1.2;
+        margin: 0 8px;
         height: 19px;
         width: 19px;
         position: relative;

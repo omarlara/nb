@@ -1,7 +1,15 @@
 *{
     @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
     font-family: Arial,sans-serif;
-    font-size: 14px;
+
+    p,
+    span,
+    div,
+    label,
+    input {
+        font-size: 14px;
+    }
+
     &:before,
     &:after{
         @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
@@ -40,13 +48,28 @@ h1,h2,h3,h4,h5,h6{
     padding: 0 !important;
 }
 
+.clearfix {
+    display: block;
+    width: 1px;
+    height: 1px;
+
+    &:after,
+    &.before{
+        content: '';
+        clear: both;
+        display: table;
+
+    }
+
+}
+
 .information {
     padding-top: $normal-padding;
     padding-bottom: $normal-padding;
     line-height: 1.5;
     color: $mid-gray;
 
-    &:before{ 
+    &:before{
         content: 'i';
         border-radius: 50%;
         display: inline-block;

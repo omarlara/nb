@@ -15,10 +15,31 @@
         }
 
         .content {
-            padding: $normal-padding;
+            padding: $normal-padding $normal-padding ($normal-padding * 3) $normal-padding;
             border-left: 1px solid $moon-mist;
             border-right: 1px solid $moon-mist;
             color: $jumbo;
+            position: relative;
+
+            > p {
+                &.strong {
+                    margin-top : 0;
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin-left: 7px;
+                }
+            }
+            label{
+                display: inline-block;
+                margin-bottom: 10px;
+                vertical-align: middle;
+            }
+
+            .validator {
+                @extend .enbridge-btn;
+
+                text-align: right !important;
+            }
         }
 
         &:not(.active) {
@@ -41,16 +62,6 @@
 
                 cursor: pointer;
             }
-
-            & + .accordion-item {
-                .header {
-                    background-color: $my-sin;
-                    color: white;
-
-                    cursor: pointer;
-                }
-            }
-
         }
 
         &.active {

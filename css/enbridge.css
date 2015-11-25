@@ -487,6 +487,36 @@
       display: inline-block;
       margin-right: -3px;
       width: 80px; }
+.enbridge-content-container .accordion {
+  list-style: none;
+  margin: 0;
+  width: 600px;
+  background-color: white; }
+  .enbridge-content-container .accordion .accordion-item {
+    display: block;
+    color: white; }
+    .enbridge-content-container .accordion .accordion-item .header {
+      padding: 10px 15px; }
+    .enbridge-content-container .accordion .accordion-item .content {
+      padding: 15px;
+      border-left: 1px solid #ddd6cc;
+      border-right: 1px solid #ddd6cc;
+      color: #7d7d8a; }
+    .enbridge-content-container .accordion .accordion-item:not(.active) .header {
+      background-color: #ddd6cc;
+      color: #7d7d8a; }
+    .enbridge-content-container .accordion .accordion-item:not(.active) .content {
+      display: none; }
+    .enbridge-content-container .accordion .accordion-item.active .header, .enbridge-content-container .accordion .accordion-item.processed .header, .enbridge-content-container .accordion .accordion-item:first-child .header {
+      background-color: #ffb81c;
+      color: white;
+      cursor: pointer; }
+    .enbridge-content-container .accordion .accordion-item.active + .accordion-item .header, .enbridge-content-container .accordion .accordion-item.processed + .accordion-item .header, .enbridge-content-container .accordion .accordion-item:first-child + .accordion-item .header {
+      background-color: #ffb81c;
+      color: white;
+      cursor: pointer; }
+    .enbridge-content-container .accordion .accordion-item.active .content {
+      display: block; }
 .enbridge-content-container .enbridge-container {
   display: block; }
   .enbridge-content-container .enbridge-container .row .col.xs1 {

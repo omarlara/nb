@@ -152,7 +152,6 @@
                         console.log('fail');
                     });
                     */
-                /**/
 
                 });
         }
@@ -168,5 +167,27 @@
         });
 
     })(jQuery);
+
+    /*Common*/
+
+    /*Accordion*/
+
+    (function() {
+
+        $('.accordion .accordion-item >.header').bind('click', function(event) {
+            event.preventDefault();
+
+            var $current = $(this).closest('.accordion-item');
+
+            if ($current.hasClass('active') ||
+               $current.hasClass('processed') ||
+               $current.prev().length === 0) {
+                $current.toggleClass('active ');
+            }
+
+        });
+
+    })()
+
 
 })(jQuery, window, document);

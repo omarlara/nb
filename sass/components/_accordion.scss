@@ -1,0 +1,64 @@
+.accordion {
+    list-style: none;
+    margin: 0;
+    width: 600px;
+
+    background-color: white;
+
+    .accordion-item {
+        display: block;
+
+        color: white;
+
+        .header {
+            padding: 10px $normal-padding;
+        }
+
+        .content {
+            padding: $normal-padding;
+            border-left: 1px solid $moon-mist;
+            border-right: 1px solid $moon-mist;
+            color: $jumbo;
+        }
+
+        &:not(.active) {
+            .header {
+                background-color: $moon-mist;
+                color: $jumbo;
+            }
+            .content {
+                display: none;
+            }
+        }
+
+        &.active,
+        &.processed,
+        &:first-child {
+
+            .header {
+                background-color: $my-sin;
+                color: white;
+
+                cursor: pointer;
+            }
+
+            & + .accordion-item {
+                .header {
+                    background-color: $my-sin;
+                    color: white;
+
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+        &.active {
+            .content {
+                display: block;
+            }
+        }
+
+    }
+
+}

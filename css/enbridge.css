@@ -56,6 +56,13 @@
   .enbridge-content-container .information.green:before {
     background-color: #92b051;
     color: white; }
+.enbridge-content-container .clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
 .enbridge-content-container .clearfix {
   display: block;
   clear: both;

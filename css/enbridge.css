@@ -411,6 +411,21 @@
       height: 20px;
       position: relative;
       top: 4px; }
+  .enbridge-content-container .enbridge-btn.small-button-arrow, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator {
+    position: static !important;
+    padding: 5%;
+    font-size: 10px; }
+    .enbridge-content-container .enbridge-btn.small-button-arrow:after, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      margin-left: 2px;
+      background: url("img/white-arrow.svg") no-repeat transparent;
+      background-size: 100% auto;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 4px; }
   .enbridge-content-container .enbridge-btn:hover, .enbridge-content-container .accordion .accordion-item .content .validator:hover, .enbridge-content-container .enbridge-btn:active, .enbridge-content-container .accordion .accordion-item .content .validator:active {
     text-decoration: none; }
 .enbridge-content-container .tile {
@@ -620,6 +635,118 @@
   margin-left: 5%; }
   .enbridge-content-container .Features p.checked::before {
     content: url("img/checked_03.png"); }
+.enbridge-content-container .container-thankyou {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding-top: 3%; }
+  .enbridge-content-container .container-thankyou .title {
+    font-size: 24px;
+    color: #636373; }
+  .enbridge-content-container .container-thankyou .text-info p {
+    color: #636373;
+    font-size: 16px; }
+  .enbridge-content-container .container-thankyou .tiles {
+    padding-right: 2%;
+    overflow: hidden; }
+    .enbridge-content-container .container-thankyou .tiles .tile {
+      border: 1px solid #ccc;
+      min-height: 410px; }
+    .enbridge-content-container .container-thankyou .tiles .green {
+      background-image: none; }
+      .enbridge-content-container .container-thankyou .tiles .green .text {
+        padding: 2%; }
+      .enbridge-content-container .container-thankyou .tiles .green h1 {
+        font-size: 24px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .tiles .green p {
+        color: #4c4d4e;
+        font-size: 18px; }
+      .enbridge-content-container .container-thankyou .tiles .green img {
+        width: 100%;
+        width: 100%;
+        height: 181px; }
+    .enbridge-content-container .container-thankyou .tiles .girl-image {
+      background-image: url("img/summ01.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 174px; }
+    .enbridge-content-container .container-thankyou .tiles .generic {
+      background-color: #fff;
+      min-height: 410px; }
+      .enbridge-content-container .container-thankyou .tiles .generic .background {
+        background-image: url("img/summ02.png");
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .enbridge-content-container .container-thankyou .tiles .generic h1 {
+        color: #ffc038;
+        font-size: 24px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .tiles .generic p {
+        font-size: 16px;
+        text-align: left; }
+  .enbridge-content-container .container-thankyou .text-container {
+    margin-top: 5%; }
+    .enbridge-content-container .container-thankyou .text-container p {
+      font-size: 19px;
+      margin-top: 2%; }
+    .enbridge-content-container .container-thankyou .text-container .text {
+      border-radius: 4px;
+      background-color: #dcd5cb;
+      color: #636373;
+      padding: 5% 5% 1% 5%; }
+      .enbridge-content-container .container-thankyou .text-container .text .text-title {
+        font-size: 27px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .text-container .text ul li {
+        margin-bottom: 3%; }
+  .enbridge-content-container .container-thankyou .info-content {
+    margin: 7% 0% 2% 0%;
+    border: 1px solid #ccc;
+    padding: 5%;
+    color: #7d7d8a; }
+    .enbridge-content-container .container-thankyou .info-content .info .text-title {
+      font-size: 23px;
+      font-weight: 100; }
+    .enbridge-content-container .container-thankyou .info-content .info .final-message {
+      margin-top: 13%;
+      font-size: 26px;
+      font-weight: 500; }
+    .enbridge-content-container .container-thankyou .info-content .info button.like {
+      margin-right: 8%; }
+    .enbridge-content-container .container-thankyou .info-content .info p {
+      font-size: 19px;
+      font-weight: inherit; }
+      .enbridge-content-container .container-thankyou .info-content .info p.big {
+        font-size: 26px; }
+    .enbridge-content-container .container-thankyou .info-content .info a {
+      font-size: 19px;
+      color: #1b8ac0;
+      text-decoration: none;
+      font-weight: 100; }
+    .enbridge-content-container .container-thankyou .info-content .improve textarea {
+      width: 100%; }
+    .enbridge-content-container .container-thankyou .info-content .improve button.green {
+      float: right; }
+    .enbridge-content-container .container-thankyou .info-content .did-you-know {
+      margin-top: 5%; }
+      .enbridge-content-container .container-thankyou .info-content .did-you-know p {
+        margin-top: 5%; }
+      .enbridge-content-container .container-thankyou .info-content .did-you-know a {
+        font-size: 19px;
+        color: #1b8ac0;
+        text-decoration: none;
+        font-weight: 100;
+        float: right; }
+      .enbridge-content-container .container-thankyou .info-content .did-you-know .title:before {
+        content: url("img/icon-yellow.png");
+        display: block;
+        float: left;
+        position: relative;
+        top: -7px;
+        right: 4px;
+        bottom: 0px; }
 .enbridge-content-container .accordion {
   list-style: none;
   margin: 0;

@@ -77,8 +77,17 @@
         &.processed {
             >.header {
                 background-color: $scarpa-flow;
+                cursor: auto;
             }
 
+            & + .accordion-item {
+                >.header {
+                    background-color: $my-sin;
+                    color: white;
+
+                    cursor: pointer;
+                }
+            }
         }
 
         .hide-flow + .enbridge-dropdown{

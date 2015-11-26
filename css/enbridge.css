@@ -661,7 +661,12 @@
     .enbridge-content-container .accordion .accordion-item.active .content {
       display: block; }
     .enbridge-content-container .accordion .accordion-item.processed > .header {
-      background-color: #555560; }
+      background-color: #555560;
+      cursor: auto; }
+    .enbridge-content-container .accordion .accordion-item.processed + .accordion-item > .header {
+      background-color: #ffb81c;
+      color: white;
+      cursor: pointer; }
     .enbridge-content-container .accordion .accordion-item .hide-flow + .enbridge-dropdown {
       display: none; }
 .enbridge-content-container .enbridge-container {

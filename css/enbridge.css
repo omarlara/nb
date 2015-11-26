@@ -628,7 +628,7 @@
   .enbridge-content-container .accordion .accordion-item {
     display: block;
     color: white; }
-    .enbridge-content-container .accordion .accordion-item .header {
+    .enbridge-content-container .accordion .accordion-item > .header {
       padding: 10px 15px; }
     .enbridge-content-container .accordion .accordion-item .content {
       padding: 15px 15px 45px 15px;
@@ -647,17 +647,23 @@
         vertical-align: middle; }
       .enbridge-content-container .accordion .accordion-item .content .validator {
         text-align: right !important; }
-    .enbridge-content-container .accordion .accordion-item:not(.active) .header {
+      .enbridge-content-container .accordion .accordion-item .content .zip-code-tool {
+        height: 254px; }
+    .enbridge-content-container .accordion .accordion-item:not(.active) > .header {
       background-color: #ddd6cc;
       color: #7d7d8a; }
     .enbridge-content-container .accordion .accordion-item:not(.active) .content {
       display: none; }
-    .enbridge-content-container .accordion .accordion-item.active .header, .enbridge-content-container .accordion .accordion-item.processed .header, .enbridge-content-container .accordion .accordion-item:first-child .header {
+    .enbridge-content-container .accordion .accordion-item.active > .header, .enbridge-content-container .accordion .accordion-item:first-child > .header {
       background-color: #ffb81c;
       color: white;
       cursor: pointer; }
     .enbridge-content-container .accordion .accordion-item.active .content {
       display: block; }
+    .enbridge-content-container .accordion .accordion-item.processed > .header {
+      background-color: #555560; }
+    .enbridge-content-container .accordion .accordion-item .hide-flow + .enbridge-dropdown {
+      display: none; }
 .enbridge-content-container .enbridge-container {
   display: block; }
   .enbridge-content-container .enbridge-container .row .col.xs1 {

@@ -69,6 +69,8 @@
   .enbridge-content-container .information.green:before {
     background-color: #92b051;
     color: white; }
+.enbridge-content-container .clearfix {
+  clear: both; }
 .enbridge-content-container .clearfix:after {
   visibility: hidden;
   display: block;
@@ -674,6 +676,8 @@
     color: #fff; }
 .enbridge-content-container .dates-view {
   max-width: 600px; }
+  .enbridge-content-container .dates-view .calendar-container {
+    width: 100%; }
   .enbridge-content-container .dates-view .calendar-column {
     float: left;
     width: 280px; }

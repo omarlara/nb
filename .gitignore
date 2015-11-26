@@ -3,5 +3,5 @@ bower_components
 .sass-cache
 temp
 
-css/*.css
-css/**.css
+*.css
+*.map

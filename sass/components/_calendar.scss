@@ -1,9 +1,20 @@
 .calendar{
-	.ui-datepicker-prev{
-		float: left;
+
+	.ui-datepicker-prev,
+	.ui-datepicker-next{
+		cursor: pointer;
+		float: left; 
+		width: 11px; 
+		height: 20px;
+		background:url('img/white-arrow-left.svg') no-repeat 0 0;
+		span{
+			display: none;
+		}
 	}
 	.ui-datepicker-next{
 		float: right;
+		background-image:url('img/white-arrow.svg') ;
+		background-position-x: -5px;
 	}
 	.ui-datepicker-title{
 		text-align: center;

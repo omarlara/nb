@@ -69,6 +69,13 @@
   .enbridge-content-container .information.green:before {
     background-color: #92b051;
     color: white; }
+.enbridge-content-container .clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
 .enbridge-content-container .clearfix {
   display: block;
   clear: both;
@@ -620,6 +627,71 @@
   margin-left: 5%; }
   .enbridge-content-container .Features p.checked::before {
     content: url("img/checked_03.png"); }
+.enbridge-content-container .calendar .ui-datepicker-prev {
+  float: left; }
+.enbridge-content-container .calendar .ui-datepicker-next {
+  float: right; }
+.enbridge-content-container .calendar .ui-datepicker-title {
+  text-align: center; }
+.enbridge-content-container .calendar .ui-datepicker-calendar {
+  width: 100%;
+  border-collapse: collapse; }
+  .enbridge-content-container .calendar .ui-datepicker-calendar th {
+    padding: 12px 0;
+    border-collapse: collapse;
+    background-color: #6e7b3d;
+    color: #fff; }
+    .enbridge-content-container .calendar .ui-datepicker-calendar th span {
+      font-weight: lighter;
+      font-size: 16px; }
+    .enbridge-content-container .calendar .ui-datepicker-calendar th a {
+      color: #fff; }
+  .enbridge-content-container .calendar .ui-datepicker-calendar td {
+    text-align: center;
+    border: 1px solid #ddd6cc;
+    border-spacing: 0;
+    padding: 11px 5px;
+    border-collapse: collapse;
+    cursor: pointer;
+    font-size: 16px; }
+    .enbridge-content-container .calendar .ui-datepicker-calendar td.ui-datepicker-current-day {
+      color: #ffffff;
+      background-color: #92b051; }
+      .enbridge-content-container .calendar .ui-datepicker-calendar td.ui-datepicker-current-day a {
+        color: #ffffff; }
+    .enbridge-content-container .calendar .ui-datepicker-calendar td a {
+      color: #636373;
+      font-size: 16px;
+      text-decoration: none; }
+.enbridge-content-container .calendar .ui-datepicker-header {
+  background-color: #92b051;
+  padding: 11px 10px 9px; }
+  .enbridge-content-container .calendar .ui-datepicker-header .ui-datepicker-month,
+  .enbridge-content-container .calendar .ui-datepicker-header .ui-datepicker-year {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff; }
+.enbridge-content-container .dates-view {
+  max-width: 600px; }
+  .enbridge-content-container .dates-view .calendar-column {
+    float: left;
+    width: 280px; }
+  .enbridge-content-container .dates-view .calendar-column + .calendar-column {
+    float: right; }
+  .enbridge-content-container .dates-view .headline {
+    padding: 30px 22px; }
+    .enbridge-content-container .dates-view .headline h3 {
+      font-size: 16px;
+      color: #636373;
+      font-weight: 400; }
+  .enbridge-content-container .dates-view .adress-component .adress {
+    padding: 18px 22px;
+    background-color: #ddd6cc;
+    border-radius: 3px 3px 0 0;
+    color: #636373;
+    font-size: 16px;
+    line-height: 1.4; }
 .enbridge-content-container .accordion {
   list-style: none;
   margin: 0;

@@ -80,21 +80,17 @@
                         <form action="" class="enbridge-form">
                             <p>Select the language</p>
                             <input type="radio"  name="lang" id="radio1" value="php">
-                            <label class="fake-input" for="radio1"></label>
-                            <label for="radio1">PHP</label>
+                            <label class="fake-input" for="radio1">PHP</label>
                             <br>
                             <input type="radio" name="lang" id="radio2" value="java">
-                            <label class="fake-input" for="radio2"></label>
-                            <label for="radio2">Java</label>
+                            <label class="fake-input" for="radio2">Java</label>
 
                             <p>Select the language</p>
                             <input type="checkbox" id="checkbox1" value="php">
-                            <label class="fake-input" for="checkbox1"></label>
-                            <label for="checkbox1">PHP</label>
+                            <label class="fake-input" for="checkbox1">PHP</label>
                             <br>
                             <input type="checkbox" id="checkbox2" value="java">
-                            <label class="fake-input" for="checkbox2"></label>
-                            <label for="checkbox2">Java</label>
+                            <label class="fake-input" for="checkbox2">Java</label>
                         </form>
                     </div>
 
@@ -103,21 +99,17 @@
 
                             &lt;p&gt;Select the language&lt;/p&gt;
                             &lt;input type=&quot;radio&quot; id=&quot;radio1&quot; value=&quot;php&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;radio1&quot;&gt;&lt;/label&gt;
-                            &lt;label for=&quot;radio1&quot;&gt;PHP&lt;/label&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;radio1&quot;&gt;PHP&lt;/label&gt;gt;
 
                             &lt;input type=&quot;radio&quot; id=&quot;radio2&quot; value=&quot;java&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;radio2&quot;&gt;&lt;/label&gt;
-                            &lt;label for=&quot;radio2&quot;&gt;Java&lt;/label&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;radio2&quot;&gt;Java&lt;/label&gt;
 
                             &lt;p&gt;Select the language&lt;/p&gt;
                             &lt;input type=&quot;checkbox&quot; id=&quot;checkbox1&quot; value=&quot;php&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox1&quot;&gt;&lt;/label&gt;
-                            &lt;label for=&quot;checkbox1&quot;&gt;PHP&lt;/label&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox1&quot;&gt;PHP&lt;/label&gt;
 
                             &lt;input type=&quot;checkbox&quot; id=&quot;checkbox2&quot; value=&quot;java&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox&quot;&gt;&lt;/label&gt;
-                            &lt;label for=&quot;checkbox2&quot;&gt;Java&lt;/label&gt;
+                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox&quot;&gt;Java&lt;/label&gt;
 
     &lt;/form&gt;
 </pre>
@@ -196,7 +188,55 @@
                         <ul class="accordion">
                             <li class="accordion-item  active">
                                 <div class="header">More Details</div>
-                                <div class="content">Content</div>
+                                <div class="content">
+                                    <p class="strong">I would like to ...</p>
+
+                                    <form class="enbridge-form">
+
+                                        <input type="radio" id="transfer" value="transfer" name="steps"  required>
+                                        <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
+                                        <div class="clearfix "></div>
+                                        <input type="radio" id="stop" value="stop" name="steps" required>
+                                        <label class="fake-input" for="stop"><strong>Stop</strong> my gas services.</label>
+                                        <select class="enbridge-select hide-flow" id="stop-select">
+                                            <option value="">
+                                                Please select a reson
+                                            </option>
+                                            <option value="1">
+                                                I'm moving but don't have the details at this time
+                                            </option>
+                                            <option value="2">
+                                                I'm moving out of the Enbridge serviced area
+                                            </option>
+                                            <option value="3">
+                                                Account holder is deseaced
+                                            </option>
+                                        </select>
+
+                                        <div class="clearfix "></div>
+                                        <input type="radio" id="add" value="add" name="steps" required>
+                                        <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
+
+
+                                    <div class="zip-code-tool closed">
+                                        <div class="opener">
+                                            Postal Code Lookup Tool <i>i</i>
+                                        </div>
+                                        <div class="tool">
+                                            <p class="information green">Find out if your new address is serviced by Enbridge</p>
+
+                                            <input type="text" name="zip-tool">
+                                            <input class="enbridge-btn green big-button submiter" type="submit" value="check">
+
+                                        </div>
+
+                                        <div class="result"></div>
+
+                                    </div>
+                                    </form>
+
+                                    <a href="" class="validator yellow big-button">NEXt</a>
+                                </div>
                             </li>
                             <li class="accordion-item">
                                 <div class="header">More Details</div>

@@ -1,0 +1,188 @@
+.container-thankyou {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding-top: 3%;
+
+    .title {
+        font-size: 24px;
+        color: $mid-gray;
+    }
+
+    .text-info {
+        p {
+            color: $mid-gray;
+            font-size: 16px;
+        }
+    }
+
+    .tiles {
+        padding-right: 2%;
+        overflow: hidden;
+
+        .tile {
+            border: 1px solid #ccc;
+            min-height: 410px;
+        }
+
+        .green {
+            background-image: none;
+
+            .text {
+                padding: 2%;
+            }
+
+            h1 {
+                font-size: 24px;
+                font-weight: 100;
+            }
+
+            p {
+                color: $abbey;
+                font-size: 18px;
+            }
+
+            img {
+                width: 100%;
+                width: 100%;
+                height: 181px;
+            }
+        }
+
+        .girl-image {
+            background-image: url("img/summ01.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 174px;
+        }
+
+        .generic {
+            background-color: #fff;
+            min-height: 410px;
+
+            .background {
+                background-image: url("img/summ02.png");
+                height: 200px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            h1 {
+                color: $sunglow;
+                font-size: 24px;
+                font-weight: 100;
+            }
+
+            p {
+                font-size: 16px;
+                text-align: left;
+            }
+        }
+    }
+
+    .text-container {
+        margin-top: 5%;
+
+        p {
+            font-size: 19px;
+            margin-top: 2%;
+        }
+
+        .text {
+            border-radius: 4px;
+            background-color: $swirl;
+            color: $mid-gray;
+            padding: 5% 5% 1% 5%;
+
+            .text-title {
+                font-size: 27px;
+                font-weight: 100;
+            }
+
+            ul li {
+                margin-bottom: 3%;
+            }
+        }
+    }
+
+    .info-content {
+        margin: 7% 0% 2% 0%;
+        border: 1px solid #ccc;
+        padding: 5%;
+        color: $jumbo;
+
+        .info {
+            .text-title {
+                font-size: 23px;
+                font-weight: 100;
+            }
+			
+			.final-message {
+                margin-top: 13%;
+                font-size: 26px;
+                font-weight: 500;
+            }
+            
+
+            button.like {
+                margin-right: 8%;
+            }
+
+            p {
+                font-size: 19px;
+                font-weight: inherit;
+
+                &.big {
+                    font-size: 26px;
+                }
+            }
+
+            a {
+                font-size: 19px;
+                color: $eastern-blue;
+                text-decoration: none;
+                font-weight: 100;
+            }
+        }
+
+        .improve {
+            textarea {
+                width: 100%;
+            }
+
+            button.green {
+                float: right;
+            }
+        }
+
+        .did-you-know {
+            margin-top: 5%;
+
+            p {
+                margin-top: 5%;
+            }
+
+            a {
+                font-size: 19px;
+                color: $eastern-blue;
+                text-decoration: none;
+                font-weight: 100;
+                float: right;
+            }
+
+            
+
+            .title {
+                &:before {
+                    content: url("img/icon-yellow.png");
+                    display: block;
+                    float: left;
+                    position: relative;
+                    top: -7px;
+                    right: 4px;
+                    bottom: 0px;
+                }
+            }
+        }
+    }
+}

@@ -8,8 +8,13 @@
   -moz-box-sizing: border-box !important;
   -ms-box-sizing: border-box !important;
   box-sizing: border-box !important;
-  font-family: Arial,sans-serif;
-  font-size: 14px; }
+  font-family: Arial,sans-serif; }
+  .enbridge-content-container * p,
+  .enbridge-content-container * span,
+  .enbridge-content-container * div,
+  .enbridge-content-container * label,
+  .enbridge-content-container * input {
+    font-size: 14px; }
   .enbridge-content-container *:before, .enbridge-content-container *:after {
     -webkit-box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
@@ -31,6 +36,14 @@
   float: right; }
 .enbridge-content-container .no-padding {
   padding: 0 !important; }
+.enbridge-content-container .clearfix {
+  display: block;
+  width: 1px;
+  height: 1px; }
+  .enbridge-content-container .clearfix:after, .enbridge-content-container .clearfix.before {
+    content: '';
+    clear: both;
+    display: table; }
 .enbridge-content-container .information {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -56,13 +69,6 @@
   .enbridge-content-container .information.green:before {
     background-color: #92b051;
     color: white; }
-.enbridge-content-container .clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0; }
 .enbridge-content-container .clearfix {
   display: block;
   clear: both;
@@ -112,36 +118,46 @@
   display: none; }
   .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input,
   .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input {
-    border: 1px solid #ddd6cc;
-    display: inline-block;
     position: relative;
-    height: 16px;
-    width: 16px;
-    color: #ddd6cc;
-    background: white;
-    vertical-align: middle;
     cursor: pointer; }
     .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:before,
     .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input:before {
       content: ' ';
-      display: block;
+      border: 1px solid #ddd6cc;
+      display: inline-block;
       position: relative;
+      height: 16px;
+      width: 16px;
+      color: #ddd6cc;
+      background: white;
+      vertical-align: middle; }
+    .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:after,
+    .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input:after {
+      content: ' ';
+      display: block;
+      position: absolute;
       height: 12px;
       width: 12px;
-      top: 1px;
-      left: 1px;
+      top: 3px;
+      left: 2px;
       background-color: #ddd6cc; }
-  .enbridge-content-container .enbridge-form input[type="radio"]:checked + .fake-input:before,
-  .enbridge-content-container .enbridge-form input[type="checkbox"]:checked + .fake-input:before {
+  .enbridge-content-container .enbridge-form input[type="radio"].input-error + .fake-input:before,
+  .enbridge-content-container .enbridge-form input[type="checkbox"].input-error + .fake-input:before {
+    border-color: #e18396; }
+  .enbridge-content-container .enbridge-form input[type="radio"].input-error + .fake-input:after,
+  .enbridge-content-container .enbridge-form input[type="checkbox"].input-error + .fake-input:after {
+    background-color: #f9e5ea; }
+  .enbridge-content-container .enbridge-form input[type="radio"]:checked + .fake-input:after,
+  .enbridge-content-container .enbridge-form input[type="checkbox"]:checked + .fake-input:after {
     background-color: #f6b31e; }
-.enbridge-content-container .enbridge-form input[type="radio"] + .fake-input {
+.enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:before {
   border-radius: 50%; }
-  .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:before {
-    border-radius: 50%; }
-.enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input {
+.enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:after {
+  border-radius: 50%; }
+.enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input:before {
   border-radius: 2px; }
-  .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input:before {
-    border-radius: 2px; }
+.enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input:after {
+  border-radius: 2px; }
 .enbridge-content-container .enbridge-form textarea {
   resize: none; }
 .enbridge-content-container .enbridge-form .zip-code-tool {
@@ -186,7 +202,7 @@
     border-width: 1px;
     border-style: solid;
     display: none;
-    margin: 50px auto 0 auto;
+    margin: 20px auto 0 auto;
     padding: 8px 15px;
     width: 460px; }
     .enbridge-content-container .enbridge-form .zip-code-tool .result > span {
@@ -308,7 +324,7 @@
       margin: 4px 0 0 3px; }
   .enbridge-content-container .enbridge-dropdown.active .list-items {
     display: block; }
-.enbridge-content-container .enbridge-btn {
+.enbridge-content-container .enbridge-btn, .enbridge-content-container .accordion .accordion-item .content .validator {
   border-radius: 4px;
   border-width: 0;
   display: inline-block;
@@ -327,54 +343,54 @@
   -webkit-transition: background-color 0.5s;
   -moz-transition: background-color 0.5s;
   transition: background-color 0.5s; }
-  .enbridge-content-container .enbridge-btn.green {
+  .enbridge-content-container .enbridge-btn.green, .enbridge-content-container .accordion .accordion-item .content .green.validator {
     background-color: #92b051; }
-    .enbridge-content-container .enbridge-btn.green:hover, .enbridge-content-container .enbridge-btn.green:active {
+    .enbridge-content-container .enbridge-btn.green:hover, .enbridge-content-container .accordion .accordion-item .content .green.validator:hover, .enbridge-content-container .enbridge-btn.green:active, .enbridge-content-container .accordion .accordion-item .content .green.validator:active {
       background-color: #758e40; }
-  .enbridge-content-container .enbridge-btn.yellow {
+  .enbridge-content-container .enbridge-btn.yellow, .enbridge-content-container .accordion .accordion-item .content .yellow.validator {
     background-color: #f6b31e; }
-    .enbridge-content-container .enbridge-btn.yellow:hover, .enbridge-content-container .enbridge-btn.yellow:active {
+    .enbridge-content-container .enbridge-btn.yellow:hover, .enbridge-content-container .accordion .accordion-item .content .yellow.validator:hover, .enbridge-content-container .enbridge-btn.yellow:active, .enbridge-content-container .accordion .accordion-item .content .yellow.validator:active {
       background-color: #d89809; }
-  .enbridge-content-container .enbridge-btn.black {
+  .enbridge-content-container .enbridge-btn.black, .enbridge-content-container .accordion .accordion-item .content .black.validator {
     background-color: #40484d;
     background: #5D656C;
     background: -moz-linear-gradient(top, #5D656C 0%, #40484D 100%);
     background: -webkit-linear-gradient(top, #5D656C 0%, #40484D 100%);
     background: linear-gradient(to bottom, #5D656C 0%, #40484D 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5D656C', endColorstr='#40484D',GradientType=0 ); }
-    .enbridge-content-container .enbridge-btn.black:hover, .enbridge-content-container .enbridge-btn.black:active {
+    .enbridge-content-container .enbridge-btn.black:hover, .enbridge-content-container .accordion .accordion-item .content .black.validator:hover, .enbridge-content-container .enbridge-btn.black:active, .enbridge-content-container .accordion .accordion-item .content .black.validator:active {
       background-color: #292e31;
       opacity: 0.92; }
-    .enbridge-content-container .enbridge-btn.black.big-button:after {
+    .enbridge-content-container .enbridge-btn.black.big-button:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator:after {
       background-image: url("img/yellow-arrow.svg"); }
-  .enbridge-content-container .enbridge-btn.blue {
+  .enbridge-content-container .enbridge-btn.blue, .enbridge-content-container .accordion .accordion-item .content .blue.validator {
     background-color: #007dba; }
-    .enbridge-content-container .enbridge-btn.blue:hover, .enbridge-content-container .enbridge-btn.blue:active {
+    .enbridge-content-container .enbridge-btn.blue:hover, .enbridge-content-container .accordion .accordion-item .content .blue.validator:hover, .enbridge-content-container .enbridge-btn.blue:active, .enbridge-content-container .accordion .accordion-item .content .blue.validator:active {
       background-color: #005b87; }
-  .enbridge-content-container .enbridge-btn.gray {
+  .enbridge-content-container .enbridge-btn.gray, .enbridge-content-container .accordion .accordion-item .content .gray.validator {
     background-color: #ddd6cc; }
-    .enbridge-content-container .enbridge-btn.gray:hover, .enbridge-content-container .enbridge-btn.gray:active {
+    .enbridge-content-container .enbridge-btn.gray:hover, .enbridge-content-container .accordion .accordion-item .content .gray.validator:hover, .enbridge-content-container .enbridge-btn.gray:active, .enbridge-content-container .accordion .accordion-item .content .gray.validator:active {
       background-color: #c9bdad; }
-  .enbridge-content-container .enbridge-btn.social-media {
+  .enbridge-content-container .enbridge-btn.social-media, .enbridge-content-container .accordion .accordion-item .content .social-media.validator {
     border-radius: 18px;
     font-weight: 500;
     line-height: 1;
     text-transform: none;
     color: #007dba; }
-    .enbridge-content-container .enbridge-btn.social-media.like {
+    .enbridge-content-container .enbridge-btn.social-media.like, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator {
       background-color: #ddd6cc; }
-      .enbridge-content-container .enbridge-btn.social-media.like:before {
+      .enbridge-content-container .enbridge-btn.social-media.like:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:before {
         content: url("img/like.png"); }
-    .enbridge-content-container .enbridge-btn.social-media.dislike {
+    .enbridge-content-container .enbridge-btn.social-media.dislike, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator {
       background-color: #ddd6cc; }
-      .enbridge-content-container .enbridge-btn.social-media.dislike:before {
+      .enbridge-content-container .enbridge-btn.social-media.dislike:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:before {
         content: url("img/dislike.png"); }
-    .enbridge-content-container .enbridge-btn.social-media:hover {
+    .enbridge-content-container .enbridge-btn.social-media:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator:hover {
       background-color: #007dba;
       color: white; }
-    .enbridge-content-container .enbridge-btn.social-media:active {
+    .enbridge-content-container .enbridge-btn.social-media:active, .enbridge-content-container .accordion .accordion-item .content .social-media.validator:active {
       background-color: #1033bb; }
-  .enbridge-content-container .enbridge-btn.big-button {
+  .enbridge-content-container .enbridge-btn.big-button, .enbridge-content-container .accordion .accordion-item .content .big-button.validator {
     padding: 8px 0 7px;
     position: absolute;
     bottom: 0;
@@ -384,7 +400,7 @@
     text-align: center;
     font-size: 18px;
     font-weight: 400; }
-    .enbridge-content-container .enbridge-btn.big-button:after {
+    .enbridge-content-container .enbridge-btn.big-button:after, .enbridge-content-container .accordion .accordion-item .content .big-button.validator:after {
       content: '';
       position: absolute;
       display: inline-block;
@@ -395,7 +411,7 @@
       height: 20px;
       position: relative;
       top: 4px; }
-  .enbridge-content-container .enbridge-btn:hover, .enbridge-content-container .enbridge-btn:active {
+  .enbridge-content-container .enbridge-btn:hover, .enbridge-content-container .accordion .accordion-item .content .validator:hover, .enbridge-content-container .enbridge-btn:active, .enbridge-content-container .accordion .accordion-item .content .validator:active {
     text-decoration: none; }
 .enbridge-content-container .tile {
   border: 1px solid #ddd6cc;
@@ -451,7 +467,7 @@
       overflow: hidden;
       font-style: italic;
       font-family: Times New Roman; }
-  .enbridge-content-container .tile .enbridge-btn {
+  .enbridge-content-container .tile .enbridge-btn, .enbridge-content-container .tile .accordion .accordion-item .content .validator, .enbridge-content-container .accordion .accordion-item .content .tile .validator {
     border-radius: 0 0 3px 3px; }
   .enbridge-content-container .tile.common {
     color: #636373; }
@@ -494,9 +510,6 @@
       display: inline-block;
       margin-right: -3px;
       width: 80px; }
-.enbridge-content-container .enbridge-container {
-  margin-top: 8.4%;
-  margin-left: 3% !important; }
 .enbridge-content-container .titles {
   margin-bottom: 3.4%; }
   .enbridge-content-container .titles .title {
@@ -511,8 +524,7 @@
   background-image: url("img/family.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  width: 800px;
-  /* address */ }
+  width: 800px; }
   .enbridge-content-container .move-summary h2 {
     color: #59cbe8;
     font-size: 37px;
@@ -538,8 +550,7 @@
     margin-top: 12%;
     margin-left: 3%;
     height: auto;
-    border-radius: 52px 2px 48px 2px;
-    /* content*/ }
+    border-radius: 52px 2px 48px 2px; }
     .enbridge-content-container .move-summary .address .content {
       padding: 4%;
       margin-left: 0%; }
@@ -609,71 +620,55 @@
   margin-left: 5%; }
   .enbridge-content-container .Features p.checked::before {
     content: url("img/checked_03.png"); }
-.enbridge-content-container .calendar .ui-datepicker-prev {
-  float: left; }
-.enbridge-content-container .calendar .ui-datepicker-next {
-  float: right; }
-.enbridge-content-container .calendar .ui-datepicker-title {
-  text-align: center; }
-.enbridge-content-container .calendar .ui-datepicker-calendar {
-  width: 100%;
-  border-collapse: collapse; }
-  .enbridge-content-container .calendar .ui-datepicker-calendar th {
-    padding: 12px 0;
-    border-collapse: collapse;
-    background-color: #6e7b3d;
-    color: #fff; }
-    .enbridge-content-container .calendar .ui-datepicker-calendar th span {
-      font-weight: lighter;
-      font-size: 16px; }
-    .enbridge-content-container .calendar .ui-datepicker-calendar th a {
-      color: #fff; }
-  .enbridge-content-container .calendar .ui-datepicker-calendar td {
-    text-align: center;
-    border: 1px solid #ddd6cc;
-    border-spacing: 0;
-    padding: 11px 5px;
-    border-collapse: collapse;
-    cursor: pointer;
-    font-size: 16px; }
-    .enbridge-content-container .calendar .ui-datepicker-calendar td.ui-datepicker-current-day {
-      color: #ffffff;
-      background-color: #92b051; }
-      .enbridge-content-container .calendar .ui-datepicker-calendar td.ui-datepicker-current-day a {
-        color: #ffffff; }
-    .enbridge-content-container .calendar .ui-datepicker-calendar td a {
-      color: #636373;
-      font-size: 16px;
-      text-decoration: none; }
-.enbridge-content-container .calendar .ui-datepicker-header {
-  background-color: #92b051;
-  padding: 11px 10px 9px; }
-  .enbridge-content-container .calendar .ui-datepicker-header .ui-datepicker-month,
-  .enbridge-content-container .calendar .ui-datepicker-header .ui-datepicker-year {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #fff; }
-.enbridge-content-container .dates-view {
-  max-width: 600px; }
-  .enbridge-content-container .dates-view .calendar-column {
-    float: left;
-    width: 280px; }
-  .enbridge-content-container .dates-view .calendar-column + .calendar-column {
-    float: right; }
-  .enbridge-content-container .dates-view .headline {
-    padding: 30px 22px; }
-    .enbridge-content-container .dates-view .headline h3 {
-      font-size: 16px;
-      color: #636373;
-      font-weight: 400; }
-  .enbridge-content-container .dates-view .adress-component .adress {
-    padding: 18px 22px;
-    background-color: #ddd6cc;
-    border-radius: 3px 3px 0 0;
-    color: #636373;
-    font-size: 16px;
-    line-height: 1.4; }
+.enbridge-content-container .accordion {
+  list-style: none;
+  margin: 0;
+  width: 600px;
+  background-color: white; }
+  .enbridge-content-container .accordion .accordion-item {
+    display: block;
+    color: white; }
+    .enbridge-content-container .accordion .accordion-item > .header {
+      padding: 10px 15px; }
+    .enbridge-content-container .accordion .accordion-item .content {
+      padding: 15px 15px 45px 15px;
+      border-left: 1px solid #ddd6cc;
+      border-right: 1px solid #ddd6cc;
+      color: #7d7d8a;
+      position: relative; }
+      .enbridge-content-container .accordion .accordion-item .content > p.strong {
+        margin-top: 0;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 7px; }
+      .enbridge-content-container .accordion .accordion-item .content label {
+        display: inline-block;
+        margin-bottom: 10px;
+        vertical-align: middle; }
+      .enbridge-content-container .accordion .accordion-item .content .validator {
+        text-align: right !important; }
+      .enbridge-content-container .accordion .accordion-item .content .zip-code-tool {
+        height: 254px; }
+    .enbridge-content-container .accordion .accordion-item:not(.active) > .header {
+      background-color: #ddd6cc;
+      color: #7d7d8a; }
+    .enbridge-content-container .accordion .accordion-item:not(.active) .content {
+      display: none; }
+    .enbridge-content-container .accordion .accordion-item.active > .header, .enbridge-content-container .accordion .accordion-item:first-child > .header {
+      background-color: #ffb81c;
+      color: white;
+      cursor: pointer; }
+    .enbridge-content-container .accordion .accordion-item.active .content {
+      display: block; }
+    .enbridge-content-container .accordion .accordion-item.processed > .header {
+      background-color: #555560;
+      cursor: auto; }
+    .enbridge-content-container .accordion .accordion-item.processed + .accordion-item > .header {
+      background-color: #ffb81c;
+      color: white;
+      cursor: pointer; }
+    .enbridge-content-container .accordion .accordion-item .hide-flow + .enbridge-dropdown {
+      display: none; }
 .enbridge-content-container .enbridge-container {
   display: block; }
   .enbridge-content-container .enbridge-container .row .col.xs1 {

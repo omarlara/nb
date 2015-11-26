@@ -1,270 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/enbridge.css">
-    <link rel="stylesheet" href="css/documentation.css">
-</head>
-<body>
-    <div class="enbridge-content-container">
-
-
-        <div class="enbridge-container">
-            <div class="row">
-               
-
-<pre class="prettyprint lang-html code">
-    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
-
-                            &lt;p&gt;Select the language&lt;/p&gt;
-                            &lt;input type=&quot;radio&quot; id=&quot;radio1&quot; value=&quot;php&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;radio1&quot;&gt;PHP&lt;/label&gt;gt;
-
-                            &lt;input type=&quot;radio&quot; id=&quot;radio2&quot; value=&quot;java&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;radio2&quot;&gt;Java&lt;/label&gt;
-
-                            &lt;p&gt;Select the language&lt;/p&gt;
-                            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox1&quot; value=&quot;php&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox1&quot;&gt;PHP&lt;/label&gt;
-
-                            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox2&quot; value=&quot;java&quot;&gt;
-                            &lt;label class=&quot;fake-input&quot; for=&quot;checkbox&quot;&gt;Java&lt;/label&gt;
-
-    &lt;/form&gt;
-</pre>
-
-               <h3>Select</h3>
-                    <div class="example">
-                        <form action="" class="enbridge-form">
-                            <p>Select the language</p>
-                            <select class="enbridge-select">
-                                <option value="PHP">PHP</option>
-                                <option value="JSP">JSP</option>
-                                <option value="JAVA">JAVA</option>
-                            </select>
-                        </form>
-                    </div>
-
-<pre class="prettyprint lang-html code">
-    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
-
-        &lt;p&gt;Select the language&lt;/p&gt;
-        &lt;select class=&quot;enbridge-select&quot;&gt;
-            &lt;option value=&quot;PHP&quot;&gt;PHP&lt;/option&gt;
-            &lt;option value=&quot;JSP&quot;&gt;JSP&lt;/option&gt;
-            &lt;option value=&quot;JAVA&quot;&gt;JAVA&lt;/option&gt;
-        &lt;/select&gt;
-
-    &lt;/form&gt;
-</pre>
-                    <h3>Postal Code Tool</h3>
-                    <div class="example">
-                        <form class="enbridge-form">
-                            <div class="zip-code-tool closed">
-                                <div class="opener">
-                                    Postal Code Lookup Tool <i>i</i>
-                                </div>
-                                <div class="tool">
-                                    <p class="information green">Find out if your new address is serviced by Enbridge
-</p>
-
-                                    <input type="text" name="zip-tool">
-                                    <input class="enbridge-btn green big-button submiter" type="submit" value="check">
-
-                                </div>
-
-                                <div class="result"></div>
-
-                            </div>
-                        </form>
-
-                    </div>
-
-<pre class="prettyprint lang-html code">
-&lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
-
-    &lt;div class=&quot;zip-code-tool closed&quot;&gt;
-        &lt;div class=&quot;opener&quot;&gt;
-            Postal Code Lookup Tool &lt;i&gt;i&lt;/i&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;tool&quot;&gt;
-            &lt;p class=&quot;information green&quot;&gt;Find out if your new address is serviced by Enbridge
-&lt;/p&gt;
-
-            &lt;input type=&quot;text&quot; name=&quot;zip-tool&quot;&gt;
-            &lt;input class=&quot;enbridge-btn green big-button submiter&quot; type=&quot;submit&quot; value=&quot;check&quot;&gt;
-
-        &lt;/div&gt;
-
-        &lt;div class=&quot;result&quot;&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-
-&lt;/form&gt;
-</pre>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/enbridge.css">
+        <link rel="stylesheet" href="css/documentation.css">
+    </head>
+    <body>
+        <div class="enbridge-content-container">
+            <div class="enbridge-container">
+                <div class="row">
+                    
                     <h3>Accordion</h3>
                     <div class="example">
                         <ul class="accordion">
                             <li class="accordion-item  active">
                                 <div class="header">More Details</div>
                                 <div class="content">
-                                    <p class="strong">I would like to ...</p>
-
+                                    <p class="strong">Please enter your new address</p>
                                     <form class="enbridge-form">
-
-                                        <input type="radio" id="transfer" value="transfer" name="steps"  required>
-                                        <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="stop" value="stop" name="steps" required>
-                                        <label class="fake-input" for="stop"><strong>Stop</strong> my gas services.</label>
-                                        <select class="enbridge-select hide-flow" id="stop-select">
-                                            <option value="">
-                                                Please select a reson
-                                            </option>
-                                            <option value="1">
-                                                I'm moving but don't have the details at this time
-                                            </option>
-                                            <option value="2">
-                                                I'm moving out of the Enbridge serviced area
-                                            </option>
-                                            <option value="3">
-                                                Account holder is deseaced
-                                            </option>
-                                        </select>
-
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="add" value="add" name="steps" required>
-                                        <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
-
-
-                                    <div class="zip-code-tool closed">
-                                        <div class="opener">
-                                            Postal Code Lookup Tool <i>i</i>
+                                        
+                                        <div class="col md12 form1 margin">
+                                            <div class="col md5 labelinfo">
+                                                <label for=""> What is your street number? </label>
+                                            </div>
+                                            <div class="col md5">
+                                                <select class="enbridge-select">
+                                                    <option value="PHP">PHP</option>
+                                                    <option value="JSP">JSP</option>
+                                                    <option value="JAVA">JAVA</option>
+                                                </select>
+                                            </div>
+                                            <div class="col md2">
+                                                <button class="enbridge-btn green">></button>
+                                            </div>
                                         </div>
-                                        <div class="tool">
-                                            <p class="information green">Find out if your new address is serviced by Enbridge</p>
-
-                                            <input type="text" name="zip-tool">
-                                            <input class="enbridge-btn green big-button submiter" type="submit" value="check">
-
+                                        <div class="col md12 form2 margin">
+                                            <div class="col md3 question">
+                                                <span>Is this correct?</span>
+                                            </div>
+                                            <div class="col md4 address">
+                                                <span>321 New PLace St. Toronto, On B2B2B2</span>
+                                            </div>
+                                            <div class="col md5 buttons">
+                                                <button class="enbridge-btn green">Yes</button>
+                                                <button class="enbridge-btn dawn">No</button>
+                                            </div>
                                         </div>
+                                        <div class="form3 margin col md12">
+                                            <div class="address col md5 md3-off">
+                                                <span>321 New Place St. Toronto, ON B2B2B2</span>
+                                            </div>
+                                            <div class="inputs col md12">
+                                                
+                                                <div class="col md12">
+                                                    <input type="radio" id="radio1" value="php">
+                                                    <label class="fake-input" for="radio1">I'm renting this property.</label>
+                                                </div>
+                                                <div class="col md12">
+                                                    <input type="radio" id="radio2" value="java">
+                                                    <label class="fake-input" for="radio2">I'm buying this property.</label>
+                                                </div>
+                                                
+                                                <div class="col md12 checks">
+                                                    
+                                                    <input type="checkbox" id="checkbox1" value="php">
+                                                    <label class="fake-input" for="checkbox1">My mailing address is different from my service address</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form4 margin col md12">
+                                            <div class="questionrows col md12">
+                                                <div class="col md3 address">
+                                                    <span>Street Address</span>
+                                                </div>
 
-                                        <div class="result"></div>
+                                                <div class="col md2 no-padding question">
+                                                <input type="text">
+                                                <label for="">Number</label>
+                                                </div>
 
-                                    </div>
-                                    </form>
+                                                <div class="col md2 no-padding question">
+                                                <input type="text">
+                                                <label for="">Suflix</label>
+                                                </div>
 
-                                    <a href="" class="validator yellow big-button">NEXt</a>
-                                </div>
-                            </li>
-                            <li class="accordion-item">
-                                <div class="header">More Details</div>
-                                <div class="content">Content</div>
-                            </li>
-                           <li class="accordion-item">
-                                <div class="header">More Details</div>
-                                <div class="content">Content</div>
-                            </li>
-                           <li class="accordion-item">
-                                <div class="header">More Details</div>
-                                <div class="content">Content</div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col xs10 xs1-off">
-                    <h2>Error Forms</h2>
-
-                    <h3>Input type text</h3>
-
-                    <div class="example">
-                        <form action="" class="enbridge-form">
-                            <label for="example_error_1" class="field">Input type text</label>
-                            <input type="text" class="input-error" value="fakemail.com" id="example_error_1">
-                            <br>
-                            <label for="example_error_2" class="field">Input type password</label>
-                            <input type="password" class="input-error" value="fakemail.com" id="example_error_2">
-                        </form>
-                    </div>
-
-<pre class="prettyprint lang-html code">
-    &lt;form action=&quot;&quot; class=&quot;enbridge-form&quot;&gt;
-
-    &lt;label for=&quot;example_error_1&quot; class=&quot;field&quot;&gt;Input type text&lt;/label&gt;
-    &lt;input type=&quot;text&quot; class=&quot;input-error&quot; value=&quot;fakemail.com&quot; id=&quot;example_error_1&quot;&gt;
-
-    &lt;label for=&quot;example_error_2&quot; class=&quot;field&quot;&gt;Input type password&lt;/label&gt;
-    &lt;input type=&quot;password&quot; class=&quot;input-error&quot; value=&quot;fakemail.com&quot; id=&quot;example_error_2&quot;&gt;
-    &lt;/form&gt;
-</pre>
-                </div>
-
-            </div>
-            <!--div class="row">
-                <h2 class="text-center">Tiles</h2>
-
-                <div class="col md4 xs4 lg4 xs3-off">
-                <h3 class="text-center">Green</h3>
-                    <div class="tile green col md12 xs12 lg12">
-                    <div class="content">
-                                <h2 class="title">Existing Customers</h2>
-                                <h3 class="subtitle">Moving in/out of service <br>area or adding a property.</h3>
-                                <form action="">
-                                    <div class="form-group">
-                                        <label for="">Email</label>
-                                        <input type="email" class="input-error">
-                                        <input type="checkbox">
-                                        <label for="">Remember my emailfor next time</label>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="">Password</label>
-                                        <input type="passwords" class="input-error">
-                                    </div>
-                                </form>
+                                                <div class="col md4 no-padding question">
+                                                <input type="text">
+                                                <label for="">Street</label>
+                                                </div>
+                                                
+                                                
+                                                </div><!-- questionrows-->
+                                                
+                                                </div><!-- form4-->
+                                            </form>
+                                            <a href="" class="validator yellow big-button">NEXt</a>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <div class="header">More Details</div>
+                                        <div class="content">Content</div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <div class="header">More Details</div>
+                                        <div class="content">Content</div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <div class="header">More Details</div>
+                                        <div class="content">Content</div>
+                                    </li>
+                                </ul>
                             </div>
-                            <a href="" class="enbridge-btn black big-button">Sign In</a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="green col md4 xs4 lg4">
-                <h3 class="text-center">Generic</h3>
-                    <div class="tile generic col md12 xs12 lg12">
-                    <div class="content">
-                                <h2 class="title">Existing Customers</h2>
-                                <h3 class="subtitle">Moving in/out of service <br>area or adding a property.</h3>
-                                <form action="">
-                                    <div class="form-group">
-                                        <label for="">Email</label>
-                                        <input type="email" class="input-error">
-                                        <input type="checkbox">
-                                        <label for="">Remember my emailfor next time</label>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="">Password</label>
-                                        <input type="passwords" class="input-error">
-                                    </div>
-                                </form>
-                            </div>
-                            <a href="" class="enbridge-btn blue big-button">Sign In</a>
-                    </div>
-                </div<
-
-               </div><!-- row-->
-        </div><!-- enbridge-container -->
-    </div><!-- enbridge-content-container -->
-
-    <script src="js/jquery-1.4.2.min.js"></script>
-    <script src="assets/google-code-prettify/prettify.js"></script>
-    <script src="js/app.js"></script>
-    <script> prettyPrint();</script>
-</body>
-</html>
+                    </div><!-- enbridge-container -->
+                    </div><!-- enbridge-content-container -->
+                    <script src="js/jquery-1.4.2.min.js"></script>
+                    <script src="assets/google-code-prettify/prettify.js"></script>
+                    <script src="js/app.js"></script>
+                    <script> prettyPrint();</script>
+                </body>
+            </html>

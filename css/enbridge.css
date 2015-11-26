@@ -649,8 +649,6 @@
     color: #fff; }
 .enbridge-content-container .dates-view {
   max-width: 600px; }
-  .enbridge-content-container .dates-view .calendar-container {
-    overflow: hidden; }
   .enbridge-content-container .dates-view .calendar-column {
     float: left;
     width: 280px; }

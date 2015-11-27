@@ -1,6 +1,7 @@
 .enbridge-form {
 
-    label{
+    label:not(.fake-input),
+    p{
 
         font-size: 12px;
         &.field {
@@ -47,17 +48,23 @@
         display: none;
 
         &+ .fake-input {
+            display: block;
             position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
 
             cursor: pointer;
 
             &:before {
                 content: ' ';
+
                 border: 1px solid $moon-mist;
                 display: inline-block;
-                position: relative;
-                height: 16px;
-                width: 16px;
+                position: absolute;
+                left: 0;
+                top: -1px;
+                height: 20px;
+                width: 20px;
 
                 color: $moon-mist;
                 background: white;
@@ -72,7 +79,7 @@
                 height: 12px;
                 width: 12px;
                 top: 3px;
-                left: 2px;
+                left: 4px;
 
                 background-color:  $moon-mist;
             }

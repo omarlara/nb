@@ -81,14 +81,14 @@
                             <p>Select the language</p>
                             <input type="radio"  name="lang" id="radio1" value="php">
                             <label class="fake-input" for="radio1">PHP</label>
-                            <br>
+
                             <input type="radio" name="lang" id="radio2" value="java">
                             <label class="fake-input" for="radio2">Java</label>
 
                             <p>Select the language</p>
                             <input type="checkbox" id="checkbox1" value="php">
                             <label class="fake-input" for="checkbox1">PHP</label>
-                            <br>
+
                             <input type="checkbox" id="checkbox2" value="java">
                             <label class="fake-input" for="checkbox2">Java</label>
                         </form>
@@ -246,16 +246,44 @@
                                 <div class="header">New Adress</div>
                                 <div class="content">
                                     <form action="" class="enbridge-form">
-                                        <div class="steps">
+                                        <div class="steps active-step">
                                             <p class="strong">Please enter your new address:</p>
 
                                             <div class="code-box">
                                                 <label for="code-validator">Let's start with your postal code:</label>
-                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select">
-                                                <div class="next-step" data-next-step="select_your_street"></div>
+                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select-stret-container">
+                                                <div class="next-step" data-next-step="#select_your_street"></div>
                                             </div>
 
                                         </div>
+
+                                        <div class="steps" id="select_your_street">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box container">
+                                                <div class="row">
+                                                    <div class="col"><p>Select yout street</p></div>
+                                                    <div class="col" id="select-stret-container"></div>
+                                                </div>
+                                                <div class="next-step" data-next-step="#select_your_adress" id="get-adreess" data-number-dropdown="#data-dropdown"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="steps" id="select_your_adress">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box container">
+                                                <div class="row">
+                                                    <div class="col"><p>Select yout street</p></div>
+                                                    <div class="col" id="data-dropdown"></div>
+                                                </div>
+                                                <div class="next-step" data-next-step="#select_your_street" id="get-adreess"></div>
+                                            </div>
+
+                                        </div>
+
+
                                     </form>
 
                                     <div class="validator-container">

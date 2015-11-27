@@ -154,17 +154,35 @@
     /*Success Zip*/
     $('.new-adress').change(function() {
         var $this = $(this),
-            currentVal = $this.val();
+            currentVal = $this.val(),
+            container = $this.attr('data-content'),
+            radioContent = [];
 
         $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
             function(resp) {
                 if (resp && resp.result) {
+                    var containerEl = container.replace('#','');
                     $this
-                        .addClass('input-success success-zip')
+                        .addClass('success-field')
                         .removeClass('input-error');
+
+                    for(var i = 0, size = resp.elements.length; i< size; i +=1) {
+                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent"><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
+                        radioContent.push(chain);
+                    }
+
+                    $(container).html(radioContent.join(''));
+
+                     $(container).find('input[type="radio"]').bind('click', function() {
+                        var name = $(this).attr('name') || '';
+
+                        $('input[name="' + name + '"]').removeClass('input-success input-error');
+                    });
+
+
                 } else {
                     $this
-                        .removeClass('input-success success-zip')
+                        .removeClass('input-success success-field')
                         .addClass('input-error');
                 }
 
@@ -181,11 +199,15 @@
             var error = false,
                 radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
                 select = $form.find('.enbridge-select').removeClass('input-error'),
-                zipTool = $form.find('.zip-code-tool'),
+                zipTool = $form.find('.zip-code-tool').removeClass('success-field'),
                 newAddress = $form.find('.new-adress');
 
 
             for (var i = radio.length - 1; i >= 0; i--) {
+                if (!radio[i].className) {
+                   radio[i] .className = '';
+                }
+
                 if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
                     radio[i].className += ' input-error';
                 } else {
@@ -211,7 +233,7 @@
             }
 
             for (var i = newAddress.length - 1; i >= 0; i--) {
-                if (!$(newAddress[i]).hasClass('success-zip') ) {
+                if (!$(newAddress[i]).hasClass('success-field') ) {
                     error = true;
                 }
             }
@@ -261,13 +283,17 @@
         });
 
         $('.steps .next-step').bind('click', function() {
-            var $current = $(this).closest('.accordion-item');
+            var $current = $(this).closest('.accordion-item'),
+                $currentStep = $(this).closest('.steps');
 
             if(!validator($current.find('.enbridge-form'))) {
-                console.log('Yeeeee')
+                $currentStep.
+                    removeClass('active-step')
+                        .next()
+                            .addClass('active-step')
+                                .find('input[type="radio"]').attr('required', true);
             }
         });
-
         /*Flows*/
         $('input[name="steps"]').change( function() {
             if(this.value === 'stop') {
@@ -280,6 +306,8 @@
                     .attr('required', false);
             }
         });
+
+        /*End Flow*/
 
 
         /*Forms*/

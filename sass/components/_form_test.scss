@@ -93,7 +93,7 @@
     padding: 3% 0% 0% 0%;
 
     .questionrows {
-    	
+
         input[type="text"] {
             width: 100%;
             padding-left: 0% !important;
@@ -114,5 +114,11 @@
         .address {
             padding: 6% 0% 0% 0%;
         }
+    }
+
+    .questionrows2{
+    	.info{
+    		    padding-top: 7%
+    	}
     }
 }

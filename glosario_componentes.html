@@ -81,14 +81,14 @@
                             <p>Select the language</p>
                             <input type="radio"  name="lang" id="radio1" value="php">
                             <label class="fake-input" for="radio1">PHP</label>
-                            <br>
+
                             <input type="radio" name="lang" id="radio2" value="java">
                             <label class="fake-input" for="radio2">Java</label>
 
                             <p>Select the language</p>
                             <input type="checkbox" id="checkbox1" value="php">
                             <label class="fake-input" for="checkbox1">PHP</label>
-                            <br>
+
                             <input type="checkbox" id="checkbox2" value="java">
                             <label class="fake-input" for="checkbox2">Java</label>
                         </form>
@@ -186,7 +186,7 @@
                     <h3>Accordion</h3>
                     <div class="example">
                         <ul class="accordion">
-                            <li class="accordion-item  active">
+                            <li class="accordion-item processed">
                                 <div class="header">More Details</div>
                                 <div class="content">
                                     <p class="strong">I would like to ...</p>
@@ -235,12 +235,76 @@
                                     </div>
                                     </form>
 
-                                    <a href="" class="validator yellow big-button">NEXt</a>
+                                    <!--a href="" class="validator yellow big-button">NEXt</a-->
+                                    <div class="validator-container">
+                                         <a class="validator" href="#">NEXT</a>
+                                         <!--a class="prev" href="#">BACK</a-->
+                                    </div>
                                 </div>
                             </li>
-                            <li class="accordion-item">
-                                <div class="header">More Details</div>
-                                <div class="content">Content</div>
+                            <li class="accordion-item active">
+                                <div class="header">New Adress</div>
+                                <div class="content">
+                                    <form action="" class="enbridge-form">
+                                        <div class="steps active-step">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box">
+                                                <label for="code-validator">Let's start with your postal code:</label>
+                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select-stret-container">
+                                                <div class="next-step" data-next-step="#select_your_street"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="steps" id="select_your_street">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box container">
+                                                <div class="row">
+                                                    <div class="col"><p>Select yout street</p></div>
+                                                    <div class="col" id="select-stret-container"></div>
+                                                </div>
+                                                <div class="next-step" data-next-step="#select_your_adress" id="get-adress" data-number-dropdown="#data-dropdown"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="steps" id="select_your_adress">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box container">
+                                                <div class="row">
+                                                    <div class="col"><p>Select yout street</p></div>
+                                                    <div class="col" id="data-dropdown"></div>
+                                                </div>
+                                                <div class="next-step" data-next-step="#confirm-adress" id="get-adress"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="steps" id="confirm-adress">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box container">
+                                                <div class="row">
+                                                    <div class="col"><p>Select yout street</p></div>
+                                                    <div class="col" id="data-dropdown"></div>
+                                                </div>
+                                                <div class="next-step" data-next-step="#select_your_street" id="confirm-adress-button"></div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </form>
+
+                                    <div class="validator-container">
+                                         <a class="prev" href="#">BACK</a>
+                                         <a class="validator" href="#">NEXT</a>
+                                    </div>
+                                </div>
                             </li>
                            <li class="accordion-item">
                                 <div class="header">More Details</div>

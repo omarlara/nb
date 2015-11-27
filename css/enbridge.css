@@ -3,6 +3,7 @@
 /*Borders*/
 /*Times*/
 /*Opacity*/
+/*Fonts*/
 .enbridge-content-container * {
   -webkit-box-sizing: border-box !important;
   -moz-box-sizing: border-box !important;
@@ -629,10 +630,20 @@
   margin-left: 5%; }
   .enbridge-content-container .Features p.checked::before {
     content: url("img/checked_03.png"); }
-.enbridge-content-container .calendar .ui-datepicker-prev {
-  float: left; }
+.enbridge-content-container .calendar .ui-datepicker-prev,
 .enbridge-content-container .calendar .ui-datepicker-next {
-  float: right; }
+  cursor: pointer;
+  float: left;
+  width: 11px;
+  height: 20px;
+  background: url("img/white-arrow-left.svg") no-repeat 0 0; }
+  .enbridge-content-container .calendar .ui-datepicker-prev span,
+  .enbridge-content-container .calendar .ui-datepicker-next span {
+    display: none; }
+.enbridge-content-container .calendar .ui-datepicker-next {
+  float: right;
+  background-image: url("img/white-arrow.svg");
+  background-position-x: -5px; }
 .enbridge-content-container .calendar .ui-datepicker-title {
   text-align: center; }
 .enbridge-content-container .calendar .ui-datepicker-calendar {
@@ -967,5 +978,49 @@
 @media (min-width: 1201px) {
   .enbridge-content-container .bg-hidden {
     display: none; } }
+
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: .3; }
+
+.ui-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  outline: 0;
+  margin: 0 auto;
+  border: 1px solid #DEDFE4;
+  background: #fff; }
+  .ui-dialog * {
+    font-family: Arial, sans-serif;
+    font-size: 14px; }
+  .ui-dialog .ui-dialog-titlebar {
+    margin-bottom: 20px; }
+  .ui-dialog .ui-dialog-title {
+    font-size: 24px;
+    color: #c8102e;
+    font-family: Arial, sans-serif; }
+  .ui-dialog .ui-dialog-titlebar-close {
+    width: 23px;
+    height: 23px;
+    background: url("img/close.svg") no-repeat 0 0;
+    float: right;
+    margin: -10px -10px 0 0; }
+    .ui-dialog .ui-dialog-titlebar-close span {
+      display: none; }
+  .ui-dialog .accordion-footer {
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0; }
+    .ui-dialog .accordion-footer .btn {
+      display: inline-block; }
+      .ui-dialog .accordion-footer .btn:first-child + .btn + .btn {
+        float: right; }
 
 /*# sourceMappingURL=enbridge.css.map */

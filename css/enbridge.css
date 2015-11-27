@@ -421,6 +421,21 @@
       height: 20px;
       position: relative;
       top: 4px; }
+  .enbridge-content-container .enbridge-btn.small-button-arrow, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator {
+    position: static !important;
+    padding: 5%;
+    font-size: 10px; }
+    .enbridge-content-container .enbridge-btn.small-button-arrow:after, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      margin-left: 2px;
+      background: url("img/white-arrow.svg") no-repeat transparent;
+      background-size: 100% auto;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 4px; }
   .enbridge-content-container .enbridge-btn:hover, .enbridge-content-container .accordion .accordion-item .content .validator:hover, .enbridge-content-container .enbridge-btn:active, .enbridge-content-container .accordion .accordion-item .content .validator:active {
     text-decoration: none; }
 .enbridge-content-container .tile {
@@ -707,6 +722,164 @@
     color: #636373;
     font-size: 16px;
     line-height: 1.4; }
+.enbridge-content-container .container-thankyou {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 30px; }
+  .enbridge-content-container .container-thankyou .title {
+    font-size: 24px;
+    color: #636373; }
+  .enbridge-content-container .container-thankyou .text-info p {
+    color: #636373;
+    font-size: 16px; }
+  .enbridge-content-container .container-thankyou .tiles {
+    overflow: hidden;
+    margin-bottom: 30px; }
+    .enbridge-content-container .container-thankyou .tiles .enbridge-btn, .enbridge-content-container .container-thankyou .tiles .accordion .accordion-item .content .validator, .enbridge-content-container .accordion .accordion-item .content .container-thankyou .tiles .validator {
+      text-transform: inherit;
+      font-size: 14px; }
+    .enbridge-content-container .container-thankyou .tiles > .col.md6:first-child {
+      padding-left: 0;
+      padding-right: 30px; }
+    .enbridge-content-container .container-thankyou .tiles .tile {
+      border: 1px solid #ccc;
+      min-height: 410px; }
+    .enbridge-content-container .container-thankyou .tiles .green {
+      background-image: none; }
+      .enbridge-content-container .container-thankyou .tiles .green .button-container {
+        padding: 0% 3% 7% 4%; }
+      .enbridge-content-container .container-thankyou .tiles .green .black {
+        padding: 6px 10px;
+        border-radius: 0px;
+        font-size: 13px;
+        font-weight: lighter; }
+        .enbridge-content-container .container-thankyou .tiles .green .black:after {
+          display: block;
+          float: right;
+          padding: 0%;
+          margin: -2%; }
+      .enbridge-content-container .container-thankyou .tiles .green .text {
+        padding: 4% 2% 0% 7%; }
+      .enbridge-content-container .container-thankyou .tiles .green h1 {
+        font-size: 24px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .tiles .green p {
+        color: #4c4d4e;
+        font-size: 18px; }
+      .enbridge-content-container .container-thankyou .tiles .green img {
+        width: 100%;
+        margin-top: 0%;
+        position: absolute; }
+    .enbridge-content-container .container-thankyou .tiles .girl-image {
+      background-image: url("img/summ01.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 174px; }
+    .enbridge-content-container .container-thankyou .tiles .generic {
+      background-color: #fff;
+      min-height: 410px;
+      padding: 0%; }
+      .enbridge-content-container .container-thankyou .tiles .generic .button-container {
+        padding: 0% 4% 0% 3%; }
+      .enbridge-content-container .container-thankyou .tiles .generic .content-generic {
+        padding: 3% 0% 4% 8%; }
+      .enbridge-content-container .container-thankyou .tiles .generic .blue {
+        padding: 10px 4% 10px 4%;
+        width: 100%;
+        border-radius: 0px; }
+        .enbridge-content-container .container-thankyou .tiles .generic .blue:after {
+          display: block;
+          float: right;
+          padding: 0%;
+          margin: -1% 2% 0% 0%;
+          background-image: url("img/yellow-arrow.svg"); }
+      .enbridge-content-container .container-thankyou .tiles .generic .background {
+        background-image: url("img/summ02.png");
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .enbridge-content-container .container-thankyou .tiles .generic h1 {
+        color: #ffc038;
+        font-size: 24px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .tiles .generic p {
+        font-size: 16px;
+        text-align: left; }
+  .enbridge-content-container .container-thankyou .text-container {
+    margin-top: 30px;
+    overflow: hidden;
+    margin-bottom: 30px; }
+    .enbridge-content-container .container-thankyou .text-container p {
+      font-size: 14px;
+      margin-top: 2%; }
+    .enbridge-content-container .container-thankyou .text-container .text {
+      border-radius: 4px;
+      background-color: #dcd5cb;
+      color: #636373;
+      padding: 5% 5% 1% 5%; }
+      .enbridge-content-container .container-thankyou .text-container .text .text-title {
+        font-size: 22px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .text-container .text ul {
+        padding: 0% 0% 0% 3%; }
+        .enbridge-content-container .container-thankyou .text-container .text ul li {
+          margin-bottom: 3%; }
+  .enbridge-content-container .container-thankyou .info-content {
+    color: #7d7d8a; }
+    .enbridge-content-container .container-thankyou .info-content .info {
+      padding: 4%;
+      border: 1px solid #ccc;
+      border-radius: 4px; }
+      .enbridge-content-container .container-thankyou .info-content .info .text-title {
+        font-size: 18px;
+        font-weight: 100; }
+      .enbridge-content-container .container-thankyou .info-content .info .final-message {
+        margin-top: 13%;
+        font-size: 18px;
+        font-weight: 500; }
+      .enbridge-content-container .container-thankyou .info-content .info button.like {
+        margin-right: 8%; }
+      .enbridge-content-container .container-thankyou .info-content .info p {
+        font-size: 14px;
+        font-weight: inherit; }
+        .enbridge-content-container .container-thankyou .info-content .info p.big {
+          font-size: 18px; }
+      .enbridge-content-container .container-thankyou .info-content .info a {
+        font-size: 14px;
+        color: #1b8ac0;
+        text-decoration: none;
+        font-weight: 100; }
+    .enbridge-content-container .container-thankyou .info-content .improve textarea {
+      width: 100%;
+      border-radius: 4px; }
+    .enbridge-content-container .container-thankyou .info-content .improve button.green {
+      float: right;
+      padding: 9px 4% 9px 4%;
+      font-weight: 400;
+      font-size: 14px; }
+    .enbridge-content-container .container-thankyou .info-content .did-you-know {
+      margin-top: 5%; }
+      .enbridge-content-container .container-thankyou .info-content .did-you-know p {
+        margin-top: 5%;
+        font-size: 14px; }
+      .enbridge-content-container .container-thankyou .info-content .did-you-know a {
+        font-size: 14px;
+        color: #1b8ac0;
+        text-decoration: none;
+        font-weight: 100;
+        float: right; }
+      .enbridge-content-container .container-thankyou .info-content .did-you-know .title {
+        font-size: 18px;
+        font-weight: 400; }
+        .enbridge-content-container .container-thankyou .info-content .did-you-know .title:before {
+          content: url("img/icon-yellow.png");
+          display: block;
+          float: left;
+          position: relative;
+          top: -7px;
+          right: 4px;
+          bottom: 0px; }
 .enbridge-content-container .accordion {
   list-style: none;
   margin: 0;
@@ -756,6 +929,76 @@
       cursor: pointer; }
     .enbridge-content-container .accordion .accordion-item .hide-flow + .enbridge-dropdown {
       display: none; }
+.enbridge-content-container .content {
+  height: 800px; }
+.enbridge-content-container .margin {
+  margin-bottom: 5px; }
+.enbridge-content-container .no-padding {
+  padding: 0% !important; }
+.enbridge-content-container .form1 {
+  background-color: #ddd6cc;
+  border-radius: 4px;
+  height: 81px;
+  padding-left: 0%;
+  padding: 3% 0% 0% 0%; }
+  .enbridge-content-container .form1 .labelinfo {
+    padding-left: 0% !important;
+    padding-top: 3%; }
+  .enbridge-content-container .form1 .green {
+    padding: 14%;
+    border-radius: 100%;
+    width: 100%;
+    height: 49px; }
+  .enbridge-content-container .form1 .header {
+    background: #fff; }
+.enbridge-content-container .form2 {
+  border-radius: 4px;
+  height: 81px;
+  padding-left: 0%;
+  padding: 3% 0% 0% 0%;
+  background-color: #ddd6cc; }
+  .enbridge-content-container .form2 .question {
+    padding: 3%; }
+  .enbridge-content-container .form2 .address {
+    font-weight: 700; }
+  .enbridge-content-container .form2 .buttons {
+    padding: 2% 0% 0% 0% !important; }
+  .enbridge-content-container .form2 .dawn {
+    background-color: #a6a199;
+    width: 45%; }
+  .enbridge-content-container .form2 .green {
+    width: 45%; }
+.enbridge-content-container .form3 {
+  border-radius: 4px;
+  height: 220px;
+  padding-left: 0%;
+  padding: 3% 0% 0% 0%; }
+  .enbridge-content-container .form3 .address {
+    background-color: #ddd6cc;
+    height: 70px;
+    padding: 5%;
+    font-weight: 700; }
+  .enbridge-content-container .form3 .inputs {
+    margin-top: 5%; }
+  .enbridge-content-container .form3 .checks {
+    margin-top: 4%; }
+.enbridge-content-container .form4 {
+  border-radius: 4px;
+  height: 230px;
+  padding-left: 0%;
+  padding: 3% 0% 0% 0%; }
+  .enbridge-content-container .form4 .questionrows input[type="text"] {
+    width: 100%;
+    padding-left: 0% !important;
+    float: right; }
+  .enbridge-content-container .form4 .questionrows .question {
+    margin-right: 2%; }
+  .enbridge-content-container .form4 .questionrows label {
+    width: 100%;
+    text-align: center;
+    padding: 0% 27% 0% 0%; }
+  .enbridge-content-container .form4 .questionrows .address {
+    padding: 6% 0% 0% 0%; }
 .enbridge-content-container .enbridge-container {
   display: block; }
   .enbridge-content-container .enbridge-container .row .col.xs1 {

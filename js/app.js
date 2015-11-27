@@ -16,10 +16,13 @@
             var $element = $(this.source),
                 elemenetNodes = this.source.children || [],
                 nodes = [],
-                element = '';
+                element = '',
+                name = '';
 
             if(!elemenetNodes.length)
                 return;
+
+            name = elemenetNodes[0].text || '';
 
             for(var i = 0, size = elemenetNodes.length; i < size; i++) {
                 var temp = '<li class="list-item"><input type="hidden" value="'+
@@ -27,9 +30,11 @@
                 nodes.push(temp);
             }
 
+
+
             element = '<div class="enbridge-dropdown enbridge-dropdown">' +
                       '<input type="hidden" class="result">' +
-                      '<div class="header"><span class="selected">Select an option</span><span class="indicator"></span></div><ul class="list-items">' +
+                      '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
                           nodes.join('') +
                       '</ul></div>';
 
@@ -151,6 +156,46 @@
 
     /*Common*/
 
+    /*Success Zip*/
+    $('.new-adress').change(function() {
+        var $this = $(this),
+            currentVal = $this.val(),
+            container = $this.attr('data-content'),
+            radioContent = [];
+
+        $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+            function(resp) {
+                if (resp && resp.result) {
+                    var containerEl = container.replace('#','');
+                    $this
+                        .addClass('success-field')
+                        .removeClass('input-error');
+
+                    for(var i = 0, size = resp.elements.length; i< size; i +=1) {
+                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent"><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
+                        radioContent.push(chain);
+                    }
+
+                    $(container).html(radioContent.join(''));
+
+                     $(container).find('input[type="radio"]').bind('click', function() {
+                        var name = $(this).attr('name') || '';
+
+                        $('input[name="' + name + '"]').removeClass('input-success input-error');
+                    });
+
+
+                } else {
+                    $this
+                        .removeClass('input-success success-field')
+                        .addClass('input-error');
+                }
+
+            },"json");
+
+    });
+
+
     /*Accordion*/
 
     (function() {
@@ -159,10 +204,15 @@
             var error = false,
                 radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
                 select = $form.find('.enbridge-select').removeClass('input-error'),
-                zipTool = $form.find('.zip-code-tool');
+                zipTool = $form.find('.zip-code-tool').removeClass('success-field'),
+                newAddress = $form.find('.new-adress');
 
 
             for (var i = radio.length - 1; i >= 0; i--) {
+                if (!radio[i].className) {
+                   radio[i] .className = '';
+                }
+
                 if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
                     radio[i].className += ' input-error';
                 } else {
@@ -183,6 +233,12 @@
 
             for (var i = zipTool.length - 1; i >= 0; i--) {
                 if (!$(zipTool[i]).hasClass('success-zip') ) {
+                    error = true;
+                }
+            }
+
+            for (var i = newAddress.length - 1; i >= 0; i--) {
+                if (!$(newAddress[i]).hasClass('success-field') ) {
                     error = true;
                 }
             }
@@ -231,6 +287,22 @@
 
         });
 
+        $('.steps .next-step').bind('click', function() {
+            var $current = $(this).closest('.accordion-item'),
+                $currentStep = $(this).closest('.steps'),
+                nextStep = $(this).attr('data-next-step');
+
+            if(!validator($current.find('.enbridge-form'))) {
+                $currentStep.
+                    removeClass('active-step')
+                        .next();
+
+                $(nextStep)
+                    .addClass('active-step')
+                        .find('input[type="radio"]').attr('required', true);
+            }
+        });
+
         /*Flows*/
         $('input[name="steps"]').change( function() {
             if(this.value === 'stop') {
@@ -244,6 +316,36 @@
             }
         });
 
+        $('#get-adress').bind('click', function() {
+            var $this = $(this);
+
+            $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+                function(resp) {
+                    if (resp && resp.result) {
+                        var numbers = [],
+                            container = $this.attr('data-number-dropdown');
+
+                        $(container).html('');
+
+                        for(var i = 0, size = resp.numbers.length; i < size; i++) {
+                            numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>')
+                        }
+
+                        $('<select class="enbridge-select" id="current-adress" required>' + numbers.join('') + '</select>')
+                            .appendTo(container)
+                            .enbridgeDropdown();
+
+                    } else {
+                        $this
+                            .removeClass('input-success success-field')
+                            .addClass('input-error');
+                    }
+
+                },"json");
+        });
+
+        /*End Flow*/
+
 
         /*Forms*/
         $('.enbridge-form input[type="radio"]').bind('click', function() {
@@ -252,6 +354,8 @@
 
             $('input[name="' + name + '"]').removeClass('input-success input-error');
         });
+
+
 
 
     })()

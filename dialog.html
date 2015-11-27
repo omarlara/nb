@@ -6,21 +6,32 @@
 	<link rel="stylesheet" href="css/enbridge.css">
 </head>
 <body>
-	<div class="enbridge-content-container">
-		<div class="dialog" title="Basic dialog">
-		  <p>
-			  This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
-		  </p>
+	<div class="enbridge-content-container" id="MovingOut">
+		<div class="dialog" title="Moving Out">
+			<div class="content-steps">
+				<div class="accordion-step">
+					<div class="accordion-content">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas maxime eaque recusandae est. Rem eligendi blanditiis impedit magni quia neque obcaecati fugiat at molestiae nemo. Minus in saepe sed facilis.
+					</div>	
+				</div>
+			</div>
 		</div>
 	</div>
 
 <script src="js/jquery-1.4.2.min.js"></script>
 <script src="js/jquery-ui-1.8.16.custom.min.js"></script>
 <script src="js/jquery.ui.dialog.js"></script>
-
 <script>
-	jQuery(function(){ 
-	    jQuery(".dialog").dialog();
+	$(function(){ 
+		var  button = $("body");
+	    $(".dialog").dialog({
+	    	resizable: false,
+			height:240,
+			width:720,
+			modal: true,
+			height:440
+			
+	    });
 	});
 </script>
 </body>

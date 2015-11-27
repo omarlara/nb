@@ -3,7 +3,10 @@ bower_components
 .sass-cache
 temp
 
-*.css
-*.map
-**.css
-**.map
+/css/enbridge.css
+/css/enbridge.css.map
+/css/enbridge.min.css
+/css/documentation.css.map
+/css/documentation.css
+/css/documentation.min.css
+

@@ -16,10 +16,13 @@
             var $element = $(this.source),
                 elemenetNodes = this.source.children || [],
                 nodes = [],
-                element = '';
+                element = '',
+                name = '';
 
             if(!elemenetNodes.length)
                 return;
+
+            name = elemenetNodes[0].text || '';
 
             for(var i = 0, size = elemenetNodes.length; i < size; i++) {
                 var temp = '<li class="list-item"><input type="hidden" value="'+
@@ -27,9 +30,11 @@
                 nodes.push(temp);
             }
 
+
+
             element = '<div class="enbridge-dropdown enbridge-dropdown">' +
                       '<input type="hidden" class="result">' +
-                      '<div class="header"><span class="selected">Select an option</span><span class="indicator"></span></div><ul class="list-items">' +
+                      '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
                           nodes.join('') +
                       '</ul></div>';
 
@@ -284,16 +289,20 @@
 
         $('.steps .next-step').bind('click', function() {
             var $current = $(this).closest('.accordion-item'),
-                $currentStep = $(this).closest('.steps');
+                $currentStep = $(this).closest('.steps'),
+                nextStep = $(this).attr('data-next-step');
 
             if(!validator($current.find('.enbridge-form'))) {
                 $currentStep.
                     removeClass('active-step')
-                        .next()
-                            .addClass('active-step')
-                                .find('input[type="radio"]').attr('required', true);
+                        .next();
+
+                $(nextStep)
+                    .addClass('active-step')
+                        .find('input[type="radio"]').attr('required', true);
             }
         });
+
         /*Flows*/
         $('input[name="steps"]').change( function() {
             if(this.value === 'stop') {
@@ -307,7 +316,7 @@
             }
         });
 
-        $('#get-adreess').bind('click', function() {
+        $('#get-adress').bind('click', function() {
             var $this = $(this);
 
             $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
@@ -322,28 +331,9 @@
                             numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>')
                         }
 
-                        $('<select class="enbridge-select" id="current-adress">' + numbers.join('') + '</select>')
+                        $('<select class="enbridge-select" id="current-adress" required>' + numbers.join('') + '</select>')
                             .appendTo(container)
                             .enbridgeDropdown();
-
-                        /*var containerEl = container.replace('#','');
-                        $this
-                            .addClass('success-field')
-                            .removeClass('input-error');
-
-                        for(var i = 0, size = resp.elements.length; i< size; i +=1) {
-                            var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent"><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
-                            radioContent.push(chain);
-                        }
-
-                        $(container).html(radioContent.join(''));
-
-                         $(container).find('input[type="radio"]').bind('click', function() {
-                            var name = $(this).attr('name') || '';
-
-                            $('input[name="' + name + '"]').removeClass('input-success input-error');
-                        });*/
-
 
                     } else {
                         $this

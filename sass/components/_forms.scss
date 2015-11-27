@@ -1,9 +1,11 @@
 .enbridge-form {
 
     label:not(.fake-input),
-    p{
+    p,
+    span{
 
         font-size: 12px;
+        vertical-align: top;
         &.field {
             margin: 24px 0;
         }

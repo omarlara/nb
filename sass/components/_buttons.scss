@@ -35,6 +35,15 @@
         }
     }
 
+    &.dawn {
+        background-color: $dawn;
+
+        &:hover,
+        &:active {
+            background-color: $dawn;
+        }
+    }
+
     &.black {
         background-color: $mako;
         background: #5D656C;

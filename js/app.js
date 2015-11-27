@@ -177,9 +177,12 @@
                     }
 
                     $(container).html(radioContent.join(''));
+                    /*Select container*/
+                    $(container).find('input[type="radio"]').bind('click', function() {
+                        var name = $(this).attr('name') || '',
+                            containerBox = (this.value)?'#select_your_adress': '#select_your_adress_form';
 
-                     $(container).find('input[type="radio"]').bind('click', function() {
-                        var name = $(this).attr('name') || '';
+                        $('#get-adress').attr('data-next-step', containerBox);
 
                         $('input[name="' + name + '"]').removeClass('input-success input-error');
                     });
@@ -194,7 +197,6 @@
             },"json");
 
     });
-
 
     /*Accordion*/
 
@@ -216,13 +218,12 @@
                 if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
                     radio[i].className += ' input-error';
                 } else {
-                    var name = radio[i].name,
-                        elements = document.getElementsByName(name);
+                    var name = radio[i].name;
 
-                    for(var i = elements.length - 1; i >= 0; i-- ) {
-                        radio[i].className += ' input-success';
-                        radio[i].className = radio[i].className.replace('input-error', '');
-                    }
+                    $('input[name="' + name +'"]')
+                        .removeClass('input-error')
+                        .addClass('input-success');
+
                 }
 
             }
@@ -331,7 +332,7 @@
                             numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>')
                         }
 
-                        $('<select class="enbridge-select" id="current-adress" required>' + numbers.join('') + '</select>')
+                        $('<select class="enbridge-select" id="current-number" required>' + numbers.join('') + '</select>')
                             .appendTo(container)
                             .enbridgeDropdown();
 
@@ -344,13 +345,36 @@
                 },"json");
         });
 
+        $('#confirm-adress-button').bind('click', function() {
+            var city = $('[name="select-stret-container"]:checked').val() || '',
+                numberHouse =$('#current-number').val() || '',
+                zipCode = $('#code-validator').val();
+
+            $('#adress-conformation').text(numberHouse + ' ' + city + ' ' + zipCode);
+        });
+
+        $('#info-confirmation').bind('click', function(e) {
+            e.preventDefault();
+            $('#information-acceptance')
+                .hide()
+                    .closest('.code-box')
+                        .width(280);
+            $('#hide-message').
+                hide()
+                    .closest('col')
+                        .addClass('xs5')
+                        .removeClass('xs12');
+            $('#property-info').show();
+            $('#step-adress').removeClass('hidden');
+            $('input[name="house-property"]').attr('required');
+        })
+
         /*End Flow*/
 
 
         /*Forms*/
         $('.enbridge-form input[type="radio"]').bind('click', function() {
             var name = $(this).attr('name') || '';
-
 
             $('input[name="' + name + '"]').removeClass('input-success input-error');
         });

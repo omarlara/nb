@@ -1,0 +1,251 @@
+.container-thankyou {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding-top: 3%;
+
+    .title {
+        font-size: 24px;
+        color: $mid-gray;
+        margin-left: 2%;
+    }
+
+    .text-info {
+        p {
+            color: $mid-gray;
+            font-size: 16px;
+        }
+    }
+
+    .tiles {
+        float: right;
+        overflow: hidden;
+        margin-bottom: 30px;
+
+        .enbridge-btn {
+            text-transform: inherit;
+            font-size: 14px;
+        }
+
+        .tile {
+            border: 1px solid #ccc;
+            min-height: 410px;
+        }
+
+        .green {
+            background-image: none;
+
+            .button-container {
+                padding: 0% 3% 7% 4%;
+            }
+
+            .black {
+                padding: 10px 4% 10px 4%;
+                border-radius: 0px;
+
+                &:after {
+                    display: block;
+                    float: right;
+                    padding: 0%;
+                    margin: -2%;
+                }
+            }
+
+            .text {
+                padding: 4% 2% 0% 7%;
+            }
+
+            h1 {
+                font-size: 24px;
+                font-weight: 100;
+            }
+
+            p {
+                color: $abbey;
+                font-size: 18px;
+            }
+
+            img {
+                width: 100%;
+                width: 100%;
+                height: 177px;
+                margin-top: 0%;
+                position: absolute;
+            }
+        }
+
+        .girl-image {
+            background-image: url("img/summ01.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 174px;
+        }
+
+        .generic {
+            background-color: #fff;
+            min-height: 410px;
+            padding: 0%;
+
+            .button-container {
+                padding: 0% 4% 0% 3%;
+            }
+
+            .content-generic {
+                padding: 3% 0% 4% 8%;
+            }
+
+            .blue {
+                padding: 10px 4% 10px 4%;
+                width: 100%;
+                border-radius: 0px;
+
+                &:after {
+                    display: block;
+                    float: right;
+                    padding: 0%;
+                    margin: -1% 2% 0% 0%;
+                    background-image: url("img/yellow-arrow.svg");
+                }
+            }
+
+            .background {
+                background-image: url("img/summ02.png");
+                height: 200px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            h1 {
+                color: $sunglow;
+                font-size: 24px;
+                font-weight: 100;
+            }
+
+            p {
+                font-size: 16px;
+                text-align: left;
+            }
+        }
+    }
+
+    .text-container {
+        margin-top: 30px;
+        padding: 0% 2% 0% 2%;
+        overflow: hidden;
+        margin-bottom: 30px;
+
+        p {
+            font-size: 14px;
+            margin-top: 2%;
+        }
+
+        .text {
+            border-radius: 4px;
+            background-color: $swirl;
+            color: $mid-gray;
+            padding: 5% 5% 1% 5%;
+
+            .text-title {
+                font-size: 22px;
+                font-weight: 100;
+            }
+
+            ul {
+                padding: 0% 0% 0% 3%;
+
+                li {
+                    margin-bottom: 3%;
+                }
+            }
+        }
+    }
+
+    .info-content {
+        margin: 0% 0% 2% 0%;
+        padding: 0% 2% 2% 2%;
+        color: $jumbo;
+
+        .info {
+            padding: 4%;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+
+            .text-title {
+                font-size: 18px;
+                font-weight: 100;
+            }
+
+            .final-message {
+                margin-top: 13%;
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            button.like {
+                margin-right: 8%;
+            }
+
+            p {
+                font-size: 14px;
+                font-weight: inherit;
+
+                &.big {
+                    font-size: 18px;
+                }
+            }
+
+            a {
+                font-size: 14px;
+                color: $eastern-blue;
+                text-decoration: none;
+                font-weight: 100;
+            }
+        }
+
+        .improve {
+            textarea {
+                width: 100%;
+                border-radius: 7px;
+            }
+
+            button.green {
+                float: right;
+                padding: 9px 4% 9px 4%;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+
+        .did-you-know {
+            margin-top: 5%;
+
+            p {
+                margin-top: 5%;
+                font-size: 14px;
+            }
+
+            a {
+                font-size: 14px;
+                color: $eastern-blue;
+                text-decoration: none;
+                font-weight: 100;
+                float: right;
+            }
+
+            .title {
+                font-size: 18px;
+                font-weight: 400;
+
+                &:before {
+                    content: url("img/icon-yellow.png");
+                    display: block;
+                    float: left;
+                    position: relative;
+                    top: -7px;
+                    right: 4px;
+                    bottom: 0px;
+                }
+            }
+        }
+    }
+}

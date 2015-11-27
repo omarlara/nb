@@ -6,6 +6,7 @@
     .title {
         font-size: 24px;
         color: $mid-gray;
+        margin-left: 2%;
     }
 
     .text-info {
@@ -16,8 +17,14 @@
     }
 
     .tiles {
-        padding-right: 2%;
+        float: right;
         overflow: hidden;
+        margin-bottom: 30px;
+
+        .enbridge-btn {
+            text-transform: inherit;
+            font-size: 14px;
+        }
 
         .tile {
             border: 1px solid #ccc;
@@ -27,8 +34,24 @@
         .green {
             background-image: none;
 
+            .button-container {
+                padding: 0% 3% 7% 4%;
+            }
+
+            .black {
+                padding: 10px 4% 10px 4%;
+                border-radius: 0px;
+
+                &:after {
+                    display: block;
+                    float: right;
+                    padding: 0%;
+                    margin: -2%;
+                }
+            }
+
             .text {
-                padding: 2%;
+                padding: 4% 2% 0% 7%;
             }
 
             h1 {
@@ -44,7 +67,9 @@
             img {
                 width: 100%;
                 width: 100%;
-                height: 181px;
+                height: 177px;
+                margin-top: 0%;
+                position: absolute;
             }
         }
 
@@ -59,6 +84,29 @@
         .generic {
             background-color: #fff;
             min-height: 410px;
+            padding: 0%;
+
+            .button-container {
+                padding: 0% 4% 0% 3%;
+            }
+
+            .content-generic {
+                padding: 3% 0% 4% 8%;
+            }
+
+            .blue {
+                padding: 10px 4% 10px 4%;
+                width: 100%;
+                border-radius: 0px;
+
+                &:after {
+                    display: block;
+                    float: right;
+                    padding: 0%;
+                    margin: -1% 2% 0% 0%;
+                    background-image: url("img/yellow-arrow.svg");
+                }
+            }
 
             .background {
                 background-image: url("img/summ02.png");
@@ -81,10 +129,13 @@
     }
 
     .text-container {
-        margin-top: 5%;
+        margin-top: 30px;
+        padding: 0% 2% 0% 2%;
+        overflow: hidden;
+        margin-bottom: 30px;
 
         p {
-            font-size: 19px;
+            font-size: 14px;
             margin-top: 2%;
         }
 
@@ -95,50 +146,56 @@
             padding: 5% 5% 1% 5%;
 
             .text-title {
-                font-size: 27px;
+                font-size: 22px;
                 font-weight: 100;
             }
 
-            ul li {
-                margin-bottom: 3%;
+            ul {
+                padding: 0% 0% 0% 3%;
+
+                li {
+                    margin-bottom: 3%;
+                }
             }
         }
     }
 
     .info-content {
-        margin: 7% 0% 2% 0%;
-        border: 1px solid #ccc;
-        padding: 5%;
+        margin: 0% 0% 2% 0%;
+        padding: 0% 2% 2% 2%;
         color: $jumbo;
 
         .info {
+            padding: 4%;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+
             .text-title {
-                font-size: 23px;
+                font-size: 18px;
                 font-weight: 100;
             }
-			
-			.final-message {
+
+            .final-message {
                 margin-top: 13%;
-                font-size: 26px;
+                font-size: 18px;
                 font-weight: 500;
             }
-            
 
             button.like {
                 margin-right: 8%;
             }
 
             p {
-                font-size: 19px;
+                font-size: 14px;
                 font-weight: inherit;
 
                 &.big {
-                    font-size: 26px;
+                    font-size: 18px;
                 }
             }
 
             a {
-                font-size: 19px;
+                font-size: 14px;
                 color: $eastern-blue;
                 text-decoration: none;
                 font-weight: 100;
@@ -148,10 +205,14 @@
         .improve {
             textarea {
                 width: 100%;
+                border-radius: 7px;
             }
 
             button.green {
                 float: right;
+                padding: 9px 4% 9px 4%;
+                font-weight: 400;
+                font-size: 14px;
             }
         }
 
@@ -160,19 +221,21 @@
 
             p {
                 margin-top: 5%;
+                font-size: 14px;
             }
 
             a {
-                font-size: 19px;
+                font-size: 14px;
                 color: $eastern-blue;
                 text-decoration: none;
                 font-weight: 100;
                 float: right;
             }
 
-            
-
             .title {
+                font-size: 18px;
+                font-weight: 400;
+
                 &:before {
                     content: url("img/icon-yellow.png");
                     display: block;

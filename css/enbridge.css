@@ -278,6 +278,7 @@
     width: 100%;
     padding: 14px;
     position: relative;
+    background-color: white;
     cursor: pointer; }
     .enbridge-content-container .enbridge-dropdown .header .indicator {
       padding: 14px;
@@ -970,6 +971,8 @@
     margin-bottom: 15px; }
   .enbridge-content-container .code-box input[type="radio"]:checked + .fake-input:after {
     background-color: #92b051; }
+.enbridge-content-container #current-adress + .enbridge-dropdown {
+  width: 200px; }
 .enbridge-content-container .content {
   height: 800px; }
 .enbridge-content-container .margin {

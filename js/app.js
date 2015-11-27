@@ -151,6 +151,28 @@
 
     /*Common*/
 
+    /*Success Zip*/
+    $('.new-adress').change(function() {
+        var $this = $(this),
+            currentVal = $this.val();
+
+        $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+            function(resp) {
+                if (resp && resp.result) {
+                    $this
+                        .addClass('input-success success-zip')
+                        .removeClass('input-error');
+                } else {
+                    $this
+                        .removeClass('input-success success-zip')
+                        .addClass('input-error');
+                }
+
+            },"json");
+
+    });
+
+
     /*Accordion*/
 
     (function() {
@@ -159,7 +181,8 @@
             var error = false,
                 radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
                 select = $form.find('.enbridge-select').removeClass('input-error'),
-                zipTool = $form.find('.zip-code-tool');
+                zipTool = $form.find('.zip-code-tool'),
+                newAddress = $form.find('.new-adress');
 
 
             for (var i = radio.length - 1; i >= 0; i--) {
@@ -183,6 +206,12 @@
 
             for (var i = zipTool.length - 1; i >= 0; i--) {
                 if (!$(zipTool[i]).hasClass('success-zip') ) {
+                    error = true;
+                }
+            }
+
+            for (var i = newAddress.length - 1; i >= 0; i--) {
+                if (!$(newAddress[i]).hasClass('success-zip') ) {
                     error = true;
                 }
             }
@@ -231,6 +260,14 @@
 
         });
 
+        $('.steps .next-step').bind('click', function() {
+            var $current = $(this).closest('.accordion-item');
+
+            if(!validator($current.find('.enbridge-form'))) {
+                console.log('Yeeeee')
+            }
+        });
+
         /*Flows*/
         $('input[name="steps"]').change( function() {
             if(this.value === 'stop') {
@@ -252,6 +289,8 @@
 
             $('input[name="' + name + '"]').removeClass('input-success input-error');
         });
+
+
 
 
     })()

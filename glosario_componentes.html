@@ -186,7 +186,7 @@
                     <h3>Accordion</h3>
                     <div class="example">
                         <ul class="accordion">
-                            <li class="accordion-item  active">
+                            <li class="accordion-item processed">
                                 <div class="header">More Details</div>
                                 <div class="content">
                                     <p class="strong">I would like to ...</p>
@@ -235,12 +235,34 @@
                                     </div>
                                     </form>
 
-                                    <a href="" class="validator yellow big-button">NEXt</a>
+                                    <!--a href="" class="validator yellow big-button">NEXt</a-->
+                                    <div class="validator-container">
+                                         <a class="validator" href="#">NEXT</a>
+                                         <!--a class="prev" href="#">BACK</a-->
+                                    </div>
                                 </div>
                             </li>
-                            <li class="accordion-item">
-                                <div class="header">More Details</div>
-                                <div class="content">Content</div>
+                            <li class="accordion-item active">
+                                <div class="header">New Adress</div>
+                                <div class="content">
+                                    <form action="" class="enbridge-form">
+                                        <div class="steps">
+                                            <p class="strong">Please enter your new address:</p>
+
+                                            <div class="code-box">
+                                                <label for="code-validator">Let's start with your postal code:</label>
+                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select">
+                                                <div class="next-step" data-next-step="select_your_street"></div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                    <div class="validator-container">
+                                         <a class="prev" href="#">BACK</a>
+                                         <a class="validator" href="#">NEXT</a>
+                                    </div>
+                                </div>
                             </li>
                            <li class="accordion-item">
                                 <div class="header">More Details</div>

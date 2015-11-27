@@ -1,3 +1,64 @@
+@mixin longformproperties {
+    .questionrows {
+        input[type="text"] {
+            width: 100%;
+            padding-left: 0% !important;
+            float: right;
+        }
+    }
+
+    .question {
+        margin-right: 2%;
+    }
+
+    label {
+        width: 100%;
+        text-align: center;
+        padding: 0% 27% 0% 0%;
+    }
+
+    .address {
+        padding: 6% 0% 0% 0%;
+        margin-right: 15px;
+    }
+
+     .questionrows2 {
+        .info {
+            padding-top: 4%;
+        }
+    }
+
+    .questionrows3 {
+        margin-top: 4%;
+        overflow: hidden;
+
+        label {
+            padding-top: 3%;
+        }
+
+        .labeldiv {
+            width: 30%;
+            margin-top: 0%;
+            position: absolute;
+            padding-top: 8px;
+        }
+
+        .enbridge-dropdown {
+            width: 70%;
+            float: right;
+        }
+    }
+
+}
+
+.content {
+    height: 1400px;
+}
+
+.accordion {
+    width: 720px;
+}
+
 .margin {
     margin-bottom: 5px;
 }
@@ -21,10 +82,15 @@
     .green {
         padding: 14%;
         border-radius: 100%;
-        width: 100%;
+        width: 69%;
         height: 49px;
     }
 
+    .arrow {
+        background-image: url("img/arrow_white.png");
+        background-repeat: no-repeat;
+        background-position: 17px 13px;
+    }
 
     .header {
         background: #fff;
@@ -84,37 +150,27 @@
 
 .form4 {
     border-radius: 4px;
-    height: 230px;
     padding-left: 0%;
     padding: 3% 0% 0% 0%;
 
-    .questionrows {
+   @include longformproperties();
 
-        input[type="text"] {
-            width: 100%;
-            padding-left: 0% !important;
-            float: right;
+   
+    .questionrows4 {
+        overflow: hidden;
+    }
+}
 
-        }
+.form5 {
+    margin-top: 5%;
 
-        .question {
-            margin-right: 2%;
-        }
-
-        label {
-            width: 100%;
-            text-align: center;
-            padding: 0% 27% 0% 0%;
-        }
-
-        .address {
-            padding: 6% 0% 0% 0%;
-        }
+    .questionscontainer {
+        display: none;
     }
 
-    .questionrows2{
-        .info{
-                padding-top: 7%
-        }
-    }
+    @include longformproperties();
+
+    
+
+    
 }

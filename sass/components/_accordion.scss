@@ -161,7 +161,7 @@
                 cursor: auto;
             }
 
-            & + .accordion-item {
+            & + .accordion-item:not(.processed) {
                 >.header {
                     background-color: $my-sin;
                     color: white;
@@ -170,7 +170,6 @@
                 }
             }
         }
-
 
         .hide-flow + .enbridge-dropdown{
             display: none;
@@ -231,11 +230,5 @@
                 background-color: $chelsea-cucumber;
             }
         }
-    }
-}
-
-#current-adress {
-    & + .enbridge-dropdown {
-        width: 200px;
     }
 }

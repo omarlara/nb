@@ -227,7 +227,7 @@
                                         <div class="tool">
                                             <p class="information green">Find out if your new address is serviced by Enbridge</p>
 
-                                            <input type="text" name="zip-tool">
+                                            <input type="text" name="zip-tool" >
                                             <input class="enbridge-btn green big-button submiter" type="submit" value="check">
 
                                         </div>
@@ -280,7 +280,7 @@
                                                     <div class="col"><p>Select yout street</p></div>
                                                     <div class="col" id="data-dropdown"></div>
                                                 </div>
-                                                <div class="next-step" data-next-step="#confirm-adress" id="get-adress"></div>
+                                                <div class="next-step" data-next-step="#confirm-adress" id="confirm-adress-button"></div>
                                             </div>
 
                                         </div>
@@ -290,12 +290,33 @@
 
                                             <div class="code-box container">
                                                 <div class="row">
-                                                    <div class="col"><p>Select yout street</p></div>
-                                                    <div class="col" id="data-dropdown"></div>
+                                                    <div class="col xs7">
+                                                        <span id="hide-message">Is this correct?</span>
+                                                        <span id="adress-conformation" class="strong"></span>
+                                                    </div>
+                                                    <div class="col xs5" id="information-acceptance">
+                                                        <button class="enbridge-btn green" id="info-confirmation">Yes</button>
+                                                        <button class="enbridge-btn dawn" id="info-decline">No</button>
+                                                    </div>
                                                 </div>
-                                                <div class="next-step" data-next-step="#select_your_street" id="confirm-adress-button"></div>
+                                            </div>
+                                            <div id="property-info">
+                                                <input type="radio" id="rent-property" value="rent" name="house-property">
+                                                <label class="fake-input" for="rent-property">
+                                                    I'm renting this property.
+                                                </label>
+                                                <input type="radio" id="buy-property" value="buy" name="house-property">
+                                                <label class="fake-input" for="buy-property">
+                                                    I'm buying this property.
+                                                </label>
+
+                                                <input type="checkbox" id="mailing-adress" value="true">
+                                                <label class="fake-input" for="mailing-adress">My mailing address is different from my service address</label>
                                             </div>
 
+                                        </div>
+                                        <div class="steps" id="select_your_adress_form">
+                                            Form
                                         </div>
 
 
@@ -304,7 +325,7 @@
 
                                     <div class="validator-container">
                                          <a class="prev" href="#">BACK</a>
-                                         <a class="validator" href="#">NEXT</a>
+                                         <a class="validator hidden" href="#" id="step-adress">NEXT</a>
                                     </div>
                                 </div>
                             </li>
@@ -419,7 +440,7 @@
     <script src="js/app.js"></script>
     <script> prettyPrint();</script>
     <script>
-    $(function($){ 
+    $(function($){
         $("#datepicker").datepicker();
     });
   </script>

@@ -5,3 +5,34 @@
     @import "./media/main";
 }
 @import "./components/dialog";
+
+#property-info {
+    display: none;
+    margin: 30px auto;
+    width: 480px;
+}
+
+#mailing-adress + .fake-input {
+    margin-top: 40px;
+}
+
+#information-acceptance {
+    >button {
+        padding-top: 10px;
+        padding-bottom : 10px;
+        width: 80px;
+    }
+}
+
+#current-number {
+    & + .enbridge-dropdown {
+        width: 200px;
+    }
+}
+
+#adress-conformation {
+    display: inline-block;
+    vertical-align: middle;
+    width: 125px;
+}
+

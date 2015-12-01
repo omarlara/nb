@@ -1,0 +1,49 @@
+.tooltip-window {
+    background-color: $athens-gray;
+    position:absolute;
+	display:inherit;
+	width:300px;
+}
+
+.tooltip {
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 0 8px;
+    height: 19px;
+    width: 19px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    font-style: italic;
+    font-family: initial;
+	color: white;
+
+    &:hover + .tooltip-window {
+    	.tooltip-window{display:initial !important 	}
+    }
+
+    &.green {
+        background-color: $chelsea-cucumber;
+    }
+}
+
+.triangle-down{
+    width: 10%;
+    height: 0;    
+    padding-left:10%;
+    padding-bottom: 10%;
+    overflow: hidden;
+}
+.triangle-down:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left:-500px;
+    border-left: 500px solid transparent;
+    border-right: 500px solid transparent;
+    border-bottom: 500px solid #4679BD;
+}

@@ -343,10 +343,11 @@
                     }
 
                 },"json");
+
         });
 
         $('#confirm-adress-button').bind('click', function() {
-            var city = $('[name="select-stret-container"]:checked').val() || '',
+            var city = $('[name="select-street-container"]:checked').val() || '',
                 numberHouse =$('#current-number').val() || '',
                 zipCode = $('#code-validator').val();
 
@@ -364,7 +365,7 @@
                     .closest('col')
                         .addClass('xs5')
                         .removeClass('xs12');
-            $('#property-info').show();
+            $('#property-info, #manual-property-info').show();
             $('#step-adress').removeClass('hidden');
             $('input[name="house-property"]').attr('required');
         })

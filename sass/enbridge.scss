@@ -6,7 +6,8 @@
 }
 @import "./components/dialog";
 
-#property-info {
+#property-info,
+#manual-property-info{
     display: none;
     margin: 30px auto;
     width: 480px;
@@ -36,3 +37,30 @@
     width: 125px;
 }
 
+#misc-info {
+    margin-top: 10px;
+
+    & + .label-info {
+        position: absolute;
+        bottom: -11px;
+        left: 18px;
+    }
+}
+
+#street-number,
+#suffix,
+#misc-info{
+    width: 60px;
+}
+
+#street {
+    width: 220px;
+}
+
+#city-or-town {
+    width: 220px;
+}
+
+#postal-code-input {
+    width: 180px;
+}

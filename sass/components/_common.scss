@@ -105,6 +105,39 @@ h1,h2,h3,h4,h5,h6{
         }
     }
 }
+
+.display-table {
+    display: table;
+    margin-bottom: 28px;
+    padding-left: 7px;
+    padding-right: 7px;
+    .cell {
+        display: table-cell;
+        position: relative;
+        vertical-align: middle;
+        input {
+            margin-bottom: 4px !important;
+        }
+        .label-info {
+            font-size: 10px;
+            display: block !important;
+            text-align: center;
+            margin-bottom: -11px !important;
+        }
+
+        &.first-form-item {
+            width: 108px;
+        }
+        &.second-form-item {
+            width: 89px;
+        }
+
+        .display-table {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .clearfix{
     clear: both;
 }

@@ -253,7 +253,7 @@
 
                                             <div class="code-box">
                                                 <label for="code-validator">Let's start with your postal code:</label>
-                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select-stret-container">
+                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select-street-container">
                                                 <div class="next-step" data-next-step="#select_your_street"></div>
                                             </div>
 
@@ -265,7 +265,7 @@
                                             <div class="code-box container">
                                                 <div class="row">
                                                     <div class="col"><p>Select yout street</p></div>
-                                                    <div class="col" id="select-stret-container"></div>
+                                                    <div class="col" id="select-street-container"></div>
                                                 </div>
                                                 <div class="next-step" data-next-step="#select_your_adress" id="get-adress" data-number-dropdown="#data-dropdown"></div>
                                             </div>
@@ -316,10 +316,79 @@
 
                                         </div>
                                         <div class="steps" id="select_your_adress_form">
-                                            Form
+                                            <p class="strong">Please enter your new address:</p>
+                                            <div class="property-info display-table">
+                                                <span class="cell first-form-item">Street Address:</span>
+                                                <div class="cell">
+                                                    <input type="text" id="street-number">
+                                                    <label for="street-number" class="label-info">Number</label>
+                                                </div>
+                                                <div class="cell">
+                                                    <input type="text" id="suffix">
+                                                    <label for="suffix" class="label-info">Suffix</label>
+                                                </div>
+                                                <div class="cell">
+                                                    <input type="text" id="street">
+                                                    <label for="street" class="label-info">Street</label>
+                                                </div>
+                                                <div class="cell">
+                                                    <input type="text" id="misc-info">
+                                                    <label for="misc-info" class="label-info">Misc. Info<br>(e.g. Unit)</label>
+                                                </div>
+                                            </div>
+                                            <div class="property-info display-table">
+                                                <span class="cell first-form-item">City or Town:</span>
+                                                <div class="cell">
+                                                    <input type="text" id="city-or-town">
+                                                </div>
+                                            </div>
+                                            <div class="property-info display-table">
+                                                <div class="cell">
+                                                    <div class="display-table">
+                                                        <span class="cell first-form-item">Country:</span>
+                                                        <div class="cell">
+                                                            <select class="enbridge-select">
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="United States">United States</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cell">
+                                                    <div class="display-table">
+                                                        <span class="cell second-form-item">Province:</span>
+                                                        <div class="cell">
+                                                            <select class="enbridge-select">
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="United States">United States</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="property-info display-table">
+                                                <span class="cell first-form-item">Postal Code:</span>
+                                                <div class="cell">
+                                                    <input type="text" id="postal-code-input">
+                                                </div>
+                                            </div>
+
+                                            <input type="radio" id="rent-property-alternative" value="rent" name="house-property-alternative">
+                                            <label class="fake-input" for="rent-property-alternative">
+                                                I'm renting this property.
+                                            </label>
+                                            <input type="radio" id="buy-property-alternative" value="buy" name="house-property-alternative">
+                                            <label class="fake-input" for="buy-property-alternative">
+                                                I'm buying this property.
+                                            </label>
+
+                                            <input type="checkbox" id="mailing-adress-alternative" value="true">
+                                            <label class="fake-input" for="mailing-adress-alternative">My mailing address is different from my service address</label>
                                         </div>
 
+                                        <div id="manual-property-info">
 
+                                        </div>
 
                                     </form>
 

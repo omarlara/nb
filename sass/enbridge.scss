@@ -6,8 +6,16 @@
 }
 @import "./components/dialog";
 
-#property-info,
-#manual-property-info{
+#adress-conformation {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#manual-property-info {
+    display: none;
+}
+
+#property-info {
     display: none;
     margin: 30px auto;
     width: 480px;
@@ -37,7 +45,8 @@
     width: 125px;
 }
 
-#misc-info {
+#misc-info,
+#misc-info-alternative {
     margin-top: 10px;
 
     & + .label-info {
@@ -49,18 +58,34 @@
 
 #street-number,
 #suffix,
-#misc-info{
+#misc-info,
+#street-number-alternative,
+#suffix-alternative,
+#misc-info-alternative {
     width: 60px;
 }
 
-#street {
+#street,
+street--alternative{
     width: 220px;
 }
 
-#city-or-town {
+#city-or-town,
+#city-or-town-alternative{
     width: 220px;
 }
 
-#postal-code-input {
+#postal-code-input,
+#postal-code-input--alternative{
     width: 180px;
+}
+
+#mailing-adress-alternative + .fake-input{
+    margin-top: 30px;
+}
+
+#select_your_adress_form {
+    .fake-input {
+        margin-left: 100px;
+    }
 }

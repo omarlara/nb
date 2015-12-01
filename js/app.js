@@ -262,6 +262,18 @@
             return error;
         };
 
+        var dateValidator = function ($start, $end) {
+            var error = false,
+                init = $start.val(),
+                end = $end.val();
+
+            if($start.attr('required') && $end.attr('required')) {
+                error = true;
+            }
+
+            return error;
+        }
+
         $('.accordion .accordion-item >.header').bind('click', function(event) {
             event.preventDefault();
 
@@ -282,9 +294,11 @@
         $('.accordion .accordion-item .validator').bind('click', function(e) {
             e.preventDefault();
 
-            var $current = $(this).closest('.accordion-item');
+            var $current = $(this).closest('.accordion-item'),
+                $startDate = $current.find('.start-date'),
+                $finishDate = $current.find('.finish-date');
 
-            if(!validator($current.find('.enbridge-form'))) {
+            if(!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
                 $current
                     .removeClass('active')
                     .addClass('processed');
@@ -295,6 +309,7 @@
             }
 
         });
+
 
         $('.steps .next-step').bind('click', function() {
             var $current = $(this).closest('.accordion-item'),
@@ -432,10 +447,14 @@
                 return;
             }
 
-            var $this = $(this);
+            var $this = $(this),
+                date = $this.datepicker('getDate'),
+                day = date.getDate(),
+                month = date.getMonth() + 1,
+                year = date.getFullYear();
 
-            $($this.closest('.calendar-column').attr('data-calendar')).val((e.target.textContent));
-            console.log(e + '-----' + this);
+            $($this.closest('.calendar-column').attr('data-calendar'))
+                .val(day + '-' + month + '-' + year);
         })
 
         /*End Flow*/
@@ -448,7 +467,25 @@
             $('input[name="' + name + '"]').removeClass('input-success input-error');
         });
 
-        $(".calendar").datepicker();
+
+        $(window).ready(function() {
+           var calendar = $('.calendar'),
+               currentDate = new Date();
+
+            calendar.datepicker();
+
+            for(var i = calendar.length - 1; i >= 0; i--) {
+                var $current =  $(calendar[i]).click(),
+                    date = $current.datepicker('getDate'),
+                    day = date.getDate(),
+                    month = date.getMonth() + 1,
+                    year = date.getFullYear();
+
+                $($current.closest('.calendar-column').attr('data-calendar'))
+                    .val(day + '-' + month + '-' + year);
+            }
+
+        });
 
     })()
 

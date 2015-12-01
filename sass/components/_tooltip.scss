@@ -4,11 +4,14 @@
     .content-tooltip {
         display: none;
         position: absolute;
-        background-color: $athens-gray;
+        background-color: #f3f4f7;
         margin-top: 15px;
-        left: 56px;
-        border-radius:5px;
-        color:$santas-gray;
+        /* left: 56px; */
+        border-radius: 5px;
+        width: 285px;
+        color: #a4a4af;
+        margin-left: 26px;
+        padding: 10px;
     }
 
     .icon {
@@ -43,7 +46,9 @@
         border-bottom: 15px solid #f3f4f7;
         display: block;
         margin: 0 auto;
-        margin-top: -13px;
+        position: absolute;
+        left: 124px;
+        top: -14px;
     }
 
     &:hover {

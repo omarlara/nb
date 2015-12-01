@@ -8,9 +8,9 @@
         font-size: 12px;
         vertical-align: top;
         &.field {
+            display: inline-block;
             margin: 24px 0;
         }
-
     }
 
     #{$all-text-inputs} {

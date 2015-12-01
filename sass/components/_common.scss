@@ -1,5 +1,6 @@
-*{
+* {
     @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
+
     font-family: Arial,sans-serif;
 
     p,
@@ -11,12 +12,12 @@
     }
 
     &:before,
-    &:after{
+    &:after {
         @include prefixer(box-sizing, border-box !important, webkit moz ms spec);
     }
 }
 
-h1,h2,h3,h4,h5,h6{
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
@@ -58,22 +59,38 @@ h1,h2,h3,h4,h5,h6{
     height: 1px;
 
     &:after,
-    &.before{
+    &.before {
         content: '';
         clear: both;
         display: table;
-
     }
-
 }
 
-.information {
+.information-inverse {
     padding-top: $normal-padding;
     padding-bottom: $normal-padding;
     line-height: 1.5;
     color: $mid-gray;
 
-    &:before{
+    &.question {
+        &:after {
+            content: '?';
+            border-radius: 50%;
+            display: inline-block;
+            font-size: 16px;
+            line-height: 1.2;
+            margin: 0 8px;
+            height: 19px;
+            width: 19px;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            font-style: italic;
+            font-family: initial;
+        }
+    }
+
+    &:after {
         content: 'i';
         border-radius: 50%;
         display: inline-block;
@@ -90,7 +107,43 @@ h1,h2,h3,h4,h5,h6{
     }
 
     &.common {
+        &:after {
+            background-color: $lochmara;
+            color: white;
+        }
+    }
 
+    &.green {
+        &:after {
+            background-color: $chelsea-cucumber;
+            color: white;
+        }
+    }
+}
+
+.information {
+    padding-top: $normal-padding;
+    padding-bottom: $normal-padding;
+    line-height: 1.5;
+    color: $mid-gray;
+
+    &:before {
+        content: 'i';
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 1.2;
+        margin: 0 8px;
+        height: 19px;
+        width: 19px;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        font-style: italic;
+        font-family: initial;
+    }
+
+    &.common {
         &:before {
             background-color: $lochmara;
             color: white;
@@ -98,7 +151,6 @@ h1,h2,h3,h4,h5,h6{
     }
 
     &.green {
-
         &:before {
             background-color: $chelsea-cucumber;
             color: white;
@@ -141,6 +193,7 @@ h1,h2,h3,h4,h5,h6{
 .clearfix{
     clear: both;
 }
+
 .clearfix:after {
     visibility: hidden;
     display: block;
@@ -148,4 +201,4 @@ h1,h2,h3,h4,h5,h6{
     content: " ";
     clear: both;
     height: 0;
-    }
+}

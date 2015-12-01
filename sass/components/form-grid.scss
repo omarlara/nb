@@ -1,0 +1,14 @@
+.form-horizontal{
+	.checks{
+		.fields{
+			.fake-input{
+				position: 	absolute;
+				& + label{
+					float: none;
+				    display: inline-block;
+				    padding-left: 26px;
+				}
+			}
+		}		
+	}
+}

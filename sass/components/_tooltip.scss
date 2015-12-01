@@ -1,17 +1,30 @@
 .tooltip {
-    display: inline;
+    display: inline-block;
+    position: relative;
 
     .content-tooltip {
         display: none;
         position: absolute;
         background-color: #f3f4f7;
         margin-top: 15px;
-        /* left: 56px; */
         border-radius: 5px;
         width: 285px;
         color: #a4a4af;
-        margin-left: 26px;
+        margin-left: -126px;
         padding: 10px;
+        z-index: 3;
+	    padding-right: 21px;
+        &:after {
+            content: url("img/close.svg");
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            cursor: pointer;
+            position: absolute;
+            top: 3px;
+            right: 7px;
+        }
     }
 
     .icon {

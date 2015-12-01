@@ -427,6 +427,17 @@
             }
         });
 
+        $('.calendar').bind('click', function(e) {
+            if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
+                return;
+            }
+
+            var $this = $(this);
+
+            $($this.closest('.calendar-column').attr('data-calendar')).val((e.target.textContent));
+            console.log(e + '-----' + this);
+        })
+
         /*End Flow*/
 
 
@@ -437,8 +448,7 @@
             $('input[name="' + name + '"]').removeClass('input-success input-error');
         });
 
-
-
+        $(".calendar").datepicker();
 
     })()
 

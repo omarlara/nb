@@ -23,6 +23,7 @@
 	}
 	.enbridge-dropdown{
 		margin-bottom: 0;
+		min-width: 	100px;
 		.header{
 			height: 40px;
 		}
@@ -33,7 +34,15 @@
 	.row + .row{
 		margin-top: 5px; 
 	}
-	.row{		
+	.row + .information{
+		margin-bottom: 	20px;
+		margin-top: 	10px;
+	}
+	.row{
+		&.divisor{
+			border-bottom: 1px solid #ddd;	
+			margin-bottom: 	20px		
+		}
 		.form-group{
 			display: inline-block;
 			margin-bottom: 15px;
@@ -43,10 +52,17 @@
 				margin-left: 20px;
 			}
 			span.tiny{
-				font-size: 11px;
+				font-size: 10px;
 				color:#636373;
-				display: block;
+				display:block;
 				text-align: center;
+				margin-top: 5px;
+				&.left{
+					text-align: left;
+				}
+				&.big-content{
+					max-width: 	400px;
+				}
 			}		
     		> label{
     			display: inline-block;
@@ -84,6 +100,9 @@
 			&._w200{
 				width: 200px;
 			}
+			&._w220{
+				width: 220px;
+			}
 			&._w230{
 				width: 230px;
 			}
@@ -95,6 +114,9 @@
 			}
 			&._w400{
 				width: 400px;
+			}
+			&._w500{
+				width: 500px;
 			}
 			&._w600{
 				width: 600px;
@@ -131,8 +153,32 @@
 	    			&.fluid-label{
 	    				width: auto;
 	    			}
+	    			&.big{
+	    				width: 	200px;
+	    			}
 	    		}	
 			}	    	
 	    }
 	}
-}
+	.information {
+	    background-color: #F4F7ED;
+	    line-height: 1.5;
+	    color: #636373;
+	    padding: 20px;
+	    margin: 0 -15px;
+	    display:block;
+	    font-size: 14px;
+	    &:before{
+			margin: 0 2px 0 0;
+	    }
+	}	
+} 
+hr{
+		border: 1px solid red;
+	    height: 10px;
+	    content: 'Form';
+	    display: block;
+	    width: 100%;
+	    background: yellow;
+	    color: red;
+	}

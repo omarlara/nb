@@ -1,3 +1,4 @@
+
 .tooltip {
     display: inline-block;
     position: relative;
@@ -13,7 +14,8 @@
         margin-left: -126px;
         padding: 10px;
         z-index: 3;
-	    padding-right: 21px;
+        padding-right: 21px;
+
         &:after {
             content: url("img/close.svg");
             width: 20px;

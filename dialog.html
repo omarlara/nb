@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="enbridge-content-container" id="MovingOut">
-		<div class="dialog" title="Moving Out">
+		<div class="dialog success-dialog" title="Moving Out" id="move">
 			<div class="content-steps">
 				<div class="accordion-step">
 					<div class="accordion-content">
@@ -24,15 +24,23 @@
 <script>
 	$(function(){ 
 		var  button = $("body");
-	    $(".dialog").dialog({
+	    $("#move").dialog({
 	    	resizable: false,
 			height:240,
 			width:720,
 			modal: true,
 			height:440
-			
 	    });
+	    
+		
+	    
+		
 	});
+
+	
+
+	
+
 </script>
 </body>
 </html>

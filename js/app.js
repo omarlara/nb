@@ -207,7 +207,8 @@
                 radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
                 select = $form.find('.enbridge-select').removeClass('input-error'),
                 zipTool = $form.find('.zip-code-tool').removeClass('success-field'),
-                newAddress = $form.find('.new-adress');
+                newAddress = $form.find('.new-adress'),
+                text = $form.find('input[type="text"]');
 
 
             for (var i = radio.length - 1; i >= 0; i--) {
@@ -246,7 +247,14 @@
 
             for(var i = select.length - 1; i >= 0; i--) {
                 if(select[i].required && !select[i].value) {
-                    select[i].className += ' input-success';
+                    select[i].className += ' input-error';
+                    error = true;
+                }
+            }
+
+            for(var i = text.length - 1; i >= 0; i--) {
+                if(text[i].required && !text[i].value) {
+                    text[i].className += ' input-error';
                     error = true;
                 }
             }
@@ -301,6 +309,20 @@
                 $(nextStep)
                     .addClass('active-step')
                         .find('input[type="radio"]').attr('required', true);
+
+                if (this.id === 'get-adress' && !$('[name=select-street-container]:checked').val()) {
+                    $('#manual-property-info').removeClass('hidden');
+                    $('#step-adress').removeClass('hidden');
+
+                    $('#street-number').attr('required', true);
+                    $('#suffix').attr('required', true);
+                    $('#street').attr('required', true);
+                    $('#misc-info').attr('required', true);
+                    $('#city-or-town').attr('required', true);
+                    $('#country').attr('required', true);
+                    $('#province').attr('required', true);
+                    $('#postal-code-input').attr('required', true);
+                }
             }
         });
 
@@ -343,10 +365,11 @@
                     }
 
                 },"json");
+
         });
 
         $('#confirm-adress-button').bind('click', function() {
-            var city = $('[name="select-stret-container"]:checked').val() || '',
+            var city = $('[name="select-street-container"]:checked').val() || '',
                 numberHouse =$('#current-number').val() || '',
                 zipCode = $('#code-validator').val();
 
@@ -364,10 +387,45 @@
                     .closest('col')
                         .addClass('xs5')
                         .removeClass('xs12');
-            $('#property-info').show();
+            $('#property-info, #manual-property-info').show();
             $('#step-adress').removeClass('hidden');
             $('input[name="house-property"]').attr('required');
+        });
+
+        $('#info-decline').bind('click', function(e) {
+            e.preventDefault();
+            $('#code-validator')
+                .removeClass('input-success')
+                .val('');
+
+            $('#select-street-container, #data-dropdown').empty('');
+
+            $('#confirm-adress, #first-step').toggleClass('active-step');
         })
+
+        $('#mailing-adress-alternative').change(function() {
+           if(this.checked) {
+                $('#manual-property-info').css('display', 'table');
+                $('#street-number-alternative').attr('required', true);
+                $('#suffix-alternative').attr('required', true);
+                $('#street-alternative').attr('required', true);
+                $('#misc-info-alternative').attr('required', true);
+                $('#city-or-town-alternative').attr('required', true);
+                $('#country-alternative').attr('required', true);
+                $('#province-alternative').attr('required', true);
+                $('#postal-code-input-alternative').attr('required', true);
+           } else {
+                $('#manual-property-info').css('display', 'none');
+                $('#street-number-alternative').attr('required', false);
+                $('#suffix-alternative').attr('required', false);
+                $('#street-alternative').attr('required', false);
+                $('#misc-info-alternative').attr('required', false);
+                $('#city-or-town-alternative').attr('required', false);
+                $('#country-alternative').attr('required', false);
+                $('#province-alternative').attr('required', false);
+                $('#postal-code-input-alternative').attr('required', false);
+            }
+        });
 
         /*End Flow*/
 

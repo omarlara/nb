@@ -1,7 +1,9 @@
 .enbridge-dropdown {
     display: block;
+    padding-left: 3px;
     position: relative;
     margin-bottom: 10px;
+    min-width: 180px;
 
     .header {
         border: 1px solid $mako;

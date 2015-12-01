@@ -1,7 +1,7 @@
 .accordion {
     list-style: none;
     margin: 0;
-    width: 660px;
+    width: 700px;
 
     background-color: white;
 
@@ -12,7 +12,9 @@
 
         >.header {
             border: 1px solid $athens-gray-border;
-            padding: 10px $normal-padding;
+            font-size: 18px;
+            font-weight: initial;
+            padding: 3px 20px 4.5px 20px;
             position: relative;
 
             &:after {
@@ -39,8 +41,8 @@
 
             .strong {
                     margin-top : 0;
-                    font-size: 14px;
-                    font-weight: bold;
+                margin-bottom: 7px;
+                    font-size: 24px;
                     margin-left: 7px;
             }
 

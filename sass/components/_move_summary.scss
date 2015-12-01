@@ -1,43 +1,55 @@
-@mixin addressstye {
-    .address {
-        width: 266px;
-        background-color: rgba(125, 125, 138, 0.95);
-        margin-top: 12%;
-        margin-left: 3%;
-        height: auto;
-        border-radius: 52px 2px 48px 2px;
+.address {
+    width: 190px;
+    background-color: rgba(125, 125, 138, 0.95);
+    margin-top: 12%;
+    margin-left: 3%;
+    height: auto;
+    min-height: 205px;
+    border-radius: 52px 2px 48px 2px;
+    padding-top: 8%;
 
-        .content {
-            padding: 4%;
-            margin-left: 0%;
+    h4 {
+        color: $turquoise-blue;
+        font-size: 24px;
+        letter-spacing: -1px;
+        margin-top: 0;
+        margin-left: 12%;
+    }
 
-            h4 {
-                color: $turquoise-blue;
-                font-size: 24px;
-                letter-spacing: -1px;
-                margin-top: 8%;
-                margin-left: 12%;
-            }
+    p {
+        padding-right: 8%;
+        margin-left: 13%;
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 0px;
+        margin-top: 4%;
 
-            p {
-                padding-right: 8%;
-                margin-left: 13%;
-                font-size: 18px;
-                color: #fff;
-                letter-spacing: 0px;
-                margin-top: 4%;
-
-                &:first-of-type {
-                    margin-top: 2%;
-                    margin-bottom: 0%;
-                }
-            }
+        &:first-of-type {
+            margin-top: 2%;
+            margin-bottom: 0%;
         }
     }
 }
 
+.summarybtn {
+    float: right;
+    margin-right: 2%;
+    margin-top: 3%;
+    width: auto;
+    height: 40px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    padding: 0 24px;
+    text-align: center;
+}
+
 .content {
     height: auto !important;
+
+    > .col {
+        padding: 0 30px;
+    }
 }
 
 .titles {
@@ -70,25 +82,17 @@
     background-image: url("img/family.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 800px;
+    width: 600px;
+
+    > .row {
+        margin: 0;
+    }
 
     .movetitle {
         color: $turquoise-blue;
         font-size: 32px;
-        margin-left: 3%;
         font-weight: 400;
-    }
-
-    .first {
-        margin-top: 35px;
-        margin-left: 3%;
-        letter-spacing: 1px;
-        margin-left: 0%;
-        opacity: 0.7;
-
-        &.second {
-            margin-top: 0px;
-        }
+        padding-left: 3%;
     }
 
     .arrow {
@@ -96,24 +100,11 @@
         background-size: 100%;
         background-repeat: no-repeat;
         height: 307px;
-        background-position: 0px 164px;
+        background-position: -7px 90px;
     }
 
-    @include addressstye;
-
-    .buttondiv {
-        .summarybtn {
-            float: right;
-            margin-right: 2%;
-            margin-top: 3%;
-            width: auto;
-            height: 40px;
-            font-size: 18px;
-            letter-spacing: 1px;
-            font-weight: 300;
-            padding: 0 14px;
-            text-align: center;
-        }
+    .addressstye {
+        @extends .addressstye;
     }
 
     .TextAfter {
@@ -122,28 +113,31 @@
 }
 
 .your-information {
-    min-height: 313px;
-    width: 801px;
+    min-height: 354px;
+    width: 600px;
     margin-top: 6%;
     background-size: 49% !important;
     background-position: 108% 25% !important;
 
-    @include addressstye;
+    .infotitle {
+        padding: 21px 0px 0px 21px;
+    }
 
-    .address {
-        width: 266px;
+    .addressstye {
+        @extends .addressstye;
+    }
+
+    .addresstile {
+        width: 190px;
         background-color: rgba(125, 125, 138, 0.95);
         margin-top: 4%;
-        margin-left: 22%;
+        margin-right: 30px;
         height: auto;
         margin-bottom: 26px;
         border-radius: 52px 2px 48px 2px;
-        min-height: auto;
     }
 
     .titles {
-        margin-left: 3%;
-        margin-top: 4%;
         margin-bottom: 0%;
 
         .title {
@@ -166,7 +160,6 @@
     }
 
     .data {
-        margin-left: 3%;
         margin-top: 2%;
         font-size: 18px;
 
@@ -176,28 +169,18 @@
             display: block;
         }
     }
-
-    .buttondiv {
-        .summarybtn {
-            float: left;
-            margin-left: 71px;
-            margin-top: 16%;
-            width: auto;
-            height: 40px;
-            font-size: 18px;
-            letter-spacing: 1px;
-            font-weight: 300;
-            padding: 0 14px;
-            text-align: center;
-        }
-    }
 }
 
 .Features {
     margin-left: 5%;
 
+    .question {
+        font-size: 14px;
+    }
+
     p.checked {
         line-height: 1.5;
+        color: $mid-gray;
 
         &:before {
             content: url("img/checked_03.png");

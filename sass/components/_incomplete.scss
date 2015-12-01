@@ -1,0 +1,31 @@
+.Borderincomplete {
+    border: 1px solid #ccc;
+}
+
+.allsizebtn {
+    width: 88%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.incomplete-container {
+    p {
+        padding-top: 28px !important;
+        line-height: 1;
+        margin-top: 0px;
+        font-size: 18px;
+        padding-left:28px;
+    }
+	
+	ul{
+		    margin-bottom: 42px;
+	}
+    .buttondiv {
+        float: right;
+        margin-right: 182px;
+        margin-bottom: 19px;
+    }
+}

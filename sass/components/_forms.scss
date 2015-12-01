@@ -1,6 +1,7 @@
 .enbridge-form {
 
     label:not(.fake-input),
+    label:not(.label-info),
     p,
     span{
 
@@ -17,7 +18,7 @@
         border-radius: 2px;
         font-size: 13px;
         margin:  10px;
-        padding: 12px 14px;
+        padding: 12px 9px;
 
         color: $moon-mist;
 
@@ -52,6 +53,7 @@
         &+ .fake-input {
             display: block;
             position: relative;
+            padding-top: 3px;
             padding-left: 25px;
             margin-bottom: 15px;
 
@@ -265,6 +267,16 @@
             }
         }
 
+    }
+
+    .label-info {
+        font-size: 10px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .enbridge-dropdown {
+        margin-bottom: 0;
     }
 
     &.form-horizontal{

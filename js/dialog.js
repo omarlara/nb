@@ -1,15 +1,29 @@
+
+
 function opendialog(e)
 {
 	switch(e.id)
 	{
 		case 'green':
-			var dialog = "#movegreen";
+			var dialog = "#existingcustomers";
+		break;
+
+		case 'blue':
+			var dialog = "#newcustomers";
+		break;
+
+		case 'gray':
+			var dialog = "#postalcode";
+		break;
+
+		case 'yellow':
+			var dialog = "#movingout";
 		break;
 	}
 
-	$(function(){ 
-        var  button = $("body");
+	
         $(dialog).dialog({
+        	autoOpen:true,
             resizable: false,
             height:240,
             width:720,
@@ -19,7 +33,6 @@ function opendialog(e)
         
         
         
-        
-    });
+    
 	
 }

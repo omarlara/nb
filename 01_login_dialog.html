@@ -70,7 +70,7 @@
                             </p>                            
                         </div>
                     </div>
-                    <a href="#" class="enbridge-btn blue big-button">
+                    <a href="#" class="enbridge-btn blue big-button" onclick="opendialog(this)" id="blue">
                         OPEN NEW GAS ACCOUNT
                     </a>
                 </div>
@@ -91,7 +91,7 @@
                            </form>
                         </div>
                     </div>
-                    <a href="" class="enbridge-btn green big-button">Check</a>
+                    <a href="" class="enbridge-btn green big-button" onclick="opendialog(gray)" id="gray">Check</a>
                 </div>
             </div>
             <div class="col md6 lg6 ">
@@ -110,7 +110,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="" class="enbridge-btn yellow big-button">
+                    <a href="" class="enbridge-btn yellow big-button" onclick="opendialog(this)" id="yellow">
                         OPEN NEW GASS ACCOUNT
                     </a>
                 </div>    
@@ -118,12 +118,11 @@
         </div>
     </div>
     
-    <div class="enbridge-content-container">
-        <div class="dialog success-dialog" title="Moving Out" id="movegreen">
-            <div class="accordioncontent">
-                <div class="enbridge-content-container">
-                    <div class="enbridge-container ">
-                             <ul class="accordion">
+    <div class="enbridge-content-container" id="MovingOut">
+        <div class="dialog success-dialog" title="Moving Out" id="existingcustomers">
+            <div class="enbridge-content-container">
+                <div class="enbridge-container">
+                     <ul class="accordion">
                             <li class="accordion-item processed">
                                 <div class="header">More Details</div>
                                 <div class="content">
@@ -522,11 +521,45 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="enbridge-content-container" id="MovingOut">
+        <div class="dialog success-dialog" title="Moving Out" id="newcustomers">
+            <div class="content-steps">
+                <div class="accordion-step">
+                    <div class="accordion-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas maxime eaque recusandae est. Rem eligendi blanditiis impedit magni quia neque obcaecati fugiat at molestiae nemo. Minus in saepe sed facilis.
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="enbridge-content-container" id="MovingOut">
+        <div class="dialog success-dialog" title="Moving Out" id="postalcode">
+            <div class="content-steps">
+                <div class="accordion-step">
+                    <div class="accordion-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas maxime eaque recusandae est. Rem eligendi blanditiis impedit magni quia neque obcaecati fugiat at molestiae nemo. Minus in saepe sed facilis.
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="enbridge-content-container" id="MovingOut">
+        <div class="dialog success-dialog" title="Moving Out" id="movingout">
+            <div class="content-steps">
+                <div class="accordion-step">
+                    <div class="accordion-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas maxime eaque recusandae est. Rem eligendi blanditiis impedit magni quia neque obcaecati fugiat at molestiae nemo. Minus in saepe sed facilis.
+                    </div>  
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
@@ -534,11 +567,44 @@
 <script src="js/jquery-ui-1.8.16.custom.min.js"></script>
 <script src="js/jquery.ui.dialog.js"></script>
 <script>
-    
+        $(function(){ 
+            $("#existingcustomers").dialog({
+                autoOpen:false,
+                resizable: false,
+                height:240,
+                width:720,
+                modal: true,
+                height:440
+            });
 
-    
+            $("#newcustomers").dialog({
+                autoOpen:false,
+                resizable: false,
+                height:240,
+                width:720,
+                modal: true,
+                height:440
+            });
 
-    
+            $("#postalcode").dialog({
+                autoOpen:false,
+                resizable: false,
+                height:240,
+                width:720,
+                modal: true,
+                height:440
+            });
+
+            $("#movingout").dialog({
+                autoOpen:false,
+                resizable: false,
+                height:240,
+                width:720,
+                modal: true,
+                height:440
+            });
+        
+         });    
 
 </script>
 </body>

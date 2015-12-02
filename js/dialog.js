@@ -6,8 +6,6 @@ function opendialog(e)
 			var dialog = "#movegreen";
 		break;
 	}
-
-	$(function(){ 
         var  button = $("body");
         $(dialog).dialog({
             resizable: false,
@@ -15,11 +13,5 @@ function opendialog(e)
             width:720,
             modal: true,
             height:440
-        });
-        
-        
-        
-        
-    });
-	
+        });	
 }

@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/enbridge.css">
 </head>
 <body>
+<button id="tws">open</button>
 	<div class="enbridge-content-container" id="MovingOut">
 		<div class="dialog success-dialog" title="Moving Out" id="move">
 			<div class="content-steps">
@@ -25,21 +26,18 @@
 	$(function(){ 
 		var  button = $("body");
 	    $("#move").dialog({
+	    	autoOpen: false,
 	    	resizable: false,
 			height:240,
 			width:720,
 			modal: true,
 			height:440
-	    });
-	    
-		
-	    
-		
+	    });	    			  
 	});
 
-	
-
-	
+	$( "#tws" ).click(function() {
+		$("#move").dialog('open');
+	});
 
 </script>
 </body>

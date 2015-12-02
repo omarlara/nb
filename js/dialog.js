@@ -25,7 +25,7 @@ function opendialog(e)
         $(dialog).dialog({
         	autoOpen:true,
             resizable: false,
-            height:240,
+            height:400,
             width:720,
             modal: true,
             height:440

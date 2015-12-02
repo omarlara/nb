@@ -1,184 +1,178 @@
 .form-horizontal{
-	.checks{
-		.fields{
-			.fake-input{
-				position: 	absolute;
-				& + label{
-					float: none;
-				    display: inline-block;
-				    padding-left: 26px;
-				}
-			}
-		}		
-	}
+    .checks{
+        .fields{
+            .fake-input{
+                position: absolute;
+
+                & + label{
+                    float: none;
+                    display: inline-block;
+                    padding-left: 26px;
+                }
+            }
+        }
+    }
 }
 
 .form-grid{
-	label.legend-row{
-		overflow:hidden;
-		font-size: 14px;
-		color:#636373;
-		display: block;
-		margin: 15px -15px;		
-	}
-	.enbridge-dropdown{
-		margin-bottom: 0;
-		min-width: 	100px;
-		.header{
-			height: 40px;
-		}
-		.indicator{
-			height: 38px;
-		}
-	}	
-	.row + .row{
-		margin-top: 5px; 
-	}
-	.row + .information{
-		margin-bottom: 	20px;
-		margin-top: 	10px;
-	}
-	.row{
-		&.divisor{
-			border-bottom: 1px solid #ddd;	
-			margin-bottom: 	20px		
-		}
-		.form-group{
-			display: inline-block;
-			margin-bottom: 15px;
-			margin-left: 10px;
-    		vertical-align: top;	
-    		&:first-child{
-				margin-left: 20px;
-			}
-			span.tiny{
-				font-size: 10px;
-				color:#636373;
-				display:block;
-				text-align: center;
-				margin-top: 5px;
-				&.left{
-					text-align: left;
-				}
-				&.big-content{
-					max-width: 	400px;
-				}
-			}		
-    		> label{
-    			display: inline-block;
-			    max-width: 100%;
-			    margin-bottom: 0px;
-			    font-weight: 400;
-			    margin-top: 13px;
-			    color:#636373;
-			    font-size: 14px;			    
-    		}
-    		&._w60{
-				width: 60px;
-			}
-			&._w70{
-				width: 70px;
-			}
-			&._w80{
-				width: 80px;
-			}
-			&._w100{
-				width: 100px;
-			}
-			&._w120{
-				width: 120px;
-			}
-			&._w140{
-				width: 140px;
-			}
-			&._w160{
-				width: 160px;
-			}
-			&._w180{
-				width: 180px;
-			}
-			&._w200{
-				width: 200px;
-			}
-			&._w220{
-				width: 220px;
-			}
-			&._w230{
-				width: 230px;
-			}
-			&._w250{
-				width: 250px;
-			}
-			&._w300{
-				width: 300px;
-			}
-			&._w400{
-				width: 400px;
-			}
-			&._w500{
-				width: 500px;
-			}
-			&._w600{
-				width: 600px;
-			}
-			&.pull-margin-right{
-				margin-right: -10px;
-			}
-			.set-field{
-			    display: inline-block;
-			    width: auto;
-			    vertical-align: middle;
-				input, select, textarea{
-					width: 100%;
-					margin:0;
-					&._w60{
-						width: 60px;
-					}
-					&._w160{
-						width: 160px;
-					}
-					&._w180{
-						width: 180px;
-					}
-				}
-				input + input{
-					margin-left: 10px;
-				}				
-			}
-		}
-		&.adress-bar{
-			> .form-group:first-child{
-				> label{
-	    			width: 110px;
-	    			&.fluid-label{
-	    				width: auto;
-	    			}
-	    			&.big{
-	    				width: 	200px;
-	    			}
-	    		}	
-			}	    	
-	    }
-	}
-	.information {
-	    background-color: #F4F7ED;
-	    line-height: 1.5;
-	    color: #636373;
-	    padding: 20px;
-	    margin: 0 -15px;
-	    display:block;
-	    font-size: 14px;
-	    &:before{
-			margin: 0 2px 0 0;
-	    }
-	}	
-} 
+    label.legend-row{
+        overflow:hidden;
+        font-size: 14px;
+        color:#636373;
+        display: block;
+        margin: 15px -15px;
+    }
+    .enbridge-dropdown{
+        margin-bottom: 0;
+        min-width:     100px;
+        .header{
+            height: 40px;
+        }
+        .indicator{
+            height: 38px;
+        }
+    }
+    .row + .row{
+        margin-top: 5px;
+    }
+    .row + .information{
+        margin-bottom:     20px;
+        margin-top:     10px;
+    }
+    .row{
+        &.divisor{
+            border-bottom: 1px solid #ddd;
+            margin-bottom:     20px
+        }
+        .form-group{
+            display: inline-block;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            vertical-align: top;
+            &:first-child{
+                margin-left: 20px;
+            }
+            span.tiny{
+                font-size: 10px;
+                color:#636373;
+                display:block;
+                text-align: center;
+                margin-top: 5px;
+                &.left{
+                    text-align: left;
+                }
+                &.big-content{
+                    max-width:     400px;
+                }
+            }
+            > label{
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 0px;
+                font-weight: 400;
+                margin-top: 13px;
+                color:#636373;
+                font-size: 14px;
+            }
+            &.pull-margin-right{
+                margin-right: -10px;
+            }
+            .set-field{
+                display: inline-block;
+                vertical-align: middle;
+                input, select, textarea{
+                    margin:0;
+                }
+                input + input{
+                    margin-left: 10px;
+                }
+            }
+        }
+        &.adress-bar{
+            > .form-group:first-child{
+                > label{
+                    width: 110px;
+                    &.fluid-label{
+                        width: auto;
+                    }
+                    &.big{
+                        width:     200px;
+                    }
+                }
+            }
+        }
+    }
+    .information {
+        background-color: #F4F7ED;
+        line-height: 1.5;
+        color: #636373;
+        padding: 20px;
+        margin: 0 -15px;
+        display:block;
+        font-size: 14px;
+        &:before{
+            margin: 0 2px 0 0;
+        }
+    }
+}
 hr{
-		border: 1px solid red;
-	    height: 10px;
-	    content: 'Form';
-	    display: block;
-	    width: 100%;
-	    background: yellow;
-	    color: red;
-	}
+        border: 1px solid red;
+        height: 10px;
+        content: 'Form';
+        display: block;
+        width: 100%;
+        background: yellow;
+        color: red;
+}
+
+._w60{
+    width: 60px;
+}
+._w70{
+    width: 70px;
+}
+._w80{
+    width: 80px;
+}
+._w100{
+    width: 100px;
+}
+._w120{
+    width: 120px;
+}
+._w130 {
+    width: 130px;
+}
+._w140{
+    width: 140px;
+}
+._w160{
+    width: 160px;
+}
+._w180{
+    width: 180px;
+}
+._w200{
+    width: 200px;
+}
+._w220{
+    width: 220px;
+}
+._w230{
+    width: 230px;
+}
+._w250{
+    width: 250px;
+}
+._w300{
+    width: 300px;
+}
+._w400{
+    width: 400px;
+}
+._w500{
+    width: 500px;
+}
+._w600{
+    width: 600px;
+}

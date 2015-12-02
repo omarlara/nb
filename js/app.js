@@ -28,7 +28,7 @@
 
 
 
-            element = '<div class="enbridge-dropdown enbridge-dropdown">' +
+            element = '<div class="enbridge-dropdown">' +
                       '<input type="hidden" class="result">' +
                       '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
                           nodes.join('') +

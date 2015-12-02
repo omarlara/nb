@@ -264,11 +264,28 @@
 
         var dateValidator = function ($start, $end) {
             var error = false,
-                init = $start.val(),
-                end = $end.val();
+                init = new Date($start.val()),
+                end = new Date($end.val()),
+                now = new Date();
 
             if($start.attr('required') && $end.attr('required')) {
-                error = true;
+                if(init > end) {
+                    $('[data-calendar*="' + $start.attr('id') + '"]')
+                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                    error = true;
+                } else if( end < now) {
+                    $('[data-calendar*="' + $end.attr('id') + '"]')
+                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                    error = true;
+                } else if ((end - init)/86400000 < 3) {
+                    $('[data-calendar*="' + $end.attr('id') + '"]')
+                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                    error = true;
+                } else if ((''+end).indexOf('Sun') > - 1) {
+                    $('[data-calendar*="' + $end.attr('id') + '"]')
+                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                    error = true;
+                }
             }
 
             return error;
@@ -454,7 +471,7 @@
                 year = date.getFullYear();
 
             $($this.closest('.calendar-column').attr('data-calendar'))
-                .val(day + '-' + month + '-' + year);
+                .val(year + '-' + month + '-' + day);
         })
 
         /*End Flow*/
@@ -482,7 +499,7 @@
                     year = date.getFullYear();
 
                 $($current.closest('.calendar-column').attr('data-calendar'))
-                    .val(day + '-' + month + '-' + year);
+                    .val(year + '-' + month + '-' + day);
             }
 
         });

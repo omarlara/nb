@@ -198,44 +198,6 @@
             background-color: rgb(243, 244, 247);
         }
 
-        .result {
-            border-radius: $normal-radius;
-            border-width: 1px;
-            border-style: solid;
-            display: none;
-            margin: 20px auto 0 auto;
-            padding: 8px $normal-padding;
-            width: 460px;
-
-            > span {
-                display: inline-block;
-                vertical-align: middle;
-                width: 92%;
-            }
-
-            >img {
-                vertical-align: middle;
-                width: 7%;
-            }
-
-            &.success-code {
-                background-color: $kidnapper;
-                border-color: $sushi;
-                display: block;
-
-                color: $chelsea-cucumber;
-            }
-
-            &.error-code {
-                background-color: $we-peep;
-                border-color: $deep-blush;
-                display: block;
-
-                color: $deep-blush;
-            }
-
-        }
-
         &.closed {
             .tool {
                 display: none;
@@ -311,6 +273,45 @@
             display: block;
         }
 
+    }
+
+}
+
+.result {
+    border-radius: $normal-radius;
+    border-width: 1px;
+    border-style: solid;
+    display: none;
+    margin: 20px auto 0 auto;
+    padding: 8px $normal-padding;
+    width: 460px;
+
+    > span {
+        display: inline-block;
+        padding-left: 10px;
+        vertical-align: middle;
+        width: 92%;
+    }
+
+    >img {
+        vertical-align: middle;
+        width: 7%;
+    }
+
+    &.success-code {
+        background-color: $kidnapper;
+        border-color: $sushi;
+        display: block;
+
+        color: $chelsea-cucumber;
+    }
+
+    &.error-code {
+        background-color: $we-peep;
+        border-color: $deep-blush;
+        display: block;
+
+        color: $deep-blush;
     }
 
 }

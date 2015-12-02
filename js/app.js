@@ -3,12 +3,8 @@
     /*Dropdown*/
     ;(function($) {
         function dropdownEnbridge(element) {
-
             this.source = element;
             this.init();
-
-            console.log('element');
-
             this.addMethods();
         }
 

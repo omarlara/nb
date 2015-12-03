@@ -8,9 +8,8 @@
 
     <link rel="stylesheet" href="css/enbridge.css">
     <link rel="stylesheet" href="css/documentation.css">
-    <script src="js/jquery-1.4.2.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/dialog.js"></script>
+
+
 </head>
 
 <body>
@@ -90,7 +89,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn blue big-button open-dialog" id="blue" >
+                        <a href="#" class="enbridge-btn blue big-button open-dialog" id="blue" data-target="#newcustomers">
                         OPEN NEW GAS ACCOUNT
                     </a>
                     </div>
@@ -130,7 +129,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#movingout" onclick="opendialog(this)">
+                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#movingout">
                         OPEN NEW GASS ACCOUNT
                     </a>
                     </div>
@@ -1185,22 +1184,22 @@
                             <li class="accordion-item processed">
                                 <div class="header">Account Information</div>
                                 <div class="content">
-                                   <form class="enbridge-form form-grid">               
+                                   <form class="enbridge-form form-grid">
                                         <label class="legend-row">
                                             Enter your account information:
-                                        </label>    
+                                        </label>
                                         <div class="row adress-bar">
                                             <div class="form-group _w500">
                                               <label for="usr" class="big">Name as appears on your bill:</label>
-                                              <div class="set-field ">                
+                                              <div class="set-field ">
                                                 <input type="text" class="form-control">
                                               </div>
-                                            </div>                                      
-                                        </div>              
+                                            </div>
+                                        </div>
                                         <div class="row adress-bar">
                                             <div class="form-group _w500">
                                               <label for="usr" class="big">Account number:</label>
-                                              <div class="set-field ">                
+                                              <div class="set-field ">
                                                 <input type="text" class="form-control">
                                                 <span class="tiny left big-content">
                                                         e.g. 123 456 789 0
@@ -1215,7 +1214,7 @@
                                         <div class="row adress-bar">
                                             <div class="form-group _w500 ">
                                               <label for="usr" class="big">Postal Code:</label>
-                                              <div class="set-field ">                
+                                              <div class="set-field ">
                                                 <input type="text" class="form-control">
                                               </div>
                                             </div>
@@ -1236,26 +1235,26 @@
                                                 <label class="legend-row">
                                                     Please enter your new adress
                                                 </label>
-                                                <div class="row adress-bar">                                
+                                                <div class="row adress-bar">
                                                     <div class="form-group _w180 pull-margin-right">
                                                       <label for="usr">Home Phone:</label>
-                                                      <div class="set-field ">                
+                                                      <div class="set-field ">
                                                         <input type="text" class="form-control">
                                                         <span class="tiny">
                                                             Number
                                                         </span>
                                                       </div>
-                                                    </div>                  
+                                                    </div>
                                                     <div class="form-group _w70 pull-margin-right">
-                                                      <div class="set-field ">                
+                                                      <div class="set-field ">
                                                         <input type="text" class="form-control">
                                                         <span class="tiny">
                                                             Suffix
                                                         </span>
                                                       </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="form-group _w180 pull-margin-right">
-                                                      <div class="set-field ">                
+                                                      <div class="set-field ">
                                                         <input type="text" class="form-control">
                                                         <span class="tiny">
                                                             Street
@@ -1263,26 +1262,26 @@
                                                       </div>
                                                     </div>
                                                     <div class="form-group _w70 pull-margin-right">
-                                                      <div class="set-field ">                
+                                                      <div class="set-field ">
                                                         <input type="text" class="form-control">
                                                         <span class="tiny">
                                                             Misc.Info (e.g Unit)
                                                         </span>
                                                       </div>
-                                                    </div>                              
+                                                    </div>
                                                 </div>
                                                 <div class="row adress-bar">
                                                     <div class="form-group _w400">
                                                       <label for="pwd">City of Town:</label>
-                                                      <div class="set-field">                 
+                                                      <div class="set-field">
                                                         <input type="text" class="form-control" />
                                                       </div>
-                                                    </div>  
+                                                    </div>
                                                 </div>
-                                                <div class="row adress-bar">                                
+                                                <div class="row adress-bar">
                                                     <div class="form-group _w300">
                                                       <label for="usr">Country:</label>
-                                                      <div class="set-field">                 
+                                                      <div class="set-field">
                                                         <select name="" class="enbridge-select" id="">
                                                             <option value="select">10</option>
                                                         </select>
@@ -1290,24 +1289,24 @@
                                                     </div>
                                                     <div class="form-group _w250">
                                                       <label for="usr">Province:</label>
-                                                      <div class="set-field">                 
+                                                      <div class="set-field">
                                                         <select name="" class="enbridge-select" id="">
                                                             <option value="select">January</option>
                                                             <option value="select">November</option>
                                                             <option value="select">December</option>
                                                         </select>
                                                       </div>
-                                                    </div>                  
+                                                    </div>
                                                 </div>
                                                 <div class="row adress-bar">
                                                     <div class="form-group _w250">
                                                       <label for="usr">Postal Code:</label>
-                                                      <div class="set-field">                 
+                                                      <div class="set-field">
                                                         <input type="text" class="form-control" />
                                                       </div>
-                                                    </div>                  
+                                                    </div>
                                                 </div>
-                                            </form> 
+                                            </form>
 
                                     <div class="validator-container">
                                         <a class="prev" href="#">BACK</a>
@@ -1471,13 +1470,16 @@
                 </div>
             </div>
         </div>
-</body>
 
-</html>
-<script src="js/jquery-1.4.2.min.js"></script>
-<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
-<script src="js/jquery.ui.dialog.js"></script>
-<script>
+    </div>
+
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="js/jquery.ui.datepicker.min.js"></script>
+    <script src="js/jquery.ui.widget.js"></script>
+    <script src="js/jquery.ui.dialog.js"></script>
+    <script src="js/app.js"></script>
+    <script>
     $(function () {
         $("#existingcustomers").dialog({
             autoOpen: false,
@@ -1516,5 +1518,7 @@
         });
 
     });
-</script>
+
+    </script>
 </body>
+</html>

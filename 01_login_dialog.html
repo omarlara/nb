@@ -219,7 +219,7 @@
                                 </div>
                             </li>
                             <li class="accordion-item">
-                                <div class="header">New Adress</div>
+                                <div class="header">New Address</div>
                                 <div class="content">
                                     <form action="" class="enbridge-form">
                                         <div class="steps active-step" id="first-step">
@@ -776,7 +776,7 @@
                                 </div>
                             </li>
                             <li class="accordion-item processed">
-                                <div class="header">New Adress</div>
+                                <div class="header">New Address</div>
                                 <div class="content">
                                     <form action="" class="enbridge-form">
                                         <div class="steps active-step" id="first-step">
@@ -988,7 +988,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item processed active">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <form class="enbridge-form">
@@ -1047,74 +1047,150 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item ">
                                 <div class="header">Your Information</div>
                                 <div class="content">
-                                    <form class="enbridge-form form-grid">
-                                        <label class="legend-row">
-                                            Your date of birth:
-                                        </label>
-                                        <div class="row">
-                                            <div class="form-group _w160">
-                                                <label for="usr">Day:</label>
-                                                <div class="set-field">
-                                                    <select name="" class="enbridge-select" id="">
-                                                        <option value="select">10</option>
-                                                    </select>
+                                   <form action="" class="enbridge-form">
+                                        <div class="steps active-step" id="select_your_adress_form">
+                                                <p class="strong">Please enter your new address:</p>
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <label for="usr" class="descriptor _w100">Street Address:</label>
+                                                        <div class="set-field content-container">
+                                                            <div class="content-container">
+                                                                <input type="text" id="street-number" class="_w60" data-rel="street">
+                                                                <input type="text" id="suffix" class="_w60" data-rel="street">
+                                                                <input type="text" id="street" class="_w220" data-required-error="Please select the required information." data-rel="street" required="">
+                                                                <input type="text" id="misc-info" class="_w60" data-rel="street">
+                                                            </div>
+                                                            <div>
+                                                                <label for="street-number" class="tiny _w60">Number</label>
+                                                                <label for="suffix" class="tiny _w60">Suffix</label>
+                                                                <label for="street" class="tiny _w220">Street</label>
+                                                                <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group _w180">
-                                                <label for="usr">Month:</label>
-                                                <div class="set-field">
-                                                    <select name="" class="enbridge-select" id="month-user-info">
-                                                        <option value="select">January</option>
-                                                        <option value="select">November</option>
-                                                        <option value="select">December</option>
-                                                    </select>
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <label for="usr" class="descriptor _w100">City or Town:</label>
+                                                        <div class="set-field content-container">
+                                                            <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information." required="">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group _w100">
-                                                <label for="pwd">Year:</label>
-                                                <div class="set-field">
-                                                    <input type="text" class="form-control  _w60" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <label class="legend-row">
-                                            Are these numbers correct? if not, please update:
-                                        </label>
-                                        <div class="row adress-bar">
-                                            <div class="form-group pull-margin-right">
-                                                <label for="usr">Home Phone:</label>
-                                                <div class="set-field">
-                                                    <input type="text" class="form-control  _w60">
 
-                                                    <input type="text" class="form-control _w160">
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <div class="content-container">
+                                                            <label for="usr" class="descriptor _w100">Country:</label>
+                                                            <div class="set-field content-container _w180">
+                                                                <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                    <option value="Canada">Canada</option>
+                                                                    <option value="United States">United States</option>
+                                                                </select><div class="enbridge-dropdown"><input type="hidden" class="result"><div class="header"><span class="selected">Canada</span><span class="indicator"></span></div><ul class="list-items"><li class="list-item"><input type="hidden" value="Canada">Canada</li><li class="list-item"><input type="hidden" value="United States">United States</li></ul></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content-container">
+                                                            <label for="usr" class="descriptor _w100">Province:</label>
+                                                            <div class="set-field content-container _w180" data-required-error="Please select the required information.">
+                                                                <select class="enbridge-select">
+                                                                    <option value="Canada">Canada</option>
+                                                                    <option value="United States">United States</option>
+                                                                </select><div class="enbridge-dropdown"><input type="hidden" class="result"><div class="header"><span class="selected">Canada</span><span class="indicator"></span></div><ul class="list-items"><li class="list-item"><input type="hidden" value="Canada">Canada</li><li class="list-item"><input type="hidden" value="United States">United States</li></ul></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row adress-bar">
-                                            <div class="form-group pull-margin-right">
-                                                <label for="usr">Mobile Phone:</label>
-                                                <div class="set-field ">
-                                                    <input type="text" class="form-control  _w60">
 
-                                                    <input type="text" class="form-control _w160">
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <label for="usr" class="descriptor _w100">Postal Code:</label>
+                                                        <div class="set-field content-container">
+                                                            <input type="text" id="postal-code-input" class="_w120" data-required-error="Please select the required information." required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="set-field">
+                                                    <input type="radio" id="rent-property-alternative" value="rent" name="house-property-alternative" data-required-error="Please select the required information." class="input-success" required="">
+                                                    <label class="fake-input" for="rent-property-alternative">
+                                                        I'm renting this property.
+                                                    </label>
+                                                    <input type="radio" id="buy-property-alternative" value="buy" name="house-property-alternative" data-required-error="Please select the required information." class="input-success" required="">
+                                                    <label class="fake-input" for="buy-property-alternative">
+                                                        I'm buying this property.
+                                                    </label>
+                                                </div>
+
+                                                <input type="checkbox" id="mailing-adress-alternative" value="true">
+                                                <label class="fake-input" for="mailing-adress-alternative">My mailing address is different from my service address</label>
+
+                                                <div class="hidden" id="manual-property-info">
+                                                    <div class="property-info form-grid">
+                                                        <div class="form-group pull-margin-right">
+                                                            <label for="usr" class="descriptor _w100">Street Address:</label>
+                                                            <div class="set-field content-container">
+                                                                <div class="content-container">
+                                                                    <input type="text" id="street-number-alternative" class="_w60" data-rel="street">
+                                                                    <input type="text" id="suffix-alternative" class="_w60" data-rel="street">
+                                                                    <input type="text" id="street-alternative" class="_w220" data-required-error="Please select the required information." data-rel="street">
+                                                                    <input type="text" id="misc-info-alternative" class="_w60" data-rel="street">
+                                                                </div>
+                                                                <div>
+                                                                    <label for="street-number" class="tiny _w60">Number</label>
+                                                                    <label for="suffix" class="tiny _w60">Suffix</label>
+                                                                    <label for="street" class="tiny _w220">Street</label>
+                                                                    <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="property-info form-grid">
+                                                        <div class="form-group pull-margin-right">
+                                                            <label for="usr" class="descriptor _w100">City or Town:</label>
+                                                            <div class="set-field content-container">
+                                                                <input type="text" id="city-or-town-alternative" class="_w180" data-required-error="Please select the required information.">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="property-info form-grid">
+                                                        <div class="form-group pull-margin-right">
+                                                            <div class="content-container">
+                                                                <label for="usr" class="descriptor _w100">Country:</label>
+                                                                <div class="set-field content-container _w180">
+                                                                    <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                        <option value="Canada">Canada</option>
+                                                                        <option value="United States">United States</option>
+                                                                    </select><div class="enbridge-dropdown"><input type="hidden" class="result"><div class="header"><span class="selected">Canada</span><span class="indicator"></span></div><ul class="list-items"><li class="list-item"><input type="hidden" value="Canada">Canada</li><li class="list-item"><input type="hidden" value="United States">United States</li></ul></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content-container">
+                                                                <label for="usr" class="descriptor _w100">Province:</label>
+                                                                <div class="set-field content-container _w180">
+                                                                    <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                        <option value="Canada">Canada</option>
+                                                                        <option value="United States">United States</option>
+                                                                    </select><div class="enbridge-dropdown"><input type="hidden" class="result"><div class="header"><span class="selected">Canada</span><span class="indicator"></span></div><ul class="list-items"><li class="list-item"><input type="hidden" value="Canada">Canada</li><li class="list-item"><input type="hidden" value="United States">United States</li></ul></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="property-info form-grid">
+                                                        <div class="form-group pull-margin-right">
+                                                            <label for="usr" class="descriptor _w100">Postal Code:</label>
+                                                            <div class="set-field content-container">
+                                                                <input type="text" id="postal-code-input-alternative" class="_w120" data-required-error="Please select the required information.">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row adress-bar">
-                                            <div class="form-group pull-margin-right">
-                                                <label for="usr">Business Phone:</label>
-                                                <div class="set-field ">
-                                                    <input type="text" class="form-control  _w60">
-                                                    <input type="text" class="form-control _w160">
-                                                    <label for="pwd" class="fluid-label">Ext:</label>
-                                                    <input type="password" class="form-control  _w60" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+
+                                        </form>
 
                                 </div>
                             </li>
@@ -1162,45 +1238,56 @@
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
                         <ul class="accordion">
-                            <li class="accordion-item processed">
+                            <li class="accordion-item processed ">
                                 <div class="header">Account Information</div>
                                 <div class="content">
-                                   <form class="enbridge-form form-grid">
-                                        <label class="legend-row">
-                                            Enter your account information:
-                                        </label>
-                                        <div class="row adress-bar">
-                                            <div class="form-group _w500">
-                                              <label for="usr" class="big">Name as appears on your bill:</label>
-                                              <div class="set-field ">
-                                                <input type="text" class="form-control">
-                                              </div>
+                                    <p class="strong">Enter your account information:</p>
+                                    <div class="enbridge-content-container">
+                                        <div class="enbridge-container">
+                                            <div class="row">
+                                                <form action="" class="enbridge-form col xs8 xs1-off">
+                                                
+                                                
+                                                            <div class="property-info form-grid">
+                                                                <div class="form-group pull-margin-right">
+                                                                    <label for="usr" class="descriptor _w100">Name as appear on your bill:</label>
+                                                                    <div class="set-field content-container">
+                                                                        <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information.">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="property-info form-grid">
+                                                                <div class="form-group pull-margin-right">
+                                                                    <label for="usr" class="descriptor _w100">Account number:</label>
+                                                                    <div class="set-field content-container">
+                                                                        <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information.">
+                                                                    </div>
+                                                                    <div class="col xs5 xs3-off no-padding">
+                                                                        <label for="street-number" class="tiny _w300 left-important">
+                                                                            e.g. 123456789
+                                                                        </label>
+                                                                        <div class="clearfix"></div>
+                                                                        <label for="street-number" class="tiny _w300 left-important">
+                                                                            Please note, if you have a 6 digit account number, you will now need to add a six zeroes in front of your account number For example. 000 000 123456
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                             <div class="property-info form-grid">
+                                                                <div class="form-group pull-margin-right ">
+                                                                    <label for="usr" class="_w100 vertical-align">Postal code:</label>
+                                                                    <div class="set-field content-container">
+                                                                         <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information.">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                            
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row adress-bar">
-                                            <div class="form-group _w500">
-                                              <label for="usr" class="big">Account number:</label>
-                                              <div class="set-field ">
-                                                <input type="text" class="form-control">
-                                                <span class="tiny left big-content">
-                                                        e.g. 123 456 789 0
-                                                        <br/>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio deserunt ex.
-                                                        <br/>
-                                                        For example 000 000 123 456
-                                                </span>
-                                              </div>
-                                            </div>
-                                        </div>
-                                        <div class="row adress-bar">
-                                            <div class="form-group _w500 ">
-                                              <label for="usr" class="big">Postal Code:</label>
-                                              <div class="set-field ">
-                                                <input type="text" class="form-control">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </form>
 
                                     <!--a href="" class="validator yellow big-button">NEXt</a-->
                                     <div class="validator-container">
@@ -1210,84 +1297,142 @@
                                 </div>
                             </li>
                             <li class="accordion-item processed">
-                                <div class="header">New Adress</div>
+                                <div class="header">New Address</div>
                                 <div class="content">
-                                            <form class="enbridge-form form-grid">
-                                                <label class="legend-row">
-                                                    Please enter your new adress
-                                                </label>
-                                                <div class="row adress-bar">
-                                                    <div class="form-group _w180 pull-margin-right">
-                                                      <label for="usr">Home Phone:</label>
-                                                      <div class="set-field ">
-                                                        <input type="text" class="form-control">
-                                                        <span class="tiny">
-                                                            Number
-                                                        </span>
-                                                      </div>
-                                                    </div>
-                                                    <div class="form-group _w70 pull-margin-right">
-                                                      <div class="set-field ">
-                                                        <input type="text" class="form-control">
-                                                        <span class="tiny">
-                                                            Suffix
-                                                        </span>
-                                                      </div>
-                                                    </div>
-                                                    <div class="form-group _w180 pull-margin-right">
-                                                      <div class="set-field ">
-                                                        <input type="text" class="form-control">
-                                                        <span class="tiny">
-                                                            Street
-                                                        </span>
-                                                      </div>
-                                                    </div>
-                                                    <div class="form-group _w70 pull-margin-right">
-                                                      <div class="set-field ">
-                                                        <input type="text" class="form-control">
-                                                        <span class="tiny">
-                                                            Misc.Info (e.g Unit)
-                                                        </span>
-                                                      </div>
+                                           <form action="" class="enbridge-form col xs12">
+    
+                                            <p class="strong">Please enter your new address:</p>
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <label for="usr" class="descriptor _w100">Street Address:</label>
+                                                    <div class="set-field content-container">
+                                                        <div class="content-container">
+                                                            <input type="text" id="street-number" class="_w60" data-rel="street">
+                                                            <input type="text" id="suffix" class="_w60" data-rel="street">
+                                                            <input
+                                                            type="text"
+                                                            id="street"
+                                                            class="_w220"
+                                                            data-required-error="Please select the required information."
+                                                            data-rel="street">
+                                                            <input type="text" id="misc-info" class="_w60" data-rel="street">
+                                                        </div>
+                                                        <div>
+                                                            <label for="street-number" class="tiny _w60">Number</label>
+                                                            <label for="suffix" class="tiny _w60">Suffix</label>
+                                                            <label for="street" class="tiny _w220">Street</label>
+                                                            <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row adress-bar">
-                                                    <div class="form-group _w400">
-                                                      <label for="pwd">City of Town:</label>
-                                                      <div class="set-field">
-                                                        <input type="text" class="form-control" />
-                                                      </div>
+                                            </div>
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <label for="usr" class="descriptor _w100">City or Town:</label>
+                                                    <div class="set-field content-container">
+                                                        <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information.">
                                                     </div>
                                                 </div>
-                                                <div class="row adress-bar">
-                                                    <div class="form-group _w300">
-                                                      <label for="usr">Country:</label>
-                                                      <div class="set-field">
-                                                        <select name="" class="enbridge-select" id="">
-                                                            <option value="select">10</option>
-                                                        </select>
-                                                      </div>
+                                            </div>
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <div class="content-container">
+                                                        <label for="usr" class="descriptor _w100">Country:</label>
+                                                        <div class="set-field content-container _w180">
+                                                            <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="United States">United States</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group _w250">
-                                                      <label for="usr">Province:</label>
-                                                      <div class="set-field">
-                                                        <select name="" class="enbridge-select" id="">
-                                                            <option value="select">January</option>
-                                                            <option value="select">November</option>
-                                                            <option value="select">December</option>
-                                                        </select>
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row adress-bar">
-                                                    <div class="form-group _w250">
-                                                      <label for="usr">Postal Code:</label>
-                                                      <div class="set-field">
-                                                        <input type="text" class="form-control" />
-                                                      </div>
+                                                    <div class="content-container">
+                                                        <label for="usr" class="descriptor _w100">Province:</label>
+                                                        <div class="set-field content-container _w180" data-required-error="Please select the required information.">
+                                                            <select class="enbridge-select">
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="United States">United States</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <label for="usr" class="descriptor _w100">Postal Code:</label>
+                                                    <div class="set-field content-container">
+                                                        <input type="text" id="postal-code-input" class="_w120" data-required-error="Please select the required information.">
+                                                    </div>
+                                                </div>
+                                            
+                                          
+                                            <div class="hidden" id="manual-property-info">
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <label for="usr" class="descriptor _w100">Street Address:</label>
+                                                        <div class="set-field content-container">
+                                                            <div class="content-container">
+                                                                <input type="text" id="street-number-alternative" class="_w60" data-rel="street">
+                                                                <input type="text" id="suffix-alternative" class="_w60" data-rel="street">
+                                                                <input
+                                                                type="text"
+                                                                id="street-alternative"
+                                                                class="_w220"
+                                                                data-required-error="Please select the required information."
+                                                                data-rel="street">
+                                                                <input type="text" id="misc-info-alternative" class="_w60" data-rel="street">
+                                                            </div>
+                                                            <div>
+                                                                <label for="street-number" class="tiny _w60">Number</label>
+                                                                <label for="suffix" class="tiny _w60">Suffix</label>
+                                                                <label for="street" class="tiny _w220">Street</label>
+                                                                <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <label for="usr" class="descriptor _w100">City or Town:</label>
+                                                        <div class="set-field content-container">
+                                                            <input type="text"
+                                                            id="city-or-town-alternative"
+                                                            class="_w180"
+                                                            data-required-error="Please select the required information.">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <div class="content-container">
+                                                            <label for="usr" class="descriptor _w100">Country:</label>
+                                                            <div class="set-field content-container _w180">
+                                                                <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                    <option value="Canada">Canada</option>
+                                                                    <option value="United States">United States</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content-container">
+                                                            <label for="usr" class="descriptor _w100">Province:</label>
+                                                            <div class="set-field content-container _w180">
+                                                                <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                    <option value="Canada">Canada</option>
+                                                                    <option value="United States">United States</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="property-info form-grid">
+                                                    <div class="form-group pull-margin-right">
+                                                        <label for="usr" class="descriptor _w100">Postal Code:</label>
+                                                        <div class="set-field content-container">
+                                                            <input type="text" id="postal-code-input-alternative" class="_w120" data-required-error="Please select the required information.">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
 
                                     <div class="validator-container">
                                         <a class="prev" href="#">BACK</a>
@@ -1295,40 +1440,35 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item processed ">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <form class="enbridge-form">
+                                    <p class="information-inverse green question text-center">
+                                        What is the <strong>last</strong> day you are responsible for: 
+                                    </p>
                                         <div class="dates-view enbridge-container">
                                             <div class="calendar-container row">
-                                                <div class="col xs7 calendar-position">
+                                                <div class="col xs6 calendar-position">
                                                     <div class="calendar-column" data-calendar="#date-start">
                                                         <div class="headline">
                                                             <h3>
-                                                                What us the last day you are responsible for:
+                                                                
                                                             </h3>
                                                         </div>
                                                         <div class="adress-component">
                                                             <div class="adress">
-                                                                123 Fake St.
-                                                                <br/> Toronto, ON
-                                                                <br/> M2M 2M2
-                                                                <br/>
+                                                                123 Fake St.  <br/>
+                                                                Toronto, ON <br/>
+                                                                M2M 2M2 <br/>
                                                             </div>
                                                             <div class="calendar"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-                                        </div>
-
-                                        <input type="hidden" class="start-date" id="date-start" required>
-                                        <input type="hidden" class="finish-date" id="date-finish" required>
-
-                                        <div class="validator-container">
-                                            <a class="prev" href="#">BACK</a>
-                                            <a class="validator" href="#">NEXT</a>
+                                               
+                                            </div>
+                                            
                                         </div>
                                     </form>
                                 </div>
@@ -1336,7 +1476,7 @@
                             <li class="accordion-item active">
                                 <div class="header">Your Information</div>
                                 <div class="content">
-                                    <form class="enbridge-form form-grid">
+                                    <form class="enbridge-form form-grid col xs12">
                                         <label class="legend-row">
                                             Your date of birth:
                                         </label>
@@ -1397,6 +1537,15 @@
                                                     <input type="text" class="form-control _w160">
                                                     <label for="pwd" class="fluid-label">Ext:</label>
                                                     <input type="password" class="form-control  _w60" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row adress-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="usr">Email:</label>
+                                                <div class="set-field ">
+                                                    <input type="text" class="form-control  _w230">
                                                 </div>
                                             </div>
                                         </div>

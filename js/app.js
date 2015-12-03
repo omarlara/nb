@@ -517,7 +517,6 @@
 
     /*End Flow*/
 
-
     /*Forms*/
     $('.enbridge-form input[type="radio"]').bind('click', function() {
         var name = $(this).attr('name') || '';
@@ -528,7 +527,6 @@
 
         $('input[name="' + name + '"]').removeClass('input-success input-error');
     });
-
 
     $(window).ready(function() {
        var calendar = $('.calendar'),
@@ -559,7 +557,7 @@
                 .hide();
         });
 
-        $('.open-dialog').bind('click', funtion(e) {
+        $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
 
             $($(this).attr('data-target'))

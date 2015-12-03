@@ -559,6 +559,20 @@
                 .hide();
         });
 
+        $('.open-dialog').bind('click', funtion(e) {
+            e.preventDefault();
+
+            $($(this).attr('data-target'))
+                .dialog({
+                    autoOpen:true,
+                    resizable: false,
+                    height:400,
+                    width:720,
+                    modal: true,
+                    height:440
+                });
+        });
+
     });
 
 

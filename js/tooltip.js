@@ -1,11 +1,11 @@
-function showtooltip(e)
-{
+$(document).ready(function(){
+	$(".icon").click(function(e){
+		$(".icon").next().css("display","none");
+		 $(e.currentTarget).next().css("display","inherit");
+	});
 
-	 $(e).next().css("display","inherit");
+	$(".cross").click(function(e){
+		$(e.currentTarget).parent().css("display","none");
+	});
 
-}
-
-function hidecross(e)
-{
-	$(e).parent().css("display","none");
-}
+});

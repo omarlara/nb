@@ -559,7 +559,7 @@
                 .hide();
         });
 
-        $('.open-dialog').bind('click', funtion(e) {
+        /*$('.open-dialog').bind('click', funtion(e) {
             e.preventDefault();
 
             $($(this).attr('data-target'))
@@ -571,7 +571,7 @@
                     modal: true,
                     height:440
                 });
-        });
+        });*/
 
     });
 

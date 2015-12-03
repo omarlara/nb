@@ -559,7 +559,7 @@
                 .hide();
         });
 
-        $('.open-dialog').bind('click', funtion(e) {
+        $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
 
             $($(this).attr('data-target'))

@@ -8,9 +8,8 @@
 
     <link rel="stylesheet" href="css/enbridge.css">
     <link rel="stylesheet" href="css/documentation.css">
-    <script src="js/jquery-1.4.2.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/dialog.js"></script>
+
+
 </head>
 
 <body>
@@ -67,7 +66,7 @@
                                 </div>
                             </form>
                         </div>
-                        <a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">
+                        <a href="#" class="enbridge-btn black big-button open-dialog" id="green" onclick="opendialog(this)">
                         Sign In
                     </a>
                     </div>
@@ -461,7 +460,7 @@
                             <li class="accordion-item">
                                 <div class="header">Dates</div>
                                 <div class="content">
-                                    <form class="enbridge-form">
+                                   <form class="enbridge-form">
                                         <div class="dates-view enbridge-container">
                                             <div class="calendar-container row">
                                                 <div class="col xs6">
@@ -481,28 +480,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col xs6">
-                                                    <div class="calendar-column" data-calendar="#date-finish">
-                                                        <div class="headline">
-                                                            <h3>
-                                                                What us the last day you are responsible for:
-                                                            </h3>
-                                                        </div>
-                                                        <div class="adress-component">
-                                                            <div class="adress">
-                                                                123 Fake St.  <br/>
-                                                                Toronto, ON <br/>
-                                                                M2M 2M2 <br/>
-                                                            </div>
-                                                            <div class="calendar"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <p class="information green">
-                                                If these dates change, you can come back here to let us know!
-                                            </p>
                                         </div>
 
                                         <input type="hidden" class="start-date" id="date-start" required>
@@ -1182,52 +1162,43 @@
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
                         <ul class="accordion">
-                            <li class="accordion-item processed active">
-                                <div class="header">More Details</div>
+                            <li class="accordion-item processed">
+                                <div class="header">Account Information</div>
                                 <div class="content">
-                                    <p class="strong">I would like to ...</p>
-
-                                    <form class="enbridge-form">
-
-                                        <input type="radio" id="transfer" value="transfer" name="steps" required>
-                                        <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="stop" value="stop" name="steps" required>
-                                        <label class="fake-input" for="stop"><strong>Stop</strong> my gas services.</label>
-                                        <select class="enbridge-select hide-flow" id="stop-select">
-                                            <option value="">
-                                                Please select a reson
-                                            </option>
-                                            <option value="1">
-                                                I'm moving but don't have the details at this time
-                                            </option>
-                                            <option value="2">
-                                                I'm moving out of the Enbridge serviced area
-                                            </option>
-                                            <option value="3">
-                                                Account holder is deseaced
-                                            </option>
-                                        </select>
-
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="add" value="add" name="steps" required>
-                                        <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
-
-
-                                        <div class="zip-code-tool closed">
-                                            <div class="opener">
-                                                Postal Code Lookup Tool <i>i</i>
+                                   <form class="enbridge-form form-grid">
+                                        <label class="legend-row">
+                                            Enter your account information:
+                                        </label>
+                                        <div class="row adress-bar">
+                                            <div class="form-group _w500">
+                                              <label for="usr" class="big">Name as appears on your bill:</label>
+                                              <div class="set-field ">
+                                                <input type="text" class="form-control">
+                                              </div>
                                             </div>
-                                            <div class="tool">
-                                                <p class="information green">Find out if your new address is serviced by Enbridge</p>
-
-                                                <input type="text" name="zip-tool">
-                                                <input class="enbridge-btn green big-button submiter" type="submit" value="check">
-
+                                        </div>
+                                        <div class="row adress-bar">
+                                            <div class="form-group _w500">
+                                              <label for="usr" class="big">Account number:</label>
+                                              <div class="set-field ">
+                                                <input type="text" class="form-control">
+                                                <span class="tiny left big-content">
+                                                        e.g. 123 456 789 0
+                                                        <br/>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio deserunt ex.
+                                                        <br/>
+                                                        For example 000 000 123 456
+                                                </span>
+                                              </div>
                                             </div>
-
-                                            <div class="result"></div>
-
+                                        </div>
+                                        <div class="row adress-bar">
+                                            <div class="form-group _w500 ">
+                                              <label for="usr" class="big">Postal Code:</label>
+                                              <div class="set-field ">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                            </div>
                                         </div>
                                     </form>
 
@@ -1241,209 +1212,82 @@
                             <li class="accordion-item processed">
                                 <div class="header">New Adress</div>
                                 <div class="content">
-                                    <form action="" class="enbridge-form">
-                                        <div class="steps active-step" id="first-step">
-                                            <p class="strong">Please enter your new address:</p>
-
-                                            <div class="code-box">
-                                                <label for="code-validator">Let's start with your postal code:</label>
-                                                <input type="text" name="new-adress" id="code-validator" class="new-adress" data-content="#select-street-container">
-                                                <div class="next-step" data-next-step="#select_your_street"></div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="steps" id="select_your_street">
-                                            <p class="strong">Please enter your new address:</p>
-
-                                            <div class="code-box container">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p>Select yout street</p>
-                                                    </div>
-                                                    <div class="col" id="select-street-container"></div>
-                                                </div>
-                                                <div class="next-step" data-next-step="#select_your_adress" id="get-adress" data-number-dropdown="#data-dropdown"></div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="steps" id="select_your_adress">
-                                            <p class="strong">Please enter your new address:</p>
-
-                                            <div class="code-box container">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p>Select yout street</p>
-                                                    </div>
-                                                    <div class="col" id="data-dropdown"></div>
-                                                </div>
-                                                <div class="next-step" data-next-step="#confirm-adress" id="confirm-adress-button"></div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="steps" id="confirm-adress">
-                                            <p class="strong">Please enter your new address:</p>
-
-                                            <div class="code-box container">
-                                                <div class="row">
-                                                    <div class="col xs7">
-                                                        <span id="hide-message">Is this correct?</span>
-                                                        <span id="adress-conformation" class="strong"></span>
-                                                    </div>
-                                                    <div class="col xs5" id="information-acceptance">
-                                                        <button class="enbridge-btn green" id="info-confirmation">Yes</button>
-                                                        <button class="enbridge-btn dawn" id="info-decline">No</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="property-info">
-                                                <input type="radio" id="rent-property" value="rent" name="house-property">
-                                                <label class="fake-input" for="rent-property">
-                                                    I'm renting this property.
+                                            <form class="enbridge-form form-grid">
+                                                <label class="legend-row">
+                                                    Please enter your new adress
                                                 </label>
-                                                <input type="radio" id="buy-property" value="buy" name="house-property">
-                                                <label class="fake-input" for="buy-property">
-                                                    I'm buying this property.
-                                                </label>
-
-                                                <input type="checkbox" id="mailing-adress" value="true">
-                                                <label class="fake-input" for="mailing-adress">My mailing address is different from my service address</label>
-                                            </div>
-
-                                        </div>
-                                        <div class="steps" id="select_your_adress_form">
-                                            <p class="strong">Please enter your new address:</p>
-                                            <div class="property-info display-table">
-                                                <span class="cell first-form-item">Street Address:</span>
-                                                <div class="cell">
-                                                    <input type="text" id="street-number">
-                                                    <label for="street-number" class="label-info">Number</label>
-                                                </div>
-                                                <div class="cell">
-                                                    <input type="text" id="suffix">
-                                                    <label for="suffix" class="label-info">Suffix</label>
-                                                </div>
-                                                <div class="cell">
-                                                    <input type="text" id="street">
-                                                    <label for="street" class="label-info">Street</label>
-                                                </div>
-                                                <div class="cell">
-                                                    <input type="text" id="misc-info">
-                                                    <label for="misc-info" class="label-info">Misc. Info
-                                                        <br>(e.g. Unit)</label>
-                                                </div>
-                                            </div>
-                                            <div class="property-info display-table">
-                                                <span class="cell first-form-item">City or Town:</span>
-                                                <div class="cell">
-                                                    <input type="text" id="city-or-town">
-                                                </div>
-                                            </div>
-                                            <div class="property-info display-table">
-                                                <div class="cell">
-                                                    <div class="display-table">
-                                                        <span class="cell first-form-item">Country:</span>
-                                                        <div class="cell">
-                                                            <select class="enbridge-select">
-                                                                <option value="Canada">Canada</option>
-                                                                <option value="United States">United States</option>
-                                                            </select>
-                                                        </div>
+                                                <div class="row adress-bar">
+                                                    <div class="form-group _w180 pull-margin-right">
+                                                      <label for="usr">Home Phone:</label>
+                                                      <div class="set-field ">
+                                                        <input type="text" class="form-control">
+                                                        <span class="tiny">
+                                                            Number
+                                                        </span>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group _w70 pull-margin-right">
+                                                      <div class="set-field ">
+                                                        <input type="text" class="form-control">
+                                                        <span class="tiny">
+                                                            Suffix
+                                                        </span>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group _w180 pull-margin-right">
+                                                      <div class="set-field ">
+                                                        <input type="text" class="form-control">
+                                                        <span class="tiny">
+                                                            Street
+                                                        </span>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group _w70 pull-margin-right">
+                                                      <div class="set-field ">
+                                                        <input type="text" class="form-control">
+                                                        <span class="tiny">
+                                                            Misc.Info (e.g Unit)
+                                                        </span>
+                                                      </div>
                                                     </div>
                                                 </div>
-                                                <div class="cell">
-                                                    <div class="display-table">
-                                                        <span class="cell second-form-item">Province:</span>
-                                                        <div class="cell">
-                                                            <select class="enbridge-select">
-                                                                <option value="Canada">Canada</option>
-                                                                <option value="United States">United States</option>
-                                                            </select>
-                                                        </div>
+                                                <div class="row adress-bar">
+                                                    <div class="form-group _w400">
+                                                      <label for="pwd">City of Town:</label>
+                                                      <div class="set-field">
+                                                        <input type="text" class="form-control" />
+                                                      </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="property-info display-table">
-                                                <span class="cell first-form-item">Postal Code:</span>
-                                                <div class="cell">
-                                                    <input type="text" id="postal-code-input">
-                                                </div>
-                                            </div>
-
-                                            <input type="radio" id="rent-property-alternative" value="rent" name="house-property-alternative">
-                                            <label class="fake-input" for="rent-property-alternative">
-                                                I'm renting this property.
-                                            </label>
-                                            <input type="radio" id="buy-property-alternative" value="buy" name="house-property-alternative">
-                                            <label class="fake-input" for="buy-property-alternative">
-                                                I'm buying this property.
-                                            </label>
-
-                                            <input type="checkbox" id="mailing-adress-alternative" value="true">
-                                            <label class="fake-input" for="mailing-adress-alternative">My mailing address is different from my service address</label>
-                                            <div class=" hidden property-info display-table" id="manual-property-info">
-                                                <div class="property-info display-table">
-                                                    <span class="cell first-form-item">Street Address:</span>
-                                                    <div class="cell">
-                                                        <input type="text" id="street-number-alternative">
-                                                        <label for="street-number-alternative" class="label-info">Number</label>
+                                                <div class="row adress-bar">
+                                                    <div class="form-group _w300">
+                                                      <label for="usr">Country:</label>
+                                                      <div class="set-field">
+                                                        <select name="" class="enbridge-select" id="">
+                                                            <option value="select">10</option>
+                                                        </select>
+                                                      </div>
                                                     </div>
-                                                    <div class="cell">
-                                                        <input type="text" id="suffix-alternative">
-                                                        <label for="suffix-alternative" class="label-info">Suffix</label>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <input type="text" id="street-alternative">
-                                                        <label for="street-alternative" class="label-info">Street</label>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <input type="text" id="misc-info-alternative">
-                                                        <label for="misc-info-alternative" class="label-info">Misc. Info
-                                                            <br>(e.g. Unit)</label>
+                                                    <div class="form-group _w250">
+                                                      <label for="usr">Province:</label>
+                                                      <div class="set-field">
+                                                        <select name="" class="enbridge-select" id="">
+                                                            <option value="select">January</option>
+                                                            <option value="select">November</option>
+                                                            <option value="select">December</option>
+                                                        </select>
+                                                      </div>
                                                     </div>
                                                 </div>
-                                                <div class="property-info display-table">
-                                                    <span class="cell first-form-item">City or Town:</span>
-                                                    <div class="cell">
-                                                        <input type="text" id="city-or-town-alternative">
+                                                <div class="row adress-bar">
+                                                    <div class="form-group _w250">
+                                                      <label for="usr">Postal Code:</label>
+                                                      <div class="set-field">
+                                                        <input type="text" class="form-control" />
+                                                      </div>
                                                     </div>
                                                 </div>
-                                                <div class="property-info display-table">
-                                                    <div class="cell">
-                                                        <div class="display-table">
-                                                            <span class="cell first-form-item">Country:</span>
-                                                            <div class="cell">
-                                                                <select class="enbridge-select" id="country-alternative">
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <div class="display-table">
-                                                            <span class="cell second-form-item">Province:</span>
-                                                            <div class="cell">
-                                                                <select class="enbridge-select" id="province-alternative">
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="property-info display-table">
-                                                    <span class="cell first-form-item">Postal Code:</span>
-                                                    <div class="cell">
-                                                        <input type="text" id="postal-code-input-alternative">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
+                                            </form>
 
                                     <div class="validator-container">
                                         <a class="prev" href="#">BACK</a>
@@ -1457,7 +1301,7 @@
                                     <form class="enbridge-form">
                                         <div class="dates-view enbridge-container">
                                             <div class="calendar-container row">
-                                                <div class="col xs6">
+                                                <div class="col xs7 calendar-position">
                                                     <div class="calendar-column" data-calendar="#date-start">
                                                         <div class="headline">
                                                             <h3>
@@ -1475,29 +1319,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col xs6">
-                                                    <div class="calendar-column" data-calendar="#date-finish">
-                                                        <div class="headline">
-                                                            <h3>
-                                                                What us the last day you are responsible for:
-                                                            </h3>
-                                                        </div>
-                                                        <div class="adress-component">
-                                                            <div class="adress">
-                                                                123 Fake St.
-                                                                <br/> Toronto, ON
-                                                                <br/> M2M 2M2
-                                                                <br/>
-                                                            </div>
-                                                            <div class="calendar"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <p class="information green">
-                                                If these dates change, you can come back here to let us know!
-                                            </p>
+                                                
+                                                
                                         </div>
 
                                         <input type="hidden" class="start-date" id="date-start" required>
@@ -1510,7 +1333,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="accordion-item ">
+                            <li class="accordion-item active">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <form class="enbridge-form form-grid">
@@ -1607,13 +1430,16 @@
                 </div>
             </div>
         </div>
-</body>
 
-</html>
-<script src="js/jquery-1.4.2.min.js"></script>
-<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
-<script src="js/jquery.ui.dialog.js"></script>
-<script>
+    </div>
+
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="js/jquery.ui.datepicker.min.js"></script>
+    <script src="js/jquery.ui.widget.js"></script>
+    <script src="js/jquery.ui.dialog.js"></script>
+    <script src="js/app.js"></script>
+    <script>
     $(function () {
         $("#existingcustomers").dialog({
             autoOpen: false,
@@ -1652,5 +1478,7 @@
         });
 
     });
-</script>
+
+    </script>
 </body>
+</html>

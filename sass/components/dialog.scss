@@ -1,4 +1,8 @@
-.ui-widget-overlay{
+.calendar-position{
+    margin-left: 199px;
+}
+
+.ui-widget-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,31 +11,34 @@
     background: rgba(0,0,0,0.5);
     opacity: .3;
 }
-.ui-dialog {
 
+.ui-dialog-content {
+    font-family: $primary-font;
+    font-size: 14px;
+    height: auto !important;
+}
+
+.ui-dialog {
     position: absolute;
-     margin: auto!important;
-    right: 0!important;
-    left: 0!important;
+    margin: auto !important;
+    right: 0 !important;
+    left: 0 !important;
     padding: 20px;
     outline: 0;
     border:1px solid #DEDFE4;
     background:#fff;
-    height: 590px !important;
-    *{
-        font-family: $primary-font;
-        font-size: 14px;
-        height: auto;
-    }
-    .ui-dialog-titlebar{
+
+    .ui-dialog-titlebar {
         margin-bottom: 20px;
     }
-    .ui-dialog-title{
+
+    .ui-dialog-title {
         font-size: 24px;
         color:$crimson;
         font-family: $primary-font;
     }
-    .ui-dialog-titlebar-close{
+
+    .ui-dialog-titlebar-close {
         width: 23px;
         height: 23px;
         background: url('img/close.svg') no-repeat 0 0 ;
@@ -41,7 +48,8 @@
             display: none;
         }
     }
-    .accordion-footer{
+
+    .accordion-footer {
         padding: 20px 0;
         position: absolute;
         bottom: 0;
@@ -53,8 +61,8 @@
             }
         }
     }
-    .enbridge-content-container
-    {
+
+    .enbridge-content-container {
         .enbridge-container{
             max-width: inherit;
             min-width: inherit;

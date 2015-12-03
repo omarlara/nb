@@ -222,7 +222,7 @@
             text = $form.find('input[type="text"]');
 
         $('.error-message').remove();
-
+        $('.input-error').removeClass('input-error');
 
         for (var i = radio.length - 1; i >= 0; i--) {
             if (!radio[i].className) {
@@ -571,6 +571,42 @@
                     modal: true,
                     height:440
                 });
+        });
+
+        $("#existingcustomers").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 240,
+            width: 720,
+            modal: true,
+            height: 440
+        });
+
+        $("#newcustomers").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 240,
+            width: 720,
+            modal: true,
+            height: 440
+        });
+
+        $("#postalcode").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 240,
+            width: 720,
+            modal: true,
+            height: 440
+        });
+
+        $("#movingout").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 240,
+            width: 720,
+            modal: true,
+            height: 440
         });
 
     });

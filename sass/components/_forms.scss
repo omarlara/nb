@@ -4,7 +4,7 @@
     label:not(.label-info),
     p,
     span{
-
+        font-weight: normal;
         font-size: 12px;
         vertical-align: top;
         &.field {
@@ -257,6 +257,7 @@
 
             > label.control-label{
                 float: left;
+                font-weight: normal;
                 width: 80px;
                 text-align: left;
             }

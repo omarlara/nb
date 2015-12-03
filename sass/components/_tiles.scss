@@ -12,6 +12,8 @@
     > .content {
         padding: 30px;
         position:relative;
+        margin-left: 0 !important;
+        width: 100% !important;
 
         .title {
             display: block;
@@ -23,10 +25,12 @@
 
         h3.subtitle {
             display: block;
-            font-size: 24px;
+            font-size: 23px;
             font-weight: 400;
             margin: 0 0 20px;
             line-height: 1.2;
+
+            color: $mid-gray;
         }
         ul{
            list-style-position: inside;
@@ -72,16 +76,19 @@
         border-radius: 0 0 3px 3px;
     }
     &.common {
-         color: $mid-gray;
+        color: $mid-gray !important;
     }
     &.green{
         background-color:$chelsea-cucumber;
-        color:#fff;
+        color:#fff !important;
         background-image: url("img/en-tile-bg.png");
         background-repeat: no-repeat;
         background-position: right 90px;
         background-size: 79%;
 
+        h3 {
+            color:#fff !important;
+        }
     }
 
     &.tile-generic {
@@ -113,9 +120,11 @@
         text-decoration: none;
         margin-top: 20px;
         a{
-            font-size:14px;
-            color:$lochmara;
+            font-size:13px;
             text-decoration:none;
+            text-align: left;
+
+            color:$lochmara;
             &:hover{
                 text-decoration: underline;
             }

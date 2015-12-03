@@ -11,6 +11,7 @@
         color: white;
 
         >.header {
+            background-image: none;
             border: 1px solid $athens-gray-border;
             font-size: 18px;
             font-weight: initial;
@@ -36,10 +37,13 @@
             border-left: 1px solid $moon-mist;
             border-right: 1px solid $moon-mist;
             border-bottom: 1px solid $moon-mist;
-            color: $jumbo;
+            float: none !important;
+            margin-left: 0 !important;
             min-height: 330px;
             position: relative;
+            width: auto !important;
 
+            color: $jumbo;
             .strong {
                     margin-top : 0;
                 margin-bottom: 7px;

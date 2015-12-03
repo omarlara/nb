@@ -65,6 +65,10 @@ h1, h2, h3, h4, h5, h6 {
         display: table;
     }
 }
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .information-inverse {
     padding-top: $normal-padding;
@@ -72,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.5;
     color: $mid-gray;
 
-    
+
     &.question {
 
         &:after {
@@ -94,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 
-    
+
     &:after {
         content: 'i';
         border-radius: 50%;

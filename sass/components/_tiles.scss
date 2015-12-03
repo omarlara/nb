@@ -2,15 +2,17 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    min-height: 410px; 
-    border-radius:3px; 
+    min-height: 410px;
+    border-radius:3px;
+    width: 100%;
+
     background-color: $moon-mist;
     color:#636372;
 
     > .content {
         padding: 30px;
         position:relative;
- 
+
         .title {
             display: block;
             font-size: 32px;
@@ -41,9 +43,9 @@
             font-size: 14px;
             margin-top:30px;
         }
-        
-        label.align{margin-top: 7%} 
-        
+
+        label.align{margin-top: 7%}
+
         .form-group{
             margin-bottom: 2%;
             &.checks{
@@ -79,8 +81,8 @@
         background-repeat: no-repeat;
         background-position: right 90px;
         background-size: 79%;
-        
-    }    
+
+    }
 
     &.tile-generic {
         color: $mako;
@@ -111,18 +113,18 @@
         text-decoration: none;
         margin-top: 20px;
         a{
-            font-size:14px; 
-            color:$lochmara; 
+            font-size:14px;
+            color:$lochmara;
             text-decoration:none;
             &:hover{
                 text-decoration: underline;
             }
         }
         img{
-            position: relative; 
-            left:0; 
-            top:5px; 
-            display: inline-block; 
+            position: relative;
+            left:0;
+            top:5px;
+            display: inline-block;
             margin-right:-3px;
             width: 80px;
         }

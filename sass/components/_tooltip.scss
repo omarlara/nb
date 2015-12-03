@@ -19,7 +19,12 @@
         font-size: 13px;
         margin-left: -157px\9;
         margin-top: 35px\9;
+		@-moz-document url-prefix(){
+				margin-left: -152px;
+				margin-top: 37px;
+			}
 		
+
         .cross {
             z-index: 500;
             width: 20px;
@@ -40,6 +45,15 @@
             }
         }
     }
+
+
+    	
+     *::-ms-backdrop, .content-tooltip { 
+     	
+     	margin-top: 32px;
+     	margin-left: -158px;
+     	} /* IE11 */
+     
 
 	
 
@@ -93,6 +107,11 @@
         box-shadow: -1px 1.5px 1px 0 rgba(0, 0, 0, 0.2);
         z-index: 10000;
     }
+	
+
+	*::-ms-backdrop, .content-tooltip:before { 
+     		top:1px;
+     }
 
     &:hover {
         .content-tooltip {

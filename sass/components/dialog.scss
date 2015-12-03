@@ -19,40 +19,41 @@
     background:#fff;
     height: 590px !important;
     *{
-    	font-family: $primary-font;
-    	font-size: 14px;
-	}
-	.ui-dialog-titlebar{
-		margin-bottom: 20px;
-	}
+        font-family: $primary-font;
+        font-size: 14px;
+        height: auto;
+    }
+    .ui-dialog-titlebar{
+        margin-bottom: 20px;
+    }
     .ui-dialog-title{
-    	font-size: 24px;
-    	color:$crimson;
-    	font-family: $primary-font;
+        font-size: 24px;
+        color:$crimson;
+        font-family: $primary-font;
     }
     .ui-dialog-titlebar-close{
-    	width: 23px;
-    	height: 23px;
-    	background: url('img/close.svg') no-repeat 0 0 ;
-    	float: right;
-    	margin:-10px -10px 0 0;
-    	span{
-    		display: none;
-    	}
+        width: 23px;
+        height: 23px;
+        background: url('img/close.svg') no-repeat 0 0 ;
+        float: right;
+        margin:-10px -10px 0 0;
+        span{
+            display: none;
+        }
     }
     .accordion-footer{
-    	padding: 20px 0;
-	    position: absolute;
-	    bottom: 0;
+        padding: 20px 0;
+        position: absolute;
+        bottom: 0;
 
-	    .btn{
-	    	display: inline-block;
-	    	&:first-child + .btn + .btn{
-				float: right;
-	    	}
-	    }
+        .btn{
+            display: inline-block;
+            &:first-child + .btn + .btn{
+                float: right;
+            }
+        }
     }
-    .enbridge-content-container 
+    .enbridge-content-container
     {
         .enbridge-container{
             max-width: inherit;

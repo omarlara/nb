@@ -1,10 +1,9 @@
-.form-horizontal{
-    .checks{
-        .fields{
-            .fake-input{
+.form-horizontal {
+    .checks {
+        .fields {
+            .fake-input {
                 position: absolute;
-
-                & + label{
+                & + label {
                     float: none;
                     display: inline-block;
                     padding-left: 26px;
@@ -14,75 +13,87 @@
     }
 }
 
-.form-grid{
-    .legend-row{
-        overflow:hidden;
-        font-size: 14px;
-        color:#636373;
+.form-grid {
+    overflow: hidden;
+    > .legend-row {
+        color: #636373;
         display: block;
+        font-size: 14px !important;
+        margin: 15px 0;
+        overflow: hidden;
+        vertical-align: top;        
     }
-    .enbridge-dropdown{
-        margin:10px 0;
-        min-width:     100px;
-        .header{
+
+    .enbridge-dropdown {
+        margin: 10px 0;
+        min-width: 100px;
+        .header {
             height: 40px;
         }
-        .indicator{
+        .indicator {
             height: 38px;
         }
     }
-    .row + .row{
+    .row + .row {
         margin-top: 5px;
     }
-    .row + .information{
-        margin-bottom:     20px;
-        margin-top:     10px;
+    .row + .information {
+        margin-bottom: 20px;
+        margin-top: 10px;
     }
-    .row{
-        &.divisor{
+    .information + .legend-row{
+        margin-top: 20px;
+    }
+    .row {
+        &.divisor {
             border-bottom: 1px solid #ddd;
-            margin-bottom:     20px
+            margin-bottom: 20px
         }
-        .form-group{
+        .form-group {
             display: inline-block;
             margin-bottom: 15px;
             margin-left: 10px;
             vertical-align: top;
-            &:first-child{
+            &:first-child {
                 margin-left: 20px;
             }
-            > label{
+            > label {
                 display: inline-block;
                 max-width: 100%;
                 margin-bottom: 0px;
                 font-weight: 400;
-                margin-top: 13px;
-                color:#636373;
+                margin-top: 0;
+                color: #636373;
                 font-size: 14px;
+                vertical-align: top;
             }
-            &.pull-margin-right{
+            &.pull-margin-right {
                 margin-right: -10px;
             }
-            .set-field{
+            .set-field {
                 display: inline-block;
                 vertical-align: middle;
-                input, select, textarea{
-                    margin:0;
+                input,
+                select,
+                textarea {
+                    margin: 0;
                 }
-                input + input{
+                input + input,
+                input + label {
                     margin-left: 10px;
                 }
+
             }
         }
-        &.adress-bar{
-            > .form-group:first-child{
-                > label{
+        &.adress-bar {
+            > .form-group:first-child {
+                > label {
                     width: 110px;
-                    &.fluid-label{
+                    &.fluid-label {
                         width: auto;
                     }
-                    &.big{
-                        width:     200px;
+                    &.big {
+                        width: 200px;
                     }
                 }
             }
@@ -93,34 +104,35 @@
         line-height: 1.5;
         color: #636373;
         padding: 20px;
-        margin: 0 -15px;
-        display:block;
+        margin: 0;
+        display: block;
         font-size: 14px;
-        &:before{
+        &:before {
             margin: 0 2px 0 0;
         }
     }
 }
-hr{
-        border: 1px solid red;
-        height: 10px;
-        content: 'Form';
-        display: block;
-        width: 100%;
-        background: yellow;
-        color: red;
+
+hr {
+    border: 1px solid red;
+    height: 10px;
+    content: 'Form';
+    display: block;
+    width: 100%;
+    background: yellow;
+    color: red;
 }
 
-.tiny{
+.tiny {
     font-size: 10px !important;
-    color:#636373;
+    color: #636373;
     text-align: center;
     margin-top: 5px;
-    &.left{
+    &.left {
         text-align: left;
     }
-    &.big-content{
-        max-width:     400px;
+    &.big-content {
+        max-width: 400px;
     }
 }
 
@@ -137,6 +149,7 @@ hr{
 .pull26 {
     margin-left: 26px;
 }
+
 .pull40 {
     margin-left: 40px;
 }
@@ -144,57 +157,75 @@ hr{
 ._h90 {
     height: 90px;
 }
-._w60{
+
+._w60 {
     width: 60px;
 }
-._w70{
+
+._w70 {
     width: 70px;
 }
-._w80{
+
+._w80 {
     width: 80px;
 }
-._w100{
+
+._w100 {
     width: 100px;
 }
-._w120{
+
+._w120 {
     width: 120px;
 }
+
 ._w130 {
     width: 130px;
 }
-._w140{
+
+._w140 {
     width: 140px;
 }
-._w160{
+
+._w160 {
     width: 160px;
 }
-._w180{
+
+._w180 {
     width: 180px;
 }
-._w200{
+
+._w200 {
     width: 200px;
 }
-._w220{
+
+._w220 {
     width: 220px;
 }
-._w230{
+
+._w230 {
     width: 230px;
 }
-._w250{
+
+._w250 {
     width: 250px;
 }
-._w300{
+
+._w300 {
     width: 300px;
 }
-._w380{
+
+._w380 {
     width: 380px;
 }
-._w400{
+
+._w400 {
     width: 400px;
 }
-._w500{
+
+._w500 {
     width: 500px;
 }
-._w600{
+
+._w600 {
     width: 600px;
 }

@@ -190,37 +190,58 @@
                     <h3>Accordion</h3>
                     <div class="example">
                         <ul class="accordion">
-                            <li class="accordion-item processed">
+                            <li class="accordion-item active">
                                 <div class="header">More Details</div>
                                 <div class="content">
                                     <p class="strong">I would like to ...</p>
 
-                                    <form class="enbridge-form">
+                                    <form class="enbridge-form" id="accordion-like">
+                                        <div class="row">
+                                            <div class="set-field">
+                                                <input type="radio"
+                                                    id="transfer"
+                                                    value="transfer"
+                                                    name="steps"
+                                                    data-required-error="Please select your move detail."
+                                                required>
+                                                <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
+                                                <div class="clearfix "></div>
+                                                <input type="radio"
+                                                    id="stop"
+                                                    value="stop"
+                                                    name="steps"
+                                                    data-required-error="Please select your move detail."
+                                                required>
+                                                <label class="fake-input" for="stop"><strong>Stop</strong> my gas service.</label>
+                                                <select
+                                                    class="enbridge-select hide-flow"
+                                                    id="stop-select"
+                                                    data-required-error="Please let us know why are stopping your gas service."
+                                                data-position="top">
+                                                    <option value="">
+                                                        Please select a reason
+                                                    </option>
+                                                    <option value="1">
+                                                        I'm moving but don't have the details at this time
+                                                    </option>
+                                                    <option value="2">
+                                                        I'm moving out of the Enbridge serviced area
+                                                    </option>
+                                                    <option value="3">
+                                                        Account holder is deseaced
+                                                    </option>
+                                                </select>
 
-                                        <input type="radio" id="transfer" value="transfer" name="steps" required>
-                                        <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="stop" value="stop" name="steps" required>
-                                        <label class="fake-input" for="stop"><strong>Stop</strong> my gas services.</label>
-                                        <select class="enbridge-select hide-flow" id="stop-select">
-                                            <option value="">
-                                                Please select a reson
-                                            </option>
-                                            <option value="1">
-                                                I'm moving but don't have the details at this time
-                                            </option>
-                                            <option value="2">
-                                                I'm moving out of the Enbridge serviced area
-                                            </option>
-                                            <option value="3">
-                                                Account holder is deseaced
-                                            </option>
-                                        </select>
-
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="add" value="add" name="steps" required>
-                                        <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
-
+                                                <div class="clearfix "></div>
+                                                <input type="radio"
+                                                    id="add"
+                                                    value="add"
+                                                    name="steps"
+                                                     data-required-error="Please select your move detail."
+                                                required>
+                                                <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
+                                            </div>
+                                        </div>
 
                                         <div class="zip-code-tool closed">
                                             <div class="opener">
@@ -229,8 +250,8 @@
                                             <div class="tool">
                                                 <p class="information green">Find out if your new address is serviced by Enbridge</p>
 
-                                                <input type="text" name="zip-tool">
-                                                <input class="enbridge-btn green big-button submiter" type="submit" value="check">
+                                                <input type="text" class="code-container" name="zip-tool" data-required-error="Please enter a valid postal code (example: A1A1A)">
+                                                <input class="enbridge-btn green big-button submiter" type="submit" value="CHECK">
 
                                             </div>
 
@@ -239,14 +260,12 @@
                                         </div>
                                     </form>
 
-                                    <!--a href="" class="validator yellow big-button">NEXt</a-->
                                     <div class="validator-container">
                                         <a class="validator" href="#">NEXT</a>
-                                        <!--a class="prev" href="#">BACK</a-->
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item active">
                                 <div class="header">New Adress</div>
                                 <div class="content">
                                     <form action="" class="enbridge-form">
@@ -459,7 +478,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <form class="enbridge-form">
@@ -516,7 +535,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <form class="enbridge-form form-grid">
@@ -527,7 +546,7 @@
                                             <div class="form-group _w160">
                                               <label for="usr">Day:</label>
                                               <div class="set-field">
-                                                <select name="" class="enbridge-select" id="">
+                                                <select name="" class="enbridge-select" id="" required>
                                                     <option value="select">10</option>
                                                 </select>
                                               </div>
@@ -535,7 +554,7 @@
                                             <div class="form-group _w180">
                                               <label for="usr">Month:</label>
                                               <div class="set-field">
-                                                <select name="" class="enbridge-select" id="month-user-info">
+                                                <select name="" class="enbridge-select" id="month-user-info" required>
                                                     <option value="select">January</option>
                                                     <option value="select">November</option>
                                                     <option value="select">December</option>
@@ -545,7 +564,7 @@
                                             <div class="form-group _w100">
                                               <label for="pwd">Year:</label>
                                               <div class="set-field">
-                                                <input type="text" class="form-control  _w60" />
+                                                <input type="text" class="form-control  _w60" required>
                                               </div>
                                             </div>
                                         </div>
@@ -558,7 +577,7 @@
                                               <div class="set-field">
                                                 <input type="text" class="form-control  _w60">
 
-                                                <input type="text" class="form-control _w160">
+                                                <input type="text" class="form-control _w160" required>
                                               </div>
                                             </div>
                                         </div>
@@ -568,7 +587,7 @@
                                               <div class="set-field ">
                                                     <input type="text" class="form-control  _w60">
 
-                                                    <input type="text" class="form-control _w160">
+                                                    <input type="text" class="form-control _w160" required>
                                               </div>
                                             </div>
                                         </div>
@@ -577,14 +596,16 @@
                                               <label for="usr">Business Phone:</label>
                                               <div class="set-field ">
                                                     <input type="text" class="form-control  _w60">
-                                                    <input type="text" class="form-control _w160">
+                                                    <input type="text" class="form-control _w160" required>
                                                     <label for="pwd" class="fluid-label">Ext:</label>
                                                     <input type="password" class="form-control  _w60" />
                                               </div>
                                             </div>
                                         </div>
                                     </form>
-
+                                    <div class="validator-container">
+                                        <a class="validator" href="#">NEXT</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

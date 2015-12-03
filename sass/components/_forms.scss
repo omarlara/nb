@@ -94,11 +94,15 @@
 
             &+ .fake-input {
                 &:before {
-                    border-color: $deep-blush;
+                    border-color: $crimson;
                 }
                 &:after {
-                    background-color: $we-peep;
+                    background-color: transparent;
                 }
+            }
+
+            & + .enbridge-dropdown {
+                border-color: $crimson;
             }
         }
 
@@ -229,16 +233,21 @@
             }
         }
 
+        .input-error {
+            margin-bottom: 10px !important;
+
+            & + .error-message {
+                margin: 0 auto !important;
+                width: 200px;
+            }
+        }
+
     }
 
     .label-info {
         font-size: 10px;
         display: block;
         margin: 0 auto;
-    }
-
-    .enbridge-dropdown {
-        margin-bottom: 0;
     }
 
     &.form-horizontal{
@@ -314,4 +323,10 @@
         color: $deep-blush;
     }
 
+}
+
+.error-message {
+    font-size: 10px;
+
+    color: red;
 }

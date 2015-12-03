@@ -56,6 +56,11 @@
     }
 }
 
+#stop-select + .enbridge-dropdown{
+    margin-left: 25px;
+    width: 380px;
+}
+
 #street-number,
 #suffix,
 #misc-info,
@@ -92,4 +97,9 @@ street--alternative{
 
 #month-user-info + .enbridge-dropdown{
     width: 130px;
+}
+
+
+#accordion-like {
+    width: 450px;
 }

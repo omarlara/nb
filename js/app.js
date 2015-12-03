@@ -1,7 +1,11 @@
-(function($, window, document) {
+(function ($, window, document) {
+
+    String.prototype.postalCode = function() {
+        return /^[a-zA-Z0-9]{6,6}$/.test(this);
+    }
 
     /*Dropdown*/
-    ;(function($) {
+    ; (function ($) {
         function dropdownEnbridge(element) {
             this.source = element;
             this.init();
@@ -15,12 +19,11 @@
                 element = '',
                 name = '';
 
-            if(!elemenetNodes.length)
-                return;
+            if (!elemenetNodes.length) return;
 
             name = elemenetNodes[0].text || '';
 
-            for(var i = 0, size = elemenetNodes.length; i < size; i++) {
+            for (var i = 0, size = elemenetNodes.length; i < size; i++) {
                 var temp = '<li class="list-item"><input type="hidden" value="'+
                             elemenetNodes[i].value+ '">' + elemenetNodes[i].text + '</li>';
                 nodes.push(temp);
@@ -37,7 +40,7 @@
             $element.after(element);
 
             this.element = this.source.nextElementSibling;
-        }
+        };
 
         dropdownEnbridge.prototype.addMethods = function addMethods() {
             var self = this,
@@ -45,13 +48,13 @@
 
             $element.bind('click', function () {
                 $(this).toggleClass('active');
-            })
+            });
 
             $element
                 .find('.list-items .list-item')
                     .bind('click', function() {
                         var $current = $(this),
-                            $source = $(self.source)
+                            $source = $(self.source),
                             text = $current.text() || '',
                             value = $current.find('input').val() || '';
 
@@ -75,13 +78,13 @@
                     $(self.element).removeClass('active');
                 }
             });
-        }
+        };
 
         $.fn.enbridgeDropdown = function (element) {
             return this.each(function() {
                 (new dropdownEnbridge(this));
             });
-        }
+        };
 
         $(window).ready(function() {
             $('.enbridge-select').enbridgeDropdown();
@@ -96,7 +99,7 @@
             this.element = element;
 
             this.addMethods();
-        };
+        }
 
         CodeTool.prototype.addMethods = function () {
             var $element = $(this.element);
@@ -105,7 +108,8 @@
                 .bind('click', function (e) {
                     e.stopPropagation();
 
-                    $element.toggleClass('opened closed');
+                    $element
+                        .toggleClass('opened closed required');
                 });
 
             $element.find('.submiter')
@@ -129,14 +133,14 @@
                                         } else {
                                             $element
                                                 .find('.result')
-                                                    .html('<img src="assets/img/error.png"> <span>' + error + '</span>')
+                                                    .html('<span>' + error + '</span>')
                                                     .addClass('error-code');
                                         }
 
                                 },"json");
 
                 });
-        }
+        };
 
         $.fn.codeTool = function (element) {
             return this.each(function() {
@@ -167,7 +171,7 @@
                         .addClass('success-field')
                         .removeClass('input-error');
 
-                    for(var i = 0, size = resp.elements.length; i< size; i +=1) {
+                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
                         var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent"><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
                         radioContent.push(chain);
                     }
@@ -202,9 +206,11 @@
             var error = false,
                 radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
                 select = $form.find('.enbridge-select').removeClass('input-error'),
-                zipTool = $form.find('.zip-code-tool').removeClass('success-field'),
+                zipTool = $form.find('.zip-code-tool.required').removeClass('success-field'),
                 newAddress = $form.find('.new-adress'),
                 text = $form.find('input[type="text"]');
+
+            $('.error-message').remove();
 
 
             for (var i = radio.length - 1; i >= 0; i--) {
@@ -213,13 +219,25 @@
                 }
 
                 if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
-                    radio[i].className += ' input-error';
+                    var $current = $(radio[i]);
+
+                    if(!$current.hasClass('input-error')) {
+                        $(radio[i]).closest('.set-field')
+                            .append('<p class="error-message pull26 ">' + $(radio[i]).attr('data-required-error') + '</p>');
+                    }
+
+                    $('[name = "' + $current.attr('name') + '"]')
+                        .addClass('input-error');
+
                 } else {
                     var name = radio[i].name;
 
                     $('input[name="' + name +'"]')
                         .removeClass('input-error')
                         .addClass('input-success');
+
+                    $(radio[i]).closest('.set-field')
+                            .find('.error-message').remove();
 
                 }
 
@@ -230,7 +248,16 @@
             }
 
             for (var i = zipTool.length - 1; i >= 0; i--) {
-                if (!$(zipTool[i]).hasClass('success-zip') ) {
+                var $current = $(zipTool[i]),
+                    $codeContainer = $current.find('.code-container');
+
+                if(!$codeContainer.val().postalCode()) {
+                   $codeContainer
+                        .addClass('input-error')
+                            .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>') ;
+                }
+
+                if (!$current.hasClass('success-zip') ) {
                     error = true;
                 }
             }
@@ -241,14 +268,28 @@
                 }
             }
 
-            for(var i = select.length - 1; i >= 0; i--) {
+            for (var i = select.length - 1; i >= 0; i--) {
                 if(select[i].required && !select[i].value) {
-                    select[i].className += ' input-error';
+                    var $current = $(select[i]);
+
+                    if($current.attr('data-position') == 'top') {
+                        $current
+                            .addClass('input-error')
+                            .before('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                    } else {
+                        $current
+                            .addClass('input-error')
+                            .next()
+                                .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                    }
+
+
+
                     error = true;
                 }
             }
 
-            for(var i = text.length - 1; i >= 0; i--) {
+            for (var i = text.length - 1; i >= 0; i--) {
                 if(text[i].required && !text[i].value) {
                     text[i].className += ' input-error';
                     error = true;
@@ -285,7 +326,7 @@
             }
 
             return error;
-        }
+        };
 
         $('.accordion .accordion-item >.header').bind('click', function(event) {
             event.preventDefault();
@@ -378,8 +419,8 @@
 
                         $(container).html('');
 
-                        for(var i = 0, size = resp.numbers.length; i < size; i++) {
-                            numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>')
+                        for (var i = 0, size = resp.numbers.length; i < size; i++) {
+                            numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
                         }
 
                         $('<select class="enbridge-select" id="current-number" required>' + numbers.join('') + '</select>')
@@ -429,7 +470,7 @@
             $('#select-street-container, #data-dropdown').empty('');
 
             $('#confirm-adress, #first-step').toggleClass('active-step');
-        })
+        });
 
         $('#mailing-adress-alternative').change(function() {
            if(this.checked) {
@@ -468,7 +509,7 @@
 
             $($this.closest('.calendar-column').attr('data-calendar'))
                 .val(year + '-' + month + '-' + day);
-        })
+        });
 
         /*End Flow*/
 
@@ -476,6 +517,10 @@
         /*Forms*/
         $('.enbridge-form input[type="radio"]').bind('click', function() {
             var name = $(this).attr('name') || '';
+
+            $(this).closest('.set-field')
+                .find('.error-message')
+                    .remove();
 
             $('input[name="' + name + '"]').removeClass('input-success input-error');
         });
@@ -487,7 +532,7 @@
 
             calendar.datepicker();
 
-            for(var i = calendar.length - 1; i >= 0; i--) {
+            for (var i = calendar.length - 1; i >= 0; i--) {
                 var $current =  $(calendar[i]).click(),
                     date = $current.datepicker('getDate'),
                     day = date.getDate(),
@@ -500,7 +545,7 @@
 
         });
 
-    })()
+    })();
 
 
 })(jQuery, window, document);

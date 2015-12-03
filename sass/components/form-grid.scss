@@ -15,15 +15,14 @@
 }
 
 .form-grid{
-    label.legend-row{
+    .legend-row{
         overflow:hidden;
         font-size: 14px;
         color:#636373;
         display: block;
-        margin: 15px -15px;
     }
     .enbridge-dropdown{
-        margin-bottom: 0;
+        margin:10px 0;
         min-width:     100px;
         .header{
             height: 40px;
@@ -51,19 +50,6 @@
             vertical-align: top;
             &:first-child{
                 margin-left: 20px;
-            }
-            span.tiny{
-                font-size: 10px;
-                color:#636373;
-                display:block;
-                text-align: center;
-                margin-top: 5px;
-                &.left{
-                    text-align: left;
-                }
-                &.big-content{
-                    max-width:     400px;
-                }
             }
             > label{
                 display: inline-block;
@@ -125,6 +111,29 @@ hr{
         color: red;
 }
 
+.tiny{
+    font-size: 10px !important;
+    color:#636373;
+    text-align: center;
+    margin-top: 5px;
+    &.left{
+        text-align: left;
+    }
+    &.big-content{
+        max-width:     400px;
+    }
+}
+
+.content-container {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.descriptor {
+    vertical-align: top !important;
+    margin-top: 20px;
+}
+
 .pull26 {
     margin-left: 26px;
 }
@@ -132,6 +141,9 @@ hr{
     margin-left: 40px;
 }
 
+._h90 {
+    height: 90px;
+}
 ._w60{
     width: 60px;
 }

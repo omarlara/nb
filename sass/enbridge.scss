@@ -11,10 +11,6 @@
     font-size: 14px;
 }
 
-#manual-property-info {
-    display: none;
-}
-
 #property-info {
     display: none;
     margin: 30px auto;
@@ -45,25 +41,12 @@
     width: 125px;
 }
 
-#misc-info,
-#misc-info-alternative {
-    margin-top: 10px;
-
-    & + .label-info {
-        position: absolute;
-        bottom: -11px;
-        left: 18px;
-    }
-}
-
 #stop-select + .enbridge-dropdown{
     margin-left: 25px;
     width: 380px;
 }
 
-#street-number,
-#suffix,
-#misc-info,
+
 #street-number-alternative,
 #suffix-alternative,
 #misc-info-alternative {
@@ -102,4 +85,21 @@ street--alternative{
 
 #accordion-like {
     width: 450px;
+}
+
+#code-validator {
+    margin: 0;
+
+    & + .error-message {
+        left: 186px;
+        position: relative;
+        width: 190px;
+    }
+}
+
+
+#select_your_street {
+    .form-group {
+        margin-bottom: 0;
+    }
 }

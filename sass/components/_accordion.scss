@@ -49,14 +49,12 @@
 
             label:not(.fake-input){
                 display: inline-block;
-                margin-bottom: 10px;
                 vertical-align: middle;
             }
 
             form {
                 display: block;
                 margin: 0 auto;
-                width: 560px;
             }
             .validator-container {
                 @extend .enbridge-btn;

@@ -122,7 +122,7 @@
                         request = null,
                         result = null;
 
-                    request =  $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+                    request =  $.post( "dummy.php",
                                     function(resp) {
                                         if (resp && resp.result) {
                                             $element
@@ -163,16 +163,30 @@
             container = $this.attr('data-content'),
             radioContent = [];
 
-        $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+        if(!$this.val().postalCode()) {
+            $this
+                .addClass('input-error')
+                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
+            return;
+        } else {
+            $this.removeClass('input-error');
+
+            if($this.next().hasClass('error-message')) {
+                $this.next().remove();
+            }
+        }
+
+        $.post( "dummy.php",
             function(resp) {
                 if (resp && resp.result) {
+
                     var containerEl = container.replace('#','');
                     $this
                         .addClass('success-field')
                         .removeClass('input-error');
 
                     for (var i = 0, size = resp.elements.length; i< size; i +=1) {
-                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent"><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
+                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
                         radioContent.push(chain);
                     }
 
@@ -283,15 +297,18 @@
                                 .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
                     }
 
-
-
                     error = true;
                 }
             }
 
             for (var i = text.length - 1; i >= 0; i--) {
                 if(text[i].required && !text[i].value) {
-                    text[i].className += ' input-error';
+                    $current = $(text[i]);
+                    $('[data-rel="' + $current.attr('data-rel') + '"]')
+                        .addClass('input-error');
+
+                    $current.closest('.set-field')
+                        .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
                     error = true;
                 }
             }
@@ -380,13 +397,10 @@
                         .find('input[type="radio"]').attr('required', true);
 
                 if (this.id === 'get-adress' && !$('[name=select-street-container]:checked').val()) {
-                    $('#manual-property-info').removeClass('hidden');
+                    //$('#manual-property-info').removeClass('hidden');
                     $('#step-adress').removeClass('hidden');
 
-                    $('#street-number').attr('required', true);
-                    $('#suffix').attr('required', true);
                     $('#street').attr('required', true);
-                    $('#misc-info').attr('required', true);
                     $('#city-or-town').attr('required', true);
                     $('#country').attr('required', true);
                     $('#province').attr('required', true);
@@ -411,7 +425,7 @@
         $('#get-adress').bind('click', function() {
             var $this = $(this);
 
-            $.post( "http://beta.json-generator.com/api/json/get/4yzCsvG1x",
+            $.post( "dummy.php",
                 function(resp) {
                     if (resp && resp.result) {
                         var numbers = [],
@@ -456,7 +470,7 @@
                     .closest('col')
                         .addClass('xs5')
                         .removeClass('xs12');
-            $('#property-info, #manual-property-info').show();
+            $('#property-info').show();
             $('#step-adress').removeClass('hidden');
             $('input[name="house-property"]').attr('required');
         });
@@ -474,21 +488,15 @@
 
         $('#mailing-adress-alternative').change(function() {
            if(this.checked) {
-                $('#manual-property-info').css('display', 'table');
-                $('#street-number-alternative').attr('required', true);
-                $('#suffix-alternative').attr('required', true);
+                $('#manual-property-info').removeClass('hidden');
                 $('#street-alternative').attr('required', true);
-                $('#misc-info-alternative').attr('required', true);
                 $('#city-or-town-alternative').attr('required', true);
                 $('#country-alternative').attr('required', true);
                 $('#province-alternative').attr('required', true);
                 $('#postal-code-input-alternative').attr('required', true);
            } else {
-                $('#manual-property-info').css('display', 'none');
-                $('#street-number-alternative').attr('required', false);
-                $('#suffix-alternative').attr('required', false);
+                $('#manual-property-info').addClass('hidden');
                 $('#street-alternative').attr('required', false);
-                $('#misc-info-alternative').attr('required', false);
                 $('#city-or-town-alternative').attr('required', false);
                 $('#country-alternative').attr('required', false);
                 $('#province-alternative').attr('required', false);

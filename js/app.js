@@ -213,347 +213,367 @@
     });
 
     /*Accordion*/
+    var validator = function formValidator ($form) {
+        var error = false,
+            radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
+            select = $form.find('.enbridge-select').removeClass('input-error'),
+            zipTool = $form.find('.zip-code-tool.required').removeClass('success-field'),
+            newAddress = $form.find('.new-adress'),
+            text = $form.find('input[type="text"]');
 
-    (function() {
-
-        var validator = function formValidator ($form) {
-            var error = false,
-                radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
-                select = $form.find('.enbridge-select').removeClass('input-error'),
-                zipTool = $form.find('.zip-code-tool.required').removeClass('success-field'),
-                newAddress = $form.find('.new-adress'),
-                text = $form.find('input[type="text"]');
-
-            $('.error-message').remove();
+        $('.error-message').remove();
 
 
-            for (var i = radio.length - 1; i >= 0; i--) {
-                if (!radio[i].className) {
-                   radio[i] .className = '';
-                }
+        for (var i = radio.length - 1; i >= 0; i--) {
+            if (!radio[i].className) {
+               radio[i] .className = '';
+            }
 
-                if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
-                    var $current = $(radio[i]);
+            if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
+                var $current = $(radio[i]);
 
-                    if(!$current.hasClass('input-error')) {
-                        $(radio[i]).closest('.set-field')
-                            .append('<p class="error-message pull26 ">' + $(radio[i]).attr('data-required-error') + '</p>');
-                    }
-
-                    $('[name = "' + $current.attr('name') + '"]')
-                        .addClass('input-error');
-
-                } else {
-                    var name = radio[i].name;
-
-                    $('input[name="' + name +'"]')
-                        .removeClass('input-error')
-                        .addClass('input-success');
-
+                if(!$current.hasClass('input-error')) {
                     $(radio[i]).closest('.set-field')
-                            .find('.error-message').remove();
-
+                        .append('<p class="error-message pull26 ">' + $(radio[i]).attr('data-required-error') + '</p>');
                 }
+
+                $('[name = "' + $current.attr('name') + '"]')
+                    .addClass('input-error');
+
+            } else {
+                var name = radio[i].name;
+
+                $('input[name="' + name +'"]')
+                    .removeClass('input-error')
+                    .addClass('input-success');
+
+                $(radio[i]).closest('.set-field')
+                        .find('.error-message').remove();
 
             }
 
-            if($form.find('input[type="radio"].input-error').length) {
+        }
+
+        if($form.find('input[type="radio"].input-error').length) {
+            error = true;
+        }
+
+        for (var i = zipTool.length - 1; i >= 0; i--) {
+            var $current = $(zipTool[i]),
+                $codeContainer = $current.find('.code-container');
+
+            if(!$codeContainer.val().postalCode()) {
+               $codeContainer
+                    .addClass('input-error')
+                        .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>') ;
+            }
+
+            if (!$current.hasClass('success-zip') ) {
                 error = true;
             }
+        }
 
-            for (var i = zipTool.length - 1; i >= 0; i--) {
-                var $current = $(zipTool[i]),
-                    $codeContainer = $current.find('.code-container');
+        for (var i = newAddress.length - 1; i >= 0; i--) {
+            if (!$(newAddress[i]).hasClass('success-field') ) {
+                error = true;
+            }
+        }
 
-                if(!$codeContainer.val().postalCode()) {
-                   $codeContainer
+        for (var i = select.length - 1; i >= 0; i--) {
+            if(select[i].required && !select[i].value) {
+                var $current = $(select[i]);
+
+                if($current.attr('data-position') == 'top') {
+                    $current
                         .addClass('input-error')
-                            .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>') ;
+                        .before('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                } else {
+                    $current
+                        .addClass('input-error')
+                        .next()
+                            .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
                 }
 
-                if (!$current.hasClass('success-zip') ) {
-                    error = true;
-                }
+                error = true;
             }
+        }
 
-            for (var i = newAddress.length - 1; i >= 0; i--) {
-                if (!$(newAddress[i]).hasClass('success-field') ) {
-                    error = true;
-                }
+        for (var i = text.length - 1; i >= 0; i--) {
+            if(text[i].required && !text[i].value) {
+                $current = $(text[i]);
+                $('[data-rel="' + $current.attr('data-rel') + '"]')
+                    .addClass('input-error');
+
+                $current.closest('.set-field')
+                    .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                error = true;
             }
+        }
 
-            for (var i = select.length - 1; i >= 0; i--) {
-                if(select[i].required && !select[i].value) {
-                    var $current = $(select[i]);
+        return error;
+    };
 
-                    if($current.attr('data-position') == 'top') {
-                        $current
-                            .addClass('input-error')
-                            .before('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
-                    } else {
-                        $current
-                            .addClass('input-error')
-                            .next()
-                                .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+    var dateValidator = function ($start, $end) {
+        var error = false,
+            init = new Date($start.val()),
+            end = new Date($end.val()),
+            now = new Date();
+
+        if($start.attr('required') && $end.attr('required')) {
+            if(init > end) {
+                $('[data-calendar*="' + $start.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            } else if( end < now) {
+                $('[data-calendar*="' + $end.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            } else if ((end - init)/86400000 < 3) {
+                $('[data-calendar*="' + $end.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            } else if ((''+end).indexOf('Sun') > - 1) {
+                $('[data-calendar*="' + $end.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            }
+        }
+
+        return error;
+    };
+
+    $('.accordion .accordion-item >.header').bind('click', function(event) {
+        event.preventDefault();
+
+        var $current = $(this).closest('.accordion-item');
+
+        if ($current.hasClass('processed')) {
+            return;
+        } else if($current.hasClass('active') || !$current.prev().length) {
+            $current.toggleClass('active ');
+        } else if ($current.prev().length && $current.prev().hasClass('processed')) {
+            $current.toggleClass('active ');
+        } else {
+            return;
+        }
+
+    });
+
+    $('.accordion .accordion-item .validator').bind('click', function(e) {
+        e.preventDefault();
+
+        var $current = $(this).closest('.accordion-item'),
+            $startDate = $current.find('.start-date'),
+            $finishDate = $current.find('.finish-date');
+
+        if(!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
+            $current
+                .removeClass('active')
+                .addClass('processed');
+
+            if($current.next().length) {
+                $current.next().addClass('active');
+            }
+        }
+
+    });
+
+    $('.steps .next-step').bind('click', function() {
+        var $current = $(this).closest('.accordion-item'),
+            $currentStep = $(this).closest('.steps'),
+            nextStep = $(this).attr('data-next-step');
+
+        if(!validator($current.find('.enbridge-form'))) {
+            $currentStep.
+                removeClass('active-step')
+                    .next();
+
+            $(nextStep)
+                .addClass('active-step')
+                    .find('input[type="radio"]').attr('required', true);
+
+            if (this.id === 'get-adress' && !$('[name=select-street-container]:checked').val()) {
+                //$('#manual-property-info').removeClass('hidden');
+                $('#step-adress').removeClass('hidden');
+
+                $('#street').attr('required', true);
+                $('#city-or-town').attr('required', true);
+                $('#country').attr('required', true);
+                $('#province').attr('required', true);
+                $('#postal-code-input').attr('required', true);
+            }
+        }
+    });
+
+    /*Flows*/
+    $('input[name="steps"]').change( function() {
+        if(this.value === 'stop') {
+            $('#stop-select')
+                .removeClass('hide-flow')
+                .attr('required', true);
+        } else {
+            $('#stop-select')
+                .addClass('hide-flow')
+                .attr('required', false);
+        }
+    });
+
+    $('#get-adress').bind('click', function() {
+        var $this = $(this);
+
+        $.post( "dummy.php",
+            function(resp) {
+                if (resp && resp.result) {
+                    var numbers = [],
+                        container = $this.attr('data-number-dropdown');
+
+                    $(container).html('');
+
+                    for (var i = 0, size = resp.numbers.length; i < size; i++) {
+                        numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
                     }
 
-                    error = true;
-                }
-            }
+                    $('<select class="enbridge-select" id="current-number" required>' + numbers.join('') + '</select>')
+                        .appendTo(container)
+                        .enbridgeDropdown();
 
-            for (var i = text.length - 1; i >= 0; i--) {
-                if(text[i].required && !text[i].value) {
-                    $current = $(text[i]);
-                    $('[data-rel="' + $current.attr('data-rel') + '"]')
+                } else {
+                    $this
+                        .removeClass('input-success success-field')
                         .addClass('input-error');
-
-                    $current.closest('.set-field')
-                        .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
-                    error = true;
                 }
-            }
 
-            return error;
-        };
+            },"json");
 
-        var dateValidator = function ($start, $end) {
-            var error = false,
-                init = new Date($start.val()),
-                end = new Date($end.val()),
-                now = new Date();
+    });
 
-            if($start.attr('required') && $end.attr('required')) {
-                if(init > end) {
-                    $('[data-calendar*="' + $start.attr('id') + '"]')
-                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                    error = true;
-                } else if( end < now) {
-                    $('[data-calendar*="' + $end.attr('id') + '"]')
-                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                    error = true;
-                } else if ((end - init)/86400000 < 3) {
-                    $('[data-calendar*="' + $end.attr('id') + '"]')
-                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                    error = true;
-                } else if ((''+end).indexOf('Sun') > - 1) {
-                    $('[data-calendar*="' + $end.attr('id') + '"]')
-                        .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                    error = true;
-                }
-            }
+    $('#confirm-adress-button').bind('click', function() {
+        var city = $('[name="select-street-container"]:checked').val() || '',
+            numberHouse =$('#current-number').val() || '',
+            zipCode = $('#code-validator').val();
 
-            return error;
-        };
+        $('#adress-conformation').text(numberHouse + ' ' + city + ' ' + zipCode);
+    });
 
-        $('.accordion .accordion-item >.header').bind('click', function(event) {
-            event.preventDefault();
+    $('#info-confirmation').bind('click', function(e) {
+        e.preventDefault();
+        $('#information-acceptance')
+            .hide()
+                .closest('.code-box')
+                    .width(280);
+        $('#hide-message').
+            hide()
+                .closest('col')
+                    .addClass('xs5')
+                    .removeClass('xs12');
+        $('#property-info').show();
+        $('#step-adress').removeClass('hidden');
+        $('input[name="house-property"]').attr('required');
+    });
 
-            var $current = $(this).closest('.accordion-item');
+    $('#info-decline').bind('click', function(e) {
+        e.preventDefault();
+        $('#code-validator')
+            .removeClass('input-success')
+            .val('');
 
-            if ($current.hasClass('processed')) {
-                return;
-            } else if($current.hasClass('active') || !$current.prev().length) {
-                $current.toggleClass('active ');
-            } else if ($current.prev().length && $current.prev().hasClass('processed')) {
-                $current.toggleClass('active ');
-            } else {
-                return;
-            }
+        $('#select-street-container, #data-dropdown').empty('');
 
-        });
+        $('#confirm-adress, #first-step').toggleClass('active-step');
+    });
 
-        $('.accordion .accordion-item .validator').bind('click', function(e) {
-            e.preventDefault();
+    $('#mailing-adress-alternative').change(function() {
+       if(this.checked) {
+            $('#manual-property-info').removeClass('hidden');
+            $('#street-alternative').attr('required', true);
+            $('#city-or-town-alternative').attr('required', true);
+            $('#country-alternative').attr('required', true);
+            $('#province-alternative').attr('required', true);
+            $('#postal-code-input-alternative').attr('required', true);
+       } else {
+            $('#manual-property-info').addClass('hidden');
+            $('#street-alternative').attr('required', false);
+            $('#city-or-town-alternative').attr('required', false);
+            $('#country-alternative').attr('required', false);
+            $('#province-alternative').attr('required', false);
+            $('#postal-code-input-alternative').attr('required', false);
+        }
+    });
 
-            var $current = $(this).closest('.accordion-item'),
-                $startDate = $current.find('.start-date'),
-                $finishDate = $current.find('.finish-date');
+    $('.calendar').bind('click', function(e) {
+        if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
+            return;
+        }
 
-            if(!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
-                $current
-                    .removeClass('active')
-                    .addClass('processed');
+        var $this = $(this),
+            date = $this.datepicker('getDate'),
+            day = date.getDate(),
+            month = date.getMonth() + 1,
+            year = date.getFullYear();
 
-                if($current.next().length) {
-                    $current.next().addClass('active');
-                }
-            }
+        $($this.closest('.calendar-column').attr('data-calendar'))
+            .val(year + '-' + month + '-' + day);
+    });
 
-        });
+    /*End Flow*/
 
 
-        $('.steps .next-step').bind('click', function() {
-            var $current = $(this).closest('.accordion-item'),
-                $currentStep = $(this).closest('.steps'),
-                nextStep = $(this).attr('data-next-step');
+    /*Forms*/
+    $('.enbridge-form input[type="radio"]').bind('click', function() {
+        var name = $(this).attr('name') || '';
 
-            if(!validator($current.find('.enbridge-form'))) {
-                $currentStep.
-                    removeClass('active-step')
-                        .next();
+        $(this).closest('.set-field')
+            .find('.error-message')
+                .remove();
 
-                $(nextStep)
-                    .addClass('active-step')
-                        .find('input[type="radio"]').attr('required', true);
+        $('input[name="' + name + '"]').removeClass('input-success input-error');
+    });
 
-                if (this.id === 'get-adress' && !$('[name=select-street-container]:checked').val()) {
-                    //$('#manual-property-info').removeClass('hidden');
-                    $('#step-adress').removeClass('hidden');
 
-                    $('#street').attr('required', true);
-                    $('#city-or-town').attr('required', true);
-                    $('#country').attr('required', true);
-                    $('#province').attr('required', true);
-                    $('#postal-code-input').attr('required', true);
-                }
-            }
-        });
+    $(window).ready(function() {
+       var calendar = $('.calendar'),
+           currentDate = new Date();
 
-        /*Flows*/
-        $('input[name="steps"]').change( function() {
-            if(this.value === 'stop') {
-                $('#stop-select')
-                    .removeClass('hide-flow')
-                    .attr('required', true);
-            } else {
-                $('#stop-select')
-                    .addClass('hide-flow')
-                    .attr('required', false);
-            }
-        });
+        calendar.datepicker();
 
-        $('#get-adress').bind('click', function() {
-            var $this = $(this);
-
-            $.post( "dummy.php",
-                function(resp) {
-                    if (resp && resp.result) {
-                        var numbers = [],
-                            container = $this.attr('data-number-dropdown');
-
-                        $(container).html('');
-
-                        for (var i = 0, size = resp.numbers.length; i < size; i++) {
-                            numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
-                        }
-
-                        $('<select class="enbridge-select" id="current-number" required>' + numbers.join('') + '</select>')
-                            .appendTo(container)
-                            .enbridgeDropdown();
-
-                    } else {
-                        $this
-                            .removeClass('input-success success-field')
-                            .addClass('input-error');
-                    }
-
-                },"json");
-
-        });
-
-        $('#confirm-adress-button').bind('click', function() {
-            var city = $('[name="select-street-container"]:checked').val() || '',
-                numberHouse =$('#current-number').val() || '',
-                zipCode = $('#code-validator').val();
-
-            $('#adress-conformation').text(numberHouse + ' ' + city + ' ' + zipCode);
-        });
-
-        $('#info-confirmation').bind('click', function(e) {
-            e.preventDefault();
-            $('#information-acceptance')
-                .hide()
-                    .closest('.code-box')
-                        .width(280);
-            $('#hide-message').
-                hide()
-                    .closest('col')
-                        .addClass('xs5')
-                        .removeClass('xs12');
-            $('#property-info').show();
-            $('#step-adress').removeClass('hidden');
-            $('input[name="house-property"]').attr('required');
-        });
-
-        $('#info-decline').bind('click', function(e) {
-            e.preventDefault();
-            $('#code-validator')
-                .removeClass('input-success')
-                .val('');
-
-            $('#select-street-container, #data-dropdown').empty('');
-
-            $('#confirm-adress, #first-step').toggleClass('active-step');
-        });
-
-        $('#mailing-adress-alternative').change(function() {
-           if(this.checked) {
-                $('#manual-property-info').removeClass('hidden');
-                $('#street-alternative').attr('required', true);
-                $('#city-or-town-alternative').attr('required', true);
-                $('#country-alternative').attr('required', true);
-                $('#province-alternative').attr('required', true);
-                $('#postal-code-input-alternative').attr('required', true);
-           } else {
-                $('#manual-property-info').addClass('hidden');
-                $('#street-alternative').attr('required', false);
-                $('#city-or-town-alternative').attr('required', false);
-                $('#country-alternative').attr('required', false);
-                $('#province-alternative').attr('required', false);
-                $('#postal-code-input-alternative').attr('required', false);
-            }
-        });
-
-        $('.calendar').bind('click', function(e) {
-            if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
-                return;
-            }
-
-            var $this = $(this),
-                date = $this.datepicker('getDate'),
+        for (var i = calendar.length - 1; i >= 0; i--) {
+            var $current =  $(calendar[i]).click(),
+                date = $current.datepicker('getDate'),
                 day = date.getDate(),
                 month = date.getMonth() + 1,
                 year = date.getFullYear();
 
-            $($this.closest('.calendar-column').attr('data-calendar'))
+            $($current.closest('.calendar-column').attr('data-calendar'))
                 .val(year + '-' + month + '-' + day);
+        }
+
+        $('.tooltip .icon').bind('click', function(){
+            $(this).next()
+                .addClass('active-tooltip')
+                .show();
         });
 
-        /*End Flow*/
-
-
-        /*Forms*/
-        $('.enbridge-form input[type="radio"]').bind('click', function() {
-            var name = $(this).attr('name') || '';
-
-            $(this).closest('.set-field')
-                .find('.error-message')
-                    .remove();
-
-            $('input[name="' + name + '"]').removeClass('input-success input-error');
+        $('.tooltip .cross').bind('click', function(){
+            $(this).closest('.content-tooltip')
+                .removeClass('active-tooltip')
+                .hide();
         });
 
+        $('.open-dialog').bind('click', funtion(e) {
+            e.preventDefault();
 
-        $(window).ready(function() {
-           var calendar = $('.calendar'),
-               currentDate = new Date();
-
-            calendar.datepicker();
-
-            for (var i = calendar.length - 1; i >= 0; i--) {
-                var $current =  $(calendar[i]).click(),
-                    date = $current.datepicker('getDate'),
-                    day = date.getDate(),
-                    month = date.getMonth() + 1,
-                    year = date.getFullYear();
-
-                $($current.closest('.calendar-column').attr('data-calendar'))
-                    .val(year + '-' + month + '-' + day);
-            }
-
+            $($(this).attr('data-target'))
+                .dialog({
+                    autoOpen:true,
+                    resizable: false,
+                    height:400,
+                    width:720,
+                    modal: true,
+                    height:440
+                });
         });
 
-    })();
+    });
 
 
 })(jQuery, window, document);

@@ -345,12 +345,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
             </div>
         </div>
 
-        <div class="enbridge-content-container" id="MovingOut">
-            <div class="dialog success-dialog" title="Moving Out" id="existingcustomers">
+        <div class="enbridge-content-container" id="im-moving">
+            <div class="dialog success-dialog" title="I'm Moving" id="existingcustomers">
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
 
-                        <ul class="accordion">
+                        <ul class="accordion" data-target="#form-summary">
                             <li class="accordion-item">
                                 <div class="header">More Details</div>
                                 <div class="content">
@@ -800,7 +800,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                             </li>
                         </ul>
 
-                        <div class="hidden">
+                        <div class="hidden summary" id="form-summary">
                             <div class="enbridge-content-container">
                                 <div class="enbridge-container ">
                                     <div class="titles">
@@ -895,47 +895,43 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                             <p class="checked">Your ﬁnal bill for the “Fake St.” address will be sent to: john@mail.com</p>
                                             <p class="checked">You will be charged a new account fee of $25</p>
 
-                                            <form action="" class="enbridge-form">
+                                            <div action="" class="enbridge-form">
                                                 <p class="information-inverse green question">Would you like to enroll your new account in to the Budget Billing Plan?</p>
                                                 <div class="col md12">
                                                     <div class="col md2">
                                                         <div class="col md4">
-                                                            <input type="radio" id="example">
-                                                            <label class="fake-input" for="example"></label>
+                                                            <input type="radio" name="new-billing-plan" id="new-billing-plan-yes">
+                                                            <label class="fake-input" for="new-billing-plan-yes">Yes</label>
                                                         </div>
-                                                        <div class="col md6">Yes</div>
                                                     </div>
                                                     <div class="col md2">
                                                         <div class="col md4">
-                                                            <input type="radio" id="example">
-                                                            <label class="fake-input" for="example"></label>
+                                                            <input type="radio" name="new-billing-plan" id="new-billing-plan-no">
+                                                            <label class="fake-input" for="new-billing-plan-no">No</label>
                                                         </div>
-                                                        <div class="col md6">No</div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="enbridge-content-container">
-                            <div class="enbridge-container ">
-                                <div class="row">
-                                    <div class="col md12 buttons text-center">
-                                        <div class="col md3">
-                                            <a class="enbridge-btn green _w160">SEND</a>
-                                        </div>
-
-                                        <div class="col md4 xs1-off">
-                                            <a class="enbridge-btn green larger _w230">SAVE & RETURN LATER</a>
-                                        </div>
-
-                                        <div class="col md3 xs1-off">
-                                            <a class="enbridge-btn green disabled sumbitt-button  _w160">SUBMIT</a>
-                                        </div>
-
+                        <div class="enbridge-container ">
+                            <div class="row">
+                                <div class="col md12 buttons text-center">
+                                    <div class="col md3">
+                                        <a class="enbridge-btn green _w160">SEND</a>
                                     </div>
+
+                                    <div class="col md4 xs1-off">
+                                        <a class="enbridge-btn green larger _w230">SAVE & RETURN LATER</a>
+                                    </div>
+
+                                    <div class="col md3 xs1-off">
+                                        <a class="enbridge-btn yellow disabled sumbit-button  _w160">SUBMIT</a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

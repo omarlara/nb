@@ -373,6 +373,15 @@
 
             if($current.next().length) {
                 $current.next().addClass('active');
+            } else {
+                var $accordion = $current.closest('.accordion').addClass('hidden'),
+                    $target = $($accordion.attr('data-target'));
+
+                $target.removeClass('hidden');
+
+                $accordion.closest('.dialog')
+                    .find('.sumbit-button')
+                        .removeClass('disabled');
             }
         }
 

@@ -1,7 +1,13 @@
-.calendar-position{
+calendar-position{
     margin-left: 199px;
 }
 
+.summary {
+    border: 1px solid $athens-gray-border;
+    padding: 30px;
+
+    background-color: white;
+}
 .ui-widget-overlay {
     position: fixed;
     top: 0;
@@ -26,16 +32,19 @@
     padding: 20px;
     outline: 0;
     border:1px solid #DEDFE4;
-    background:#fff;
+
+    background: $athens-gray;
 
     .ui-dialog-titlebar {
-        margin-bottom: 20px;
+        padding-bottom: 20px;
     }
 
     .ui-dialog-title {
-        font-size: 24px;
-        color:$crimson;
         font-family: $primary-font;
+        font-weight: bold;
+        font-size: 24px;
+
+        color:$crimson;
     }
 
     .ui-dialog-titlebar-close {

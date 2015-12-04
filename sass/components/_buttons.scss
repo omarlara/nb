@@ -27,21 +27,31 @@
             }
         }
         &.disabled {
-            background-color: $moon-mist;
+            background-color: $french-gray;
 
             &:hover,
             &:active {
-                background-color: darken($moon-mist, 10%);
+                background-color: darken($french-gray, 10%);
             }
         }
     }
 
     &.yellow {
-        background-color: $buttercup;
+        &:not(.disabled) {
+            background-color: $buttercup;
 
-        &:hover,
-        &:active {
-            background-color: darken($buttercup, 10%);
+            &:hover,
+            &:active {
+                background-color: darken($buttercup, 10%);
+            }
+        }
+        &.disabled {
+            background-color: $french-gray;
+
+            &:hover,
+            &:active {
+                background-color: darken($french-gray, 10%);
+            }
         }
     }
 

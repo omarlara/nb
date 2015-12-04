@@ -1,7 +1,7 @@
 .tooltip {
     display: inline-block;
     position: relative;
-
+    vertical-align: baseline !important;
     .content-tooltip {
         display: none;
         position: absolute;
@@ -19,6 +19,7 @@
         font-size: 13px;
         margin-left: -157px\9;
         margin-top: 35px\9;
+        line-height: 1.4;
 		@-moz-document url-prefix(){
 				margin-left: -152px;
 				margin-top: 37px;
@@ -56,6 +57,31 @@
      
 
 	
+    .letter-i{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        cursor: pointer;
+        z-index: 500;
+        float: left;
+        margin-right: 9px;
+        &:after {
+            content: "i";
+            font-style:italic;
+            background-color: $chelsea-cucumber;
+            border-radius: 12px;
+            width: 20px;
+            text-align: center;
+            height: 20px;
+            vertical-align: middle;
+            padding-top: 2px;
+            color: #fff;
+            font-weight: 700;
+            float: right;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+    }
 
     .icon {
         width: 20px;
@@ -67,7 +93,6 @@
         &:after {
             content: "?";
             background-color: $chelsea-cucumber;
-            content: "?";
             border-radius: 12px;
             width: 20px;
             text-align: center;

@@ -49,8 +49,30 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 !important;
 }
 
+.no-margin{
+    margin: 0 !important;
+}
+
+.no-margin-bottom{
+    margin-bottom: 0 !important;
+}
+
+.no-padding-left{
+    padding-left:0px !important;
+}
+
 .hidden {
     display: none !important;
+}
+
+.in-line{
+    display: inline !important;
+}
+
+.link-style{
+    text-decoration: inherit;
+    font-size: 14px;
+    color:$danube;
 }
 
 .clearfix {
@@ -69,6 +91,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 0;
     padding-right: 0;
 }
+
+
 
 .information-inverse {
     padding-top: $normal-padding;

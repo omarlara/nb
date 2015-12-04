@@ -18,20 +18,40 @@
     transition: background-color 0.5s;
 
     &.green {
-        background-color: $chelsea-cucumber;
+        &:not(.disabled) {
+            background-color: $chelsea-cucumber;
 
-        &:hover,
-        &:active {
-            background-color: darken($chelsea-cucumber, 10%);
+            &:hover,
+            &:active {
+                background-color: darken($chelsea-cucumber, 10%);
+            }
+        }
+        &.disabled {
+            background-color: $french-gray;
+
+            &:hover,
+            &:active {
+                background-color: darken($french-gray, 10%);
+            }
         }
     }
 
     &.yellow {
-        background-color: $buttercup;
+        &:not(.disabled) {
+            background-color: $buttercup;
 
-        &:hover,
-        &:active {
-            background-color: darken($buttercup, 10%);
+            &:hover,
+            &:active {
+                background-color: darken($buttercup, 10%);
+            }
+        }
+        &.disabled {
+            background-color: $french-gray;
+
+            &:hover,
+            &:active {
+                background-color: darken($french-gray, 10%);
+            }
         }
     }
 

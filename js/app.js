@@ -373,9 +373,31 @@
 
             if($current.next().length) {
                 $current.next().addClass('active');
+            } else {
+                var $accordion = $current.closest('.accordion').addClass('hidden'),
+                    $target = $($accordion.attr('data-target'));
+
+                $target.removeClass('hidden');
+
+                $accordion.closest('.dialog')
+                    .find('.sumbit-button')
+                        .removeClass('disabled');
             }
         }
 
+    });
+
+    $('.accordion .accordion-item .prev').bind('click', function(e) {
+        var $current = $(this).closest('.accordion-item');
+
+        if($current.prev().length) {
+            $current
+                .removeClass('active')
+                .prev()
+                    .addClass('active')
+                    .removeClass('processed');
+
+        }
     });
 
     $('.steps .next-step').bind('click', function() {
@@ -393,7 +415,6 @@
                     .find('input[type="radio"]').attr('required', true);
 
             if (this.id === 'get-adress' && !$('[name=select-street-container]:checked').val()) {
-                //$('#manual-property-info').removeClass('hidden');
                 $('#step-adress').removeClass('hidden');
 
                 $('#street').attr('required', true);
@@ -406,6 +427,22 @@
     });
 
     /*Flows*/
+
+    $('#previous-dates').bind('click', function() {
+        var $target = $($(this).attr('data-target')),
+            elements = null;
+
+        $target.find('.active-step')
+            .removeClass('active-step');
+
+        elements =  $target.find('.steps:first-child')
+                       .removeClass('.processed');
+
+        if(elements[0]) {
+            $(elements[0]).addClass('active-step');
+        }
+    });
+
     $('input[name="steps"]').change( function() {
         if(this.value === 'stop') {
             $('#stop-select')

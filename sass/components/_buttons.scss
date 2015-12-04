@@ -18,11 +18,21 @@
     transition: background-color 0.5s;
 
     &.green {
-        background-color: $chelsea-cucumber;
+        &:not(.disabled) {
+            background-color: $chelsea-cucumber;
 
-        &:hover,
-        &:active {
-            background-color: darken($chelsea-cucumber, 10%);
+            &:hover,
+            &:active {
+                background-color: darken($chelsea-cucumber, 10%);
+            }
+        }
+        &.disabled {
+            background-color: $moon-mist;
+
+            &:hover,
+            &:active {
+                background-color: darken($moon-mist, 10%);
+            }
         }
     }
 

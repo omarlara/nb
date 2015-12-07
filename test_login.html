@@ -545,7 +545,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                                     <div class="content-container">
                                                         <label for="usr" class="_w100">Country:</label>
                                                         <div class="set-field content-container _w180">
-                                                            <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                            <select class="enbridge-select" data-required-error="Please select the required information." id="country">
                                                                 <option value="Canada">Canada</option>
                                                                 <option value="United States">United States</option>
                                                             </select>
@@ -554,7 +554,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                                     <div class="content-container">
                                                         <label for="usr" class="descriptor _w100">Province:</label>
                                                         <div class="set-field content-container _w180" data-required-error="Please select the required information.">
-                                                            <select class="enbridge-select">
+                                                            <select class="enbridge-select"  id="province" data-required-error="Please select the required information.">
                                                                 <option value="Canada">Canada</option>
                                                                 <option value="United States">United States</option>
                                                             </select>
@@ -586,78 +586,77 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                             <input type="checkbox" id="mailing-adress-alternative" value="true">
                                             <label class="fake-input" for="mailing-adress-alternative">My mailing address is different from my service address</label>
 
-                                            <div class="hidden" id="manual-property-info">
-                                                <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <label for="usr" class="descriptor _w100">Street Address:</label>
-                                                        <div class="set-field content-container">
-                                                            <div class="content-container">
-                                                                <input type="text" id="street-number-alternative" class="_w60" data-rel="street-alternative">
-                                                                <input type="text" id="suffix-alternative" class="_w60" data-rel="street-alternative">
-                                                                <input
-                                                                    type="text"
-                                                                    id="street-alternative"
-                                                                    class="_w220"
-                                                                    data-required-error="Please select the required information."
-                                                                    data-rel="street-alternative">
-                                                                <input type="text" id="misc-info-alternative" class="_w60" data-rel="street-alternative">
-                                                            </div>
-                                                            <div>
-                                                                <label for="street-number" class="tiny _w60">Number</label>
-                                                                <label for="suffix" class="tiny _w60">Suffix</label>
-                                                                <label for="street" class="tiny _w220">Street</label>
-                                                                <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <label for="usr" class="descriptor _w100">City or Town:</label>
-                                                        <div class="set-field content-container">
-                                                            <input type="text"
-                                                                id="city-or-town-alternative"
-                                                                class="_w180"
+                                        </div>
+                                        <div class="hidden" id="manual-property-info">
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <label for="usr" class="descriptor _w100">Street Address:</label>
+                                                    <div class="set-field content-container">
+                                                        <div class="content-container">
+                                                            <input type="text" id="street-number-alternative" class="_w60" data-rel="street-alternative">
+                                                            <input type="text" id="suffix-alternative" class="_w60" data-rel="street-alternative">
+                                                            <input
+                                                                type="text"
+                                                                id="street-alternative"
+                                                                class="_w220"
                                                                 data-required-error="Please select the required information."
-                                                            data-rel="city-or-town-alternative">
+                                                                data-rel="street-alternative">
+                                                            <input type="text" id="misc-info-alternative" class="_w60" data-rel="street-alternative">
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <div class="content-container">
-                                                            <label for="usr" class="_w100">Country:</label>
-                                                            <div class="set-field content-container _w180">
-                                                                <select class="enbridge-select" data-required-error="Please select the required information.">
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content-container">
-                                                            <label for="usr" class="_w100">Province:</label>
-                                                            <div class="set-field content-container _w180">
-                                                                <select class="enbridge-select" data-required-error="Please select the required information.">
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <label for="usr" class="descriptor _w100">Postal Code:</label>
-                                                        <div class="set-field content-container">
-                                                            <input type="text" id="postal-code-input-alternative" class="_w120" data-required-error="Please select the required information." data-rel="postal-code-input-alternative">
+                                                        <div>
+                                                            <label for="street-number" class="tiny _w60">Number</label>
+                                                            <label for="suffix" class="tiny _w60">Suffix</label>
+                                                            <label for="street" class="tiny _w220">Street</label>
+                                                            <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <label for="usr" class="descriptor _w100">City or Town:</label>
+                                                    <div class="set-field content-container">
+                                                        <input type="text"
+                                                            id="city-or-town-alternative"
+                                                            class="_w180"
+                                                            data-required-error="Please select the required information."
+                                                        data-rel="city-or-town-alternative">
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <div class="content-container">
+                                                        <label for="usr" class="_w100">Country:</label>
+                                                        <div class="set-field content-container _w180">
+                                                            <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="United States">United States</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="content-container">
+                                                        <label for="usr" class="_w100">Province:</label>
+                                                        <div class="set-field content-container _w180">
+                                                            <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="United States">United States</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="property-info form-grid">
+                                                <div class="form-group pull-margin-right">
+                                                    <label for="usr" class="descriptor _w100">Postal Code:</label>
+                                                    <div class="set-field content-container">
+                                                        <input type="text" id="postal-code-input-alternative" class="_w120" data-required-error="Please select the required information." data-rel="postal-code-input-alternative">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="validator-container">
@@ -794,7 +793,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </div>
                                     <div class="validator-container">
                                         <a class="prev" href="#">BACK</a>
-                                        <a class="validator" href="#">NEXT</a>
+                                        <a class="validator" id="complete-new-user" href="#">NEXT</a>
                                     </div>
                                 </div>
                             </li>
@@ -819,12 +818,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                                 <div class="col xs5">
                                                     <div class="address">
                                                         <h4>From: </h4>
-                                                        <p>
+                                                        <p id="from-modal">
                                                             321 New St. Toronto, ON M2M2M2
 
                                                         </p>
                                                         <p>
-                                                            <strong>Service Starting:</strong> October 20th
+                                                            <strong>Service Starting:</strong><span id="start-service-wait"></span>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -834,12 +833,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                                 <div class="col xs5">
                                                     <div class="address">
                                                         <h4>To:</h4>
-                                                        <p>
+                                                        <p id="to-modal">
                                                             321 New St. Toronto, ON G2G2G2
 
                                                         </p>
                                                         <p>
-                                                            <strong>Service Starting:</strong> October 23rd
+                                                            <strong>Service Starting:</strong><span id="end-service-wait"></span>
                                                         </p>
                                                     </div>
                                                 </div>

@@ -426,6 +426,55 @@
         }
     });
 
+    $('#complete-new-user').bind('click', function() {
+        var fromAddress = '',
+            toAddress = '',
+            dateEndService = $('#date-start').val(),
+            dateStartService = $('#date-finish').val();
+
+        if($('#confirm-adress').hasClass('.active-step')) {
+            if($("#mailing-adress-alternative").attr('checked')) {
+                fromAddress = $('#current-number').val() + ' ' + $("#select-street-container").val() + ' ' + $("#code-validator").val();
+                toAddress = $('#street-number-alternative').val() + ' ' +$('#suffix-alternative').val() + ' ' +
+                            $('#street-alternative').val() + ' ' + $('#misc-info-alternative').val() + ' ' +  $('#city-or-town-alternative').val() + ' ' +
+                            $('#country-alternative').val() + ' ' +  $('#province-alternative').val() +  ', ON ' + $('#postal-code-input-alternative').val();
+
+                $('#from-modal').text(fromAddress);
+                $('#to-modal').text(toAddress);
+
+            } else {
+                fromAddress = $('#current-number').val() + ' ' + $("#select-street-container").val() + ' ' + $("#code-validator").val();
+
+                 $('#from-modal, #to-modal').text(fromAddress);
+            }
+        } else {
+
+            if($("#mailing-adress-alternative").attr('checked')) {
+                fromAddress = $('#street-number').val() + ' ' +$('#suffix').val() + ' ' +
+                              $('#street').val() + ' ' + $('#misc-info').val() + ' ' +  $('#city-or-town').val() + ' ' +
+                              $('#country').val() + ' ' +  $('#province').val() +  ', ON ' + $('#postal-code-input').val();
+
+                toAddress = $('#street-number-alternative').val() + ' ' +$('#suffix-alternative').val() + ' ' +
+                            $('#street-alternative').val() + ' ' + $('#misc-info-alternative').val() + ' ' +  $('#city-or-town-alternative').val() + ' ' +
+                            $('#country-alternative').val() + ' ' +  $('#province-alternative').val() +  ', ON ' + $('#postal-code-input-alternative').val();
+
+                $('#from-modal').text(fromAddress);
+                $('#to-modal').text(toAddress);
+
+            } else {
+                fromAddress = $('#street-number').val() + ' ' +$('#suffix').val() + ' ' +
+                              $('#street').val() + ' ' + $('#misc-info').val() + ' ' +  $('#city-or-town').val() + ' ' +
+                              $('#country').val() + ' ' +  $('#province').val() +  ', ON ' + $('#postal-code-input').val();
+
+                $('#from-modal, #to-modal').text(fromAddress);
+            }
+        }
+
+        $('#start-service-wait').text(dateEndService);
+        $('#end-service-wait').text(dateStartService);
+
+    });
+
     /*Flows*/
 
     $('#previous-dates').bind('click', function() {
@@ -519,7 +568,7 @@
         $('#confirm-adress, #first-step').toggleClass('active-step');
     });
 
-    $('#mailing-adress-alternative').change(function() {
+    $('#mailing-adress-alternative, #mailing-adress').change(function() {
        if(this.checked) {
             $('#manual-property-info').removeClass('hidden');
             $('#street-alternative').attr('required', true);

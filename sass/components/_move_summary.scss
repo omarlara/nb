@@ -24,10 +24,15 @@
         letter-spacing: 0px;
         margin-top: 4%;
 
+        strong {
+            display: block;
+        }
+
         &:first-of-type {
             margin-top: 2%;
             margin-bottom: 0%;
         }
+
     }
 }
 

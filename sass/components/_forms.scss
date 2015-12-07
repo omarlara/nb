@@ -2,6 +2,7 @@
 
     label:not(.fake-input),
     label:not(.label-info),
+
     p,
     span{
         font-weight: normal;
@@ -11,6 +12,14 @@
             display: inline-block;
             margin: 24px 0;
         }
+    }
+
+    p.alig-center{
+        vertical-align: center !important;
+    }
+
+    p{
+        font-size: 14px;
     }
 
     #{$all-text-inputs} {

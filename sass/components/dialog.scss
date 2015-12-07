@@ -1,19 +1,84 @@
-calendar-position{
+.alert-info {
+    border-radius: 2px;
+    padding: 0px 14px 0px 14px;
+    margin-bottom: 14px;
+}
+
+.left-distance-radio{
+    margin-left: 30px !important;
+}
+
+.overflow-hidden{
+    overflow: hidden;
+}
+
+.width-inherit{
+    width: 50px !important;
+      
+}
+
+.last-note-padding{
+    padding: 0px 53px 0px 8px;
+}
+
+.billing-title{
+    padding-bottom: 14px;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.ecru-white {
+    background-color: $ecru-white;
+    padding: 17px;
+    line-height: 1.4;
+    color: $dolphin;
+
+    p {
+        color: $dolphin !important;
+    }
+
+    &.top-dialog {
+        margin-top: 20px;
+    }
+}
+
+.space-inputs{
+    padding-right: 22px
+}
+
+.border-inputs {
+    height: 1px;
+    border-bottom: 1px solid #ccc;
+    width: 674px;
+    position: absolute;
+    left: 21px;
+    padding: 0px 0px;
+    margin-top: -16px;
+}
+
+.extra-formstyle {
+    padding-top: 20px !important;
+}
+
+.calendar-position {
     margin-left: 199px;
 }
 
-.summary {
-    border: 1px solid $athens-gray-border;
-    padding: 30px;
-
-    background-color: white;
-}
-.vertical-align{
-    vertical-align: middle !important;
+.inputs-div-style {
+    margin-bottom: 35px;
+    margin-top: 7px;
 }
 
-.left-important{
-    text-align:left !important;
+.forms-distance{
+    margin-bottom: 18px;
+}
+
+.left-important {
+    text-align: left !important;
+}
+
+.tooltip-title-yellow {
+    margin-left: 35px;
 }
 
 .ui-widget-overlay {
@@ -22,7 +87,7 @@ calendar-position{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     opacity: .3;
 }
 
@@ -39,57 +104,67 @@ calendar-position{
     left: 0 !important;
     padding: 20px;
     outline: 0;
-    border:1px solid #DEDFE4;
+    border: 1px solid #DEDFE4;
+    background: #fff;
 
-    background: $athens-gray;
+    .tooltip .icon:after {
+        margin-top: 4px;
+    }
 
     .ui-dialog-titlebar {
-        padding-bottom: 20px;
+        margin-bottom: 20px;
     }
 
     .ui-dialog-title {
-        font-family: $primary-font;
-        font-weight: bold;
         font-size: 24px;
-
-        color:$crimson;
+        color: $crimson;
+        font-family: $primary-font;
     }
 
     .ui-dialog-titlebar-close {
         width: 23px;
         height: 23px;
-        background: url('img/close.svg') no-repeat 0 0 ;
+        background: url("img/close.svg") no-repeat 0 0;
         float: right;
-        margin:-10px -10px 0 0;
-        span{
+        margin: -10px -10px 0 0;
+
+        span {
             display: none;
         }
     }
+
+    .border {}
 
     .accordion-footer {
         padding: 20px 0;
         position: absolute;
         bottom: 0;
 
-        .btn{
+        .btn {
             display: inline-block;
-            &:first-child + .btn + .btn{
+
+            &:first-child + .btn + .btn {
                 float: right;
             }
         }
     }
 
+    .radio-space {
+        margin-right: 35px;
+    }
+
     .enbridge-content-container {
-        .enbridge-container{
+        .enbridge-container {
             max-width: inherit;
             min-width: inherit;
             padding: 0;
-            margin:0;
+            margin: 0;
             width: auto;
             float: none;
-            .accordion{
+
+            .accordion {
                 padding: 0;
-                margin:0;
+                margin: 0;
                 width: auto;
             }
         }

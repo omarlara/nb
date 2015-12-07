@@ -718,55 +718,193 @@
             <div class="dialog success-dialog" title="New Account" id="newcustomers">
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
-                        <ul class="accordion">
-                            <li class="accordion-item processed">
-                                <div class="header">More Details</div>
+                        <div class="row">   
+                            <div class="form-group pull-margin-right alert-info col xs12">
+                                    <div class="ecru-white" id="costumer-alert">
+                                        <span class="tooltip">
+                                            <span class="letter-i"></span>
+                                            <span classs="content-tooltip">
+                                        </span>
+                                            <p class="no-margin">      Use this form if natural gas is already     installed at the property. If a new natural gas service needs to be installed, please contact our Customer Connections Contact Centre at <strong>   1-888-427-8888</strong>
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="enbridge-content-container">
+                    <div class="enbridge-container">
+                        <ul class="accordion" id="blue-accordion">
+                            <li class="accordion-item processed ">
+                                <div class="header">1.New Customer Information</div>
+                                    
                                 <div class="content">
-                                    <p class="strong">I would like to ...</p>
-
-                                    <form class="enbridge-form">
-
-                                        <input type="radio" id="transfer" value="transfer" name="steps" required>
-                                        <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="stop" value="stop" name="steps" required>
-                                        <label class="fake-input" for="stop"><strong>Stop</strong> my gas services.</label>
-                                        <select class="enbridge-select hide-flow" id="stop-select">
-                                            <option value="">
-                                                Please select a reson
-                                            </option>
-                                            <option value="1">
-                                                I'm moving but don't have the details at this time
-                                            </option>
-                                            <option value="2">
-                                                I'm moving out of the Enbridge serviced area
-                                            </option>
-                                            <option value="3">
-                                                Account holder is deseaced
-                                            </option>
-                                        </select>
-
-                                        <div class="clearfix "></div>
-                                        <input type="radio" id="add" value="add" name="steps" required>
-                                        <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
-
-
-                                        <div class="zip-code-tool closed">
-                                            <div class="opener">
-                                                Postal Code Lookup Tool <i>i</i>
+                                <div class="ecru-white">
+                                        <span class="tooltip">
+                                            <span class="letter-i"></span>
+                                            <span classs="content-tooltip">
+                                        </span>
+                                            <p class="no-margin">If you are an existing Enbridge Gas customer, please sign into myEnbridge to add this property to your myEnbridge Profile. If ou don't have a my Enbridge profile, <a href="#" class="link-style">register here.</a>
+                                            </p>
+                                    </div>
+                                   <form action="" class="enbridge-form col xs12 extra-formstyle">
+                                        <label class="legend-row">Select type of device:</label>
+                                            <div class="property-info form-grid alert-info">
+                                                
                                             </div>
-                                            <div class="tool">
-                                                <p class="information green">Find out if your new address is serviced by Enbridge</p>
+                                            <div class="property-info form-grid forms-distance ">
+                                                <div class="form-group pull-margin-right inputs-div-style ">
+                                                    <div class="set-field content-container">
+                                                        <input type="radio" name="lang" id="radio1" value="php">
+                                                        <label class="fake-input in-line radio-space" for="radio1">Home</label>
 
-                                                <input type="text" name="zip-tool">
-                                                <input class="enbridge-btn green big-button submiter" type="submit" value="check">
+                                                        <input type="radio" name="lang" id="radio2" value="java">
+                                                        <label class="fake-input in-line" for="radio2">Business</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="border-inputs"></div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Customer Name:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w150">
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="form-group pull-margin-right">
+                                                    <label for="usr">Middle Name: </label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w150">
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Last Name:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w150">
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                        <p class="align-center">
+                                                            Additional name on this account (optional):
+                                                            <span class="tooltip">
+                                                                <span class="icon"></span>
+                                                                <span class="content-tooltip">
+                                                                    <span class="cross"></span>
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                                </span>
+                                                            </span>
+                                                        </p>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar forms-distance">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">First:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w150">
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="form-group pull-margin-right">
+                                                    <label for="usr">Last: </label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w150">
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="border-inputs"></div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Mobile Phone:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w60">
+                                                      <input type="text" class="form-control  _w150">       
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Home Phone:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w60">
+                                                      <input type="text" class="form-control  _w150">       
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Business Phone:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w60">
+                                                      <input type="text" class="form-control  _w150">  
+                                                      <label for="usr">ext:</label>
+                                                      <input type="text" class="form-control  _w60">     
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Email:</label>
+                                                    <div class="set-field">
+                                                      <input type="text" class="form-control  _w150">
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr">Date of birth:</label>
+                                                    <div class="set-field">
+                                                        <div class="property-info display-table no-margin-bottom no-padding-left">
+                                                            <div class="cell">
+                                                                <div class="display-table no-padding-left">
+                                                                    <div class="cell">
+                                                                        <select class="enbridge-select">
+                                                                            <option value="Canada">Month</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cell">
+                                                                <div class="display-table">
+                                                                    <div class="cell">
+                                                                        <select class="enbridge-select">
+                                                                            <option value="Canada">Day</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                             <input type="text" class="form-control  _w100" placeholder="YYYY">
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                 
+                                                 <div class="row adress-bar">
+                                                  <div class="form-group pull-margin-right space-inputs">
+                                                    <label for="usr"></label>
+                                                    <div class="set-field">
+                                                      
+                                                    </div>
+                                                  </div>
+                                                </div>
 
                                             </div>
-
-                                            <div class="result"></div>
-
-                                        </div>
-                                    </form>
+                                            
+                                        </form>
 
                                     <!--a href="" class="validator yellow big-button">NEXt</a-->
                                     <div class="validator-container">
@@ -776,7 +914,7 @@
                                 </div>
                             </li>
                             <li class="accordion-item processed">
-                                <div class="header">New Address</div>
+                                <div class="header">2.Address Information</div>
                                 <div class="content">
                                     <form action="" class="enbridge-form">
                                         <div class="steps active-step" id="first-step">
@@ -988,144 +1126,82 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed active">
-                                <div class="header">Dates</div>
-                                <div class="content">
-                                    <form class="enbridge-form">
-                                        <div class="dates-view enbridge-container">
-                                            <div class="calendar-container row">
-                                                <div class="col xs6">
-                                                    <div class="calendar-column" data-calendar="#date-start">
-                                                        <div class="headline">
-                                                            <h3>
-                                                                What us the last day you are responsible for:
-                                                            </h3>
-                                                        </div>
-                                                        <div class="adress-component">
-                                                            <div class="adress">
-                                                                123 Fake St.
-                                                                <br/> Toronto, ON
-                                                                <br/> M2M 2M2
-                                                                <br/>
-                                                            </div>
-                                                            <div class="calendar"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col xs6">
-                                                    <div class="calendar-column" data-calendar="#date-finish">
-                                                        <div class="headline">
-                                                            <h3>
-                                                                What us the last day you are responsible for:
-                                                            </h3>
-                                                        </div>
-                                                        <div class="adress-component">
-                                                            <div class="adress">
-                                                                123 Fake St.
-                                                                <br/> Toronto, ON
-                                                                <br/> M2M 2M2
-                                                                <br/>
-                                                            </div>
-                                                            <div class="calendar"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <p class="information green">
-                                                If these dates change, you can come back here to let us know!
-                                            </p>
-                                        </div>
-
-                                        <input type="hidden" class="start-date" id="date-start" required>
-                                        <input type="hidden" class="finish-date" id="date-finish" required>
-
-                                        <div class="validator-container">
-                                            <a class="prev" href="#">BACK</a>
-                                            <a class="validator" href="#">NEXT</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                            <li class="accordion-item ">
-                                <div class="header">Your Information</div>
+                           
+                            <li class="accordion-item active">
+                                <div class="header">3. Billing Service</div>
                                 <div class="content">
                                    <form action="" class="enbridge-form">
                                         <div class="steps active-step" id="select_your_adress_form">
-                                                <p class="strong">Please enter your new address:</p>
+                                               
+                                                <div class=" ">
+                                                    <p class="vertical-align">
+                                                        Would you like to enroll your new account into the Budget Billing Plan:
+                                                        <span class="tooltip">
+                                                            <span class="icon"></span>
+                                                            <span class="content-tooltip">
+                                                                <span class="cross"></span>
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                            </span>
+                                                        </span>
+                                                    </p>
+                                                </div>
                                                 <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <label for="usr" class="descriptor _w100">Street Address:</label>
+                                                    <div class="form-group pull-margin-right inputs-div-style ">
                                                         <div class="set-field content-container">
-                                                            <div class="content-container">
-                                                                <input type="text" id="street-number" class="_w60" data-rel="street">
-                                                                <input type="text" id="suffix" class="_w60" data-rel="street">
-                                                                <input type="text" id="street" class="_w220" data-required-error="Please select the required information." data-rel="street" required="">
-                                                                <input type="text" id="misc-info" class="_w60" data-rel="street">
-                                                            </div>
-                                                            <div>
-                                                                <label for="street-number" class="tiny _w60">Number</label>
-                                                                <label for="suffix" class="tiny _w60">Suffix</label>
-                                                                <label for="street" class="tiny _w220">Street</label>
-                                                                <label for="misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <label for="usr" class="descriptor _w100">City or Town:</label>
-                                                        <div class="set-field content-container">
-                                                            <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information." required="">
+                                                            <input type="radio" name="lang" id="radio1" value="php">
+                                                            <label class="fake-input in-line radio-space  left-distance-radio" for="radio1">Yes</label>
+
+                                                            <input type="radio" name="lang" id="radio2" value="java">
+                                                            <label class="fake-input in-line left-distance-radio" for="radio2">No</label>
                                                         </div>
                                                     </div>
                                                 </div>
 
+                                                
                                                 <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <div class="content-container">
-                                                            <label for="usr" class="descriptor _w100">Country:</label>
-                                                            <div class="set-field content-container _w180">
-                                                                <select class="enbridge-select" data-required-error="Please select the required information.">
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select><div class="enbridge-dropdown"><input type="hidden" class="result"><div class="header"><span class="selected">Canada</span><span class="indicator"></span></div><ul class="list-items"><li class="list-item"><input type="hidden" value="Canada">Canada</li><li class="list-item"><input type="hidden" value="United States">United States</li></ul></div>
-                                                            </div>
+                                                    <div class="form-group pull-margin-right alert-info col xs12">
+                                                    <h2 class="billing-title">Paperless Billing</h2>
+                                                    <div class="ecru-white">
+                                                        <span class="tooltip">
+                                                            <span class="letter-i"></span>
+                                                            <span classs="content-tooltip">
+                                                        </span>
+                                                            <p class="no-margin overflow-hidden">Use this form if natural gas is already     installed at the property. If a new natural gas service needs to be installed, please contact our Customer Connections Contact Centre at <strong>   1-888-427-8888</strong>
+                                                            </p>
+                                                    </div>
+                                                        
                                                         </div>
-                                                        <div class="content-container">
-                                                            <label for="usr" class="descriptor _w100">Province:</label>
-                                                            <div class="set-field content-container _w180" data-required-error="Please select the required information.">
-                                                                <select class="enbridge-select">
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select><div class="enbridge-dropdown"><input type="hidden" class="result"><div class="header"><span class="selected">Canada</span><span class="indicator"></span></div><ul class="list-items"><li class="list-item"><input type="hidden" value="Canada">Canada</li><li class="list-item"><input type="hidden" value="United States">United States</li></ul></div>
+                                                </div>
+
+                                                <div class="property-info form-grid forms-distance ">
+                                                    <div class="form-group pull-margin-right  ">
+                                                        <div class="row adress-bar">
+                                                          <div class="form-group pull-margin-right space-inputs">
+                                                            <label for="usr" class="width-inherit">Email:</label>
+                                                            <div class="set-field">
+                                                              <input type="text" class="form-control  ">
                                                             </div>
+                                                          </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
 
                                                 <div class="property-info form-grid">
-                                                    <div class="form-group pull-margin-right">
-                                                        <label for="usr" class="descriptor _w100">Postal Code:</label>
-                                                        <div class="set-field content-container">
-                                                            <input type="text" id="postal-code-input" class="_w120" data-required-error="Please select the required information." required="">
+                                                    <div class="form-group pull-margin-right inputs-div-style ">
+                                                        <div class="set-field content-container last-note-padding">
+                                                            
+                                                            <label for="street-number" class="tiny _w650 left-important">
+                                                             <strong>Note</strong>: As a part of the activation process you will receive an email from Enbridge Gas Distribution with a link to the activation page. Plasea note that until you follow the steps in the email you will not be able to sign into myEnbridge. This is necessary to ensure you have entered a valid email address.
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="set-field">
-                                                    <input type="radio" id="rent-property-alternative" value="rent" name="house-property-alternative" data-required-error="Please select the required information." class="input-success" required="">
-                                                    <label class="fake-input" for="rent-property-alternative">
-                                                        I'm renting this property.
-                                                    </label>
-                                                    <input type="radio" id="buy-property-alternative" value="buy" name="house-property-alternative" data-required-error="Please select the required information." class="input-success" required="">
-                                                    <label class="fake-input" for="buy-property-alternative">
-                                                        I'm buying this property.
-                                                    </label>
-                                                </div>
 
-                                                <input type="checkbox" id="mailing-adress-alternative" value="true">
-                                                <label class="fake-input" for="mailing-adress-alternative">My mailing address is different from my service address</label>
+
+
+                                            
 
                                                 <div class="hidden" id="manual-property-info">
                                                     <div class="property-info form-grid">
@@ -1195,6 +1271,86 @@
                                 </div>
                             </li>
                         </ul>
+                         <!-- Summary-->
+                            <div class="summary-container hidden" id="summaryblue">
+                                  <div class="enbridge-content-container">
+                                    <div class="enbridge-container ">
+                                        <div class="titles">
+                                            <h2 class="title">Almost done... </h2>
+                                            <h4 class="subtitle">Please review before you submit</h4>
+                                        </div>
+                                        <div class="move-summary">
+                                            <div class="row">
+                                                <h2 class="movetitle col xs6">Move Summary</h2>
+                                                    <div class="buttondiv col xs6">
+                                                        <button class="enbridge-btn yellow summarybtn">EDIT</button>
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col xs12">
+                                                    <div class="col xs5">
+                                                        <div class="address">
+                                                            <h4>From: </h4>
+                                                            <p>
+                                                                321 New St.
+                                                                Toronto, ON
+                                                                M2M2M2
+
+                                                            </p>
+                                                            <p>
+                                                                <strong>Service    Starting:</strong>
+                                                                October 20th
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                    <div class=" TextAfter col md12">
+                                                        <p class="information common">If these dates change, you can come back here to let us know!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="enbridge-content-container">
+                                    <div class="enbridge-container ">
+                                        <div class="your-information tile green">
+                                            <div class="row">
+                                                <div class="col xs12">
+                                                    <div class="col xs7 infotitle">
+                                                        <h1 class="title white">Your Information</h1>
+                                                        <h2 class="subtitle white">John Smith</h2>
+                                                    </div>
+
+                                                    <div class="buttondiv col xs5" >
+                                                        <button class="enbridge-btn yellow summarybtn">EDIT</button>
+                                                    </div>
+
+                                                    <div class="col border"></div>
+
+                                                    <div class="col md6 data">
+                                                        <span>Date Of birth: 30/11/1980</span>
+                                                        <span>Phone: 416-123-4567</span>
+                                                        <span>Mobile: 416-123-4567</span>
+                                                        <span>Additional contact: Jane Smith</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col md10 Features">
+                                            <div class="row">
+                                                <p class="checked">All of your account settings and options will be applied to the new account</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Final del summary-->
 
                         <div class="enbridge-content-container">
                             <div class="enbridge-container ">
@@ -1209,13 +1365,15 @@
                                         </div>
 
                                         <div class="col md3 xs1-off">
-                                            <a class="enbridge-btn gray large">SUBMIT</a>
+                                            <a class="enbridge-btn gray large modalopen" data-target="#blue-accordion">SUBMIT</a>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                       
                     </div>
                 </div>
             </div>
@@ -1440,22 +1598,30 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed ">
+                            <li class="accordion-item processed active">
                                 <div class="header">Dates</div>
                                 <div class="content">
-                                    <form class="enbridge-form">
-                                    <p class="information-inverse green question text-center">
+                                <div class=" tooltip-title-yellow">
+                                    <p class="vertical-align">
                                         What is the <strong>last</strong> day you are responsible for: 
+                                        <span class="tooltip">
+                                            <span class="icon"></span>
+                                            <span class="content-tooltip">
+                                                <span class="cross"></span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                            </span>
+                                        </span>
                                     </p>
+                                </div>
+                                    <form class="enbridge-form">
+                                    
                                         <div class="dates-view enbridge-container">
                                             <div class="calendar-container row">
+                                            
                                                 <div class="col xs6 calendar-position">
-                                                    <div class="calendar-column" data-calendar="#date-start">
-                                                        <div class="headline">
-                                                            <h3>
-                                                                
-                                                            </h3>
-                                                        </div>
+                                                
+                                                    <div class="calendar-column yellow-calendar" data-calendar="#date-start">
+                                                        
                                                         <div class="adress-component">
                                                             <div class="adress">
                                                                 123 Fake St.  <br/>
@@ -1473,7 +1639,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <form class="enbridge-form form-grid col xs12">

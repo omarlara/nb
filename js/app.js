@@ -717,6 +717,21 @@
                 .hide();
         });
 
+        $('.modalopen').bind('click',function(e){   
+            e.preventDefault();
+           $($(this).attr('data-target')).css("display","none");
+           var id = $(this).attr('data-target');
+            elements = $(id).siblings();
+            elements.each(function(entry){
+                var idName = $(elements[entry]).attr('id');
+                var idchange = '#'+idName;
+                console.log(idchange);
+                $(idchange).removeClass("hidden");
+                $("#costumer-alert").addClass("hidden");
+                
+            });
+        });
+
         $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
 

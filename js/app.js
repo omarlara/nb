@@ -430,11 +430,12 @@
         var fromAddress = '',
             toAddress = '',
             dateEndService = $('#date-start').val(),
-            dateStartService = $('#date-finish').val();
+            dateStartService = $('#date-finish').val(),
+            birthDay = $('#day-user-info').val() + '/' + $('#month-user-info').val() + '/' + $('#year-user-info').val();
 
-        if($('#confirm-adress').hasClass('.active-step')) {
-            if($("#mailing-adress-alternative").attr('checked')) {
-                fromAddress = $('#current-number').val() + ' ' + $("#select-street-container").val() + ' ' + $("#code-validator").val();
+        if($('#confirm-adress').hasClass('active-step')) {
+            if($("#mailing-adress").attr('checked')) {
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $("#code-validator").val();
                 toAddress = $('#street-number-alternative').val() + ' ' +$('#suffix-alternative').val() + ' ' +
                             $('#street-alternative').val() + ' ' + $('#misc-info-alternative').val() + ' ' +  $('#city-or-town-alternative').val() + ' ' +
                             $('#country-alternative').val() + ' ' +  $('#province-alternative').val() +  ', ON ' + $('#postal-code-input-alternative').val();
@@ -443,7 +444,7 @@
                 $('#to-modal').text(toAddress);
 
             } else {
-                fromAddress = $('#current-number').val() + ' ' + $("#select-street-container").val() + ' ' + $("#code-validator").val();
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $("#code-validator").val();
 
                  $('#from-modal, #to-modal').text(fromAddress);
             }
@@ -470,10 +471,81 @@
             }
         }
 
-        $('#start-service-wait').text(dateEndService);
-        $('#end-service-wait').text(dateStartService);
+        $('#start-service-wait').text(dateFormater(dateEndService));
+        $('#end-service-wait').text(dateFormater(dateStartService));
+
+        $('#birth-day').text(birthDay);
+
+        $('#user-phone').text( $('#user-home-lada').val() + ' ' + $('#user-home-phone').val());
+        $('#mobile-phone').text( $('#user-mobile-lada').val() + ' ' + $('#user-mobile-phone').val());
+
+        $('#additional-contact').text($('#additional-fist-name').val() + ' ' + $('#additional-last-name').val());
 
     });
+
+    function dateFormater (stringDate) {
+        var splitDates = stringDate.split('-'),
+            dateValue = '';
+
+        switch (splitDates[1]) {
+            case '1':
+                dateValue = 'January';
+            break;
+            case '2':
+                 dateValue = 'February';
+            break;
+            case '3':
+                 dateValue = 'March';
+            break;
+            case '4':
+                 dateValue = 'April';
+            break;
+            case '5':
+                 dateValue = 'May';
+            break;
+            case '6':
+                 dateValue = 'June';
+            break;
+            case '7':
+                dateValue = 'July';
+            break;
+            case '8':
+                dateValue = 'August';
+            break;
+            case '9':
+                dateValue = 'September';
+            break;
+            case '10':
+                dateValue = 'October';
+            break;
+            case '11':
+                dateValue = 'November';
+            break;
+            case '12':
+                dateValue = 'December';
+            break;
+        }
+
+        switch(splitDates[2]) {
+            case '1': case '21': case '31':
+                dateValue += (' ' + splitDates[2] + 'st');
+            break;
+            case '2': case '22':
+                dateValue += (' ' + splitDates[2] + 'nd');
+            break;
+            case '3': case '23':
+                dateValue += (' ' + splitDates[2] + 'rd');
+            break;
+            case '1':
+                dateValue += (' ' + splitDates[2] + 'st');
+            break;
+            default:
+                dateValue += (' ' + splitDates[2] + 'th');
+            break;
+        }
+
+        return dateValue;
+    }
 
     /*Flows*/
 

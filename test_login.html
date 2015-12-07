@@ -351,7 +351,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                     <div class="enbridge-container">
 
                         <ul class="accordion" data-target="#form-summary">
-                            <li class="accordion-item">
+                            <li class="accordion-item  active">
                                 <div class="header">More Details</div>
                                 <div class="content">
                                     <p class="strong">I would like to ...</p>
@@ -723,7 +723,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item  active">
+                            <li class="accordion-item">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -734,25 +734,28 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                             <div class="form-group _w160">
                                               <label for="usr">Day:</label>
                                               <div class="set-field">
-                                                <select name="" class="enbridge-select" id="" data-required-error="Please select the required information." required>
-                                                    <option value="select">10</option>
+                                                <select name="" class="enbridge-select" id="day-user-info" data-required-error="Please select the required information." required>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
                                                 </select>
                                               </div>
                                             </div>
                                             <div class="form-group _w180">
                                               <label for="usr">Month:</label>
                                               <div class="set-field">
-                                                <select name="" class="enbridge-select" id="month-user-info" required>
-                                                    <option value="select">January</option>
-                                                    <option value="select">November</option>
-                                                    <option value="select">December</option>
+                                                <select name="" class="enbridge-select" id="month-user-info" data-required-error="Please select the required information." required>
+                                                    <option value="1">January</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
                                                 </select>
                                               </div>
                                             </div>
                                             <div class="form-group _w100">
                                               <label for="pwd">Year:</label>
                                               <div class="set-field">
-                                                <input type="text" class="form-control  _w60" data-required-error="Please select the required information." data-rel="year-your-info" required>
+                                                <input type="text" class="form-control  _w60" id="year-user-info" data-required-error="Please select the required information." data-rel="year-your-info" required>
                                               </div>
                                             </div>
                                         </div>
@@ -763,9 +766,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                             <div class="form-group pull-margin-right">
                                               <label for="usr">Home Phone:</label>
                                               <div class="set-field">
-                                                <input type="text" class="form-control  _w60" data-rel="home-phone-your-info">
+                                                <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
 
-                                                <input type="text" class="form-control _w160" data-required-error="Please select the required information." data-rel="home-phone-your-info" required>
+                                                <input type="text" class="form-control _w160" id="user-home-phone" data-required-error="Please select the required information." data-rel="home-phone-your-info" required>
                                               </div>
                                             </div>
                                         </div>
@@ -773,9 +776,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                             <div class="form-group pull-margin-right">
                                               <label for="usr">Mobile Phone:</label>
                                               <div class="set-field ">
-                                                    <input type="text" class="form-control  _w60" data-rel="mobile-phone-your-info">
+                                                    <input type="text" class="form-control  _w60" id="user-mobile-lada" data-rel="mobile-phone-your-info">
 
-                                                    <input type="text" class="form-control _w160" data-required-error="Please select the required information." data-rel="mobile-phone-your-info" required>
+                                                    <input type="text" class="form-control _w160" id="user-mobile-phone" data-required-error="Please select the required information." data-rel="mobile-phone-your-info" required>
                                               </div>
                                             </div>
                                         </div>
@@ -783,11 +786,20 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                             <div class="form-group pull-margin-right">
                                               <label for="usr">Business Phone:</label>
                                               <div class="set-field ">
-                                                    <input type="text" class="form-control  _w60" data-rel="business-phone-your-info">
-                                                    <input type="text" class="form-control _w160" data-required-error="Please select the required information." data-rel="business-phone-your-info" required>
+                                                    <input type="text" class="form-control  _w60"  id="user-business-lada" data-rel="business-phone-your-info">
+                                                    <input type="text" class="form-control _w160"  id="user-business-phone" data-required-error="Please select the required information." data-rel="business-phone-your-info" required>
                                                     <label for="pwd" class="fluid-label">Ext:</label>
-                                                    <input type="text" class="form-control  _w60" data-rel="business-phone-your-info">
+                                                    <input type="text" class="form-control  _w60" id="user-business-ext" data-rel="business-phone-your-info">
                                               </div>
+                                            </div>
+                                        </div>
+                                        <div class="row adress-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <span>Additional name on this account (optional)</span><br>
+                                                <label for="usr">First: </label>
+                                                <input type="text" class="form-control _w160"  id="additional-fist-name" >
+                                                <label for="usr">Last: </label>
+                                                <input type="text" class="form-control _w160"  id="additional-last-name" >
                                             </div>
                                         </div>
                                     </div>
@@ -869,19 +881,12 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
 
                                                 <div class="col border"></div>
 
-                                                <div class="col md6 data">
-                                                    <span>Date Of birth: 30/11/1980</span>
-                                                    <span>Phone: 416-123-4567</span>
-                                                    <span>Mobile: 416-123-4567</span>
-                                                    <span>Additional contact: Jane Smith</span>
-                                                </div>
-                                                <div class="col md6">
-                                                    <div class="address addresstile pull-right">
-                                                        <h4>New Mailing Address: </h4>
-                                                        <p>
-                                                            321 New St. Toronto, ON G2G2G2
-                                                        </p>
-                                                    </div>
+                                                <div class="col md12 data">
+                                                    <span>Date Of birth: </span><span id="birth-day"></span><br>
+                                                    <span>Phone: </span><span id="user-phone"></span><br>
+                                                    <span>Mobile: </span><span id="mobile-phone"></span><br>
+
+                                                    <span>Additional contact: </span><span id="additional-contact"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -920,7 +925,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                             <div class="row">
                                 <div class="col md12 buttons text-center">
                                     <div class="col md3">
-                                        <a class="enbridge-btn green _w160">SEND</a>
+                                        <a class="enbridge-btn green _w160">START OVER</a>
                                     </div>
 
                                     <div class="col md4 xs1-off">

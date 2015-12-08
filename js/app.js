@@ -735,13 +735,12 @@
         $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
 
-            if($(this).attr('data-target')=="#movingout")
+            if($(this).attr('data-target')=="#movingoutredirect")
             {
                 window.location="04_moving_out_login.html";
             }
             else
             {
-
                 $($(this).attr('data-target'))
                     .dialog({
                         autoOpen:true,

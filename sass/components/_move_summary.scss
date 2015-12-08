@@ -1,3 +1,35 @@
+.align{
+            text-align: inherit;
+            padding-left: 85px;
+    }
+.moving-container-green{
+    .tile{
+         min-height: 285px; 
+         .header-form-group{ 
+                p{
+                font-size: 18px;
+                
+            }
+            .footer-form-group{
+                
+            }
+            img{
+                position: relative;
+                top: 6px;
+                
+            }
+        }
+        .form-group{
+            .fields{
+                width: 300px !important;
+                input[type="text"]{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 .full-btn {
     width: 100%;
     text-align: center;

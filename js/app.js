@@ -101,6 +101,12 @@
             this.addMethods();
         }
 
+        CodeTool.prototype.restart = function () {
+            $element
+                .removeClass('opened required')
+                .addClass('closed');
+        }
+
         CodeTool.prototype.addMethods = function () {
             var $element = $(this.element);
 
@@ -582,6 +588,8 @@
                     .addClass('xs12')
                     .removeClass('xs5');
         $('#property-info').hide();
+        $('#step-adress').addClass('hidden');
+        //$('[name="house-property"]').attr({'reqquired': false, 'checked'})
 
         $('#code-validator').val('');
         $('#select-street-container, #data-dropdown').empty('');
@@ -613,8 +621,20 @@
             .addClass('active')
             .removeClass('processed');
 
-
         $form.find('input[type=text]').val('');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
+        $form
+            .find('.zip-code-tool')
+                .removeClass('opened required success-zip')
+                .addClass('closed');
+
         $('#information-acceptance')
             .show()
                 .closest('.code-box')
@@ -624,12 +644,25 @@
                 .closest('col')
                     .addClass('xs12')
                     .removeClass('xs5');
+
+        $('[name="steps"]')
+            .attr('checked', false)
+            .removeClass('input-success');
+
+        $('[name="house-property"]')
+            .attr({'checked': false, "required": false})
+            .removeClass('input-error');
+
+        $('#step-adress').addClass('hidden');
         $('#property-info').hide();
 
         $('#code-validator').val('');
         $('#select-street-container, #data-dropdown').empty('');
 
-        $('#confirm-adress, #first-step').toggleClass('active-step');
+        $('#first-step').addClass('active-step');
+
+        $form.find('.steps:not(#first-step)')
+            .removeClass('active-step');
 
         $("#mailing-adress, #mailing-adress-alternative").attr("checked",false);
 
@@ -730,8 +763,12 @@
     $('#info-decline').bind('click', function(e) {
         e.preventDefault();
         $('#code-validator')
-            .removeClass('input-success')
+            .removeClass('success-field')
             .val('');
+
+        $('[name="house-property"]')
+            .attr({'checked': false, "required": false})
+            .removeClass('input-error');
 
         $('#select-street-container, #data-dropdown').empty('');
 

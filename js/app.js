@@ -169,6 +169,9 @@
             container = $this.attr('data-content'),
             radioContent = [];
 
+        $this.closest('.code-box')
+            .find('.error-message ').remove();
+
         if(!$this.val().postalCode()) {
             $this
                 .addClass('input-error')
@@ -578,10 +581,36 @@
     })
 
     $('#personal-info-user').bind('click', function() {
+        var $form = $('#form-new-account').removeClass('hidden');
+
+        $($form.find('.accordion-item')[1])
+            .addClass('active')
+            .removeClass('processed');
+
+        $('#personal-info-adress').find('input[type=text]').val('');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
         $('#information-acceptance')
             .show()
                 .closest('.code-box')
                     .width('');
+
+        $('[name="house-property"]')
+            .attr({'checked': false, "required": false})
+            .removeClass('input-error');
+
+        $('#hide-message').
+            show()
+                .closest('col')
+                    .addClass('xs12')
+                    .removeClass('xs5');
+
         $('#hide-message').
             show()
                 .closest('col')
@@ -594,7 +623,11 @@
         $('#code-validator').val('');
         $('#select-street-container, #data-dropdown').empty('');
 
-        $('#confirm-adress, #first-step').toggleClass('active-step');
+        $('#first-step').addClass('active-step');
+
+        $form.find('.steps:not(#first-step)')
+            .removeClass('active-step');
+
 
         $("#mailing-adress, #mailing-adress-alternative").attr("checked",false);
 
@@ -676,7 +709,12 @@
         $('#province, #province-alternative').attr('required', false);
         $('#postal-code-input, #postal-code-input-alternative').attr('required', false);
         $('input[name="house-property"]').attr('required', false);
-    })
+    });
+
+    $("#reset-personal-info").bind('click', function() {
+        $('#personal-info').find('[type="text"]')
+            .val('');
+    });
 
     /*Flows*/
 

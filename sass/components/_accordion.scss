@@ -141,7 +141,6 @@
 
             >.header {
                 background-color: $my-sin;
-                color: white;
 
                 cursor: pointer;
             }
@@ -154,6 +153,10 @@
                 &:after {
                     background-image: url('img/arrow_white_bottom.svg');
                 }
+            }
+
+            >.header {
+                color: white;
             }
 
             .content {

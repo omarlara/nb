@@ -833,15 +833,23 @@
         $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
 
-            $($(this).attr('data-target'))
-                .dialog({
-                    autoOpen:true,
-                    resizable: false,
-                    height:400,
-                    width:720,
-                    modal: true,
-                    height:440
-                });
+            if($(this).attr('data-target')=="#movingout")
+            {
+                window.location="04_moving_out_login.html";
+            }
+            else
+            {
+
+                $($(this).attr('data-target'))
+                    .dialog({
+                        autoOpen:true,
+                        resizable: false,
+                        height:400,
+                        width:720,
+                        modal: true,
+                        height:440
+                    });
+            }
         });
 
         $("#existingcustomers").dialog({

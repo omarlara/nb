@@ -350,7 +350,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
 
-                        <ul class="accordion" data-target="#form-summary">
+                        <ul class="accordion" data-target="#form-summary" id="form-new-account">
                             <li class="accordion-item  active">
                                 <div class="header">More Details</div>
                                 <div class="content">
@@ -426,7 +426,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item">
+                            <li class="accordion-item" id="personal-info-adress">
                                 <div class="header">New Adress</div>
                                 <div class="content">
                                     <div action="" class="enbridge-form" id="steps-flow-1">
@@ -723,7 +723,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item">
+                            <li class="accordion-item" id="personal-info">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -822,7 +822,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                         <div class="row">
                                             <h2 class="movetitle col xs6">Move Summary</h2>
                                             <div class="buttondiv col xs6">
-                                                <button class="enbridge-btn yellow summarybtn">EDIT</button>
+                                                <button class="enbridge-btn yellow summarybtn edit-info" id="personal-info-user" data-accordion-element="#personal-info-adress">EDIT</button>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -876,7 +876,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                                 </div>
 
                                                 <div class="buttondiv col xs5">
-                                                    <button class="enbridge-btn yellow summarybtn">EDIT</button>
+                                                    <button class="enbridge-btn yellow summarybtn edit-info" data-accordion-element="#personal-info">EDIT</button>
                                                 </div>
 
                                                 <div class="col border"></div>
@@ -925,7 +925,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                             <div class="row">
                                 <div class="col md12 buttons text-center">
                                     <div class="col md3">
-                                        <a class="enbridge-btn green _w160">START OVER</a>
+                                        <a class="enbridge-btn green _w160" id="new-account-start-over">START OVER</a>
                                     </div>
 
                                     <div class="col md4 xs1-off">

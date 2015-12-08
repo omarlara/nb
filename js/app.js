@@ -839,6 +839,7 @@
             }
             else
             {
+                scroll(0,0);
                 $($(this).attr('data-target'))
                     .dialog({
                         autoOpen:true,
@@ -851,13 +852,15 @@
             }
         });
 
-        $("#existingcustomers").dialog({
-            autoOpen: false,
-            resizable: false,
-            height: 240,
-            width: 720,
-            modal: true,
-            height: 440
+        $("#existingcustomers")
+            .removeClass('hidden')
+            .dialog({
+                autoOpen: false,
+                resizable: false,
+                height: 240,
+                width: 720,
+                modal: true,
+                height: 440
         });
 
         $("#newcustomers").dialog({

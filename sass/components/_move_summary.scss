@@ -1,14 +1,25 @@
 .align{
-            text-align: inherit;
-            padding-left: 85px;
+            text-align: inherit !important;
+            padding-left: 45px;
     }
 .moving-container-green{
+    width: 500px;
+    margin: 0 auto;
+    display: block;
+    max-width: inherit;
+    float: none;
+    max-width: inherit;
+    margin-top: 25px;
+    .yellow{
+        padding: 8px 0 7px;
+    }
+
     .tile{
          min-height: 285px; 
          .header-form-group{ 
                 p{
                 font-size: 18px;
-                
+                text-align: center;
             }
             .footer-form-group{
                 
@@ -16,12 +27,13 @@
             img{
                 position: relative;
                 top: 6px;
-                
+
             }
         }
         .form-group{
             .fields{
-                width: 300px !important;
+                width: 339px !important;
+                margin-right: 7px;
                 input[type="text"]{
                     width: 100%;
                 }

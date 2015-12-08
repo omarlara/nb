@@ -221,8 +221,8 @@
             newAddress = $form.find('.new-adress'),
             text = $form.find('input[type="text"]');
 
-        $('.error-message').remove();
-        $('.input-error').removeClass('input-error');
+        $form.find('.error-message, .error-code').remove();
+        $form.find('.input-error').removeClass('input-error');
 
         for (var i = radio.length - 1; i >= 0; i--) {
             if (!radio[i].className) {
@@ -547,6 +547,104 @@
         return dateValue;
     }
 
+    $('.edit-info').bind('click', function(e) {
+        e.preventDefault();
+        var $current = $(this),
+            $temporal = $($(this).attr('data-accordion-element')),
+            loop = true;
+
+        $temporal
+            .removeClass('processed')
+            .addClass('active');
+        while(loop) {
+            if($temporal.next().length) {
+                $temporal = $temporal.next()
+                                .removeClass('processed active');
+            } else {
+                $temporal.closest('.accordion')
+                    .removeClass('hidden');
+                loop = false;
+            }
+        }
+
+        $current.closest('.summary')
+            .addClass('hidden');
+    })
+
+    $('#personal-info-user').bind('click', function() {
+        $('#information-acceptance')
+            .show()
+                .closest('.code-box')
+                    .width('');
+        $('#hide-message').
+            show()
+                .closest('col')
+                    .addClass('xs12')
+                    .removeClass('xs5');
+        $('#property-info').hide();
+
+        $('#code-validator').val('');
+        $('#select-street-container, #data-dropdown').empty('');
+
+        $('#confirm-adress, #first-step').toggleClass('active-step');
+
+        $("#mailing-adress, #mailing-adress-alternative").attr("checked",false);
+
+        $('#manual-property-info').addClass('hidden');
+        $('#misc-info').attr('required', false);
+        $('#street-number, #street-number-alternative').attr('required', false);
+        $('#suffix-number, #suffix-alternative').attr('required', false);
+        $('#street, #street-alternative').attr('required', false);
+        $('#city-or-town, #city-or-town-alternative').attr('required', false);
+        $('#country, #country-alternative').attr('required', false);
+        $('#province, #province-alternative').attr('required', false);
+        $('#postal-code-input, #postal-code-input-alternative').attr('required', false);
+        $('input[name="house-property"]').attr('required', false);
+    });
+
+    $('#new-account-start-over').bind('click', function() {
+        var $form = $('#form-new-account').removeClass('hidden');
+
+        $form.find('.accordion-item')
+            .removeClass('active processed');
+
+
+        $($form.find('.accordion-item')[0])
+            .addClass('active')
+            .removeClass('processed');
+
+
+        $form.find('input[type=text]').val('');
+        $('#information-acceptance')
+            .show()
+                .closest('.code-box')
+                    .width('');
+        $('#hide-message').
+            show()
+                .closest('col')
+                    .addClass('xs12')
+                    .removeClass('xs5');
+        $('#property-info').hide();
+
+        $('#code-validator').val('');
+        $('#select-street-container, #data-dropdown').empty('');
+
+        $('#confirm-adress, #first-step').toggleClass('active-step');
+
+        $("#mailing-adress, #mailing-adress-alternative").attr("checked",false);
+
+        $('#manual-property-info').addClass('hidden');
+        $('#misc-info').attr('required', false);
+        $('#street-number, #street-number-alternative').attr('required', false);
+        $('#suffix-number, #suffix-alternative').attr('required', false);
+        $('#street, #street-alternative').attr('required', false);
+        $('#city-or-town, #city-or-town-alternative').attr('required', false);
+        $('#country, #country-alternative').attr('required', false);
+        $('#province, #province-alternative').attr('required', false);
+        $('#postal-code-input, #postal-code-input-alternative').attr('required', false);
+        $('input[name="house-property"]').attr('required', false);
+    })
+
     /*Flows*/
 
     $('#previous-dates').bind('click', function() {
@@ -717,7 +815,7 @@
                 .hide();
         });
 
-        $('.modalopen').bind('click',function(e){   
+        $('.modalopen').bind('click',function(e){
             e.preventDefault();
            $($(this).attr('data-target')).css("display","none");
            var id = $(this).attr('data-target');
@@ -728,7 +826,7 @@
                 console.log(idchange);
                 $(idchange).removeClass("hidden");
                 $("#costumer-alert").addClass("hidden");
-                
+
             });
         });
 

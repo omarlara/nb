@@ -1,3 +1,29 @@
+.full-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 29px;
+}
+
+.sumary-tiles{
+    margin-top: 3px !important;
+}
+
+.miscelaneous_container{
+    padding: 23px 11px 15px 11px;
+    background: #f3f4f7;
+}
+
+.summary-container{
+    background-color:#fff;
+    padding: 21px;
+    margin-top: 19px;
+}
+
+.smaller-font{
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
 .address {
     width: 190px;
     background-color: rgba(125, 125, 138, 0.95);
@@ -77,22 +103,32 @@
     }
 }
 
+.tiles-top{
+    margin-top: 30px;
+}
+
 .move-summary {
     min-height: 380px;
     background-image: url("img/family.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
+    background-color:#fff;
     > .row {
         margin: 0;
     }
+
+.miscelaneous_title{
+    margin-top: 20px;
+        position:absolute;
+
+}
 
     .movetitle {
         color: $turquoise-blue;
         font-size: 32px;
         font-weight: 400;
         padding-left: 3%;
-    }
+     }
 
     .arrow {
         background-image: url("img/arrow-02.png");
@@ -180,7 +216,6 @@
     p.checked {
         line-height: 1.5;
         margin-bottom: 30px;
-
         color: $mid-gray;
 
         &:before {

@@ -1,3 +1,4 @@
+'use strict';
 (function ($, window, document) {
 
     String.prototype.postalCode = function() {
@@ -247,7 +248,7 @@
 
                 if(!$current.hasClass('input-error')) {
                     $(radio[i]).closest('.set-field')
-                        .append('<p class="error-message pull26 ">' + $(radio[i]).attr('data-required-error') + '</p>');
+                        .append('<p class="error-message">' + $(radio[i]).attr('data-required-error') + '</p>');
                 }
 
                 $('[name = "' + $current.attr('name') + '"]')
@@ -299,12 +300,12 @@
                 if($current.attr('data-position') == 'top') {
                     $current
                         .addClass('input-error')
-                        .before('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                        .before('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 } else {
                     $current
                         .addClass('input-error')
                         .next()
-                            .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                            .after('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 }
 
                 error = true;
@@ -318,7 +319,7 @@
                     .addClass('input-error');
 
                 $current.closest('.set-field')
-                    .after('<p class="error-message pull26 ">' + $current.attr('data-required-error') + '</p>');
+                    .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 error = true;
             }
         }

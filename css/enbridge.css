@@ -200,18 +200,18 @@
   .enbridge-content-container .enbridge-container .row + .row {
     margin-top: 30px; }
 .enbridge-content-container .enbridge-form label:not(.fake-input),
-.enbridge-content-container .enbridge-form label:not(.label-info),
 .enbridge-content-container .enbridge-form p,
 .enbridge-content-container .enbridge-form span {
   font-weight: normal;
   font-size: 12px;
   vertical-align: top; }
   .enbridge-content-container .enbridge-form label:not(.fake-input).field,
-  .enbridge-content-container .enbridge-form label:not(.label-info).field,
   .enbridge-content-container .enbridge-form p.field,
   .enbridge-content-container .enbridge-form span.field {
     display: inline-block;
     margin: 24px 0; }
+.enbridge-content-container .enbridge-form .descriptor {
+  margin-top: 13px; }
 .enbridge-content-container .enbridge-form p.alig-center {
   vertical-align: center !important; }
 .enbridge-content-container .enbridge-form p {
@@ -399,6 +399,7 @@
     color: #e18396; }
 .enbridge-content-container .error-message {
   font-size: 10px !important;
+  margin-top: 5px;
   color: red; }
 .enbridge-content-container .enbridge-dropdown {
   display: block;
@@ -1639,7 +1640,6 @@
     max-width: 100%;
     margin-bottom: 0px;
     font-weight: 400;
-    margin-top: 0;
     color: #636373;
     font-size: 14px;
     vertical-align: top; }

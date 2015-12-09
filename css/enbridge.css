@@ -133,6 +133,16 @@
   color: #636373;
   font-size: 12px;
   line-height: 1.5; }
+.enbridge-content-container .information {
+  background-color: #F4F7ED;
+  line-height: 1.5;
+  color: #636373;
+  padding: 20px;
+  margin: 0;
+  display: block;
+  font-size: 14px; }
+  .enbridge-content-container .information:before {
+    margin: 0 2px 0 0; }
 .enbridge-content-container .display-table {
   display: table;
   margin-bottom: 28px;
@@ -1644,16 +1654,6 @@
     width: auto; }
   .enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label.big {
     width: 200px; }
-.enbridge-content-container .form-grid .information {
-  background-color: #F4F7ED;
-  line-height: 1.5;
-  color: #636373;
-  padding: 20px;
-  margin: 0;
-  display: block;
-  font-size: 14px; }
-  .enbridge-content-container .form-grid .information:before {
-    margin: 0 2px 0 0; }
 .enbridge-content-container hr {
   border: 1px solid red;
   height: 10px;
@@ -2287,5 +2287,15 @@ street--alternative {
 
 .buttons {
   margin-top: 20px; }
+
+#newcustomers .information {
+  margin-bottom: 30px; }
+#newcustomers .special-info {
+  padding: 20px 20px 20px 45px;
+  position: relative; }
+  #newcustomers .special-info:before {
+    position: absolute;
+    left: 15px;
+    top: 30px; }
 
 /*# sourceMappingURL=enbridge.css.map */

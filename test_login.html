@@ -944,15 +944,19 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
             </div>
         </div>
 
-        <div class="enbridge-content-container" id="MovingOut">
+        <div class="enbridge-content-container" id="open-new-gas-account">
             <div class="dialog success-dialog" title="New Account" id="newcustomers">
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
+                        <p class="information green">
+                                    Use this form if natural gas is alredy installed at the property. If new natural gas service needs to be installed, please contact our Customer Connections Centre at <strong>1-888-427-8888</strong>.
+                        </p>
                         <ul class="accordion">
-                            <li class="accordion-item processed">
-                                <div class="header">More Details</div>
+                            <li class="accordion-item active">
+                                <div class="header">1.New Customer Information</div>
                                 <div class="content">
-                                    <p class="strong">I would like to ...</p>
+                                    <p class="information green special-info">
+                                   If you are an existing Enbridge Gas customer, please sign into myEnbridge to add this property to your myEnbridge Profile. If you don't have a myEnbridge profile, <a href="#">register here</a>.</p>
 
                                     <form class="enbridge-form">
 
@@ -1003,7 +1007,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item">
                                 <div class="header">New Adress</div>
                                 <div class="content">
                                     <form action="" class="enbridge-form">
@@ -1216,7 +1220,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <form class="enbridge-form">
@@ -1275,7 +1279,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ucUtility
                                     </form>
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <form class="enbridge-form form-grid">

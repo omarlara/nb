@@ -4,6 +4,10 @@
         return /^[a-zA-Z0-9]{6,6}$/.test(this);
     }
 
+    String.prototype.PhoneFormat = function () {
+        return /^\d{3,3}(\-|\s)\d{3,3}(\-|\s)\d{4,4}$/.test(this);
+    }
+
     /*Dropdown*/
     ; (function ($) {
         function dropdownEnbridge(element) {

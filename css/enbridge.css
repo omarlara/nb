@@ -739,7 +739,7 @@
   max-width: inherit;
   margin-top: 25px; }
   .enbridge-content-container .moving-container-green .yellow {
-    padding: 8px 0 7px; }
+    padding: 10px 0 10px; }
   .enbridge-content-container .moving-container-green .tile {
     min-height: 285px; }
     .enbridge-content-container .moving-container-green .tile .header-form-group p {
@@ -757,6 +757,9 @@
   width: 100%;
   text-align: center;
   margin-top: 29px; }
+  .enbridge-content-container .full-btn.complete-padding {
+    padding-top: 10px;
+    padding-bottom: 10px; }
 .enbridge-content-container .sumary-tiles {
   margin-top: 3px !important; }
 .enbridge-content-container .miscelaneous_container {
@@ -837,13 +840,13 @@
   .enbridge-content-container .move-summary > .row {
     margin: 0; }
   .enbridge-content-container .move-summary .miscelaneous_title {
-    margin-top: 20px;
     position: absolute; }
   .enbridge-content-container .move-summary .movetitle {
     color: #59cbe8;
     font-size: 32px;
     font-weight: 400;
-    padding-left: 3%; }
+    padding-left: 3%;
+    padding-top: 19px; }
   .enbridge-content-container .move-summary .arrow {
     background-image: url("img/arrow-02.png");
     background-size: 100%;
@@ -984,7 +987,7 @@
   width: 100%; }
 .enbridge-content-container .total-container {
   background-color: #f3f4f7;
-  padding: 23px 11px 15px 11px; }
+  padding: 13px 11px 15px 11px; }
   .enbridge-content-container .total-container .title-moving {
     font-size: 24px;
     color: #c8102e;
@@ -1012,7 +1015,7 @@
     margin-top: -1px;
     line-height: 0; }
 .enbridge-content-container .container-thankyou {
-  margin-top: 25px;
+  margin-top: 10px;
   border: 1px solid #f3f4f7;
   background-color: #fff;
   padding: 30px;
@@ -1024,7 +1027,7 @@
   .enbridge-content-container .container-thankyou h1 {
     width: 100%; }
   .enbridge-content-container .container-thankyou p {
-    margin: 23px 0 30px 0px; }
+    margin: 17px 0 30px 0px; }
   .enbridge-content-container .container-thankyou .text-info p {
     color: #636373;
     font-size: 16px; }
@@ -1061,7 +1064,7 @@
           padding: 0%;
           margin: -2%; }
       .enbridge-content-container .container-thankyou .tiles .green .text {
-        padding: 4% 2% 0% 7%; }
+        padding: 30px 34px 30px 34px; }
       .enbridge-content-container .container-thankyou .tiles .green h1 {
         font-size: 24px;
         font-weight: 100; }
@@ -1135,7 +1138,7 @@
   .enbridge-content-container .container-thankyou .info-content {
     color: #7d7d8a; }
     .enbridge-content-container .container-thankyou .info-content .info {
-      padding: 4%;
+      padding: 8px 28px 30px 28px;
       border: 1px solid #f3f4f7;
       border-radius: 4px; }
       .enbridge-content-container .container-thankyou .info-content .info .text-title {
@@ -1143,7 +1146,7 @@
         font-weight: 100;
         color: #636373; }
       .enbridge-content-container .container-thankyou .info-content .info .final-message {
-        margin-top: 41px;
+        margin-top: 29  px;
         font-size: 20px;
         font-weight: 500;
         color: #636373; }
@@ -1151,7 +1154,9 @@
         margin-right: 8%; }
       .enbridge-content-container .container-thankyou .info-content .info p {
         font-size: 14px;
-        font-weight: inherit; }
+        font-weight: inherit;
+        margin-top: 10px;
+        margin-bottom: 22px; }
         .enbridge-content-container .container-thankyou .info-content .info p.big {
           font-size: 18px; }
       .enbridge-content-container .container-thankyou .info-content .info a {
@@ -1166,7 +1171,9 @@
       resize: none;
       display: block;
       margin-bottom: 5px;
-      margin-top: 22px; }
+      margin-top: 15px; }
+      .enbridge-content-container .container-thankyou .info-content .improve textarea p {
+        margin-top: 8px; }
     .enbridge-content-container .container-thankyou .info-content .improve .green {
       color: white;
       padding: 9px 4% 9px 4%;
@@ -1724,8 +1731,8 @@
 .enbridge-content-container .allsizebtn {
   width: 88%;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
   font-size: 18px;
   font-weight: 400; }
 .enbridge-content-container .incomplete-container p {
@@ -1733,7 +1740,12 @@
   line-height: 1;
   margin-top: 0px;
   font-size: 18px;
-  padding-left: 28px; }
+  padding-left: 28px;
+  padding-right: 28px; }
+  .enbridge-content-container .incomplete-container p.smaller {
+    padding-top: 35px !important;
+    font-size: 14px;
+    margin-bottom: 13px; }
 .enbridge-content-container .incomplete-container ul {
   margin-bottom: 42px; }
 .enbridge-content-container .incomplete-container .buttondiv {

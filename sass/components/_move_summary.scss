@@ -11,7 +11,7 @@
     max-width: inherit;
     margin-top: 25px;
     .yellow{
-        padding: 8px 0 7px;
+        padding: 10px 0 10px;
     }
 
     .tile{
@@ -46,6 +46,10 @@
     width: 100%;
     text-align: center;
     margin-top: 29px;
+    &.complete-padding{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
 
 .sumary-tiles{
@@ -167,8 +171,7 @@
     }
 
 .miscelaneous_title{
-    margin-top: 20px;
-        position:absolute;
+    position:absolute;
 
 }
 
@@ -177,6 +180,7 @@
         font-size: 32px;
         font-weight: 400;
         padding-left: 3%;
+        padding-top: 19px;
      }
 
     .arrow {

@@ -10,7 +10,7 @@
 
 .total-container{
     background-color:$athens-gray;
-    padding:23px 11px 15px 11px;
+    padding:13px 11px 15px 11px;
     .title-moving{
         font-size: 24px;
         color: #c8102e;
@@ -43,7 +43,7 @@
 }
 
 .container-thankyou {
-    margin-top: 25px;
+    margin-top: 10px;
     border: 1px solid $athens-gray;
     background-color: #fff;
     padding: 30px;
@@ -60,7 +60,7 @@
     }
 
     p {
-        margin: 23px 0 30px 0px;
+        margin: 17px 0 30px 0px;
     }
 
     .text-info {
@@ -118,7 +118,7 @@
             }
 
             .text {
-                padding: 4% 2% 0% 7%;
+                padding: 30px 34px 30px 34px;
             }
 
             h1 {
@@ -231,7 +231,7 @@
         color: $jumbo;
 
         .info {
-            padding: 4%;
+            padding: 8px 28px 30px 28px;
             border: 1px solid $athens-gray;
             border-radius: 4px;
 
@@ -243,7 +243,7 @@
             }
 
             .final-message {
-                margin-top: 41px;
+                margin-top: 29  px;
                 font-size: 20px;
                 font-weight: 500;
 
@@ -257,7 +257,8 @@
             p {
                 font-size: 14px;
                 font-weight: inherit;
-
+                margin-top: 10px;
+                margin-bottom: 22px;
                 &.big {
                     font-size: 18px;
                 }
@@ -279,7 +280,10 @@
                 resize: none;
                 display: block;
                 margin-bottom: 5px;
-                margin-top: 22px;
+                margin-top: 15px;
+                p{
+                    margin-top: 8px;
+                }
             }
 
             .green {

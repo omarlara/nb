@@ -1,8 +1,6 @@
 .enbridge-form {
 
     label:not(.fake-input),
-    label:not(.label-info),
-
     p,
     span{
         font-weight: normal;
@@ -12,6 +10,10 @@
             display: inline-block;
             margin: 24px 0;
         }
+    }
+
+    .descriptor{
+        margin-top: 13px;
     }
 
     p.alig-center{
@@ -337,6 +339,7 @@
 
 .error-message {
     font-size: 10px !important;
+    margin-top: 5px;
 
     color: red;
 }

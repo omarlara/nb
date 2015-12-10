@@ -133,6 +133,16 @@
   color: #636373;
   font-size: 12px;
   line-height: 1.5; }
+.enbridge-content-container .information {
+  background-color: #F4F7ED;
+  line-height: 1.5;
+  color: #636373;
+  padding: 20px;
+  margin: 0;
+  display: block;
+  font-size: 14px; }
+  .enbridge-content-container .information:before {
+    margin: 0 2px 0 0; }
 .enbridge-content-container .display-table {
   display: table;
   margin-bottom: 28px;
@@ -190,18 +200,18 @@
   .enbridge-content-container .enbridge-container .row + .row {
     margin-top: 30px; }
 .enbridge-content-container .enbridge-form label:not(.fake-input),
-.enbridge-content-container .enbridge-form label:not(.label-info),
 .enbridge-content-container .enbridge-form p,
 .enbridge-content-container .enbridge-form span {
   font-weight: normal;
   font-size: 12px;
   vertical-align: top; }
   .enbridge-content-container .enbridge-form label:not(.fake-input).field,
-  .enbridge-content-container .enbridge-form label:not(.label-info).field,
   .enbridge-content-container .enbridge-form p.field,
   .enbridge-content-container .enbridge-form span.field {
     display: inline-block;
     margin: 24px 0; }
+.enbridge-content-container .enbridge-form .descriptor {
+  margin-top: 13px; }
 .enbridge-content-container .enbridge-form p.alig-center {
   vertical-align: center !important; }
 .enbridge-content-container .enbridge-form p {
@@ -389,6 +399,7 @@
     color: #e18396; }
 .enbridge-content-container .error-message {
   font-size: 10px !important;
+  margin-top: 5px;
   color: red; }
 .enbridge-content-container .enbridge-dropdown {
   display: block;
@@ -1629,7 +1640,6 @@
     max-width: 100%;
     margin-bottom: 0px;
     font-weight: 400;
-    margin-top: 0;
     color: #636373;
     font-size: 14px;
     vertical-align: top; }
@@ -1651,16 +1661,6 @@
     width: auto; }
   .enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label.big {
     width: 200px; }
-.enbridge-content-container .form-grid .information {
-  background-color: #F4F7ED;
-  line-height: 1.5;
-  color: #636373;
-  padding: 20px;
-  margin: 0;
-  display: block;
-  font-size: 14px; }
-  .enbridge-content-container .form-grid .information:before {
-    margin: 0 2px 0 0; }
 .enbridge-content-container hr {
   border: 1px solid red;
   height: 10px;
@@ -2299,5 +2299,15 @@ street--alternative {
 
 .buttons {
   margin-top: 20px; }
+
+#newcustomers .information {
+  margin-bottom: 30px; }
+#newcustomers .special-info {
+  padding: 20px 20px 20px 45px;
+  position: relative; }
+  #newcustomers .special-info:before {
+    position: absolute;
+    left: 15px;
+    top: 30px; }
 
 /*# sourceMappingURL=enbridge.css.map */

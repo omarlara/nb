@@ -104,7 +104,22 @@ street--alternative{
     }
 }
 
-
 .buttons {
     margin-top: 20px;
+}
+
+#newcustomers {
+    .information {
+        margin-bottom: ($normal-margin * 2);
+    }
+
+    .special-info {
+        padding: 20px 20px 20px 45px;
+        position: relative;
+        &:before {
+            position: absolute;
+            left: $normal-margin;
+            top: 30px;
+        }
+    }
 }

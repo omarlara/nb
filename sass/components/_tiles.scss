@@ -2,7 +2,7 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    min-height: 410px;
+    min-height: 355px;
     border-radius:3px;
     width: 100%;
 
@@ -18,37 +18,45 @@
         .title {
             display: block;
             font-size: 32px;
-            margin: 0 0 20px;
+            margin: 0 0 12px;
             letter-spacing: -1px;
             font-weight: 400;
         }
 
-        h3.subtitle {
+        .subtitle {
             display: block;
             font-size: 23px;
             font-weight: 400;
-            margin: 0 0 20px;
+            margin: 0 0 12px;
             line-height: 1.2;
+            letter-spacing: -.6px;
 
             color: $mid-gray;
         }
         ul{
            list-style-position: inside;
            padding-left: 10px;
-           margin-top: 7px;
+           margin-top: 0;
            li{
             font-size: 14px;
            }
         }
         label{
+            font-weight: normal;
             font-size: 14px;
         }
         .information.common{
             font-size: 13px;
-            margin-top:30px;
+            margin-top: 15px;
             padding: 0;
 
             background-color: transparent;
+            &:before{
+                content: '|';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 13px;
+            }
         }
 
         label.align{margin-top: 7%}
@@ -56,10 +64,15 @@
         .form-group{
             margin-bottom: 2%;
             &.checks{
-                margin-bottom:  20px;
+                margin-top: 8px;
+                margin-bottom:  15px;
             }
         }
-        a.logo{text-decoration: none; font-weight: 700;}
+        .logo{
+            text-decoration: none;
+            font-weight: 700;
+        }
+
         .circle{
            width: 17px;
             height: 17px;
@@ -86,7 +99,7 @@
         color:#fff !important;
         background-image: url("img/en-tile-bg.png");
         background-repeat: no-repeat;
-        background-position: right 90px;
+        background-position: 112px 84px;
         background-size: 79%;
 
         h3 {
@@ -121,9 +134,25 @@
         font-size: 13px;
         color: #007dba;
         text-decoration: none;
-        margin-top: 20px;
+        .list-of-links{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                display: inline-block;
+
+                & + li {
+                    &:before {
+                        content: '|';
+
+                        font-size: 12px;
+                        color:$lochmara;
+                    }
+                }
+            }
+        }
         a{
-            font-size:13px;
+            font-size: 12px;
             text-decoration:none;
             text-align: left;
 
@@ -131,6 +160,7 @@
             &:hover{
                 text-decoration: underline;
             }
+
         }
         img{
             position: relative;

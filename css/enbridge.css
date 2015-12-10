@@ -220,7 +220,7 @@
   border: 1px solid #ddd6cc;
   border-radius: 2px;
   font-size: 13px;
-  margin: 10px 0;
+  margin: 0 0 10px 0;
   padding: 12px 9px;
   color: #ddd6cc; }
 .enbridge-content-container .enbridge-form input[type="color"]:focus, .enbridge-content-container .enbridge-form input[type="date"]:focus, .enbridge-content-container .enbridge-form input[type="datetime"]:focus, .enbridge-content-container .enbridge-form input[type="datetime-local"]:focus, .enbridge-content-container .enbridge-form input[type="email"]:focus, .enbridge-content-container .enbridge-form input[type="month"]:focus, .enbridge-content-container .enbridge-form input[type="number"]:focus, .enbridge-content-container .enbridge-form input[type="password"]:focus, .enbridge-content-container .enbridge-form input[type="search"]:focus, .enbridge-content-container .enbridge-form input[type="tel"]:focus, .enbridge-content-container .enbridge-form input[type="text"]:focus, .enbridge-content-container .enbridge-form input[type="time"]:focus, .enbridge-content-container .enbridge-form input[type="url"]:focus, .enbridge-content-container .enbridge-form input[type="week"]:focus, .enbridge-content-container .enbridge-form input:not([type]):focus, .enbridge-content-container .enbridge-form textarea:focus,
@@ -240,6 +240,7 @@
   .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input {
     display: block;
     position: relative;
+    font-weight: normal;
     padding-top: 3px;
     padding-left: 25px;
     margin-bottom: 15px;
@@ -337,7 +338,8 @@
     margin: 0 auto;
     height: 175px; }
     .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool p {
-      margin: 0; }
+      margin: 0;
+      font-size: 12px; }
     .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn) {
       display: block;
       margin: 0 auto 20px auto;
@@ -665,9 +667,11 @@
         font-size: 14px; }
     .enbridge-content-container .tile > .content label {
       font-size: 14px; }
-    .enbridge-content-container .tile > .content p.information.common {
-      font-size: 14px;
-      margin-top: 30px; }
+    .enbridge-content-container .tile > .content .information.common {
+      font-size: 13px;
+      margin-top: 30px;
+      padding: 0;
+      background-color: transparent; }
     .enbridge-content-container .tile > .content label.align {
       margin-top: 7%; }
     .enbridge-content-container .tile > .content .form-group {
@@ -784,12 +788,8 @@
   font-size: 13px;
   margin-bottom: 15px; }
 .enbridge-content-container .address {
-  width: 190px;
   background-color: rgba(125, 125, 138, 0.95);
-  margin-top: 12%;
-  margin-left: 3%;
   height: auto;
-  min-height: 205px;
   border-radius: 52px 2px 48px 2px;
   padding-top: 8%; }
   .enbridge-content-container .address h4 {
@@ -866,7 +866,7 @@
     background-position: -7px 90px; }
   .enbridge-content-container .move-summary .addressstye {
     @extends .addressstye; }
-  .enbridge-content-container .move-summary .TextAfter {
+  .enbridge-content-container .move-summary .text-after {
     padding: 0 28px; }
 .enbridge-content-container .your-information {
   min-height: 354px;
@@ -905,16 +905,16 @@
     .enbridge-content-container .your-information .data span {
       margin-bottom: 3%;
       letter-spacing: 0px; }
-.enbridge-content-container .Features {
+.enbridge-content-container .features {
   margin-left: 5%;
   margin-top: 40px; }
-  .enbridge-content-container .Features .question {
+  .enbridge-content-container .features .question {
     font-size: 14px; }
-  .enbridge-content-container .Features p.checked {
+  .enbridge-content-container .features p.checked {
     line-height: 1.5;
     margin-bottom: 30px;
     color: #636373; }
-    .enbridge-content-container .Features p.checked:before {
+    .enbridge-content-container .features p.checked:before {
       content: url("img/checked_03.png");
       display: block;
       float: left;
@@ -987,7 +987,7 @@
     font-size: 16px;
     color: #636373;
     font-weight: 400; }
-.enbridge-content-container .dates-view .adress-component .adress {
+.enbridge-content-container .dates-view .address-component .address {
   padding: 18px 22px;
   background-color: #ddd6cc;
   border-radius: 3px 3px 0 0;
@@ -1176,13 +1176,14 @@
         text-decoration: none;
         font-weight: 100; }
     .enbridge-content-container .container-thankyou .info-content .improve textarea {
-      width: 100%;
       border-radius: 4px;
       border: 1px solid #ddd;
       resize: none;
       display: block;
-      margin-bottom: 5px;
-      margin-top: 15px; }
+      margin-bottom: 8px;
+      margin-top: 15px;
+      height: 90px;
+      width: 100%; }
       .enbridge-content-container .container-thankyou .info-content .improve textarea p {
         margin-top: 8px; }
     .enbridge-content-container .container-thankyou .info-content .improve .green {
@@ -1214,7 +1215,7 @@
           bottom: 0px; }
 .enbridge-content-container .accordion {
   list-style: none;
-  margin: 0;
+  margin-bottom: 10px;
   width: 700px;
   background-color: white; }
   .enbridge-content-container .accordion .accordion-item {
@@ -1353,173 +1354,6 @@
     margin-bottom: 15px; }
   .enbridge-content-container .code-box input[type="radio"]:checked + .fake-input:after {
     background-color: #92b051; }
-.enbridge-content-container .content .formheader {
-  margin-top: 0;
-  font-size: 22px !important;
-  font-weight: bold;
-  padding: 9px 0px 0px 15px;
-  letter-spacing: 0px;
-  margin-left: 0px !important;
-  margin-bottom: 0px; }
-.enbridge-content-container .content {
-  height: 1400px; }
-.enbridge-content-container .accordion {
-  width: 720px; }
-.enbridge-content-container .margin {
-  margin-bottom: 5px; }
-.enbridge-content-container .no-padding {
-  padding: 0% !important; }
-.enbridge-content-container .form1 {
-  background-color: #ddd6cc;
-  border-radius: 4px;
-  height: 81px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%; }
-  .enbridge-content-container .form1 .labelinfo {
-    padding-left: 0% !important;
-    padding-top: 3%; }
-  .enbridge-content-container .form1 .green {
-    padding: 14%;
-    border-radius: 100%;
-    width: 69%;
-    height: 49px; }
-  .enbridge-content-container .form1 .arrow {
-    background-image: url("img/arrow_white.png");
-    background-repeat: no-repeat;
-    background-position: 17px 13px; }
-  .enbridge-content-container .form1 .header {
-    background: #fff; }
-.enbridge-content-container .form2 {
-  border-radius: 4px;
-  height: 81px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%;
-  background-color: #ddd6cc; }
-  .enbridge-content-container .form2 .question {
-    padding: 3%; }
-  .enbridge-content-container .form2 .address {
-    font-weight: 700; }
-  .enbridge-content-container .form2 .buttons {
-    padding: 2% 0% 0% 0% !important; }
-  .enbridge-content-container .form2 .dawn {
-    background-color: #a6a199;
-    width: 45%; }
-  .enbridge-content-container .form2 .green {
-    width: 45%; }
-.enbridge-content-container .form3 {
-  border-radius: 4px;
-  height: 220px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%; }
-  .enbridge-content-container .form3 .address {
-    background-color: #ddd6cc;
-    height: 70px;
-    padding: 5%;
-    font-weight: 700; }
-  .enbridge-content-container .form3 .inputs {
-    margin-top: 5%; }
-  .enbridge-content-container .form3 .checks {
-    margin-top: 4%; }
-.enbridge-content-container .form4 {
-  border-radius: 4px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%; }
-  .enbridge-content-container .form4 .questionrows {
-    overflow: hidden; }
-    .enbridge-content-container .form4 .questionrows .last input[type="text"] {
-      width: 50%;
-      float: left;
-      margin-left: 0px;
-      margin-top: 16px; }
-    .enbridge-content-container .form4 .questionrows input[type="text"] {
-      width: 100%;
-      padding-left: 0% !important;
-      float: right; }
-  .enbridge-content-container .form4 .question {
-    margin-right: 2%;
-    margin-top: 4px !important; }
-  .enbridge-content-container .form4 label {
-    width: 100%;
-    text-align: center;
-    padding: 0% 27% 0% 0%; }
-  .enbridge-content-container .form4 .address {
-    margin-right: 29px;
-    padding: 4% 0% 0% 0%;
-    padding-left: 14px !important;
-    padding-right: 0px !important; }
-  .enbridge-content-container .form4 .questionrows2 {
-    padding: 0px !important;
-    margin-top: -21px; }
-    .enbridge-content-container .form4 .questionrows2 .inputinfo {
-      margin-top: 1px;
-      padding-left: 9px; }
-    .enbridge-content-container .form4 .questionrows2 .info {
-      padding-top: 21px;
-      padding-right: 0px !important; }
-  .enbridge-content-container .form4 .questionrows3 {
-    overflow: hidden; }
-    .enbridge-content-container .form4 .questionrows3 label {
-      padding-top: 3%; }
-    .enbridge-content-container .form4 .questionrows3 .labeldiv {
-      width: 30%;
-      margin-top: 0%;
-      position: absolute;
-      padding-top: 8px;
-      padding-left: 0px !important; }
-    .enbridge-content-container .form4 .questionrows3 .enbridge-dropdown {
-      width: 70%;
-      float: right; }
-  .enbridge-content-container .form4 .questionrows4 {
-    overflow: hidden; }
-.enbridge-content-container .form5 {
-  margin-top: 5%; }
-  .enbridge-content-container .form5 .questionscontainer {
-    display: none; }
-  .enbridge-content-container .form5 .questionrows {
-    overflow: hidden; }
-    .enbridge-content-container .form5 .questionrows .last input[type="text"] {
-      width: 50%;
-      float: left;
-      margin-left: 0px;
-      margin-top: 16px; }
-    .enbridge-content-container .form5 .questionrows input[type="text"] {
-      width: 100%;
-      padding-left: 0% !important;
-      float: right; }
-  .enbridge-content-container .form5 .question {
-    margin-right: 2%;
-    margin-top: 4px !important; }
-  .enbridge-content-container .form5 label {
-    width: 100%;
-    text-align: center;
-    padding: 0% 27% 0% 0%; }
-  .enbridge-content-container .form5 .address {
-    margin-right: 29px;
-    padding: 4% 0% 0% 0%;
-    padding-left: 14px !important;
-    padding-right: 0px !important; }
-  .enbridge-content-container .form5 .questionrows2 {
-    padding: 0px !important;
-    margin-top: -21px; }
-    .enbridge-content-container .form5 .questionrows2 .inputinfo {
-      margin-top: 1px;
-      padding-left: 9px; }
-    .enbridge-content-container .form5 .questionrows2 .info {
-      padding-top: 21px;
-      padding-right: 0px !important; }
-  .enbridge-content-container .form5 .questionrows3 {
-    overflow: hidden; }
-    .enbridge-content-container .form5 .questionrows3 label {
-      padding-top: 3%; }
-    .enbridge-content-container .form5 .questionrows3 .labeldiv {
-      width: 30%;
-      margin-top: 0%;
-      position: absolute;
-      padding-top: 8px;
-      padding-left: 0px !important; }
-    .enbridge-content-container .form5 .questionrows3 .enbridge-dropdown {
-      width: 70%;
-      float: right; }
 .enbridge-content-container .calendar .ui-datepicker-prev,
 .enbridge-content-container .calendar .ui-datepicker-next {
   display: block;
@@ -1588,7 +1422,7 @@
     font-size: 16px;
     color: #636373;
     font-weight: 400; }
-.enbridge-content-container .dates-view .adress-component .adress {
+.enbridge-content-container .dates-view .address-component .address {
   padding: 18px 22px;
   background-color: #ddd6cc;
   border-radius: 3px 3px 0 0;
@@ -1612,7 +1446,6 @@
   overflow: hidden;
   vertical-align: top; }
 .enbridge-content-container .form-grid .enbridge-dropdown {
-  margin: 0;
   min-width: 100px; }
   .enbridge-content-container .form-grid .enbridge-dropdown .header {
     height: 40px; }
@@ -1655,11 +1488,11 @@
     .enbridge-content-container .form-grid .row .form-group .set-field input + input,
     .enbridge-content-container .form-grid .row .form-group .set-field input + label {
       margin-left: 10px; }
-.enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label {
+.enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label {
   width: 110px; }
-  .enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label.fluid-label {
+  .enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label.fluid-label {
     width: auto; }
-  .enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label.big {
+  .enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label.big {
     width: 200px; }
 .enbridge-content-container hr {
   border: 1px solid red;
@@ -1672,8 +1505,7 @@
 .enbridge-content-container .tiny {
   font-size: 10px !important;
   color: #636373;
-  text-align: center;
-  margin-top: 5px; }
+  text-align: center; }
   .enbridge-content-container .tiny.left {
     text-align: left; }
   .enbridge-content-container .tiny.big-content {
@@ -1756,8 +1588,7 @@
 .enbridge-content-container .tooltip {
   display: inline-block;
   position: relative;
-  vertical-align: baseline !important;
-  /* IE11 */ }
+  /*vertical-align: baseline !important;*/ }
   .enbridge-content-container .tooltip .content-tooltip {
     display: none;
     position: absolute;
@@ -1840,8 +1671,7 @@
       color: #fff;
       font-weight: 700;
       float: right;
-      cursor: pointer;
-      margin-top: 4px; }
+      cursor: pointer; }
   .enbridge-content-container .tooltip .content-tooltip:before {
     width: 0;
     content: ' ';
@@ -2193,8 +2023,6 @@
   z-index: -1; }
   .ui-dialog .tooltip .icon:after {
     margin-top: 4px; }
-  .ui-dialog .ui-dialog-titlebar {
-    margin-bottom: 20px; }
   .ui-dialog .ui-dialog-title {
     font-size: 24px;
     color: #c8102e;
@@ -2229,30 +2057,34 @@
       margin: 0;
       width: auto; }
 
-#adress-conformation {
+.tile .information {
+  background-color: transparent; }
+
+#address-confirmation,
+#newcustomers-address-confirmation {
+  display: inline-block;
+  vertical-align: middle;
+  width: 125px;
   font-weight: bold;
   font-size: 14px; }
 
-#property-info {
+#property-info,
+#newcustomers-property-info {
   display: none;
   margin: 30px auto;
   width: 480px; }
 
-#mailing-adress + .fake-input {
+#mailing-address + .fake-input {
   margin-top: 40px; }
 
-#information-acceptance > button {
+#information-acceptance > button,
+#newcustomers-information-acceptance > button {
   padding-top: 10px;
   padding-bottom: 10px;
   width: 80px; }
 
 #current-number + .enbridge-dropdown {
   width: 200px; }
-
-#adress-conformation {
-  display: inline-block;
-  vertical-align: middle;
-  width: 125px; }
 
 #stop-select + .enbridge-dropdown {
   margin-left: 25px;
@@ -2264,7 +2096,7 @@
   width: 60px; }
 
 #street,
-street--alternative {
+#street-alternative {
   width: 220px; }
 
 #city-or-town,
@@ -2272,17 +2104,21 @@ street--alternative {
   width: 220px; }
 
 #postal-code-input,
-#postal-code-input--alternative {
+#postal-code-input-alternative {
   width: 180px; }
 
-#mailing-adress-alternative + .fake-input {
+#mailing-address-alternative + .fake-input {
   margin-top: 30px; }
 
-#select_your_adress_form .fake-input {
+#select_your_address_form .fake-input {
   margin-left: 100px; }
 
+#newcustomers-day + .enbridge-dropdown,
 #month-user-info + .enbridge-dropdown {
   width: 130px; }
+
+#newcustomers-month + .enbridge-dropdown {
+  width: 1S75px; }
 
 #accordion-like {
   margin: 0 auto;
@@ -2310,5 +2146,8 @@ street--alternative {
     position: absolute;
     left: 15px;
     top: 30px; }
+
+[for="newcustomers-year"] + .set-field {
+  max-width: 500px; }
 
 /*# sourceMappingURL=enbridge.css.map */

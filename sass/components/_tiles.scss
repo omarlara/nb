@@ -43,9 +43,12 @@
         label{
             font-size: 14px;
         }
-        p.information.common{
-            font-size: 14px;
+        .information.common{
+            font-size: 13px;
             margin-top:30px;
+            padding: 0;
+
+            background-color: transparent;
         }
 
         label.align{margin-top: 7%}

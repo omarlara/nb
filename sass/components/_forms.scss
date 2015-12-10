@@ -28,7 +28,7 @@
         border: 1px solid $moon-mist;
         border-radius: 2px;
         font-size: 13px;
-        margin:  10px 0;
+        margin:  0 0 10px 0;
         padding: 12px 9px;
 
         color: $moon-mist;
@@ -64,6 +64,7 @@
         &+ .fake-input {
             display: block;
             position: relative;
+            font-weight: normal;
             padding-top: 3px;
             padding-left: 25px;
             margin-bottom: 15px;
@@ -234,6 +235,7 @@
 
                 p {
                     margin: 0;
+                    font-size: 12px;
                 }
 
                 input:not(.enbridge-btn){

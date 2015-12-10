@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="css/enbridge.css">
-</head>
-
-<body>
-    <div class="enbridge-content-container">
-        <div class="enbridge-container ">
+   <div class="enbridge-container no-padding">
             <div class="row">
                 <div class="col md6 lg6">
                     <div class="tile green">
@@ -19,8 +6,8 @@
                             <h2 class="title">Existing Customers</h2>
                             <h3 class="subtitle">
                             Moving in/out of service area or adding a property.
-                        </h3>
-                            <form class="enbridge-form form-horizontal">
+                            </h3>
+                            <div class="enbridge-form form-horizontal">
                                 <div class="form-group">
                                     <label for="" class="control-label">Email:</label>
                                     <div class="fields">
@@ -43,13 +30,11 @@
                                 <div class="footer-form-group">
                                     <a href="#">Register to</a>
                                     <img src="css/img/myEnbridge-sm.png" alt="">
-                                    <a href="#"> I forgot my pasword?</a>
+                                    <a href="#"> I forgot my password?</a>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                        <a href="#" class="enbridge-btn black big-button">
-                        Sign In
-                    </a>
+                        <a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">SIGN IN</a>
                     </div>
                 </div>
                 <div class="col md6 lg6">
@@ -66,11 +51,11 @@
                                     <li>Your move-in dates</li>
                                 </ul>
                                 <p class="information common">
-                                    If your property needs natural gas service instaled, cal our Customer Connections Contact Centre at 1-888-427-8888
+                                    If your property needs natural gas service installed, call our Customer Connections Contact Centre at <strong>1-888-427-8888</strong>
                                 </p>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn blue big-button">
+                        <a href="#" class="enbridge-btn blue big-button open-dialog" id="blue" data-target="#newcustomers">
                         OPEN NEW GAS ACCOUNT
                     </a>
                     </div>
@@ -86,12 +71,12 @@
                             Find out if an address is in our sevice area.
                         </h3>
                             <div>
-                                <form action="" class="enbridge-form">
+                                <div class="enbridge-form">
                                     <input type="text" placeholder="Postal Code">
-                                </form>
+                                </div>
                             </div>
                         </div>
-                        <a href="" class="enbridge-btn green big-button">Check</a>
+                        <a href="" class="enbridge-btn green big-button open-dialog" id="gray" data-target="#postalcode">Check</a>
                     </div>
                 </div>
                 <div class="col md6 lg6 ">
@@ -110,14 +95,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="" class="enbridge-btn yellow big-button">
+                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#movingout">
                         OPEN NEW GASS ACCOUNT
                     </a>
                     </div>
                 </div>
             </div>
         </div>
-
-</body>
-
-</html>

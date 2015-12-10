@@ -6,22 +6,34 @@
 }
 @import "./components/dialog";
 
-#adress-conformation {
+.tile {
+    .information {
+        background-color: transparent;
+    }
+}
+
+#address-confirmation,
+#newcustomers-address-confirmation{
+    display: inline-block;
+    vertical-align: middle;
+    width: 125px;
     font-weight: bold;
     font-size: 14px;
 }
 
-#property-info {
+#property-info,
+#newcustomers-property-info{
     display: none;
     margin: 30px auto;
     width: 480px;
 }
 
-#mailing-adress + .fake-input {
+#mailing-address + .fake-input {
     margin-top: 40px;
 }
 
-#information-acceptance {
+#information-acceptance,
+#newcustomers-information-acceptance {
     >button {
         padding-top: 10px;
         padding-bottom : 10px;
@@ -35,17 +47,10 @@
     }
 }
 
-#adress-conformation {
-    display: inline-block;
-    vertical-align: middle;
-    width: 125px;
-}
-
 #stop-select + .enbridge-dropdown{
     margin-left: 25px;
     width: 380px;
 }
-
 
 #street-number-alternative,
 #suffix-alternative,
@@ -54,7 +59,7 @@
 }
 
 #street,
-street--alternative{
+#street-alternative{
     width: 220px;
 }
 
@@ -64,24 +69,28 @@ street--alternative{
 }
 
 #postal-code-input,
-#postal-code-input--alternative{
+#postal-code-input-alternative{
     width: 180px;
 }
 
-#mailing-adress-alternative + .fake-input{
+#mailing-address-alternative + .fake-input{
     margin-top: 30px;
 }
 
-#select_your_adress_form {
+#select_your_address_form {
     .fake-input {
         margin-left: 100px;
     }
 }
 
-#month-user-info + .enbridge-dropdown{
+#newcustomers-day + .enbridge-dropdown,
+#month-user-info + .enbridge-dropdown {
     width: 130px;
 }
 
+#newcustomers-month + .enbridge-dropdown{
+    width: 1S75px;
+}
 
 #accordion-like {
     margin: 0 auto;
@@ -122,4 +131,8 @@ street--alternative{
             top: 30px;
         }
     }
+}
+
+[for="newcustomers-year"] + .set-field {
+    max-width: 500px;
 }

@@ -1,7 +1,7 @@
 .tooltip {
     display: inline-block;
     position: relative;
-    vertical-align: baseline !important;
+    /*vertical-align: baseline !important;*/
     .content-tooltip {
         display: none;
         position: absolute;
@@ -20,11 +20,11 @@
         margin-left: -157px\9;
         margin-top: 35px\9;
         line-height: 1.4;
-		@-moz-document url-prefix(){
-				margin-left: -152px;
-				margin-top: 37px;
-			}
-		
+
+        @-moz-document url-prefix(){
+                margin-left: -152px;
+                margin-top: 37px;
+            }
 
         .cross {
             z-index: 500;
@@ -47,16 +47,11 @@
         }
     }
 
+    *::-ms-backdrop, .content-tooltip {
+        margin-top: 32px;
+        margin-left: -158px;
+    }
 
-    	
-     *::-ms-backdrop, .content-tooltip { 
-     	
-     	margin-top: 32px;
-     	margin-left: -158px;
-     	} /* IE11 */
-     
-
-	
     .letter-i{
         width: 20px;
         height: 20px;
@@ -103,7 +98,6 @@
             font-weight: 700;
             float: right;
             cursor: pointer;
-            margin-top: 4px;
         }
     }
 
@@ -132,16 +126,8 @@
         box-shadow: -1px 1.5px 1px 0 rgba(0, 0, 0, 0.2);
         z-index: 10000;
     }
-	
 
-	*::-ms-backdrop, .content-tooltip:before { 
-     		top:1px;
-     }
-
-    &:hover {
-        .content-tooltip {
-            // display: block;
-       
-        }
+    *::-ms-backdrop, .content-tooltip:before {
+        top:1px;
     }
 }

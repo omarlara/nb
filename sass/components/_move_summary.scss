@@ -1,7 +1,8 @@
 .align{
-            text-align: inherit !important;
-            padding-left: 45px;
-    }
+    text-align: inherit !important;
+    padding-left: 45px;
+}
+
 .moving-container-green{
     width: 500px;
     margin: 0 auto;
@@ -13,21 +14,16 @@
     .yellow{
         padding: 10px 0 10px;
     }
-
     .tile{
-         min-height: 285px; 
-         .header-form-group{ 
+         min-height: 285px;
+         .header-form-group{
                 p{
                 font-size: 18px;
                 text-align: center;
             }
-            .footer-form-group{
-                
-            }
             img{
                 position: relative;
                 top: 6px;
-
             }
         }
         .form-group{
@@ -73,12 +69,12 @@
 }
 
 .address {
-    width: 190px;
+    //width: 190px;
     background-color: rgba(125, 125, 138, 0.95);
-    margin-top: 12%;
-    margin-left: 3%;
+    //margin-top: 12%;
+    //margin-left: 3%;
     height: auto;
-    min-height: 205px;
+    //min-height: 205px;
     border-radius: 52px 2px 48px 2px;
     padding-top: 8%;
 
@@ -195,7 +191,7 @@
         @extends .addressstye;
     }
 
-    .TextAfter {
+    .text-after {
         padding: 0 28px;
     }
 }
@@ -257,7 +253,7 @@
     }
 }
 
-.Features {
+.features {
     margin-left: 5%;
     margin-top: 40px;
 

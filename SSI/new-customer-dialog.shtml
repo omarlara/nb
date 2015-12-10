@@ -268,7 +268,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="accordion-item active">
+                    <li class="accordion-item processed">
                         <div class="header">2.Address Information</div>
                         <div class="content">
                             <div action="" class="enbridge-form" id="newcustomers-steps-flow-1">
@@ -515,134 +515,70 @@
                             </div>
                         </div>
                     </li>
-                    <li class="accordion-item">
-                        <div class="header">Dates</div>
+                    <li class="accordion-item active">
+                        <div class="header">3.Billing Service</div>
                         <div class="content">
-                            <form class="enbridge-form">
-                                <div class="dates-view enbridge-container">
-                                    <div class="calendar-container row">
-                                        <div class="col xs6">
-                                            <div class="calendar-column" data-calendar="#date-start">
-                                                <div class="headline">
-                                                    <h3>
-                                                        What us the last day you are responsible for:
-                                                    </h3>
-                                                </div>
-                                                <div class="address-component">
-                                                    <div class="address">
-                                                        123 Fake St.
-                                                        <br/> Toronto, ON
-                                                        <br/> M2M 2M2
-                                                        <br/>
-                                                    </div>
-                                                    <div class="calendar"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col xs6">
-                                            <div class="calendar-column" data-calendar="#date-finish">
-                                                <div class="headline">
-                                                    <h3>
-                                                        What us the last day you are responsible for:
-                                                    </h3>
-                                                </div>
-                                                <div class="address-component">
-                                                    <div class="address">
-                                                        123 Fake St.
-                                                        <br/> Toronto, ON
-                                                        <br/> M2M 2M2
-                                                        <br/>
-                                                    </div>
-                                                    <div class="calendar"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <p class="information green">
-                                        If these dates change, you can come back here to let us know!
+                            <div class="enbridge-form">
+                                <div class=" ">
+                                    <p class="vertical-align">
+                                        Would you like to enroll your new account into the Budget Billing Plan:
+                                        <span class="tooltip">
+                                            <span class="icon"></span>
+                                            <span class="content-tooltip">
+                                                <span class="cross"></span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                            </span>
+                                        </span>
                                     </p>
                                 </div>
+                                <div class="property-info form-grid">
+                                    <div class="form-group pull-margin-right inputs-div-style ">
+                                        <div class="set-field content-container">
+                                            <input type="radio" name="lang" id="radio1" value="php">
+                                            <label class="fake-input in-line radio-space  left-distance-radio" for="radio1">Yes</label>
 
-                                <input type="hidden" class="start-date" id="date-start" required>
-                                <input type="hidden" class="finish-date" id="date-finish" required>
-
-                                <div class="validator-container">
-                                    <a class="prev" href="#">BACK</a>
-                                    <a class="validator" href="#">NEXT</a>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-                    <li class="accordion-item">
-                        <div class="header">Your Information</div>
-                        <div class="content">
-                            <form class="enbridge-form form-grid">
-                                <label class="legend-row">
-                                    Your date of birth:
-                                </label>
-                                <div class="row">
-                                    <div class="form-group _w160">
-                                        <label for="usr">Day:</label>
-                                        <div class="set-field">
-                                            <select name="" class="enbridge-select" id="">
-                                                <option value="select">10</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group _w180">
-                                        <label for="usr">Month:</label>
-                                        <div class="set-field">
-                                            <select name="" class="enbridge-select" id="month-user-info">
-                                                <option value="select">January</option>
-                                                <option value="select">November</option>
-                                                <option value="select">December</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group _w100">
-                                        <label for="pwd">Year:</label>
-                                        <div class="set-field">
-                                            <input type="text" class="form-control  _w60" />
+                                            <input type="radio" name="lang" id="radio2" value="java">
+                                            <label class="fake-input in-line left-distance-radio" for="radio2">No</label>
                                         </div>
                                     </div>
                                 </div>
-                                <label class="legend-row">
-                                    Are these numbers correct? if not, please update:
-                                </label>
-                                <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
-                                        <label for="usr">Home Phone:</label>
-                                        <div class="set-field">
-                                            <input type="text" class="form-control  _w60">
-
-                                            <input type="text" class="form-control _w160">
+                                <div class="property-info form-grid">
+                                    <div class="form-group pull-margin-right alert-info col xs12">
+                                        <h2 class="billing-title">Paperless Billing</h2>
+                                        <div class="ecru-white">
+                                            <span class="tooltip">
+                                                <span class="letter-i"></span>
+                                                <span classs="content-tooltip">
+                                            </span>
+                                                <p class="no-margin overflow-hidden">Use this form if natural gas is already     installed at the property. If a new natural gas service needs to be installed, please contact our Customer Connections Contact Centre at <strong>   1-888-427-8888</strong>
+                                                </p>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
-                                        <label for="usr">Mobile Phone:</label>
-                                        <div class="set-field ">
-                                            <input type="text" class="form-control  _w60">
-
-                                            <input type="text" class="form-control _w160">
+                                <div class="property-info form-grid forms-distance ">
+                                    <div class="form-group pull-margin-right  ">
+                                        <div class="row adress-bar">
+                                          <div class="form-group pull-margin-right space-inputs">
+                                            <label for="usr" class="width-inherit">Email:</label>
+                                            <div class="set-field">
+                                              <input type="text" class="form-control  ">
+                                            </div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
-                                        <label for="usr">Business Phone:</label>
-                                        <div class="set-field ">
-                                            <input type="text" class="form-control  _w60">
-                                            <input type="text" class="form-control _w160">
-                                            <label for="pwd" class="fluid-label">Ext:</label>
-                                            <input type="text" class="form-control  _w60" />
+                                <div class="property-info form-grid">
+                                    <div class="form-group pull-margin-right inputs-div-style ">
+                                        <div class="set-field content-container last-note-padding">
+
+                                            <label for="street-number" class="tiny _w650 left-important">
+                                             <strong>Note</strong>: As a part of the activation process you will receive an email from Enbridge Gas Distribution with a link to the activation page. Plasea note that until you follow the steps in the email you will not be able to sign into myEnbridge. This is necessary to ensure you have entered a valid email address.
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-
+                            </div>
                         </div>
                     </li>
                 </ul>

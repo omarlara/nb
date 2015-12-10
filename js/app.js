@@ -437,6 +437,14 @@
                 $('#country').attr('required', true);
                 $('#province').attr('required', true);
                 $('#postal-code-input').attr('required', true);
+            } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
+                $('#newcustomers-step-address').removeClass('hidden');
+
+                $('#newcustomers-street').attr('required', true);
+                $('#newcustomers-city-or-town').attr('required', true);
+                $('#newcustomers-country').attr('required', true);
+                $('#newcustomers-province').attr('required', true);
+                $('#newcustomers-postal-code-input').attr('required', true);
             }
         }
     });

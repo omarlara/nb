@@ -1747,7 +1747,8 @@
     font-size: 14px;
     margin-bottom: 13px; }
 .enbridge-content-container .incomplete-container ul {
-  margin-bottom: 42px; }
+  margin-bottom: 42px;
+  padding-left: 58px; }
 .enbridge-content-container .incomplete-container .buttondiv {
   float: right;
   margin-right: 182px;

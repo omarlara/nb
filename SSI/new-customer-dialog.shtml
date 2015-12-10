@@ -534,11 +534,23 @@
                                 <div class="property-info form-grid">
                                     <div class="form-group pull-margin-right inputs-div-style ">
                                         <div class="set-field content-container">
-                                            <input type="radio" name="lang" id="radio1" value="php">
-                                            <label class="fake-input in-line radio-space  left-distance-radio" for="radio1">Yes</label>
+                                            <input type="radio"
+                                                name="newcustomers-budget-billing-plan"
+                                                id="newcustomers-budget-billing-plan-yes"
+                                                value="true"
+                                                data-required-error="Please select the required information."
+                                                data-rel="newcustomers-budget-billing-plan"
+                                            required>
+                                            <label class="fake-input in-line radio-space  left-distance-radio" for="newcustomers-budget-billing-plan-yes">Yes</label>
 
-                                            <input type="radio" name="lang" id="radio2" value="java">
-                                            <label class="fake-input in-line left-distance-radio" for="radio2">No</label>
+                                            <input type="radio"
+                                                name="newcustomers-budget-billing-plan"
+                                                id="newcustomers-budget-billing-plan-no"
+                                                value="true"
+                                                data-required-error="Please select the required information."
+                                                data-rel="newcustomers-budget-billing-plan"
+                                            required>
+                                            <label class="fake-input in-line left-distance-radio" for="newcustomers-budget-billing-plan-no">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -562,7 +574,11 @@
                                           <div class="form-group pull-margin-right space-inputs">
                                             <label for="usr" class="width-inherit">Email:</label>
                                             <div class="set-field">
-                                              <input type="text" class="form-control  ">
+                                                <input type="text" class="form-control"
+                                                    id="newcustomers-email"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="newcustomers-email"
+                                                required>
                                             </div>
                                           </div>
                                         </div>
@@ -586,17 +602,14 @@
                 <div class="enbridge-content-container">
                     <div class="enbridge-container ">
                         <div class="row">
-                            <div class="col md12 buttons">
+                            <div class="col md12 buttons text-center">
+
                                 <div class="col md3">
-                                    <a class="enbridge-btn green large">START OVER</a>
+                                    <a class="enbridge-btn green _w160" id="new-account-start-over">START OVER</a>
                                 </div>
 
-                                <div class="col md4 xs1-off">
-                                    <a class="enbridge-btn green larger">SAVE & RETURN LATER</a>
-                                </div>
-
-                                <div class="col md3 xs1-off">
-                                    <a class="enbridge-btn gray large disable">SUBMIT</a>
+                                <div class="col md3 xs6-off">
+                                    <a class="enbridge-btn yellow disabled sumbit-button  _w160">SUBMIT</a>
                                 </div>
 
                             </div>

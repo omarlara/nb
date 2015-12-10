@@ -6,6 +6,12 @@
 }
 @import "./components/dialog";
 
+.tile {
+    .information {
+        background-color: transparent;
+    }
+}
+
 #address-confirmation,
 #newcustomers-address-confirmation{
     display: inline-block;
@@ -45,7 +51,6 @@
     margin-left: 25px;
     width: 380px;
 }
-
 
 #street-number-alternative,
 #suffix-alternative,

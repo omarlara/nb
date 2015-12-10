@@ -666,9 +666,11 @@
         font-size: 14px; }
     .enbridge-content-container .tile > .content label {
       font-size: 14px; }
-    .enbridge-content-container .tile > .content p.information.common {
-      font-size: 14px;
-      margin-top: 30px; }
+    .enbridge-content-container .tile > .content .information.common {
+      font-size: 13px;
+      margin-top: 30px;
+      padding: 0;
+      background-color: transparent; }
     .enbridge-content-container .tile > .content label.align {
       margin-top: 7%; }
     .enbridge-content-container .tile > .content .form-group {
@@ -1750,8 +1752,7 @@
 .enbridge-content-container .tooltip {
   display: inline-block;
   position: relative;
-  vertical-align: baseline !important;
-  /* IE11 */ }
+  /*vertical-align: baseline !important;*/ }
   .enbridge-content-container .tooltip .content-tooltip {
     display: none;
     position: absolute;
@@ -2222,6 +2223,9 @@
       padding: 0;
       margin: 0;
       width: auto; }
+
+.tile .information {
+  background-color: transparent; }
 
 #address-confirmation,
 #newcustomers-address-confirmation {

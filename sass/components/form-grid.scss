@@ -25,7 +25,6 @@
     }
 
     .enbridge-dropdown {
-        margin: 0;
         min-width: 100px;
         .header {
             height: 40px;
@@ -84,7 +83,7 @@
 
             }
         }
-        &.adress-bar {
+        &.address-bar {
             > .form-group:first-child {
                 > label {
                     width: 110px;
@@ -114,7 +113,6 @@ hr {
     font-size: 10px !important;
     color: #636373;
     text-align: center;
-    margin-top: 5px;
     &.left {
         text-align: left;
     }

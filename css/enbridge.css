@@ -220,7 +220,7 @@
   border: 1px solid #ddd6cc;
   border-radius: 2px;
   font-size: 13px;
-  margin: 10px 0;
+  margin: 0 0 10px 0;
   padding: 12px 9px;
   color: #ddd6cc; }
 .enbridge-content-container .enbridge-form input[type="color"]:focus, .enbridge-content-container .enbridge-form input[type="date"]:focus, .enbridge-content-container .enbridge-form input[type="datetime"]:focus, .enbridge-content-container .enbridge-form input[type="datetime-local"]:focus, .enbridge-content-container .enbridge-form input[type="email"]:focus, .enbridge-content-container .enbridge-form input[type="month"]:focus, .enbridge-content-container .enbridge-form input[type="number"]:focus, .enbridge-content-container .enbridge-form input[type="password"]:focus, .enbridge-content-container .enbridge-form input[type="search"]:focus, .enbridge-content-container .enbridge-form input[type="tel"]:focus, .enbridge-content-container .enbridge-form input[type="text"]:focus, .enbridge-content-container .enbridge-form input[type="time"]:focus, .enbridge-content-container .enbridge-form input[type="url"]:focus, .enbridge-content-container .enbridge-form input[type="week"]:focus, .enbridge-content-container .enbridge-form input:not([type]):focus, .enbridge-content-container .enbridge-form textarea:focus,
@@ -240,6 +240,7 @@
   .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input {
     display: block;
     position: relative;
+    font-weight: normal;
     padding-top: 3px;
     padding-left: 25px;
     margin-bottom: 15px;
@@ -784,12 +785,8 @@
   font-size: 13px;
   margin-bottom: 15px; }
 .enbridge-content-container .address {
-  width: 190px;
   background-color: rgba(125, 125, 138, 0.95);
-  margin-top: 12%;
-  margin-left: 3%;
   height: auto;
-  min-height: 205px;
   border-radius: 52px 2px 48px 2px;
   padding-top: 8%; }
   .enbridge-content-container .address h4 {
@@ -987,7 +984,7 @@
     font-size: 16px;
     color: #636373;
     font-weight: 400; }
-.enbridge-content-container .dates-view .adress-component .adress {
+.enbridge-content-container .dates-view .address-component .address {
   padding: 18px 22px;
   background-color: #ddd6cc;
   border-radius: 3px 3px 0 0;
@@ -1214,7 +1211,7 @@
           bottom: 0px; }
 .enbridge-content-container .accordion {
   list-style: none;
-  margin: 0;
+  margin-bottom: 10px;
   width: 700px;
   background-color: white; }
   .enbridge-content-container .accordion .accordion-item {
@@ -1588,7 +1585,7 @@
     font-size: 16px;
     color: #636373;
     font-weight: 400; }
-.enbridge-content-container .dates-view .adress-component .adress {
+.enbridge-content-container .dates-view .address-component .address {
   padding: 18px 22px;
   background-color: #ddd6cc;
   border-radius: 3px 3px 0 0;
@@ -1612,7 +1609,6 @@
   overflow: hidden;
   vertical-align: top; }
 .enbridge-content-container .form-grid .enbridge-dropdown {
-  margin: 0;
   min-width: 100px; }
   .enbridge-content-container .form-grid .enbridge-dropdown .header {
     height: 40px; }
@@ -1655,11 +1651,11 @@
     .enbridge-content-container .form-grid .row .form-group .set-field input + input,
     .enbridge-content-container .form-grid .row .form-group .set-field input + label {
       margin-left: 10px; }
-.enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label {
+.enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label {
   width: 110px; }
-  .enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label.fluid-label {
+  .enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label.fluid-label {
     width: auto; }
-  .enbridge-content-container .form-grid .row.adress-bar > .form-group:first-child > label.big {
+  .enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label.big {
     width: 200px; }
 .enbridge-content-container hr {
   border: 1px solid red;
@@ -1672,8 +1668,7 @@
 .enbridge-content-container .tiny {
   font-size: 10px !important;
   color: #636373;
-  text-align: center;
-  margin-top: 5px; }
+  text-align: center; }
   .enbridge-content-container .tiny.left {
     text-align: left; }
   .enbridge-content-container .tiny.big-content {
@@ -2228,30 +2223,31 @@
       margin: 0;
       width: auto; }
 
-#adress-conformation {
+#address-confirmation,
+#newcustomers-address-confirmation {
+  display: inline-block;
+  vertical-align: middle;
+  width: 125px;
   font-weight: bold;
   font-size: 14px; }
 
-#property-info {
+#property-info,
+#newcustomers-property-info {
   display: none;
   margin: 30px auto;
   width: 480px; }
 
-#mailing-adress + .fake-input {
+#mailing-address + .fake-input {
   margin-top: 40px; }
 
-#information-acceptance > button {
+#information-acceptance > button,
+#newcustomers-information-acceptance > button {
   padding-top: 10px;
   padding-bottom: 10px;
   width: 80px; }
 
 #current-number + .enbridge-dropdown {
   width: 200px; }
-
-#adress-conformation {
-  display: inline-block;
-  vertical-align: middle;
-  width: 125px; }
 
 #stop-select + .enbridge-dropdown {
   margin-left: 25px;
@@ -2263,7 +2259,7 @@
   width: 60px; }
 
 #street,
-street--alternative {
+#street-alternative {
   width: 220px; }
 
 #city-or-town,
@@ -2271,17 +2267,21 @@ street--alternative {
   width: 220px; }
 
 #postal-code-input,
-#postal-code-input--alternative {
+#postal-code-input-alternative {
   width: 180px; }
 
-#mailing-adress-alternative + .fake-input {
+#mailing-address-alternative + .fake-input {
   margin-top: 30px; }
 
-#select_your_adress_form .fake-input {
+#select_your_address_form .fake-input {
   margin-left: 100px; }
 
+#newcustomers-day + .enbridge-dropdown,
 #month-user-info + .enbridge-dropdown {
   width: 130px; }
+
+#newcustomers-month + .enbridge-dropdown {
+  width: 1S75px; }
 
 #accordion-like {
   margin: 0 auto;
@@ -2309,5 +2309,8 @@ street--alternative {
     position: absolute;
     left: 15px;
     top: 30px; }
+
+[for="newcustomers-year"] + .set-field {
+  max-width: 500px; }
 
 /*# sourceMappingURL=enbridge.css.map */

@@ -30,13 +30,11 @@
                                 <div class="footer-form-group">
                                     <a href="#">Register to</a>
                                     <img src="css/img/myEnbridge-sm.png" alt="">
-                                    <a href="#"> I forgot my pasword?</a>
+                                    <a href="#"> I forgot my password?</a>
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">
-                        Sign In
-                    </a>
+                        <a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">SIGN IN</a>
                     </div>
                 </div>
                 <div class="col md6 lg6">

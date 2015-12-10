@@ -338,7 +338,8 @@
     margin: 0 auto;
     height: 175px; }
     .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool p {
-      margin: 0; }
+      margin: 0;
+      font-size: 12px; }
     .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn) {
       display: block;
       margin: 0 auto 20px auto;

@@ -1352,173 +1352,6 @@
     margin-bottom: 15px; }
   .enbridge-content-container .code-box input[type="radio"]:checked + .fake-input:after {
     background-color: #92b051; }
-.enbridge-content-container .content .formheader {
-  margin-top: 0;
-  font-size: 22px !important;
-  font-weight: bold;
-  padding: 9px 0px 0px 15px;
-  letter-spacing: 0px;
-  margin-left: 0px !important;
-  margin-bottom: 0px; }
-.enbridge-content-container .content {
-  height: 1400px; }
-.enbridge-content-container .accordion {
-  width: 720px; }
-.enbridge-content-container .margin {
-  margin-bottom: 5px; }
-.enbridge-content-container .no-padding {
-  padding: 0% !important; }
-.enbridge-content-container .form1 {
-  background-color: #ddd6cc;
-  border-radius: 4px;
-  height: 81px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%; }
-  .enbridge-content-container .form1 .labelinfo {
-    padding-left: 0% !important;
-    padding-top: 3%; }
-  .enbridge-content-container .form1 .green {
-    padding: 14%;
-    border-radius: 100%;
-    width: 69%;
-    height: 49px; }
-  .enbridge-content-container .form1 .arrow {
-    background-image: url("img/arrow_white.png");
-    background-repeat: no-repeat;
-    background-position: 17px 13px; }
-  .enbridge-content-container .form1 .header {
-    background: #fff; }
-.enbridge-content-container .form2 {
-  border-radius: 4px;
-  height: 81px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%;
-  background-color: #ddd6cc; }
-  .enbridge-content-container .form2 .question {
-    padding: 3%; }
-  .enbridge-content-container .form2 .address {
-    font-weight: 700; }
-  .enbridge-content-container .form2 .buttons {
-    padding: 2% 0% 0% 0% !important; }
-  .enbridge-content-container .form2 .dawn {
-    background-color: #a6a199;
-    width: 45%; }
-  .enbridge-content-container .form2 .green {
-    width: 45%; }
-.enbridge-content-container .form3 {
-  border-radius: 4px;
-  height: 220px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%; }
-  .enbridge-content-container .form3 .address {
-    background-color: #ddd6cc;
-    height: 70px;
-    padding: 5%;
-    font-weight: 700; }
-  .enbridge-content-container .form3 .inputs {
-    margin-top: 5%; }
-  .enbridge-content-container .form3 .checks {
-    margin-top: 4%; }
-.enbridge-content-container .form4 {
-  border-radius: 4px;
-  padding-left: 0%;
-  padding: 3% 0% 0% 0%; }
-  .enbridge-content-container .form4 .questionrows {
-    overflow: hidden; }
-    .enbridge-content-container .form4 .questionrows .last input[type="text"] {
-      width: 50%;
-      float: left;
-      margin-left: 0px;
-      margin-top: 16px; }
-    .enbridge-content-container .form4 .questionrows input[type="text"] {
-      width: 100%;
-      padding-left: 0% !important;
-      float: right; }
-  .enbridge-content-container .form4 .question {
-    margin-right: 2%;
-    margin-top: 4px !important; }
-  .enbridge-content-container .form4 label {
-    width: 100%;
-    text-align: center;
-    padding: 0% 27% 0% 0%; }
-  .enbridge-content-container .form4 .address {
-    margin-right: 29px;
-    padding: 4% 0% 0% 0%;
-    padding-left: 14px !important;
-    padding-right: 0px !important; }
-  .enbridge-content-container .form4 .questionrows2 {
-    padding: 0px !important;
-    margin-top: -21px; }
-    .enbridge-content-container .form4 .questionrows2 .inputinfo {
-      margin-top: 1px;
-      padding-left: 9px; }
-    .enbridge-content-container .form4 .questionrows2 .info {
-      padding-top: 21px;
-      padding-right: 0px !important; }
-  .enbridge-content-container .form4 .questionrows3 {
-    overflow: hidden; }
-    .enbridge-content-container .form4 .questionrows3 label {
-      padding-top: 3%; }
-    .enbridge-content-container .form4 .questionrows3 .labeldiv {
-      width: 30%;
-      margin-top: 0%;
-      position: absolute;
-      padding-top: 8px;
-      padding-left: 0px !important; }
-    .enbridge-content-container .form4 .questionrows3 .enbridge-dropdown {
-      width: 70%;
-      float: right; }
-  .enbridge-content-container .form4 .questionrows4 {
-    overflow: hidden; }
-.enbridge-content-container .form5 {
-  margin-top: 5%; }
-  .enbridge-content-container .form5 .questionscontainer {
-    display: none; }
-  .enbridge-content-container .form5 .questionrows {
-    overflow: hidden; }
-    .enbridge-content-container .form5 .questionrows .last input[type="text"] {
-      width: 50%;
-      float: left;
-      margin-left: 0px;
-      margin-top: 16px; }
-    .enbridge-content-container .form5 .questionrows input[type="text"] {
-      width: 100%;
-      padding-left: 0% !important;
-      float: right; }
-  .enbridge-content-container .form5 .question {
-    margin-right: 2%;
-    margin-top: 4px !important; }
-  .enbridge-content-container .form5 label {
-    width: 100%;
-    text-align: center;
-    padding: 0% 27% 0% 0%; }
-  .enbridge-content-container .form5 .address {
-    margin-right: 29px;
-    padding: 4% 0% 0% 0%;
-    padding-left: 14px !important;
-    padding-right: 0px !important; }
-  .enbridge-content-container .form5 .questionrows2 {
-    padding: 0px !important;
-    margin-top: -21px; }
-    .enbridge-content-container .form5 .questionrows2 .inputinfo {
-      margin-top: 1px;
-      padding-left: 9px; }
-    .enbridge-content-container .form5 .questionrows2 .info {
-      padding-top: 21px;
-      padding-right: 0px !important; }
-  .enbridge-content-container .form5 .questionrows3 {
-    overflow: hidden; }
-    .enbridge-content-container .form5 .questionrows3 label {
-      padding-top: 3%; }
-    .enbridge-content-container .form5 .questionrows3 .labeldiv {
-      width: 30%;
-      margin-top: 0%;
-      position: absolute;
-      padding-top: 8px;
-      padding-left: 0px !important; }
-    .enbridge-content-container .form5 .questionrows3 .enbridge-dropdown {
-      width: 70%;
-      float: right; }
 .enbridge-content-container .calendar .ui-datepicker-prev,
 .enbridge-content-container .calendar .ui-datepicker-next {
   display: block;
@@ -1835,8 +1668,7 @@
       color: #fff;
       font-weight: 700;
       float: right;
-      cursor: pointer;
-      margin-top: 4px; }
+      cursor: pointer; }
   .enbridge-content-container .tooltip .content-tooltip:before {
     width: 0;
     content: ' ';
@@ -2188,8 +2020,6 @@
   z-index: -1; }
   .ui-dialog .tooltip .icon:after {
     margin-top: 4px; }
-  .ui-dialog .ui-dialog-titlebar {
-    margin-bottom: 20px; }
   .ui-dialog .ui-dialog-title {
     font-size: 24px;
     color: #c8102e;

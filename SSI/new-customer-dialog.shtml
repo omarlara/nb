@@ -1,12 +1,12 @@
 <div class="enbridge-content-container" id="open-new-gas-account">
-    <div class="dialog success-dialog" title="New Account" id="newcustomers">
+    <div class="dialog success-dialog hidden" title="New Account" id="newcustomers">
         <div class="enbridge-content-container">
             <div class="enbridge-container">
                 <p class="information green">
                             Use this form if natural gas is alredy installed at the property. If new natural gas service needs to be installed, please contact our Customer Connections Centre at <strong>1-888-427-8888</strong>.
                 </p>
                 <ul class="accordion">
-                    <li class="accordion-item processed">
+                    <li class="accordion-item active">
                         <div class="header">1.New Customer Information</div>
                         <div class="content">
                             <div class="ecru-white">
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="accordion-item processed">
+                    <li class="accordion-item">
                         <div class="header">2.Address Information</div>
                         <div class="content">
                             <div action="" class="enbridge-form" id="newcustomers-steps-flow-1">
@@ -355,6 +355,8 @@
                                     </div>
 
                                 </div>
+
+
                                 <div class="steps" id="newcustomers-select_your_address_form">
                                     <p class="strong">Please enter your new address:</p>
                                     <div class="property-info form-grid">
@@ -437,6 +439,7 @@
                                     <label class="fake-input" for="newcustomers-mailing-address-alternative">My mailing address is different from my service address</label>
 
                                 </div>
+
                                 <div class="hidden" id="newcustomers-manual-property-info">
                                     <div class="property-info form-grid">
                                         <div class="form-group pull-margin-right">
@@ -515,7 +518,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="accordion-item active">
+                    <li class="accordion-item">
                         <div class="header">3.Billing Service</div>
                         <div class="content">
                             <div class="enbridge-form">
@@ -595,6 +598,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="validator-container">
+                                <a class="prev" href="#">BACK</a>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -604,11 +610,11 @@
                         <div class="row">
                             <div class="col md12 buttons text-center">
 
-                                <div class="col md3">
+                                <!--div class="col md3">
                                     <a class="enbridge-btn green _w160" id="new-account-start-over">START OVER</a>
-                                </div>
+                                </div-->
 
-                                <div class="col md3 xs6-off">
+                                <div class="col md3 xs9-off">
                                     <a class="enbridge-btn yellow disabled sumbit-button  _w160">SUBMIT</a>
                                 </div>
 

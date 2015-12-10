@@ -1031,22 +1031,24 @@
         $("#existingcustomers")
             .removeClass('hidden')
             .dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 240,
+                    width: 720,
+                    modal: true,
+                    height: 440
+            });
+
+        $("#newcustomers")
+            .removeClass('hidden')
+            .dialog({
                 autoOpen: false,
                 resizable: false,
                 height: 240,
                 width: 720,
                 modal: true,
                 height: 440
-        });
-
-        $("#newcustomers").dialog({
-            autoOpen: false,
-            resizable: false,
-            height: 240,
-            width: 720,
-            modal: true,
-            height: 440
-        });
+            });
 
         $("#postalcode").dialog({
             autoOpen: false,

@@ -10,7 +10,7 @@
     font-size: 20px;
     font-weight: 300;
     padding-top: 21px;
-}   
+}
 
 .alert-info {
     border-radius: 2px;
@@ -28,7 +28,6 @@
 
 .width-inherit{
     width: 50px !important;
-      
 }
 
 .last-note-padding{
@@ -127,10 +126,6 @@
         margin-top: 4px;
     }
 
-    .ui-dialog-titlebar {
-        margin-bottom: 20px;
-    }
-
     .ui-dialog-title {
         font-size: 24px;
         color: $crimson;
@@ -148,8 +143,6 @@
             display: none;
         }
     }
-
-    .border {}
 
     .accordion-footer {
         padding: 20px 0;

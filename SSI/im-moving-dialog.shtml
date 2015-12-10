@@ -1,5 +1,5 @@
 <div class="enbridge-content-container" id="im-moving">
-    <div class="dialog success-dialog" title="I'm Moving" id="existingcustomers">
+    <div class="dialog success-dialog hidden" title="I'm Moving" id="existingcustomers">
         <div class="enbridge-content-container">
             <div class="enbridge-container">
 

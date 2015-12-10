@@ -682,6 +682,8 @@
                 .removeClass('opened required success-zip')
                 .addClass('closed');
 
+        $('#form-summary').addClass('hidden');
+
         $('#information-acceptance')
             .show()
                 .closest('.code-box')

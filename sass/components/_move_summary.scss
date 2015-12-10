@@ -1,7 +1,8 @@
 .align{
-            text-align: inherit !important;
-            padding-left: 45px;
-    }
+    text-align: inherit !important;
+    padding-left: 45px;
+}
+
 .moving-container-green{
     width: 500px;
     margin: 0 auto;
@@ -13,7 +14,6 @@
     .yellow{
         padding: 10px 0 10px;
     }
-
     .tile{
          min-height: 285px;
          .header-form-group{
@@ -21,13 +21,9 @@
                 font-size: 18px;
                 text-align: center;
             }
-            .footer-form-group{
-
-            }
             img{
                 position: relative;
                 top: 6px;
-
             }
         }
         .form-group{
@@ -195,7 +191,7 @@
         @extends .addressstye;
     }
 
-    .TextAfter {
+    .text-after {
         padding: 0 28px;
     }
 }
@@ -257,7 +253,7 @@
     }
 }
 
-.Features {
+.features {
     margin-left: 5%;
     margin-top: 40px;
 

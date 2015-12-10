@@ -866,7 +866,7 @@
     background-position: -7px 90px; }
   .enbridge-content-container .move-summary .addressstye {
     @extends .addressstye; }
-  .enbridge-content-container .move-summary .TextAfter {
+  .enbridge-content-container .move-summary .text-after {
     padding: 0 28px; }
 .enbridge-content-container .your-information {
   min-height: 354px;
@@ -905,16 +905,16 @@
     .enbridge-content-container .your-information .data span {
       margin-bottom: 3%;
       letter-spacing: 0px; }
-.enbridge-content-container .Features {
+.enbridge-content-container .features {
   margin-left: 5%;
   margin-top: 40px; }
-  .enbridge-content-container .Features .question {
+  .enbridge-content-container .features .question {
     font-size: 14px; }
-  .enbridge-content-container .Features p.checked {
+  .enbridge-content-container .features p.checked {
     line-height: 1.5;
     margin-bottom: 30px;
     color: #636373; }
-    .enbridge-content-container .Features p.checked:before {
+    .enbridge-content-container .features p.checked:before {
       content: url("img/checked_03.png");
       display: block;
       float: left;
@@ -1176,13 +1176,14 @@
         text-decoration: none;
         font-weight: 100; }
     .enbridge-content-container .container-thankyou .info-content .improve textarea {
-      width: 100%;
       border-radius: 4px;
       border: 1px solid #ddd;
       resize: none;
       display: block;
-      margin-bottom: 5px;
-      margin-top: 15px; }
+      margin-bottom: 8px;
+      margin-top: 15px;
+      height: 90px;
+      width: 100%; }
       .enbridge-content-container .container-thankyou .info-content .improve textarea p {
         margin-top: 8px; }
     .enbridge-content-container .container-thankyou .info-content .improve .green {

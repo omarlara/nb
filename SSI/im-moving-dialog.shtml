@@ -334,8 +334,16 @@
                                             <div class="calendar-column" data-calendar="#date-start">
                                                 <div class="headline">
                                                     <h3>
-                                                        What us the last day you are responsible for:
+                                                        What us the last day you are responsible for:  
+                                                        <span class="tooltip">
+                                                            <span class="icon"></span>
+                                                            <span class="content-tooltip">
+                                                                <span class="cross"></span>
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                            </span>
+                                                        </span>
                                                     </h3>
+                                                   
                                                 </div>
                                                 <div class="address-component">
                                                     <div class="address">
@@ -352,6 +360,13 @@
                                                 <div class="headline">
                                                     <h3>
                                                         What us the last day you are responsible for:
+                                                        <span class="tooltip">
+                                                            <span class="icon"></span>
+                                                            <span class="content-tooltip">
+                                                                <span class="cross"></span>
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                            </span>
+                                                        </span>
                                                     </h3>
                                                 </div>
                                                 <div class="address-component">

@@ -124,12 +124,12 @@
 
                                     <div class="code-box container">
                                         <div class="row">
-                                            <div class="col">
-                                                <p>Select your street</p>
+                                            <div class="col center-label">
+                                                <p>What is your street number?</p>
                                             </div>
                                             <div class="col" id="data-dropdown"></div>
                                         </div>
-                                        <div class="next-step" data-next-step="#confirm-address" id="confirm-address-button"></div>
+                                        <div class="next-step less-top" data-next-step="#confirm-address" id="confirm-address-button"></div>
                                     </div>
 
                                 </div>

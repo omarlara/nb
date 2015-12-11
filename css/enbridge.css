@@ -2083,7 +2083,7 @@
   width: 70px !important; }
 .tile.green .fields {
   width: 210px !important; }
-.tile.green [for="remember-email"]:not(.fake-input) {
+.tile.green [for="remember-email-check"]:not(.fake-input) {
   font-size: 12px;
   padding-left: 18px;
   vertical-align: middle; }

@@ -162,7 +162,7 @@
 
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item processed">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <div class="enbridge-form">
@@ -209,7 +209,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item">
+                            <li class="accordion-item active">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -217,28 +217,44 @@
                                             Your date of birth:
                                         </label>
                                         <div class="row">
-                                            <div class="form-group _w160">
-                                                <label for="usr">Day:</label>
+                                            <div class="form-group _w230">
+                                                <label class="descriptor pull55">Day:</label>
                                                 <div class="set-field">
-                                                    <select name="" class="enbridge-select" id="">
+                                                    <select name=""
+                                                       class="enbridge-select"
+                                                       id="moving-out-your-day"
+                                                       data-rel="moving-out-your-day"
+                                                       data-required-error="Please select a day"
+                                                    required>
                                                         <option value="select">10</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group _w180">
-                                                <label for="usr">Month:</label>
+                                                <label class="descriptor">Month:</label>
                                                 <div class="set-field">
-                                                    <select name="" class="enbridge-select" id="month-user-info">
+                                                    <select name=""
+                                                       class="enbridge-select"
+                                                       id="moving-out-your-month"
+                                                       data-rel="moving-out-your-day"
+                                                       data-required-error="Please select a month"
+                                                    required>
                                                         <option value="select">January</option>
                                                         <option value="select">November</option>
                                                         <option value="select">December</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group _w100">
-                                                <label for="pwd">Year:</label>
-                                                <div class="set-field">
-                                                    <input type="text" class="form-control  _w60" />
+                                            <div class="form-group _w150">
+                                                <label for="moving-out-your-year" class="descriptor">Year:</label>
+                                                <div class="set-field _w100">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="moving-out-your-year"
+                                                        data-rel="moving-out-your-year"
+                                                        data-required-error="Please select a year"
+                                                    required>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,37 +263,92 @@
                                         </label>
                                         <div class="row address-bar">
                                             <div class="form-group pull-margin-right">
-                                                <label for="usr">Home Phone:</label>
+                                                <label for="moving-out-home-phone" class="descriptor pull55">Home Phone:</label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control  _w60">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="moving-out-home-phone-lada"
+                                                        data-rel="moving-out-home-phone">
 
-                                                    <input type="text" class="form-control _w160">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w160"
+                                                        id="moving-out-home-phone"
+                                                        data-rel="moving-out-home-phone">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row address-bar">
                                             <div class="form-group pull-margin-right">
-                                                <label for="usr">Mobile Phone:</label>
+                                                <label for="moving-out-mobile-phone" class="descriptor pull55">Mobile Phone:</label>
                                                 <div class="set-field ">
-                                                    <input type="text" class="form-control  _w60">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="moving-out-mobile-phone-lada"
+                                                        data-rel="moving-out-mobile-phone">
 
-                                                    <input type="text" class="form-control _w160">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w160"
+                                                        id="moving-out-mobile-phone"
+                                                        data-rel="moving-out-mobile-phone"
+                                                        data-required-error="Please select home phone"
+                                                    required >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row address-bar">
                                             <div class="form-group pull-margin-right">
-                                                <label for="usr">Business Phone:</label>
+                                                <label for="moving-out-business-phone" class="descriptor pull55">Business Phone:</label>
                                                 <div class="set-field ">
-                                                    <input type="text" class="form-control  _w60">
-                                                    <input type="text" class="form-control _w160">
-                                                    <label for="pwd" class="fluid-label">Ext:</label>
-                                                    <input type="password" class="form-control  _w60" />
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="moving-out-business-phone-lada"
+                                                        data-rel="moving-out-business-phone">
+
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w160"
+                                                        id="moving-out-business-phone"
+                                                        data-rel="moving-out-business-phone"
+                                                        data-required-error="Please select home phone"
+                                                    required >
+                                                    <label for="moving-out-business-phone-ext" class="fluid-label descriptor">Ext:</label>
+                                                    <input
+                                                        class="form-control  _w60"
+                                                        id="moving-out-business-phone-ext"
+                                                        data-rel="moving-out-business-phone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="moving-out-email" class="descriptor pull55">Email:</label>
+                                                <div class="set-field ">
+                                                    <div class="set-field ">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control  _w230"
+                                                            id="moving-out-email"
+                                                            data-rel="moving-out-email"
+                                                            data-required-error="Please select home phone"
+                                                        required >
+                                                    </div>
+                                                    <br>
+                                                    <span class="tiny big-content">
+                                                        A summary of this transaction will be sent to this email address.
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="validator-container">
+                                        <a class="prev" href="#">BACK</a>
+                                        <a class="validator" href="#">NEXT</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

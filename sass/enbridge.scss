@@ -12,6 +12,39 @@
     }
 }
 
+.tile.green {
+    .control-label {
+        width: 70px !important;
+    }
+    .fields {
+        width: 210px !important;
+    }
+    [for="remember-email"]:not(.fake-input) {
+        font-size: 12px;
+        padding-left: 18px;
+        vertical-align: middle;
+    }
+
+    input[type="checkbox"] + .fake-input:after {
+        background-color: white;
+    }
+
+    .fake-input {
+        &:before {
+            top: 0 !important;
+            height: 15px !important;
+            width: 15px !important;
+        }
+        &:after {
+            left: 3px !important;
+            top: 3px !important;
+
+            height: 9px !important;
+            width: 9px !important;
+        }
+    }
+}
+
 #address-confirmation,
 #newcustomers-address-confirmation{
     display: inline-block;

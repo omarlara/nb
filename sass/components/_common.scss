@@ -101,7 +101,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 0;
 }
 
-
+.transparent{
+    background-color: transparent !important;
+}
 
 .information-inverse {
     padding-top: $normal-padding;

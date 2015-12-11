@@ -278,7 +278,7 @@
                                                     <input type="text" class="form-control  _w60">
                                                     <input type="text" class="form-control _w160">
                                                     <label for="pwd" class="fluid-label">Ext:</label>
-                                                    <input type="password" class="form-control  _w60" />
+                                                    <input type="text" class="form-control  _w60" />
 
                                                 </div>
                                                 

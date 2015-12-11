@@ -140,7 +140,7 @@
                                     <div class="code-box container">
                                         <div class="row">
                                             <div class="col xs7">
-                                                <span id="hide-message">Is this correct?</span>
+                                                <span id="hide-message" class="middle">Is this correct?</span>
                                                 <span id="address-confirmation" class="strong"></span>
                                             </div>
                                             <div class="col xs5" id="information-acceptance">

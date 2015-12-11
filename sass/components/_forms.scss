@@ -6,6 +6,10 @@
         font-weight: normal;
         font-size: 12px;
         vertical-align: top;
+        &.middle{
+
+                vertical-align: inherit;
+        }
         &.field {
             display: inline-block;
             margin: 24px 0;
@@ -16,9 +20,7 @@
         margin-top: 13px;
     }
 
-    p.alig-center{
-        vertical-align: center !important;
-    }
+  
 
     p{
         font-size: 14px;
@@ -305,7 +307,7 @@
     border-width: 1px;
     border-style: solid;
     display: none;
-    margin: 20px auto 0 auto;
+    margin: 11px auto 11px auto;
     padding: 8px $normal-padding;
     width: 430px;
 

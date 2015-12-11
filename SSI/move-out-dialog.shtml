@@ -3,7 +3,7 @@
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
                         <ul class="accordion">
-                            <li class="accordion-item processed">
+                            <li class="accordion-item processed active">
                                 <div class="header">Account Information</div>
                                 <div class="content">
                                    <div class="enbridge-form form-grid">
@@ -40,9 +40,9 @@
 
                                                         <span class="tiny left big-content">
                                                         e.g. 123 456 789 0
-                                                        <br/>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio deserunt ex.
-                                                        <br/>
+                                                        
+                                                        Lorem ipsum dolor sit amet, <br>brconsectetur adipisicing elit. Distinctio deserunt ex.
+                                                        <br>
                                                         For example 000 000 123 456
                                                 </span>
                                               </div>
@@ -72,7 +72,15 @@
                                 <div class="header">New address</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
-                                        <p class="strong">Enter your account information</p>
+                                        <p class="strong">Enter your account information
+                                            <span class="tooltip">
+                                                <span class="icon"></span>
+                                                <span class="content-tooltip">
+                                                    <span class="cross"></span>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                </span>
+                                            </span>
+                                        </p>
                                         <div class="property-info form-grid">
                                             <div class="form-group pull-margin-right">
                                                 <label for="usr" class="descriptor _w100 pull55">Street Address:</label>
@@ -162,7 +170,7 @@
 
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item ">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <div class="enbridge-form">
@@ -194,9 +202,6 @@
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <p class="information green">
-                                                If these dates change, you can come back here to let us know!
-                                            </p>
                                         </div>
 
 
@@ -209,7 +214,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item">
+                            <li class="accordion-item ">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -247,16 +252,6 @@
                                         </label>
                                         <div class="row address-bar">
                                             <div class="form-group pull-margin-right">
-                                                <label for="usr">Home Phone:</label>
-                                                <div class="set-field">
-                                                    <input type="text" class="form-control  _w60">
-
-                                                    <input type="text" class="form-control _w160">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row address-bar">
-                                            <div class="form-group pull-margin-right">
                                                 <label for="usr">Mobile Phone:</label>
                                                 <div class="set-field ">
                                                     <input type="text" class="form-control  _w60">
@@ -267,15 +262,42 @@
                                         </div>
                                         <div class="row address-bar">
                                             <div class="form-group pull-margin-right">
+                                                <label for="usr">Home Phone:</label>
+                                                <div class="set-field">
+                                                    <input type="text" class="form-control  _w60">
+
+                                                    <input type="text" class="form-control _w160">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
                                                 <label for="usr">Business Phone:</label>
                                                 <div class="set-field ">
                                                     <input type="text" class="form-control  _w60">
                                                     <input type="text" class="form-control _w160">
                                                     <label for="pwd" class="fluid-label">Ext:</label>
                                                     <input type="password" class="form-control  _w60" />
+
+                                                </div>
+                                                
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="usr">Email:</label>
+                                                <div class="set-field">
+                                                    <input type="text" class="form-control  _w230">
                                                 </div>
                                             </div>
+                                            <span class="tiny left big-content tiny-msg-moving">
+                                                A summary of this transaction will be sent to this email address
+                                            </span>
                                         </div>
+                                        
                                     </div>
 
                                 </div>

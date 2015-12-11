@@ -11,6 +11,13 @@
             display: none;
         }
     }
+
+    .ui-datepicker-today:not(.ui-datepicker-current-day) {
+        a {
+            color: $chelsea-cucumber !important;
+        }
+    }
+
     .ui-datepicker-next{
         float: right;
         background-image:url('img/white-arrow.svg') ;

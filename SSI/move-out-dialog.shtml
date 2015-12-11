@@ -1,0 +1,308 @@
+        <div class="enbridge-content-container" id="move-out-dialog">
+            <div class="dialog success-dialog hidden" title="Moving Out" id="moving-out">
+                <div class="enbridge-content-container">
+                    <div class="enbridge-container">
+                        <ul class="accordion">
+                            <li class="accordion-item processed">
+                                <div class="header">Account Information</div>
+                                <div class="content">
+                                   <div class="enbridge-form form-grid">
+                                        <label class="strong">
+                                            Enter your account information:
+                                        </label>
+                                        <div class="row address-bar">
+                                            <div class="form-group _w500 pull55">
+                                              <label for="moving-out-transfer" class="big descriptor">Name as appears on your bill:</label>
+                                              <div class="set-field ">
+                                                <input type="text"
+                                                    class="_w230"
+                                                    id="moving-out-transfer"
+                                                    name="moving-out-transfer"
+                                                    data-rel="moving-out-transfer"
+                                                    data-required-error="Please select your move detail."
+                                                required>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="row address-bar">
+                                            <div class="form-group pull55">
+                                                <label for="moving-out-account-number" class="big descriptor">Account number:</label>
+                                                <div class="set-field _w230">
+                                                    <div class="set-field">
+                                                        <input type="text"
+                                                            class="_w230"
+                                                            id="moving-out-account-number"
+                                                            name="moving-out-account-transfer"
+                                                            data-rel="moving-out-account-transfer"
+                                                            data-required-error="Please select your move detail."
+                                                        required>
+                                                    </div>
+
+                                                        <span class="tiny left big-content">
+                                                        e.g. 123 456 789 0
+                                                        <br/>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio deserunt ex.
+                                                        <br/>
+                                                        For example 000 000 123 456
+                                                </span>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="row address-bar">
+                                            <div class="form-group _w500 pull55">
+                                                <label for="moving-out-account-transfer" class="big descriptor">Postal Code:</label>
+                                                <div class="set-field ">
+                                                    <input type="text" class="_w230"
+                                                        id="moving-out-postal-code"
+                                                        name="moving-out-account-transfer"
+                                                        data-rel="moving-out-account-transfer"
+                                                        data-required-error="Please select your move detail."
+                                                    required>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="validator-container">
+                                        <a class="validator" href="#">NEXT</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion-item processed">
+                                <div class="header">New address</div>
+                                <div class="content">
+                                    <div class="enbridge-form form-grid">
+                                        <p class="strong">Enter your account information</p>
+                                        <div class="property-info form-grid">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="usr" class="descriptor _w100 pull55">Street Address:</label>
+                                                <div class="set-field content-container">
+                                                    <div class="content-container">
+                                                        <input type="text" id="moving-out-street-number" class="_w60" data-rel="moving-out-street">
+                                                        <input type="text" id="moving-out-suffix" class="_w60" data-rel="moving-out-street">
+                                                        <input type="text"
+                                                            id="moving-out-street"
+                                                            class="_w220"
+                                                            data-required-error="Please select the required information."
+                                                            data-rel="moving-out-street"
+                                                        required>
+                                                        <input type="text" id="moving-out-misc-info" class="_w60" data-rel="moving-out-street">
+                                                    </div>
+                                                    <div>
+                                                        <label for="moving-out-street-number" class="tiny _w60">Number</label>
+                                                        <label for="moving-out-suffix" class="tiny _w60">Suffix</label>
+                                                        <label for="moving-out-street" class="tiny _w220">Street</label>
+                                                        <label for="moving-out-misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="property-info form-grid">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="moving-out-city-or-town" class="descriptor _w100 pull55">City or Town:</label>
+                                                <div class="set-field content-container">
+                                                    <input type="text"
+                                                        id="moving-out-city-or-town"
+                                                        class="_w180"
+                                                        data-required-error="Please select the required information." data-rel="moving-out-city-or-town"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="property-info form-grid">
+                                            <div class="form-group pull-margin-right">
+                                                <div class="content-container">
+                                                    <label class="descriptor _w100 pull55">Country:</label>
+                                                    <div class="set-field content-container _w180">
+                                                        <select class="enbridge-select"
+                                                            id="moving-out-country"
+                                                            data-required-error="Please select the required information."
+                                                            data-rel="moving-out-country"
+                                                        required>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="United States">United States</option>
+                                                        </select>
+                                                    </div>
+                                                    <label class="descriptor _w100">Province:</label>
+                                                    <div class="set-field content-container _w180" data-required-error="Please select the required information.">
+                                                        <select class="enbridge-select"
+                                                           id="moving-out-province"
+                                                           data-required-error="Please select the required information."
+                                                           data-rel="moving-out-province"
+                                                        required>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="United States">United States</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="property-info form-grid">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="moving-out-postal-code-input" class="descriptor _w100 pull55">Postal Code:</label>
+                                                <div class="set-field content-container">
+                                                    <input type="text"
+                                                        id="moving-out-postal-code-input"
+                                                        class="_w120"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="moving-out-postal-code-input"
+                                                    required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="validator-container">
+                                        <a class="prev" href="#">BACK</a>
+                                        <a class="validator" href="#">NEXT</a>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="accordion-item active">
+                                <div class="header">Dates</div>
+                                <div class="content">
+                                    <div class="enbridge-form">
+                                        <div class="dates-view enbridge-container">
+                                            <div class="calendar-container row">
+                                                <div class="col xs12">
+                                                    <div class="headline">
+                                                        <h3>
+                                                            What us the <strong>last</strong> day you are responsible for:
+    <span class="tooltip">
+                                                        <span class="icon"></span>
+                                                        <span class="content-tooltip">
+                                                            <span class="cross"></span>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                        </span>
+                                                    </span>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="calendar-column" data-calendar="#moving-out-date">
+                                                        <div class="address-component">
+                                                            <div class="address">
+                                                                123 Fake St.  <br/>
+                                                                Toronto, ON <br/>
+                                                                M2M 2M2 <br/>
+                                                            </div>
+                                                            <div class="calendar"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <p class="information green">
+                                                If these dates change, you can come back here to let us know!
+                                            </p>
+                                        </div>
+
+
+                                        <input type="hidden" class="start-date" id="moving-out-date" required>
+
+                                        <div class="validator-container">
+                                            <a class="prev" href="#">BACK</a>
+                                            <a class="validator" href="#">NEXT</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <div class="header">Your Information</div>
+                                <div class="content">
+                                    <div class="enbridge-form form-grid">
+                                        <label class="legend-row">
+                                            Your date of birth:
+                                        </label>
+                                        <div class="row">
+                                            <div class="form-group _w160">
+                                                <label for="usr">Day:</label>
+                                                <div class="set-field">
+                                                    <select name="" class="enbridge-select" id="">
+                                                        <option value="select">10</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group _w180">
+                                                <label for="usr">Month:</label>
+                                                <div class="set-field">
+                                                    <select name="" class="enbridge-select" id="month-user-info">
+                                                        <option value="select">January</option>
+                                                        <option value="select">November</option>
+                                                        <option value="select">December</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group _w100">
+                                                <label for="pwd">Year:</label>
+                                                <div class="set-field">
+                                                    <input type="text" class="form-control  _w60" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label class="legend-row">
+                                            Are these numbers correct? if not, please update:
+                                        </label>
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="usr">Home Phone:</label>
+                                                <div class="set-field">
+                                                    <input type="text" class="form-control  _w60">
+
+                                                    <input type="text" class="form-control _w160">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="usr">Mobile Phone:</label>
+                                                <div class="set-field ">
+                                                    <input type="text" class="form-control  _w60">
+
+                                                    <input type="text" class="form-control _w160">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="usr">Business Phone:</label>
+                                                <div class="set-field ">
+                                                    <input type="text" class="form-control  _w60">
+                                                    <input type="text" class="form-control _w160">
+                                                    <label for="pwd" class="fluid-label">Ext:</label>
+                                                    <input type="password" class="form-control  _w60" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="enbridge-content-container">
+                            <div class="enbridge-container ">
+                                <div class="row">
+                                    <div class="col md12 buttons">
+                                        <div class="col md3">
+                                            <a class="enbridge-btn green large">SEND</a>
+                                        </div>
+
+                                        <div class="col md4 xs1-off">
+                                            <a class="enbridge-btn green larger">SAVE & RETURN LATER</a>
+                                        </div>
+
+                                        <div class="col md3 xs1-off">
+                                            <a class="enbridge-btn gray large">SUBMIT</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

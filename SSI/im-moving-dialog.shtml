@@ -7,7 +7,7 @@
                     <li class="accordion-item  active">
                         <div class="header">More Details</div>
                         <div class="content">
-                            <p class="strong">I would like to ...</p>
+                            <p class="strong">I would like to...</p>
 
                             <div class="enbridge-form" id="accordion-like">
                                 <div class="row">
@@ -62,7 +62,7 @@
                                         Postal Code Lookup Tool <i>i</i>
                                     </div>
                                     <div class="tool">
-                                        <p class="information green">Find out if your new address is serviced by Enbridge</p>
+                                        <p class="information green">&nbsp; Find out if your new address is serviced by Enbridge</p>
 
                                         <input type="text" class="code-container" name="zip-tool" data-required-error="Please enter a valid postal code (example: A1A1A)">
                                         <input class="enbridge-btn green big-button submiter" type="submit" value="CHECK">
@@ -124,12 +124,12 @@
 
                                     <div class="code-box container">
                                         <div class="row">
-                                            <div class="col">
-                                                <p>Select your street</p>
+                                            <div class="col center-label">
+                                                <p>What is your street number?</p>
                                             </div>
                                             <div class="col" id="data-dropdown"></div>
                                         </div>
-                                        <div class="next-step" data-next-step="#confirm-address" id="confirm-address-button"></div>
+                                        <div class="next-step less-top" data-next-step="#confirm-address" id="confirm-address-button"></div>
                                     </div>
 
                                 </div>
@@ -140,7 +140,7 @@
                                     <div class="code-box container">
                                         <div class="row">
                                             <div class="col xs7">
-                                                <span id="hide-message">Is this correct?</span>
+                                                <span id="hide-message" class="middle">Is this correct?</span>
                                                 <span id="address-confirmation" class="strong"></span>
                                             </div>
                                             <div class="col xs5" id="information-acceptance">
@@ -334,8 +334,16 @@
                                             <div class="calendar-column" data-calendar="#date-start">
                                                 <div class="headline">
                                                     <h3>
-                                                        What us the last day you are responsible for:
+                                                        What us the last day you are responsible for:  
+                                                        <span class="tooltip">
+                                                            <span class="icon"></span>
+                                                            <span class="content-tooltip">
+                                                                <span class="cross"></span>
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                            </span>
+                                                        </span>
                                                     </h3>
+                                                   
                                                 </div>
                                                 <div class="address-component">
                                                     <div class="address">
@@ -352,6 +360,13 @@
                                                 <div class="headline">
                                                     <h3>
                                                         What us the last day you are responsible for:
+                                                        <span class="tooltip">
+                                                            <span class="icon"></span>
+                                                            <span class="content-tooltip">
+                                                                <span class="cross"></span>
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                            </span>
+                                                        </span>
                                                     </h3>
                                                 </div>
                                                 <div class="address-component">

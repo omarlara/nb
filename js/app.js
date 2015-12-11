@@ -1052,23 +1052,16 @@
                 height: 440
             });
 
-        $("#postalcode").dialog({
-            autoOpen: false,
-            resizable: false,
-            height: 240,
-            width: 720,
-            modal: true,
-            height: 440
-        });
-
-        $("#movingout").dialog({
-            autoOpen: false,
-            resizable: false,
-            height: 240,
-            width: 720,
-            modal: true,
-            height: 440
-        });
+        $("#moving-out")
+            .removeClass('hidden')
+            .dialog({
+                autoOpen: false,
+                resizable: false,
+                height: 240,
+                width: 720,
+                modal: true,
+                height: 440
+            });
 
     });
 

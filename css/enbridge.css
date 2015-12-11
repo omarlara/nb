@@ -1521,8 +1521,9 @@
   color: red; }
 .enbridge-content-container .tiny {
   font-size: 10px !important;
-  color: #636373;
-  text-align: center; }
+  margin-top: 0;
+  text-align: center;
+  color: #636373; }
   .enbridge-content-container .tiny.left {
     text-align: left; }
   .enbridge-content-container .tiny.big-content {
@@ -1537,6 +1538,8 @@
   margin-left: 26px; }
 .enbridge-content-container .pull40 {
   margin-left: 40px; }
+.enbridge-content-container .pull55 {
+  margin-left: 55px !important; }
 .enbridge-content-container ._h90 {
   height: 90px; }
 .enbridge-content-container ._w60 {

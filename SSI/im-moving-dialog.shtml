@@ -7,7 +7,7 @@
                     <li class="accordion-item  active">
                         <div class="header">More Details</div>
                         <div class="content">
-                            <p class="strong">I would like to ...</p>
+                            <p class="strong">I would like to...</p>
 
                             <div class="enbridge-form" id="accordion-like">
                                 <div class="row">
@@ -62,7 +62,7 @@
                                         Postal Code Lookup Tool <i>i</i>
                                     </div>
                                     <div class="tool">
-                                        <p class="information green">Find out if your new address is serviced by Enbridge</p>
+                                        <p class="information green">&nbsp; Find out if your new address is serviced by Enbridge</p>
 
                                         <input type="text" class="code-container" name="zip-tool" data-required-error="Please enter a valid postal code (example: A1A1A)">
                                         <input class="enbridge-btn green big-button submiter" type="submit" value="CHECK">

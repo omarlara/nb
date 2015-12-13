@@ -1,15 +1,21 @@
-.title-moving{
-        font-size: 24px;
-        color: #c8102e;
-        font-family: Arial, sans-serif;
-        padding-top: 16px;
-    }
+.title-moving {
+    font-size: 24px;
+    color: #c8102e;
+    font-family: Arial, sans-serif;
+    padding-top: 16px;
+}
 
-.question-movingout{
-    color:$storm-gray;
+.question-movingout {
+    color: $storm-gray;
     font-size: 20px;
     font-weight: 300;
     padding-top: 21px;
+}
+
+.tiny-msg-moving {
+    float: right;
+    margin-right: 227px;
+
 }
 
 .alert-info {
@@ -18,23 +24,23 @@
     margin-bottom: 14px;
 }
 
-.left-distance-radio{
+.left-distance-radio {
     margin-left: 30px !important;
 }
 
-.overflow-hidden{
+.overflow-hidden {
     overflow: hidden;
 }
 
-.width-inherit{
+.width-inherit {
     width: 50px !important;
 }
 
-.last-note-padding{
+.last-note-padding {
     padding: 0px 53px 0px 8px;
 }
 
-.billing-title{
+.billing-title {
     padding-bottom: 14px;
     font-size: 18px;
     font-weight: 100;
@@ -55,8 +61,8 @@
     }
 }
 
-.space-inputs{
-    padding-right: 22px
+.space-inputs {
+    padding-right: 22px;
 }
 
 .border-inputs {
@@ -82,7 +88,7 @@
     margin-top: 7px;
 }
 
-.forms-distance{
+.forms-distance {
     margin-bottom: 18px;
 }
 

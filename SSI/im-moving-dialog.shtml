@@ -382,7 +382,7 @@
 
                                         <div class="clearfix"></div>
                                     </div>
-                                    <p class="information green">
+                                    <p class="information green transparent">
                                         If these dates change, you can come back here to let us know!
                                     </p>
                                 </div>
@@ -436,16 +436,7 @@
                                 <label class="legend-row">
                                         Are these numbers correct? if not, please update:
                                 </label>
-                                <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
-                                      <label for="usr">Home Phone:</label>
-                                      <div class="set-field">
-                                        <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
 
-                                        <input type="text" class="form-control _w160" id="user-home-phone" data-required-error="Please select the required information." data-rel="home-phone-your-info" required>
-                                      </div>
-                                    </div>
-                                </div>
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right">
                                       <label for="usr">Mobile Phone:</label>
@@ -456,6 +447,18 @@
                                       </div>
                                     </div>
                                 </div>
+
+                                <div class="row address-bar">
+                                    <div class="form-group pull-margin-right">
+                                      <label for="usr">Home Phone:</label>
+                                      <div class="set-field">
+                                        <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
+
+                                        <input type="text" class="form-control _w160" id="user-home-phone" data-required-error="Please select the required information." data-rel="home-phone-your-info" required>
+                                      </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right">
                                       <label for="usr">Business Phone:</label>
@@ -469,10 +472,18 @@
                                 </div>
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right">
-                                        <span>Additional name on this account (optional)</span><br>
+                                        <span class="middle">Additional name on this account (optional) 
+                                            <span class="tooltip">
+                                                <span class="icon"></span>
+                                                <span class="content-tooltip">
+                                                    <span class="cross"></span>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                </span>
+                                            </span>
+                                        </span><br><br>
                                         <label for="usr">First: </label>
                                         <input type="text" class="form-control _w160"  id="additional-fist-name" >
-                                        <label for="usr">Last: </label>
+                                        <label for="usr" class="left-padding_15">Last: </label>
                                         <input type="text" class="form-control _w160"  id="additional-last-name" >
                                     </div>
                                 </div>

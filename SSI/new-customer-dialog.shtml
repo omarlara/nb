@@ -273,7 +273,15 @@
                         <div class="content">
                             <div action="" class="enbridge-form" id="newcustomers-steps-flow-1">
                                 <div class="steps active-step" id="newcustomers-first-step">
-                                    <p class="strong">Please enter your new address:</p>
+                                    <p class="strong">Please enter your new address: 
+                                    <span class="tooltip">
+                                        <span class="icon"></span>
+                                        <span class="content-tooltip">
+                                            <span class="cross"></span>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                        </span>
+                                    </span>
+                                    </p>
 
                                     <div class="code-box">
                                         <label for="code-validator">Let's start with your postal code:</label>
@@ -331,7 +339,7 @@
                                     <div class="code-box container">
                                         <div class="row">
                                             <div class="col xs7">
-                                                <span id="newcustomers-hide-message">Is this correct?</span>
+                                                <span id="newcustomers-hide-message" class="middle">Is this correct?</span>
                                                 <span id="newcustomers-address-confirmation"></span>
                                             </div>
                                             <div class="col xs5" id="newcustomers-information-acceptance">
@@ -565,7 +573,7 @@
                                                 <span class="letter-i"></span>
                                                 <span classs="content-tooltip">
                                             </span>
-                                                <p class="no-margin overflow-hidden">Use this form if natural gas is already     installed at the property. If a new natural gas service needs to be installed, please contact our Customer Connections Contact Centre at <strong>   1-888-427-8888</strong>
+                                                <p class="no-margin overflow-hidden"> You have been automatically enrolled in the Paperless Billing Plan. This service offers online access to your bills anytime, anywhere. Learn more about paperless billing and the options you have with your myEnbridge account.
                                                 </p>
                                             </span>
                                         </div>

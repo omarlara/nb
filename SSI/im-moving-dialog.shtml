@@ -334,7 +334,7 @@
                                             <div class="calendar-column" data-calendar="#date-start">
                                                 <div class="headline">
                                                     <h3>
-                                                        What us the last day you are responsible for:  
+                                                        What us the last day you are responsible for:
                                                         <span class="tooltip">
                                                             <span class="icon"></span>
                                                             <span class="content-tooltip">
@@ -343,7 +343,7 @@
                                                             </span>
                                                         </span>
                                                     </h3>
-                                                   
+
                                                 </div>
                                                 <div class="address-component">
                                                     <div class="address">
@@ -499,7 +499,7 @@
                             </div>
 
                             <div class="col md3 xs1-off">
-                                <a class="enbridge-btn yellow disabled sumbit-button  _w160">SUBMIT</a>
+                                <a class="enbridge-btn yellow disabled submit-button  _w160">SUBMIT</a>
                             </div>
 
                         </div>

@@ -363,7 +363,7 @@
                                     </div>
 
                                     <div class="col md3 xs6-off">
-                                        <a class="enbridge-btn yellow disabled sumbit-button  _w160">SUBMIT</a>
+                                        <a class="enbridge-btn yellow disabled submit-button _w160">SUBMIT</a>
                                     </div>
 
                                 </div>

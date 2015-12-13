@@ -395,7 +395,7 @@
                 $target.removeClass('hidden');
 
                 $accordion.closest('.dialog')
-                    .find('.sumbit-button')
+                    .find('.submit-button')
                         .removeClass('disabled');
             }
         }
@@ -976,8 +976,9 @@
             .html('')
             .removeClass('success-code error-code');
 
-        $form.find('.sumbit-button')
-            .addClass('disabled');
+        $form.closest('.dialog')
+            .find('.submit-button')
+                .addClass('disabled');
 
         $('#almost-done-summary').addClass('hidden');
     });

@@ -2,7 +2,7 @@
             <div class="dialog success-dialog hidden" title="Moving Out" id="moving-out">
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
-                        <ul class="accordion">
+                        <ul class="accordion" data-target="#almost-done-summary" id="moving-out-form">
                             <li class="accordion-item processed">
                                 <div class="header">Account Information</div>
                                 <div class="content">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item processed" id="moving-out-personal-info">
                                 <div class="header">New address</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -209,7 +209,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item active">
+                            <li class="accordion-item active" id="moving-out-personal-user-info">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -347,29 +347,25 @@
                                     </div>
                                     <div class="validator-container">
                                         <a class="prev" href="#">BACK</a>
-                                        <a class="validator" href="#">NEXT</a>
+                                        <a class="validator" href="#" id="moving-out-finish">NEXT</a>
                                     </div>
                                 </div>
                             </li>
                         </ul>
 
-                        <div class="enbridge-content-container">
-                            <div class="enbridge-container ">
-                                <div class="row">
-                                    <div class="col md12 buttons">
-                                        <div class="col md3">
-                                            <a class="enbridge-btn green large">SEND</a>
-                                        </div>
+                        <!--#include virtual="summary/almost_done.shtml" -->
 
-                                        <div class="col md4 xs1-off">
-                                            <a class="enbridge-btn green larger">SAVE & RETURN LATER</a>
-                                        </div>
-
-                                        <div class="col md3 xs1-off">
-                                            <a class="enbridge-btn gray large">SUBMIT</a>
-                                        </div>
-
+                        <div class="enbridge-container ">
+                            <div class="row">
+                                <div class="col md12 buttons text-center">
+                                    <div class="col md3">
+                                        <a class="enbridge-btn green _w160" id="moving-out-start-over">START OVER</a>
                                     </div>
+
+                                    <div class="col md3 xs6-off">
+                                        <a class="enbridge-btn yellow disabled sumbit-button  _w160">SUBMIT</a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

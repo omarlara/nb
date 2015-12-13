@@ -934,6 +934,54 @@
         }
     });
 
+    $('#moving-out-finish').bind('click', function() {
+        var fromAddress = $('#moving-out-street-number').val() + ' ' +$('#moving-out-suffix').val() + ' ' +
+                          $('#moving-out-street').val() + ' ' + $('#moving-out-misc-info').val() + ' ' +  $('#moving-out-city-or-town').val() + ' ' +
+                          $('#moving-out-country').val() + ' ' +  $('#moving-out-province').val() +  ', ON ' + $('#moving-out-postal-code-input').val(),
+            birthDay = $('#moving-out-your-day').val() + '/' + $('#moving-out-your-month').val() + '/' + $('#moving-out-your-year').val();
+
+        $('#moving-new-date-summary').text(dateFormater($('#moving-out-date').val()));
+
+        $('#moving-out-from').text(fromAddress);
+        $('#moving-out-summary-birth-day').text(birthDay);
+        $('#moving-out-summary-user-phone').text( $('#moving-out-home-phone-lada').val() + ' ' + $('#moving-out-home-phone').val());
+        $('#moving-out-summary-mobile-phone').text( $('#moving-out-mobile-phone-lada').val() + ' ' + $('#moving-out-mobile-phone').val());
+    });
+
+    $('#moving-out-restart-personal-info').bind('click', function () {
+        $('#moving-out-street-number, #moving-out-suffix,#moving-out-street,#moving-out-misc-info,#moving-out-city-or-town,#moving-out-postal-code-input').val('');
+    });
+
+    $('#moving-out-restart-personal-user-info').bind('click', function () {
+        $('#moving-out-your-year, #moving-out-email').val('');
+        $('[data-rel="moving-out-home-phone"], [data-rel="moving-out-mobile-phone"], [data-rel="moving-out-business-phone"]').val('');
+    });
+
+    $('#moving-out-start-over').bind('click', function () {
+        var $form = $('#moving-out-form').removeClass('hidden');
+
+        $form.find('.accordion-item')
+            .removeClass('active processed');
+
+
+        $($form.find('.accordion-item')[0])
+            .addClass('active');
+
+        $form.find('input[type=text]').val('');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
+        $form.find('.sumbit-button')
+            .addClass('disabled');
+
+        $('#almost-done-summary').addClass('hidden');
+    });
+
     $('.calendar').bind('click', function(e) {
         if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;

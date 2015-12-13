@@ -3,7 +3,7 @@
                 <div class="enbridge-content-container">
                     <div class="enbridge-container">
                         <ul class="accordion" data-target="#almost-done-summary" id="moving-out-form">
-                            <li class="accordion-item processed">
+                            <li class="accordion-item active">
                                 <div class="header">Account Information</div>
                                 <div class="content">
                                    <div class="enbridge-form form-grid">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item processed" id="moving-out-personal-info">
+                            <li class="accordion-item" id="moving-out-personal-info">
                                 <div class="header">New address</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
@@ -162,7 +162,7 @@
 
                                 </div>
                             </li>
-                            <li class="accordion-item processed">
+                            <li class="accordion-item">
                                 <div class="header">Dates</div>
                                 <div class="content">
                                     <div class="enbridge-form">
@@ -209,7 +209,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="accordion-item active" id="moving-out-personal-user-info">
+                            <li class="accordion-item" id="moving-out-personal-user-info">
                                 <div class="header">Your Information</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">

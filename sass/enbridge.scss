@@ -128,7 +128,6 @@
 #accordion-like {
     margin: 0 auto;
     width: 450px;
-    padding-bottom: 49px;
 }
 
 #code-validator {
@@ -169,4 +168,17 @@
 
 [for="newcustomers-year"] + .set-field {
     max-width: 500px;
+}
+
+
+.summary {
+
+   .address {
+        margin: 0 auto;
+        min-height: 205px;
+        width: 195px;
+    }
+    .information {
+        background: transparent;
+    }
 }

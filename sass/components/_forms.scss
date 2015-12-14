@@ -20,8 +20,6 @@
         margin-top: 13px;
     }
 
-  
-
     p{
         font-size: 14px;
     }
@@ -170,14 +168,20 @@
 
         color: $jumbo;
 
-        .opener {
+        .opener,
+        .tool {
             border: 1px solid $athens-gray-border;
+            margin: 0 auto 0 10px;
             position: relative;
-            margin: 0 auto;
-            width: 380px;
-            padding: 11px $normal-padding;
+            width: 314px;
 
             background-color: rgb(243, 244, 247);
+        }
+
+        .opener {
+            font-size: 11px;
+            padding: 11px $normal-padding;
+
             cursor: pointer;
 
             i {
@@ -185,10 +189,10 @@
                 display: inline-block;
                 font-style: italic;
                 font-size: 12px;
-                line-height: 1.5;
+                line-height: 1.4;
                 margin: 0 5px;
-                height: 18px;
-                width: 18px;
+                height: 15px;
+                width: 15px;
                 text-align: center;
                 vertical-align: bottom;
 
@@ -206,14 +210,8 @@
         }
 
         .tool {
-            border: 1px solid $athens-gray-border;
             display: block;
-            margin: 0 auto;
             padding: 0 $normal-padding;
-            position: relative;
-            width: 380px;
-
-            background-color: rgb(243, 244, 247);
         }
 
         &.closed {
@@ -231,13 +229,13 @@
                 display: none;
             }
             .tool {
-                display: block;
-                margin: 0 auto;
                 height: 175px;
 
                 p {
+                    font-size: 11px;
                     margin: 0;
-                    font-size: 12px;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
 
                 input:not(.enbridge-btn){
@@ -245,6 +243,10 @@
                     margin: 0 auto 20px auto;
                     width: 200px;
                 }
+            }
+
+            &:not(.success-zip) {
+                margin-bottom: 57px;
             }
         }
 
@@ -257,6 +259,13 @@
             }
         }
 
+        .result {
+            margin-left: -15px;
+            width: 364px;
+            img {
+                width: 6%;
+            }
+        }
     }
 
     .label-info {

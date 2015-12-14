@@ -65,12 +65,22 @@ h1, h2, h3, h4, h5, h6 {
     padding-left:0px !important;
 }
 
+
+.align-middle{
+    vertical-align: middle !important;
+}
+
 .hidden {
     display: none !important;
 }
 
 .in-line{
     display: inline !important;
+}
+
+.left-padding_15
+{
+    padding-left: 15px;
 }
 
 .link-style{
@@ -96,7 +106,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 0;
 }
 
-
+.transparent{
+    background-color: transparent !important;
+}
 
 .information-inverse {
     padding-top: $normal-padding;
@@ -206,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #F4F7ED;
     line-height: 1.5;
     color: #636373;
-    padding: 20px;
+    padding: 19px;
     margin: 0;
     display: block;
     font-size: 14px;

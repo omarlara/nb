@@ -45,10 +45,14 @@
   margin-top: 0px !important; }
 .enbridge-content-container .no-padding-left {
   padding-left: 0px !important; }
+.enbridge-content-container .align-middle {
+  vertical-align: middle !important; }
 .enbridge-content-container .hidden {
   display: none !important; }
 .enbridge-content-container .in-line {
   display: inline !important; }
+.enbridge-content-container .left-padding_15 {
+  padding-left: 15px; }
 .enbridge-content-container .link-style {
   text-decoration: inherit;
   font-size: 14px;
@@ -64,6 +68,8 @@
 .enbridge-content-container .no-padding {
   padding-left: 0;
   padding-right: 0; }
+.enbridge-content-container .transparent {
+  background-color: transparent !important; }
 .enbridge-content-container .information-inverse {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -137,7 +143,7 @@
   background-color: #F4F7ED;
   line-height: 1.5;
   color: #636373;
-  padding: 20px;
+  padding: 19px;
   margin: 0;
   display: block;
   font-size: 14px; }
@@ -205,6 +211,10 @@
   font-weight: normal;
   font-size: 12px;
   vertical-align: top; }
+  .enbridge-content-container .enbridge-form label:not(.fake-input).middle,
+  .enbridge-content-container .enbridge-form p.middle,
+  .enbridge-content-container .enbridge-form span.middle {
+    vertical-align: inherit; }
   .enbridge-content-container .enbridge-form label:not(.fake-input).field,
   .enbridge-content-container .enbridge-form p.field,
   .enbridge-content-container .enbridge-form span.field {
@@ -212,8 +222,6 @@
     margin: 24px 0; }
 .enbridge-content-container .enbridge-form .descriptor {
   margin-top: 13px; }
-.enbridge-content-container .enbridge-form p.alig-center {
-  vertical-align: center !important; }
 .enbridge-content-container .enbridge-form p {
   font-size: 14px; }
 .enbridge-content-container .enbridge-form input[type="color"], .enbridge-content-container .enbridge-form input[type="date"], .enbridge-content-container .enbridge-form input[type="datetime"], .enbridge-content-container .enbridge-form input[type="datetime-local"], .enbridge-content-container .enbridge-form input[type="email"], .enbridge-content-container .enbridge-form input[type="month"], .enbridge-content-container .enbridge-form input[type="number"], .enbridge-content-container .enbridge-form input[type="password"], .enbridge-content-container .enbridge-form input[type="search"], .enbridge-content-container .enbridge-form input[type="tel"], .enbridge-content-container .enbridge-form input[type="text"], .enbridge-content-container .enbridge-form input[type="time"], .enbridge-content-container .enbridge-form input[type="url"], .enbridge-content-container .enbridge-form input[type="week"], .enbridge-content-container .enbridge-form input:not([type]), .enbridge-content-container .enbridge-form textarea {
@@ -378,9 +386,9 @@
   border-width: 1px;
   border-style: solid;
   display: none;
-  margin: 20px auto 0 auto;
+  margin: 11px auto 11px auto;
   padding: 8px 15px;
-  width: 460px; }
+  width: 430px; }
   .enbridge-content-container .result > span {
     display: inline-block;
     padding-left: 10px;
@@ -420,6 +428,11 @@
     background-color: white;
     background-image: none;
     cursor: pointer; }
+    .enbridge-content-container .enbridge-dropdown .header .selected {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
     .enbridge-content-container .enbridge-dropdown .header .indicator {
       padding: 14px;
       position: absolute !important;
@@ -604,7 +617,7 @@
       content: '';
       position: absolute;
       display: inline-block;
-      margin-left: 2px;
+      margin-left: 10px;
       background: url("img/white-arrow.svg") no-repeat transparent;
       background-size: 100% auto;
       width: 20px;
@@ -621,7 +634,7 @@
       content: '';
       position: absolute;
       display: inline-block;
-      margin-left: 2px;
+      margin-left: 10px;
       background: url("img/white-arrow.svg") no-repeat transparent;
       background-size: 100% auto;
       width: 20px;
@@ -636,7 +649,7 @@
   border: 1px solid #ddd6cc;
   display: inline-block;
   position: relative;
-  min-height: 410px;
+  min-height: 355px;
   border-radius: 3px;
   width: 100%;
   background-color: #ddd6cc;
@@ -649,36 +662,44 @@
     .enbridge-content-container .tile > .content .title {
       display: block;
       font-size: 32px;
-      margin: 0 0 20px;
+      margin: 0 0 12px;
       letter-spacing: -1px;
       font-weight: 400; }
-    .enbridge-content-container .tile > .content h3.subtitle {
+    .enbridge-content-container .tile > .content .subtitle {
       display: block;
       font-size: 23px;
       font-weight: 400;
-      margin: 0 0 20px;
+      margin: 0 0 12px;
       line-height: 1.2;
+      letter-spacing: -.6px;
       color: #636373; }
     .enbridge-content-container .tile > .content ul {
       list-style-position: inside;
       padding-left: 10px;
-      margin-top: 7px; }
+      margin-top: 0; }
       .enbridge-content-container .tile > .content ul li {
         font-size: 14px; }
     .enbridge-content-container .tile > .content label {
+      font-weight: normal;
       font-size: 14px; }
     .enbridge-content-container .tile > .content .information.common {
       font-size: 13px;
-      margin-top: 30px;
+      margin-top: 15px;
       padding: 0;
       background-color: transparent; }
+      .enbridge-content-container .tile > .content .information.common:before {
+        content: '|';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 13px; }
     .enbridge-content-container .tile > .content label.align {
       margin-top: 7%; }
     .enbridge-content-container .tile > .content .form-group {
       margin-bottom: 2%; }
       .enbridge-content-container .tile > .content .form-group.checks {
-        margin-bottom: 20px; }
-    .enbridge-content-container .tile > .content a.logo {
+        margin-top: 8px;
+        margin-bottom: 15px; }
+    .enbridge-content-container .tile > .content .logo {
       text-decoration: none;
       font-weight: 700; }
     .enbridge-content-container .tile > .content .circle {
@@ -705,7 +726,7 @@
     color: #fff !important;
     background-image: url("img/en-tile-bg.png");
     background-repeat: no-repeat;
-    background-position: right 90px;
+    background-position: 112px 84px;
     background-size: 79%; }
     .enbridge-content-container .tile.green h3 {
       color: #fff !important; }
@@ -726,10 +747,19 @@
     text-align: right;
     font-size: 13px;
     color: #007dba;
-    text-decoration: none;
-    margin-top: 20px; }
+    text-decoration: none; }
+    .enbridge-content-container .tile .footer-form-group .list-of-links {
+      list-style: none;
+      padding: 0;
+      margin: 0; }
+      .enbridge-content-container .tile .footer-form-group .list-of-links li {
+        display: inline-block; }
+        .enbridge-content-container .tile .footer-form-group .list-of-links li + li:before {
+          content: '|';
+          font-size: 12px;
+          color: #007dba; }
     .enbridge-content-container .tile .footer-form-group a {
-      font-size: 13px;
+      font-size: 12px;
       text-decoration: none;
       text-align: left;
       color: #007dba; }
@@ -930,6 +960,8 @@
   .enbridge-content-container .calendar .ui-datepicker-prev span,
   .enbridge-content-container .calendar .ui-datepicker-next span {
     display: none; }
+.enbridge-content-container .calendar .ui-datepicker-today:not(.ui-datepicker-current-day) a {
+  color: #92b051 !important; }
 .enbridge-content-container .calendar .ui-datepicker-next {
   float: right;
   background-image: url("img/white-arrow.svg");
@@ -977,8 +1009,9 @@
     font-weight: 400;
     color: #fff; }
 .enbridge-content-container .dates-view .calendar-column {
-  float: left;
-  width: 280px; }
+  width: 280px;
+  display: block;
+  margin: 0 auto; }
 .enbridge-content-container .dates-view .calendar-column + .calendar-column {
   float: right; }
 .enbridge-content-container .dates-view .headline {
@@ -1332,6 +1365,10 @@
   position: relative;
   width: 480px;
   background-color: #ddd6cc; }
+  .enbridge-content-container .code-box .center-label {
+    padding-right: 0px !important;
+    height: 50px;
+    padding-top: 15px; }
   .enbridge-content-container .code-box .next-step {
     color: white;
     display: block;
@@ -1349,6 +1386,8 @@
     background-repeat: no-repeat;
     background-position: 12px 11px;
     cursor: pointer; }
+    .enbridge-content-container .code-box .next-step.less-top {
+      top: 45%; }
   .enbridge-content-container .code-box input[type="radio"] + .fake-input {
     display: block;
     margin-bottom: 15px; }
@@ -1365,6 +1404,8 @@
   .enbridge-content-container .calendar .ui-datepicker-prev span,
   .enbridge-content-container .calendar .ui-datepicker-next span {
     display: none; }
+.enbridge-content-container .calendar .ui-datepicker-today:not(.ui-datepicker-current-day) a {
+  color: #92b051 !important; }
 .enbridge-content-container .calendar .ui-datepicker-next {
   float: right;
   background-image: url("img/white-arrow.svg");
@@ -1412,8 +1453,9 @@
     font-weight: 400;
     color: #fff; }
 .enbridge-content-container .dates-view .calendar-column {
-  float: left;
-  width: 280px; }
+  width: 280px;
+  display: block;
+  margin: 0 auto; }
 .enbridge-content-container .dates-view .calendar-column + .calendar-column {
   float: right; }
 .enbridge-content-container .dates-view .headline {
@@ -1437,7 +1479,7 @@
     float: none;
     font-weight: normal;
     display: inline-block;
-    padding-left: 26px; }
+    padding-left: 18px; }
 .enbridge-content-container .form-grid > .legend-row {
   color: #636373;
   display: block;
@@ -1504,8 +1546,9 @@
   color: red; }
 .enbridge-content-container .tiny {
   font-size: 10px !important;
-  color: #636373;
-  text-align: center; }
+  margin-top: 0;
+  text-align: center;
+  color: #636373; }
   .enbridge-content-container .tiny.left {
     text-align: left; }
   .enbridge-content-container .tiny.big-content {
@@ -1520,6 +1563,8 @@
   margin-left: 26px; }
 .enbridge-content-container .pull40 {
   margin-left: 40px; }
+.enbridge-content-container .pull55 {
+  margin-left: 55px !important; }
 .enbridge-content-container ._h90 {
   height: 90px; }
 .enbridge-content-container ._w60 {
@@ -1542,6 +1587,8 @@
   width: 180px; }
 .enbridge-content-container ._w200 {
   width: 200px; }
+.enbridge-content-container ._w215 {
+  width: 215px; }
 .enbridge-content-container ._w220 {
   width: 220px; }
 .enbridge-content-container ._w230 {
@@ -1579,7 +1626,8 @@
     font-size: 14px;
     margin-bottom: 13px; }
 .enbridge-content-container .incomplete-container ul {
-  margin-bottom: 42px; }
+  margin-bottom: 42px;
+  padding-left: 58px; }
 .enbridge-content-container .incomplete-container .buttondiv {
   float: right;
   margin-right: 182px;
@@ -1932,6 +1980,10 @@
   font-weight: 300;
   padding-top: 21px; }
 
+.tiny-msg-moving {
+  float: right;
+  margin-right: 227px; }
+
 .alert-info {
   border-radius: 2px;
   padding: 0px 14px 0px 14px;
@@ -2058,6 +2110,26 @@
 
 .tile .information {
   background-color: transparent; }
+
+.tile.green .control-label {
+  width: 70px !important; }
+.tile.green .fields {
+  width: 210px !important; }
+.tile.green [for="remember-email-check"]:not(.fake-input) {
+  font-size: 12px;
+  padding-left: 18px;
+  vertical-align: middle; }
+.tile.green input[type="checkbox"] + .fake-input:after {
+  background-color: white; }
+.tile.green .fake-input:before {
+  top: 0 !important;
+  height: 15px !important;
+  width: 15px !important; }
+.tile.green .fake-input:after {
+  left: 3px !important;
+  top: 3px !important;
+  height: 9px !important;
+  width: 9px !important; }
 
 #address-confirmation,
 #newcustomers-address-confirmation {

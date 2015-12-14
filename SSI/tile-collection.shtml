@@ -1,43 +1,49 @@
    <div class="enbridge-container no-padding">
             <div class="row">
-                <div class="col md6 lg6">
+                <div class="col xs6">
                     <div class="tile green">
                         <div class="content">
                             <h2 class="title">Existing Customers</h2>
                             <h3 class="subtitle">
-                            Moving in/out of service area or adding a property.
+                            Moving in/out of service &nbsp;area or adding a property.
                             </h3>
                             <div class="enbridge-form form-horizontal">
                                 <div class="form-group">
-                                    <label for="" class="control-label">Email:</label>
+                                    <label for="email-remember-input" class="control-label">Email:</label>
                                     <div class="fields">
-                                        <input type="text">
+                                        <input type="text" class="_w215" id="email-remember-input">
                                     </div>
                                 </div>
                                 <div class="form-group checks">
                                     <div class="fields">
-                                        <input type="checkbox" id="example">
-                                        <label class="fake-input" for="example"></label>
-                                        <label for="">Remember my email for next time</label>
+                                        <input type="checkbox" id="remember-email-check">
+                                        <label class="fake-input" for="remember-email-check"></label>
+                                        <label for="remember-email-check">Remember my email for next time</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="control-label">Passwords:</label>
+                                    <label for="password-remember-input" class="control-label">Password:</label>
                                     <div class="fields">
-                                        <input type="text">
+                                        <input type="text" class="_w215" id="password-remember-input">
                                     </div>
                                 </div>
                                 <div class="footer-form-group">
-                                    <a href="#">Register to</a>
-                                    <img src="css/img/myEnbridge-sm.png" alt="">
-                                    <a href="#"> I forgot my password?</a>
+                                    <ul class="list-of-links">
+                                        <li>
+                                            <a href="#">Register to<img src="css/img/myEnbridge-sm.png" alt=""></a>
+                                        </li>
+                                        <li>
+                                             <a href="#">Forgot password?</a>
+                                        </li>
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>
                         <a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">SIGN IN</a>
                     </div>
                 </div>
-                <div class="col md6 lg6">
+                <div class="col xs6">
                     <div class="tile">
                         <div class="content">
                             <h2 class="title">New Customers</h2>
@@ -47,8 +53,8 @@
                             <div>
                                 <label for="">You'll need:</label>
                                 <ul>
-                                    <li>Your new address</li>
-                                    <li>Your move-in dates</li>
+                                    <li>Your new address.</li>
+                                    <li>Your move-in dates.</li>
                                 </ul>
                                 <p class="information common">
                                     If your property needs natural gas service installed, call our Customer Connections Contact Centre at <strong>1-888-427-8888</strong>
@@ -63,7 +69,7 @@
             </div>
             <div class="row">
 
-                <div class="col md6 lg6">
+                <div class="col xs6">
                     <div class="tile postal-code">
                         <div class="content">
                             <h2 class="title">Postal Code Lookup</h2>
@@ -76,10 +82,10 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="enbridge-btn green big-button open-dialog" id="gray" data-target="#postalcode">Check</a>
+                        <a href="" class="enbridge-btn green big-button open-dialog" id="gray" data-target="#postalcode">CHECK</a>
                     </div>
                 </div>
-                <div class="col md6 lg6 ">
+                <div class="col xs6">
                     <div class="tile">
                         <div class="content">
                             <h2 class="title">Moving Out</h2>
@@ -89,15 +95,13 @@
                             <div>
                                 <label for="">You'll need:</label>
                                 <ul>
-                                    <li>a recent bill</li>
+                                    <li>A recent bill</li>
                                     <li>Your new address</li>
                                     <li>Your move date</li>
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#movingout">
-                        OPEN NEW GASS ACCOUNT
-                    </a>
+                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#moving-out">MOVE OUT FORM</a>
                     </div>
                 </div>
             </div>

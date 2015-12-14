@@ -7,7 +7,7 @@
                     float: none;
                     font-weight: normal;
                     display: inline-block;
-                    padding-left: 26px;
+                    padding-left: 18px;
                 }
             }
         }
@@ -111,8 +111,10 @@ hr {
 
 .tiny {
     font-size: 10px !important;
-    color: #636373;
+    margin-top: 0;
     text-align: center;
+
+    color: #636373;
     &.left {
         text-align: left;
     }
@@ -137,6 +139,10 @@ hr {
 
 .pull40 {
     margin-left: 40px;
+}
+
+.pull55 {
+    margin-left: 55px !important;
 }
 
 ._h90 {
@@ -181,6 +187,10 @@ hr {
 
 ._w200 {
     width: 200px;
+}
+
+._w215 {
+    width: 215px;
 }
 
 ._w220 {

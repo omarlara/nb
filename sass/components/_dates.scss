@@ -1,7 +1,8 @@
 .dates-view{
     .calendar-column{
-        float: left;
         width: 280px;
+        display: block;
+        margin:0 auto;
     }
     .calendar-column + .calendar-column{
         float: right;

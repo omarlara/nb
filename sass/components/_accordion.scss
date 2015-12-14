@@ -206,6 +206,12 @@
     width: 480px;
 
     background-color: $moon-mist;
+        
+    .center-label{
+            padding-right: 0px !important;
+            height: 50px;
+            padding-top: 15px;
+    }
 
     .next-step {
         color: white;
@@ -219,7 +225,9 @@
         right: 15px;
         top: 50%;
         margin-top: -20px;
-
+        &.less-top{
+            top: 45%;
+        }
         background-color: $chelsea-cucumber;
         background-image: url('img/arrow_white_right.svg');
         background-repeat: no-repeat;

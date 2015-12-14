@@ -1,0 +1,96 @@
+<div class="enbridge-content-container">
+    <div class="enbridge-container ">
+        <div class="row">
+            <h1 class="red-title">I'm moving</h1>
+            <div class="container-thankyou">
+                <h1 class="title">Thank You!</h1>
+                <div class="text-info">
+                    <p>We received your move submission and we’ve emailed you a copy for your records. We’ll also get in touch by email when your move has been processed and we’ll let you know how to take advantage of our other services.</p>
+                </div>
+
+                <div class="tiles">
+                    <div class="tile-container col md6">
+                        <div class="tile green">
+                            <div class="text">
+                                <h1>Making your payments convenient</h1>
+                                <p>Our Pre-Authorized Payment Plan can help you save time and avoid late payment charges.</p>
+
+                            </div>
+
+                            <div class="button-container">
+                                <a href="#" class="enbridge-btn black big-button small-button-arrow ">Enroll for Pre-Authorized Payment Plan</a>
+                            </div>
+
+                            <img src="css/img/summ01.png" alt="">
+
+                        </div>
+
+                    </div>
+
+                    <div class="tile generic col md6">
+                        <div class="background"></div>
+                        <div class=" col md12 content-generic">
+                            <h1>Budget Billing Plan</h1>
+                            <p>
+                                The Budged Billing Plan (BBP) helps make monthly budgeting easier for customers by spreading out natural gas charges over 11 months.
+                            </p>
+
+                        </div>
+                        <div class="button-container">
+                            <a class="enbridge-btn blue small-button-arrow ">Learn more about Budget Billing Plan</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-container">
+                    <div class="text">
+                        <h1 class="text-title">Moving Tips</h1>
+                        <p>Moving can be a busy time. Here a few tips that you may find helpful:</p>
+                        <ul>
+                            <li>Plan and prepare. Dedicate some time to think through what living at your new place will be like. If you're moving into your very fist home, a new climate or perhaps from an apartment to house, you may need to purchase some new items.</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, laudantium, dolorem! </li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quisquam deserunt quam similique quae voluptatem labore ex perspiciatis</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa eveniet nulla nihil quisquam non, sit quos. Illum eaque in</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="info-content">
+                    <div class="info">
+                        <h1 class="text-title">For more information</h1>
+                        <p>Take a look at our <a href="#">Welcome Package.</a></p>
+
+                        <p class="big">What did you think of our online move form?</p>
+                        <button class="enbridge-btn social-media like">Like</button>
+                        <button class="enbridge-btn social-media dislike">Dislike</button>
+
+                        <div class="improve enbridge-form">
+                            <p>
+                                What could we improve?
+                                <textarea></textarea>
+                            </p>
+                            <p class="text-right">
+                                <a class="enbridge-btn green">SEND</a>
+                            </p>
+
+                        </div>
+
+                        <div class="did-you-know">
+                            <h1 class="title">Did you know?</h1>
+                            <div class="clearfix"></div>
+                            <p>We read your gas meter every other month. On the months when your meter is not read, we'll bill you based on an estimate. Many factors go into the estimate, including the gas use history at that property.
+                            </p>
+                            <p class="text-right">
+                                <a href="">Learn More</a>
+                            </p>
+                        </div>
+                        <h1 class="final-message text-center">Thank you for using our online service options!</h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

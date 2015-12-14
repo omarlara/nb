@@ -581,6 +581,8 @@
     font-weight: 500;
     line-height: 1;
     text-transform: none;
+    padding-top: 12px;
+    line-height: 1.2;
     color: #007dba; }
     .enbridge-content-container .enbridge-btn.social-media.like, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator,
     .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev {
@@ -1038,26 +1040,20 @@
     font-family: Arial, sans-serif; }
 .enbridge-content-container .button-distance-area {
   margin-bottom: 8px !important; }
-.enbridge-content-container .dislike {
-  padding-top: 12px; }
-  .enbridge-content-container .dislike:before {
-    display: block;
-    float: left;
-    padding: 0px 7px 0px 0px;
-    margin-top: -1px;
-    line-height: 0; }
-  .enbridge-content-container .dislike:hover:before {
-    content: url("img/dislikehover.png"); }
-.enbridge-content-container .like {
-  line-height: 1.6 !important;
-  padding-top: 12px;
-  margin-top: -4px; }
-  .enbridge-content-container .like:before {
-    display: block;
-    float: left;
-    padding: 0px 7px 0px 0px;
-    margin-top: -1px;
-    line-height: 0; }
+.enbridge-content-container .dislike:before {
+  display: block;
+  float: left;
+  padding: 0px 7px 0px 0px;
+  margin-top: -1px;
+  line-height: 0; }
+.enbridge-content-container .dislike:hover:before {
+  content: url("img/dislikehover.png"); }
+.enbridge-content-container .like:before {
+  display: block;
+  float: left;
+  padding: 0px 7px 0px 0px;
+  margin-top: -1px;
+  line-height: 0; }
 .enbridge-content-container .container-thankyou {
   margin-top: 10px;
   border: 1px solid #f3f4f7;
@@ -1071,7 +1067,7 @@
   .enbridge-content-container .container-thankyou h1 {
     width: 100%; }
   .enbridge-content-container .container-thankyou p {
-    margin: 17px 0 30px 0px; }
+    margin: 17px 0 30px 0; }
   .enbridge-content-container .container-thankyou .text-info p {
     color: #636373;
     font-size: 16px; }

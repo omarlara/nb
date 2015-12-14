@@ -17,14 +17,14 @@
                                 <button class="enbridge-btn social-media like">Like</button>
                                 <button class="enbridge-btn social-media dislike">Dislike</button>
 
-                                <div class="improve">
+                                <div class="improve enbridge-form">
                                     <p class="button-distance-area">What could we improve?</p>
-                                    <textarea></textarea>
+                                    <textarea id="moving-out-thank-yout"></textarea>
                                     <p class="text-right no-margin-top">
                                         <a class="enbridge-btn green">SEND</a>
                                     </p>
                                 </div>
-                                <h1 class="final-message text-center">Thank you for using our online service options!</h1>
+                                <h6 class="final-message text-center">Thank you for using our online service options!</h6>
                             </div>
                         </div>
                     </div>

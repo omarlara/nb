@@ -1210,8 +1210,6 @@
         font-weight: 100; }
     .enbridge-content-container .container-thankyou .info-content .improve textarea {
       border-radius: 4px;
-      border: 1px solid #ddd;
-      resize: none;
       display: block;
       margin-bottom: 8px;
       margin-top: 15px;

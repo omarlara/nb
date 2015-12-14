@@ -428,6 +428,11 @@
     background-color: white;
     background-image: none;
     cursor: pointer; }
+    .enbridge-content-container .enbridge-dropdown .header .selected {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
     .enbridge-content-container .enbridge-dropdown .header .indicator {
       padding: 14px;
       position: absolute !important;

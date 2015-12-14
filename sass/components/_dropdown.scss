@@ -18,6 +18,13 @@
         background-image: none;
         cursor: pointer;
 
+        .selected {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         .indicator {
             padding: 14px;
             position: absolute !important;

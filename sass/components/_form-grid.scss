@@ -56,6 +56,9 @@
             &:first-child {
                 margin-left: 20px;
             }
+            &.information-label-distance{
+                margin-left: 45px;
+            }
             > label {
                 display: inline-block;
                 max-width: 100%;

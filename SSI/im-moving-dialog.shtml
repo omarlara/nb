@@ -334,7 +334,7 @@
                                             <div class="calendar-column" data-calendar="#date-start">
                                                 <div class="headline">
                                                     <h3>
-                                                        What us the last day you are responsible for:
+                                                        What is the <strong>Last</strong> day you are responsible for:
                                                         <span class="tooltip">
                                                             <span class="icon"></span>
                                                             <span class="content-tooltip">
@@ -359,7 +359,7 @@
                                             <div class="calendar-column" data-calendar="#date-finish">
                                                 <div class="headline">
                                                     <h3>
-                                                        What us the last day you are responsible for:
+                                                        What is the <strong>First</strong> day you are responsible for:
                                                         <span class="tooltip">
                                                             <span class="icon"></span>
                                                             <span class="content-tooltip">
@@ -405,7 +405,7 @@
                                     Your date of birth:
                                 </label>
                                 <div class="row">
-                                    <div class="form-group _w160">
+                                    <div class="form-group _w160 information-label-distance">
                                       <label for="usr">Day:</label>
                                       <div class="set-field">
                                         <select name="" class="enbridge-select" id="day-user-info" data-required-error="Please select the required information." required>
@@ -438,7 +438,7 @@
                                 </label>
 
                                 <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
+                                    <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr">Mobile Phone:</label>
                                       <div class="set-field ">
                                             <input type="text" class="form-control  _w60" id="user-mobile-lada" data-rel="mobile-phone-your-info">
@@ -449,7 +449,7 @@
                                 </div>
 
                                 <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
+                                    <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr">Home Phone:</label>
                                       <div class="set-field">
                                         <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
@@ -460,7 +460,7 @@
                                 </div>
                                 
                                 <div class="row address-bar">
-                                    <div class="form-group pull-margin-right">
+                                    <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr">Business Phone:</label>
                                       <div class="set-field ">
                                             <input type="text" class="form-control  _w60"  id="user-business-lada" data-rel="business-phone-your-info">
@@ -481,7 +481,7 @@
                                                 </span>
                                             </span>
                                         </span><br><br>
-                                        <label for="usr">First: </label>
+                                        <label for="usr" class="information-label-distance">First: </label>
                                         <input type="text" class="form-control _w160"  id="additional-fist-name" >
                                         <label for="usr" class="left-padding_15">Last: </label>
                                         <input type="text" class="form-control _w160"  id="additional-last-name" >

@@ -115,6 +115,8 @@
   padding-bottom: 15px;
   line-height: 1.5;
   color: #636373; }
+  .enbridge-content-container .information.no-background {
+    background-color: transparent; }
   .enbridge-content-container .information:before {
     content: 'i';
     border-radius: 50%;
@@ -350,6 +352,8 @@
       display: block;
       margin: 0 auto 20px auto;
       width: 200px; }
+  .enbridge-content-container .enbridge-form .zip-code-tool.opened:not(.success-zip) {
+    margin-bottom: 57px; }
   .enbridge-content-container .enbridge-form .zip-code-tool .input-error {
     margin-bottom: 10px !important; }
     .enbridge-content-container .enbridge-form .zip-code-tool .input-error + .error-message {
@@ -826,7 +830,7 @@
   background-color: rgba(125, 125, 138, 0.95);
   height: auto;
   border-radius: 52px 2px 48px 2px;
-  padding-top: 8%; }
+  padding: 8% 0%; }
   .enbridge-content-container .address h4 {
     color: #59cbe8;
     font-size: 24px;
@@ -2217,5 +2221,12 @@
 
 [for="newcustomers-year"] + .set-field {
   max-width: 500px; }
+
+.summary .address {
+  margin: 0 auto;
+  min-height: 205px;
+  width: 195px; }
+.summary .information {
+  background: transparent; }
 
 /*# sourceMappingURL=enbridge.css.map */

@@ -2,9 +2,16 @@
     <div class="dialog success-dialog hidden" title="New Account" id="newcustomers">
         <div class="enbridge-content-container">
             <div class="enbridge-container">
-                <p class="information green">
-                            Use this form if natural gas is alredy installed at the property. If new natural gas service needs to be installed, please contact our Customer Connections Centre at <strong>1-888-427-8888</strong>.
-                </p>
+                
+            <div class="ecru-white account down-new-account">
+                    <span class="tooltip">
+                        <span class="letter-i"></span>
+                        <span classs="content-tooltip">
+                    </span>
+                        <p class="no-margin overflow-hidden">   Use this form if natural gas is alredy installed at the property. If new natural gas service needs to be installed, please contact our Customer Connections Centre at <strong>1-888-427-8888</strong>.
+                        </p>
+                    </span>
+                </div>
                 <ul class="accordion">
                     <li class="accordion-item active">
                         <div class="header">1.New Customer Information</div>
@@ -26,7 +33,7 @@
                                     <div class="property-info form-grid forms-distance">
 
                                         <div class="form-group pull-margin-right inputs-div-style">
-                                            <div class="set-field content-container">
+                                            <div class="set-field content-container left-radios">
                                                 <input type="radio" id="device-type-home" value="home"  name="device-type" data-required-error="Please select your move detail." required="">
                                                 <label class="fake-input in-line radio-space" for="device-type-home">Home</label>
 
@@ -78,7 +85,7 @@
                                           <div class="form-group pull-margin-right space-inputs">
                                                 <p class="align-center">
                                                     Additional name on this account (optional):
-                                                    <span class="tooltip">
+                                                    <span class="tooltip super">
                                                         <span class="icon"></span>
                                                         <span class="content-tooltip">
                                                             <span class="cross"></span>
@@ -283,7 +290,7 @@
                                     </span>
                                     </p>
 
-                                    <div class="code-box">
+                                    <div class="code-box top-information">
                                         <label for="code-validator">Let's start with your postal code:</label>
                                         <input type="text"
                                             name="newcustomers-new-address"
@@ -432,7 +439,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="set-field">
+                                    <div class="set-field ">
                                         <input type="radio" id="newcustomers-rent-property-alternative" value="rent" name="newcustomers-house-property-alternative" data-required-error="Please select the required information.">
                                         <label class="fake-input" for="newcustomers-rent-property-alternative">
                                             I'm renting this property.
@@ -533,7 +540,7 @@
                                 <div class=" ">
                                     <p class="vertical-align">
                                         Would you like to enroll your new account into the Budget Billing Plan:
-                                        <span class="tooltip">
+                                        <span class="tooltip super">
                                             <span class="icon"></span>
                                             <span class="content-tooltip">
                                                 <span class="cross"></span>
@@ -570,7 +577,7 @@
                                         <h2 class="billing-title">Paperless Billing</h2>
                                         <div class="ecru-white">
                                             <span class="tooltip">
-                                                <span class="letter-i"></span>
+                                                <span class="letter-i top-billing"></span>
                                                 <span classs="content-tooltip">
                                             </span>
                                                 <p class="no-margin overflow-hidden"> You have been automatically enrolled in the Paperless Billing Plan. This service offers online access to your bills anytime, anywhere. Learn more about paperless billing and the options you have with your myEnbridge account.

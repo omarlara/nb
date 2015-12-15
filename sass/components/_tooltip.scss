@@ -60,6 +60,9 @@
         z-index: 500;
         float: left;
         margin-right: 9px;
+        &.top-billing{
+            margin-top: 13px;
+        }
         &:after {
             content: "i";
             font-style:italic;
@@ -98,6 +101,7 @@
             font-weight: 700;
             float: right;
             cursor: pointer;
+            font-size: 14px;
         }
     }
 

@@ -206,6 +206,10 @@
     width: 480px;
 
     background-color: $moon-mist;
+
+    &.top-information{
+        margin-top: 40px;
+    }
         
     .center-label{
             padding-right: 0px !important;

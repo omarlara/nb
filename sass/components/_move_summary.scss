@@ -42,6 +42,9 @@
     width: 100%;
     text-align: center;
     margin-top: 29px;
+    &.no-top{
+        margin-top: 0px;
+    }
     &.complete-padding{
         padding-top: 10px;
         padding-bottom: 10px;

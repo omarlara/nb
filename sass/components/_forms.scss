@@ -11,6 +11,12 @@
             vertical-align: inherit;
         }
 
+                vertical-align: inherit !important;
+        }
+        &.super{
+            vertical-align: super !important; 
+            font-size: 14px;  
+        }
         &.field {
             display: inline-block;
             margin: 24px 0;

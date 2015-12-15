@@ -84,6 +84,8 @@
                     margin-left: 10px;
                 }
 
+               
+
             }
         }
         &.address-bar {
@@ -129,6 +131,10 @@ hr {
 .content-container {
     display: inline-block;
     margin-right: 10px;
+
+    &.left-radios{
+        margin-left: 13px;
+    }
 }
 
 .descriptor {

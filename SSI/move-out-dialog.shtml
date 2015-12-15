@@ -172,7 +172,7 @@
                                                     <div class="headline">
                                                         <h3>
                                                             What us the <strong>last</strong> day you are responsible for:
-    <span class="tooltip">
+                                                    <span class="tooltip super">
                                                         <span class="icon"></span>
                                                         <span class="content-tooltip">
                                                             <span class="cross"></span>

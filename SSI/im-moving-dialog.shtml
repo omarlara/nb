@@ -473,7 +473,7 @@
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right">
                                         <span class="middle">Additional name on this account (optional) 
-                                            <span class="tooltip">
+                                            <span class="tooltip super">
                                                 <span class="icon"></span>
                                                 <span class="content-tooltip">
                                                     <span class="cross"></span>

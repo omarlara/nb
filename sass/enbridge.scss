@@ -70,7 +70,10 @@
     >button {
         padding-top: 10px;
         padding-bottom : 10px;
-        width: 80px;
+        width: 75px;
+        &:first-child {
+            margin-right: 10px;
+        }
     }
 }
 
@@ -81,6 +84,7 @@
 }
 
 #stop-select + .enbridge-dropdown{
+    margin-bottom: $normal-margin;
     margin-left: 25px;
     width: 380px;
 }
@@ -132,6 +136,7 @@
 
 #code-validator {
     margin: 0;
+    width: 200px;
 
     & + .error-message {
         left: 186px;

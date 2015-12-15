@@ -211,7 +211,7 @@
                                                 </div>
                                             </div>
                                             <div class="content-container">
-                                                <label for="usr" class="descriptor _w100">Province:</label>
+                                                <label for="usr" class="descriptor _w70">Province:</label>
                                                 <div class="set-field content-container _w180" data-required-error="Please select the required information.">
                                                     <select class="enbridge-select"  id="province" data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
@@ -296,7 +296,7 @@
                                                 </div>
                                             </div>
                                             <div class="content-container">
-                                                <label for="usr" class="_w100">Province:</label>
+                                                <label for="usr" class="_w70">Province:</label>
                                                 <div class="set-field content-container _w180">
                                                     <select class="enbridge-select" data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
@@ -335,7 +335,7 @@
                                                 <div class="headline">
                                                     <h3>
                                                         What is the <strong>Last</strong> day you are responsible for:
-                                                        <span class="tooltip">
+                                                        <span class="tooltip super">
                                                             <span class="icon"></span>
                                                             <span class="content-tooltip">
                                                                 <span class="cross"></span>
@@ -360,7 +360,7 @@
                                                 <div class="headline">
                                                     <h3>
                                                         What is the <strong>First</strong> day you are responsible for:
-                                                        <span class="tooltip">
+                                                        <span class="tooltip super">
                                                             <span class="icon"></span>
                                                             <span class="content-tooltip">
                                                                 <span class="cross"></span>
@@ -382,7 +382,7 @@
 
                                         <div class="clearfix"></div>
                                     </div>
-                                    <p class="information green transparent">
+                                    <p class="information green transparent dates-moving-label-top">
                                         If these dates change, you can come back here to let us know!
                                     </p>
                                 </div>

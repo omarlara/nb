@@ -82,6 +82,8 @@
                         width: 100px;
                         text-align: right !important;
                         padding-right: 25px;
+                        padding-top: 0;
+                        padding-bottom: 0;
 
                         &:after {
                             content: '';
@@ -215,7 +217,7 @@
     &.top-information{
         margin-top: 40px;
     }
-        
+
     .center-label{
             padding-right: 0px !important;
             height: 50px;

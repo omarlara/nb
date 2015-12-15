@@ -1311,7 +1311,9 @@
           float: right;
           width: 100px;
           text-align: right !important;
-          padding-right: 25px; }
+          padding-right: 25px;
+          padding-top: 0;
+          padding-bottom: 0; }
           .enbridge-content-container .accordion .accordion-item .content .validator-container .validator:after {
             content: '';
             position: absolute;

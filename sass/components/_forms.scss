@@ -73,15 +73,14 @@
             &:before {
                 content: ' ';
 
-                border: 1px solid $moon-mist;
+                border: 1px solid $jumbo;
                 display: inline-block;
                 position: absolute;
                 left: 0;
-                top: -1px;
+                top: -2px;
                 height: 20px;
                 width: 20px;
 
-                color: $moon-mist;
                 background: white;
                 vertical-align: middle;
             }
@@ -93,7 +92,7 @@
                 position: absolute;
                 height: 12px;
                 width: 12px;
-                top: 3px;
+                top: 2px;
                 left: 4px;
             }
 

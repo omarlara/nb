@@ -70,7 +70,10 @@
     >button {
         padding-top: 10px;
         padding-bottom : 10px;
-        width: 80px;
+        width: 75px;
+        &:first-child {
+            margin-right: 10px;
+        }
     }
 }
 

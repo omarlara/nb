@@ -828,7 +828,7 @@
             numberHouse =$('#current-number').val() || '',
             zipCode = $('#code-validator').val();
 
-        $('#address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
+        $('#address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
     });
 
     $('#newcustomers-confirm-address-button').bind('click', function() {
@@ -836,7 +836,7 @@
             numberHouse =$('#newcustomers-current-number').val() || '',
             zipCode = $('#newcustomers-code-validator').val() || '';
 
-        $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
+        $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
     });
 
     $('#info-confirmation').bind('click', function(e) {

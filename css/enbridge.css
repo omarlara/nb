@@ -264,14 +264,13 @@
     .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:before,
     .enbridge-content-container .enbridge-form input[type="checkbox"] + .fake-input:before {
       content: ' ';
-      border: 1px solid #ddd6cc;
+      border: 1px solid #7d7d8a;
       display: inline-block;
       position: absolute;
       left: 0;
-      top: -1px;
+      top: -2px;
       height: 20px;
       width: 20px;
-      color: #ddd6cc;
       background: white;
       vertical-align: middle; }
     .enbridge-content-container .enbridge-form input[type="radio"] + .fake-input:after,
@@ -281,7 +280,7 @@
       position: absolute;
       height: 12px;
       width: 12px;
-      top: 3px;
+      top: 2px;
       left: 4px; }
   .enbridge-content-container .enbridge-form input[type="radio"].input-error + .fake-input:before,
   .enbridge-content-container .enbridge-form input[type="checkbox"].input-error + .fake-input:before {
@@ -2171,7 +2170,10 @@
 #newcustomers-information-acceptance > button {
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 80px; }
+  width: 75px; }
+  #information-acceptance > button:first-child,
+  #newcustomers-information-acceptance > button:first-child {
+    margin-right: 10px; }
 
 #current-number + .enbridge-dropdown {
   width: 200px; }

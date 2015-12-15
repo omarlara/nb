@@ -47,6 +47,8 @@
   padding-left: 0px !important; }
 .enbridge-content-container .align-middle {
   vertical-align: middle !important; }
+.enbridge-content-container .information-label-distance {
+  margin-left: 30px; }
 .enbridge-content-container .hidden {
   display: none !important; }
 .enbridge-content-container .in-line {
@@ -224,8 +226,6 @@
     margin: 24px 0; }
 .enbridge-content-container .enbridge-form .descriptor {
   margin-top: 13px; }
-.enbridge-content-container .enbridge-form p {
-  font-size: 14px; }
 .enbridge-content-container .enbridge-form input[type="color"], .enbridge-content-container .enbridge-form input[type="date"], .enbridge-content-container .enbridge-form input[type="datetime"], .enbridge-content-container .enbridge-form input[type="datetime-local"], .enbridge-content-container .enbridge-form input[type="email"], .enbridge-content-container .enbridge-form input[type="month"], .enbridge-content-container .enbridge-form input[type="number"], .enbridge-content-container .enbridge-form input[type="password"], .enbridge-content-container .enbridge-form input[type="search"], .enbridge-content-container .enbridge-form input[type="tel"], .enbridge-content-container .enbridge-form input[type="text"], .enbridge-content-container .enbridge-form input[type="time"], .enbridge-content-container .enbridge-form input[type="url"], .enbridge-content-container .enbridge-form input[type="week"], .enbridge-content-container .enbridge-form input:not([type]), .enbridge-content-container .enbridge-form textarea {
   border: 1px solid #ddd6cc;
   border-radius: 2px;
@@ -251,7 +251,6 @@
     display: block;
     position: relative;
     font-weight: normal;
-    padding-top: 3px;
     padding-left: 25px;
     margin-bottom: 15px;
     cursor: pointer; }
@@ -276,8 +275,7 @@
       height: 12px;
       width: 12px;
       top: 3px;
-      left: 4px;
-      background-color: #ddd6cc; }
+      left: 4px; }
   .enbridge-content-container .enbridge-form input[type="radio"].input-error + .fake-input:before,
   .enbridge-content-container .enbridge-form input[type="checkbox"].input-error + .fake-input:before {
     border-color: #c8102e; }
@@ -324,7 +322,6 @@
       height: 15px;
       width: 15px;
       text-align: center;
-      vertical-align: bottom;
       color: white;
       background-color: #92b051; }
     .enbridge-content-container .enbridge-form .zip-code-tool .opener:after {
@@ -1328,6 +1325,8 @@
       .enbridge-content-container .accordion .accordion-item .content .validator,
       .enbridge-content-container .accordion .accordion-item .content .prev {
         text-align: right !important; }
+      .enbridge-content-container .accordion .accordion-item .content .enbridge-dropdown {
+        margin-bottom: 0; }
     .enbridge-content-container .accordion .accordion-item:not(.active) > .header {
       background-color: #f3f4f7;
       color: #b9bcc2; }
@@ -1390,10 +1389,11 @@
     .enbridge-content-container .code-box .next-step.less-top {
       top: 45%; }
   .enbridge-content-container .code-box input[type="radio"] + .fake-input {
-    display: block;
-    margin-bottom: 15px; }
+    display: block; }
   .enbridge-content-container .code-box input[type="radio"]:checked + .fake-input:after {
     background-color: #92b051; }
+  .enbridge-content-container .code-box input[type="radio"]:last-of-type + .fake-input {
+    margin-bottom: 0; }
 .enbridge-content-container .calendar .ui-datepicker-prev,
 .enbridge-content-container .calendar .ui-datepicker-next {
   display: block;
@@ -1511,6 +1511,8 @@
   vertical-align: top; }
   .enbridge-content-container .form-grid .row .form-group:first-child {
     margin-left: 20px; }
+  .enbridge-content-container .form-grid .row .form-group.information-label-distance {
+    margin-left: 45px; }
   .enbridge-content-container .form-grid .row .form-group > label {
     display: inline-block;
     max-width: 100%;
@@ -2159,6 +2161,7 @@
   width: 200px; }
 
 #stop-select + .enbridge-dropdown {
+  margin-bottom: 15px;
   margin-left: 25px;
   width: 380px; }
 
@@ -2197,7 +2200,8 @@
   width: 450px; }
 
 #code-validator {
-  margin: 0; }
+  margin: 0;
+  width: 200px; }
   #code-validator + .error-message {
     left: 186px;
     position: relative;

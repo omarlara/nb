@@ -116,11 +116,16 @@
                         }
                     }
             }
+
             .validator,
             .prev{
                 @extend .enbridge-btn;
 
                 text-align: right !important;
+            }
+
+            .enbridge-dropdown {
+                margin-bottom: 0;
             }
 
         }
@@ -206,7 +211,7 @@
     width: 480px;
 
     background-color: $moon-mist;
-        
+
     .center-label{
             padding-right: 0px !important;
             height: 50px;
@@ -239,7 +244,6 @@
     input[type="radio"] {
         & + .fake-input {
             display: block;
-            margin-bottom: 15px;
         }
 
         &:checked + .fake-input{
@@ -247,5 +251,10 @@
                 background-color: $chelsea-cucumber;
             }
         }
+
+        &:last-of-type + .fake-input {
+            margin-bottom: 0;
+        }
     }
+
 }

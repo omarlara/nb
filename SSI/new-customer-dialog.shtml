@@ -2,7 +2,7 @@
     <div class="dialog success-dialog hidden" title="New Account" id="newcustomers">
         <div class="enbridge-content-container">
             <div class="enbridge-container">
-                
+
             <div class="ecru-white account down-new-account">
                     <span class="tooltip">
                         <span class="letter-i"></span>
@@ -280,7 +280,7 @@
                         <div class="content">
                             <div action="" class="enbridge-form" id="newcustomers-steps-flow-1">
                                 <div class="steps active-step" id="newcustomers-first-step">
-                                    <p class="strong">Please enter your new address: 
+                                    <p class="strong">Please enter your new address:
                                     <span class="tooltip">
                                         <span class="icon"></span>
                                         <span class="content-tooltip">
@@ -419,7 +419,7 @@
                                                 </div>
                                             </div>
                                             <div class="content-container">
-                                                <label for="usr" class="descriptor _w100">Province:</label>
+                                                <label for="usr" class="descriptor _w70">Province:</label>
                                                 <div class="set-field content-container _w180" data-required-error="Please select the required information.">
                                                     <select class="enbridge-select"  id="province" data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
@@ -498,16 +498,20 @@
                                             <div class="content-container">
                                                 <label for="usr" class="descriptor _w100">Country:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                    <select class="enbridge-select"
+                                                        id="newcustomers-select-country"
+                                                    data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="content-container">
-                                                <label for="usr" class="descriptor _w100">Province:</label>
+                                                <label for="usr" class="descriptor _w70">Province:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                    <select class="enbridge-select"
+                                                        id="newcustomers-select-province"
+                                                    data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>

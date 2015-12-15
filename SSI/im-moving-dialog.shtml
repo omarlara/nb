@@ -211,7 +211,7 @@
                                                 </div>
                                             </div>
                                             <div class="content-container">
-                                                <label for="usr" class="descriptor _w100">Province:</label>
+                                                <label for="usr" class="descriptor _w70">Province:</label>
                                                 <div class="set-field content-container _w180" data-required-error="Please select the required information.">
                                                     <select class="enbridge-select"  id="province" data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
@@ -289,16 +289,16 @@
                                             <div class="content-container">
                                                 <label for="usr" class="_w100">Country:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                    <select class="enbridge-select" id="country-alternative-element" data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="content-container">
-                                                <label for="usr" class="_w100">Province:</label>
+                                                <label for="usr" class="_w70">Province:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" data-required-error="Please select the required information.">
+                                                    <select class="enbridge-select" id="province-alternative-element" data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
@@ -458,7 +458,7 @@
                                       </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr">Business Phone:</label>
@@ -472,7 +472,7 @@
                                 </div>
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right">
-                                        <span class="middle">Additional name on this account (optional) 
+                                        <span class="middle">Additional name on this account (optional)
                                             <span class="tooltip super">
                                                 <span class="icon"></span>
                                                 <span class="content-tooltip">

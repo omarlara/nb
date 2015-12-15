@@ -57,12 +57,12 @@
 #property-info,
 #newcustomers-property-info{
     display: none;
-    margin: 30px auto;
+    margin: 20px auto;
     width: 480px;
 }
 
 #mailing-address + .fake-input {
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 #information-acceptance,
@@ -91,8 +91,35 @@
 
 #street-number-alternative,
 #suffix-alternative,
-#misc-info-alternative {
-    width: 60px;
+#misc-info-alternative,
+#street-alternative,
+#street-number,
+#suffix,
+#misc-info,
+#street,
+#moving-out-street-number,
+#moving-out-suffix,
+#moving-out-street,
+#moving-out-misc-info {
+    margin-bottom: 0;
+}
+
+#country-alternative-element,
+#province-alternative-element,
+#country,
+#province,
+#newcustomers-select-country,
+#newcustomers-select-province,
+#moving-out-country,
+#moving-out-province {
+    + .enbridge-dropdown {
+        margin-bottom: 15px;
+    }
+}
+
+[for="misc-info"],
+[for="moving-out-misc-info"] {
+    margin-top: 5px;
 }
 
 #street,

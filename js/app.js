@@ -364,7 +364,7 @@
     };
 
     $('.postal-code-verify').keyup( function(e) {
-        e.stopImmediatePropagation();
+        e.stopPropagation();
         var $this = $(this).removeClass('input-sucess input-error');
 
         $this.closest('.set-field')

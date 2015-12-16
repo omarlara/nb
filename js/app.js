@@ -1,7 +1,7 @@
-(function ($, window, document) {
+;(function ($, window, document) {
 
     String.prototype.postalCode = function() {
-        return /^[a-zA-Z0-9]{6,6}$/.test(this);
+        return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(this);
     }
 
     String.prototype.PhoneFormat = function () {
@@ -362,6 +362,27 @@
 
         return error;
     };
+
+    $('.postal-code-verify').keyup( function(e) {
+        e.stopPropagation();
+        var $this = $(this).removeClass('input-sucess input-error');
+
+        $this.closest('.set-field')
+            .find('.error-message')
+                .remove();
+''
+        if (!($this.attr('data-pattern') === 'postal-code')) return;
+
+        if($this.val().postalCode()) {
+            $this.addClass('input-sucess');
+        } else {
+            $this
+                .addClass('input-error')
+                .closest('.set-field')
+                .append('<p class="error-message">' + $this.attr('data-pattern-error') + '</p>');
+        }
+
+    });
 
     $('.accordion .accordion-item >.header').bind('click', function(event) {
         event.preventDefault();

@@ -78,7 +78,19 @@
                         </h3>
                             <div>
                                 <div class="enbridge-form">
-                                    <input type="text" placeholder="Postal Code">
+                                    <div class="form-grid">
+                                        <div class="form-group pull-margin-right space-inputs">
+                                            <div class="set-field">
+                                                <input type="text"
+                                                    class="postal-code-verify"
+                                                    placeholder="Postal Code"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please add your postal code."
+                                                required>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

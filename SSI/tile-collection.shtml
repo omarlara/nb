@@ -101,7 +101,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#moving-out">MOVE OUT FORM</a>
+                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#movingoutredirect">MOVE OUT FORM</a>
                     </div>
                 </div>
             </div>

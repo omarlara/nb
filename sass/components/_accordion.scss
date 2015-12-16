@@ -211,6 +211,9 @@
     padding: $normal-padding;
     position: relative;
     width: 480px;
+    &.little-top{
+        margin-top: 15px;
+    }
 
     background-color: $moon-mist;
 

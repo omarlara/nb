@@ -217,9 +217,9 @@
                                             Your date of birth:
                                         </label>
                                         <div class="row">
-                                            <div class="form-group _w230">
+                                            <div class="form-group _w220">
                                                 <label class="descriptor pull55">Day:</label>
-                                                <div class="set-field">
+                                                <div class="set-field _w130">
                                                     <select name=""
                                                        class="enbridge-select"
                                                        id="moving-out-your-day"
@@ -232,7 +232,7 @@
                                             </div>
                                             <div class="form-group _w180">
                                                 <label class="descriptor">Month:</label>
-                                                <div class="set-field">
+                                                <div class="set-field _w130">
                                                     <select name=""
                                                        class="enbridge-select"
                                                        id="moving-out-your-month"
@@ -250,7 +250,7 @@
                                                 <div class="set-field _w100">
                                                     <input
                                                         type="text"
-                                                        class="form-control  _w60"
+                                                        class="form-control  _w130"
                                                         id="moving-out-your-year"
                                                         data-rel="moving-out-your-year"
                                                         data-required-error="Please select a year"

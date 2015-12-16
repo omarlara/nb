@@ -31,8 +31,12 @@
         font-size: 13px;
         margin:  0 0 15px 0;
         padding: 12px 9px;
-
+        
         color: $moon-mist;
+        &.les-margin-bottom{
+            margin-bottom: 5px;
+            
+        }
 
     }
 

@@ -86,7 +86,7 @@
                                 <div class="steps active-step" id="first-step">
                                     <p class="strong">Please enter your new address:</p>
 
-                                    <div class="code-box">
+                                    <div class="code-box little-top">
                                         <label for="code-validator">Let's start with your postal code:</label>
                                         <input type="text"
                                             name="new-address"

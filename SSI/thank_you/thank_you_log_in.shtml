@@ -43,7 +43,7 @@
                             <a href="#" class="enbridge-btn black big-button" id="green">SIGN IN</a>
                         </div>
                         <div class="">
-                            <a class="enbridge-btn yellow full-btn open-dialog" data-target="#existingcustomers">PROCEED WITHOUT LOGING IN</a>
+                            <a class="enbridge-btn yellow full-btn open-dialog" data-target="#moving-out">PROCEED WITHOUT LOGING IN</a>
                         </div>
                     </div>
                 </div>

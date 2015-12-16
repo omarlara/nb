@@ -242,6 +242,8 @@
   margin: 0 0 15px 0;
   padding: 12px 9px;
   color: #ddd6cc; }
+  .enbridge-content-container .enbridge-form input[type="color"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="date"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="datetime"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="datetime-local"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="email"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="month"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="number"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="password"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="search"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="tel"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="text"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="time"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="url"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="week"].les-margin-bottom, .enbridge-content-container .enbridge-form input:not([type]).les-margin-bottom, .enbridge-content-container .enbridge-form textarea.les-margin-bottom {
+    margin-bottom: 5px; }
 .enbridge-content-container .enbridge-form input[type="color"]:focus, .enbridge-content-container .enbridge-form input[type="date"]:focus, .enbridge-content-container .enbridge-form input[type="datetime"]:focus, .enbridge-content-container .enbridge-form input[type="datetime-local"]:focus, .enbridge-content-container .enbridge-form input[type="email"]:focus, .enbridge-content-container .enbridge-form input[type="month"]:focus, .enbridge-content-container .enbridge-form input[type="number"]:focus, .enbridge-content-container .enbridge-form input[type="password"]:focus, .enbridge-content-container .enbridge-form input[type="search"]:focus, .enbridge-content-container .enbridge-form input[type="tel"]:focus, .enbridge-content-container .enbridge-form input[type="text"]:focus, .enbridge-content-container .enbridge-form input[type="time"]:focus, .enbridge-content-container .enbridge-form input[type="url"]:focus, .enbridge-content-container .enbridge-form input[type="week"]:focus, .enbridge-content-container .enbridge-form input:not([type]):focus, .enbridge-content-container .enbridge-form textarea:focus,
 .enbridge-content-container .enbridge-form input[type="color"]:active, .enbridge-content-container .enbridge-form input[type="date"]:active, .enbridge-content-container .enbridge-form input[type="datetime"]:active, .enbridge-content-container .enbridge-form input[type="datetime-local"]:active, .enbridge-content-container .enbridge-form input[type="email"]:active, .enbridge-content-container .enbridge-form input[type="month"]:active, .enbridge-content-container .enbridge-form input[type="number"]:active, .enbridge-content-container .enbridge-form input[type="password"]:active, .enbridge-content-container .enbridge-form input[type="search"]:active, .enbridge-content-container .enbridge-form input[type="tel"]:active, .enbridge-content-container .enbridge-form input[type="text"]:active, .enbridge-content-container .enbridge-form input[type="time"]:active, .enbridge-content-container .enbridge-form input[type="url"]:active, .enbridge-content-container .enbridge-form input[type="week"]:active, .enbridge-content-container .enbridge-form input:not([type]):active, .enbridge-content-container .enbridge-form textarea:active {
   border-color: #7d7d8a;
@@ -399,8 +401,7 @@
   border-style: solid;
   display: none;
   margin: 11px auto 11px auto;
-  padding: 8px 15px;
-  width: 430px; }
+  padding: 8px 15px; }
   .enbridge-content-container .result > span {
     display: inline-block;
     padding-left: 10px;
@@ -705,7 +706,7 @@
         font-style: normal;
         font-weight: bold;
         font-size: 13px; }
-    .enbridge-content-container .tile > .content label.align {
+    .enbridge-content-container .tile > .content .align {
       margin-top: 7%; }
     .enbridge-content-container .tile > .content .form-group {
       margin-bottom: 2%; }
@@ -750,12 +751,9 @@
   .enbridge-content-container .tile.tile-text {
     color: #40484d; }
   .enbridge-content-container .tile.postal-code input[type='text'] {
-    width: 200px;
     display: block;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 44px;
-    display: block; }
+    margin: 44px auto 0 auto;
+    width: 200px; }
   .enbridge-content-container .tile .footer-form-group {
     text-align: right;
     font-size: 13px;
@@ -1185,7 +1183,7 @@
         font-weight: 100;
         color: #636373; }
       .enbridge-content-container .container-thankyou .text-container .text ul {
-        padding: 0% 0% 0% 3%; }
+        padding: 0% 0% 0% 6%; }
         .enbridge-content-container .container-thankyou .text-container .text ul li {
           font-size: 14px;
           margin-bottom: 6px; }
@@ -1376,6 +1374,8 @@
   position: relative;
   width: 480px;
   background-color: #ddd6cc; }
+  .enbridge-content-container .code-box.little-top {
+    margin-top: 15px; }
   .enbridge-content-container .code-box.top-information {
     margin-top: 40px; }
   .enbridge-content-container .code-box .center-label {

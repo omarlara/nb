@@ -59,7 +59,9 @@
             }
         }
 
-        label.align{margin-top: 7%}
+        .align{
+            margin-top: 7%
+        }
 
         .form-group{
             margin-bottom: 2%;
@@ -68,6 +70,7 @@
                 margin-bottom:  15px;
             }
         }
+
         .logo{
             text-decoration: none;
             font-weight: 700;
@@ -121,12 +124,9 @@
     }
     &.postal-code{
         input[type='text']{
-            width: 200px;
             display: block;
-            margin:0 auto;
-            text-align:center;
-            margin-top:44px;
-            display:block;
+            margin: 44px auto 0 auto;
+            width: 200px;
         }
     }
     .footer-form-group{

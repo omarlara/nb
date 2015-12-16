@@ -1,7 +1,7 @@
 ;(function ($, window, document) {
 
     String.prototype.postalCode = function() {
-        return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(this);
+        return /^[a-zA-Z]\d[a-zA-Z]\s?\d[a-zA-Z]\d$/.test(this);
     }
 
     String.prototype.PhoneFormat = function () {
@@ -364,22 +364,44 @@
     };
 
     $('.postal-code-verify').keyup( function(e) {
-        e.stopPropagation();
+        e.stopImmediatePropagation();
         var $this = $(this).removeClass('input-sucess input-error');
 
         $this.closest('.set-field')
-            .find('.error-message')
+            .find('.error-message, .result')
                 .remove();
 ''
         if (!($this.attr('data-pattern') === 'postal-code')) return;
 
         if($this.val().postalCode()) {
             $this.addClass('input-sucess');
+
+            $.ajax({
+                url: 'dummy.php',
+                complete: function(xhr,status) {
+                    $this.closest('.set-field')
+                        .find('.error-message, .result')
+                            .remove();
+
+                    if (!xhr || xhr.status != 200) {
+                        $this
+                            .addClass('input-error')
+                            .closest('.set-field')
+                                .append('<p class="result error-code">' + $this.attr('data-error') + '</p>');
+                    } else {
+                        $this
+                            .removeClass('input-error')
+                            .closest('.set-field')
+                                .append('<p class="result success-code">' + $this.attr('data-success') + '</p>');
+                    }
+                }
+            });
+
         } else {
             $this
                 .addClass('input-error')
                 .closest('.set-field')
-                .append('<p class="error-message">' + $this.attr('data-pattern-error') + '</p>');
+                    .append('<p class="error-message">' + $this.attr('data-pattern-error') + '</p>');
         }
 
     });

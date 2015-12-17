@@ -164,6 +164,7 @@
                                     </div>
 
                                 </div>
+
                                 <div class="steps" id="select_your_address_form">
                                     <p class="strong">Please enter your new address:</p>
                                     <div class="property-info form-grid">
@@ -192,7 +193,7 @@
                                     </div>
                                     <div class="property-info form-grid">
                                         <div class="form-group pull-margin-right">
-                                            <label for="usr" class="_w100">City or Town:</label>
+                                            <label for="usr" class="descriptor _w100">City or Town:</label>
                                             <div class="set-field content-container">
                                                 <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information." data-rel="city-or-town">
                                             </div>
@@ -202,7 +203,7 @@
                                     <div class="property-info form-grid">
                                         <div class="form-group pull-margin-right">
                                             <div class="content-container">
-                                                <label for="usr" class="_w100">Country:</label>
+                                                <label for="usr" class="descriptor _w100">Country:</label>
                                                 <div class="set-field content-container _w180">
                                                     <select class="enbridge-select" data-required-error="Please select the required information." id="country">
                                                         <option value="Canada">Canada</option>
@@ -226,12 +227,18 @@
                                         <div class="form-group pull-margin-right">
                                             <label for="usr" class="descriptor _w100">Postal Code:</label>
                                             <div class="set-field content-container">
-                                                <input type="text" id="postal-code-input" class="_w120" data-required-error="Please select the required information." data-rel="postal-code-input">
+                                                <input type="text"
+                                                    id="postal-code-input"
+                                                    class="_w120"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="postal-code-input">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="set-field">
+                                    <div class="set-field pull-error-105">
                                         <input type="radio" id="rent-property-alternative" value="rent" name="house-property-alternative" data-required-error="Please select the required information.">
                                         <label class="fake-input" for="rent-property-alternative">
                                             I'm renting this property.
@@ -311,7 +318,12 @@
                                         <div class="form-group pull-margin-right">
                                             <label for="usr" class="descriptor _w100">Postal Code:</label>
                                             <div class="set-field content-container">
-                                                <input type="text" id="postal-code-input-alternative" class="_w120" data-required-error="Please select the required information." data-rel="postal-code-input-alternative">
+                                                <input type="text"
+                                                    id="postal-code-input-alternative"
+                                                    class="_w120"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please select the required information." data-rel="postal-code-input-alternative">
                                             </div>
                                         </div>
                                     </div>
@@ -406,7 +418,7 @@
                                 </label>
                                 <div class="row">
                                     <div class="form-group _w160 information-label-distance">
-                                      <label for="usr">Day:</label>
+                                      <label for="usr" class="descriptor">Day:</label>
                                       <div class="set-field">
                                         <select name="" class="enbridge-select" id="day-user-info" data-required-error="Please select the required information." required>
                                             <option value="1">1</option>
@@ -417,7 +429,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group _w180">
-                                      <label for="usr">Month:</label>
+                                      <label for="usr" class="descriptor">Month:</label>
                                       <div class="set-field">
                                         <select name="" class="enbridge-select" id="month-user-info" data-required-error="Please select the required information." required>
                                             <option value="1">January</option>
@@ -426,10 +438,17 @@
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="form-group _w100">
-                                      <label for="pwd">Year:</label>
-                                      <div class="set-field">
-                                        <input type="text" class="form-control  _w60" id="year-user-info" data-required-error="Please select the required information." data-rel="year-your-info" required>
+                                    <div class="form-group _w160">
+                                      <label for="pwd" class="descriptor">Year:</label>
+                                      <div class="set-field _w100">
+                                        <input type="text"
+                                            class="form-control  _w60"
+                                            id="year-user-info"
+                                            data-pattern = "valid-year"
+                                            data-pattern-error = "Isn't a valid year"
+                                            data-required-error="Please select the required information."
+                                            data-rel="year-your-info"
+                                        required>
                                       </div>
                                     </div>
                                 </div>
@@ -439,7 +458,7 @@
 
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right information-label-distance">
-                                      <label for="usr">Mobile Phone:</label>
+                                      <label for="usr" class="descriptor">Mobile Phone:</label>
                                       <div class="set-field ">
                                             <input type="text" class="form-control  _w60" id="user-mobile-lada" data-rel="mobile-phone-your-info">
 
@@ -450,7 +469,7 @@
 
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right information-label-distance">
-                                      <label for="usr">Home Phone:</label>
+                                      <label for="usr" class="descriptor">Home Phone:</label>
                                       <div class="set-field">
                                         <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
 
@@ -461,7 +480,7 @@
 
                                 <div class="row address-bar">
                                     <div class="form-group pull-margin-right information-label-distance">
-                                      <label for="usr">Business Phone:</label>
+                                      <label for="usr" class="descriptor">Business Phone:</label>
                                       <div class="set-field ">
                                             <input type="text" class="form-control  _w60"  id="user-business-lada" data-rel="business-phone-your-info">
                                             <input type="text" class="form-control _w160"  id="user-business-phone" data-required-error="Please select the required information." data-rel="business-phone-your-info" required>

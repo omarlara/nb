@@ -1,11 +1,28 @@
 ;(function ($, window, document) {
+    var dateCurrent = new Date(),
+        validYear = dateCurrent.getFullYear() - 19;
+
+    String.prototype.validYear = function() {
+        var value = this;
+        if(!parseInt(value)) return false;
+
+        if(value >= 1900 && value <= validYear) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    String.prototype.validEmail = function() {
+        return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(this);
+    }
 
     String.prototype.postalCode = function() {
-        return /^[a-zA-Z]\d[a-zA-Z]\s?\d[a-zA-Z]\d$/.test(this);
+        return /^[a-z]\d[a-z]\s?\d[a-z]\d$/i.test(this);
     }
 
     String.prototype.PhoneFormat = function () {
-        return /^\d{3,3}(\-|\s)\d{3,3}(\-|\s)\d{4,4}$/.test(this);
+        return /^\d{3,3}(\-)\d{4,4}\d$/.test(this);
     }
 
     /*Dropdown*/
@@ -320,14 +337,52 @@
         }
 
         for (var i = text.length - 1; i >= 0; i--) {
+            var $current = $(text[i]),
+                pattern = $current.attr('data-pattern') || '';
+
             if(text[i].required && !text[i].value) {
-                $current = $(text[i]);
                 $('[data-rel="' + $current.attr('data-rel') + '"]')
                     .addClass('input-error');
 
                 $current.closest('.set-field')
                     .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 error = true;
+            }
+            if (!!$current.val()) {
+                switch(pattern) {
+                    case 'postal-code':
+                        if(!$current.val().postalCode()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                    break;
+                    case 'valid-year':
+                        if(!$current.val().validYear()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                    break;
+                    case 'valid-email':
+                        if(!$current.val().validEmail()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                    break;
+                    default:
+                    break;
+                }
             }
         }
 
@@ -1056,7 +1111,6 @@
 
         $('input[name="' + name + '"]').removeClass('input-success input-error');
     });
-
 
     $(window).ready(function() {
         var calendar = $('.calendar'),

@@ -180,6 +180,8 @@
                                                 <div class="set-field">
                                                   <input type="text" class="form-control  _w150"
                                                         id="newcustomers-email"
+                                                        data-pattern = "valid-email"
+                                                        data-pattern-error = "Isn't a valid mail"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-email"
                                                     required>
@@ -247,6 +249,8 @@
                                                                 <input type="text" class="form-control  _w100"
                                                                     placeholder="YYYY"
                                                                     id="newcustomers-year"
+                                                                    data-pattern = "valid-year"
+                                                                    data-pattern-error = "Isn't a valid year"
                                                                     data-required-error="Please select the required information."
                                                                     data-rel="newcustomers-year"
                                                                 required>
@@ -425,7 +429,13 @@
                                         <div class="form-group pull-margin-right">
                                             <label for="usr" class="descriptor _w100">Postal Code:</label>
                                             <div class="set-field content-container">
-                                                <input type="text" id="postal-code-input" class="_w120" data-required-error="Please select the required information." data-rel="postal-code-input">
+                                                <input type="text"
+                                                    id="postal-code-input"
+                                                    class="_w120"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="postal-code-input">
                                             </div>
                                         </div>
                                     </div>
@@ -515,7 +525,13 @@
                                         <div class="form-group pull-margin-right">
                                             <label for="usr" class="descriptor _w100">Postal Code:</label>
                                             <div class="set-field content-container">
-                                                <input type="text" id="newcustomers-postal-code-input-alternative" class="_w120" data-required-error="Please select the required information." data-rel="newcustomers-postal-code-input-alternative">
+                                                <input type="text"
+                                                    id="newcustomers-postal-code-input-alternative"
+                                                    class="_w120"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="newcustomers-postal-code-input-alternative">
                                             </div>
                                         </div>
                                     </div>
@@ -589,6 +605,8 @@
                                             <div class="set-field">
                                                 <input type="text" class="form-control"
                                                     id="newcustomers-email"
+                                                    data-pattern = "valid-email"
+                                                    data-pattern-error = "Isn't a valid mail"
                                                     data-required-error="Please select the required information."
                                                     data-rel="newcustomers-email"
                                                 required>
@@ -619,11 +637,6 @@
                     <div class="enbridge-container ">
                         <div class="row">
                             <div class="col md12 buttons text-center">
-
-                                <!--div class="col md3">
-                                    <a class="enbridge-btn green _w160" id="new-account-start-over">START OVER</a>
-                                </div-->
-
                                 <div class="col md3 xs9-off">
                                     <a class="enbridge-btn yellow disabled submit-button  _w160">SUBMIT</a>
                                 </div>

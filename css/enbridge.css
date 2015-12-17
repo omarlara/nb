@@ -1323,7 +1323,9 @@
           float: left;
           width: 100px;
           text-align: left !important;
-          padding-left: 25px; }
+          padding-left: 25px;
+          padding-top: 0;
+          padding-bottom: 0; }
           .enbridge-content-container .accordion .accordion-item .content .validator-container .prev:after {
             content: '';
             position: absolute;
@@ -1623,6 +1625,8 @@
   width: 500px; }
 .enbridge-content-container ._w600 {
   width: 600px; }
+.enbridge-content-container .pull-error-105 .error-message {
+  margin-left: 105px; }
 .enbridge-content-container .Borderincomplete {
   border: 1px solid #ccc; }
 .enbridge-content-container .allsizebtn {

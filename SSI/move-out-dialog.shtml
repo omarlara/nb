@@ -55,6 +55,8 @@
                                                     <input type="text" class="_w230"
                                                         id="moving-out-postal-code"
                                                         name="moving-out-account-transfer"
+                                                        data-pattern = "postal-code"
+                                                        data-pattern-error = "The required form is A1A1A1"
                                                         data-rel="moving-out-account-transfer"
                                                         data-required-error="Please select your move detail."
                                                     required>
@@ -147,6 +149,8 @@
                                                     <input type="text"
                                                         id="moving-out-postal-code-input"
                                                         class="_w120"
+                                                        data-pattern = "postal-code"
+                                                        data-pattern-error = "The required form is A1A1A1"
                                                         data-required-error="Please select the required information."
                                                         data-rel="moving-out-postal-code-input"
                                                     required>
@@ -245,13 +249,15 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group _w150">
+                                            <div class="form-group _w160">
                                                 <label for="moving-out-your-year" class="descriptor">Year:</label>
                                                 <div class="set-field _w100">
                                                     <input
                                                         type="text"
-                                                        class="form-control  _w130"
+                                                        class="form-control  _w60"
                                                         id="moving-out-your-year"
+                                                        data-pattern = "valid-year"
+                                                        data-pattern-error = "Isn't a valid year"
                                                         data-rel="moving-out-your-year"
                                                         data-required-error="Please select a year"
                                                     required>
@@ -333,6 +339,8 @@
                                                             type="text"
                                                             class="form-control  _w230"
                                                             id="moving-out-email"
+                                                            data-pattern = "valid-email"
+                                                            data-pattern-error = "Isn't a valid mail"
                                                             data-rel="moving-out-email"
                                                             data-required-error="Please select home phone"
                                                         required >

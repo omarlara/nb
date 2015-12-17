@@ -203,7 +203,7 @@
                                                     value="transfer"
                                                     name="steps"
                                                     data-required-error="Please select your move detail."
-                                                required>
+                                                data-required="true">
                                                 <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas services to anohter address.</label>
                                                 <div class="clearfix "></div>
                                                 <input type="radio"
@@ -211,7 +211,7 @@
                                                     value="stop"
                                                     name="steps"
                                                     data-required-error="Please select your move detail."
-                                                required>
+                                                data-required="true">
                                                 <label class="fake-input" for="stop"><strong>Stop</strong> my gas service.</label>
                                                 <select
                                                     class="enbridge-select hide-flow"
@@ -238,7 +238,7 @@
                                                     value="add"
                                                     name="steps"
                                                     data-required-error="Please select your move detail."
-                                                required>
+                                                data-required="true">
                                                 <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
                                             </div>
                                         </div>
@@ -551,8 +551,8 @@
                                             </p>
                                         </div>
 
-                                        <input type="hidden" class="start-date" id="date-start" required>
-                                        <input type="hidden" class="finish-date" id="date-finish" required>
+                                        <input type="hidden" class="start-date" id="date-start" data-required="true">
+                                        <input type="hidden" class="finish-date" id="date-finish" data-required="true">
 
                                         <div class="validator-container">
                                             <a class="prev" href="#">BACK</a>
@@ -572,7 +572,7 @@
                                             <div class="form-group _w160">
                                               <label for="usr">Day:</label>
                                               <div class="set-field">
-                                                <select name="" class="enbridge-select" id="" data-required-error="Please select the required information." required>
+                                                <select name="" class="enbridge-select" id="" data-required-error="Please select the required information." data-required="true">
                                                     <option value="select">10</option>
                                                 </select>
                                               </div>
@@ -580,7 +580,7 @@
                                             <div class="form-group _w180">
                                               <label for="usr">Month:</label>
                                               <div class="set-field">
-                                                <select name="" class="enbridge-select" id="month-user-info" required>
+                                                <select name="" class="enbridge-select" id="month-user-info" data-required="true">
                                                     <option value="select">January</option>
                                                     <option value="select">November</option>
                                                     <option value="select">December</option>
@@ -590,7 +590,7 @@
                                             <div class="form-group _w100">
                                               <label for="pwd">Year:</label>
                                               <div class="set-field">
-                                                <input type="text" class="form-control  _w60" data-required-error="Please select the required information." required>
+                                                <input type="text" class="form-control  _w60" data-required-error="Please select the required information." data-required="true">
                                               </div>
                                             </div>
                                         </div>
@@ -603,7 +603,7 @@
                                               <div class="set-field">
                                                 <input type="text" class="form-control  _w60">
 
-                                                <input type="text" class="form-control _w160" data-required-error="Please select the required information." required>
+                                                <input type="text" class="form-control _w160" data-required-error="Please select the required information." data-required="true">
                                               </div>
                                             </div>
                                         </div>
@@ -613,7 +613,7 @@
                                               <div class="set-field ">
                                                     <input type="text" class="form-control  _w60">
 
-                                                    <input type="text" class="form-control _w160" data-required-error="Please select the required information." required>
+                                                    <input type="text" class="form-control _w160" data-required-error="Please select the required information." data-required="true">
                                               </div>
                                             </div>
                                         </div>
@@ -622,7 +622,7 @@
                                               <label for="usr">Business Phone:</label>
                                               <div class="set-field ">
                                                     <input type="text" class="form-control  _w60">
-                                                    <input type="text" class="form-control _w160" data-required-error="Please select the required information." required>
+                                                    <input type="text" class="form-control _w160" data-required-error="Please select the required information." data-required="true">
                                                     <label for="pwd" class="fluid-label">Ext:</label>
                                                     <input type="password" class="form-control  _w60" />
                                               </div>

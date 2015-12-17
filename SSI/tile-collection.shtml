@@ -89,7 +89,7 @@
                                                     data-success="This address is serviced by Enbridge."
                                                     data-error="This address is serviced by Enbridge. Please contact your local munipality to find local provider."
                                                     data-required-error="Please add your postal code."
-                                                required>
+                                                data-required="true">
                                             </div>
                                         </div>
                                     </div>

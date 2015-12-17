@@ -350,15 +350,19 @@
     display: none; }
   .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool {
     height: 175px; }
+    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn) {
+      display: block; }
     .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool p {
       font-size: 11px;
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       padding-left: 0;
       padding-right: 0;
       white-space: nowrap; }
-    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn) {
-      display: block;
-      margin: 0 auto 20px auto;
+    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool input:not(.enbridge-btn),
+    .enbridge-content-container .enbridge-form .zip-code-tool.opened .tool .error-message {
+      margin-left: auto;
+      margin-right: auto;
       width: 200px; }
   .enbridge-content-container .enbridge-form .zip-code-tool.opened:not(.success-zip) {
     margin-bottom: 57px; }

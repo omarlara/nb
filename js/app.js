@@ -143,7 +143,8 @@
                     e.stopPropagation();
 
                     $element
-                        .toggleClass('opened closed required');
+                        .toggleClass('opened closed required')
+                        .find('.code-container').attr('data-required', true);
                 });
 
             $element.find('.submiter')
@@ -255,7 +256,7 @@
         var error = false,
             radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
             select = $form.find('.enbridge-select').removeClass('input-error'),
-            zipTool = $form.find('.zip-code-tool.required').removeClass('success-field'),
+            zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
             text = $form.find('input[type="text"]');
 
@@ -263,29 +264,27 @@
         $form.find('.input-error').removeClass('input-error');
 
         for (var i = radio.length - 1; i >= 0; i--) {
-            if (!radio[i].className) {
-               radio[i] .className = '';
-            }
+            var $current = $(radio[i]);
 
-            if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
+            if($current.attr('data-required') && !($current.hasClass('input-success') || $current.attr('checked')) ) {
                 var $current = $(radio[i]);
 
                 if(!$current.hasClass('input-error')) {
-                    $(radio[i]).closest('.set-field')
-                        .append('<p class="error-message">' + $(radio[i]).attr('data-required-error') + '</p>');
+                    $current.closest('.set-field')
+                        .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 }
 
                 $('[name = "' + $current.attr('name') + '"]')
                     .addClass('input-error');
 
             } else {
-                var name = radio[i].name;
+                var name = $current.attr('name');
 
                 $('input[name="' + name +'"]')
                     .removeClass('input-error')
                     .addClass('input-success');
 
-                $(radio[i]).closest('.set-field')
+                $current.closest('.set-field')
                         .find('.error-message').remove();
 
             }
@@ -318,8 +317,9 @@
         }
 
         for (var i = select.length - 1; i >= 0; i--) {
-            if(select[i].required && !select[i].value) {
-                var $current = $(select[i]);
+            var $current = $(select[i]);
+            if($current.attr('data-required') && !$current.val()) {
+
 
                 if($current.attr('data-position') == 'top') {
                     $current
@@ -340,7 +340,7 @@
             var $current = $(text[i]),
                 pattern = $current.attr('data-pattern') || '';
 
-            if(text[i].required && !text[i].value) {
+            if($current.attr('data-required') && !$current.val()) {
                 $('[data-rel="' + $current.attr('data-rel') + '"]')
                     .addClass('input-error');
 
@@ -417,6 +417,24 @@
 
         return error;
     };
+
+
+    /*Flows*/
+    /*Accordion 1 Moving out*/
+    /*Stop radio button click, show/hide Select reason select*/
+     $('[name="steps"]').click(function() {
+        var $element = $('#stop-select');
+
+        if(this.value === 'stop') {
+            $element
+                .removeClass('hide-flow')
+                .attr('data-required', true);
+        } else {
+            $element
+                .addClass('hide-flow')
+                .removeAttr('data-required');
+        }
+    });
 
     $('.postal-code-verify').keyup( function(e) {
         e.stopPropagation();
@@ -851,18 +869,6 @@
         }
     });
 
-    $('input[name="steps"]').change( function() {
-        if(this.value === 'stop') {
-            $('#stop-select')
-                .removeClass('hide-flow')
-                .attr('required', true);
-        } else {
-            $('#stop-select')
-                .addClass('hide-flow')
-                .attr('required', false);
-        }
-    });
-
     $('#get-address').bind('click', function() {
         var $this = $(this);
 
@@ -878,7 +884,7 @@
                         numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
                     }
 
-                    $('<select class="enbridge-select" id="current-number" required>' + numbers.join('') + '</select>')
+                    $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
                         .appendTo(container)
                         .enbridgeDropdown();
 
@@ -907,7 +913,7 @@
                         numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
                     }
 
-                    $('<select class="enbridge-select" id="newcustomers-current-number" required>' + numbers.join('') + '</select>')
+                    $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
                         .appendTo(container)
                         .enbridgeDropdown();
 

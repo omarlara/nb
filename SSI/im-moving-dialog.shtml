@@ -14,18 +14,20 @@
                                     <div class="set-field">
                                         <input type="radio"
                                             id="transfer"
+                                            data-id="transfer"
                                             value="transfer"
                                             name="steps"
                                             data-required-error="Please select your move detail."
-                                        required>
+                                        data-required="true">
                                         <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas service to another address.</label>
                                         <div class="clearfix "></div>
                                         <input type="radio"
                                             id="stop"
+                                            data-id="stop"
                                             value="stop"
                                             name="steps"
                                             data-required-error="Please select your move detail."
-                                        required>
+                                        data-required="true">
                                         <label class="fake-input" for="stop"><strong>Stop</strong> my gas service.</label>
                                         <select
                                             class="enbridge-select hide-flow"
@@ -50,9 +52,10 @@
                                         <input type="radio"
                                             id="add"
                                             value="add"
+                                            data-id="add"
                                             name="steps"
                                             data-required-error="Please select your move detail."
-                                        required>
+                                        data-required="true">
                                         <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
                                     </div>
                                 </div>
@@ -63,8 +66,15 @@
                                     </div>
                                     <div class="tool">
                                         <p class="information green">&nbsp; Find out if your new address is serviced by Enbridge</p>
+                                        <div class="set-field">
 
-                                        <input type="text" class="code-container" name="zip-tool" data-required-error="Please enter a valid postal code (example: A1A1A)">
+                                        <input type="text"
+                                            class="code-container"
+                                            name="zip-tool"
+                                            data-pattern = "postal-code"
+                                            data-pattern-error = "The required form is A1A1A1"
+                                            data-required-error="Please enter a valid postal code (example: A1A1A)">
+                                        </div>
                                         <input class="enbridge-btn green big-button submiter" type="submit" value="CHECK">
 
                                     </div>
@@ -399,8 +409,8 @@
                                     </p>
                                 </div>
 
-                                <input type="hidden" class="start-date" id="date-start" required>
-                                <input type="hidden" class="finish-date" id="date-finish" required>
+                                <input type="hidden" class="start-date" id="date-start" data-required="true">
+                                <input type="hidden" class="finish-date" id="date-finish" data-required="true">
 
                                 <div class="validator-container">
                                     <a class="prev" id="previous-dates" data-target="#steps-flow-1" href="#">BACK</a>
@@ -420,7 +430,7 @@
                                     <div class="form-group _w160 information-label-distance">
                                       <label for="usr" class="descriptor">Day:</label>
                                       <div class="set-field">
-                                        <select name="" class="enbridge-select" id="day-user-info" data-required-error="Please select the required information." required>
+                                        <select name="" class="enbridge-select" id="day-user-info" data-required-error="Please select the required information." data-required="true">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -431,7 +441,7 @@
                                     <div class="form-group _w180">
                                       <label for="usr" class="descriptor">Month:</label>
                                       <div class="set-field">
-                                        <select name="" class="enbridge-select" id="month-user-info" data-required-error="Please select the required information." required>
+                                        <select name="" class="enbridge-select" id="month-user-info" data-required-error="Please select the required information." data-required="true">
                                             <option value="1">January</option>
                                             <option value="11">November</option>
                                             <option value="12">December</option>
@@ -448,7 +458,7 @@
                                             data-pattern-error = "Isn't a valid year"
                                             data-required-error="Please select the required information."
                                             data-rel="year-your-info"
-                                        required>
+                                        data-required="true">
                                       </div>
                                     </div>
                                 </div>
@@ -462,7 +472,7 @@
                                       <div class="set-field ">
                                             <input type="text" class="form-control  _w60" id="user-mobile-lada" data-rel="mobile-phone-your-info">
 
-                                            <input type="text" class="form-control _w160" id="user-mobile-phone" data-required-error="Please select the required information." data-rel="mobile-phone-your-info" required>
+                                            <input type="text" class="form-control _w160" id="user-mobile-phone" data-required-error="Please select the required information." data-rel="mobile-phone-your-info" data-required="true">
                                       </div>
                                     </div>
                                 </div>
@@ -473,7 +483,7 @@
                                       <div class="set-field">
                                         <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
 
-                                        <input type="text" class="form-control _w160" id="user-home-phone" data-required-error="Please select the required information." data-rel="home-phone-your-info" required>
+                                        <input type="text" class="form-control _w160" id="user-home-phone" data-required-error="Please select the required information." data-rel="home-phone-your-info" data-required="true">
                                       </div>
                                     </div>
                                 </div>
@@ -483,7 +493,7 @@
                                       <label for="usr" class="descriptor">Business Phone:</label>
                                       <div class="set-field ">
                                             <input type="text" class="form-control  _w60"  id="user-business-lada" data-rel="business-phone-your-info">
-                                            <input type="text" class="form-control _w160"  id="user-business-phone" data-required-error="Please select the required information." data-rel="business-phone-your-info" required>
+                                            <input type="text" class="form-control _w160"  id="user-business-phone" data-required-error="Please select the required information." data-rel="business-phone-your-info" data-required="true">
                                             <label for="pwd" class="fluid-label">Ext:</label>
                                             <input type="text" class="form-control  _w60" id="user-business-ext" data-rel="business-phone-your-info">
                                       </div>

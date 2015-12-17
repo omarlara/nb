@@ -20,7 +20,7 @@
                                                     name="moving-out-transfer"
                                                     data-rel="moving-out-transfer"
                                                     data-required-error="Please select your move detail."
-                                                required>
+                                                data-required="true">
                                               </div>
                                             </div>
                                         </div>
@@ -33,9 +33,11 @@
                                                             class="_w230"
                                                             id="moving-out-account-number"
                                                             name="moving-out-account-transfer"
+                                                            data-pattern = "postal-code"
+                                                            data-pattern-error = "The required form is A1A1A1"
                                                             data-rel="moving-out-account-transfer"
                                                             data-required-error="Please select your move detail."
-                                                        required>
+                                                        data-required="true">
                                                     </div>
 
                                                         <span class="tiny left big-content">
@@ -59,7 +61,7 @@
                                                         data-pattern-error = "The required form is A1A1A1"
                                                         data-rel="moving-out-account-transfer"
                                                         data-required-error="Please select your move detail."
-                                                    required>
+                                                    data-required="true">
                                               </div>
                                             </div>
                                         </div>
@@ -95,7 +97,7 @@
                                                             class="_w220"
                                                             data-required-error="Please select the required information."
                                                             data-rel="moving-out-street"
-                                                        required>
+                                                        data-required="true">
                                                         <input type="text" id="moving-out-misc-info" class="_w60" data-rel="moving-out-street">
                                                     </div>
                                                     <div>
@@ -116,7 +118,7 @@
                                                         id="moving-out-city-or-town"
                                                         class="_w180"
                                                         data-required-error="Please select the required information." data-rel="moving-out-city-or-town"
-                                                        required>
+                                                        data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +132,7 @@
                                                             id="moving-out-country"
                                                             data-required-error="Please select the required information."
                                                             data-rel="moving-out-country"
-                                                        required>
+                                                        data-required="true">
                                                             <option value="Canada">Canada</option>
                                                             <option value="United States">United States</option>
                                                         </select>
@@ -141,7 +143,7 @@
                                                            id="moving-out-province"
                                                            data-required-error="Please select the required information."
                                                            data-rel="moving-out-province"
-                                                        required>
+                                                        data-required="true">
                                                             <option value="Canada">Canada</option>
                                                             <option value="United States">United States</option>
                                                         </select>
@@ -161,7 +163,7 @@
                                                         data-pattern-error = "The required form is A1A1A1"
                                                         data-required-error="Please select the required information."
                                                         data-rel="moving-out-postal-code-input"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -212,7 +214,7 @@
                                         </div>
 
 
-                                        <input type="hidden" class="start-date" id="moving-out-date" required>
+                                        <input type="hidden" class="start-date" id="moving-out-date" data-required="true">
 
                                         <div class="validator-container">
                                             <a class="prev" href="#">BACK</a>
@@ -237,7 +239,7 @@
                                                        id="moving-out-your-day"
                                                        data-rel="moving-out-your-day"
                                                        data-required-error="Please select a day"
-                                                    required>
+                                                    data-required="true">
                                                         <option value="select">10</option>
                                                     </select>
                                                 </div>
@@ -250,7 +252,7 @@
                                                        id="moving-out-your-month"
                                                        data-rel="moving-out-your-day"
                                                        data-required-error="Please select a month"
-                                                    required>
+                                                    data-required="true">
                                                         <option value="select">January</option>
                                                         <option value="select">November</option>
                                                         <option value="select">December</option>
@@ -268,7 +270,7 @@
                                                         data-pattern-error = "Isn't a valid year"
                                                         data-rel="moving-out-your-year"
                                                         data-required-error="Please select a year"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>

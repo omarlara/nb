@@ -52,7 +52,7 @@
                                                         id="newcustomers-customer-name"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-customer-name"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
 
@@ -63,7 +63,7 @@
                                                         id="newcustomers-middle-name"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-middle-name"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                                         id="newcustomers-last-name"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-last-name"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -104,7 +104,7 @@
                                                     id="newcustomers-first-name-optional"
                                                     data-required-error="Please select the required information."
                                                     data-rel="newcustomers-first-name-optional"
-                                                required>
+                                                data-required="true">
                                             </div>
                                             </div>
 
@@ -115,7 +115,7 @@
                                                         id="newcustomers-last-name-optional"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-last-name-optional"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                                         id="newcustomers-mobile-phone"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-mobile-phone"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                                         id="newcustomers-home-phone"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-home-phone"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -165,7 +165,7 @@
                                                         id="newcustomers-business-phone"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-business-phone"
-                                                    required>
+                                                    data-required="true">
                                                     <label for="newcustomers-business-phone-ext">ext:</label>
                                                     <input type="text" class="form-control  _w60"
                                                         id="newcustomers-business-phone-ext"
@@ -184,7 +184,7 @@
                                                         data-pattern-error = "Isn't a valid mail"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-email"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +201,7 @@
                                                                     id="newcustomers-month"
                                                                     data-required-error="Please select the required information."
                                                                     data-rel="newcustomers-month"
-                                                                required>
+                                                                data-required="true">
                                                                     <option value="">Month</option>
                                                                     <option value="1">January</option>
                                                                     <option value="2">February</option>
@@ -226,7 +226,7 @@
                                                                         id="newcustomers-day"
                                                                         data-required-error="Please select the required information."
                                                                         data-rel="newcustomers-day"
-                                                                    required>
+                                                                    data-required="true">
                                                                         <option value="">Day</option>
                                                                         <option value="1">1</option>
                                                                         <option value="2">2</option>
@@ -253,7 +253,7 @@
                                                                     data-pattern-error = "Isn't a valid year"
                                                                     data-required-error="Please select the required information."
                                                                     data-rel="newcustomers-year"
-                                                                required>
+                                                                data-required="true">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -569,7 +569,7 @@
                                                 value="true"
                                                 data-required-error="Please select the required information."
                                                 data-rel="newcustomers-budget-billing-plan"
-                                            required>
+                                            data-required="true">
                                             <label class="fake-input in-line radio-space  left-distance-radio" for="newcustomers-budget-billing-plan-yes">Yes</label>
 
                                             <input type="radio"
@@ -578,7 +578,7 @@
                                                 value="true"
                                                 data-required-error="Please select the required information."
                                                 data-rel="newcustomers-budget-billing-plan"
-                                            required>
+                                            data-required="true">
                                             <label class="fake-input in-line left-distance-radio" for="newcustomers-budget-billing-plan-no">No</label>
                                         </div>
                                     </div>
@@ -609,7 +609,7 @@
                                                     data-pattern-error = "Isn't a valid mail"
                                                     data-required-error="Please select the required information."
                                                     data-rel="newcustomers-email"
-                                                required>
+                                                data-required="true">
                                             </div>
                                           </div>
                                         </div>

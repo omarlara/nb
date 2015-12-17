@@ -74,7 +74,15 @@
                                 <div class="header">New address</div>
                                 <div class="content">
                                     <div class="enbridge-form form-grid">
-                                        <p class="strong">Enter your account information</p>
+                                        <p class="strong">Please enter your new address
+                                        <span class="tooltip super">
+                                            <span class="icon"></span>
+                                            <span class="content-tooltip">
+                                                <span class="cross"></span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                            </span>
+                                        </span>
+                                        </p>
                                         <div class="property-info form-grid">
                                             <div class="form-group pull-margin-right">
                                                 <label for="usr" class="descriptor _w100 pull55">Street Address:</label>
@@ -198,7 +206,7 @@
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <p class="information green">
+                                            <p class="information green no-background">
                                                 If these dates change, you can come back here to let us know!
                                             </p>
                                         </div>

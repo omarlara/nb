@@ -143,7 +143,8 @@
                     e.stopPropagation();
 
                     $element
-                        .toggleClass('opened closed required');
+                        .toggleClass('opened closed required')
+                        .find('.code-container').attr('data-required', true);
                 });
 
             $element.find('.submiter')
@@ -205,14 +206,13 @@
                 .addClass('input-error')
                 .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
             return;
-        } else {
-            $this.removeClass('input-error');
-
-            if($this.next().hasClass('error-message')) {
-                $this.next().remove();
-            }
         }
 
+        $this.removeClass('input-error');
+
+        if($this.next().hasClass('error-message')) {
+            $this.next().remove();
+        }
         $.post( "dummy.php",
             function(resp) {
                 if (resp && resp.result) {
@@ -255,7 +255,7 @@
         var error = false,
             radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
             select = $form.find('.enbridge-select').removeClass('input-error'),
-            zipTool = $form.find('.zip-code-tool.required').removeClass('success-field'),
+            zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
             text = $form.find('input[type="text"]');
 
@@ -263,29 +263,27 @@
         $form.find('.input-error').removeClass('input-error');
 
         for (var i = radio.length - 1; i >= 0; i--) {
-            if (!radio[i].className) {
-               radio[i] .className = '';
-            }
+            var $current = $(radio[i]);
 
-            if(radio[i].required && !(radio[i].className.indexOf('input-success') > -1 || radio[i].checked) ) {
+            if($current.attr('data-required') && !($current.hasClass('input-success') || $current.attr('checked')) ) {
                 var $current = $(radio[i]);
 
                 if(!$current.hasClass('input-error')) {
-                    $(radio[i]).closest('.set-field')
-                        .append('<p class="error-message">' + $(radio[i]).attr('data-required-error') + '</p>');
+                    $current.closest('.set-field')
+                        .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 }
 
                 $('[name = "' + $current.attr('name') + '"]')
                     .addClass('input-error');
 
             } else {
-                var name = radio[i].name;
+                var name = $current.attr('name');
 
                 $('input[name="' + name +'"]')
                     .removeClass('input-error')
                     .addClass('input-success');
 
-                $(radio[i]).closest('.set-field')
+                $current.closest('.set-field')
                         .find('.error-message').remove();
 
             }
@@ -318,8 +316,9 @@
         }
 
         for (var i = select.length - 1; i >= 0; i--) {
-            if(select[i].required && !select[i].value) {
-                var $current = $(select[i]);
+            var $current = $(select[i]);
+            if($current.attr('data-required') && !$current.val()) {
+
 
                 if($current.attr('data-position') == 'top') {
                     $current
@@ -340,7 +339,7 @@
             var $current = $(text[i]),
                 pattern = $current.attr('data-pattern') || '';
 
-            if(text[i].required && !text[i].value) {
+            if($current.attr('data-required') && !$current.val()) {
                 $('[data-rel="' + $current.attr('data-rel') + '"]')
                     .addClass('input-error');
 
@@ -418,6 +417,391 @@
         return error;
     };
 
+    /*Flows*/
+
+    /*Dialog - 1 - Moving out*/
+
+    /*Stop radio button click, show/hide Select reason select*/
+     $('[name="steps"]').click(function() {
+        var $element = $('#stop-select');
+
+        if(this.value === 'stop') {
+            $element
+                .removeClass('hide-flow')
+                .attr('data-required', true);
+        } else {
+            $element
+                .addClass('hide-flow')
+                .removeAttr('data-required');
+        }
+    });
+
+    /*When you click on the next sep, on Select your street
+      if you have selected No one above, you will show form, in another case you will be on the select street number
+    */
+    $('#get-address').bind('click', function() {
+        var $this = $(this);
+
+        if($('[name="select-street-container"]:checked').val()) {
+            $.ajax({
+                url: 'dummy.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {},
+                complete: function(xhr,status) {
+                    var jsonObj = null;
+                    if (!xhr || xhr.status != 200 || !xhr.response) {
+                        console.log(xhr);
+                    } else {
+                        jsonObj = JSON.parse(xhr.response);
+
+                        if(jsonObj.numbers) {
+                            var numbers = [],
+                                container = '#data-dropdown';
+
+                            $(container).html('');
+
+                            for (var i = 0, size = jsonObj.numbers.length; i < size; i++) {
+                                numbers.push('<option value="' + jsonObj.numbers[i] + '">' + jsonObj.numbers[i] + '</option>');
+                            }
+
+                            $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
+                                .appendTo(container)
+                                .enbridgeDropdown();
+
+                        }
+                    }
+                }
+            });
+
+        }
+    });
+
+    /*Set Address on decline/accept step container*/
+    $('#confirm-address-button').bind('click', function() {
+        var city = $('[name="select-street-container"]:checked').val() || '',
+            numberHouse =$('#current-number').val() || '',
+            zipCode = $('[data-id="code-validator"]').val();
+
+        $('#address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
+    });
+
+    /*Info Decline*/
+    $('#info-decline').bind('click', function(e) {
+        e.preventDefault();
+        $('[data-id="code-validator"]')
+            .removeClass('success-field')
+            .val('');
+
+        $('[name="house-property"]')
+            .attr({'checked': false})
+            .removeAttr('data-required')
+            .removeClass('input-error');
+
+        $('#select-street-container, #data-dropdown').empty('');
+
+        $('#confirm-address, #first-step').toggleClass('active-step');
+    });
+
+    /*Info confirmation*/
+    $('#info-confirmation').bind('click', function(e) {
+        e.preventDefault();
+        $('#information-acceptance')
+            .hide()
+                .closest('.code-box')
+                    .width(280);
+
+        $('#hide-message').
+            hide()
+                .closest('col')
+                    .addClass('xs5')
+                    .removeClass('xs12');
+
+        $('#property-info').show();
+        $('#step-address').removeClass('hidden');
+        $('input[name="house-property"]').attr('data-required', true);
+    });
+
+    /*Add alternative mailer address*/
+    $('#mailing-address-alternative, #mailing-address').change(function() {
+        if(this.checked) {
+            $('#manual-property-info').removeClass('hidden');
+
+            $('[data-id="street-alternative"], [data-rel="city-or-town-alternative"], [data-rel="country-alternative-element"], [data-rel="province-alternative-element"], [data-rel="postal-code-input-alternative"]')
+                .attr('data-required', true);
+        } else {
+            $('#manual-property-info')
+                .addClass('hidden')
+                .find('.error-message')
+                    .remove();
+
+            $('[data-id="street-alternative"], [data-rel="city-or-town-alternative"], [data-rel="postal-code-input-alternative"]')
+                .removeAttr('data-required')
+                .removeClass('input-error')
+                .val('');
+
+            $('[data-rel="street-alternative"]')
+                .removeClass('input-error')
+                .val('');
+
+            $('[data-rel="country-alternative-element"], [data-rel="province-alternative-element"]')
+                .removeAttr('data-required')
+                .removeClass('input-error');
+        }
+    });
+
+    /*Complete User Information*/
+    $('#complete-new-user').bind('click', function() {
+        var fromAddress = '',
+            toAddress = '',
+            dateEndService = $('[id="date-start"]').val(),
+            dateStartService = $('[id="date-finish"]').val(),
+            birthDay = $('[data-id="day-user-info"]').val() + '/' + $('[id="month-user-info"]').val() + '/' + $('[data-id="year-user-info"]').val();
+
+        /*Check if the address is provided for the back end services*/
+        if($('#confirm-address').hasClass('active-step')) {
+            /*Add additional information about mail address*/
+            if($('[data-id="mailing-address-alternative"]').attr('checked')) {
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
+
+                toAddress = $('[data-id="street-number-alternative"]').val() + ' ' +$('[data-id="suffix-alternative"]').val() + ' ' +
+                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' +  $('[data-id="city-or-town-alternative"]').val() + ' ' +
+                            $('[data-id="country-alternative-element"]').val() + ' ' +  $('[data-id="province-alternative-element"]').val() +  ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
+
+                $('#from-modal').text(fromAddress);
+                $('#to-modal').text(toAddress);
+
+            } else {
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
+
+                 $('#from-modal, #to-modal').text(fromAddress);
+            }
+        } else {
+            /*Check if the address isn't provided by Enbridge service*/
+
+            /*Add additional information about mail address*/
+            if($('[data-id="mailing-address-alternative"]').attr('checked')) {
+                fromAddress = $('[data-id="street-number"]').val() + ' ' +$('[data-id="suffix"]').val() + ' ' +
+                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' +  $('#city-or-town').val() + ' ' +
+                              $('[data-id="country"]').val() + ' ' +  $('[data-id="province"]').val() +  ', ON ' + $('[data-id="postal-code-input"]').val();
+
+                toAddress = $('[data-id="street-number-alternative"]').val() + ' ' +$('[data-id="suffix-alternative"]').val() + ' ' +
+                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' +  $('[data-id="city-or-town-alternative"]').val() + ' ' +
+                            $('[data-id="country-alternative-element"]').val() + ' ' +  $('[data-id="province-alternative-element"]').val() +  ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
+
+                $('#from-modal').text(fromAddress);
+                $('#to-modal').text(toAddress);
+
+            } else {
+                fromAddress =$('[data-id="street-number"]').val() + ' ' +$('[data-id="suffix"]').val() + ' ' +
+                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' +  $('#city-or-town').val() + ' ' +
+                              $('[data-id="country"]').val() + ' ' +  $('[data-id="province"]').val() +  ', ON ' + $('[data-id="postal-code-input"]').val();
+
+                $('#from-modal, #to-modal').text(fromAddress);
+            }
+        }
+
+        $('#start-service-wait').text(dateFormater(dateEndService));
+        $('#end-service-wait').text(dateFormater(dateStartService));
+
+        $('#birth-day').text(birthDay);
+
+        $('#user-phone').text( $('[data-id="user-mobile-lada"]').val() + ' ' + $('[data-rel="mobile-phone-your-info"]').val());
+        $('#mobile-phone').text( $('[data-id="user-home-lada"]').val() + ' ' + $('[data-id="user-home-phone"]').val());
+
+        $('#additional-contact').text($('[data-id="additional-fist-name"]').val() + ' ' + $('[data-id="additional-last-name"]').val());
+
+    });
+
+    /*Reset mailing information*/
+    $('[data-id="personal-info-user"]').bind('click', function() {
+        var $form = $('#form-new-account').removeClass('hidden');
+
+        $($form.find('.accordion-item')[1])
+            .addClass('active')
+            .removeClass('processed');
+
+        $('#personal-info-address')
+            .find('input[type=text]')
+            .val('');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
+        $('#information-acceptance')
+            .show()
+                .closest('.code-box')
+                    .width('');
+
+        $('[name="house-property"]')
+            .attr({'checked': false})
+            .removeAttr('data-required');
+
+        $('#hide-message').
+            show()
+                .closest('col')
+                    .addClass('xs12')
+                    .removeClass('xs5');
+
+        $('#hide-message').
+            show()
+                .closest('col')
+                    .addClass('xs12')
+                    .removeClass('xs5');
+        $('#property-info').hide();
+        $('#step-address').addClass('hidden');
+
+        $('[data-id="code-validator"]').val('');
+        $('#select-street-container, #data-dropdown').empty('');
+
+        $('#first-step').addClass('active-step');
+
+        $form.find('.steps:not(#first-step)')
+            .removeClass('active-step');
+
+        $("#mailing-address, #mailing-address-alternative").attr("checked",false);
+        /*Restart Mailing Information*/
+        $('[data-id="street"], [data-id="street-alternative"], [data-id="city-or-town"], [data-rel="city-or-town-alternative"], [data-id="postal-code-input"], [data-rel="postal-code-input-alternative"]')
+            .removeAttr('data-required')
+            .removeClass('input-error')
+            .val('');
+
+        $('[data-rel="street"], [data-rel="street-alternative"]')
+            .removeClass('input-error')
+            .val('');
+
+        $('[data-id="country"],[data-id="country-alternative-element"], [data-id="province"], [data-id="province-alternative-element"], [data-id="day-user-info"], [data-id="month-user-info"]')
+            .removeAttr('data-required')
+            .removeClass('input-error');
+
+        /*Disable submit*/
+        $('[data-id="moving-out-submit"]').addClass('disabled');
+    });
+
+    /*Reset personla info user*/
+    $('[data-id="reset-personal-info"]').bind('click', function() {
+        $('#personal-info').find('[type="text"]')
+            .val('');
+
+        /*Disable submit*/
+        $('[data-id="moving-out-submit"]').addClass('disabled');
+    });
+
+    /*Start Over*/
+    $('#new-account-start-over').bind('click', function() {
+        var $form = $('#form-new-account').removeClass('hidden');
+
+        $form.find('.accordion-item')
+            .removeClass('active processed');
+
+
+        $($form.find('.accordion-item')[0])
+            .addClass('active')
+            .removeClass('processed');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
+        $form
+            .find('.zip-code-tool')
+                .removeClass('opened required success-zip')
+                .addClass('closed')
+                .find('.code-container')
+                    .removeAttr('data-required')
+                    .val('');
+
+        $('#form-summary, #step-address, #manual-property-info').addClass('hidden');
+
+        $('#information-acceptance')
+            .show()
+                .closest('.code-box')
+                .closest('.code-box')
+                    .width('');
+
+        $('#hide-message').
+            show()
+                .closest('col')
+                    .addClass('xs12')
+                    .removeClass('xs5');
+
+        $('[name="steps"]')
+            .attr('checked', false)
+            .removeClass('input-success');
+
+        $('[name="house-property"], [name="house-property-alternative"]')
+            .attr({'checked': false})
+            .removeAttr('data-required')
+            .removeClass('input-error');
+
+        $('#property-info').hide();
+
+        $('[data-id="code-validator"]')
+            .val('')
+            .removeClass('success-field error-field');
+
+        $('#select-street-container, #data-dropdown').empty('');
+
+        $('#first-step').addClass('active-step');
+
+        $form.find('.steps:not(#first-step)')
+            .removeClass('active-step');
+
+        $("#mailing-address, #mailing-address-alternative").attr("checked",false);
+        /*Restart Mailing Information*/
+        $('[data-id="street"], [data-id="street-alternative"], [data-id="city-or-town"], [data-rel="city-or-town-alternative"], [data-id="postal-code-input"], [data-rel="postal-code-input-alternative"]')
+            .removeAttr('data-required')
+            .removeClass('input-error')
+            .val('');
+
+        $('[data-rel="street"], [data-rel="street-alternative"]')
+            .removeClass('input-error')
+            .val('');
+
+        $('[data-id="country"],[data-id="country-alternative-element"], [data-id="province"], [data-id="province-alternative-element"], [data-id="day-user-info"], [data-id="month-user-info"]')
+            .removeAttr('data-required')
+            .removeClass('input-error');
+
+        /*Restart Personal Information*/
+        $('[data-rel="mobile-phone-your-info"], [data-rel="home-phone-your-info"], [data-rel="business-phone-your-info"], [data-id="year-user-info"], [data-id="additional-fist-name"]. [data-id="additional-last-name"], [data-id="additional-last-name"], [data-id="additional-fist-name"]')
+            .removeClass('input-error')
+            .val('');
+
+        /*Disable submit*/
+        $('[data-id="moving-out-submit"]').addClass('disabled');
+    });
+
+    /*Dialog - 2 - New Customer*/
+
+
+
+
+    /**/
+    /*
+    $('#previous-dates').bind('click', function() {
+        var $target = $($(this).attr('data-target')),
+            elements = null;
+
+        $target.find('.active-step')
+            .removeClass('active-step');
+
+        elements =  $target.find('.steps:first-child')
+                       .removeClass('.processed');
+
+        if(elements[0]) {
+            $(elements[0]).addClass('active-step');
+        }
+    });
+    */
+
+    /*Code*/
     $('.postal-code-verify').keyup( function(e) {
         e.stopPropagation();
         var $this = $(this).removeClass('input-sucess input-error');
@@ -536,11 +920,9 @@
             if (this.id === 'get-address' && !$('[name=select-street-container]:checked').val()) {
                 $('#step-address').removeClass('hidden');
 
-                $('#street').attr('required', true);
-                $('#city-or-town').attr('required', true);
-                $('#country').attr('required', true);
-                $('#province').attr('required', true);
-                $('#postal-code-input').attr('required', true);
+                 $('#street, #city-or-town, #country, #province, #postal-code-input, [name="house-property-alternative"]')
+                    .attr('data-required', true);
+
             } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
@@ -553,62 +935,6 @@
         }
     });
 
-    $('#complete-new-user').bind('click', function() {
-        var fromAddress = '',
-            toAddress = '',
-            dateEndService = $('#date-start').val(),
-            dateStartService = $('#date-finish').val(),
-            birthDay = $('#day-user-info').val() + '/' + $('#month-user-info').val() + '/' + $('#year-user-info').val();
-
-        if($('#confirm-address').hasClass('active-step')) {
-            if($("#mailing-address").attr('checked')) {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $("#code-validator").val();
-                toAddress = $('#street-number-alternative').val() + ' ' +$('#suffix-alternative').val() + ' ' +
-                            $('#street-alternative').val() + ' ' + $('#misc-info-alternative').val() + ' ' +  $('#city-or-town-alternative').val() + ' ' +
-                            $('#country-alternative').val() + ' ' +  $('#province-alternative').val() +  ', ON ' + $('#postal-code-input-alternative').val();
-
-                $('#from-modal').text(fromAddress);
-                $('#to-modal').text(toAddress);
-
-            } else {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $("#code-validator").val();
-
-                 $('#from-modal, #to-modal').text(fromAddress);
-            }
-        } else {
-
-            if($("#mailing-address-alternative").attr('checked')) {
-                fromAddress = $('#street-number').val() + ' ' +$('#suffix').val() + ' ' +
-                              $('#street').val() + ' ' + $('#misc-info').val() + ' ' +  $('#city-or-town').val() + ' ' +
-                              $('#country').val() + ' ' +  $('#province').val() +  ', ON ' + $('#postal-code-input').val();
-
-                toAddress = $('#street-number-alternative').val() + ' ' +$('#suffix-alternative').val() + ' ' +
-                            $('#street-alternative').val() + ' ' + $('#misc-info-alternative').val() + ' ' +  $('#city-or-town-alternative').val() + ' ' +
-                            $('#country-alternative').val() + ' ' +  $('#province-alternative').val() +  ', ON ' + $('#postal-code-input-alternative').val();
-
-                $('#from-modal').text(fromAddress);
-                $('#to-modal').text(toAddress);
-
-            } else {
-                fromAddress = $('#street-number').val() + ' ' +$('#suffix').val() + ' ' +
-                              $('#street').val() + ' ' + $('#misc-info').val() + ' ' +  $('#city-or-town').val() + ' ' +
-                              $('#country').val() + ' ' +  $('#province').val() +  ', ON ' + $('#postal-code-input').val();
-
-                $('#from-modal, #to-modal').text(fromAddress);
-            }
-        }
-
-        $('#start-service-wait').text(dateFormater(dateEndService));
-        $('#end-service-wait').text(dateFormater(dateStartService));
-
-        $('#birth-day').text(birthDay);
-
-        $('#user-phone').text( $('#user-home-lada').val() + ' ' + $('#user-home-phone').val());
-        $('#mobile-phone').text( $('#user-mobile-lada').val() + ' ' + $('#user-mobile-phone').val());
-
-        $('#additional-contact').text($('#additional-fist-name').val() + ' ' + $('#additional-last-name').val());
-
-    });
 
     function dateFormater (stringDate) {
         var splitDates = stringDate.split('-'),
@@ -698,171 +1024,8 @@
             .addClass('hidden');
     })
 
-    $('#personal-info-user').bind('click', function() {
-        var $form = $('#form-new-account').removeClass('hidden');
 
-        $($form.find('.accordion-item')[1])
-            .addClass('active')
-            .removeClass('processed');
-
-        $('#personal-info-address').find('input[type=text]').val('');
-
-        $form.find('.success-field')
-            .removeClass('success-field');
-
-        $form.find('.result')
-            .html('')
-            .removeClass('success-code error-code');
-
-        $('#information-acceptance')
-            .show()
-                .closest('.code-box')
-                    .width('');
-
-        $('[name="house-property"]')
-            .attr({'checked': false, "required": false})
-            .removeClass('input-error');
-
-        $('#hide-message').
-            show()
-                .closest('col')
-                    .addClass('xs12')
-                    .removeClass('xs5');
-
-        $('#hide-message').
-            show()
-                .closest('col')
-                    .addClass('xs12')
-                    .removeClass('xs5');
-        $('#property-info').hide();
-        $('#step-address').addClass('hidden');
-        //$('[name="house-property"]').attr({'reqquired': false, 'checked'})
-
-        $('#code-validator').val('');
-        $('#select-street-container, #data-dropdown').empty('');
-
-        $('#first-step').addClass('active-step');
-
-        $form.find('.steps:not(#first-step)')
-            .removeClass('active-step');
-
-
-        $("#mailing-address, #mailing-address-alternative").attr("checked",false);
-
-        $('#manual-property-info').addClass('hidden');
-        $('#misc-info').attr('required', false);
-        $('#street-number, #street-number-alternative').attr('required', false);
-        $('#suffix-number, #suffix-alternative').attr('required', false);
-        $('#street, #street-alternative').attr('required', false);
-        $('#city-or-town, #city-or-town-alternative').attr('required', false);
-        $('#country, #country-alternative').attr('required', false);
-        $('#province, #province-alternative').attr('required', false);
-        $('#postal-code-input, #postal-code-input-alternative').attr('required', false);
-        $('input[name="house-property"]').attr('required', false);
-    });
-
-    $('#new-account-start-over').bind('click', function() {
-        var $form = $('#form-new-account').removeClass('hidden');
-
-        $form.find('.accordion-item')
-            .removeClass('active processed');
-
-
-        $($form.find('.accordion-item')[0])
-            .addClass('active')
-            .removeClass('processed');
-
-        $form.find('input[type=text]').val('');
-
-        $form.find('.success-field')
-            .removeClass('success-field');
-
-        $form.find('.result')
-            .html('')
-            .removeClass('success-code error-code');
-
-        $form
-            .find('.zip-code-tool')
-                .removeClass('opened required success-zip')
-                .addClass('closed');
-
-        $('#form-summary, #step-address, #manual-property-info').addClass('hidden');
-
-        $('#information-acceptance')
-            .show()
-                .closest('.code-box')
-                    .width('');
-
-        $('#hide-message').
-            show()
-                .closest('col')
-                    .addClass('xs12')
-                    .removeClass('xs5');
-
-        $('[name="steps"]')
-            .attr('checked', false)
-            .removeClass('input-success');
-
-        $('[name="house-property"]')
-            .attr({'checked': false, "required": false})
-            .removeClass('input-error');
-
-        $('#property-info').hide();
-
-        $('#code-validator').val('');
-
-        $('#select-street-container, #data-dropdown').empty('');
-
-        $('#first-step').addClass('active-step');
-
-        $form.find('.steps:not(#first-step)')
-            .removeClass('active-step');
-
-        $("#mailing-address, #mailing-address-alternative").attr("checked",false);
-
-        $('#misc-info').attr('required', false);
-        $('#street-number, #street-number-alternative').attr('required', false);
-        $('#suffix-number, #suffix-alternative').attr('required', false);
-        $('#street, #street-alternative').attr('required', false);
-        $('#city-or-town, #city-or-town-alternative').attr('required', false);
-        $('#country, #country-alternative').attr('required', false);
-        $('#province, #province-alternative').attr('required', false);
-        $('#postal-code-input, #postal-code-input-alternative').attr('required', false);
-        $('input[name="house-property"]').attr('required', false);
-    });
-
-    $("#reset-personal-info").bind('click', function() {
-        $('#personal-info').find('[type="text"]')
-            .val('');
-    });
-
-    $('#previous-dates').bind('click', function() {
-        var $target = $($(this).attr('data-target')),
-            elements = null;
-
-        $target.find('.active-step')
-            .removeClass('active-step');
-
-        elements =  $target.find('.steps:first-child')
-                       .removeClass('.processed');
-
-        if(elements[0]) {
-            $(elements[0]).addClass('active-step');
-        }
-    });
-
-    $('input[name="steps"]').change( function() {
-        if(this.value === 'stop') {
-            $('#stop-select')
-                .removeClass('hide-flow')
-                .attr('required', true);
-        } else {
-            $('#stop-select')
-                .addClass('hide-flow')
-                .attr('required', false);
-        }
-    });
-
+/*
     $('#get-address').bind('click', function() {
         var $this = $(this);
 
@@ -878,7 +1041,7 @@
                         numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
                     }
 
-                    $('<select class="enbridge-select" id="current-number" required>' + numbers.join('') + '</select>')
+                    $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
                         .appendTo(container)
                         .enbridgeDropdown();
 
@@ -891,7 +1054,7 @@
             },"json");
 
     });
-
+*/
     $('#newcustomers-get-address').bind('click', function() {
         var $this = $(this);
 
@@ -907,7 +1070,7 @@
                         numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
                     }
 
-                    $('<select class="enbridge-select" id="newcustomers-current-number" required>' + numbers.join('') + '</select>')
+                    $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
                         .appendTo(container)
                         .enbridgeDropdown();
 
@@ -921,38 +1084,12 @@
 
     });
 
-    $('#confirm-address-button').bind('click', function() {
-        var city = $('[name="select-street-container"]:checked').val() || '',
-            numberHouse =$('#current-number').val() || '',
-            zipCode = $('#code-validator').val();
-
-        $('#address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
-    });
-
     $('#newcustomers-confirm-address-button').bind('click', function() {
         var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
             numberHouse =$('#newcustomers-current-number').val() || '',
             zipCode = $('#newcustomers-code-validator').val() || '';
 
         $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
-    });
-
-    $('#info-confirmation').bind('click', function(e) {
-        e.preventDefault();
-        $('#information-acceptance')
-            .hide()
-                .closest('.code-box')
-                    .width(280);
-
-        $('#hide-message').
-            hide()
-                .closest('col')
-                    .addClass('xs5')
-                    .removeClass('xs12');
-
-        $('#property-info').show();
-        $('#step-address').removeClass('hidden');
-        $('input[name="house-property"]').attr('required');
     });
 
     $('#newcustomers-info-confirmation').bind('click', function(e) {
@@ -973,20 +1110,6 @@
         $('input[name="newcustomers-house-property"]').attr('required');
     });
 
-    $('#info-decline').bind('click', function(e) {
-        e.preventDefault();
-        $('#code-validator')
-            .removeClass('success-field')
-            .val('');
-
-        $('[name="house-property"]')
-            .attr({'checked': false, "required": false})
-            .removeClass('input-error');
-
-        $('#select-street-container, #data-dropdown').empty('');
-
-        $('#confirm-address, #first-step').toggleClass('active-step');
-    });
 
     $('#newcustomers-info-decline').bind('click', function(e) {
         e.preventDefault();
@@ -1003,23 +1126,6 @@
         $('#newcustomers-confirm-address, #newcustomers-first-step').toggleClass('active-step');
     });
 
-    $('#mailing-address-alternative, #mailing-address').change(function() {
-        var required = false;
-        if(this.checked) {
-            $('#manual-property-info').removeClass('hidden');
-            required= true;
-
-        } else {
-            $('#manual-property-info').addClass('hidden');
-            required = false;
-        }
-
-        $('#street-alternative').attr('required', required);
-        $('#city-or-town-alternative').attr('required', required);
-        $('#country-alternative').attr('required', required);
-        $('#province-alternative').attr('required', required);
-        $('#postal-code-input-alternative').attr('required',  required);
-    });
 
     $('#newcustomers-mailing-address-alternative, #newcustomers-mailing-address').change(function() {
         var required = false;

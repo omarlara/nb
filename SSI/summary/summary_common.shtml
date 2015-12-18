@@ -9,7 +9,11 @@
                 <div class="row">
                     <h2 class="movetitle col xs6">Move Summary</h2>
                     <div class="buttondiv col xs6">
-                        <button class="enbridge-btn yellow summarybtn edit-info" id="personal-info-user" data-accordion-element="#personal-info-address">EDIT</button>
+                        <button
+                            class="enbridge-btn yellow summarybtn edit-info"
+                            id="personal-info-user"
+                            data-id="personal-info-user"
+                        data-accordion-element="#personal-info-address">EDIT</button>
                     </div>
                 </div>
                 <div class="row">
@@ -63,7 +67,11 @@
                         </div>
 
                         <div class="buttondiv col xs5">
-                            <button class="enbridge-btn yellow summarybtn edit-info" id="reset-personal-info" data-accordion-element="#personal-info">EDIT</button>
+                            <button
+                                class="enbridge-btn yellow summarybtn edit-info"
+                                id="reset-personal-info"
+                                data-id="reset-personal-info"
+                            data-accordion-element="#personal-info">EDIT</button>
                         </div>
 
                         <div class="col border"></div>
@@ -87,7 +95,7 @@
                     <p class="checked">You will be charged a new account fee of $25</p>
 
                     <div action="" class="enbridge-form">
-                        <p class="">Would you like to enroll your new account in to the Budget Billing Plan? 
+                        <p class="">Would you like to enroll your new account in to the Budget Billing Plan?
                         <span class="tooltip super">
                             <span class="icon"></span>
                             <span class="content-tooltip">

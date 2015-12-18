@@ -14,18 +14,20 @@
                                     <div class="set-field">
                                         <input type="radio"
                                             id="transfer"
+                                            data-id="transfer"
                                             value="transfer"
                                             name="steps"
                                             data-required-error="Please select your move detail."
-                                        required>
+                                        data-required="true">
                                         <label class="fake-input" for="transfer"><strong>Transfer</strong> my gas service to another address.</label>
                                         <div class="clearfix "></div>
                                         <input type="radio"
                                             id="stop"
+                                            data-id="stop"
                                             value="stop"
                                             name="steps"
                                             data-required-error="Please select your move detail."
-                                        required>
+                                        data-required="true">
                                         <label class="fake-input" for="stop"><strong>Stop</strong> my gas service.</label>
                                         <select
                                             class="enbridge-select hide-flow"
@@ -50,9 +52,10 @@
                                         <input type="radio"
                                             id="add"
                                             value="add"
+                                            data-id="add"
                                             name="steps"
                                             data-required-error="Please select your move detail."
-                                        required>
+                                        data-required="true">
                                         <label class="fake-input" for="add"><strong>Add</strong> an additional service address to my account.</label>
                                     </div>
                                 </div>
@@ -63,8 +66,15 @@
                                     </div>
                                     <div class="tool">
                                         <p class="information green">&nbsp; Find out if your new address is serviced by Enbridge</p>
+                                        <div class="set-field">
 
-                                        <input type="text" class="code-container" name="zip-tool" data-required-error="Please enter a valid postal code (example: A1A1A)">
+                                        <input type="text"
+                                            class="code-container"
+                                            name="zip-tool"
+                                            data-pattern = "postal-code"
+                                            data-pattern-error = "The required form is A1A1A1"
+                                        data-required-error="Please enter a valid postal code (example: A1A1A)">
+                                        </div>
                                         <input class="enbridge-btn green big-button submiter" type="submit" value="CHECK">
 
                                     </div>
@@ -86,15 +96,22 @@
                                 <div class="steps active-step" id="first-step">
                                     <p class="strong">Please enter your new address:</p>
 
-                                    <div class="code-box little-top">
-                                        <label for="code-validator">Let's start with your postal code:</label>
-                                        <input type="text"
-                                            name="new-address"
-                                            id="code-validator"
-                                            class="new-address"
-                                            data-first-op="#select_your_address"
-                                            data-second-op="#select_your_address_form"
-                                        data-content="#select-street-container">
+                                    <div class="code-box little-top form-grid">
+                                       <div class="row">
+                                           <div class="form-group">
+                                                <label for="code-validator">Let's start with your postal code:</label>
+                                                <input type="text"
+                                                    name="new-address"
+                                                    id="code-validator"
+                                                    class="new-address"
+                                                    data-id="code-validator"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-first-op="#select_your_address"
+                                                    data-second-op="#select_your_address_form"
+                                                data-content="#select-street-container">
+                                           </div>
+                                       </div>
                                         <div class="next-step" data-next-step="#select_your_street"></div>
                                     </div>
 
@@ -114,7 +131,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="next-step" data-next-step="#select_your_address" id="get-address" data-number-dropdown="#data-dropdown"></div>
+                                        <div class="next-step"
+                                            data-next-step="#select_your_address"
+                                            id="get-address"
+                                        data-number-dropdown="#data-dropdown">
+                                        </div>
                                     </div>
 
                                 </div>
@@ -150,14 +171,24 @@
                                         </div>
                                     </div>
                                     <div id="property-info">
-                                        <input type="radio" id="rent-property" value="rent" name="house-property">
-                                        <label class="fake-input" for="rent-property">
-                                            I'm renting this property.
-                                        </label>
-                                        <input type="radio" id="buy-property" value="buy" name="house-property">
-                                        <label class="fake-input" for="buy-property">
-                                            I'm buying this property.
-                                        </label>
+                                        <div  class="set-field">
+                                            <input type="radio"
+                                                id="rent-property"
+                                                value="rent"
+                                                name="house-property"
+                                            data-required-error="Please select an element">
+                                            <label class="fake-input" for="rent-property">
+                                                I'm renting this property.
+                                            </label>
+                                            <input type="radio"
+                                                id="buy-property"
+                                                value="buy"
+                                                name="house-property"
+                                             data-required-error="Please select an element">
+                                            <label class="fake-input" for="buy-property">
+                                                I'm buying this property.
+                                            </label>
+                                        </div>
 
                                         <input type="checkbox" id="mailing-address" value="true">
                                         <label class="fake-input" for="mailing-address">My mailing address is different from my service address</label>
@@ -172,15 +203,31 @@
                                             <label for="usr" class="descriptor _w100">Street Address:</label>
                                             <div class="set-field content-container">
                                                 <div class="content-container">
-                                                    <input type="text" id="street-number" class="_w60" data-rel="street">
-                                                    <input type="text" id="suffix" class="_w60" data-rel="street">
+                                                    <input type="text"
+                                                        id="street-number"
+                                                        class="_w60"
+                                                        data-id="street-number"
+                                                    data-rel="street">
+
+                                                    <input
+                                                        type="text"
+                                                        id="suffix"
+                                                        class="_w60"
+                                                        data-id="suffix"
+                                                    data-rel="street">
                                                     <input
                                                         type="text"
                                                         id="street"
+                                                        data-id="street"
                                                         class="_w220"
                                                         data-required-error="Please select the required information."
+                                                        data-id="street"
                                                         data-rel="street">
-                                                    <input type="text" id="misc-info" class="_w60" data-rel="street">
+                                                    <input type="text"
+                                                        id="misc-info"
+                                                        class="_w60"
+                                                        data-id="misc-info"
+                                                    data-rel="street">
                                                 </div>
                                                 <div>
                                                     <label for="street-number" class="tiny _w60">Number</label>
@@ -195,7 +242,12 @@
                                         <div class="form-group pull-margin-right">
                                             <label for="usr" class="descriptor _w100">City or Town:</label>
                                             <div class="set-field content-container">
-                                                <input type="text" id="city-or-town" class="_w180" data-required-error="Please select the required information." data-rel="city-or-town">
+                                                <input
+                                                    type="text"
+                                                    id="city-or-town"
+                                                    class="_w180"
+                                                    data-id="city-or-town"
+                                                data-required-error="Please select the required information." data-rel="city-or-town">
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +257,12 @@
                                             <div class="content-container">
                                                 <label for="usr" class="descriptor _w100">Country:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" data-required-error="Please select the required information." id="country">
+                                                    <select
+                                                       class="enbridge-select"
+                                                       data-required-error="Please select the required information."
+                                                        id="country"
+                                                        data-id="country"
+                                                    data-rel="country">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
@@ -214,7 +271,12 @@
                                             <div class="content-container">
                                                 <label for="usr" class="descriptor _w70">Province:</label>
                                                 <div class="set-field content-container _w180" data-required-error="Please select the required information.">
-                                                    <select class="enbridge-select"  id="province" data-required-error="Please select the required information.">
+                                                    <select
+                                                        class="enbridge-select"
+                                                        id="province"
+                                                        data-id="province"
+                                                        data-rel="province"
+                                                    data-required-error="Please select the required information.">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
@@ -229,11 +291,12 @@
                                             <div class="set-field content-container">
                                                 <input type="text"
                                                     id="postal-code-input"
+                                                    data-id="postal-code-input"
                                                     class="_w120"
                                                     data-pattern = "postal-code"
                                                     data-pattern-error = "The required form is A1A1A1"
                                                     data-required-error="Please select the required information."
-                                                    data-rel="postal-code-input">
+                                                data-rel="postal-code-input">
                                             </div>
                                         </div>
                                     </div>
@@ -249,25 +312,46 @@
                                         </label>
                                     </div>
 
-                                    <input type="checkbox" id="mailing-address-alternative" value="true">
+                                    <input
+                                        type="checkbox"
+                                        id="mailing-address-alternative"
+                                        data-id="mailing-address-alternative"
+                                    value="true">
                                     <label class="fake-input" for="mailing-address-alternative">My mailing address is different from my service address</label>
 
                                 </div>
+
                                 <div class="hidden" id="manual-property-info">
                                     <div class="property-info form-grid">
                                         <div class="form-group pull-margin-right">
                                             <label for="usr" class="descriptor _w100">Street Address:</label>
                                             <div class="set-field content-container">
                                                 <div class="content-container">
-                                                    <input type="text" id="street-number-alternative" class="_w60" data-rel="street-alternative">
-                                                    <input type="text" id="suffix-alternative" class="_w60" data-rel="street-alternative">
+                                                    <input type="text"
+                                                        id="street-number-alternative"
+                                                        class="_w60"
+                                                        data-id="street-number-alternative"
+                                                    data-rel="street-alternative">
+
+                                                    <input type="text"
+                                                        id="suffix-alternative"
+                                                        class="_w60"
+                                                        data-id="suffix-alternative"
+                                                    data-rel="street-alternative">
+
                                                     <input
                                                         type="text"
                                                         id="street-alternative"
                                                         class="_w220"
                                                         data-required-error="Please select the required information."
+                                                        data-id="street-alternative"
                                                         data-rel="street-alternative">
-                                                    <input type="text" id="misc-info-alternative" class="_w60" data-rel="street-alternative">
+                                                    <input
+                                                        type="text"
+                                                        id="misc-info-alternative"
+                                                        class="_w60"
+                                                        data-id="misc-info-alternative"
+                                                    data-rel="street-alternative">
                                                 </div>
                                                 <div>
                                                     <label for="street-number" class="tiny _w60">Number</label>
@@ -286,6 +370,7 @@
                                                     id="city-or-town-alternative"
                                                     class="_w180"
                                                     data-required-error="Please select the required information."
+                                                    data-id="city-or-town-alternative"
                                                 data-rel="city-or-town-alternative">
                                             </div>
                                         </div>
@@ -296,7 +381,12 @@
                                             <div class="content-container">
                                                 <label for="usr" class="_w100">Country:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" id="country-alternative-element" data-required-error="Please select the required information.">
+                                                    <select
+                                                        class="enbridge-select"
+                                                        id="country-alternative-element"
+                                                        data-required-error="Please select the required information."
+                                                        data-id="country-alternative-element"
+                                                    data-rel="country-alternative-element">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
@@ -305,7 +395,12 @@
                                             <div class="content-container">
                                                 <label for="usr" class="_w70">Province:</label>
                                                 <div class="set-field content-container _w180">
-                                                    <select class="enbridge-select" id="province-alternative-element" data-required-error="Please select the required information.">
+                                                    <select
+                                                        class="enbridge-select"
+                                                        id="province-alternative-element"
+                                                        data-required-error="Please select the required information."
+                                                        data-id="province-alternative-element"
+                                                    data-rel="province-alternative-element">
                                                         <option value="Canada">Canada</option>
                                                         <option value="United States">United States</option>
                                                     </select>
@@ -323,7 +418,9 @@
                                                     class="_w120"
                                                     data-pattern = "postal-code"
                                                     data-pattern-error = "The required form is A1A1A1"
-                                                    data-required-error="Please select the required information." data-rel="postal-code-input-alternative">
+                                                    data-required-error="Please select the required information."
+                                                    data-id="postal-code-input-alternative"
+                                                data-rel="postal-code-input-alternative">
                                             </div>
                                         </div>
                                     </div>
@@ -399,8 +496,18 @@
                                     </p>
                                 </div>
 
-                                <input type="hidden" class="start-date" id="date-start" required>
-                                <input type="hidden" class="finish-date" id="date-finish" required>
+                                <input
+                                    type="hidden"
+                                    class="start-date"
+                                    id="date-start"
+                                    data-id="date-start"
+                                data-required="true">
+                                <input
+                                    type="hidden"
+                                    class="finish-date"
+                                    id="date-finish"
+                                    data-id="date-finish"
+                                data-required="true">
 
                                 <div class="validator-container">
                                     <a class="prev" id="previous-dates" data-target="#steps-flow-1" href="#">BACK</a>
@@ -420,7 +527,12 @@
                                     <div class="form-group _w160 information-label-distance">
                                       <label for="usr" class="descriptor">Day:</label>
                                       <div class="set-field">
-                                        <select name="" class="enbridge-select" id="day-user-info" data-required-error="Please select the required information." required>
+                                        <select name=""
+                                           class="enbridge-select"
+                                           id="day-user-info"
+                                           data-id="day-user-info"
+                                           data-required-error="Please select the required information."
+                                        data-required="true">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -431,7 +543,12 @@
                                     <div class="form-group _w180">
                                       <label for="usr" class="descriptor">Month:</label>
                                       <div class="set-field">
-                                        <select name="" class="enbridge-select" id="month-user-info" data-required-error="Please select the required information." required>
+                                        <select name=""
+                                           class="enbridge-select"
+                                           id="month-user-info"
+                                           data-id="month-user-info"
+                                           data-required-error="Please select the required information."
+                                        data-required="true">
                                             <option value="1">January</option>
                                             <option value="11">November</option>
                                             <option value="12">December</option>
@@ -444,11 +561,12 @@
                                         <input type="text"
                                             class="form-control  _w60"
                                             id="year-user-info"
+                                            data-id="year-user-info"
                                             data-pattern = "valid-year"
                                             data-pattern-error = "Isn't a valid year"
                                             data-required-error="Please select the required information."
                                             data-rel="year-your-info"
-                                        required>
+                                        data-required="true">
                                       </div>
                                     </div>
                                 </div>
@@ -460,9 +578,20 @@
                                     <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr" class="descriptor">Mobile Phone:</label>
                                       <div class="set-field ">
-                                            <input type="text" class="form-control  _w60" id="user-mobile-lada" data-rel="mobile-phone-your-info">
+                                            <input
+                                                type="text"
+                                                class="form-control  _w60"
+                                                id="user-mobile-lada"
+                                                data-id="user-mobile-lada"
+                                            data-rel="mobile-phone-your-info">
 
-                                            <input type="text" class="form-control _w160" id="user-mobile-phone" data-required-error="Please select the required information." data-rel="mobile-phone-your-info" required>
+                                            <input
+                                                type="text"
+                                                class="form-control _w160"
+                                                id="user-mobile-phone"
+                                                data-required-error="Please select the required information."
+                                                data-rel="mobile-phone-your-info"
+                                            data-required="true">
                                       </div>
                                     </div>
                                 </div>
@@ -471,9 +600,21 @@
                                     <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr" class="descriptor">Home Phone:</label>
                                       <div class="set-field">
-                                        <input type="text" class="form-control  _w60" id="user-home-lada" data-rel="home-phone-your-info">
+                                        <input
+                                            type="text"
+                                            class="form-control  _w60"
+                                            id="user-home-lada"
+                                            data-id="user-home-lada"
+                                        data-rel="home-phone-your-info">
 
-                                        <input type="text" class="form-control _w160" id="user-home-phone" data-required-error="Please select the required information." data-rel="home-phone-your-info" required>
+                                        <input
+                                            type="text"
+                                            class="form-control _w160"
+                                            id="user-home-phone"
+                                            data-id="user-home-phone"
+                                            data-required-error="Please select the required information."
+                                            data-rel="home-phone-your-info"
+                                        data-required="true">
                                       </div>
                                     </div>
                                 </div>
@@ -482,10 +623,27 @@
                                     <div class="form-group pull-margin-right information-label-distance">
                                       <label for="usr" class="descriptor">Business Phone:</label>
                                       <div class="set-field ">
-                                            <input type="text" class="form-control  _w60"  id="user-business-lada" data-rel="business-phone-your-info">
-                                            <input type="text" class="form-control _w160"  id="user-business-phone" data-required-error="Please select the required information." data-rel="business-phone-your-info" required>
+                                            <input
+                                                type="text"
+                                                class="form-control  _w60"
+                                                id="user-business-lada"
+                                                data-id="user-business-lada"
+                                            data-rel="business-phone-your-info">
+                                            <input
+                                                type="text"
+                                                class="form-control _w160"
+                                                id="user-business-phone"
+                                                data-id="user-business-phone"
+                                                data-required-error="Please select the required information."
+                                                data-rel="business-phone-your-info"
+                                            data-required="true">
                                             <label for="pwd" class="fluid-label">Ext:</label>
-                                            <input type="text" class="form-control  _w60" id="user-business-ext" data-rel="business-phone-your-info">
+                                            <input
+                                                type="text"
+                                                class="form-control  _w60"
+                                                id="user-business-ext"
+                                                data-id="user-business-ext"
+                                            data-rel="business-phone-your-info">
                                       </div>
                                     </div>
                                 </div>
@@ -500,10 +658,18 @@
                                                 </span>
                                             </span>
                                         </span><br><br>
-                                        <label for="usr" class="information-label-distance">First: </label>
-                                        <input type="text" class="form-control _w160"  id="additional-fist-name" >
-                                        <label for="usr" class="left-padding_15 small">Last: </label>
-                                        <input type="text" class="form-control _w160"  id="additional-last-name" >
+                                        <label for="additional-fist-name" class="information-label-distance">First: </label>
+                                        <input
+                                            type="text"
+                                            class="form-control _w160"
+                                            id="additional-fist-name"
+                                        data-id="additional-fist-name">
+                                        <label for="additional-last-name" class="left-padding_15 small">Last: </label>
+                                        <input
+                                            type="text"
+                                            class="form-control _w160"
+                                            id="additional-last-name"
+                                        data-id="additional-last-name">
                                     </div>
                                 </div>
                             </div>
@@ -525,11 +691,11 @@
                             </div>
 
                             <div class="col md4 xs1-off">
-                                <a class="enbridge-btn green larger _w230">SAVE & RETURN LATER</a>
+                                <a class="enbridge-btn green larger _w230" id="moving-out-submit">SAVE & RETURN LATER</a>
                             </div>
 
                             <div class="col md3 xs1-off">
-                                <a class="enbridge-btn yellow disabled submit-button  _w160">SUBMIT</a>
+                                <a class="enbridge-btn yellow disabled submit-button  _w160" data-id="moving-out-submit">SUBMIT</a>
                             </div>
 
                         </div>

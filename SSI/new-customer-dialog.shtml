@@ -34,10 +34,23 @@
 
                                         <div class="form-group pull-margin-right inputs-div-style">
                                             <div class="set-field content-container left-radios">
-                                                <input type="radio" id="device-type-home" value="home"  name="device-type" data-required-error="Please select your move detail." required="">
+                                                <input
+                                                    type="radio"
+                                                    id="device-type-home"
+                                                    value="home"
+                                                    name="device-type"
+                                                    data-id="device-type-home"
+                                                    data-required-error="Please select your move detail."
+                                                data-required="true">
                                                 <label class="fake-input in-line radio-space" for="device-type-home">Home</label>
 
-                                                <input type="radio" id="device-type-business" value="home"  name="device-type" data-required-error="Please select your move detail." required="">
+                                                <input
+                                                    type="radio"
+                                                    id="device-type-business"
+                                                    value="home"
+                                                    name="device-type"
+                                                    data-required-error="Please select your move detail."
+                                                data-required="true">
                                                 <label class="fake-input in-line" for="device-type-business">Business</label>
                                             </div>
                                         </div>
@@ -48,22 +61,28 @@
                                             <div class="form-group pull-margin-right space-inputs">
                                                 <label for="newcustomers-customer-name" class="descriptor">Customer Name:</label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control  _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
                                                         id="newcustomers-customer-name"
+                                                        data-id="newcustomers-customer-name"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-customer-name"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
 
                                             <div class="form-group pull-margin-right">
                                                 <label for="newcustomers-middle-name" class="descriptor">Middle Name: </label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control  _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
                                                         id="newcustomers-middle-name"
+                                                        data-id="newcustomers-middle-name"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-middle-name"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -72,11 +91,14 @@
                                             <div class="form-group pull-margin-right space-inputs">
                                                 <label for="newcustomers-last-name" class="descriptor">Last Name:</label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control  _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
                                                         id="newcustomers-last-name"
+                                                        data-id="newcustomers-last-name"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-last-name"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -100,22 +122,28 @@
                                             <div class="form-group pull-margin-right space-inputs">
                                             <label for="newcustomers-first-name-optional" class="descriptor">First:</label>
                                             <div class="set-field">
-                                                <input type="text" class="form-control  _w150"
+                                                <input
+                                                    type="text"
+                                                    class="form-control  _w150"
                                                     id="newcustomers-first-name-optional"
+                                                    data-id="newcustomers-first-name-optional"
                                                     data-required-error="Please select the required information."
                                                     data-rel="newcustomers-first-name-optional"
-                                                required>
+                                                data-required="true">
                                             </div>
                                             </div>
 
                                             <div class="form-group pull-margin-right">
                                             <label for="newcustomers-last-name-optional" class="descriptor">Last: </label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control  _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
                                                         id="newcustomers-last-name-optional"
+                                                        data-id="newcustomers-last-name-optional"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-last-name-optional"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -126,14 +154,20 @@
                                             <div class="form-group pull-margin-right space-inputs">
                                                 <label for="newcustomers-mobile-phone" class="descriptor">Mobile Phone:</label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control _w60"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w60"
                                                         id="newcustomers-mobile-phone-lada"
+                                                        data-id="newcustomers-mobile-phone-lada"
                                                     data-rel="newcustomers-mobile-phone">
-                                                    <input type="text" class="form-control _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w150"
                                                         id="newcustomers-mobile-phone"
+                                                        data-id="newcustomers-mobile-phone"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-mobile-phone"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -142,14 +176,20 @@
                                             <div class="form-group pull-margin-right space-inputs">
                                                 <label for="newcustomers-home-phone" class="descriptor">Home Phone:</label>
                                               <div class="set-field">
-                                                    <input type="text" class="form-control _w60"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w60"
                                                         id="newcustomers-home-phone-lada"
+                                                        data-id="newcustomers-home-phone-lada"
                                                     data-rel="newcustomers-home-phone">
-                                                    <input type="text" class="form-control _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w150"
                                                         id="newcustomers-home-phone"
+                                                        data-id="newcustomers-home-phone"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-home-phone"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -158,17 +198,26 @@
                                             <div class="form-group pull-margin-right space-inputs">
                                                 <label for="usr" class="descriptor">Business Phone:</label>
                                                 <div class="set-field">
-                                                    <input type="text" class="form-control  _w60"
-                                                    id="newcustomers-business-phone-lada"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="newcustomers-business-phone-lada"
+                                                        data-id="newcustomers-business-phone-lada"
                                                     data-rel="newcustomers-business-phone">
-                                                    <input type="text" class="form-control  _w150"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
                                                         id="newcustomers-business-phone"
+                                                        data-id="newcustomers-business-phone"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-business-phone"
-                                                    required>
+                                                    data-required="true">
                                                     <label for="newcustomers-business-phone-ext">ext:</label>
-                                                    <input type="text" class="form-control  _w60"
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
                                                         id="newcustomers-business-phone-ext"
+                                                        data-id="newcustomers-business-phone-ext"
                                                     data-rel="newcustomers-business-phone">
                                                 </div>
                                             </div>
@@ -180,11 +229,12 @@
                                                 <div class="set-field">
                                                   <input type="text" class="form-control  _w150"
                                                         id="newcustomers-email"
+                                                        data-id="newcustomers-email"
                                                         data-pattern = "valid-email"
                                                         data-pattern-error = "Isn't a valid mail"
                                                         data-required-error="Please select the required information."
                                                         data-rel="newcustomers-email"
-                                                    required>
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +251,7 @@
                                                                     id="newcustomers-month"
                                                                     data-required-error="Please select the required information."
                                                                     data-rel="newcustomers-month"
-                                                                required>
+                                                                data-required="true">
                                                                     <option value="">Month</option>
                                                                     <option value="1">January</option>
                                                                     <option value="2">February</option>
@@ -226,7 +276,7 @@
                                                                         id="newcustomers-day"
                                                                         data-required-error="Please select the required information."
                                                                         data-rel="newcustomers-day"
-                                                                    required>
+                                                                    data-required="true">
                                                                         <option value="">Day</option>
                                                                         <option value="1">1</option>
                                                                         <option value="2">2</option>
@@ -249,11 +299,12 @@
                                                                 <input type="text" class="form-control  _w100"
                                                                     placeholder="YYYY"
                                                                     id="newcustomers-year"
+                                                                    data-id="newcustomers-year"
                                                                     data-pattern = "valid-year"
                                                                     data-pattern-error = "Isn't a valid year"
                                                                     data-required-error="Please select the required information."
                                                                     data-rel="newcustomers-year"
-                                                                required>
+                                                                data-required="true">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -569,7 +620,7 @@
                                                 value="true"
                                                 data-required-error="Please select the required information."
                                                 data-rel="newcustomers-budget-billing-plan"
-                                            required>
+                                            data-required="true">
                                             <label class="fake-input in-line radio-space  left-distance-radio" for="newcustomers-budget-billing-plan-yes">Yes</label>
 
                                             <input type="radio"
@@ -578,7 +629,7 @@
                                                 value="true"
                                                 data-required-error="Please select the required information."
                                                 data-rel="newcustomers-budget-billing-plan"
-                                            required>
+                                            data-required="true">
                                             <label class="fake-input in-line left-distance-radio" for="newcustomers-budget-billing-plan-no">No</label>
                                         </div>
                                     </div>
@@ -609,7 +660,7 @@
                                                     data-pattern-error = "Isn't a valid mail"
                                                     data-required-error="Please select the required information."
                                                     data-rel="newcustomers-email"
-                                                required>
+                                                data-required="true">
                                             </div>
                                           </div>
                                         </div>

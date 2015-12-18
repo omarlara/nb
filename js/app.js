@@ -418,7 +418,9 @@
     };
 
     /*Flows*/
-    /*Accordion 1 Moving out*/
+
+    /*Dialog - 1 - Moving out*/
+
     /*Stop radio button click, show/hide Select reason select*/
      $('[name="steps"]').click(function() {
         var $element = $('#stop-select');
@@ -776,7 +778,7 @@
         $('[data-id="moving-out-submit"]').addClass('disabled');
     });
 
-
+    /*Dialog - 2 - New Customer*/
 
 
 

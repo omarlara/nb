@@ -277,7 +277,7 @@
                                 <div class="steps active-step" id="newcustomers-first-step">
                                     <p class="strong">Please enter your new address:
                                     <span class="tooltip">
-                                        <span class="icon"></span>
+                                        <span class="icon address-tooltip"></span>
                                         <span class="content-tooltip">
                                             <span class="cross"></span>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.

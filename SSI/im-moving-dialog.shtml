@@ -533,7 +533,7 @@
                                         </span><br><br>
                                         <label for="usr" class="information-label-distance">First: </label>
                                         <input type="text" class="form-control _w160"  id="additional-fist-name" >
-                                        <label for="usr" class="left-padding_15">Last: </label>
+                                        <label for="usr" class="left-padding_15 small">Last: </label>
                                         <input type="text" class="form-control _w160"  id="additional-last-name" >
                                     </div>
                                 </div>

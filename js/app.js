@@ -1172,7 +1172,8 @@
                     height: 240,
                     width: 720,
                     modal: true,
-                    height: 440
+                    height: 440,
+                    top:29
             };
 
         calendar.datepicker();

@@ -122,6 +122,13 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent !important;
 }
 
+.text-after {
+    .information{
+        background-color: transparent;
+
+    }
+}
+
 .information-inverse {
     padding-top: $normal-padding;
     padding-bottom: $normal-padding;
@@ -229,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .information {
-    background-color: #F4F7ED;
+    //background-color: #F4F7ED;
     line-height: 1.5;
     color: #636373;
     padding: 19px;

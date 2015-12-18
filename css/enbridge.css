@@ -1381,6 +1381,12 @@
   position: relative;
   width: 480px;
   background-color: #ddd6cc; }
+  .enbridge-content-container .code-box label {
+    font-size: 12px !important; }
+  .enbridge-content-container .code-box input[type="text"] {
+    margin-bottom: 0; }
+  .enbridge-content-container .code-box .form-group {
+    margin-bottom: 0 !important; }
   .enbridge-content-container .code-box.little-top {
     margin-top: 15px; }
   .enbridge-content-container .code-box.top-information {

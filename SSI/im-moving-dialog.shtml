@@ -73,7 +73,7 @@
                                             name="zip-tool"
                                             data-pattern = "postal-code"
                                             data-pattern-error = "The required form is A1A1A1"
-                                            data-required-error="Please enter a valid postal code (example: A1A1A)">
+                                        data-required-error="Please enter a valid postal code (example: A1A1A)">
                                         </div>
                                         <input class="enbridge-btn green big-button submiter" type="submit" value="CHECK">
 
@@ -96,15 +96,21 @@
                                 <div class="steps active-step" id="first-step">
                                     <p class="strong">Please enter your new address:</p>
 
-                                    <div class="code-box little-top">
-                                        <label for="code-validator">Let's start with your postal code:</label>
-                                        <input type="text"
-                                            name="new-address"
-                                            id="code-validator"
-                                            class="new-address"
-                                            data-first-op="#select_your_address"
-                                            data-second-op="#select_your_address_form"
-                                        data-content="#select-street-container">
+                                    <div class="code-box little-top form-grid">
+                                       <div class="row">
+                                           <div class="form-group">
+                                                <label for="code-validator">Let's start with your postal code:</label>
+                                                <input type="text"
+                                                    name="new-address"
+                                                    id="code-validator"
+                                                    class="new-address"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-first-op="#select_your_address"
+                                                    data-second-op="#select_your_address_form"
+                                                data-content="#select-street-container">
+                                           </div>
+                                       </div>
                                         <div class="next-step" data-next-step="#select_your_street"></div>
                                     </div>
 
@@ -124,7 +130,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="next-step" data-next-step="#select_your_address" id="get-address" data-number-dropdown="#data-dropdown"></div>
+                                        <div class="next-step"
+                                            data-next-step="#select_your_address"
+                                            id="get-address"
+                                        data-number-dropdown="#data-dropdown">
+                                        </div>
                                     </div>
 
                                 </div>
@@ -160,14 +170,24 @@
                                         </div>
                                     </div>
                                     <div id="property-info">
-                                        <input type="radio" id="rent-property" value="rent" name="house-property">
-                                        <label class="fake-input" for="rent-property">
-                                            I'm renting this property.
-                                        </label>
-                                        <input type="radio" id="buy-property" value="buy" name="house-property">
-                                        <label class="fake-input" for="buy-property">
-                                            I'm buying this property.
-                                        </label>
+                                        <div  class="set-field">
+                                            <input type="radio"
+                                                id="rent-property"
+                                                value="rent"
+                                                name="house-property"
+                                            data-required-error="Please select an element">
+                                            <label class="fake-input" for="rent-property">
+                                                I'm renting this property.
+                                            </label>
+                                            <input type="radio"
+                                                id="buy-property"
+                                                value="buy"
+                                                name="house-property"
+                                             data-required-error="Please select an element">
+                                            <label class="fake-input" for="buy-property">
+                                                I'm buying this property.
+                                            </label>
+                                        </div>
 
                                         <input type="checkbox" id="mailing-address" value="true">
                                         <label class="fake-input" for="mailing-address">My mailing address is different from my service address</label>
@@ -263,6 +283,7 @@
                                     <label class="fake-input" for="mailing-address-alternative">My mailing address is different from my service address</label>
 
                                 </div>
+
                                 <div class="hidden" id="manual-property-info">
                                     <div class="property-info form-grid">
                                         <div class="form-group pull-margin-right">

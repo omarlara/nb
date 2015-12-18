@@ -62,7 +62,9 @@
         margin-right: 9px;
         &.top-billing{
             margin-top: 13px;
+            margin-top: 0px\9;
         }
+         
         &:after {
             content: "i";
             font-style:italic;
@@ -73,6 +75,7 @@
             height: 20px;
             vertical-align: middle;
             padding-top: 2px;
+            padding-top: 1px\9;
             color: #fff;
             font-weight: 700;
             float: right;
@@ -80,6 +83,7 @@
             margin-top: 8px;
         }
     }
+
 
     .icon {
         width: 20px;
@@ -104,6 +108,22 @@
             font-size: 14px;
         }
     }
+
+    @-moz-document url-prefix() {
+            .letter-i{
+                &:after{
+                    padding-top: 1px;
+                }
+            }
+
+            .icon {
+
+                &:after {
+                    padding-top: 1px;
+                }
+            }
+            
+        }
 
     .content-tooltip:before {
         width: 0;
@@ -135,3 +155,17 @@
         top:1px;
     }
 }
+
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+         .tooltip {
+                .letter-i{
+                     
+                    &:after {
+                        padding-top: 1px;
+                    }
+                }
+            
+        }
+ 
+    }

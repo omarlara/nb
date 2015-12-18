@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Message Subject or Title</title>
+   <style>
+    .table-button a{
+        color: #ffffff !important;
+    }
+   </style>
+</head>
+
+<body>
+    <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
+        <td valign="middle" style="font-family:Arial, Sans-serif; padding:0 10px 0 0;">
+        <table cellpadding="0" align="center" cellspacing="0" border="0" id="backgroundTable" style="font-family:Arial, Sans-serif; text-align:center; border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td>
+
+                        <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
+                        <table cellpadding="0" style="font-family:Arial, Sans-serif; border:1px solid #ccc; padding:4px; width:440px; text-align:left; border-collapse: collapse;" cellspacing="0" border="0" align="center">
+                            <tbody style="font-family:Arial, Sans-serif; display:block">
+                                <tr>
+                                    <td width="200" colspan="3" valign="top" style="font-family:Arial, Sans-serif; background-color:#92b051; padding:20px">
+                                        <img style="font-family:Arial, Sans-serif; display: block; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; " class="image_fix" src="http://www.ashernetz.com/images/myenbridge.png" alt="Your alt text" title="Your title text" width="x" height="x" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:Arial, Sans-serif; padding:20px;color: #555555 !important">
+                                        <div class="hi" style="font-family:Arial, Sans-serif; background:url('http://www.ashernetz.com/images/headline.jpg') no-repeat right top scroll">
+                                            <h1 style="font-family:Arial, Sans-serif; margin:0; padding:100px 0 0 0; color: #555555 !important">
+                                                <font color="#555555"> Hi John</font>
+                            </h1>
+                            <h2 style="font-family:Arial, Sans-serif; padding:0; margin:10px 0 20px 0px; color: #555555 !important">
+                                <font color="#555555"> we received your move request.</font>
+                            </h2>
+                            <table width="100%" style="border-collapse:collapse">
+                                <tbody>
+                                    <tr>
+                                        <td style="border-collapse:collapse; font-family:Arial, Sans-serif; padding: 20px;background-color:#92b051;">
+                                            <div>
+                                                <p style="font-family:Arial, Sans-serif; color:#ffffff; font-size:14px; margin-top:0 !important">
+                                                    <font color="#ffffff">
+                                                        Looks like you started to enter details about your upcoming
+                                                        move a few days ago in myEnbridge. <br />
+                                                        We're just checking in to see if you're ready to complete
+                                                        your submission. <br />
+                                                        Please keep in mind that we need 3 business days advance 
+                                                        notice of your move. <br />
+                                                        To complete the form, please <a href="">
+                                                        <font style="color:#298A98;">login to myEnbridge</font>
+                                                        </a>, add any further details and submit.
+                                                        <br />
+                                                        Than you for using our online service Options!.
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                    </td>
+                                </tr>
+                                
+
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-family:Arial, Sans-serif; padding:0 20px; style="font-family:Arial, Sans-serif; height: 1px; background: #dddddd; border:0 none;"">
+
+                                    </td>
+                                </tr>
+
+
+                                
+
+
+                            
+                                <tr>
+                                    <td style="border-collapse:collapse; font-family:Arial, Sans-serif; background-color:#333; padding:20px; text-align:Center; outline: none;text-decoration: none; -ms-interpolation-mode: bicubic;">
+                                        <table align="center" style="border-collapse:collapse">
+                                            <tr>
+                                                <td>
+                                                    <img style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; " src="http://www.ashernetz.com/images/logofooter.png" alt="Your alt text" width="130" height="38" />
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:Arial, Sans-serif; padding:20px 20px 10px; text-align:Center; border-bottom:8px solid #92b051; background-color:#E2E2E2;" align:center>
+                                        <table width="100%" style="font-family:Arial, Sans-serif; text-align:center; font-size:14px; border-collapse: collapse; ">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img width="42" height="42" src="http://www.ashernetz.com/images/twitter.png" style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" alt="Your alt text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="#" style="font-family:Arial, Sans-serif; color:#555555 !important; font-weight:600; text-decoration:none">
+                                                            <font color="#555555">Follow Enbidge on Twitter</font>
+                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family:Arial, Sans-serif; padding:5px 0 10px 0">
+                                                        <img width="24" height="3" src="http://www.ashernetz.com/images/separator.png" alt="Your alt text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a href="#" style="font-family:Arial, Sans-serif; color:#007DBA !important; font-weight:600;  text-decoration:none">
+                                                            <font color="#007DBA">Manage your email preferences</font>
+                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family:Arial, Sans-serif; padding:5px 0 0px 0">
+                                                        <img width="24" height="3" style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" src="http://www.ashernetz.com/images/separator.png" alt="Your alt text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <font color="#ffffff">&nbsp;</font></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, ectetur adipisic ing elit. Quam, nobis. Moll itia labore praesentium reiciendis consequuntur, atque archit ecto tem poribus odio vel unde, rem, dolores dolor doloribus consectetur enim. Voluptas, sit, illum.Losum dolor sit amet.
+                                                            <p>
+                                                                2015 Enbridge Gas Distribution Inc.
+                                                            </p>
+                                                            <p>
+                                                                All Right Reserved
+                                                            </p>
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <td> <font color="#ffffff">&nbsp;</font></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <!-- End of wrapper table -->
+    <!-- End of wrapper table -->
+
+</body>
+
+</html>

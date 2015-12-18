@@ -15,7 +15,8 @@
 
 <body>
     <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
-    <table cellpadding="0" align="center" cellspacing="0" border="0" id="backgroundTable" style="font-family:Arial, Sans-serif; text-align:center; border-collapse: collapse;">
+        <td valign="middle" style="font-family:Arial, Sans-serif; padding:0 10px 0 0;">
+         <table cellpadding="0" align="center" cellspacing="0" border="0" id="backgroundTable" style="font-family:Arial, Sans-serif; text-align:center; border-collapse: collapse;">
         <tbody>
             <tr>
                 <td>
@@ -69,7 +70,7 @@
                                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial, Sans-serif; border-collapse: collapse;">
                                         <tbody>
                                             <tr>
-                                                <td style="font-family:Arial, Sans-serif; padding:20px; background:url('http://www.ashernetz.com/images/family.jpg') no-repeat top right; ">
+                                                <td style="font-family:Arial, Sans-serif; padding:20px; background:url('http://www.ashernetz.com/images/family.jpg') no-repeat top right;  ">
                                                     <h1 style="font-family:Arial, Sans-serif; color: #59cbe8 !important; font-weight:400; font-size: 24px; letter-spacing: -1px; margin: 0 0 15px 0; "> <font color="#59cbe8">Move Summary </font></h1>
                                                     <table width="100%" style="font-family:Arial, Sans-serif; border-collapse: collapse;">
                                                         <tbody>
@@ -113,7 +114,7 @@
                                                                                         <br/> M2M 2M2
                                                                                     </p>
                                                                                     <h4 style="font-family:Arial, Sans-serif; color: #ffffff !important; font-size: 24px; letter-spacing: -1px; margin: 20px 0 10px 0; font-weight:400"><font color="#ffffff">Service Ending:</font></h4>
-                                                                                    <p style="font-family:Arial, Sans-serif; margin:0; font-size: 18px; color: #fff; letllter-spacing: 0px;">
+                                                                                    <p style="font-family:Arial, Sans-serif; margin:0; font-size: 18px; color: #fff; letter-spacing: 0px;">
                                                                                         October 20th
                                                                                     </p>
                                                                                 </td>
@@ -136,7 +137,6 @@
                                     <table width="100%" style="font-family:Arial, Sans-serif; border-collapse: collapse;">
                                         <tbody>
                                             <tr>
-                                                <td valign="middle" style="font-family:Arial, Sans-serif; padding:0 10px 0 0;">
                                                     <img class="image_fix" src="http://www.ashernetz.com/images/icon.png" alt="Your alt text" title="Your title text" width="18" height="17" style="font-family:Arial, Sans-serif; outline: none;text-decoration: none;-ms-interpolation-mode: bicubic; display: block;" />
                                                 </td>
                                                 <td style="font-family:Arial, Sans-serif; font-size:11px; color:#555; text-align:left">
@@ -153,15 +153,23 @@
                                 </td>
                             </tr>
                             <tr>
-                               <td style="font-family:Arial, Sans-serif; padding:0 10px 20px 0; text-align:center" valign="top" colspan="2">
+                               <td style="font-family:Arial, Sans-serif; padding:0 10px 10px 0; text-align:center" valign="top" colspan="2">
                                     <table align="center" class="table-button">
                                         <tr>
                                             <td style="background-color:#f6b31e; padding:10px 20px; color:#ffffff !important">
-                                                <a href="" style="font-family:Arial, Sans-serif;  font-size: 18px; font-weight:400; text-transform:uppercase; text-align:center;color:#ffffff !important; text-decoration:none">UPDATE NOW</a>
+
+                                                <a href="" style="font-family:Arial, Sans-serif;  font-size: 18px; font-weight:400; text-transform:uppercase; text-align:center;color:#ffffff !important; text-decoration:none; text-decoration:none;"><font color="#ffffff">UPDATE NOW</font>
+
+                                                </a>
+
                                             </td>
                                         </tr>
                                     </table>
                                 </td>
+
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc; width: 100px;" align="center">
+                                <td></td>
                             </tr>
                             <tr>
                                 <td style="font-family:Arial, Sans-serif; padding:0 20px; style="font-family:Arial, Sans-serif; height: 1px; background: #dddddd; border:0 none;"">
@@ -283,8 +291,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="font-family:Arial, Sans-serif; padding:20px 20px 10px; text-align:Center; border-bottom:8px solid #92b051" align:center>
-                                    <table width="100%" style="font-family:Arial, Sans-serif; text-align:center; font-size:14px; border-collapse: collapse;">
+                                <td style="font-family:Arial, Sans-serif; padding:20px 20px 10px; text-align:Center; border-bottom:8px solid #92b051; background-color:#E2E2E2;" align:center>
+                                    <table width="100%" style="font-family:Arial, Sans-serif; text-align:center; font-size:14px; border-collapse: collapse; ">
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -344,6 +352,7 @@
         </tbody>
     </table>
     <!-- End of wrapper table -->
+
 </body>
 
 </html>

@@ -79,7 +79,7 @@
                             <div>
                                 <div class="enbridge-form">
                                     <div class="form-grid">
-                                        <div class="form-group pull-margin-right space-inputs">
+                                        <div class="form-group pull-margin-right">
                                             <div class="set-field">
                                                 <input type="text"
                                                     class="postal-code-verify"

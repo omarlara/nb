@@ -19,7 +19,7 @@
             position: relative;
 
             &:after {
-                content: '';
+                content: ' ';
 
                 position: absolute;
                 right: $normal-padding;
@@ -27,8 +27,7 @@
                 height: 20px;
                 width: 20px;
 
-                background-image: url('img/arrow_white_right.svg');
-
+                background-image: url('img/arrow_athens_gray.png');
             }
         }
 

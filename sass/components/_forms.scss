@@ -178,6 +178,10 @@
             background-color: rgb(243, 244, 247);
         }
 
+        .enbridge-btn {
+            border-radius: 0;
+        }
+
         .opener {
             font-size: 11px;
             padding: 11px $normal-padding;
@@ -200,11 +204,16 @@
             }
 
             &:after {
-                content: '>';
-                position: absolute;
-                right: 15px;
+                content: ' ';
 
-                color: $moon-mist;
+                position: absolute;
+                top: 6px;
+                right: $normal-padding;
+
+                height: 20px;
+                width: 20px;
+
+                background-image: url('img/arrow_athens_gray.png');
             }
         }
 
@@ -323,7 +332,7 @@
     border-style: solid;
     display: none;
     margin: 11px auto 11px auto;
-    padding: 8px $normal-padding;
+    padding: 13px 10px;
 
     > span {
         display: inline-block;

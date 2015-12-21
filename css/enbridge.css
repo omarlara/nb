@@ -2035,10 +2035,11 @@
     display: none; } }
 
 .title-moving {
-  font-size: 24px;
-  color: #c8102e;
+  display: block;
   font-family: Arial, sans-serif;
-  padding-top: 16px; }
+  font-size: 24px;
+  padding-top: 16px;
+  color: #c8102e; }
 
 .question-movingout {
   color: #71717f;
@@ -2137,11 +2138,7 @@
   outline: 0;
   border: 1px solid #DEDFE4;
   background: #fff;
-  z-index: -1;
-  /*.tooltip .icon:after {
-      margin-top: 4px;
-      margin-top: 12px\9;
-  }*/ }
+  z-index: -1; }
   .ui-dialog .tooltip .icon.address-tooltip:after {
     margin-top: 4px;
     margin-top: 4px\9; }
@@ -2154,15 +2151,20 @@
     .ui-dialog .tooltip .icon:after {
       margin-top: 12px; } }
   .ui-dialog .ui-dialog-title {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
     font-size: 24px;
-    color: #c8102e;
-    font-family: Arial, sans-serif; }
+    margin-bottom: 10px;
+    color: #c8102e; }
   .ui-dialog .ui-dialog-titlebar-close {
+    position: absolute;
+    right: 29px;
+    top: 15px;
     width: 23px;
     height: 23px;
-    background: url("img/close.svg") no-repeat 0 0;
-    float: right;
-    margin: -10px -10px 0 0; }
+    margin: -10px -10px 0 0;
+    background: url("img/close.svg") no-repeat 0 0; }
     .ui-dialog .ui-dialog-titlebar-close span {
       display: none; }
   .ui-dialog .accordion-footer {

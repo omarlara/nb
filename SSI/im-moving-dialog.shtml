@@ -32,6 +32,7 @@
                                         <select
                                             class="enbridge-select hide-flow"
                                             id="stop-select"
+                                            data-id="stop-select"
                                             data-required-error="Please let us know why are stopping your gas service."
                                         data-position="top">
                                             <option value="">

@@ -239,7 +239,7 @@
             end = new Date($end.val()),
             now = new Date();
 
-        if($start.attr('required') && $end.attr('required')) {
+        if($start.attr('data-required') && $end.attr('data-required')) {
             if(init > end) {
                 $('[data-calendar*="' + $start.attr('id') + '"]')
                     .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
@@ -390,13 +390,29 @@
                 .bind('click', function (e) {
                     e.preventDefault();
 
-                    var currentCode = $element.find('name=[zip-tool]').val(),
+                    var currentCode = $element.find('name=[zip-tool]').val() || '',
                         success = 'Your new address is serviced by Enbridge.',
                         error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
                         request = null,
                         result = null;
 
+                    if(!currentCode.postalCode()) {
+                        $element
+                            .find('.result')
+                                .html('<span>' + error + '</span>')
+                                .addClass('error-code');
+
+                        $('[data-id="stop"]')
+                            .attr('checked', true);
+
+                        $('[data-id="stop-select"]')
+                            .removeClass('hide-flow');
+
+                        return;
+                    }
+
                     request =  $.post( "dummy.php",
+                                    {value: currentCode},
                                     function(resp) {
                                         if (resp && resp.result) {
                                             $element
@@ -404,11 +420,21 @@
                                                 .find('.result')
                                                     .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
                                                     .addClass('success-code');
+
+                                            $('[data-id="transfer"]')
+                                                .attr('checked', true);
+
                                         } else {
                                             $element
                                                 .find('.result')
                                                     .html('<span>' + error + '</span>')
                                                     .addClass('error-code');
+
+                                            $('[data-id="stop"]')
+                                                .attr('checked', true);
+
+                                            $('[data-id="stop-select"]')
+                                                .removeClass('hide-flow');
                                         }
 
                                 },"json");

@@ -1360,11 +1360,17 @@
     .enbridge-content-container .accordion .accordion-item.active > .header, .enbridge-content-container .accordion .accordion-item:first-child > .header {
       background-color: #ffb81c;
       cursor: pointer; }
+    .enbridge-content-container .accordion .accordion-item:first-child:not(.processed):not(.active) > .header {
+      color: white;
+      cursor: pointer; }
+      .enbridge-content-container .accordion .accordion-item:first-child:not(.processed):not(.active) > .header:after {
+        background-image: url("img/arrow_white_right.svg"); }
     .enbridge-content-container .accordion .accordion-item.active {
       border-color: white;
-      font-weight: 500px; }
-      .enbridge-content-container .accordion .accordion-item.active:hover:after {
-        background-image: url("img/arrow_white_bottom.svg"); }
+      font-weight: 500; }
+      .enbridge-content-container .accordion .accordion-item.active > .header:after {
+        background-image: url("img/arrow_white_bottom.svg");
+        top: 5px; }
       .enbridge-content-container .accordion .accordion-item.active > .header {
         color: white; }
       .enbridge-content-container .accordion .accordion-item.active .content {

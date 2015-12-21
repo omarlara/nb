@@ -390,7 +390,7 @@
                 .bind('click', function (e) {
                     e.preventDefault();
 
-                    var currentCode = $element.find('name=[zip-tool]').val() || '',
+                    var currentCode = $element.find('input[type="text"]').val() || '',
                         success = 'Your new address is serviced by Enbridge.',
                         error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
                         request = null,

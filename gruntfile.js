@@ -98,8 +98,8 @@ module.exports = function (grunt) {
                         dest: 'css/<%= pkg.name %>.min.css.gz'
                     },
                     {
-                        src: ['<%= pkg.name %>.js'],
-                        dest: 'js/<%= pkg.name %>.min.js'
+                        src: ['js/<%= pkg.name %>.min.js'],
+                        dest: 'js/<%= pkg.name %>.min.js.gz'
                     }
                 ]
             }

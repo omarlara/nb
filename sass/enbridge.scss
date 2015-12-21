@@ -45,6 +45,10 @@
     }
 }
 
+.clear-margin-left {
+    margin-left: 0 !important;
+}
+
 #address-confirmation,
 #newcustomers-address-confirmation{
     display: inline-block;
@@ -113,8 +117,26 @@
 #moving-out-country,
 #moving-out-province {
     + .enbridge-dropdown {
-        margin-bottom: 15px;
+        margin-bottom: $normal-margin;
     }
+}
+
+[data-id="month-user-info"] + .enbridge-dropdown {
+    width: 130px;
+}
+
+[data-id = "newcustomers-country"],
+[data-id = "newcustomers-province"],
+[data-id = "newcustomers-select-country-alternative"],
+[data-id = "newcustomers-select-province-alternative"] {
+    + .enbridge-dropdown {
+        margin-bottom: $normal-margin !important;
+    }
+}
+
+[data-rel="newcustomers-street"],
+[data-rel="newcustomers-street-alternative"] {
+    margin-bottom: 0 !important;
 }
 
 [for="misc-info"],
@@ -147,13 +169,8 @@
     }
 }
 
-#newcustomers-day + .enbridge-dropdown,
-#month-user-info + .enbridge-dropdown {
-    width: 130px;
-}
-
-#newcustomers-month + .enbridge-dropdown{
-    width: 1S75px;
+[data-id = "newcustomers-month"] + .enbridge-dropdown{
+    width: 175px;
 }
 
 #accordion-like {
@@ -161,7 +178,8 @@
     width: 450px;
 }
 
-#code-validator {
+[data-id = "code-validator"],
+[data-id = "newcustomers-code-validator"] {
     width: 200px;
 
     & + .error-message {

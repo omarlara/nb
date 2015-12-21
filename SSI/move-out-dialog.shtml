@@ -18,6 +18,7 @@
                                                     class="_w230"
                                                     id="moving-out-transfer"
                                                     name="moving-out-transfer"
+                                                    data-id="moving-out-transfer"
                                                     data-rel="moving-out-transfer"
                                                     data-required-error="Please select your move detail."
                                                 data-required="true">
@@ -33,8 +34,7 @@
                                                             class="_w230"
                                                             id="moving-out-account-number"
                                                             name="moving-out-account-transfer"
-                                                            data-pattern = "postal-code"
-                                                            data-pattern-error = "The required form is A1A1A1"
+                                                            data-id="moving-out-account-number"
                                                             data-rel="moving-out-account-transfer"
                                                             data-required-error="Please select your move detail."
                                                         data-required="true">
@@ -57,6 +57,7 @@
                                                     <input type="text" class="_w230"
                                                         id="moving-out-postal-code"
                                                         name="moving-out-account-transfer"
+                                                        data-id="moving-out-postal-code"
                                                         data-pattern = "postal-code"
                                                         data-pattern-error = "The required form is A1A1A1"
                                                         data-rel="moving-out-account-transfer"
@@ -90,15 +91,31 @@
                                                 <label for="usr" class="descriptor _w100 pull55">Street Address:</label>
                                                 <div class="set-field content-container">
                                                     <div class="content-container">
-                                                        <input type="text" id="moving-out-street-number" class="_w60" data-rel="moving-out-street">
-                                                        <input type="text" id="moving-out-suffix" class="_w60" data-rel="moving-out-street">
+                                                        <input
+                                                            type="text"
+                                                            id="moving-out-street-number"
+                                                            class="_w60"
+                                                            data-id="moving-out-street-number"
+                                                        data-rel="moving-out-street">
+                                                        <input
+                                                            type="text"
+                                                            id="moving-out-suffix"
+                                                            class="_w60"
+                                                            data-id="moving-out-suffix"
+                                                        data-rel="moving-out-street">
                                                         <input type="text"
                                                             id="moving-out-street"
                                                             class="_w220"
+                                                            data-id="moving-out-street"
                                                             data-required-error="Please select the required information."
                                                             data-rel="moving-out-street"
                                                         data-required="true">
-                                                        <input type="text" id="moving-out-misc-info" class="_w60" data-rel="moving-out-street">
+                                                        <input
+                                                            type="text"
+                                                            id="moving-out-misc-info"
+                                                            class="_w60"
+                                                            data-id="moving-out-misc-info"
+                                                        data-rel="moving-out-street">
                                                     </div>
                                                     <div>
                                                         <label for="moving-out-street-number" class="tiny _w60">Number</label>
@@ -117,8 +134,9 @@
                                                     <input type="text"
                                                         id="moving-out-city-or-town"
                                                         class="_w180"
+                                                        data-id="moving-out-city-or-town"
                                                         data-required-error="Please select the required information." data-rel="moving-out-city-or-town"
-                                                        data-required="true">
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -132,6 +150,7 @@
                                                             id="moving-out-country"
                                                             data-required-error="Please select the required information."
                                                             data-rel="moving-out-country"
+                                                            data-id="moving-out-country"
                                                         data-required="true">
                                                             <option value="Canada">Canada</option>
                                                             <option value="United States">United States</option>
@@ -141,6 +160,7 @@
                                                     <div class="set-field content-container _w180" data-required-error="Please select the required information.">
                                                         <select class="enbridge-select"
                                                            id="moving-out-province"
+                                                           data-id="moving-out-province"
                                                            data-required-error="Please select the required information."
                                                            data-rel="moving-out-province"
                                                         data-required="true">
@@ -159,6 +179,7 @@
                                                     <input type="text"
                                                         id="moving-out-postal-code-input"
                                                         class="_w120"
+                                                        data-id="moving-out-postal-code-input"
                                                         data-pattern = "postal-code"
                                                         data-pattern-error = "The required form is A1A1A1"
                                                         data-required-error="Please select the required information."
@@ -213,8 +234,12 @@
                                             </p>
                                         </div>
 
-
-                                        <input type="hidden" class="start-date" id="moving-out-date" data-required="true">
+                                        <input
+                                            type="hidden"
+                                            class="start-date"
+                                            id="moving-out-date"
+                                            data-id="moving-out-date"
+                                        data-required="true">
 
                                         <div class="validator-container">
                                             <a class="prev" href="#">BACK</a>
@@ -237,6 +262,7 @@
                                                     <select name=""
                                                        class="enbridge-select"
                                                        id="moving-out-your-day"
+                                                       data-id="moving-out-your-day"
                                                        data-rel="moving-out-your-day"
                                                        data-required-error="Please select a day"
                                                     data-required="true">
@@ -250,6 +276,7 @@
                                                     <select name=""
                                                        class="enbridge-select"
                                                        id="moving-out-your-month"
+                                                       data-id="moving-out-your-month"
                                                        data-rel="moving-out-your-day"
                                                        data-required-error="Please select a month"
                                                     data-required="true">
@@ -266,6 +293,7 @@
                                                         type="text"
                                                         class="form-control  _w60"
                                                         id="moving-out-your-year"
+                                                        data-id="moving-out-your-year"
                                                         data-pattern = "valid-year"
                                                         data-pattern-error = "Isn't a valid year"
                                                         data-rel="moving-out-your-year"
@@ -283,15 +311,18 @@
                                                 <div class="set-field">
                                                     <input
                                                         type="text"
-                                                        class="form-control  _w60"
+                                                        class="form-control _w60"
                                                         id="moving-out-home-phone-lada"
-                                                        data-rel="moving-out-home-phone">
+                                                        data-id="moving-out-home-phone-lada"
+                                                    data-rel="moving-out-home-phone">
 
                                                     <input
                                                         type="text"
                                                         class="form-control  _w160"
                                                         id="moving-out-home-phone"
-                                                        data-rel="moving-out-home-phone">
+                                                        data-id="moving-out-home-phone"
+                                                        data-rel="moving-out-home-phone"
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -303,15 +334,17 @@
                                                         type="text"
                                                         class="form-control  _w60"
                                                         id="moving-out-mobile-phone-lada"
-                                                        data-rel="moving-out-mobile-phone">
+                                                        data-id="moving-out-mobile-phone-lada"
+                                                    data-rel="moving-out-mobile-phone">
 
                                                     <input
                                                         type="text"
                                                         class="form-control  _w160"
                                                         id="moving-out-mobile-phone"
+                                                        data-id="moving-out-mobile-phone"
                                                         data-rel="moving-out-mobile-phone"
                                                         data-required-error="Please select home phone"
-                                                    required >
+                                                    data-required="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -323,20 +356,23 @@
                                                         type="text"
                                                         class="form-control  _w60"
                                                         id="moving-out-business-phone-lada"
-                                                        data-rel="moving-out-business-phone">
+                                                        data-id="moving-out-business-phone-lada"
+                                                    data-rel="moving-out-business-phone">
 
                                                     <input
                                                         type="text"
                                                         class="form-control  _w160"
                                                         id="moving-out-business-phone"
+                                                        data-id="moving-out-business-phone"
                                                         data-rel="moving-out-business-phone"
                                                         data-required-error="Please select home phone"
-                                                    required >
+                                                    data-required="true">
                                                     <label for="moving-out-business-phone-ext" class="fluid-label descriptor">Ext:</label>
                                                     <input
                                                         class="form-control  _w60"
                                                         id="moving-out-business-phone-ext"
-                                                        data-rel="moving-out-business-phone">
+                                                        data-id="moving-out-business-phone-ext"
+                                                    data-rel="moving-out-business-phone">
                                                 </div>
                                             </div>
                                         </div>
@@ -349,11 +385,12 @@
                                                             type="text"
                                                             class="form-control  _w230"
                                                             id="moving-out-email"
+                                                            data-id="moving-out-email"
                                                             data-pattern = "valid-email"
                                                             data-pattern-error = "Isn't a valid mail"
                                                             data-rel="moving-out-email"
                                                             data-required-error="Please select home phone"
-                                                        required >
+                                                        data-required="true">
                                                     </div>
                                                     <br>
                                                     <span class="tiny big-content">

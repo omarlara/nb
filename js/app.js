@@ -1,4 +1,6 @@
 ;(function ($, window, document) {
+
+    /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
         validYear = dateCurrent.getFullYear() - 19;
 
@@ -25,232 +27,75 @@
         return /^\d{3,3}(\-)\d{4,4}\d$/.test(this);
     }
 
-    /*Dropdown*/
-    ; (function ($) {
-        function dropdownEnbridge(element) {
-            this.source = element;
-            this.init();
-            this.addMethods();
+
+    /***********************General functions***********************/
+
+    /*Date Formater*/
+    function dateFormater (stringDate) {
+        var splitDates = stringDate.split('-'),
+            dateValue = '';
+
+        switch (splitDates[1]) {
+            case '1':
+                dateValue = 'January';
+            break;
+            case '2':
+                 dateValue = 'February';
+            break;
+            case '3':
+                 dateValue = 'March';
+            break;
+            case '4':
+                 dateValue = 'April';
+            break;
+            case '5':
+                 dateValue = 'May';
+            break;
+            case '6':
+                 dateValue = 'June';
+            break;
+            case '7':
+                dateValue = 'July';
+            break;
+            case '8':
+                dateValue = 'August';
+            break;
+            case '9':
+                dateValue = 'September';
+            break;
+            case '10':
+                dateValue = 'October';
+            break;
+            case '11':
+                dateValue = 'November';
+            break;
+            case '12':
+                dateValue = 'December';
+            break;
         }
 
-        dropdownEnbridge.prototype.init = function () {
-            var $element = $(this.source),
-                elemenetNodes = this.source.children || [],
-                nodes = [],
-                element = '',
-                name = '';
-
-            if (!elemenetNodes.length) return;
-
-            name = elemenetNodes[0].text || '';
-
-            for (var i = 0, size = elemenetNodes.length; i < size; i++) {
-                var temp = '<li class="list-item"><input type="hidden" value="'+
-                            elemenetNodes[i].value+ '">' + elemenetNodes[i].text + '</li>';
-                nodes.push(temp);
-            }
-
-
-
-            element = '<div class="enbridge-dropdown">' +
-                      '<input type="hidden" class="result">' +
-                      '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
-                          nodes.join('') +
-                      '</ul></div>';
-
-            $element.after(element);
-
-            this.element = this.source.nextElementSibling;
-        };
-
-        dropdownEnbridge.prototype.addMethods = function addMethods() {
-            var self = this,
-                $element =  $(this.element);
-
-            $element.bind('click', function () {
-                $(this).toggleClass('active');
-            });
-
-            $element
-                .find('.list-items .list-item')
-                    .bind('click', function() {
-                        var $current = $(this),
-                            $source = $(self.source),
-                            text = $current.text() || '',
-                            value = $current.find('input').val() || '',
-                            $header = $element.find('.header'),
-                            totalWidth = $header.width(),
-                            indicatorWidth = $header.find('.indicator').width(),
-                            padding = $header.css('padding-left').replace('px', '') * 2;
-
-                        $element.find('.header .selected')
-                            .width((totalWidth - indicatorWidth - padding))
-                            .text(text);
-
-                        $element.find('.result').val(value);
-
-                        $source
-                            .find('option:selected')
-                                .removeAttr('selected');
-
-                        $source
-                            .find('option[value="' + value +'"]')
-                                .attr('selected', true);
-
-                    });
-
-            $(document).click(function(e) {
-                if ( $.contains(self.element, e.target) ) {
-                    return;
-                } else {
-                    $(self.element).removeClass('active');
-                }
-            });
-        };
-
-        $.fn.enbridgeDropdown = function (element) {
-            return this.each(function() {
-                (new dropdownEnbridge(this));
-            });
-        };
-
-        $(window).ready(function() {
-            $('.enbridge-select').enbridgeDropdown();
-        });
-
-    })(jQuery);
-
-    /*Code Tool*/
-    ;(function($){
-
-        function CodeTool(element) {
-            this.element = element;
-
-            this.addMethods();
+        switch(splitDates[2]) {
+            case '1': case '21': case '31':
+                dateValue += (' ' + splitDates[2] + 'st');
+            break;
+            case '2': case '22':
+                dateValue += (' ' + splitDates[2] + 'nd');
+            break;
+            case '3': case '23':
+                dateValue += (' ' + splitDates[2] + 'rd');
+            break;
+            case '1':
+                dateValue += (' ' + splitDates[2] + 'st');
+            break;
+            default:
+                dateValue += (' ' + splitDates[2] + 'th');
+            break;
         }
 
-        CodeTool.prototype.restart = function () {
-            $element
-                .removeClass('opened required')
-                .addClass('closed');
-        }
+        return dateValue;
+    }
 
-        CodeTool.prototype.addMethods = function () {
-            var $element = $(this.element);
-
-            $element.find('.opener')
-                .bind('click', function (e) {
-                    e.stopPropagation();
-
-                    $element
-                        .toggleClass('opened closed required')
-                        .find('.code-container').attr('data-required', true);
-                });
-
-            $element.find('.submiter')
-                .bind('click', function (e) {
-                    e.preventDefault();
-
-                    var currentCode = $element.find('name=[zip-tool]').val(),
-                        success = 'Your new address is serviced by Enbridge.',
-                        error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
-                        request = null,
-                        result = null;
-
-                    request =  $.post( "dummy.php",
-                                    function(resp) {
-                                        if (resp && resp.result) {
-                                            $element
-                                                .addClass('success-zip')
-                                                .find('.result')
-                                                    .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
-                                                    .addClass('success-code');
-                                        } else {
-                                            $element
-                                                .find('.result')
-                                                    .html('<span>' + error + '</span>')
-                                                    .addClass('error-code');
-                                        }
-
-                                },"json");
-
-                });
-        };
-
-        $.fn.codeTool = function (element) {
-            return this.each(function() {
-                (new CodeTool(this));
-            });
-        };
-
-        $(window).ready(function() {
-           $('.zip-code-tool').codeTool();
-        });
-
-    })(jQuery);
-
-    /*Common*/
-
-    /*Success Zip*/
-    $('.new-address').change(function() {
-        var $this = $(this),
-            currentVal = $this.val(),
-            container = $this.attr('data-content'),
-            radioContent = [];
-
-        $this.closest('.code-box')
-            .find('.error-message ').remove();
-
-        if(!$this.val().postalCode()) {
-            $this
-                .addClass('input-error')
-                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
-            return;
-        }
-
-        $this.removeClass('input-error');
-
-        if($this.next().hasClass('error-message')) {
-            $this.next().remove();
-        }
-        $.post( "dummy.php",
-            function(resp) {
-                if (resp && resp.result) {
-
-                    var containerEl = container.replace('#','');
-                    $this
-                        .addClass('success-field')
-                        .removeClass('input-error');
-
-                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
-                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
-                        radioContent.push(chain);
-                    }
-
-                    $(container).html(radioContent.join(''));
-                    /*Select container*/
-                    $(container).find('input[type="radio"]').bind('click', function() {
-                        var name = $(this).attr('name') || '',
-                            containerBox = (this.value)?$this.attr('data-first-op'): $this.attr('data-second-op');
-
-                        $('#get-address').attr('data-next-step', containerBox);
-                        $('#newcustomers-get-address').attr('data-next-step', containerBox);
-
-                        $('input[name="' + name + '"]').removeClass('input-success input-error');
-                    });
-
-
-                } else {
-                    $this
-                        .removeClass('input-success success-field')
-                        .addClass('input-error');
-                }
-
-            },"json");
-
-    });
-
-    /*Accordion*/
+    /*Validators*/
     var validator = function formValidator ($form) {
         var error = false,
             radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
@@ -417,7 +262,175 @@
         return error;
     };
 
-    /*Flows*/
+    /***********************Plugins declaration***********************/
+
+    /*Dropdown*/
+    ; (function ($) {
+        function dropdownEnbridge(element) {
+            this.source = element;
+            this.init();
+            this.addMethods();
+        }
+
+        dropdownEnbridge.prototype.init = function () {
+            var $element = $(this.source),
+                elemenetNodes = this.source.children || [],
+                nodes = [],
+                element = '',
+                name = '';
+
+            if (!elemenetNodes.length) return;
+
+            name = elemenetNodes[0].text || '';
+
+            for (var i = 0, size = elemenetNodes.length; i < size; i++) {
+                var temp = '<li class="list-item"><input type="hidden" value="'+
+                            elemenetNodes[i].value+ '">' + elemenetNodes[i].text + '</li>';
+                nodes.push(temp);
+            }
+
+
+
+            element = '<div class="enbridge-dropdown">' +
+                      '<input type="hidden" class="result">' +
+                      '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
+                          nodes.join('') +
+                      '</ul></div>';
+
+            $element.after(element);
+
+            this.element = this.source.nextElementSibling;
+        };
+
+        dropdownEnbridge.prototype.addMethods = function addMethods() {
+            var self = this,
+                $element =  $(this.element);
+
+            $element.bind('click', function () {
+                $(this).toggleClass('active');
+            });
+
+            $element
+                .find('.list-items .list-item')
+                    .bind('click', function() {
+                        var $current = $(this),
+                            $source = $(self.source),
+                            text = $current.text() || '',
+                            value = $current.find('input').val() || '',
+                            $header = $element.find('.header'),
+                            totalWidth = $header.width(),
+                            indicatorWidth = $header.find('.indicator').width(),
+                            padding = $header.css('padding-left').replace('px', '') * 2;
+
+                        $element.find('.header .selected')
+                            .width((totalWidth - indicatorWidth - padding))
+                            .text(text);
+
+                        $element.find('.result').val(value);
+
+                        $source
+                            .find('option:selected')
+                                .removeAttr('selected');
+
+                        $source
+                            .find('option[value="' + value +'"]')
+                                .attr('selected', true);
+
+                    });
+
+            $(document).click(function(e) {
+                if ( $.contains(self.element, e.target) ) {
+                    return;
+                } else {
+                    $(self.element).removeClass('active');
+                }
+            });
+        };
+
+        $.fn.enbridgeDropdown = function (element) {
+            return this.each(function() {
+                (new dropdownEnbridge(this));
+            });
+        };
+
+        $(window).ready(function() {
+            $('.enbridge-select').enbridgeDropdown();
+        });
+
+    })(jQuery);
+
+    /*Code Tool*/
+    ;(function($){
+
+        function CodeTool(element) {
+            this.element = element;
+
+            this.addMethods();
+        }
+
+        CodeTool.prototype.restart = function () {
+            $element
+                .removeClass('opened required')
+                .addClass('closed');
+        }
+
+        CodeTool.prototype.addMethods = function () {
+            var $element = $(this.element);
+
+            $element.find('.opener')
+                .bind('click', function (e) {
+                    e.stopPropagation();
+
+                    $element
+                        .toggleClass('opened closed required')
+                        .find('.code-container').attr('data-required', true);
+                });
+
+            $element.find('.submiter')
+                .bind('click', function (e) {
+                    e.preventDefault();
+
+                    var currentCode = $element.find('name=[zip-tool]').val(),
+                        success = 'Your new address is serviced by Enbridge.',
+                        error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
+                        request = null,
+                        result = null;
+
+                    request =  $.post( "dummy.php",
+                                    function(resp) {
+                                        if (resp && resp.result) {
+                                            $element
+                                                .addClass('success-zip')
+                                                .find('.result')
+                                                    .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
+                                                    .addClass('success-code');
+                                        } else {
+                                            $element
+                                                .find('.result')
+                                                    .html('<span>' + error + '</span>')
+                                                    .addClass('error-code');
+                                        }
+
+                                },"json");
+
+                });
+        };
+
+        $.fn.codeTool = function (element) {
+            return this.each(function() {
+                (new CodeTool(this));
+            });
+        };
+
+        $(window).ready(function() {
+           $('.zip-code-tool').codeTool();
+        });
+
+    })(jQuery);
+
+
+    /***********************Flows for Dialogs***********************/
+
 
     /*Dialog - 1 - Moving out*/
 
@@ -436,8 +449,9 @@
         }
     });
 
-    /*When you click on the next sep, on Select your street
-      if you have selected No one above, you will show form, in another case you will be on the select street number
+    /*
+    When you click on the next sep, on Select your street
+    if you have selected No one above, you will show form, in another case you will be on the select street number
     */
     $('#get-address').bind('click', function() {
         var $this = $(this);
@@ -523,7 +537,7 @@
     });
 
     /*Add alternative mailer address*/
-    $('#mailing-address-alternative, #mailing-address').change(function() {
+    $('[data-id="mailing-address-alternative"], [data-id="mailing-address"]').change(function() {
         if(this.checked) {
             $('#manual-property-info').removeClass('hidden');
 
@@ -778,30 +792,242 @@
         $('[data-id="moving-out-submit"]').addClass('disabled');
     });
 
+
     /*Dialog - 2 - New Customer*/
 
+    /*Moving out finish*/
+    $('#moving-out-finish').bind('click', function() {
+        var fromAddress = $('[data-id="moving-out-street-number"]').val() + ' ' +$('[ data-id="moving-out-suffix"]').val() + ' ' +
+                          $('[data-id="moving-out-street"]').val() + ' ' + $('[data-id="moving-out-misc-info"]').val() + ' ' +  $('[data-id="moving-out-city-or-town"]').val() + ' ' +
+                          $('[data-id="moving-out-country"]').val() + ' ' +  $('[data-id="moving-out-province"]').val() +  ', ON ' + $('[data-rel="moving-out-postal-code-input"]').val(),
+            birthDay = $('[data-id="moving-out-your-day"]').val() + '/' + $('[data-id="moving-out-your-month"]').val() + '/' + $('[data-id="moving-out-your-year"]').val();
 
+        $('#moving-new-date-summary').text(dateFormater($('[data-id="moving-out-date" ]').val()));
 
+        $('#moving-out-from').text(fromAddress);
+        $('#moving-out-summary-birth-day').text(birthDay);
+        $('#moving-out-summary-user-phone').text( $('[data-id="moving-out-home-phone-lada"]').val() + ' ' + $('[data-id="moving-out-home-phone"]').val());
+        $('#moving-out-summary-mobile-phone').text( $('[data-id="moving-out-mobile-phone-lada"]').val() + ' ' + $('[data-id="moving-out-mobile-phone"]').val());
+    });
 
-    /**/
     /*
-    $('#previous-dates').bind('click', function() {
-        var $target = $($(this).attr('data-target')),
-            elements = null;
+    When you click on the next sep, on Select your street
+    if you have selected No one above, you will show form, in another case you will be on the select street number
+    */
+    $('#newcustomers-get-address').bind('click', function() {
+        var $this = $(this);
 
-        $target.find('.active-step')
-            .removeClass('active-step');
+        if($('[name="newcustomers-select-street-container"]:checked').val()) {
+            $.ajax({
+                url: 'dummy.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {},
+                complete: function(xhr,status) {
+                    var jsonObj = null;
+                    if (!xhr || xhr.status != 200 || !xhr.response) {
+                        console.log(xhr);
+                    } else {
+                        jsonObj = JSON.parse(xhr.response);
 
-        elements =  $target.find('.steps:first-child')
-                       .removeClass('.processed');
+                        if(jsonObj.numbers) {
+                            var numbers = [],
+                                container = '#newcustomers-data-dropdown';
 
-        if(elements[0]) {
-            $(elements[0]).addClass('active-step');
+                            $(container).html('');
+
+                            for (var i = 0, size = jsonObj.numbers.length; i < size; i++) {
+                                numbers.push('<option value="' + jsonObj.numbers[i] + '">' + jsonObj.numbers[i] + '</option>');
+                            }
+
+                            $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
+                                .appendTo(container)
+                                .enbridgeDropdown();
+
+                        }
+                    }
+                }
+            });
+
         }
     });
-    */
 
-    /*Code*/
+    /*Add alternative mailer address*/
+    $('[data-id="newcustomers-mailing-address-alternative"], [data-id="newcustomers-mailing-address"]').change(function() {
+        if(this.checked) {
+            $('#newcustomers-manual-property-info').removeClass('hidden');
+
+            $('[data-id="newcustomers-street-alternative"], [data-id="newcustomers-city-or-town-alternative"], [data-id="newcustomers-select-country-alternative"], [ data-id="newcustomers-select-province-alternative"], [data-id="newcustomers-postal-code-input-alternative"]')
+                .attr('data-required', true);
+        } else {
+            $('#newcustomers-manual-property-info')
+                .addClass('hidden')
+                .find('.error-message')
+                    .remove();
+
+            $('[data-id="newcustomers-street-alternative"], [data-id="newcustomers-city-or-town-alternative"], [data-id="newcustomers-postal-code-input-alternative"]')
+                .removeAttr('data-required')
+                .removeClass('input-error')
+                .val('');
+
+            $('[data-rel="newcustomers-street-alternative"]')
+                .removeClass('input-error')
+                .val('');
+
+            $('[data-id="newcustomers-select-country-alternative"], [ data-id="newcustomers-select-province-alternative"]')
+                .removeAttr('data-required')
+                .removeClass('input-error');
+        }
+    });
+
+    /*Set Address on decline/accept step container*/
+    $('#newcustomers-confirm-address-button').bind('click', function() {
+        var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
+            numberHouse =$('#newcustomers-current-number').val() || '',
+            zipCode = $('[data-id="newcustomers-code-validator"]').val() || '';
+
+        $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
+    });
+
+    /*Info Decline*/
+    $('#newcustomers-info-decline').bind('click', function(e) {
+        e.preventDefault();
+        $('[data-id="newcustomers-code-validator"]')
+            .removeClass('success-field')
+            .val('');
+
+        $('[name="newcustomers-house-property"]')
+            .attr({'checked': false})
+            .removeAttr('data-required')
+            .removeClass('input-error');
+
+        $('#newcustomers-select-street-container, #data-dropdown').empty('');
+
+        $('#newcustomers-confirm-address, #newcustomers-first-step').toggleClass('active-step');
+    });
+
+    /*Info confirmation*/
+    $('#newcustomers-info-confirmation').bind('click', function(e) {
+        e.preventDefault();
+        $('#newcustomers-information-acceptance')
+            .hide()
+                .closest('.code-box')
+                    .width(280);
+
+        $('#newcustomershide-message')
+            .hide()
+                .closest('col')
+                    .addClass('xs5')
+                    .removeClass('xs12');
+
+        $('#newcustomers-property-info').show();
+        $('#newcustomers-step-address').removeClass('hidden');
+        $('[name="newcustomers-house-property"]').attr('data-required', true);
+    });
+
+
+    /*Dialog - 3 - Move out*/
+
+    /*Restart personal address information*/
+    $('#moving-out-restart-personal-info').bind('click', function () {
+        $('[data-id="moving-out-street-number"], [ data-id="moving-out-suffix"],[data-id="moving-out-street"],[data-id="moving-out-misc-info"],[data-id="moving-out-city-or-town"],[data-rel="moving-out-postal-code-input"]').val('');
+    });
+
+    /*Restart personal user information*/
+    $('#moving-out-restart-personal-user-info').bind('click', function () {
+        $('[data-id="moving-out-your-year"], [data-id="moving-out-email"]').val('');
+        $('[data-rel="moving-out-home-phone"], [data-rel="moving-out-mobile-phone"], [data-rel="moving-out-business-phone"]').val('');
+    });
+
+    /*Start Over*/
+    $('#moving-out-start-over').bind('click', function () {
+        var $form = $('#moving-out-form').removeClass('hidden');
+
+        $form.find('.accordion-item')
+            .removeClass('active processed');
+
+        $($form.find('.accordion-item')[0])
+            .addClass('active');
+
+        $form.find('input[type=text]').val('');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
+        $form.closest('.dialog')
+            .find('.submit-button')
+                .addClass('disabled');
+
+        $('#almost-done-summary').addClass('hidden');
+    });
+
+
+    /***********************Common Functionality***********************/
+
+    /*Success Zip*/
+    $('.new-address').change(function() {
+        var $this = $(this),
+            currentVal = $this.val(),
+            container = $this.attr('data-content'),
+            radioContent = [];
+
+        $this.closest('.code-box')
+            .find('.error-message ').remove();
+
+        if(!$this.val().postalCode()) {
+            $this
+                .addClass('input-error')
+                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
+            return;
+        }
+
+        $this.removeClass('input-error');
+
+        if($this.next().hasClass('error-message')) {
+            $this.next().remove();
+        }
+        $.post( "dummy.php",
+            function(resp) {
+                if (resp && resp.result) {
+
+                    var containerEl = container.replace('#','');
+                    $this
+                        .addClass('success-field')
+                        .removeClass('input-error');
+
+                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
+                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
+                        radioContent.push(chain);
+                    }
+
+                    $(container).html(radioContent.join(''));
+                    /*Select container*/
+                    $(container).find('input[type="radio"]').bind('click', function() {
+                        var name = $(this).attr('name') || '',
+                            containerBox = (this.value)?$this.attr('data-first-op'): $this.attr('data-second-op');
+
+                        $('#get-address').attr('data-next-step', containerBox);
+                        $('#newcustomers-get-address').attr('data-next-step', containerBox);
+
+                        $('input[name="' + name + '"]').removeClass('input-success input-error');
+                    });
+
+
+                } else {
+                    $this
+                        .removeClass('input-success success-field')
+                        .addClass('input-error');
+                }
+
+            },"json");
+
+    });
+
+    /*Postal Code*/
     $('.postal-code-verify').keyup( function(e) {
         e.stopPropagation();
         var $this = $(this).removeClass('input-sucess input-error');
@@ -845,6 +1071,9 @@
 
     });
 
+    /***********************Accordion***********************/
+
+    /*Header click to collapse section*/
     $('.accordion .accordion-item >.header').bind('click', function(event) {
         event.preventDefault();
 
@@ -862,6 +1091,7 @@
 
     });
 
+    /*Run validations for each section*/
     $('.accordion .accordion-item .validator').bind('click', function(e) {
         e.preventDefault();
 
@@ -890,6 +1120,7 @@
 
     });
 
+    /*Return to the previous step*/
     $('.accordion .accordion-item .prev').bind('click', function(e) {
         var $current = $(this).closest('.accordion-item');
 
@@ -903,6 +1134,7 @@
         }
     });
 
+    /*Steps*/
     $('.steps .next-step').bind('click', function() {
         var $current = $(this).closest('.accordion-item'),
             $currentStep = $(this).closest('.steps'),
@@ -920,86 +1152,19 @@
             if (this.id === 'get-address' && !$('[name=select-street-container]:checked').val()) {
                 $('#step-address').removeClass('hidden');
 
-                 $('#street, #city-or-town, #country, #province, #postal-code-input, [name="house-property-alternative"]')
+                $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
                     .attr('data-required', true);
 
             } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
-                $('#newcustomers-street').attr('required', true);
-                $('#newcustomers-city-or-town').attr('required', true);
-                $('#newcustomers-country').attr('required', true);
-                $('#newcustomers-province').attr('required', true);
-                $('#newcustomers-postal-code-input').attr('required', true);
+                $('[data-id="newcustomers-street"], [data-id="newcustomers-city-or-town"], [data-id="newcustomers-country"], [data-id="newcustomers-province"], [data-id="newcustomers-postal-code-input"], [name="newcustomers-house-property-alternative"]')
+                    .attr('data-required', true);
             }
         }
     });
 
-
-    function dateFormater (stringDate) {
-        var splitDates = stringDate.split('-'),
-            dateValue = '';
-
-        switch (splitDates[1]) {
-            case '1':
-                dateValue = 'January';
-            break;
-            case '2':
-                 dateValue = 'February';
-            break;
-            case '3':
-                 dateValue = 'March';
-            break;
-            case '4':
-                 dateValue = 'April';
-            break;
-            case '5':
-                 dateValue = 'May';
-            break;
-            case '6':
-                 dateValue = 'June';
-            break;
-            case '7':
-                dateValue = 'July';
-            break;
-            case '8':
-                dateValue = 'August';
-            break;
-            case '9':
-                dateValue = 'September';
-            break;
-            case '10':
-                dateValue = 'October';
-            break;
-            case '11':
-                dateValue = 'November';
-            break;
-            case '12':
-                dateValue = 'December';
-            break;
-        }
-
-        switch(splitDates[2]) {
-            case '1': case '21': case '31':
-                dateValue += (' ' + splitDates[2] + 'st');
-            break;
-            case '2': case '22':
-                dateValue += (' ' + splitDates[2] + 'nd');
-            break;
-            case '3': case '23':
-                dateValue += (' ' + splitDates[2] + 'rd');
-            break;
-            case '1':
-                dateValue += (' ' + splitDates[2] + 'st');
-            break;
-            default:
-                dateValue += (' ' + splitDates[2] + 'th');
-            break;
-        }
-
-        return dateValue;
-    }
-
+    /*Edit information*/
     $('.edit-info').bind('click', function(e) {
         e.preventDefault();
         var $current = $(this),
@@ -1024,174 +1189,7 @@
             .addClass('hidden');
     })
 
-
-/*
-    $('#get-address').bind('click', function() {
-        var $this = $(this);
-
-        $.post( "dummy.php",
-            function(resp) {
-                if (resp && resp.result) {
-                    var numbers = [],
-                        container = $this.attr('data-number-dropdown');
-
-                    $(container).html('');
-
-                    for (var i = 0, size = resp.numbers.length; i < size; i++) {
-                        numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
-                    }
-
-                    $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
-                        .appendTo(container)
-                        .enbridgeDropdown();
-
-                } else {
-                    $this
-                        .removeClass('input-success success-field')
-                        .addClass('input-error');
-                }
-
-            },"json");
-
-    });
-*/
-    $('#newcustomers-get-address').bind('click', function() {
-        var $this = $(this);
-
-        $.post( "dummy.php",
-            function(resp) {
-                if (resp && resp.result) {
-                    var numbers = [],
-                        container = $this.attr('data-number-dropdown');
-
-                    $(container).html('');
-
-                    for (var i = 0, size = resp.numbers.length; i < size; i++) {
-                        numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
-                    }
-
-                    $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
-                        .appendTo(container)
-                        .enbridgeDropdown();
-
-                } else {
-                    $this
-                        .removeClass('input-success success-field')
-                        .addClass('input-error');
-                }
-
-            },"json");
-
-    });
-
-    $('#newcustomers-confirm-address-button').bind('click', function() {
-        var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
-            numberHouse =$('#newcustomers-current-number').val() || '',
-            zipCode = $('#newcustomers-code-validator').val() || '';
-
-        $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
-    });
-
-    $('#newcustomers-info-confirmation').bind('click', function(e) {
-        e.preventDefault();
-        $('#newcustomers-information-acceptance')
-            .hide()
-                .closest('.code-box')
-                    .width(280);
-
-        $('#newcustomershide-message').
-            hide()
-                .closest('col')
-                    .addClass('xs5')
-                    .removeClass('xs12');
-
-        $('#newcustomers-property-info').show();
-        $('#newcustomers-step-address').removeClass('hidden');
-        $('input[name="newcustomers-house-property"]').attr('required');
-    });
-
-
-    $('#newcustomers-info-decline').bind('click', function(e) {
-        e.preventDefault();
-        $('#newcustomers-code-validator')
-            .removeClass('success-field')
-            .val('');
-
-        $('[name="newcustomers-house-property"]')
-            .attr({'checked': false, "required": false})
-            .removeClass('input-error');
-
-        $('#newcustomers-select-street-container, #data-dropdown').empty('');
-
-        $('#newcustomers-confirm-address, #newcustomers-first-step').toggleClass('active-step');
-    });
-
-
-    $('#newcustomers-mailing-address-alternative, #newcustomers-mailing-address').change(function() {
-        var required = false;
-        if(this.checked) {
-            $('#newcustomers-manual-property-info').removeClass('hidden');
-            required = true;
-        } else {
-            $('#newcustomers-manual-property-info').addClass('hidden');
-            required = false;
-        }
-
-        $('#newcustomers-street-alternative').attr('required', required);
-        $('#newcustomers-city-or-town-alternative').attr('required', required);
-        $('#newcustomers-country-alternative').attr('required',required);
-        $('#newcustomers-province-alternative').attr('required', required);
-        $('#newcustomers-postal-code-input-alternative').attr('required', required);
-    });
-
-    $('#moving-out-finish').bind('click', function() {
-        var fromAddress = $('#moving-out-street-number').val() + ' ' +$('#moving-out-suffix').val() + ' ' +
-                          $('#moving-out-street').val() + ' ' + $('#moving-out-misc-info').val() + ' ' +  $('#moving-out-city-or-town').val() + ' ' +
-                          $('#moving-out-country').val() + ' ' +  $('#moving-out-province').val() +  ', ON ' + $('#moving-out-postal-code-input').val(),
-            birthDay = $('#moving-out-your-day').val() + '/' + $('#moving-out-your-month').val() + '/' + $('#moving-out-your-year').val();
-
-        $('#moving-new-date-summary').text(dateFormater($('#moving-out-date').val()));
-
-        $('#moving-out-from').text(fromAddress);
-        $('#moving-out-summary-birth-day').text(birthDay);
-        $('#moving-out-summary-user-phone').text( $('#moving-out-home-phone-lada').val() + ' ' + $('#moving-out-home-phone').val());
-        $('#moving-out-summary-mobile-phone').text( $('#moving-out-mobile-phone-lada').val() + ' ' + $('#moving-out-mobile-phone').val());
-    });
-
-    $('#moving-out-restart-personal-info').bind('click', function () {
-        $('#moving-out-street-number, #moving-out-suffix,#moving-out-street,#moving-out-misc-info,#moving-out-city-or-town,#moving-out-postal-code-input').val('');
-    });
-
-    $('#moving-out-restart-personal-user-info').bind('click', function () {
-        $('#moving-out-your-year, #moving-out-email').val('');
-        $('[data-rel="moving-out-home-phone"], [data-rel="moving-out-mobile-phone"], [data-rel="moving-out-business-phone"]').val('');
-    });
-
-    $('#moving-out-start-over').bind('click', function () {
-        var $form = $('#moving-out-form').removeClass('hidden');
-
-        $form.find('.accordion-item')
-            .removeClass('active processed');
-
-        $($form.find('.accordion-item')[0])
-            .addClass('active');
-
-        $form.find('input[type=text]').val('');
-
-        $form.find('.success-field')
-            .removeClass('success-field');
-
-        $form.find('.result')
-            .html('')
-            .removeClass('success-code error-code');
-
-        $form.closest('.dialog')
-            .find('.submit-button')
-                .addClass('disabled');
-
-        $('#almost-done-summary').addClass('hidden');
-    });
-
+    /*Calendar get date*/
     $('.calendar').bind('click', function(e) {
         if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;
@@ -1207,7 +1205,7 @@
             .val(year + '-' + month + '-' + day);
     });
 
-    /*Forms*/
+    /*Forms Reset*/
     $('.enbridge-form input[type="radio"]').bind('click', function() {
         var name = $(this).attr('name') || '';
 
@@ -1218,6 +1216,9 @@
         $('input[name="' + name + '"]').removeClass('input-success input-error');
     });
 
+    /*******************************Window Ready loaders ********************************/
+
+    /*Calendar section*/
     $(window).ready(function() {
         var calendar = $('.calendar'),
             currentDate = new Date(),
@@ -1258,30 +1259,29 @@
 
         $('.modalopen').bind('click',function(e){
             e.preventDefault();
-           $($(this).attr('data-target')).css("display","none");
-           var id = $(this).attr('data-target');
-            elements = $(id).siblings();
-            elements.each(function(entry){
-                var idName = $(elements[entry]).attr('id');
-                var idchange = '#'+idName;
-                console.log(idchange);
-                $(idchange).removeClass("hidden");
-                $("#costumer-alert").addClass("hidden");
+            $($(this).attr('data-target'))
+                .css("display","none");
 
-            });
+            var id = $(this).attr('data-target'),
+                elements = $(id).siblings();
+
+                elements.each(function(entry){
+                    var idName = $(elements[entry]).attr('id'),
+                        idchange = '#' + idName;
+                    $(idchange).removeClass("hidden");
+                    $("#costumer-alert").addClass("hidden");
+                });
         });
 
         $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
+            var $this = $(this);
 
-            if($(this).attr('data-target')=="#movingoutredirect")
-            {
+            if($this.attr('data-target') == "#movingoutredirect") {
                 window.location="04_moving_out_login.html";
-            }
-            else
-            {
+            } else {
                 scroll(0,0);
-                $($(this).attr('data-target'))
+                $($this.attr('data-target'))
                     .dialog({
                         autoOpen:true,
                         resizable: false,

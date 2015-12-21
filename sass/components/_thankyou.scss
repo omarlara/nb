@@ -84,7 +84,7 @@
                 padding-right: 15px;
             }
             &:last-child {
-                padding-left: 15px;
+                padding-left: 0px;
                 padding-right: 0;
             }
         }
@@ -98,7 +98,7 @@
             background-image: none;
 
             .button-container {
-                padding: 0% 3% 3% 3%;
+                padding: 9px;
             }
 
             .black {

@@ -795,6 +795,21 @@
 
     /*Dialog - 2 - New Customer*/
 
+    /*Moving out finish*/
+    $('#moving-out-finish').bind('click', function() {
+        var fromAddress = $('[data-id="moving-out-street-number"]').val() + ' ' +$('[ data-id="moving-out-suffix"]').val() + ' ' +
+                          $('[data-id="moving-out-street"]').val() + ' ' + $('[data-id="moving-out-misc-info"]').val() + ' ' +  $('[data-id="moving-out-city-or-town"]').val() + ' ' +
+                          $('[data-id="moving-out-country"]').val() + ' ' +  $('[data-id="moving-out-province"]').val() +  ', ON ' + $('[data-rel="moving-out-postal-code-input"]').val(),
+            birthDay = $('[data-id="moving-out-your-day"]').val() + '/' + $('[data-id="moving-out-your-month"]').val() + '/' + $('[data-id="moving-out-your-year"]').val();
+
+        $('#moving-new-date-summary').text(dateFormater($('[data-id="moving-out-date" ]').val()));
+
+        $('#moving-out-from').text(fromAddress);
+        $('#moving-out-summary-birth-day').text(birthDay);
+        $('#moving-out-summary-user-phone').text( $('[data-id="moving-out-home-phone-lada"]').val() + ' ' + $('[data-id="moving-out-home-phone"]').val());
+        $('#moving-out-summary-mobile-phone').text( $('[data-id="moving-out-mobile-phone-lada"]').val() + ' ' + $('[data-id="moving-out-mobile-phone"]').val());
+    });
+
     /*
     When you click on the next sep, on Select your street
     if you have selected No one above, you will show form, in another case you will be on the select street number
@@ -911,6 +926,44 @@
     });
 
 
+    /*Dialog - 3 - Move out*/
+
+    /*Restart personal address information*/
+    $('#moving-out-restart-personal-info').bind('click', function () {
+        $('[data-id="moving-out-street-number"], [ data-id="moving-out-suffix"],[data-id="moving-out-street"],[data-id="moving-out-misc-info"],[data-id="moving-out-city-or-town"],[data-rel="moving-out-postal-code-input"]').val('');
+    });
+
+    /*Restart personal user information*/
+    $('#moving-out-restart-personal-user-info').bind('click', function () {
+        $('[data-id="moving-out-your-year"], [data-id="moving-out-email"]').val('');
+        $('[data-rel="moving-out-home-phone"], [data-rel="moving-out-mobile-phone"], [data-rel="moving-out-business-phone"]').val('');
+    });
+
+    /*Start Over*/
+    $('#moving-out-start-over').bind('click', function () {
+        var $form = $('#moving-out-form').removeClass('hidden');
+
+        $form.find('.accordion-item')
+            .removeClass('active processed');
+
+        $($form.find('.accordion-item')[0])
+            .addClass('active');
+
+        $form.find('input[type=text]').val('');
+
+        $form.find('.success-field')
+            .removeClass('success-field');
+
+        $form.find('.result')
+            .html('')
+            .removeClass('success-code error-code');
+
+        $form.closest('.dialog')
+            .find('.submit-button')
+                .addClass('disabled');
+
+        $('#almost-done-summary').addClass('hidden');
+    });
 
 
     /***********************Common Functionality***********************/
@@ -1136,58 +1189,6 @@
             .addClass('hidden');
     })
 
-
-
-
-
-    $('#moving-out-finish').bind('click', function() {
-        var fromAddress = $('#moving-out-street-number').val() + ' ' +$('#moving-out-suffix').val() + ' ' +
-                          $('#moving-out-street').val() + ' ' + $('#moving-out-misc-info').val() + ' ' +  $('#moving-out-city-or-town').val() + ' ' +
-                          $('#moving-out-country').val() + ' ' +  $('#moving-out-province').val() +  ', ON ' + $('#moving-out-postal-code-input').val(),
-            birthDay = $('#moving-out-your-day').val() + '/' + $('#moving-out-your-month').val() + '/' + $('#moving-out-your-year').val();
-
-        $('#moving-new-date-summary').text(dateFormater($('#moving-out-date').val()));
-
-        $('#moving-out-from').text(fromAddress);
-        $('#moving-out-summary-birth-day').text(birthDay);
-        $('#moving-out-summary-user-phone').text( $('#moving-out-home-phone-lada').val() + ' ' + $('#moving-out-home-phone').val());
-        $('#moving-out-summary-mobile-phone').text( $('#moving-out-mobile-phone-lada').val() + ' ' + $('#moving-out-mobile-phone').val());
-    });
-
-    $('#moving-out-restart-personal-info').bind('click', function () {
-        $('#moving-out-street-number, #moving-out-suffix,#moving-out-street,#moving-out-misc-info,#moving-out-city-or-town,#moving-out-postal-code-input').val('');
-    });
-
-    $('#moving-out-restart-personal-user-info').bind('click', function () {
-        $('#moving-out-your-year, #moving-out-email').val('');
-        $('[data-rel="moving-out-home-phone"], [data-rel="moving-out-mobile-phone"], [data-rel="moving-out-business-phone"]').val('');
-    });
-
-    $('#moving-out-start-over').bind('click', function () {
-        var $form = $('#moving-out-form').removeClass('hidden');
-
-        $form.find('.accordion-item')
-            .removeClass('active processed');
-
-        $($form.find('.accordion-item')[0])
-            .addClass('active');
-
-        $form.find('input[type=text]').val('');
-
-        $form.find('.success-field')
-            .removeClass('success-field');
-
-        $form.find('.result')
-            .html('')
-            .removeClass('success-code error-code');
-
-        $form.closest('.dialog')
-            .find('.submit-button')
-                .addClass('disabled');
-
-        $('#almost-done-summary').addClass('hidden');
-    });
-
     /*Calendar get date*/
     $('.calendar').bind('click', function(e) {
         if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
@@ -1214,6 +1215,8 @@
 
         $('input[name="' + name + '"]').removeClass('input-success input-error');
     });
+
+    /*******************************Window Ready loaders ********************************/
 
     /*Calendar section*/
     $(window).ready(function() {
@@ -1256,7 +1259,9 @@
 
         $('.modalopen').bind('click',function(e){
             e.preventDefault();
-            $($(this).attr('data-target')).css("display","none");
+            $($(this).attr('data-target'))
+                .css("display","none");
+
             var id = $(this).attr('data-target'),
                 elements = $(id).siblings();
 

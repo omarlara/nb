@@ -1111,7 +1111,7 @@
       padding-left: 0;
       padding-right: 15px; }
     .enbridge-content-container .container-thankyou .tiles > .col.md6:last-child {
-      padding-left: 15px;
+      padding-left: 0px;
       padding-right: 0; }
     .enbridge-content-container .container-thankyou .tiles .tile {
       border: 1px solid #ccc;
@@ -1119,7 +1119,7 @@
     .enbridge-content-container .container-thankyou .tiles .green {
       background-image: none; }
       .enbridge-content-container .container-thankyou .tiles .green .button-container {
-        padding: 0% 3% 3% 3%; }
+        padding: 9px; }
       .enbridge-content-container .container-thankyou .tiles .green .black {
         padding: 6px 10px;
         border-radius: 0px;

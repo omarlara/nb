@@ -121,6 +121,10 @@
     }
 }
 
+[data-id="month-user-info"] + .enbridge-dropdown {
+    width: 130px;
+}
+
 [data-id = "newcustomers-country"],
 [data-id = "newcustomers-province"],
 [data-id = "newcustomers-select-country-alternative"],

@@ -1,6 +1,6 @@
 ;(function ($, window, document) {
 
-    /*Prototyping functions*/
+    /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
         validYear = dateCurrent.getFullYear() - 19;
 
@@ -27,7 +27,8 @@
         return /^\d{3,3}(\-)\d{4,4}\d$/.test(this);
     }
 
-    /*General functions*/
+
+    /***********************General functions***********************/
 
     /*Date Formater*/
     function dateFormater (stringDate) {
@@ -261,6 +262,8 @@
         return error;
     };
 
+    /***********************Plugins declaration***********************/
+
     /*Dropdown*/
     ; (function ($) {
         function dropdownEnbridge(element) {
@@ -425,68 +428,9 @@
 
     })(jQuery);
 
-    /*Common*/
 
-    /*Success Zip*/
-    $('.new-address').change(function() {
-        var $this = $(this),
-            currentVal = $this.val(),
-            container = $this.attr('data-content'),
-            radioContent = [];
+    /***********************Flows for Dialogs***********************/
 
-        $this.closest('.code-box')
-            .find('.error-message ').remove();
-
-        if(!$this.val().postalCode()) {
-            $this
-                .addClass('input-error')
-                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
-            return;
-        }
-
-        $this.removeClass('input-error');
-
-        if($this.next().hasClass('error-message')) {
-            $this.next().remove();
-        }
-        $.post( "dummy.php",
-            function(resp) {
-                if (resp && resp.result) {
-
-                    var containerEl = container.replace('#','');
-                    $this
-                        .addClass('success-field')
-                        .removeClass('input-error');
-
-                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
-                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
-                        radioContent.push(chain);
-                    }
-
-                    $(container).html(radioContent.join(''));
-                    /*Select container*/
-                    $(container).find('input[type="radio"]').bind('click', function() {
-                        var name = $(this).attr('name') || '',
-                            containerBox = (this.value)?$this.attr('data-first-op'): $this.attr('data-second-op');
-
-                        $('#get-address').attr('data-next-step', containerBox);
-                        $('#newcustomers-get-address').attr('data-next-step', containerBox);
-
-                        $('input[name="' + name + '"]').removeClass('input-success input-error');
-                    });
-
-
-                } else {
-                    $this
-                        .removeClass('input-success success-field')
-                        .addClass('input-error');
-                }
-
-            },"json");
-
-    });
-
-    /*Flows*/
 
     /*Dialog - 1 - Moving out*/
 
@@ -848,6 +792,7 @@
         $('[data-id="moving-out-submit"]').addClass('disabled');
     });
 
+
     /*Dialog - 2 - New Customer*/
 
     /*
@@ -872,7 +817,7 @@
 
                         if(jsonObj.numbers) {
                             var numbers = [],
-                                container = '#data-dropdown';
+                                container = '#newcustomers-data-dropdown';
 
                             $(container).html('');
 
@@ -920,25 +865,114 @@
         }
     });
 
+    /*Set Address on decline/accept step container*/
+    $('#newcustomers-confirm-address-button').bind('click', function() {
+        var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
+            numberHouse =$('#newcustomers-current-number').val() || '',
+            zipCode = $('[data-id="newcustomers-code-validator"]').val() || '';
 
-
-    /**/
-    /*
-    $('#previous-dates').bind('click', function() {
-        var $target = $($(this).attr('data-target')),
-            elements = null;
-
-        $target.find('.active-step')
-            .removeClass('active-step');
-
-        elements =  $target.find('.steps:first-child')
-                       .removeClass('.processed');
-
-        if(elements[0]) {
-            $(elements[0]).addClass('active-step');
-        }
+        $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
     });
-    */
+
+    /*Info Decline*/
+    $('#newcustomers-info-decline').bind('click', function(e) {
+        e.preventDefault();
+        $('[data-id="newcustomers-code-validator"]')
+            .removeClass('success-field')
+            .val('');
+
+        $('[name="newcustomers-house-property"]')
+            .attr({'checked': false})
+            .removeAttr('data-required')
+            .removeClass('input-error');
+
+        $('#newcustomers-select-street-container, #data-dropdown').empty('');
+
+        $('#newcustomers-confirm-address, #newcustomers-first-step').toggleClass('active-step');
+    });
+
+    /*Info confirmation*/
+    $('#newcustomers-info-confirmation').bind('click', function(e) {
+        e.preventDefault();
+        $('#newcustomers-information-acceptance')
+            .hide()
+                .closest('.code-box')
+                    .width(280);
+
+        $('#newcustomershide-message')
+            .hide()
+                .closest('col')
+                    .addClass('xs5')
+                    .removeClass('xs12');
+
+        $('#newcustomers-property-info').show();
+        $('#newcustomers-step-address').removeClass('hidden');
+        $('[name="newcustomers-house-property"]').attr('data-required', true);
+    });
+
+
+
+
+    /***********************Common Functionality***********************/
+
+    /*Success Zip*/
+    $('.new-address').change(function() {
+        var $this = $(this),
+            currentVal = $this.val(),
+            container = $this.attr('data-content'),
+            radioContent = [];
+
+        $this.closest('.code-box')
+            .find('.error-message ').remove();
+
+        if(!$this.val().postalCode()) {
+            $this
+                .addClass('input-error')
+                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
+            return;
+        }
+
+        $this.removeClass('input-error');
+
+        if($this.next().hasClass('error-message')) {
+            $this.next().remove();
+        }
+        $.post( "dummy.php",
+            function(resp) {
+                if (resp && resp.result) {
+
+                    var containerEl = container.replace('#','');
+                    $this
+                        .addClass('success-field')
+                        .removeClass('input-error');
+
+                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
+                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
+                        radioContent.push(chain);
+                    }
+
+                    $(container).html(radioContent.join(''));
+                    /*Select container*/
+                    $(container).find('input[type="radio"]').bind('click', function() {
+                        var name = $(this).attr('name') || '',
+                            containerBox = (this.value)?$this.attr('data-first-op'): $this.attr('data-second-op');
+
+                        $('#get-address').attr('data-next-step', containerBox);
+                        $('#newcustomers-get-address').attr('data-next-step', containerBox);
+
+                        $('input[name="' + name + '"]').removeClass('input-success input-error');
+                    });
+
+
+                } else {
+                    $this
+                        .removeClass('input-success success-field')
+                        .addClass('input-error');
+                }
+
+            },"json");
+
+    });
 
     /*Postal Code*/
     $('.postal-code-verify').keyup( function(e) {
@@ -984,7 +1018,7 @@
 
     });
 
-    /*Accordion*/
+    /***********************Accordion***********************/
 
     /*Header click to collapse section*/
     $('.accordion .accordion-item >.header').bind('click', function(event) {
@@ -1106,50 +1140,6 @@
 
 
 
-    $('#newcustomers-confirm-address-button').bind('click', function() {
-        var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
-            numberHouse =$('#newcustomers-current-number').val() || '',
-            zipCode = $('#newcustomers-code-validator').val() || '';
-
-        $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
-    });
-
-    $('#newcustomers-info-confirmation').bind('click', function(e) {
-        e.preventDefault();
-        $('#newcustomers-information-acceptance')
-            .hide()
-                .closest('.code-box')
-                    .width(280);
-
-        $('#newcustomershide-message').
-            hide()
-                .closest('col')
-                    .addClass('xs5')
-                    .removeClass('xs12');
-
-        $('#newcustomers-property-info').show();
-        $('#newcustomers-step-address').removeClass('hidden');
-        $('input[name="newcustomers-house-property"]').attr('required');
-    });
-
-
-    $('#newcustomers-info-decline').bind('click', function(e) {
-        e.preventDefault();
-        $('#newcustomers-code-validator')
-            .removeClass('success-field')
-            .val('');
-
-        $('[name="newcustomers-house-property"]')
-            .attr({'checked': false, "required": false})
-            .removeClass('input-error');
-
-        $('#newcustomers-select-street-container, #data-dropdown').empty('');
-
-        $('#newcustomers-confirm-address, #newcustomers-first-step').toggleClass('active-step');
-    });
-
-
-
     $('#moving-out-finish').bind('click', function() {
         var fromAddress = $('#moving-out-street-number').val() + ' ' +$('#moving-out-suffix').val() + ' ' +
                           $('#moving-out-street').val() + ' ' + $('#moving-out-misc-info').val() + ' ' +  $('#moving-out-city-or-town').val() + ' ' +
@@ -1198,6 +1188,7 @@
         $('#almost-done-summary').addClass('hidden');
     });
 
+    /*Calendar get date*/
     $('.calendar').bind('click', function(e) {
         if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;
@@ -1213,7 +1204,7 @@
             .val(year + '-' + month + '-' + day);
     });
 
-    /*Forms*/
+    /*Forms Reset*/
     $('.enbridge-form input[type="radio"]').bind('click', function() {
         var name = $(this).attr('name') || '';
 
@@ -1224,6 +1215,7 @@
         $('input[name="' + name + '"]').removeClass('input-success input-error');
     });
 
+    /*Calendar section*/
     $(window).ready(function() {
         var calendar = $('.calendar'),
             currentDate = new Date(),
@@ -1264,30 +1256,27 @@
 
         $('.modalopen').bind('click',function(e){
             e.preventDefault();
-           $($(this).attr('data-target')).css("display","none");
-           var id = $(this).attr('data-target');
-            elements = $(id).siblings();
-            elements.each(function(entry){
-                var idName = $(elements[entry]).attr('id');
-                var idchange = '#'+idName;
-                console.log(idchange);
-                $(idchange).removeClass("hidden");
-                $("#costumer-alert").addClass("hidden");
+            $($(this).attr('data-target')).css("display","none");
+            var id = $(this).attr('data-target'),
+                elements = $(id).siblings();
 
-            });
+                elements.each(function(entry){
+                    var idName = $(elements[entry]).attr('id'),
+                        idchange = '#' + idName;
+                    $(idchange).removeClass("hidden");
+                    $("#costumer-alert").addClass("hidden");
+                });
         });
 
         $('.open-dialog').bind('click', function(e) {
             e.preventDefault();
+            var $this = $(this);
 
-            if($(this).attr('data-target')=="#movingoutredirect")
-            {
+            if($this.attr('data-target') == "#movingoutredirect") {
                 window.location="04_moving_out_login.html";
-            }
-            else
-            {
+            } else {
                 scroll(0,0);
-                $($(this).attr('data-target'))
+                $($this.attr('data-target'))
                     .dialog({
                         autoOpen:true,
                         resizable: false,

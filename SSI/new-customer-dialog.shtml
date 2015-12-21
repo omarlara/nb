@@ -824,7 +824,6 @@
                                 <div class="property-info form-grid">
                                     <div class="form-group pull-margin-right inputs-div-style ">
                                         <div class="set-field content-container last-note-padding">
-
                                             <label for="street-number" class="tiny _w650 left-important">
                                              <strong>Note</strong>: As a part of the activation process you will receive an email from Enbridge Gas Distribution with a link to the activation page. Plasea note that until you follow the steps in the email you will not be able to sign into myEnbridge. This is necessary to ensure you have entered a valid email address.
                                             </label>

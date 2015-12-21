@@ -1,4 +1,6 @@
 ;(function ($, window, document) {
+
+    /*Prototyping functions*/
     var dateCurrent = new Date(),
         validYear = dateCurrent.getFullYear() - 19;
 
@@ -24,6 +26,240 @@
     String.prototype.PhoneFormat = function () {
         return /^\d{3,3}(\-)\d{4,4}\d$/.test(this);
     }
+
+    /*General functions*/
+
+    /*Date Formater*/
+    function dateFormater (stringDate) {
+        var splitDates = stringDate.split('-'),
+            dateValue = '';
+
+        switch (splitDates[1]) {
+            case '1':
+                dateValue = 'January';
+            break;
+            case '2':
+                 dateValue = 'February';
+            break;
+            case '3':
+                 dateValue = 'March';
+            break;
+            case '4':
+                 dateValue = 'April';
+            break;
+            case '5':
+                 dateValue = 'May';
+            break;
+            case '6':
+                 dateValue = 'June';
+            break;
+            case '7':
+                dateValue = 'July';
+            break;
+            case '8':
+                dateValue = 'August';
+            break;
+            case '9':
+                dateValue = 'September';
+            break;
+            case '10':
+                dateValue = 'October';
+            break;
+            case '11':
+                dateValue = 'November';
+            break;
+            case '12':
+                dateValue = 'December';
+            break;
+        }
+
+        switch(splitDates[2]) {
+            case '1': case '21': case '31':
+                dateValue += (' ' + splitDates[2] + 'st');
+            break;
+            case '2': case '22':
+                dateValue += (' ' + splitDates[2] + 'nd');
+            break;
+            case '3': case '23':
+                dateValue += (' ' + splitDates[2] + 'rd');
+            break;
+            case '1':
+                dateValue += (' ' + splitDates[2] + 'st');
+            break;
+            default:
+                dateValue += (' ' + splitDates[2] + 'th');
+            break;
+        }
+
+        return dateValue;
+    }
+
+    /*Validators*/
+    var validator = function formValidator ($form) {
+        var error = false,
+            radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
+            select = $form.find('.enbridge-select').removeClass('input-error'),
+            zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
+            newAddress = $form.find('.new-address'),
+            text = $form.find('input[type="text"]');
+
+        $form.find('.error-message, .error-code').remove();
+        $form.find('.input-error').removeClass('input-error');
+
+        for (var i = radio.length - 1; i >= 0; i--) {
+            var $current = $(radio[i]);
+
+            if($current.attr('data-required') && !($current.hasClass('input-success') || $current.attr('checked')) ) {
+                var $current = $(radio[i]);
+
+                if(!$current.hasClass('input-error')) {
+                    $current.closest('.set-field')
+                        .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+                }
+
+                $('[name = "' + $current.attr('name') + '"]')
+                    .addClass('input-error');
+
+            } else {
+                var name = $current.attr('name');
+
+                $('input[name="' + name +'"]')
+                    .removeClass('input-error')
+                    .addClass('input-success');
+
+                $current.closest('.set-field')
+                        .find('.error-message').remove();
+
+            }
+
+        }
+
+        if($form.find('input[type="radio"].input-error').length) {
+            error = true;
+        }
+
+        for (var i = zipTool.length - 1; i >= 0; i--) {
+            var $current = $(zipTool[i]),
+                $codeContainer = $current.find('.code-container');
+
+            if(!$codeContainer.val().postalCode()) {
+               $codeContainer
+                    .addClass('input-error')
+                        .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>') ;
+            }
+
+            if (!$current.hasClass('success-zip') ) {
+                error = true;
+            }
+        }
+
+        for (var i = newAddress.length - 1; i >= 0; i--) {
+            if (!$(newAddress[i]).hasClass('success-field') ) {
+                error = true;
+            }
+        }
+
+        for (var i = select.length - 1; i >= 0; i--) {
+            var $current = $(select[i]);
+            if($current.attr('data-required') && !$current.val()) {
+
+
+                if($current.attr('data-position') == 'top') {
+                    $current
+                        .addClass('input-error')
+                        .before('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+                } else {
+                    $current
+                        .addClass('input-error')
+                        .next()
+                            .after('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+                }
+
+                error = true;
+            }
+        }
+
+        for (var i = text.length - 1; i >= 0; i--) {
+            var $current = $(text[i]),
+                pattern = $current.attr('data-pattern') || '';
+
+            if($current.attr('data-required') && !$current.val()) {
+                $('[data-rel="' + $current.attr('data-rel') + '"]')
+                    .addClass('input-error');
+
+                $current.closest('.set-field')
+                    .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+                error = true;
+            }
+            if (!!$current.val()) {
+                switch(pattern) {
+                    case 'postal-code':
+                        if(!$current.val().postalCode()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                    break;
+                    case 'valid-year':
+                        if(!$current.val().validYear()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                    break;
+                    case 'valid-email':
+                        if(!$current.val().validEmail()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                    break;
+                    default:
+                    break;
+                }
+            }
+        }
+
+        return error;
+    };
+
+    var dateValidator = function ($start, $end) {
+        var error = false,
+            init = new Date($start.val()),
+            end = new Date($end.val()),
+            now = new Date();
+
+        if($start.attr('required') && $end.attr('required')) {
+            if(init > end) {
+                $('[data-calendar*="' + $start.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            } else if( end < now) {
+                $('[data-calendar*="' + $end.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            } else if ((end - init)/86400000 < 3) {
+                $('[data-calendar*="' + $end.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            } else if ((''+end).indexOf('Sun') > - 1) {
+                $('[data-calendar*="' + $end.attr('id') + '"]')
+                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+                error = true;
+            }
+        }
+
+        return error;
+    };
 
     /*Dropdown*/
     ; (function ($) {
@@ -250,173 +486,6 @@
 
     });
 
-    /*Accordion*/
-    var validator = function formValidator ($form) {
-        var error = false,
-            radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
-            select = $form.find('.enbridge-select').removeClass('input-error'),
-            zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
-            newAddress = $form.find('.new-address'),
-            text = $form.find('input[type="text"]');
-
-        $form.find('.error-message, .error-code').remove();
-        $form.find('.input-error').removeClass('input-error');
-
-        for (var i = radio.length - 1; i >= 0; i--) {
-            var $current = $(radio[i]);
-
-            if($current.attr('data-required') && !($current.hasClass('input-success') || $current.attr('checked')) ) {
-                var $current = $(radio[i]);
-
-                if(!$current.hasClass('input-error')) {
-                    $current.closest('.set-field')
-                        .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
-                }
-
-                $('[name = "' + $current.attr('name') + '"]')
-                    .addClass('input-error');
-
-            } else {
-                var name = $current.attr('name');
-
-                $('input[name="' + name +'"]')
-                    .removeClass('input-error')
-                    .addClass('input-success');
-
-                $current.closest('.set-field')
-                        .find('.error-message').remove();
-
-            }
-
-        }
-
-        if($form.find('input[type="radio"].input-error').length) {
-            error = true;
-        }
-
-        for (var i = zipTool.length - 1; i >= 0; i--) {
-            var $current = $(zipTool[i]),
-                $codeContainer = $current.find('.code-container');
-
-            if(!$codeContainer.val().postalCode()) {
-               $codeContainer
-                    .addClass('input-error')
-                        .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>') ;
-            }
-
-            if (!$current.hasClass('success-zip') ) {
-                error = true;
-            }
-        }
-
-        for (var i = newAddress.length - 1; i >= 0; i--) {
-            if (!$(newAddress[i]).hasClass('success-field') ) {
-                error = true;
-            }
-        }
-
-        for (var i = select.length - 1; i >= 0; i--) {
-            var $current = $(select[i]);
-            if($current.attr('data-required') && !$current.val()) {
-
-
-                if($current.attr('data-position') == 'top') {
-                    $current
-                        .addClass('input-error')
-                        .before('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
-                } else {
-                    $current
-                        .addClass('input-error')
-                        .next()
-                            .after('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
-                }
-
-                error = true;
-            }
-        }
-
-        for (var i = text.length - 1; i >= 0; i--) {
-            var $current = $(text[i]),
-                pattern = $current.attr('data-pattern') || '';
-
-            if($current.attr('data-required') && !$current.val()) {
-                $('[data-rel="' + $current.attr('data-rel') + '"]')
-                    .addClass('input-error');
-
-                $current.closest('.set-field')
-                    .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
-                error = true;
-            }
-            if (!!$current.val()) {
-                switch(pattern) {
-                    case 'postal-code':
-                        if(!$current.val().postalCode()) {
-                            $('[data-rel="' + $current.attr('data-rel') + '"]')
-                                .addClass('input-error');
-
-                            $current.closest('.set-field')
-                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
-                            error = true;
-                        }
-                    break;
-                    case 'valid-year':
-                        if(!$current.val().validYear()) {
-                            $('[data-rel="' + $current.attr('data-rel') + '"]')
-                                .addClass('input-error');
-
-                            $current.closest('.set-field')
-                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
-                            error = true;
-                        }
-                    break;
-                    case 'valid-email':
-                        if(!$current.val().validEmail()) {
-                            $('[data-rel="' + $current.attr('data-rel') + '"]')
-                                .addClass('input-error');
-
-                            $current.closest('.set-field')
-                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
-                            error = true;
-                        }
-                    break;
-                    default:
-                    break;
-                }
-            }
-        }
-
-        return error;
-    };
-
-    var dateValidator = function ($start, $end) {
-        var error = false,
-            init = new Date($start.val()),
-            end = new Date($end.val()),
-            now = new Date();
-
-        if($start.attr('required') && $end.attr('required')) {
-            if(init > end) {
-                $('[data-calendar*="' + $start.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                error = true;
-            } else if( end < now) {
-                $('[data-calendar*="' + $end.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                error = true;
-            } else if ((end - init)/86400000 < 3) {
-                $('[data-calendar*="' + $end.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                error = true;
-            } else if ((''+end).indexOf('Sun') > - 1) {
-                $('[data-calendar*="' + $end.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
-                error = true;
-            }
-        }
-
-        return error;
-    };
-
     /*Flows*/
 
     /*Dialog - 1 - Moving out*/
@@ -436,8 +505,9 @@
         }
     });
 
-    /*When you click on the next sep, on Select your street
-      if you have selected No one above, you will show form, in another case you will be on the select street number
+    /*
+    When you click on the next sep, on Select your street
+    if you have selected No one above, you will show form, in another case you will be on the select street number
     */
     $('#get-address').bind('click', function() {
         var $this = $(this);
@@ -523,7 +593,7 @@
     });
 
     /*Add alternative mailer address*/
-    $('#mailing-address-alternative, #mailing-address').change(function() {
+    $('[data-id="mailing-address-alternative"], [data-id="mailing-address"]').change(function() {
         if(this.checked) {
             $('#manual-property-info').removeClass('hidden');
 
@@ -780,6 +850,75 @@
 
     /*Dialog - 2 - New Customer*/
 
+    /*
+    When you click on the next sep, on Select your street
+    if you have selected No one above, you will show form, in another case you will be on the select street number
+    */
+    $('#newcustomers-get-address').bind('click', function() {
+        var $this = $(this);
+
+        if($('[name="newcustomers-select-street-container"]:checked').val()) {
+            $.ajax({
+                url: 'dummy.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {},
+                complete: function(xhr,status) {
+                    var jsonObj = null;
+                    if (!xhr || xhr.status != 200 || !xhr.response) {
+                        console.log(xhr);
+                    } else {
+                        jsonObj = JSON.parse(xhr.response);
+
+                        if(jsonObj.numbers) {
+                            var numbers = [],
+                                container = '#data-dropdown';
+
+                            $(container).html('');
+
+                            for (var i = 0, size = jsonObj.numbers.length; i < size; i++) {
+                                numbers.push('<option value="' + jsonObj.numbers[i] + '">' + jsonObj.numbers[i] + '</option>');
+                            }
+
+                            $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
+                                .appendTo(container)
+                                .enbridgeDropdown();
+
+                        }
+                    }
+                }
+            });
+
+        }
+    });
+
+    /*Add alternative mailer address*/
+    $('[data-id="newcustomers-mailing-address-alternative"], [data-id="newcustomers-mailing-address"]').change(function() {
+        if(this.checked) {
+            $('#newcustomers-manual-property-info').removeClass('hidden');
+
+            $('[data-id="newcustomers-street-alternative"], [data-id="newcustomers-city-or-town-alternative"], [data-id="newcustomers-select-country-alternative"], [ data-id="newcustomers-select-province-alternative"], [data-id="newcustomers-postal-code-input-alternative"]')
+                .attr('data-required', true);
+        } else {
+            $('#newcustomers-manual-property-info')
+                .addClass('hidden')
+                .find('.error-message')
+                    .remove();
+
+            $('[data-id="newcustomers-street-alternative"], [data-id="newcustomers-city-or-town-alternative"], [data-id="newcustomers-postal-code-input-alternative"]')
+                .removeAttr('data-required')
+                .removeClass('input-error')
+                .val('');
+
+            $('[data-rel="newcustomers-street-alternative"]')
+                .removeClass('input-error')
+                .val('');
+
+            $('[data-id="newcustomers-select-country-alternative"], [ data-id="newcustomers-select-province-alternative"]')
+                .removeAttr('data-required')
+                .removeClass('input-error');
+        }
+    });
 
 
 
@@ -801,7 +940,7 @@
     });
     */
 
-    /*Code*/
+    /*Postal Code*/
     $('.postal-code-verify').keyup( function(e) {
         e.stopPropagation();
         var $this = $(this).removeClass('input-sucess input-error');
@@ -845,6 +984,9 @@
 
     });
 
+    /*Accordion*/
+
+    /*Header click to collapse section*/
     $('.accordion .accordion-item >.header').bind('click', function(event) {
         event.preventDefault();
 
@@ -862,6 +1004,7 @@
 
     });
 
+    /*Run validations for each section*/
     $('.accordion .accordion-item .validator').bind('click', function(e) {
         e.preventDefault();
 
@@ -890,6 +1033,7 @@
 
     });
 
+    /*Return to the previous step*/
     $('.accordion .accordion-item .prev').bind('click', function(e) {
         var $current = $(this).closest('.accordion-item');
 
@@ -903,6 +1047,7 @@
         }
     });
 
+    /*Steps*/
     $('.steps .next-step').bind('click', function() {
         var $current = $(this).closest('.accordion-item'),
             $currentStep = $(this).closest('.steps'),
@@ -920,86 +1065,19 @@
             if (this.id === 'get-address' && !$('[name=select-street-container]:checked').val()) {
                 $('#step-address').removeClass('hidden');
 
-                 $('#street, #city-or-town, #country, #province, #postal-code-input, [name="house-property-alternative"]')
+                $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
                     .attr('data-required', true);
 
             } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
-                $('#newcustomers-street').attr('required', true);
-                $('#newcustomers-city-or-town').attr('required', true);
-                $('#newcustomers-country').attr('required', true);
-                $('#newcustomers-province').attr('required', true);
-                $('#newcustomers-postal-code-input').attr('required', true);
+                $('[data-id="newcustomers-street"], [data-id="newcustomers-city-or-town"], [data-id="newcustomers-country"], [data-id="newcustomers-province"], [data-id="newcustomers-postal-code-input"], [name="newcustomers-house-property-alternative"]')
+                    .attr('data-required', true);
             }
         }
     });
 
-
-    function dateFormater (stringDate) {
-        var splitDates = stringDate.split('-'),
-            dateValue = '';
-
-        switch (splitDates[1]) {
-            case '1':
-                dateValue = 'January';
-            break;
-            case '2':
-                 dateValue = 'February';
-            break;
-            case '3':
-                 dateValue = 'March';
-            break;
-            case '4':
-                 dateValue = 'April';
-            break;
-            case '5':
-                 dateValue = 'May';
-            break;
-            case '6':
-                 dateValue = 'June';
-            break;
-            case '7':
-                dateValue = 'July';
-            break;
-            case '8':
-                dateValue = 'August';
-            break;
-            case '9':
-                dateValue = 'September';
-            break;
-            case '10':
-                dateValue = 'October';
-            break;
-            case '11':
-                dateValue = 'November';
-            break;
-            case '12':
-                dateValue = 'December';
-            break;
-        }
-
-        switch(splitDates[2]) {
-            case '1': case '21': case '31':
-                dateValue += (' ' + splitDates[2] + 'st');
-            break;
-            case '2': case '22':
-                dateValue += (' ' + splitDates[2] + 'nd');
-            break;
-            case '3': case '23':
-                dateValue += (' ' + splitDates[2] + 'rd');
-            break;
-            case '1':
-                dateValue += (' ' + splitDates[2] + 'st');
-            break;
-            default:
-                dateValue += (' ' + splitDates[2] + 'th');
-            break;
-        }
-
-        return dateValue;
-    }
-
+    /*Edit information*/
     $('.edit-info').bind('click', function(e) {
         e.preventDefault();
         var $current = $(this),
@@ -1025,64 +1103,8 @@
     })
 
 
-/*
-    $('#get-address').bind('click', function() {
-        var $this = $(this);
 
-        $.post( "dummy.php",
-            function(resp) {
-                if (resp && resp.result) {
-                    var numbers = [],
-                        container = $this.attr('data-number-dropdown');
 
-                    $(container).html('');
-
-                    for (var i = 0, size = resp.numbers.length; i < size; i++) {
-                        numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
-                    }
-
-                    $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
-                        .appendTo(container)
-                        .enbridgeDropdown();
-
-                } else {
-                    $this
-                        .removeClass('input-success success-field')
-                        .addClass('input-error');
-                }
-
-            },"json");
-
-    });
-*/
-    $('#newcustomers-get-address').bind('click', function() {
-        var $this = $(this);
-
-        $.post( "dummy.php",
-            function(resp) {
-                if (resp && resp.result) {
-                    var numbers = [],
-                        container = $this.attr('data-number-dropdown');
-
-                    $(container).html('');
-
-                    for (var i = 0, size = resp.numbers.length; i < size; i++) {
-                        numbers.push('<option value="' + resp.numbers[i] + ' ">' + resp.numbers[i] + '</option>');
-                    }
-
-                    $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
-                        .appendTo(container)
-                        .enbridgeDropdown();
-
-                } else {
-                    $this
-                        .removeClass('input-success success-field')
-                        .addClass('input-error');
-                }
-
-            },"json");
-
-    });
 
     $('#newcustomers-confirm-address-button').bind('click', function() {
         var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
@@ -1127,22 +1149,6 @@
     });
 
 
-    $('#newcustomers-mailing-address-alternative, #newcustomers-mailing-address').change(function() {
-        var required = false;
-        if(this.checked) {
-            $('#newcustomers-manual-property-info').removeClass('hidden');
-            required = true;
-        } else {
-            $('#newcustomers-manual-property-info').addClass('hidden');
-            required = false;
-        }
-
-        $('#newcustomers-street-alternative').attr('required', required);
-        $('#newcustomers-city-or-town-alternative').attr('required', required);
-        $('#newcustomers-country-alternative').attr('required',required);
-        $('#newcustomers-province-alternative').attr('required', required);
-        $('#newcustomers-postal-code-input-alternative').attr('required', required);
-    });
 
     $('#moving-out-finish').bind('click', function() {
         var fromAddress = $('#moving-out-street-number').val() + ' ' +$('#moving-out-suffix').val() + ' ' +

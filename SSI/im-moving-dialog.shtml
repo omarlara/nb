@@ -97,7 +97,7 @@
                                     <p class="strong">Please enter your new address:</p>
 
                                     <div class="code-box little-top form-grid">
-                                       <div class="row">
+                                        <div class="row">
                                            <div class="form-group">
                                                 <label for="code-validator">Let's start with your postal code:</label>
                                                 <input type="text"
@@ -111,7 +111,7 @@
                                                     data-second-op="#select_your_address_form"
                                                 data-content="#select-street-container">
                                            </div>
-                                       </div>
+                                        </div>
                                         <div class="next-step" data-next-step="#select_your_street"></div>
                                     </div>
 
@@ -190,7 +190,11 @@
                                             </label>
                                         </div>
 
-                                        <input type="checkbox" id="mailing-address" value="true">
+                                        <input
+                                            type="checkbox"
+                                            id="mailing-address"
+                                            data-id="mailing-address"
+                                        value="true">
                                         <label class="fake-input" for="mailing-address">My mailing address is different from my service address</label>
                                     </div>
 

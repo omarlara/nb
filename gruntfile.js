@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
     grunt.initConfig({
@@ -77,6 +78,14 @@ module.exports = function (grunt) {
                 ext: '.min.css'
             }
         },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            my_target: {
+                files: {'js/<%= pkg.name %>.min.js': 'js/<%= pkg.name %>.js'}
+            }
+        },
         compress: {
             main: {
                 options: {
@@ -87,6 +96,10 @@ module.exports = function (grunt) {
                         expand: false,
                         src: ['css/<%= pkg.name %>.min.css'],
                         dest: 'css/<%= pkg.name %>.min.css.gz'
+                    },
+                    {
+                        src: ['js/<%= pkg.name %>.min.js'],
+                        dest: 'js/<%= pkg.name %>.min.js.gz'
                     }
                 ]
             }
@@ -110,5 +123,6 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', ['concurrent:dev']);
     grunt.registerTask('qa', ['concurrent:dev']);
     grunt.registerTask('prod', ['concurrent:prod']);
+    grunt.registerTask('buildProd', ['sass:dist', 'cssmin', 'uglify', 'compress']);
 }
 

@@ -585,7 +585,7 @@
       opacity: 0.92; }
     .enbridge-content-container .enbridge-btn.black.big-button:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator:after,
     .enbridge-content-container .accordion .accordion-item .content .black.big-button.prev:after {
-      background-image: url("img/yellow-arrow.svg"); }
+      background-image: url("img/arrow_yellow.png"); }
   .enbridge-content-container .enbridge-btn.blue, .enbridge-content-container .accordion .accordion-item .content .blue.validator-container, .enbridge-content-container .accordion .accordion-item .content .blue.validator,
   .enbridge-content-container .accordion .accordion-item .content .blue.prev {
     background-color: #007dba; }
@@ -1129,7 +1129,7 @@
           display: block;
           float: right;
           padding: 0%;
-          margin: -2%; }
+          margin: -7px -6px 0px 0px; }
       .enbridge-content-container .container-thankyou .tiles .green .text {
         padding: 20px; }
       .enbridge-content-container .container-thankyou .tiles .green h1 {
@@ -1169,8 +1169,8 @@
           display: block;
           float: right;
           padding: 0%;
-          margin: -1% 2% 0% 0%;
-          background-image: url("img/yellow-arrow.svg");
+          margin: -7px 0px 0px 0px;
+          background-image: url("img/arrow_yellow.png");
           top: 2.5px; }
       .enbridge-content-container .container-thankyou .tiles .generic h1 {
         color: #ffc038;
@@ -1216,7 +1216,7 @@
         font-size: 24px;
         font-weight: 500;
         color: #636373; }
-      .enbridge-content-container .container-thankyou .info-content .info button.like {
+      .enbridge-content-container .container-thankyou .info-content .info .like {
         margin-right: 8%; }
       .enbridge-content-container .container-thankyou .info-content .info p {
         font-size: 14px;

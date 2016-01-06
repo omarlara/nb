@@ -111,7 +111,7 @@
                     display: block;
                     float: right;
                     padding: 0%;
-                    margin: -2%;
+                    margin: -7px -6px 0px 0px;
                 }
             }
 
@@ -170,8 +170,8 @@
                     display: block;
                     float: right;
                     padding: 0%;
-                    margin: -1% 2% 0% 0%;
-                    background-image: url("img/yellow-arrow.svg");
+                    margin: -7px 0px 0px 0px;
+                    background-image: url("img/arrow_yellow.png");
                     top: 2.5px;
                 }
             }
@@ -247,7 +247,7 @@
                 color: $mid-gray;
             }
 
-            button.like {
+            .like {
                 margin-right: 8%;
             }
 

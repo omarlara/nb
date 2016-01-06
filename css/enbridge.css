@@ -2137,7 +2137,7 @@
   padding: 20px;
   outline: 0;
   border: 1px solid #DEDFE4;
-  background: #fff;
+  background: #f3f4f7;
   z-index: -1; }
   .ui-dialog .tooltip .icon.address-tooltip:after {
     margin-top: 4px;
@@ -2343,11 +2343,19 @@
 [for="newcustomers-year"] + .set-field {
   max-width: 500px; }
 
-.summary .address {
-  margin: 0 auto;
-  min-height: 205px;
-  width: 195px; }
-.summary .information {
-  background: transparent; }
+.right-aligned-content {
+  float: left;
+  width: 660px; }
+
+.summary {
+  border: 1px solid #ebecee;
+  padding: 25px;
+  background: white; }
+  .summary .address {
+    margin: 0 auto;
+    min-height: 205px;
+    width: 195px; }
+  .summary .information {
+    background: transparent; }
 
 /*# sourceMappingURL=enbridge.css.map */

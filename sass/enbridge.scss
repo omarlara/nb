@@ -219,9 +219,15 @@
     max-width: 500px;
 }
 
-
+.right-aligned-content {
+    float: left;
+    width: 660px;
+}
 .summary {
+    border: 1px solid $athens-gray-border;
+    padding: 25px;
 
+    background: white;
    .address {
         margin: 0 auto;
         min-height: 205px;

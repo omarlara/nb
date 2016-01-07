@@ -87,8 +87,8 @@
     }
 }
 
-#stop-select + .enbridge-dropdown{
-    margin-bottom: $normal-margin;
+[data-id="stop-select"] + .enbridge-dropdown {
+    margin-bottom: $normal-margin !important;
     margin-left: 25px;
     width: 380px;
 }

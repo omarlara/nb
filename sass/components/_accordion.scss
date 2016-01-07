@@ -93,7 +93,7 @@
                             height: 20px;
                             width: 20px;
 
-                            background-image: url('img/arrow_white_right.svg');
+                            background-image: url('img/arrow_white_right.png');
 
                         }
                     }
@@ -114,7 +114,7 @@
                             height: 20px;
                             width: 20px;
 
-                            background-image: url('img/arrow_white_left.svg');
+                            background-image: url('img/arrow_white_left.png');
 
                         }
                     }
@@ -152,13 +152,12 @@
             }
         }
 
-        &:first-child:not(.processed):not(.active),
-        &:last-child:not(.processed):not(.active){
+        &:first-child:not(.processed):not(.active) {
             >.header {
                 color: white;
                 cursor: pointer;
                 &:after {
-                    background-image: url('img/arrow_white_right.svg');
+                    background-image: url('img/arrow_white_right.png');
                 }
             }
         }
@@ -168,7 +167,7 @@
             font-weight: 500;
             >.header {
                 &:after {
-                    background-image: url('img/arrow_white_bottom.svg');
+                    background-image: url('img/arrow_white_bottom.png');
                     top: 5px;
                 }
             }
@@ -267,7 +266,7 @@
             top: 45%;
         }
         background-color: $chelsea-cucumber;
-        background-image: url('img/arrow_white_right.svg');
+        background-image: url('img/arrow_white_right.png');
         background-repeat: no-repeat;
         background-position: 12px 11px;
 

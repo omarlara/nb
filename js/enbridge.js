@@ -1,4 +1,4 @@
-;(function ($, window, document) {
+;$(window).ready(function () {
 
     /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
@@ -411,7 +411,7 @@
                         return;
                     }
 
-                    request =  $.post( "dummy.php",
+                    request =  $.post( "http://beta.json-generator.com/api/json/get/N1wJ1FaUl",
                                     {value: currentCode},
                                     function(resp) {
                                         if (resp && resp.result) {
@@ -462,7 +462,7 @@
 
     /*Stop radio button click, show/hide Select reason select*/
      $('[name="steps"]').click(function() {
-        var $element = $('#stop-select');
+        var $element = $('[data-id="stop-select"]');
 
         if(this.value === 'stop') {
             $element
@@ -484,7 +484,7 @@
 
         if($('[name="select-street-container"]:checked').val()) {
             $.ajax({
-                url: 'dummy.php',
+                url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
                 type: 'POST',
                 dataType: 'json',
                 data: {},
@@ -527,7 +527,7 @@
     });
 
     /*Info Decline*/
-    $('#info-decline').bind('click', function(e) {
+    $('[data-id="info-decline"]').bind('click', function(e) {
         e.preventDefault();
         $('[data-id="code-validator"]')
             .removeClass('success-field')
@@ -544,7 +544,7 @@
     });
 
     /*Info confirmation*/
-    $('#info-confirmation').bind('click', function(e) {
+    $('[data-id="info-confirmation"]').bind('click', function(e) {
         e.preventDefault();
         $('#information-acceptance')
             .hide()
@@ -845,7 +845,7 @@
 
         if($('[name="newcustomers-select-street-container"]:checked').val()) {
             $.ajax({
-                url: 'dummy.php',
+                url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
                 type: 'POST',
                 dataType: 'json',
                 data: {},
@@ -1016,7 +1016,7 @@
         if($this.next().hasClass('error-message')) {
             $this.next().remove();
         }
-        $.post( "dummy.php",
+        $.post( "http://beta.json-generator.com/api/json/get/N1wJ1FaUl",
             function(resp) {
                 if (resp && resp.result) {
 
@@ -1068,7 +1068,7 @@
             $this.addClass('input-sucess');
 
             $.ajax({
-                url: 'dummy.php',
+                url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
                 complete: function(xhr,status) {
                     $this.closest('.set-field')
                         .find('.error-message, .result')
@@ -1249,7 +1249,7 @@
         var calendar = $('.calendar'),
             currentDate = new Date(),
             dialogConstant = {
-                    autoOpen: false,
+                    autoOpen: true,
                     resizable: false,
                     height: 240,
                     width: 720,
@@ -1325,4 +1325,4 @@
 
     });
 
-})(jQuery, window, document);
+});

@@ -87,40 +87,47 @@
                 </div>
             </div>
 
+            
+        </div>
+    </div>
+    
+    <div class="enbridge-content-container overflow-hidden">
+        <div class="enbridge-container ">
             <div class="col md10 features">
-                <div class="row">
-                    <p class="checked">All of your account settings and options will be applied to the new account</p>
-                    <p class="checked">Any remaining unpaid balances will be transferred.</p>
-                    <p class="checked">Your ﬁnal bill for the “Fake St.” address will be sent to: john@mail.com</p>
-                    <p class="checked">You will be charged a new account fee of $25</p>
+                        <div class="row">
+                            <p class="checked">All of your account settings and options will be applied to the new account</p>
+                            <p class="checked">Any remaining unpaid balances will be transferred.</p>
+                            <p class="checked">Your ﬁnal bill for the “Fake St.” address will be sent to: john@mail.com</p>
+                            <p class="checked">You will be charged a new account fee of $25</p>
 
-                    <div action="" class="enbridge-form">
-                        <p class="">Would you like to enroll your new account in to the Budget Billing Plan?
-                        <span class="tooltip super">
-                            <span class="icon"></span>
-                            <span class="content-tooltip">
-                                <span class="cross"></span>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
-                            </span>
-                        </span>
-                                            </p>
-                        <div class="col md12">
-                            <div class="col md2">
-                                <div class="col md4">
-                                    <input type="radio" name="new-billing-plan" id="new-billing-plan-yes">
-                                    <label class="fake-input" for="new-billing-plan-yes">Yes</label>
-                                </div>
-                            </div>
-                            <div class="col md2">
-                                <div class="col md4">
-                                    <input type="radio" name="new-billing-plan" id="new-billing-plan-no">
-                                    <label class="fake-input" for="new-billing-plan-no">No</label>
+                            <div action="" class="enbridge-form">
+                                <p class="">Would you like to enroll your new account in to the Budget Billing Plan?
+                                <span class="tooltip super">
+                                    <span class="icon"></span>
+                                    <span class="content-tooltip">
+                                        <span class="cross"></span>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                    </span>
+                                </span>
+                                                    </p>
+                                <div class="col md12">
+                                    <div class="col md2">
+                                        <div class="col md4">
+                                            <input type="radio" name="new-billing-plan" id="new-billing-plan-yes">
+                                            <label class="fake-input" for="new-billing-plan-yes">Yes</label>
+                                        </div>
+                                    </div>
+                                    <div class="col md2">
+                                        <div class="col md4">
+                                            <input type="radio" name="new-billing-plan" id="new-billing-plan-no">
+                                            <label class="fake-input" for="new-billing-plan-no">No</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+
 </div>

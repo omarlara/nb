@@ -63,6 +63,8 @@
   text-decoration: inherit;
   font-size: 14px;
   color: #62aece; }
+.enbridge-content-container .overflow-hidden {
+  overflow: hidden; }
 .enbridge-content-container .clearfix {
   display: block;
   width: 1px;
@@ -2263,7 +2265,7 @@
 [data-id="moving-out-suffix"],
 [data-id="moving-out-street"],
 [data-id="moving-out-misc-info"] {
-  margin-bottom: 0; }
+  margin-bottom: 0 !important; }
 
 [data-id="country-alternative-element"] + .enbridge-dropdown,
 [data-id="province-alternative-element"] + .enbridge-dropdown,

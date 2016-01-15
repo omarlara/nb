@@ -1,5 +1,9 @@
+@import "components/_integration_styles";
 @import "./config/main";
 
+.min-height-400{
+        min-height: 400px;
+}
 .enbridge-content-container {
     @import "./components/main";
     @import "./media/main";

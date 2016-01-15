@@ -114,24 +114,35 @@
         color: $lochmara;
 
         &.like {
-            background-color: $moon-mist;
-
+            //background-color: $moon-mist;
+            color:$mid-gray;
             &:before {
                 content: url("img/like.png");
+            }
+            &:hover{
+                &:before{
+                content:url('img/like-hover_03.png');
+                }
             }
         }
 
         &.dislike {
-            background-color: $moon-mist;
-
+            color:$mid-gray;
             &:before {
                 content: url("img/dislike.png");
+            }
+            &:hover{
+                &:before{
+                content:url('img/dislike-hover.png');
+                }
             }
         }
 
         &:hover {
-            background-color: $lochmara;
-            color: white;
+            background-color: $athens-gray;
+            color: $lochmara;
+
+            //color: white;
         }
 
         &:active {
@@ -149,6 +160,11 @@
         text-align: center;
         font-size: 18px;
         font-weight: 400;
+        &.login-btn{
+            &:after{
+                top:2px;
+            }
+        }
 
         &:after {
             content: '';
@@ -162,6 +178,7 @@
             height: 20px;
             position: relative;
             top: 4px;
+
         }
     }
 

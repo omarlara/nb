@@ -2,7 +2,7 @@
     <div class="enbridge-content-container">
         <div class="enbridge-container ">
             <div class="row">
-                <div class="total-container">
+                <div class="total-container" id="miscelaneous_container">
                     <span class="title-moving">Moving Out</span>
                     <div class="container-thankyou">
                         <h1 class="title">Thank You!</h1>

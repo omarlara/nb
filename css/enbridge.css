@@ -2364,29 +2364,29 @@
   margin-left: 25px;
   width: 380px; }
 
-#street-number-alternative,
-#suffix-alternative,
-#misc-info-alternative,
-#street-alternative,
-#street-number,
-#suffix,
-#misc-info,
-#street,
-#moving-out-street-number,
-#moving-out-suffix,
-#moving-out-street,
-#moving-out-misc-info {
-  margin-bottom: 0; }
+[data-id="street-number-alternative"],
+[data-id="suffix-alternative"],
+[data-id="misc-info-alternative"],
+[data-id="street-alternative"],
+[data-id="street-number"],
+[data-id="suffix"],
+[data-id="misc-info"],
+[data-id="street"],
+[data-id="moving-out-street-number"],
+[data-id="moving-out-suffix"],
+[data-id="moving-out-street"],
+[data-id="moving-out-misc-info"] {
+  margin-bottom: 0 !important; }
 
-#country-alternative-element + .enbridge-dropdown,
-#province-alternative-element + .enbridge-dropdown,
-#country + .enbridge-dropdown,
-#province + .enbridge-dropdown,
-#newcustomers-select-country + .enbridge-dropdown,
-#newcustomers-select-province + .enbridge-dropdown,
-#moving-out-country + .enbridge-dropdown,
-#moving-out-province + .enbridge-dropdown {
-  margin-bottom: 15px; }
+[data-id="country-alternative-element"] + .enbridge-dropdown,
+[data-id="province-alternative-element"] + .enbridge-dropdown,
+[data-id="country"] + .enbridge-dropdown,
+[data-id="province"] + .enbridge-dropdown,
+[data-id="newcustomers-select-country"] + .enbridge-dropdown,
+[data-id="newcustomers-select-province"] + .enbridge-dropdown,
+[data-id="moving-out-country"] + .enbridge-dropdown,
+[data-id="moving-out-province"] + .enbridge-dropdown {
+  margin-bottom: 15px !important; }
 
 [data-id="month-user-info"] + .enbridge-dropdown {
   width: 130px; }

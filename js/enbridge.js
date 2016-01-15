@@ -406,7 +406,8 @@
                             .attr('checked', true);
 
                         $('[data-id="stop-select"]')
-                            .removeClass('hide-flow');
+                            .removeClass('hide-flow')
+                            .attr('data-required', true);
 
                         return;
                     }
@@ -434,7 +435,8 @@
                                                 .attr('checked', true);
 
                                             $('[data-id="stop-select"]')
-                                                .removeClass('hide-flow');
+                                                .removeClass('hide-flow')
+                                                .removeAttr('data-required');
                                         }
 
                                 },"json");
@@ -481,6 +483,8 @@
     */
     $('#get-address').bind('click', function() {
         var $this = $(this);
+
+        $('[name="select-street-container"]').attr('data-required', true);
 
         if($('[name="select-street-container"]:checked').val()) {
             $.ajax({

@@ -117,11 +117,20 @@
             //background-color: $moon-mist;
             color:$mid-gray;
             &:before {
-                content: url("img/like.png");
+                content: '';
+                display:block;
+                width: 26px;
+                height: 22px;
+                background-position: left top;
+                background-repeat:no-repeat;
+                background-image:url("img/like-complete.png");
+                margin-top: -4px;
+                margin-right: 10px;
             }
             &:hover{
                 &:before{
-                content:url('img/like-hover_03.png');
+                //content:url('img/like-hover_03.png');
+                background-position: left bottom;
                 }
             }
         }
@@ -129,11 +138,20 @@
         &.dislike {
             color:$mid-gray;
             &:before {
-                content: url("img/dislike.png");
+                content: '';
+                content: '';
+                display:block;
+                width: 26px;
+                height: 22px;
+                background-position: left top;
+                background-repeat:no-repeat;
+                background-image:url("img/dislike-complete.png");
+                margin-top: 1px;
+                margin-right: 10px;
             }
             &:hover{
                 &:before{
-                content:url('img/dislike-hover.png');
+                background-position: left bottom;
                 }
             }
         }

@@ -1,7 +1,7 @@
    <div class="enbridge-container no-padding">
             <div class="row">
                 <div class="col xs6">
-                    <div class="tile green">
+                    <div class="tile green no-min">
                         <div class="content">
                             <h2 class="title">Existing Customers</h2>
                             <h3 class="subtitle">
@@ -29,9 +29,7 @@
                                 </div>
                                 <div class="footer-form-group">
                                     <ul class="list-of-links">
-                                        <li>
-                                            <a href="#">Register to<img src="css/img/myEnbridge-sm.png" alt=""></a>
-                                        </li>
+                                        
                                         <li>
                                              <a href="#">Forgot password?</a>
                                         </li>
@@ -40,7 +38,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">SIGN IN</a>
+                        <!--<a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">SIGN IN>a>-->
+                        <div class="enbridge-btn black big-button open-dialog separated-button">
+                            <a href="" class="first-button">REGISTER</a>
+                            <a href="" class="second-button">SIGN IN</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col xs6">

@@ -104,7 +104,11 @@
         background-repeat: no-repeat;
         background-position: 112px 84px;
         background-size: 79%;
-        min-height: 220px;
+         min-height: 220px;
+        &.no-min{
+             min-height: 356px;
+        }
+       
 
         h3 {
             color:#fff !important;

@@ -12,24 +12,31 @@
 }
 
 .incomplete-container {
+    padding-top: 15px;
+    
     p {
-        padding-top: 28px !important;
-        line-height: 1;
+        padding-top: 0;
+        line-height: 1.5;
         margin-top: 0px;
-        font-size: 18px;
-        padding-left: 28px;
+        font-size: 14px;
+        padding-left: 0px;
         padding-right: 28px;
+        color:$manatee;
 
         &.smaller {
             padding-top: 35px !important;
-            font-size: 14px;
+            font-size: 12px;
             margin-bottom: 13px;
         }
     }
 
     ul {
         margin-bottom: 42px;
-        padding-left: 58px;
+        padding-left: 29px;
+        li{
+            font-size: 14px;
+            color:$manatee;
+        }
     }
 
     .buttondiv {

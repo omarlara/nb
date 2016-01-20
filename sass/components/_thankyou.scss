@@ -18,6 +18,8 @@
         font-size: 24px;
         color: #c8102e;
         font-family: Arial, sans-serif;
+        font-weight: 500;
+        padding-top: 15px;
     }
 }
 
@@ -228,10 +230,11 @@
         color: $jumbo;
 
         .info {
-            padding: 8px 28px 30px 28px;
+            padding: 28px 28px 30px 28px;
             border: 1px solid $athens-gray;
             border-radius: 4px;
-
+            margin-top: 7px;
+            
             .text-title {
                 font-size: 18px;
                 font-weight: 100;
@@ -256,6 +259,9 @@
                 font-weight: inherit;
                 margin-top: 10px;
                 margin-bottom: 22px;
+                &.no-bottom{
+                    margin-bottom: 0px;
+                }
                 &.big {
                     font-size: 18px;
                 }
@@ -292,10 +298,10 @@
         }
 
         .did-you-know {
-            margin-top: 5%;
+            margin-top: 23px;
 
             p {
-                margin-top: 5%;
+                margin-top: 0px;
                 font-size: 14px;
             }
 

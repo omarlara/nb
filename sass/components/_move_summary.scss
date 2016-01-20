@@ -18,7 +18,7 @@
          min-height: 285px;
          .header-form-group{
                 p{
-                font-size: 18px;
+                font-size: 22px;
                 text-align: center;
             }
             img{
@@ -49,6 +49,9 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    &.top-miscelaneous{
+        margin-top: 21px;
+    }
 }
 
 .sumary-tiles{
@@ -63,7 +66,10 @@
 .summary-container{
     background-color:#fff;
     padding: 21px;
-    margin-top: 19px;
+    margin-top: 15px;
+    p.gray{
+        color:$mid-gray;
+    }
 }
 
 .smaller-font{
@@ -179,7 +185,9 @@
         font-size: 32px;
         font-weight: 400;
         padding-left: 3%;
-        padding-top: 19px;
+        padding-top: 15px;
+        position:relative;
+        padding-bottom: 30px;
      }
 
     .arrow {
@@ -187,7 +195,7 @@
         background-size: 100%;
         background-repeat: no-repeat;
         height: 221px;
-        background-position: -7px 55px;
+        background-position: 9px 55px;
     }
 
     .addressstye {
@@ -207,6 +215,7 @@
 
     .infotitle {
         padding: 21px 0px 0px 21px;
+        padding-left: 21px !important;
     }
 
     .addressstye {
@@ -216,8 +225,8 @@
     .addresstile {
         width: 190px;
         background-color: rgba(125, 125, 138, 0.95);
-        margin-top: 4%;
-        margin-right: 30px;
+        margin-top: 15px;
+        margin-right: 3px;
         height: auto;
         margin-bottom: 26px;
         border-radius: 52px 2px 48px 2px;
@@ -248,7 +257,7 @@
     .data {
         margin-top: 2%;
         font-size: 18px;
-
+        padding-left: 22px !important;
         span {
             margin-bottom: 3%;
             letter-spacing: 0px;
@@ -266,7 +275,7 @@
 
     p.checked {
         line-height: 1.5;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         color: $mid-gray;
 
         &:before {

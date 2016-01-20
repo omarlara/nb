@@ -1,3 +1,21 @@
+@mixin separated-button(){
+    
+        background: transparent;
+        color: white;
+        font-weight: bolder;
+        font-size: 18px;
+        line-height: 1.42857143;
+        display: inline;
+        float: left;
+        padding: 5px;
+        margin-left: 38px;
+        cursor:pointer !important;
+        font-weight: 300;
+        &:hover{
+            opacity: 0.92;
+        }
+        
+}
 .enbridge-btn {
     border-radius: 4px;
     border-width: 0;
@@ -16,6 +34,9 @@
     -webkit-transition: background-color 0.5s;
     -moz-transition: background-color 0.5s;
     transition: background-color 0.5s;
+
+    
+
 
     &.green {
         &:not(.disabled) {
@@ -63,6 +84,8 @@
             background-color: $dawn;
         }
     }
+    
+    
 
     &.black {
         background-color: $mako;
@@ -71,6 +94,8 @@
         background: -webkit-linear-gradient(top, #5D656C 0%, #40484D 100%);
         background: linear-gradient(to bottom, #5D656C 0%, #40484D 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5D656C', endColorstr='#40484D',GradientType=0 );
+        
+        
 
         &:hover,
         &:active {
@@ -81,6 +106,38 @@
         &.big-button {
             &:after {
                 background-image: url("img/arrow_yellow.png");
+            }
+        }
+
+        &.separated-button{
+            cursor:auto;
+            opacity: 1; 
+            .first-button{
+                @include separated-button;
+                color: $fuel-yellow;
+                padding: 5px 30px 0px 1px;
+                margin-left: 23px;
+                cursor: pointer !important;
+                background-image: url("img/arrow_yellow.png") !important;
+                background-repeat: no-repeat;
+                background-position: 98px 4px;
+            }
+            .second-button{
+                @include separated-button;
+                float:right;
+                    padding: 5px 31px 0px 0px;
+                cursor: pointer !important;
+                background-image: url("img/white-arrow.png") !important;
+                background-repeat: no-repeat;
+                background-position: 82px 7px;
+                margin-left: 0px;
+                width: 120px;       
+            }
+            &:after{
+                background-image:url("img/pipe.png");
+                background-repeat: no-repeat;
+                background-size: 31%;
+                margin-left: 6px;
             }
         }
     }
@@ -114,24 +171,53 @@
         color: $lochmara;
 
         &.like {
-            background-color: $moon-mist;
-
+            //background-color: $moon-mist;
+            color:$mid-gray;
             &:before {
-                content: url("img/like.png");
+                content: '';
+                display:block;
+                width: 26px;
+                height: 22px;
+                background-position: left top;
+                background-repeat:no-repeat;
+                background-image:url("img/like-complete.png");
+                margin-top: -4px;
+                margin-right: 10px;
+            }
+            &:hover{
+                &:before{
+                //content:url('img/like-hover_03.png');
+                background-position: left bottom;
+                }
             }
         }
 
         &.dislike {
-            background-color: $moon-mist;
-
+            color:$mid-gray;
             &:before {
-                content: url("img/dislike.png");
+                content: '';
+                content: '';
+                display:block;
+                width: 26px;
+                height: 22px;
+                background-position: left top;
+                background-repeat:no-repeat;
+                background-image:url("img/dislike-complete.png");
+                margin-top: 1px;
+                margin-right: 10px;
+            }
+            &:hover{
+                &:before{
+                background-position: left bottom;
+                }
             }
         }
 
         &:hover {
-            background-color: $lochmara;
-            color: white;
+            background-color: $athens-gray;
+            color: $lochmara;
+
+            //color: white;
         }
 
         &:active {
@@ -149,6 +235,11 @@
         text-align: center;
         font-size: 18px;
         font-weight: 400;
+        &.login-btn{
+            &:after{
+                top:2px;
+            }
+        }
 
         &:after {
             content: '';
@@ -162,6 +253,7 @@
             height: 20px;
             position: relative;
             top: 4px;
+
         }
     }
 

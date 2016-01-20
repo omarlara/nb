@@ -61,6 +61,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 !important;
 }
 
+.mid-gray{
+    color:$mid-gray;
+}
+
 .no-margin-bottom{
     margin-bottom: 0 !important;
 }
@@ -73,13 +77,26 @@ h1, h2, h3, h4, h5, h6 {
     padding-left:0px !important;
 }
 
+.display-inline{
+    display: inline;
+}
 
 .align-middle{
     vertical-align: middle !important;
 }
 
+.summary-buttons-bottom{
+    margin-bottom: 15px
+}
+
 .information-label-distance{
     margin-left: 30px;
+}
+
+.sub-title-green-summary{
+    font-size: 19px;
+    font-weight: 200;
+    margin-top: 7px;
 }
 
 .hidden {
@@ -191,6 +208,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+#miscelaneous_container{
+    padding-top:0px;
+}
+
 .information {
     padding-top: $normal-padding;
     padding-bottom: $normal-padding;
@@ -219,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 
     &.common {
         &:before {
-            background-color: $lochmara;
+            background-color: $turquoise-blue;
             color: white;
         }
     }
@@ -247,6 +268,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     display: block;
     font-size: 14px;
+    padding-left:6px;
     &:before {
         margin: 0 2px 0 0;
     }
@@ -295,4 +317,20 @@ h1, h2, h3, h4, h5, h6 {
     content: " ";
     clear: both;
     height: 0;
+
+}
+.summary-miscelaneous-first-box{
+    padding-left: 30px !important;
+    float: left;
+    margin-left: -11px;
+}
+
+.summary-miscelaneous-second-box{
+    margin-right: 3px;
+    padding-left: 30px !important;
+    float: right !important;
+}
+
+.min-weight-summary{
+    min-height: 330px !important;
 }

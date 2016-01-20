@@ -307,27 +307,6 @@
                                         </label>
                                         <div class="row address-bar">
                                             <div class="form-group pull-margin-right">
-                                                <label for="moving-out-home-phone" class="descriptor pull55">Home Phone:</label>
-                                                <div class="set-field">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control _w60"
-                                                        id="moving-out-home-phone-lada"
-                                                        data-id="moving-out-home-phone-lada"
-                                                    data-rel="moving-out-home-phone">
-
-                                                    <input
-                                                        type="text"
-                                                        class="form-control  _w160"
-                                                        id="moving-out-home-phone"
-                                                        data-id="moving-out-home-phone"
-                                                        data-rel="moving-out-home-phone"
-                                                    data-required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row address-bar">
-                                            <div class="form-group pull-margin-right">
                                                 <label for="moving-out-mobile-phone" class="descriptor pull55">Mobile Phone:</label>
                                                 <div class="set-field ">
                                                     <input
@@ -336,7 +315,6 @@
                                                         id="moving-out-mobile-phone-lada"
                                                         data-id="moving-out-mobile-phone-lada"
                                                     data-rel="moving-out-mobile-phone">
-
                                                     <input
                                                         type="text"
                                                         class="form-control  _w160"
@@ -344,6 +322,26 @@
                                                         data-id="moving-out-mobile-phone"
                                                         data-rel="moving-out-mobile-phone"
                                                         data-required-error="Please select home phone"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right">
+                                                <label for="moving-out-home-phone" class="descriptor pull55">Home Phone:</label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w60"
+                                                        id="moving-out-home-phone-lada"
+                                                        data-id="moving-out-home-phone-lada"
+                                                    data-rel="moving-out-home-phone">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w160"
+                                                        id="moving-out-home-phone"
+                                                        data-id="moving-out-home-phone"
+                                                        data-rel="moving-out-home-phone"
                                                     data-required="true">
                                                 </div>
                                             </div>

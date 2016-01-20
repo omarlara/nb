@@ -20,7 +20,7 @@
     }
 
     String.prototype.postalCode = function() {
-        return /^[a-z]\d[a-z]\s?\d[a-z]\d$/i.test(this);
+        return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(this);
     }
 
     String.prototype.PhoneFormat = function () {
@@ -412,34 +412,41 @@
                         return;
                     }
 
-                    request =  $.post( "http://beta.json-generator.com/api/json/get/N1wJ1FaUl",
-                                    {value: currentCode},
-                                    function(resp) {
-                                        if (resp && resp.result) {
-                                            $element
-                                                .addClass('success-zip')
-                                                .find('.result')
-                                                    .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
-                                                    .addClass('success-code');
+                    $.ajax({
+                        url: 'http://vpc-ap-175:8082/WebServices/AddressService.svc/IsPostalCodeInServiceArea',
+                        type: 'GET',
+                        dataType: 'application/json',
+                        data: {
+                            'postalCode': currentCode
+                        },
+                        success: function (data) {
+                            if(!!data) {
+                                $element
+                                    .addClass('success-zip')
+                                    .find('.result')
+                                        .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
+                                        .addClass('success-code');
 
-                                            $('[data-id="transfer"]')
-                                                .attr('checked', true);
+                                $('[data-id="transfer"]')
+                                    .attr('checked', true);
+                            } else {
+                                $element
+                                    .find('.result')
+                                        .html('<span>' + error + '</span>')
+                                        .addClass('error-code');
 
-                                        } else {
-                                            $element
-                                                .find('.result')
-                                                    .html('<span>' + error + '</span>')
-                                                    .addClass('error-code');
+                                $('[data-id="stop"]')
+                                    .attr('checked', true);
 
-                                            $('[data-id="stop"]')
-                                                .attr('checked', true);
-
-                                            $('[data-id="stop-select"]')
-                                                .removeClass('hide-flow')
-                                                .removeAttr('data-required');
-                                        }
-
-                                },"json");
+                                $('[data-id="stop-select"]')
+                                    .removeClass('hide-flow')
+                                    .removeAttr('data-required');
+                            }
+                        },
+                        error: function() {
+                            console.log('Error on the service');
+                        }
+                    });
 
                 });
         };
@@ -463,7 +470,7 @@
     /*Dialog - 1 - Moving out*/
 
     /*Stop radio button click, show/hide Select reason select*/
-     $('[name="steps"]').click(function() {
+     $('[name="steps"]').bind('click', function() {
         var $element = $('[data-id="stop-select"]');
 
         if(this.value === 'stop') {
@@ -598,7 +605,7 @@
     $('#complete-new-user').bind('click', function() {
         var fromAddress = '',
             toAddress = '',
-            dateEndService = $('[id="date-start"]').val(),
+            dateEndService = $3('[id="date-start"]').val(),
             dateStartService = $('[id="date-finish"]').val(),
             birthDay = $('[data-id="day-user-info"]').val() + '/' + $('[id="month-user-info"]').val() + '/' + $('[data-id="year-user-info"]').val();
 

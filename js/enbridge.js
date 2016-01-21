@@ -1,6 +1,49 @@
 ;$(window).ready(function () {
 
     /***********************Prototyping functions***********************/
+    /*Object Keys*/
+    if (!Object.keys) {
+        Object.keys = (function() {
+            'use strict';
+            var hasOwnProperty = Object.prototype.hasOwnProperty,
+            hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+            dontEnums = [
+              'toString',
+              'toLocaleString',
+              'valueOf',
+              'hasOwnProperty',
+              'isPrototypeOf',
+              'propertyIsEnumerable',
+              'constructor'
+            ],
+            dontEnumsLength = dontEnums.length;
+
+            return function(obj) {
+            if (typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
+            throw new TypeError('Object.keys called on non-object');
+        }
+
+        var result = [], prop, i;
+
+        for (prop in obj) {
+            if (hasOwnProperty.call(obj, prop)) {
+              result.push(prop);
+            }
+        }
+
+        if (hasDontEnumBug) {
+            for (i = 0; i < dontEnumsLength; i++) {
+                if (hasOwnProperty.call(obj, dontEnums[i])) {
+                    result.push(dontEnums[i]);
+                }
+            }
+        }
+        return result;
+        };
+        }());
+    }
+
+    /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
         validYear = dateCurrent.getFullYear() - 19;
 
@@ -491,15 +534,17 @@
     $('#get-address').bind('click', function() {
         var $this = $(this),
             $radio = $('#select-street-container [type="radio"]:checked'),
-            ini = parseInt($radio.attr('data-start-number')) || 0,
-            fin = parseInt($radio.attr('data-end-number')) || 0,
+            ranges = $radio.attr('data-range').split(',') || ['0-0'],
             numbers = [],
             container = '#data-dropdown';;
 
         $('[name="select-street-container"]').attr('data-required', true);
-
-        for(;ini <= fin; ini+=1) {
-            numbers.push('<option value="' + ini + '">' + ini + '</option>');
+        for (var i = 0, rangesNum = ranges.length; i < rangesNum; i++) {
+            var ini = parseInt(ranges[i].split('-')[0]) || 0,
+                end = parseInt(ranges[i].split('-')[1]) || 1;
+            for(;ini <= end; ini++) {
+                numbers.push('<option value="' + ini + '">' + ini + '</option>');
+            }
         }
 
         $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
@@ -1017,23 +1062,39 @@
             },
             success: function (data) {
                 if(!!data) {
-                    var containerEl = container.replace('#','');
+                    var containerEl = container.replace('#',''),
+                        streetObj = [],
+                        keys = [];
 
                     data = JSON.parse(data);
+
+                    for (var size =  data.length - 1; size >= 0; size--) {
+                        if (!streetObj[data[size].StreetName]) {
+                            streetObj[data[size].StreetName] = {
+                                province: data[size].Province,
+                                city:  data[size].City,
+                                street: data[size].StreetName,
+                                ranges: [data[size].StreetNumberStart + '-' + data[size].StreetNumberEnd]
+                            };
+
+                            keys.push(data[size].StreetName);
+                        } else {
+                            streetObj[data[size].StreetName].ranges.push(data[size].StreetNumberStart + '-' + data[size].StreetNumberEnd)
+                        }
+                    }
 
                     $this
                         .addClass('success-field')
                         .removeClass('input-error');
 
-                    for (var i = 0, size = data.length; i< size; i +=1) {
+                    for (var i = 0, size = keys.length; i < size; i++ ) {
                         var radioButton = '<input type="radio" id="' + (containerEl + '-' + i) + '" ' +
-                                          'name="' + containerEl + '" value="' + data[i].StreetName + ', ' + data[i].Province + '"' +
-                                          'data-province = "' + data[i].Province + '"' +
-                                          'data-city = "' + data[i].City + '"' +
-                                          'data-start-number = "' + data[i].StreetNumberStart + '"' +
-                                          'data-end-number = "' + data[i].StreetNumberEnd + '"' +
+                                          'name="' + containerEl + '" value="' + streetObj[keys[i]].street + ', ' + streetObj[keys[i]].province + '"' +
+                                          'data-province = "' + streetObj[keys[i]].province + '"' +
+                                          'data-city = "' + streetObj[keys[i]].city + '"' +
+                                          'data-range = "' + streetObj[keys[i]].ranges.join(',') + '"' +
                             '" name="stepsContent" data-required-error="Please select yout street.">' +
-                            '<label class="fake-input" for="' + (containerEl + '-' + i) + '">' + data[i].StreetName + '</label>';
+                            '<label class="fake-input" for="' + (containerEl + '-' + i) + '">' + streetObj[keys[i]].street + '</label>';
                         radioContent.push(radioButton);
                     }
 
@@ -1041,8 +1102,7 @@
                                           'name="' + containerEl + '" value = "" ' +
                                           'data-province = ""' +
                                           'data-city = " "' +
-                                          'data-start-number = "0"' +
-                                          'data-start-number = "0"' +
+                                          'data-range = "0,0"' +
                             '" name="stepsContent" data-required-error="Please select yout street.">' +
                             '<label class="fake-input" for="' + (containerEl + '-No') + '">No one above</label>');
 

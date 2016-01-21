@@ -60,6 +60,7 @@
 /*Times*/
 /*Opacity*/
 /*Fonts*/
+/* Button */
 .min-height-400 {
   min-height: 400px; }
 
@@ -672,6 +673,63 @@
     .enbridge-content-container .enbridge-btn.black.big-button:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator:after,
     .enbridge-content-container .accordion .accordion-item .content .black.big-button.prev:after {
       background-image: url("img/arrow_yellow.png"); }
+    .enbridge-content-container .enbridge-btn.black.separated-button, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator,
+    .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev {
+      cursor: auto;
+      opacity: 1; }
+      .enbridge-content-container .enbridge-btn.black.separated-button .first-button, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container .first-button, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator .first-button,
+      .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev .first-button {
+        background: transparent;
+        color: white;
+        font-weight: bolder;
+        font-size: 18px;
+        line-height: 1.42857143;
+        display: inline;
+        float: left;
+        padding: 5px;
+        margin-left: 38px;
+        cursor: pointer !important;
+        font-weight: 300;
+        color: #e6aa24;
+        padding: 5px 30px 0px 1px;
+        margin-left: 23px;
+        cursor: pointer !important;
+        background-image: url("img/arrow_yellow.png") !important;
+        background-repeat: no-repeat;
+        background-position: 98px 4px; }
+        .enbridge-content-container .enbridge-btn.black.separated-button .first-button:hover, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container .first-button:hover, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator .first-button:hover,
+        .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev .first-button:hover {
+          opacity: 0.92; }
+      .enbridge-content-container .enbridge-btn.black.separated-button .second-button, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container .second-button, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator .second-button,
+      .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev .second-button {
+        background: transparent;
+        color: white;
+        font-weight: bolder;
+        font-size: 18px;
+        line-height: 1.42857143;
+        display: inline;
+        float: left;
+        padding: 5px;
+        margin-left: 38px;
+        cursor: pointer !important;
+        font-weight: 300;
+        float: right;
+        padding: 5px 31px 0px 0px;
+        cursor: pointer !important;
+        background-image: url("img/white-arrow.png") !important;
+        background-repeat: no-repeat;
+        background-position: 82px 7px;
+        margin-left: 0px;
+        width: 120px; }
+        .enbridge-content-container .enbridge-btn.black.separated-button .second-button:hover, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container .second-button:hover, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator .second-button:hover,
+        .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev .second-button:hover {
+          opacity: 0.92; }
+      .enbridge-content-container .enbridge-btn.black.separated-button:after, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator:after,
+      .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev:after {
+        background-image: url("img/pipe.png");
+        background-repeat: no-repeat;
+        background-size: 31%;
+        margin-left: 6px; }
   .enbridge-content-container .enbridge-btn.blue, .enbridge-content-container .accordion .accordion-item .content .blue.validator-container, .enbridge-content-container .accordion .accordion-item .content .blue.validator,
   .enbridge-content-container .accordion .accordion-item .content .blue.prev {
     background-color: #007dba; }
@@ -700,19 +758,36 @@
       color: #636373; }
       .enbridge-content-container .enbridge-btn.social-media.like:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:before {
-        content: url("img/like.png"); }
+        content: '';
+        display: block;
+        width: 26px;
+        height: 22px;
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-image: url("img/like-complete.png");
+        margin-top: -4px;
+        margin-right: 10px; }
       .enbridge-content-container .enbridge-btn.social-media.like:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:hover:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:hover:before {
-        content: url("img/like-hover_03.png"); }
+        background-position: left bottom; }
     .enbridge-content-container .enbridge-btn.social-media.dislike, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator,
     .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev {
       color: #636373; }
       .enbridge-content-container .enbridge-btn.social-media.dislike:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:before {
-        content: url("img/dislike.png"); }
+        content: '';
+        content: '';
+        display: block;
+        width: 26px;
+        height: 22px;
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-image: url("img/dislike-complete.png");
+        margin-top: 1px;
+        margin-right: 10px; }
       .enbridge-content-container .enbridge-btn.social-media.dislike:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:hover:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:hover:before {
-        content: url("img/dislike-hover.png"); }
+        background-position: left bottom; }
     .enbridge-content-container .enbridge-btn.social-media:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator-container:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator:hover,
     .enbridge-content-container .accordion .accordion-item .content .social-media.prev:hover {
       background-color: #f3f4f7;
@@ -767,6 +842,8 @@
   .enbridge-content-container .accordion .accordion-item .content .prev:hover, .enbridge-content-container .enbridge-btn:active, .enbridge-content-container .accordion .accordion-item .content .validator-container:active, .enbridge-content-container .accordion .accordion-item .content .validator:active,
   .enbridge-content-container .accordion .accordion-item .content .prev:active {
     text-decoration: none; }
+.enbridge-content-container a.button-behavior {
+  padding-top: 6px; }
 .enbridge-content-container .tile {
   border: 1px solid #ddd6cc;
   display: inline-block;
@@ -851,6 +928,8 @@
     background-position: 112px 84px;
     background-size: 79%;
     min-height: 220px; }
+    .enbridge-content-container .tile.green.no-min {
+      min-height: 356px; }
     .enbridge-content-container .tile.green h3 {
       color: #fff !important; }
   .enbridge-content-container .tile.tile-generic {

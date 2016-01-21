@@ -424,7 +424,7 @@
                                 $element
                                     .addClass('success-zip')
                                     .find('.result')
-                                        .html('<img src="assets/img/success.png"> <span>' + success + '</span>')
+                                        .html('<img src="../../AppImages/success.png"> <span>' + success + '</span>')
                                         .addClass('success-code');
 
                                 $('[data-id="transfer"]')
@@ -489,43 +489,23 @@
     if you have selected No one above, you will show form, in another case you will be on the select street number
     */
     $('#get-address').bind('click', function() {
-        var $this = $(this);
+        var $this = $(this),
+            $radio = $('#select-street-container [type="radio"]:checked'),
+            ini = parseInt($radio.attr('data-start-number')) || 0,
+            fin = parseInt($radio.attr('data-end-number')) || 0,
+            numbers = [],
+            container = '#data-dropdown';;
 
         $('[name="select-street-container"]').attr('data-required', true);
 
-        if($('[name="select-street-container"]:checked').val()) {
-            $.ajax({
-                url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
-                type: 'POST',
-                dataType: 'json',
-                data: {},
-                complete: function(xhr,status) {
-                    var jsonObj = null;
-                    if (!xhr || xhr.status != 200 || !xhr.response) {
-                        console.log(xhr);
-                    } else {
-                        jsonObj = JSON.parse(xhr.response);
-
-                        if(jsonObj.numbers) {
-                            var numbers = [],
-                                container = '#data-dropdown';
-
-                            $(container).html('');
-
-                            for (var i = 0, size = jsonObj.numbers.length; i < size; i++) {
-                                numbers.push('<option value="' + jsonObj.numbers[i] + '">' + jsonObj.numbers[i] + '</option>');
-                            }
-
-                            $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
-                                .appendTo(container)
-                                .enbridgeDropdown();
-
-                        }
-                    }
-                }
-            });
-
+        for(;ini <= fin; ini+=1) {
+            numbers.push('<option value="' + ini + '">' + ini + '</option>');
         }
+
+        $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
+            .appendTo(container)
+            .enbridgeDropdown();
+
     });
 
     /*Set Address on decline/accept step container*/
@@ -534,7 +514,7 @@
             numberHouse =$('#current-number').val() || '',
             zipCode = $('[data-id="code-validator"]').val();
 
-        $('#address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
+        $('#address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
     });
 
     /*Info Decline*/
@@ -605,7 +585,7 @@
     $('#complete-new-user').bind('click', function() {
         var fromAddress = '',
             toAddress = '',
-            dateEndService = $3('[id="date-start"]').val(),
+            dateEndService = $('[id="date-start"]').val(),
             dateStartService = $('[id="date-finish"]').val(),
             birthDay = $('[data-id="day-user-info"]').val() + '/' + $('[id="month-user-info"]').val() + '/' + $('[data-id="year-user-info"]').val();
 
@@ -613,7 +593,7 @@
         if($('#confirm-address').hasClass('active-step')) {
             /*Add additional information about mail address*/
             if($('[data-id="mailing-address-alternative"]').attr('checked')) {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ',' +  $('[name="select-street-container"]:checked').attr('ata-province') + ' ' + $('[data-id="code-validator"]').val();
 
                 toAddress = $('[data-id="street-number-alternative"]').val() + ' ' +$('[data-id="suffix-alternative"]').val() + ' ' +
                             $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' +  $('[data-id="city-or-town-alternative"]').val() + ' ' +
@@ -1006,7 +986,7 @@
     /***********************Common Functionality***********************/
 
     /*Success Zip*/
-    $('.new-address').change(function() {
+    $('.new-address').keyup(function() {
         var $this = $(this),
             currentVal = $this.val(),
             container = $this.attr('data-content'),
@@ -1015,7 +995,7 @@
         $this.closest('.code-box')
             .find('.error-message ').remove();
 
-        if(!$this.val().postalCode()) {
+        if(!currentVal.postalCode()) {
             $this
                 .addClass('input-error')
                 .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
@@ -1027,22 +1007,47 @@
         if($this.next().hasClass('error-message')) {
             $this.next().remove();
         }
-        $.post( "http://beta.json-generator.com/api/json/get/N1wJ1FaUl",
-            function(resp) {
-                if (resp && resp.result) {
 
+        $.ajax({
+            url: 'http://vpc-ap-175:8082/WebServices/AddressService.svc/GetAddresses',
+            type: 'GET',
+            dataType: 'application/json',
+            data: {
+                'postalCode': currentVal
+            },
+            success: function (data) {
+                if(!!data) {
                     var containerEl = container.replace('#','');
+
+                    data = JSON.parse(data);
+
                     $this
                         .addClass('success-field')
                         .removeClass('input-error');
 
-                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
-                        var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
-                        radioContent.push(chain);
+                    for (var i = 0, size = data.length; i< size; i +=1) {
+                        var radioButton = '<input type="radio" id="' + (containerEl + '-' + i) + '" ' +
+                                          'name="' + containerEl + '" value="' + data[i].StreetName + ', ' + data[i].Province + '"' +
+                                          'data-province = "' + data[i].Province + '"' +
+                                          'data-city = "' + data[i].City + '"' +
+                                          'data-start-number = "' + data[i].StreetNumberStart + '"' +
+                                          'data-end-number = "' + data[i].StreetNumberEnd + '"' +
+                            '" name="stepsContent" data-required-error="Please select yout street.">' +
+                            '<label class="fake-input" for="' + (containerEl + '-' + i) + '">' + data[i].StreetName + '</label>';
+                        radioContent.push(radioButton);
                     }
 
+                    radioContent.push('<input type="radio" id="' + (containerEl + '-No') + '" ' +
+                                          'name="' + containerEl + '" value = "" ' +
+                                          'data-province = ""' +
+                                          'data-city = " "' +
+                                          'data-start-number = "0"' +
+                                          'data-start-number = "0"' +
+                            '" name="stepsContent" data-required-error="Please select yout street.">' +
+                            '<label class="fake-input" for="' + (containerEl + '-No') + '">No one above</label>');
+
                     $(container).html(radioContent.join(''));
-                    /*Select container*/
+
                     $(container).find('input[type="radio"]').bind('click', function() {
                         var name = $(this).attr('name') || '',
                             containerBox = (this.value)?$this.attr('data-first-op'): $this.attr('data-second-op');
@@ -1053,14 +1058,18 @@
                         $('input[name="' + name + '"]').removeClass('input-success input-error');
                     });
 
-
                 } else {
                     $this
                         .removeClass('input-success success-field')
                         .addClass('input-error');
                 }
-
-            },"json");
+            },
+            error: function() {
+                 $this
+                    .removeClass('input-success success-field')
+                    .addClass('input-error');
+            }
+        });
 
     });
 
@@ -1192,7 +1201,7 @@
                 $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
                     .attr('data-required', true);
 
-            } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
+            } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val() ) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
                 $('[data-id="newcustomers-street"], [data-id="newcustomers-city-or-town"], [data-id="newcustomers-country"], [data-id="newcustomers-province"], [data-id="newcustomers-postal-code-input"], [name="newcustomers-house-property-alternative"]')
@@ -1241,6 +1250,7 @@
         $($this.closest('.calendar-column').attr('data-calendar'))
             .val(year + '-' + month + '-' + day);
     });
+
 
     /*Forms Reset*/
     $('.enbridge-form input[type="radio"]').bind('click', function() {

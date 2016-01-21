@@ -1,0 +1,121 @@
+<div id="Div1" class="contenttabscontentmain" runat="server">
+  <h3 class="title-moving title-no-integration">Moving Out</h3>
+  <div class=" summary" id="form-summary">
+    <div class="enbridge-content-container">
+      <div class="enbridge-container ">
+        <div class="titles">
+          <h2 class="title">Almost done... </h2>
+          <h4 class="subtitle">Please review before you submit</h4>
+        </div>
+        <div class="move-summary min-weight-summary">
+          <div class="row">
+            <h2 class="movetitle col xs6">Move Summary</h2>
+            <div class="buttondiv col xs6">
+              <asp:LinkButton ID="editMoveButton" CssClass="enbridge-btn yellow summarybtn edit-info" runat="server" CommandName="editMoveDetail" data-id="personal-info-user" OnClick="EditButton_Click" OnClientClick="">EDIT</asp:LinkButton>
+            </div>
+          </div>
+          <div class="row no-margin">
+            <div class="col xs12 no-padding">
+              <div class="col xs5 summary-miscelaneous-first-box">
+                <div class="address">
+                  <h4>Moving Out of: </h4>
+                  <p id="from-modal">
+                    <asp:Literal ID="litAddress" runat="server" Text="Here goes the address" />
+                  </p>
+                  <p>
+                    <strong>Service ending:</strong>
+                    <span id="start-service-wait"><asp:Literal ID="litServiceStarting" runat="server"  Text="Here goes a date"/></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="enbridge-content-container">
+      <div class="enbridge-container ">
+        <div class="your-information tile green">
+          <div class="row">
+            <div class="col xs12">
+              <div class="col xs7 infotitle">
+                <h1 class="title white">Your Information</h1>
+                <h2 class="subtitle white sub-title-green-summary">
+                  <asp:Literal ID="litCustomerFirstName" runat="server" />
+                  <asp:Literal ID="litCustomerMiddleName" runat="server" />
+                  <asp:Literal ID="litCustomerLastName" runat="server" />
+                </h2>
+              </div>
+              <div class="buttondiv col xs5">
+                <asp:LinkButton ID="EditMoveButton1" CssClass="enbridge-btn yellow summarybtn" runat="server" CommandName="editMovePerson" OnClick="EditButton_Click" OnClientClick="">EDIT</asp:LinkButton>
+              </div>
+              <div class="col border"></div>
+              <div class="col md6 data">
+                <span>
+                  <asp:Literal ID="litDateOfBirthYear" runat="server" />
+                  <asp:Literal ID="litDateOfBirthMonth" runat="server" />
+                  <asp:Literal ID="litDateOfBirthDay" runat="server" />
+                </span>
+                <br>
+                <span>Phone:</span>
+                <span id="moving-out-summary-user-phone">
+                  <asp:Literal ID="litHomeAreaCode" runat="server" />
+                  <asp:Literal ID="litHomeNumber" runat="server" />
+                  <asp:Literal ID="litHomeExtension" runat="server" />
+                </span>
+                <br>
+                <span>Business Phone: </span><span id="Span1">
+                  <asp:Literal ID="litBusinessAreaCode" runat="server" />
+                  <asp:Literal ID="litBusinessNumber" runat="server" />
+                  <asp:Literal ID="litBusinessExtension" runat="server" />
+                </span>
+                <br>
+                <span>Mobile: </span>
+                <span id="moving-out-summary-mobile-phone">
+                  <asp:Literal ID="litMobileAreaCode" runat="server" />
+                  <asp:Literal ID="litMobileNumber" runat="server" />
+                  <asp:Literal ID="litMobileExtension" runat="server" />
+                </span>
+                <br>
+                <span>Additional contact: </span>
+                <span id="moving-out-summary-additional-contact">
+                  <asp:Literal ID="litConsentFirstName" runat="server" />
+                  <asp:Literal ID="litConsentMiddleName" runat="server" />
+                  <asp:Literal ID="litConsentLastName" runat="server" />
+                </span>
+              </div>
+              <div class="col md6">
+                <div class="address addresstile    pull-right">
+                  <h4>New Mailing Address: </h4>
+                  <p>
+                    <asp:Literal ID="litPaperlessBillingEmail" runat="server" />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col md10 features">
+          <div class="row">
+            <p class="checked">Your final bill the
+              <asp:Literal ID="Literal1" runat="server" Text="New St" /> address will be sent to <strong><span class="moving-out-summary-mail"><asp:Literal ID="litEmail" runat="server" Text="john.doe@enbridge.com" /></span></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="enbridge-content-container overflow-hidden">
+      <div class="enbridge-container ">
+        <div>
+          <div class="buttons text-center">
+            <div class="pull-left">
+              <asp:LinkButton ID="startOverButton" CssClass="enbridge-btn green _w160" runat="server" CommandName="startover" OnClick="StartOverButton_Click" OnClientClick="">START OVER</asp:LinkButton>
+            </div>
+            <div class="pull-right">
+              <asp:LinkButton ID="submitMoveOutButton" CssClass="enbridge-btn yellow submit-button _w160" runat="server" CommandName="submit" OnClick="SubmitButton_Click" OnClientClick="">SUBMIT</asp:LinkButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

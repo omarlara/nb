@@ -1,7 +1,7 @@
 @import "components/_integration_styles";
 @import "./config/main";
 
-.min-height-400{
+.min-height-400 {
         min-height: 400px;
 }
 .enbridge-content-container {
@@ -11,12 +11,18 @@
 @import "./components/dialog";
 
 .tile {
+    &.home-tile {       
+        min-height: 430px;      
+    }
     .information {
         background-color: transparent;
     }
 }
 
 .tile.green {
+    &.home-tile {       
+        min-height: 430px;      
+    }
     .control-label {
         width: 70px !important;
     }

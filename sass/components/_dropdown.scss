@@ -53,6 +53,8 @@
     }
 
     .list-items {
+        max-height: 230px;      
+        overflow: auto;
         border-bottom-color: $mako;
         border-style: solid;
         border-top-width: 0;

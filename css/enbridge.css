@@ -60,6 +60,7 @@
 /*Times*/
 /*Opacity*/
 /*Fonts*/
+/* Button */
 .min-height-400 {
   min-height: 400px; }
 
@@ -134,6 +135,9 @@
   color: #62aece; }
 .enbridge-content-container .overflow-hidden {
   overflow: hidden; }
+.enbridge-content-container .center-columns {
+  float: none !important;
+  margin: 0 auto; }
 .enbridge-content-container .clearfix {
   display: block;
   width: 1px;
@@ -145,6 +149,8 @@
 .enbridge-content-container .no-padding {
   padding-left: 0;
   padding-right: 0; }
+.enbridge-content-container .no-padding-bottom {
+  padding-bottom: 0 !important; }
 .enbridge-content-container .transparent {
   background-color: transparent !important; }
 .enbridge-content-container .text-after .information {
@@ -564,6 +570,8 @@
         border-color: white transparent transparent transparent;
         line-height: 2.5; }
   .enbridge-content-container .enbridge-dropdown .list-items {
+    max-height: 230px;
+    overflow: auto;
     border-bottom-color: #40484d;
     border-style: solid;
     border-top-width: 0;
@@ -768,13 +776,13 @@
         margin-right: 10px; }
       .enbridge-content-container .enbridge-btn.social-media.like:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:hover:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:hover:before {
-        background-position: left bottom; }
+        background-position: left bottom;
+        background-image: url("img/like-complete.png"); }
     .enbridge-content-container .enbridge-btn.social-media.dislike, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator,
     .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev {
       color: #636373; }
       .enbridge-content-container .enbridge-btn.social-media.dislike:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:before {
-        content: '';
         content: '';
         display: block;
         width: 26px;
@@ -786,7 +794,8 @@
         margin-right: 10px; }
       .enbridge-content-container .enbridge-btn.social-media.dislike:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:hover:before,
       .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:hover:before {
-        background-position: left bottom; }
+        background-position: left bottom;
+        background-image: url("img/dislike-complete.png"); }
     .enbridge-content-container .enbridge-btn.social-media:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator-container:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator:hover,
     .enbridge-content-container .accordion .accordion-item .content .social-media.prev:hover {
       background-color: #f3f4f7;
@@ -820,6 +829,34 @@
       height: 20px;
       position: relative;
       top: 4px; }
+    .enbridge-content-container .enbridge-btn.big-button.couple-btn, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.validator-container, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.validator,
+    .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.prev {
+      width: 50%;
+      position: relative; }
+      .enbridge-content-container .enbridge-btn.big-button.couple-btn.left, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.left.validator-container, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.left.validator,
+      .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.left.prev {
+        border-radius: 0 0 0 3px; }
+      .enbridge-content-container .enbridge-btn.big-button.couple-btn.right, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.validator-container, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.validator,
+      .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.prev {
+        border-radius: 0 0 3px 0; }
+        .enbridge-content-container .enbridge-btn.big-button.couple-btn.right:before, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.validator-container:before, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.validator:before,
+        .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.prev:before {
+          content: ' | ';
+          left: 5px;
+          position: absolute; }
+      .enbridge-content-container .enbridge-btn.big-button.couple-btn:after, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.validator:after,
+      .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.prev:after {
+        top: 2px; }
+      .enbridge-content-container .enbridge-btn.big-button.couple-btn.yellow-font, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.yellow-font.validator-container, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.yellow-font.validator,
+      .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.yellow-font.prev {
+        color: #f6b31e; }
+      .enbridge-content-container .enbridge-btn.big-button.couple-btn.white-font:after, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.white-font.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.white-font.validator:after,
+      .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.white-font.prev:after {
+        background-image: url("img/arrow_white.png"); }
+    .enbridge-content-container .enbridge-btn.big-button.arrow-link:after, .enbridge-content-container .accordion .accordion-item .content .big-button.arrow-link.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .big-button.arrow-link.validator:after,
+    .enbridge-content-container .accordion .accordion-item .content .big-button.arrow-link.prev:after {
+      top: 2px;
+      background-image: url("img/arrow_white.png"); }
   .enbridge-content-container .enbridge-btn.small-button-arrow, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator-container, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator,
   .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.prev {
     position: static !important;
@@ -841,6 +878,8 @@
   .enbridge-content-container .accordion .accordion-item .content .prev:hover, .enbridge-content-container .enbridge-btn:active, .enbridge-content-container .accordion .accordion-item .content .validator-container:active, .enbridge-content-container .accordion .accordion-item .content .validator:active,
   .enbridge-content-container .accordion .accordion-item .content .prev:active {
     text-decoration: none; }
+.enbridge-content-container a.button-behavior {
+  padding-top: 6px; }
 .enbridge-content-container .tile {
   border: 1px solid #ddd6cc;
   display: inline-block;
@@ -884,10 +923,11 @@
       padding: 0;
       background-color: transparent; }
       .enbridge-content-container .tile > .content .information.common:before {
-        content: '|';
+        content: 'i';
         font-style: normal;
         font-weight: bold;
-        font-size: 13px; }
+        font-size: 13px;
+        padding-top: 1px; }
     .enbridge-content-container .tile > .content .align {
       margin-top: 7%; }
     .enbridge-content-container .tile > .content .form-group {
@@ -938,12 +978,18 @@
   .enbridge-content-container .tile.postal-code input[type='text'] {
     display: block;
     margin: 44px auto 0 auto;
-    width: 200px; }
+    width: 200px;
+    text-align: center; }
+    .enbridge-content-container .tile.postal-code input[type='text'] + .error-message {
+      margin: 5px auto;
+      width: 200px; }
   .enbridge-content-container .tile .footer-form-group {
     text-align: right;
     font-size: 13px;
     color: #007dba;
     text-decoration: none; }
+    .enbridge-content-container .tile .footer-form-group.text-left {
+      text-align: left; }
     .enbridge-content-container .tile .footer-form-group .list-of-links {
       list-style: none;
       padding: 0;
@@ -1235,6 +1281,9 @@
   line-height: 1.4; }
 .enbridge-content-container .dates-view .result {
   width: 100%; }
+.enbridge-content-container.content-thankyou {
+  background-color: #f3f4f7;
+  padding: 20px; }
 .enbridge-content-container .red-title {
   color: #c8102e; }
 .enbridge-content-container .total-container {
@@ -1255,7 +1304,7 @@
   margin-top: -1px;
   line-height: 0; }
 .enbridge-content-container .dislike:hover:before {
-  content: url("img/dislikehover.png"); }
+  content: url("img/dislike-complete.png"); }
 .enbridge-content-container .like:before {
   display: block;
   float: left;
@@ -1359,6 +1408,8 @@
         font-size: 24px;
         font-weight: 100;
         margin-top: 200px; }
+        .enbridge-content-container .container-thankyou .tiles .generic h1.business-tile {
+          margin-top: 300px; }
       .enbridge-content-container .container-thankyou .tiles .generic p {
         font-size: 16px;
         text-align: left; }
@@ -1518,7 +1569,7 @@
             right: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("img/arrow_white_right.png"); }
+            background-image: url("/AppImages/arrow_white_right.png"); }
         .enbridge-content-container .accordion .accordion-item .content .validator-container .prev {
           float: left;
           width: 100px;
@@ -1532,7 +1583,7 @@
             left: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("img/arrow_white_left.png"); }
+            background-image: url("/AppImages/arrow_white_left.png"); }
       .enbridge-content-container .accordion .accordion-item .content .validator,
       .enbridge-content-container .accordion .accordion-item .content .prev {
         text-align: right !important; }
@@ -2229,9 +2280,9 @@
 .title-moving {
   display: block;
   font-family: Arial, sans-serif;
-  font-size: 24px;
+  font-size: 24px !important;
   padding-top: 0px;
-  color: #c8102e; }
+  color: #636373 !important; }
 
 .question-movingout {
   color: #71717f;
@@ -2381,9 +2432,13 @@
       margin: 0;
       width: auto; }
 
+.tile.home-tile {
+  min-height: 430px; }
 .tile .information {
   background-color: transparent; }
 
+.tile.green.home-tile {
+  min-height: 430px; }
 .tile.green .control-label {
   width: 70px !important; }
 .tile.green .fields {

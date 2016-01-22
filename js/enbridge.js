@@ -534,17 +534,20 @@
     $('#get-address').bind('click', function() {
         var $this = $(this),
             $radio = $('#select-street-container [type="radio"]:checked'),
-            ranges = $radio.attr('data-range').split(',') || ['0-0'],
+            ranges = $radio.attr('data-range').split(',') || ['0'],
             numbers = [],
-            container = '#data-dropdown';;
+            container = '#data-dropdown',
+            street = $('[data-id="street"]').val();
+
+        if (street === $radio.attr('data-street')) {
+            $('[data-id="city-or-town"]').val($radio.attr('data-city'));
+            $('[data-id="province"]').val($radio.attr('data-province'));
+            $('[data-id="country"]').val('CA');
+        }
 
         $('[name="select-street-container"]').attr('data-required', true);
         for (var i = 0, rangesNum = ranges.length; i < rangesNum; i++) {
-            var ini = parseInt(ranges[i].split('-')[0]) || 0,
-                end = parseInt(ranges[i].split('-')[1]) || 1;
-            for(;ini <= end; ini++) {
-                numbers.push('<option value="' + ini + '">' + ini + '</option>');
-            }
+            numbers.push('<option value="' + ranges[i] + '">' + ranges[i] + '</option>');
         }
 
         $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
@@ -1064,7 +1067,32 @@
                 if(!!data) {
                     var containerEl = container.replace('#',''),
                         streetObj = [],
-                        keys = [];
+                        keys = [],
+                        getNumbers = function getNumbers (range, init, end) {
+                                        var returnVal = [];
+                                        switch (range) {
+                                            case 0:
+                                                for(; init <= end ; init++) {
+                                                    returnVal.push(init)
+                                                }
+                                            break;
+                                            case 1:
+                                                for(; init <= end ; init++) {
+                                                    if(init%2 == 0)
+                                                        returnVal.push(init)
+                                                }
+                                            break;
+                                            case 2:
+                                                for(; init <= end ; init++) {
+                                                    if(init%2 != 0)
+                                                        returnVal.push(init)
+                                                }
+                                            break;
+                                            default:
+                                            break;
+                                        }
+                                        return returnVal;
+                                    };
 
                     data = JSON.parse(data);
 
@@ -1074,12 +1102,12 @@
                                 province: data[size].Province,
                                 city:  data[size].City,
                                 street: data[size].StreetName,
-                                ranges: [data[size].StreetNumberStart + '-' + data[size].StreetNumberEnd]
+                                ranges: getNumbers(data[size].StreetNumberRangeFilter , data[size].StreetNumberStart, data[size].StreetNumberEnd)
                             };
 
                             keys.push(data[size].StreetName);
                         } else {
-                            streetObj[data[size].StreetName].ranges.push(data[size].StreetNumberStart + '-' + data[size].StreetNumberEnd)
+                            streetObj[data[size].StreetName].ranges.push( getNumbers(data[size].StreetNumberRangeFilter , data[size].StreetNumberStart, data[size].StreetNumberEnd) );
                         }
                     }
 
@@ -1089,21 +1117,22 @@
 
                     for (var i = 0, size = keys.length; i < size; i++ ) {
                         var radioButton = '<input type="radio" id="' + (containerEl + '-' + i) + '" ' +
-                                          'name="' + containerEl + '" value="' + streetObj[keys[i]].street + ', ' + streetObj[keys[i]].province + '"' +
-                                          'data-province = "' + streetObj[keys[i]].province + '"' +
-                                          'data-city = "' + streetObj[keys[i]].city + '"' +
-                                          'data-range = "' + streetObj[keys[i]].ranges.join(',') + '"' +
-                            '" name="stepsContent" data-required-error="Please select yout street.">' +
+                                          'name="' + containerEl + '" value="' + streetObj[keys[i]].street + ', ' + streetObj[keys[i]].province + '" ' +
+                                          'data-street = "' + streetObj[keys[i]].street + '" ' +
+                                          'data-province = "' + streetObj[keys[i]].province + '" ' +
+                                          'data-city = "' + streetObj[keys[i]].city + '" ' +
+                                          'data-range = "' + streetObj[keys[i]].ranges.join(',') + '" ' + ((i===0)?'checked ':' ') +
+                            'name="stepsContent" data-required-error="Please select yout street.">' +
                             '<label class="fake-input" for="' + (containerEl + '-' + i) + '">' + streetObj[keys[i]].street + '</label>';
                         radioContent.push(radioButton);
                     }
 
                     radioContent.push('<input type="radio" id="' + (containerEl + '-No') + '" ' +
                                           'name="' + containerEl + '" value = "" ' +
-                                          'data-province = ""' +
-                                          'data-city = " "' +
-                                          'data-range = "0,0"' +
-                            '" name="stepsContent" data-required-error="Please select yout street.">' +
+                                          'data-province = "" ' +
+                                          'data-city = " " ' +
+                                          'data-range = "0" ' +
+                            'name="stepsContent" data-required-error="Please select yout street.">' +
                             '<label class="fake-input" for="' + (containerEl + '-No') + '">No one above</label>');
 
                     $(container).html(radioContent.join(''));
@@ -1141,7 +1170,7 @@
         $this.closest('.set-field')
             .find('.error-message, .result')
                 .remove();
-''
+
         if (!($this.attr('data-pattern') === 'postal-code')) return;
 
         if($this.val().postalCode()) {

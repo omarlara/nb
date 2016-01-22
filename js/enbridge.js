@@ -276,28 +276,36 @@
         return error;
     };
 
-    var dateValidator = function ($start, $end) {
+    var dateValidator = function ($renewDate, $lastService) {
         var error = false,
-            init = new Date($start.val()),
-            end = new Date($end.val()),
+            renewDate = new Date($renewDate.val()),
+            finishLastService = new Date($lastService.val()),
             now = new Date();
 
-        if($start.attr('data-required') && $end.attr('data-required')) {
-            if(init > end) {
-                $('[data-calendar*="' + $start.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+        if($renewDate.attr('data-required') && $lastService.attr('data-required')) {
+            if(renewDate > finishLastService) {
+                $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is in the past.</span></div>');
                 error = true;
-            } else if( end < now) {
-                $('[data-calendar*="' + $end.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+            } else if(finishLastService < now) {
+                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
                 error = true;
-            } else if ((end - init)/86400000 < 3) {
-                $('[data-calendar*="' + $end.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+            } else if ((finishLastService - renewDate)/86400000 < 3) {
+                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
                 error = true;
-            } else if ((''+end).indexOf('Sun') > - 1) {
-                $('[data-calendar*="' + $end.attr('id') + '"]')
-                    .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
+            } else if (('' + finishLastService).indexOf('Sun') > - 1) {
+                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Sunday.</span></div>');
+                error = true;
+            } else if (!renewDate) {
+                $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
+                error = true;
+            } else if (!finishLastService) {
+                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
                 error = true;
             }
         }
@@ -633,8 +641,8 @@
     $('#complete-new-user').bind('click', function() {
         var fromAddress = '',
             toAddress = '',
-            dateEndService = $('[id="date-start"]').val(),
-            dateStartService = $('[id="date-finish"]').val(),
+            dateEndService = $('[data-id="date-start"]').val(),
+            dateStartService = $('[data-id="date-finish"]').val(),
             birthDay = $('[data-id="day-user-info"]').val() + '/' + $('[id="month-user-info"]').val() + '/' + $('[data-id="year-user-info"]').val();
 
         /*Check if the address is provided for the back end services*/
@@ -1231,8 +1239,8 @@
         e.preventDefault();
 
         var $current = $(this).closest('.accordion-item'),
-            $startDate = $current.find('.start-date'),
-            $finishDate = $current.find('.finish-date');
+            $finishDate = $current.find('.finish-date'),
+            $startDate = $current.find('.start-date');
 
         if(!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
             $current
@@ -1290,6 +1298,10 @@
                 $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
                     .attr('data-required', true);
 
+                $('[data-id="suffix"]').val($('[data-id="pre-suffix"]').val() || '');
+                $('[data-id="street-number"]').val($('[data-id="pre-street-number"]').val() || '');
+
+
             } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val() ) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
@@ -1336,10 +1348,9 @@
             month = date.getMonth() + 1,
             year = date.getFullYear();
 
-        $($this.closest('.calendar-column').attr('data-calendar'))
+        $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]')
             .val(year + '-' + month + '-' + day);
     });
-
 
     /*Forms Reset*/
     $('.enbridge-form input[type="radio"]').bind('click', function() {
@@ -1369,6 +1380,8 @@
             };
 
         calendar.datepicker();
+
+        $('[data-id="date-finish"], [data-id="date-start"]').val(currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate());
 
         for (var i = calendar.length - 1; i >= 0; i--) {
             var $current =  $(calendar[i]).click(),

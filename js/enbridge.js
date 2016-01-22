@@ -1,25 +1,25 @@
-;$(window).ready(function () {
+; $(window).ready(function () {
 
     /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
         validYear = dateCurrent.getFullYear() - 19;
 
-    String.prototype.validYear = function() {
+    String.prototype.validYear = function () {
         var value = this;
-        if(!parseInt(value)) return false;
+        if (!parseInt(value)) return false;
 
-        if(value >= 1900 && value <= validYear) {
+        if (value >= 1900 && value <= validYear) {
             return true;
         } else {
             return false;
         }
     }
 
-    String.prototype.validEmail = function() {
+    String.prototype.validEmail = function () {
         return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(this);
     }
 
-    String.prototype.postalCode = function() {
+    String.prototype.postalCode = function () {
         return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(this);
     }
 
@@ -31,72 +31,72 @@
     /***********************General functions***********************/
 
     /*Date Formater*/
-    function dateFormater (stringDate) {
+    function dateFormater(stringDate) {
         var splitDates = stringDate.split('-'),
             dateValue = '';
 
         switch (splitDates[1]) {
             case '1':
                 dateValue = 'January';
-            break;
+                break;
             case '2':
-                 dateValue = 'February';
-            break;
+                dateValue = 'February';
+                break;
             case '3':
-                 dateValue = 'March';
-            break;
+                dateValue = 'March';
+                break;
             case '4':
-                 dateValue = 'April';
-            break;
+                dateValue = 'April';
+                break;
             case '5':
-                 dateValue = 'May';
-            break;
+                dateValue = 'May';
+                break;
             case '6':
-                 dateValue = 'June';
-            break;
+                dateValue = 'June';
+                break;
             case '7':
                 dateValue = 'July';
-            break;
+                break;
             case '8':
                 dateValue = 'August';
-            break;
+                break;
             case '9':
                 dateValue = 'September';
-            break;
+                break;
             case '10':
                 dateValue = 'October';
-            break;
+                break;
             case '11':
                 dateValue = 'November';
-            break;
+                break;
             case '12':
                 dateValue = 'December';
-            break;
+                break;
         }
 
-        switch(splitDates[2]) {
+        switch (splitDates[2]) {
             case '1': case '21': case '31':
                 dateValue += (' ' + splitDates[2] + 'st');
-            break;
+                break;
             case '2': case '22':
                 dateValue += (' ' + splitDates[2] + 'nd');
-            break;
+                break;
             case '3': case '23':
                 dateValue += (' ' + splitDates[2] + 'rd');
-            break;
+                break;
             case '1':
                 dateValue += (' ' + splitDates[2] + 'st');
-            break;
+                break;
             default:
                 dateValue += (' ' + splitDates[2] + 'th');
-            break;
+                break;
         }
 
         return dateValue;
     }
 
     /*Validators*/
-    var validator = function formValidator ($form) {
+    var validator = function formValidator($form) {
         var error = false,
             radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
             select = $form.find('.enbridge-select').removeClass('input-error'),
@@ -110,10 +110,10 @@
         for (var i = radio.length - 1; i >= 0; i--) {
             var $current = $(radio[i]);
 
-            if($current.attr('data-required') && !($current.hasClass('input-success') || $current.attr('checked')) ) {
+            if ($current.attr('data-required') && !($current.hasClass('input-success') || $current.attr('checked'))) {
                 var $current = $(radio[i]);
 
-                if(!$current.hasClass('input-error')) {
+                if (!$current.hasClass('input-error')) {
                     $current.closest('.set-field')
                         .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
                 }
@@ -124,7 +124,7 @@
             } else {
                 var name = $current.attr('name');
 
-                $('input[name="' + name +'"]')
+                $('input[name="' + name + '"]')
                     .removeClass('input-error')
                     .addClass('input-success');
 
@@ -135,7 +135,7 @@
 
         }
 
-        if($form.find('input[type="radio"].input-error').length) {
+        if ($form.find('input[type="radio"].input-error').length) {
             error = true;
         }
 
@@ -143,29 +143,29 @@
             var $current = $(zipTool[i]),
                 $codeContainer = $current.find('.code-container');
 
-            if(!$codeContainer.val().postalCode()) {
-               $codeContainer
+            if (!$codeContainer.val().postalCode()) {
+                $codeContainer
                     .addClass('input-error')
-                        .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>') ;
+                        .after('<p class="error-message">' + $codeContainer.attr('data-required-error') + '</p>');
             }
 
-            if (!$current.hasClass('success-zip') ) {
+            if (!$current.hasClass('success-zip')) {
                 error = true;
             }
         }
 
         for (var i = newAddress.length - 1; i >= 0; i--) {
-            if (!$(newAddress[i]).hasClass('success-field') ) {
+            if (!$(newAddress[i]).hasClass('success-field')) {
                 error = true;
             }
         }
 
         for (var i = select.length - 1; i >= 0; i--) {
             var $current = $(select[i]);
-            if($current.attr('data-required') && !$current.val()) {
+            if ($current.attr('data-required') && !$current.val()) {
 
 
-                if($current.attr('data-position') == 'top') {
+                if ($current.attr('data-position') == 'top') {
                     $current
                         .addClass('input-error')
                         .before('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
@@ -184,7 +184,7 @@
             var $current = $(text[i]),
                 pattern = $current.attr('data-pattern') || '';
 
-            if($current.attr('data-required') && !$current.val()) {
+            if ($current.attr('data-required') && !$current.val()) {
                 $('[data-rel="' + $current.attr('data-rel') + '"]')
                     .addClass('input-error');
 
@@ -193,9 +193,9 @@
                 error = true;
             }
             if (!!$current.val()) {
-                switch(pattern) {
+                switch (pattern) {
                     case 'postal-code':
-                        if(!$current.val().postalCode()) {
+                        if (!$current.val().postalCode()) {
                             $('[data-rel="' + $current.attr('data-rel') + '"]')
                                 .addClass('input-error');
 
@@ -203,9 +203,9 @@
                                 .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
                             error = true;
                         }
-                    break;
+                        break;
                     case 'valid-year':
-                        if(!$current.val().validYear()) {
+                        if (!$current.val().validYear()) {
                             $('[data-rel="' + $current.attr('data-rel') + '"]')
                                 .addClass('input-error');
 
@@ -213,9 +213,9 @@
                                 .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
                             error = true;
                         }
-                    break;
+                        break;
                     case 'valid-email':
-                        if(!$current.val().validEmail()) {
+                        if (!$current.val().validEmail()) {
                             $('[data-rel="' + $current.attr('data-rel') + '"]')
                                 .addClass('input-error');
 
@@ -223,9 +223,9 @@
                                 .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
                             error = true;
                         }
-                    break;
+                        break;
                     default:
-                    break;
+                        break;
                 }
             }
         }
@@ -239,20 +239,20 @@
             end = new Date($end.val()),
             now = new Date();
 
-        if($start.attr('data-required') && $end.attr('data-required')) {
-            if(init > end) {
+        if ($start.attr('data-required') && $end.attr('data-required')) {
+            if (init > end) {
                 $('[data-calendar*="' + $start.attr('id') + '"]')
                     .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is bigger than end date. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
                 error = true;
-            } else if( end < now) {
+            } else if (end < now) {
                 $('[data-calendar*="' + $end.attr('id') + '"]')
                     .append('<div class="result error-code"><img src="assets/img/error.png"><span>Initial date is in past. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
                 error = true;
-            } else if ((end - init)/86400000 < 3) {
+            } else if ((end - init) / 86400000 < 3) {
                 $('[data-calendar*="' + $end.attr('id') + '"]')
                     .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is less than 3 days. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
                 error = true;
-            } else if ((''+end).indexOf('Sun') > - 1) {
+            } else if (('' + end).indexOf('Sun') > -1) {
                 $('[data-calendar*="' + $end.attr('id') + '"]')
                     .append('<div class="result error-code"><img src="assets/img/error.png"><span>The initial date is in Holiday. Aenean in ultrices nisl. Phasellus ipsum sapien, feugiat ac suscipit vitae, tristique at mi.</span></div>');
                 error = true;
@@ -284,8 +284,8 @@
             name = elemenetNodes[0].text || '';
 
             for (var i = 0, size = elemenetNodes.length; i < size; i++) {
-                var temp = '<li class="list-item"><input type="hidden" value="'+
-                            elemenetNodes[i].value+ '">' + elemenetNodes[i].text + '</li>';
+                var temp = '<li class="list-item"><input type="hidden" value="' +
+                            elemenetNodes[i].value + '">' + elemenetNodes[i].text + '</li>';
                 nodes.push(temp);
             }
 
@@ -304,7 +304,7 @@
 
         dropdownEnbridge.prototype.addMethods = function addMethods() {
             var self = this,
-                $element =  $(this.element);
+                $element = $(this.element);
 
             $element.bind('click', function () {
                 $(this).toggleClass('active');
@@ -312,7 +312,7 @@
 
             $element
                 .find('.list-items .list-item')
-                    .bind('click', function() {
+                    .bind('click', function () {
                         var $current = $(this),
                             $source = $(self.source),
                             text = $current.text() || '',
@@ -333,13 +333,12 @@
                                 .removeAttr('selected');
 
                         $source
-                            .find('option[value="' + value +'"]')
+                            .find('option[value="' + value + '"]')
                                 .attr('selected', true);
-
                     });
 
-            $(document).click(function(e) {
-                if ( $.contains(self.element, e.target) ) {
+            $(document).click(function (e) {
+                if ($.contains(self.element, e.target)) {
                     return;
                 } else {
                     $(self.element).removeClass('active');
@@ -348,19 +347,19 @@
         };
 
         $.fn.enbridgeDropdown = function (element) {
-            return this.each(function() {
+            return this.each(function () {
                 (new dropdownEnbridge(this));
             });
         };
 
-        $(window).ready(function() {
+        $(window).ready(function () {
             $('.enbridge-select').enbridgeDropdown();
         });
 
     })(jQuery);
 
     /*Code Tool*/
-    ;(function($){
+    ; (function ($) {
 
         function CodeTool(element) {
             this.element = element;
@@ -396,7 +395,7 @@
                         request = null,
                         result = null;
 
-                    if(!currentCode.postalCode()) {
+                    if (!currentCode.postalCode()) {
                         $element
                             .find('.result')
                                 .html('<span>' + error + '</span>')
@@ -420,7 +419,7 @@
                             'postalCode': currentCode
                         },
                         success: function (data) {
-                            if(!!data) {
+                            if (!!data) {
                                 $element
                                     .addClass('success-zip')
                                     .find('.result')
@@ -443,7 +442,7 @@
                                     .removeAttr('data-required');
                             }
                         },
-                        error: function() {
+                        error: function () {
                             console.log('Error on the service');
                         }
                     });
@@ -452,13 +451,13 @@
         };
 
         $.fn.codeTool = function (element) {
-            return this.each(function() {
+            return this.each(function () {
                 (new CodeTool(this));
             });
         };
 
-        $(window).ready(function() {
-           $('.zip-code-tool').codeTool();
+        $(window).ready(function () {
+            $('.zip-code-tool').codeTool();
         });
 
     })(jQuery);
@@ -470,10 +469,10 @@
     /*Dialog - 1 - Moving out*/
 
     /*Stop radio button click, show/hide Select reason select*/
-     $('[name="steps"]').bind('click', function() {
+    $('[name="steps"]').bind('click', function () {
         var $element = $('[data-id="stop-select"]');
 
-        if(this.value === 'stop') {
+        if (this.value === 'stop') {
             $element
                 .removeClass('hide-flow')
                 .attr('data-required', true);
@@ -488,25 +487,25 @@
     When you click on the next sep, on Select your street
     if you have selected No one above, you will show form, in another case you will be on the select street number
     */
-    $('#get-address').bind('click', function() {
+    $('#get-address').bind('click', function () {
         var $this = $(this);
 
         $('[name="select-street-container"]').attr('data-required', true);
 
-        if($('[name="select-street-container"]:checked').val()) {
+        if ($('[name="select-street-container"]:checked').val()) {
             $.ajax({
                 url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
                 type: 'POST',
                 dataType: 'json',
                 data: {},
-                complete: function(xhr,status) {
+                complete: function (xhr, status) {
                     var jsonObj = null;
                     if (!xhr || xhr.status != 200 || !xhr.response) {
                         console.log(xhr);
                     } else {
                         jsonObj = JSON.parse(xhr.response);
 
-                        if(jsonObj.numbers) {
+                        if (jsonObj.numbers) {
                             var numbers = [],
                                 container = '#data-dropdown';
 
@@ -529,23 +528,23 @@
     });
 
     /*Set Address on decline/accept step container*/
-    $('#confirm-address-button').bind('click', function() {
+    $('#confirm-address-button').bind('click', function () {
         var city = $('[name="select-street-container"]:checked').val() || '',
-            numberHouse =$('#current-number').val() || '',
+            numberHouse = $('#current-number').val() || '',
             zipCode = $('[data-id="code-validator"]').val();
 
         $('#address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
     });
 
     /*Info Decline*/
-    $('[data-id="info-decline"]').bind('click', function(e) {
+    $('[data-id="info-decline"]').bind('click', function (e) {
         e.preventDefault();
         $('[data-id="code-validator"]')
             .removeClass('success-field')
             .val('');
 
         $('[name="house-property"]')
-            .attr({'checked': false})
+            .attr({ 'checked': false })
             .removeAttr('data-required')
             .removeClass('input-error');
 
@@ -555,7 +554,7 @@
     });
 
     /*Info confirmation*/
-    $('[data-id="info-confirmation"]').bind('click', function(e) {
+    $('[data-id="info-confirmation"]').bind('click', function (e) {
         e.preventDefault();
         $('#information-acceptance')
             .hide()
@@ -574,8 +573,8 @@
     });
 
     /*Add alternative mailer address*/
-    $('[data-id="mailing-address-alternative"], [data-id="mailing-address"]').change(function() {
-        if(this.checked) {
+    $('[data-id="mailing-address-alternative"], [data-id="mailing-address"]').change(function () {
+        if (this.checked) {
             $('#manual-property-info').removeClass('hidden');
 
             $('[data-id="street-alternative"], [data-rel="city-or-town-alternative"], [data-rel="country-alternative-element"], [data-rel="province-alternative-element"], [data-rel="postal-code-input-alternative"]')
@@ -602,7 +601,7 @@
     });
 
     /*Complete User Information*/
-    $('#complete-new-user').bind('click', function() {
+    $('#complete-new-user').bind('click', function () {
         var fromAddress = '',
             toAddress = '',
             dateEndService = $3('[id="date-start"]').val(),
@@ -610,14 +609,14 @@
             birthDay = $('[data-id="day-user-info"]').val() + '/' + $('[id="month-user-info"]').val() + '/' + $('[data-id="year-user-info"]').val();
 
         /*Check if the address is provided for the back end services*/
-        if($('#confirm-address').hasClass('active-step')) {
+        if ($('#confirm-address').hasClass('active-step')) {
             /*Add additional information about mail address*/
-            if($('[data-id="mailing-address-alternative"]').attr('checked')) {
+            if ($('[data-id="mailing-address-alternative"]').attr('checked')) {
                 fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
 
-                toAddress = $('[data-id="street-number-alternative"]').val() + ' ' +$('[data-id="suffix-alternative"]').val() + ' ' +
-                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' +  $('[data-id="city-or-town-alternative"]').val() + ' ' +
-                            $('[data-id="country-alternative-element"]').val() + ' ' +  $('[data-id="province-alternative-element"]').val() +  ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
+                toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
+                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ' ' +
+                            $('[data-id="country-alternative-element"]').val() + ' ' + $('[data-id="province-alternative-element"]').val() + ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
 
                 $('#from-modal').text(fromAddress);
                 $('#to-modal').text(toAddress);
@@ -625,28 +624,28 @@
             } else {
                 fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
 
-                 $('#from-modal, #to-modal').text(fromAddress);
+                $('#from-modal, #to-modal').text(fromAddress);
             }
         } else {
             /*Check if the address isn't provided by Enbridge service*/
 
             /*Add additional information about mail address*/
-            if($('[data-id="mailing-address-alternative"]').attr('checked')) {
-                fromAddress = $('[data-id="street-number"]').val() + ' ' +$('[data-id="suffix"]').val() + ' ' +
-                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' +  $('#city-or-town').val() + ' ' +
-                              $('[data-id="country"]').val() + ' ' +  $('[data-id="province"]').val() +  ', ON ' + $('[data-id="postal-code-input"]').val();
+            if ($('[data-id="mailing-address-alternative"]').attr('checked')) {
+                fromAddress = $('[data-id="street-number"]').val() + ' ' + $('[data-id="suffix"]').val() + ' ' +
+                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' + $('#city-or-town').val() + ' ' +
+                              $('[data-id="country"]').val() + ' ' + $('[data-id="province"]').val() + ', ON ' + $('[data-id="postal-code-input"]').val();
 
-                toAddress = $('[data-id="street-number-alternative"]').val() + ' ' +$('[data-id="suffix-alternative"]').val() + ' ' +
-                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' +  $('[data-id="city-or-town-alternative"]').val() + ' ' +
-                            $('[data-id="country-alternative-element"]').val() + ' ' +  $('[data-id="province-alternative-element"]').val() +  ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
+                toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
+                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ' ' +
+                            $('[data-id="country-alternative-element"]').val() + ' ' + $('[data-id="province-alternative-element"]').val() + ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
 
                 $('#from-modal').text(fromAddress);
                 $('#to-modal').text(toAddress);
 
             } else {
-                fromAddress =$('[data-id="street-number"]').val() + ' ' +$('[data-id="suffix"]').val() + ' ' +
-                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' +  $('#city-or-town').val() + ' ' +
-                              $('[data-id="country"]').val() + ' ' +  $('[data-id="province"]').val() +  ', ON ' + $('[data-id="postal-code-input"]').val();
+                fromAddress = $('[data-id="street-number"]').val() + ' ' + $('[data-id="suffix"]').val() + ' ' +
+                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' + $('#city-or-town').val() + ' ' +
+                              $('[data-id="country"]').val() + ' ' + $('[data-id="province"]').val() + ', ON ' + $('[data-id="postal-code-input"]').val();
 
                 $('#from-modal, #to-modal').text(fromAddress);
             }
@@ -657,15 +656,15 @@
 
         $('#birth-day').text(birthDay);
 
-        $('#user-phone').text( $('[data-id="user-mobile-lada"]').val() + ' ' + $('[data-rel="mobile-phone-your-info"]').val());
-        $('#mobile-phone').text( $('[data-id="user-home-lada"]').val() + ' ' + $('[data-id="user-home-phone"]').val());
+        $('#user-phone').text($('[data-id="user-mobile-lada"]').val() + ' ' + $('[data-rel="mobile-phone-your-info"]').val());
+        $('#mobile-phone').text($('[data-id="user-home-lada"]').val() + ' ' + $('[data-id="user-home-phone"]').val());
 
         $('#additional-contact').text($('[data-id="additional-fist-name"]').val() + ' ' + $('[data-id="additional-last-name"]').val());
 
     });
 
     /*Reset mailing information*/
-    $('[data-id="personal-info-user"]').bind('click', function() {
+    $('[data-id="personal-info-user"]').bind('click', function () {
         var $form = $('#form-new-account').removeClass('hidden');
 
         $($form.find('.accordion-item')[1])
@@ -689,7 +688,7 @@
                     .width('');
 
         $('[name="house-property"]')
-            .attr({'checked': false})
+            .attr({ 'checked': false })
             .removeAttr('data-required');
 
         $('#hide-message').
@@ -714,7 +713,7 @@
         $form.find('.steps:not(#first-step)')
             .removeClass('active-step');
 
-        $("#mailing-address, #mailing-address-alternative").attr("checked",false);
+        $("#mailing-address, #mailing-address-alternative").attr("checked", false);
         /*Restart Mailing Information*/
         $('[data-id="street"], [data-id="street-alternative"], [data-id="city-or-town"], [data-rel="city-or-town-alternative"], [data-id="postal-code-input"], [data-rel="postal-code-input-alternative"]')
             .removeAttr('data-required')
@@ -734,7 +733,7 @@
     });
 
     /*Reset personla info user*/
-    $('[data-id="reset-personal-info"]').bind('click', function() {
+    $('[data-id="reset-personal-info"]').bind('click', function () {
         $('#personal-info').find('[type="text"]')
             .val('');
 
@@ -743,7 +742,7 @@
     });
 
     /*Start Over*/
-    $('#new-account-start-over').bind('click', function() {
+    $('#new-account-start-over').bind('click', function () {
         var $form = $('#form-new-account').removeClass('hidden');
 
         $form.find('.accordion-item')
@@ -788,7 +787,7 @@
             .removeClass('input-success');
 
         $('[name="house-property"], [name="house-property-alternative"]')
-            .attr({'checked': false})
+            .attr({ 'checked': false })
             .removeAttr('data-required')
             .removeClass('input-error');
 
@@ -805,7 +804,7 @@
         $form.find('.steps:not(#first-step)')
             .removeClass('active-step');
 
-        $("#mailing-address, #mailing-address-alternative").attr("checked",false);
+        $("#mailing-address, #mailing-address-alternative").attr("checked", false);
         /*Restart Mailing Information*/
         $('[data-id="street"], [data-id="street-alternative"], [data-id="city-or-town"], [data-rel="city-or-town-alternative"], [data-id="postal-code-input"], [data-rel="postal-code-input-alternative"]')
             .removeAttr('data-required')
@@ -833,41 +832,41 @@
     /*Dialog - 2 - New Customer*/
 
     /*Moving out finish*/
-    $('#moving-out-finish').bind('click', function() {
-        var fromAddress = $('[data-id="moving-out-street-number"]').val() + ' ' +$('[ data-id="moving-out-suffix"]').val() + ' ' +
-                          $('[data-id="moving-out-street"]').val() + ' ' + $('[data-id="moving-out-misc-info"]').val() + ' ' +  $('[data-id="moving-out-city-or-town"]').val() + ' ' +
-                          $('[data-id="moving-out-country"]').val() + ' ' +  $('[data-id="moving-out-province"]').val() +  ', ON ' + $('[data-rel="moving-out-postal-code-input"]').val(),
+    $('#moving-out-finish').bind('click', function () {
+        var fromAddress = $('[data-id="moving-out-street-number"]').val() + ' ' + $('[ data-id="moving-out-suffix"]').val() + ' ' +
+                          $('[data-id="moving-out-street"]').val() + ' ' + $('[data-id="moving-out-misc-info"]').val() + ' ' + $('[data-id="moving-out-city-or-town"]').val() + ' ' +
+                          $('[data-id="moving-out-country"]').val() + ' ' + $('[data-id="moving-out-province"]').val() + ', ON ' + $('[data-rel="moving-out-postal-code-input"]').val(),
             birthDay = $('[data-id="moving-out-your-day"]').val() + '/' + $('[data-id="moving-out-your-month"]').val() + '/' + $('[data-id="moving-out-your-year"]').val();
 
         $('#moving-new-date-summary').text(dateFormater($('[data-id="moving-out-date" ]').val()));
 
         $('#moving-out-from').text(fromAddress);
         $('#moving-out-summary-birth-day').text(birthDay);
-        $('#moving-out-summary-user-phone').text( $('[data-id="moving-out-home-phone-lada"]').val() + ' ' + $('[data-id="moving-out-home-phone"]').val());
-        $('#moving-out-summary-mobile-phone').text( $('[data-id="moving-out-mobile-phone-lada"]').val() + ' ' + $('[data-id="moving-out-mobile-phone"]').val());
+        $('#moving-out-summary-user-phone').text($('[data-id="moving-out-home-phone-lada"]').val() + ' ' + $('[data-id="moving-out-home-phone"]').val());
+        $('#moving-out-summary-mobile-phone').text($('[data-id="moving-out-mobile-phone-lada"]').val() + ' ' + $('[data-id="moving-out-mobile-phone"]').val());
     });
 
     /*
     When you click on the next sep, on Select your street
     if you have selected No one above, you will show form, in another case you will be on the select street number
     */
-    $('#newcustomers-get-address').bind('click', function() {
+    $('#newcustomers-get-address').bind('click', function () {
         var $this = $(this);
 
-        if($('[name="newcustomers-select-street-container"]:checked').val()) {
+        if ($('[name="newcustomers-select-street-container"]:checked').val()) {
             $.ajax({
                 url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
                 type: 'POST',
                 dataType: 'json',
                 data: {},
-                complete: function(xhr,status) {
+                complete: function (xhr, status) {
                     var jsonObj = null;
                     if (!xhr || xhr.status != 200 || !xhr.response) {
                         console.log(xhr);
                     } else {
                         jsonObj = JSON.parse(xhr.response);
 
-                        if(jsonObj.numbers) {
+                        if (jsonObj.numbers) {
                             var numbers = [],
                                 container = '#newcustomers-data-dropdown';
 
@@ -890,8 +889,8 @@
     });
 
     /*Add alternative mailer address*/
-    $('[data-id="newcustomers-mailing-address-alternative"], [data-id="newcustomers-mailing-address"]').change(function() {
-        if(this.checked) {
+    $('[data-id="newcustomers-mailing-address-alternative"], [data-id="newcustomers-mailing-address"]').change(function () {
+        if (this.checked) {
             $('#newcustomers-manual-property-info').removeClass('hidden');
 
             $('[data-id="newcustomers-street-alternative"], [data-id="newcustomers-city-or-town-alternative"], [data-id="newcustomers-select-country-alternative"], [ data-id="newcustomers-select-province-alternative"], [data-id="newcustomers-postal-code-input-alternative"]')
@@ -918,23 +917,23 @@
     });
 
     /*Set Address on decline/accept step container*/
-    $('#newcustomers-confirm-address-button').bind('click', function() {
+    $('#newcustomers-confirm-address-button').bind('click', function () {
         var city = $('[name="newcustomers-select-street-container"]:checked').val() || '',
-            numberHouse =$('#newcustomers-current-number').val() || '',
+            numberHouse = $('#newcustomers-current-number').val() || '',
             zipCode = $('[data-id="newcustomers-code-validator"]').val() || '';
 
         $('#newcustomers-address-confirmation').text(numberHouse + ' ' + city + ', ON ' + zipCode);
     });
 
     /*Info Decline*/
-    $('#newcustomers-info-decline').bind('click', function(e) {
+    $('#newcustomers-info-decline').bind('click', function (e) {
         e.preventDefault();
         $('[data-id="newcustomers-code-validator"]')
             .removeClass('success-field')
             .val('');
 
         $('[name="newcustomers-house-property"]')
-            .attr({'checked': false})
+            .attr({ 'checked': false })
             .removeAttr('data-required')
             .removeClass('input-error');
 
@@ -944,7 +943,7 @@
     });
 
     /*Info confirmation*/
-    $('#newcustomers-info-confirmation').bind('click', function(e) {
+    $('#newcustomers-info-confirmation').bind('click', function (e) {
         e.preventDefault();
         $('#newcustomers-information-acceptance')
             .hide()
@@ -1006,7 +1005,7 @@
     /***********************Common Functionality***********************/
 
     /*Success Zip*/
-    $('.new-address').change(function() {
+    $('.new-address').change(function () {
         var $this = $(this),
             currentVal = $this.val(),
             container = $this.attr('data-content'),
@@ -1015,7 +1014,7 @@
         $this.closest('.code-box')
             .find('.error-message ').remove();
 
-        if(!$this.val().postalCode()) {
+        if (!$this.val().postalCode()) {
             $this
                 .addClass('input-error')
                 .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
@@ -1024,28 +1023,28 @@
 
         $this.removeClass('input-error');
 
-        if($this.next().hasClass('error-message')) {
+        if ($this.next().hasClass('error-message')) {
             $this.next().remove();
         }
-        $.post( "http://beta.json-generator.com/api/json/get/N1wJ1FaUl",
-            function(resp) {
+        $.post("http://beta.json-generator.com/api/json/get/N1wJ1FaUl",
+            function (resp) {
                 if (resp && resp.result) {
 
-                    var containerEl = container.replace('#','');
+                    var containerEl = container.replace('#', '');
                     $this
                         .addClass('success-field')
                         .removeClass('input-error');
 
-                    for (var i = 0, size = resp.elements.length; i< size; i +=1) {
+                    for (var i = 0, size = resp.elements.length; i < size; i += 1) {
                         var chain = '<input type="radio" id="' + (containerEl + '-' + i) + '"  name="' + containerEl + '"value="' + resp.elements[i].value + '" name="stepsContent" data-required-error="Please select yout street."><label class="fake-input" for="' + (containerEl + '-' + i) + '">' + resp.elements[i].name + '</label>';
                         radioContent.push(chain);
                     }
 
                     $(container).html(radioContent.join(''));
                     /*Select container*/
-                    $(container).find('input[type="radio"]').bind('click', function() {
+                    $(container).find('input[type="radio"]').bind('click', function () {
                         var name = $(this).attr('name') || '',
-                            containerBox = (this.value)?$this.attr('data-first-op'): $this.attr('data-second-op');
+                            containerBox = (this.value) ? $this.attr('data-first-op') : $this.attr('data-second-op');
 
                         $('#get-address').attr('data-next-step', containerBox);
                         $('#newcustomers-get-address').attr('data-next-step', containerBox);
@@ -1060,27 +1059,27 @@
                         .addClass('input-error');
                 }
 
-            },"json");
+            }, "json");
 
     });
 
     /*Postal Code*/
-    $('.postal-code-verify').keyup( function(e) {
+    $('.postal-code-verify').keyup(function (e) {
         e.stopPropagation();
         var $this = $(this).removeClass('input-sucess input-error');
 
         $this.closest('.set-field')
             .find('.error-message, .result')
                 .remove();
-''
+        ''
         if (!($this.attr('data-pattern') === 'postal-code')) return;
 
-        if($this.val().postalCode()) {
+        if ($this.val().postalCode()) {
             $this.addClass('input-sucess');
 
             $.ajax({
                 url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
-                complete: function(xhr,status) {
+                complete: function (xhr, status) {
                     $this.closest('.set-field')
                         .find('.error-message, .result')
                             .remove();
@@ -1111,14 +1110,14 @@
     /***********************Accordion***********************/
 
     /*Header click to collapse section*/
-    $('.accordion .accordion-item >.header').bind('click', function(event) {
+    $('.accordion .accordion-item >.header').bind('click', function (event) {
         event.preventDefault();
 
         var $current = $(this).closest('.accordion-item');
 
         if ($current.hasClass('processed')) {
             return;
-        } else if($current.hasClass('active') || !$current.prev().length) {
+        } else if ($current.hasClass('active') || !$current.prev().length) {
             $current.toggleClass('active ');
         } else if ($current.prev().length && $current.prev().hasClass('processed')) {
             $current.toggleClass('active ');
@@ -1129,19 +1128,19 @@
     });
 
     /*Run validations for each section*/
-    $('.accordion .accordion-item .validator').bind('click', function(e) {
+    $('.accordion .accordion-item .validator').bind('click', function (e) {
         e.preventDefault();
 
         var $current = $(this).closest('.accordion-item'),
             $startDate = $current.find('.start-date'),
             $finishDate = $current.find('.finish-date');
 
-        if(!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
+        if (!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
             $current
                 .removeClass('active')
                 .addClass('processed');
 
-            if($current.next().length) {
+            if ($current.next().length) {
                 $current.next().addClass('active');
             } else {
                 var $accordion = $current.closest('.accordion').addClass('hidden'),
@@ -1158,10 +1157,10 @@
     });
 
     /*Return to the previous step*/
-    $('.accordion .accordion-item .prev').bind('click', function(e) {
+    $('.accordion .accordion-item .prev').bind('click', function (e) {
         var $current = $(this).closest('.accordion-item');
 
-        if($current.prev().length) {
+        if ($current.prev().length) {
             $current
                 .removeClass('active')
                 .prev()
@@ -1172,12 +1171,12 @@
     });
 
     /*Steps*/
-    $('.steps .next-step').bind('click', function() {
+    $('.steps .next-step').bind('click', function () {
         var $current = $(this).closest('.accordion-item'),
             $currentStep = $(this).closest('.steps'),
             nextStep = $(this).attr('data-next-step');
 
-        if(!validator($current.find('.enbridge-form'))) {
+        if (!validator($current.find('.enbridge-form'))) {
             $currentStep.
                 removeClass('active-step')
                     .next();
@@ -1202,7 +1201,7 @@
     });
 
     /*Edit information*/
-    $('.edit-info').bind('click', function(e) {
+    $('.edit-info').bind('click', function (e) {
         e.preventDefault();
         var $current = $(this),
             $temporal = $($(this).attr('data-accordion-element')),
@@ -1211,8 +1210,8 @@
         $temporal
             .removeClass('processed')
             .addClass('active');
-        while(loop) {
-            if($temporal.next().length) {
+        while (loop) {
+            if ($temporal.next().length) {
                 $temporal = $temporal.next()
                                 .removeClass('processed active');
             } else {
@@ -1227,8 +1226,8 @@
     })
 
     /*Calendar get date*/
-    $('.calendar').bind('click', function(e) {
-        if(!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
+    $('.calendar').bind('click', function (e) {
+        if (!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;
         }
 
@@ -1243,7 +1242,7 @@
     });
 
     /*Forms Reset*/
-    $('.enbridge-form input[type="radio"]').bind('click', function() {
+    $('.enbridge-form input[type="radio"]').bind('click', function () {
         var name = $(this).attr('name') || '';
 
         $(this).closest('.set-field')
@@ -1256,23 +1255,23 @@
     /*******************************Window Ready loaders ********************************/
 
     /*Calendar section*/
-    $(window).ready(function() {
+    $(window).ready(function () {
         var calendar = $('.calendar'),
             currentDate = new Date(),
             dialogConstant = {
-                    autoOpen: true,
-                    resizable: false,
-                    height: 240,
-                    width: 720,
-                    modal: true,
-                    height: 440,
-                    top:29
+                autoOpen: true,
+                resizable: false,
+                height: 240,
+                width: 720,
+                modal: true,
+                height: 440,
+                top: 29
             };
 
         calendar.datepicker();
 
         for (var i = calendar.length - 1; i >= 0; i--) {
-            var $current =  $(calendar[i]).click(),
+            var $current = $(calendar[i]).click(),
                 date = $current.datepicker('getDate'),
                 day = date.getDate(),
                 month = date.getMonth() + 1,
@@ -1282,50 +1281,50 @@
                 .val(year + '-' + month + '-' + day);
         }
 
-        $('.tooltip .icon').bind('click', function(){
+        $('.tooltip .icon').bind('click', function () {
             $(this).next()
                 .addClass('active-tooltip')
                 .show();
         });
 
-        $('.tooltip .cross').bind('click', function(){
+        $('.tooltip .cross').bind('click', function () {
             $(this).closest('.content-tooltip')
                 .removeClass('active-tooltip')
                 .hide();
         });
 
-        $('.modalopen').bind('click',function(e){
+        $('.modalopen').bind('click', function (e) {
             e.preventDefault();
             $($(this).attr('data-target'))
-                .css("display","none");
+                .css("display", "none");
 
             var id = $(this).attr('data-target'),
                 elements = $(id).siblings();
 
-                elements.each(function(entry){
-                    var idName = $(elements[entry]).attr('id'),
+            elements.each(function (entry) {
+                var idName = $(elements[entry]).attr('id'),
                         idchange = '#' + idName;
-                    $(idchange).removeClass("hidden");
-                    $("#costumer-alert").addClass("hidden");
-                });
+                $(idchange).removeClass("hidden");
+                $("#costumer-alert").addClass("hidden");
+            });
         });
 
-        $('.open-dialog').bind('click', function(e) {
+        $('.open-dialog').bind('click', function (e) {
             e.preventDefault();
             var $this = $(this);
 
-            if($this.attr('data-target') == "#movingoutredirect") {
-                window.location="04_moving_out_login.html";
+            if ($this.attr('data-target') == "#movingoutredirect") {
+                window.location = "04_moving_out_login.html";
             } else {
-                scroll(0,0);
+                scroll(0, 0);
                 $($this.attr('data-target'))
                     .dialog({
-                        autoOpen:true,
+                        autoOpen: true,
                         resizable: false,
-                        height:400,
-                        width:720,
+                        height: 400,
+                        width: 720,
                         modal: true,
-                        height:440
+                        height: 440
                     });
             }
         });
@@ -1337,3 +1336,59 @@
     });
 
 });
+
+// General Namespace
+var Enbridge = window.Enbridge || {
+    UrlServices: {
+        GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces'
+    },
+    Templates: {
+        PROVINCE: '<option value=":provinceCode">:provinceName</option>'
+    },
+    CountryCodes: {
+        CANADA: 'CA'
+    }
+};
+
+;(function (window, $) {
+
+    var Enbridge = window.Enbridge;
+
+    function populateProvinces (provinces) {
+        var i, len = provinces.length;
+        var $countryDropdown;
+        var compilation = '';
+
+        for (i = 0; i < len; i += 1) {
+            compilation +=
+                Enbridge.Templates.PROVINCE.replace(':provinceCode', provinces[i].Code)
+                    .replace(':provinceName', provinces[i].Name);
+        }
+
+        // Refill the dropdown
+        $countryDropdown = $('[data-id="moving-out-country"]');
+        $countryDropdown.next('.enbridge-dropdown').remove();
+        $countryDropdown.html(compilation);
+
+        $countryDropdown.enbridgeDropdown();
+    }
+
+    function loadProvinces (data) {
+       /**/ if (data.countryCode === Enbridge.CountryCodes.CANADA) /**/
+        $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
+    }
+
+    $(document).ready(function () {
+        var countryServiceData = { countryCode: Enbridge.CountryCodes.CANADA };
+
+        var $countryDropdown = $('[data-id="moving-out-country"]');
+        var $countryDropdownItems=$countryDropdown.next('.enbridge-dropdown').find('li');
+        /**/
+        $countryDropdownItems.bind('click', function (e) {
+            countryServiceData.countryCode = e.target.children[0].value;
+            loadProvinces(countryServiceData);
+        }); /**/
+        countryServiceData.countryCode = $countryDropdown.val();
+        loadProvinces(countryServiceData);
+    });
+} (window, jQuery));

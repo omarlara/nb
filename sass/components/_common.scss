@@ -24,11 +24,11 @@ h1, h2, h3, h4, h5, h6 {
 *:focus {
     outline: 0;
 }
-.down-new-account{
+.down-new-account {
     margin-bottom: 30px;
 }
 
-.dates-moving-label-top{
+.dates-moving-label-top {
     margin-top: 40px !important;
 }
 
@@ -57,43 +57,43 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 !important;
 }
 
-.no-margin{
+.no-margin {
     margin: 0 !important;
 }
 
-.mid-gray{
+.mid-gray {
     color:$mid-gray;
 }
 
-.no-margin-bottom{
+.no-margin-bottom {
     margin-bottom: 0 !important;
 }
 
-.no-margin-top{
+.no-margin-top {
     margin-top: 0px !important;
 }
 
-.no-padding-left{
-    padding-left:0px !important;
+.no-padding-left {
+    padding-left: 0px !important;
 }
 
-.display-inline{
+.display-inline {
     display: inline;
 }
 
-.align-middle{
+.align-middle {
     vertical-align: middle !important;
 }
 
-.summary-buttons-bottom{
+.summary-buttons-bottom {
     margin-bottom: 15px
 }
 
-.information-label-distance{
+.information-label-distance {
     margin-left: 30px;
 }
 
-.sub-title-green-summary{
+.sub-title-green-summary {
     font-size: 19px;
     font-weight: 200;
     margin-top: 7px;
@@ -103,23 +103,27 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important;
 }
 
-.in-line{
+.in-line {
     display: inline !important;
 }
 
-.left-padding_15
-{
+.left-padding_15 {
     padding-left: 15px;
 }
 
-.link-style{
+.link-style {
     text-decoration: inherit;
     font-size: 14px;
     color:$danube;
 }
 
-.overflow-hidden{
+.overflow-hidden {
     overflow: hidden;
+}
+
+.center-columns {       
+    float: none !important;     
+    margin: 0 auto;     
 }
 
 .clearfix {
@@ -137,6 +141,10 @@ h1, h2, h3, h4, h5, h6 {
 .no-padding {
     padding-left: 0;
     padding-right: 0;
+}
+
+.no-padding-bottom {        
+    padding-bottom: 0 !important;       
 }
 
 .transparent{

@@ -8,13 +8,18 @@
     }
 }
 
+&.content-thankyou {        
+    background-color: $athens-gray;     
+    padding: 20px;      
+}
+
 .red-title {
     color: $crimson;
 }
-.total-container{
+.total-container {
     background-color:$athens-gray;
     padding:13px 11px 15px 11px;
-    .title-moving{
+    .title-moving {
         font-size: 24px;
         color: #c8102e;
         font-family: Arial, sans-serif;
@@ -23,7 +28,7 @@
     }
 }
 
-.button-distance-area{
+.button-distance-area {
     margin-bottom: 8px !important;
 }
 
@@ -32,7 +37,7 @@
 
     &:hover {
         &:before {
-            content: url("img/dislikehover.png");
+            content: url('img/dislike-complete.png');
         }
     }
 }
@@ -139,7 +144,7 @@
         }
 
         .girl-image {
-            background-image: url("img/thankyou.jpg");
+            background-image: url('img/thankyou.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             width: 100%;
@@ -147,7 +152,7 @@
         }
         .generic {
             background-color: #fff;
-             background-image: url("img/thankyou.jpg");
+             background-image: url('img/thankyou.jpg');
             background-repeat: no-repeat;
             background-size: 100% auto;
             padding: 0;
@@ -183,7 +188,10 @@
                 color: $sunglow;
                 font-size: 24px;
                 font-weight: 100;
-                margin-top: 200px
+                margin-top: 200px;
+                &.business-tile {       
+                    margin-top: 300px;      
+                }
             }
 
             p {

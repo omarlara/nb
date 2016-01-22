@@ -1585,6 +1585,7 @@
   .enbridge-content-container .code-box label {
     font-size: 12px !important; }
   .enbridge-content-container .code-box input[type="text"] {
+    border: 1px solid #ebecee;
     margin-bottom: 0; }
   .enbridge-content-container .code-box .form-group {
     margin-bottom: 0 !important; }
@@ -2548,5 +2549,12 @@
     width: 195px; }
   .summary .information {
     background: transparent; }
+
+#select_your_address .row:first-child {
+  margin-bottom: 15px; }
+#select_your_address .row + .row {
+  margin-top: 0; }
+#select_your_address .form-group:first-child {
+  margin-bottom: 15px !important; }
 
 /*# sourceMappingURL=enbridge.css.map */

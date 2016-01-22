@@ -241,3 +241,17 @@
         background: transparent;
     }
 }
+
+
+#select_your_address {
+    .row:first-child {
+        margin-bottom: 15px;
+    }
+    .row + .row{
+        margin-top: 0;
+    }
+
+    .form-group:first-child {
+        margin-bottom: 15px !important;
+    }
+}

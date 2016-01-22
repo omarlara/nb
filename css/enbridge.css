@@ -1521,7 +1521,7 @@
             right: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("img/arrow_white_right.png"); }
+            background-image: url("/AppImages/arrow_white_right.png"); }
         .enbridge-content-container .accordion .accordion-item .content .validator-container .prev {
           float: left;
           width: 100px;
@@ -1535,7 +1535,7 @@
             left: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("img/arrow_white_left.png"); }
+            background-image: url("/AppImages/arrow_white_left.png"); }
       .enbridge-content-container .accordion .accordion-item .content .validator,
       .enbridge-content-container .accordion .accordion-item .content .prev {
         text-align: right !important; }

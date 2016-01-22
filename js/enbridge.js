@@ -1366,11 +1366,11 @@ var Enbridge = window.Enbridge || {
         }
 
         // Refill the dropdown
-        $countryDropdown = $('[data-id="moving-out-country"]');
-        $countryDropdown.next('.enbridge-dropdown').remove();
-        $countryDropdown.html(compilation);
+        $provincesDropdown = $('[data-id="moving-out-province"]');
+        $provincesDropdown.next('.enbridge-dropdown').remove();
+        $provincesDropdown.html(compilation);
 
-        $countryDropdown.enbridgeDropdown();
+        $provincesDropdown.enbridgeDropdown();
     }
 
     function loadProvinces (data) {

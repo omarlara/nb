@@ -1,10 +1,10 @@
 .title-moving {
     display: block;
     font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: 24px !important;
     padding-top: 0px;
 
-    color: #c8102e;
+    color: $mid-gray !important;
 }
 
 .question-movingout {

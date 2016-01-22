@@ -1,0 +1,11 @@
+.enbridge-container {
+    display: block;
+    .row {
+        @include getGrid('xs');
+    }
+}
+
+
+@media (max-width: $small-size - 1) {
+    @include hiddenRes('xs');
+}

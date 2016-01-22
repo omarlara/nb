@@ -1,0 +1,179 @@
+.tile {
+    border: 1px solid $moon-mist;
+    display: inline-block;
+    position: relative;
+    min-height: 355px;
+    border-radius:3px;
+    width: 100%;
+
+    background-color: $moon-mist;
+    color:#636372;
+
+    > .content {
+        padding: 30px;
+        position:relative;
+        margin-left: 0 !important;
+        width: 100% !important;
+
+        .title {
+            display: block;
+            font-size: 32px;
+            margin: 0 0 12px;
+            letter-spacing: -1px;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            display: block;
+            font-size: 23px;
+            font-weight: 400;
+            margin: 0 0 12px;
+            line-height: 1.2;
+            letter-spacing: -.6px;
+
+            color: $mid-gray;
+        }
+        ul{
+           list-style-position: inside;
+           padding-left: 10px;
+           margin-top: 0;
+           li{
+            font-size: 14px;
+           }
+        }
+        label{
+            font-weight: normal;
+            font-size: 14px;
+        }
+        .information.common{
+            font-size: 13px;
+            margin-top: 15px;
+            padding: 0;
+
+            background-color: transparent;
+            &:before{
+                content: '|';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 13px;
+            }
+        }
+
+        .align{
+            margin-top: 7%
+        }
+
+        .form-group{
+            margin-bottom: 2%;
+            &.checks{
+                margin-top: 8px;
+                margin-bottom:  15px;
+            }
+        }
+
+        .logo{
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .circle{
+           width: 17px;
+            height: 17px;
+            background-color: blue;
+            color: #fff;
+            text-align: center;
+            margin-right: 5px;
+            float: left;
+            margin-top: -1%;
+            border-radius: 100% 100%;
+            overflow: hidden;
+           font-style: italic;
+           font-family: Times New Roman;
+        }
+    }
+    .enbridge-btn{
+        border-radius: 0 0 3px 3px;
+    }
+    &.common {
+        color: $mid-gray !important;
+    }
+    &.green{
+        background-color:$chelsea-cucumber;
+        color:#fff !important;
+        background-image: url("img/en-tile-bg.png");
+        background-repeat: no-repeat;
+        background-position: 112px 84px;
+        background-size: 79%;
+         min-height: 220px;
+        &.no-min{
+             min-height: 356px;
+        }
+       
+
+        h3 {
+            color:#fff !important;
+        }
+    }
+
+    &.tile-generic {
+        color: $mako;
+
+    }
+
+    &.tile-image {
+        color: $mako;
+    }
+
+    &.tile-text {
+        color: $mako;
+    }
+    &.postal-code{
+        input[type='text']{
+            display: block;
+            margin: 44px auto 0 auto;
+            width: 200px;
+        }
+    }
+    .footer-form-group{
+        text-align:right;
+        font-size: 13px;
+        color: #007dba;
+        text-decoration: none;
+        .list-of-links{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                display: inline-block;
+
+                & + li {
+                    &:before {
+                        content: '|';
+
+                        font-size: 12px;
+                        color:$lochmara;
+                    }
+                }
+            }
+        }
+        a{
+            font-size: 12px;
+            text-decoration:none;
+            text-align: left;
+
+            color:$lochmara;
+            &:hover{
+                text-decoration: underline;
+            }
+
+        }
+        img{
+            position: relative;
+            left:0;
+            top:5px;
+            display: inline-block;
+            margin-right:-3px;
+            width: 80px;
+        }
+    }
+}

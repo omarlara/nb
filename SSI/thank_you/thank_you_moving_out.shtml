@@ -1,0 +1,35 @@
+<div class="content">
+    <div class="enbridge-content-container">
+        <div class="enbridge-container ">
+            <div class="row">
+                <div class="total-container" id="miscelaneous_container">
+                    <span class="title-moving">Moving Out</span>
+                    <div class="container-thankyou">
+                        <h1 class="title">Thank You!</h1>
+                        <div class="text-info">
+                            <p>We received your move submission and we have emailed you a copy for your personal records.</p>
+                        </div>
+
+                        <div class="info-content">
+                            <div class="info">
+
+                                <p class="big">What did you think of our online move form?</p>
+                                <button class="enbridge-btn social-media like">Like</button>
+                                <button class="enbridge-btn social-media dislike">Dislike</button>
+
+                                <div class="improve enbridge-form">
+                                    <p class="button-distance-area">What could we improve?</p>
+                                    <textarea id="moving-out-thank-yout"></textarea>
+                                    <p class="text-right no-margin-top">
+                                        <a class="enbridge-btn green">SEND</a>
+                                    </p>
+                                </div>
+                                <h6 class="final-message text-center">Thank you for using our online service options!</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

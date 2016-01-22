@@ -1,0 +1,79 @@
+.calendar{
+    .ui-datepicker-prev,
+    .ui-datepicker-next{
+        display: block;
+        cursor: pointer;
+        float: left;
+        width: 11px;
+        height: 20px;
+        background:url('img/white-arrow-left.png') no-repeat 0 0;
+        span{
+            display: none;
+        }
+    }
+
+    .ui-datepicker-today:not(.ui-datepicker-current-day) {
+        a {
+            color: $chelsea-cucumber !important;
+        }
+    }
+
+    .ui-datepicker-next{
+        float: right;
+        background-image:url('img/white-arrow.png') ;
+        background-position-x: -5px;
+    }
+    .ui-datepicker-title{
+        text-align: center;
+    }
+    .ui-datepicker-calendar{
+        width: 100%;
+        border-collapse: collapse;
+        th{
+            padding: 12px 0;
+            border-collapse:collapse;
+            background-color:$chelsea-cucumber-strong;
+            color: #fff;
+            text-align: center;
+            span{
+                font-weight: lighter;
+                font-size: 16px;
+            }
+            a{
+                color: #fff;
+            }
+        }
+        td{
+            text-align:center;
+            border:1px solid $moon-mist;
+            border-spacing:0;
+            padding: 11px 5px;
+            border-collapse:collapse;
+            cursor: pointer;
+            font-size: 16px;
+            &.ui-datepicker-current-day{
+                color:#ffffff;
+                background-color: $chelsea-cucumber;
+                a{
+                    color:#ffffff;
+                }
+            }
+            a{
+                color:$mid-gray;
+                font-size: 16px;
+                text-decoration: none;
+            }
+        }
+    }
+    .ui-datepicker-header{
+        background-color:$chelsea-cucumber;
+        padding: 11px 10px 9px;
+        .ui-datepicker-month,
+        .ui-datepicker-year{
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color:#fff;
+        }
+    }
+}

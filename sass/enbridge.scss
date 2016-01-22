@@ -1,0 +1,257 @@
+@import "components/_integration_styles";
+@import "./config/main";
+
+.min-height-400{
+        min-height: 400px;
+}
+.enbridge-content-container {
+    @import "./components/main";
+    @import "./media/main";
+}
+@import "./components/dialog";
+
+.tile {
+    .information {
+        background-color: transparent;
+    }
+}
+
+.tile.green {
+    .control-label {
+        width: 70px !important;
+    }
+    .fields {
+        width: 210px !important;
+    }
+    [for="remember-email-check"]:not(.fake-input) {
+        font-size: 12px;
+        padding-left: 18px;
+        vertical-align: middle;
+    }
+
+    input[type="checkbox"] + .fake-input:after {
+        background-color: white;
+    }
+
+    .fake-input {
+        &:before {
+            top: 0 !important;
+            height: 15px !important;
+            width: 15px !important;
+        }
+        &:after {
+            left: 3px !important;
+            top: 3px !important;
+
+            height: 9px !important;
+            width: 9px !important;
+        }
+    }
+}
+
+.clear-margin-left {
+    margin-left: 0 !important;
+}
+
+#address-confirmation,
+#newcustomers-address-confirmation{
+    display: inline-block;
+    vertical-align: middle;
+    width: 125px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#property-info,
+#newcustomers-property-info{
+    display: none;
+    margin: 20px auto;
+    width: 480px;
+}
+
+#mailing-address + .fake-input {
+    margin-top: 35px;
+}
+
+#information-acceptance,
+#newcustomers-information-acceptance {
+    >button {
+        padding-top: 10px;
+        padding-bottom : 10px;
+        width: 75px;
+        &:first-child {
+            margin-right: 10px;
+        }
+    }
+}
+
+#current-number {
+    & + .enbridge-dropdown {
+        width: 200px;
+    }
+}
+
+[data-id="stop-select"] + .enbridge-dropdown {
+    margin-bottom: $normal-margin !important;
+    margin-left: 25px;
+    width: 380px;
+}
+
+[data-id="street-number-alternative"],
+[data-id="suffix-alternative"],
+[data-id="misc-info-alternative"],
+[data-id="street-alternative"],
+[data-id="street-number"],
+[data-id="suffix"],
+[data-id="misc-info"],
+[data-id="street"],
+[data-id="moving-out-street-number"],
+[data-id="moving-out-suffix"],
+[data-id="moving-out-street"],
+[data-id="moving-out-misc-info"] {
+    margin-bottom: 0 !important;
+}
+
+[data-id="country-alternative-element"],
+[data-id="province-alternative-element"],
+[data-id="country"],
+[data-id="province"],
+[data-id="newcustomers-select-country"],
+[data-id="newcustomers-select-province"],
+[data-id="moving-out-country"],
+[data-id="moving-out-province"] {
+    + .enbridge-dropdown {
+        margin-bottom: $normal-margin !important;
+    }
+}
+
+[data-id="month-user-info"] + .enbridge-dropdown {
+    width: 130px;
+}
+
+[data-id = "newcustomers-country"],
+[data-id = "newcustomers-province"],
+[data-id = "newcustomers-select-country-alternative"],
+[data-id = "newcustomers-select-province-alternative"] {
+    + .enbridge-dropdown {
+        margin-bottom: $normal-margin !important;
+    }
+}
+
+[data-rel="newcustomers-street"],
+[data-rel="newcustomers-street-alternative"] {
+    margin-bottom: 0 !important;
+}
+
+[for="misc-info"],
+[for="moving-out-misc-info"] {
+    margin-top: 5px;
+}
+
+#street,
+#street-alternative{
+    width: 220px;
+}
+
+#city-or-town,
+#city-or-town-alternative{
+    width: 220px;
+}
+
+#postal-code-input,
+#postal-code-input-alternative{
+    width: 180px;
+}
+
+#mailing-address-alternative + .fake-input{
+    margin-top: 30px;
+}
+
+#select_your_address_form {
+    .fake-input {
+        margin-left: 100px;
+    }
+}
+
+[data-id = "newcustomers-month"] + .enbridge-dropdown{
+    width: 175px;
+}
+
+#accordion-like {
+    margin: 0 auto;
+    width: 450px;
+}
+
+[data-id = "code-validator"],
+[data-id = "newcustomers-code-validator"] {
+    width: 200px;
+
+    & + .error-message {
+        left: 186px;
+        position: relative;
+        width: 190px;
+    }
+}
+
+#select_your_street {
+    .form-group {
+        margin-bottom: 0;
+    }
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+#newcustomers {
+    .information {
+        margin-bottom: ($normal-margin * 2);
+    }
+
+    .special-info {
+        padding: 20px 20px 20px 45px;
+        position: relative;
+        &:before {
+            position: absolute;
+            left: $normal-margin;
+            top: 30px;
+        }
+    }
+}
+
+[for="newcustomers-year"] + .set-field {
+    max-width: 500px;
+}
+
+.right-aligned-content {
+    float: left;
+    width: 660px;
+}
+.summary {
+    border: 1px solid $athens-gray-border;
+    padding: 25px;
+
+    background: white;
+   .address {
+        margin: 0 auto;
+        min-height: 205px;
+        width: 195px;
+    }
+    .information {
+        background: transparent;
+    }
+}
+
+
+#select_your_address {
+    .row:first-child {
+        margin-bottom: 15px;
+    }
+    .row + .row{
+        margin-top: 0;
+    }
+
+    .form-group:first-child {
+        margin-bottom: 15px !important;
+    }
+}

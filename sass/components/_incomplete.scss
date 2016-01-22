@@ -1,0 +1,47 @@
+.Borderincomplete {
+    border: 1px solid #ccc;
+}
+
+.allsizebtn {
+    width: 88%;
+    text-align: center;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.incomplete-container {
+    padding-top: 15px;
+    
+    p {
+        padding-top: 0;
+        line-height: 1.5;
+        margin-top: 0px;
+        font-size: 14px;
+        padding-left: 0px;
+        padding-right: 28px;
+        color:$manatee;
+
+        &.smaller {
+            padding-top: 35px !important;
+            font-size: 12px;
+            margin-bottom: 13px;
+        }
+    }
+
+    ul {
+        margin-bottom: 42px;
+        padding-left: 29px;
+        li{
+            font-size: 14px;
+            color:$manatee;
+        }
+    }
+
+    .buttondiv {
+        float: right;
+        margin-right: 182px;
+        margin-bottom: 19px;
+    }
+}

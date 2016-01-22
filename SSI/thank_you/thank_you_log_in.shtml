@@ -1,0 +1,53 @@
+<div class="content">
+    <div class="enbridge-content-container">
+        <div class="enbridge-container ">
+            <div class="row">
+                <div class="col xs12">
+                    <h1 class="title-moving">Moving Out</h1>
+                    <h3 class="question-movingout">Do you have an online myEnbridge account?</h3>
+                    <div class="moving-container-green">
+                        <div class="tile green">
+                            <div class="content">
+                                <div class="header-form-group">
+                                    <p>
+                                        Sign in to
+                                        <img src="css/img/myEnbridge-sm.png" alt=""> Here
+                                    </p>
+                                </div>
+                                <div class="enbridge-form form-horizontal">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Email:</label>
+                                        <div class="fields">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group checks">
+                                        <div class="fields">
+                                            <input type="checkbox" id="example">
+                                            <label class="fake-input" for="example"></label>
+                                            <label for="">Remember my email for next time</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Passwords:</label>
+                                        <div class="fields">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="footer-form-group align">
+                                        <a href="#" class="align">Did you forget your password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="enbridge-btn black big-button" id="green">SIGN IN</a>
+                        </div>
+                        <div class="">
+                            <a class="enbridge-btn yellow full-btn open-dialog" data-target="#moving-out">PROCEED WITHOUT LOGING IN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

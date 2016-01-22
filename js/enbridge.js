@@ -1433,6 +1433,9 @@
             .removeClass('hidden')
             .dialog(dialogConstant);
 
+        $('[data-id="pre-suffix"]').val($('[data-id="suffix"]').val() || '');
+        $('[data-id="pre-street-number"]').val($('[data-id="street-number"]').val() || '');
+
     });
 
 });

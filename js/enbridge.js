@@ -30,6 +30,25 @@
 
     /***********************General functions***********************/
 
+    /* Format a date for display in a literal */
+    function formatDisplayStreet(unitNumber, streetNumber, suffix, streetName, city, province, postalCode) {
+        var address = [];
+
+        if (!!unitNumber) {
+            address.push(unitNumber + ' - ');
+        }
+
+        address.push(streetNumber);
+
+        if (!!suffix) {
+            address.push(suffix + ' ');
+        }
+
+        address.push(streetName + ' <br /> ' + city + ', ' + province + '<br />' + postalCode);
+
+        return address.join();
+    }
+
     /*Date Formater*/
     function dateFormater(stringDate) {
         var splitDates = stringDate.split('-'),
@@ -271,11 +290,6 @@
         return error;
     };
 
-
-    $('.start-date').bind('change', function() {
-        console.log('Yeeeeeee')
-    });
-
     /***********************Plugins declaration***********************/
 
     /*Dropdown*/
@@ -481,6 +495,45 @@
 
     /*Dialog - 1 - Moving out*/
 
+    $('[account-authorization="bill"]').keyup(function () {
+        var $this = $(this),
+            accountNumber = $('[data-id="moving-out-account-number"]').val(),
+            postalCode = $('[data-id="moving-out-postal-code"]').val(),
+            name = $('[data-id="moving-out-name"]').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData',
+            data: JSON.stringify({ AccountNumber: accountNumber, FullName: name, PostalCode: postalCode }),
+            contentType: "application/json",
+            success: function (result) {
+                if (!!result) {
+                    var displayText = null,
+                        serviceAddress = result.ServiceAddress;
+                    $('[account-authorization-required="true"').css('visibility', 'visible');
+                    $('#account-authorization-failure-message').css('visibility', 'hidden');
+
+                    displayText = formatDisplayStreet(
+                        serviceAddress.Unit,
+                        serviceAddress.StreetNumber,
+                        serviceAddress.Suffix,
+                        serviceAddress.StreetName,
+                        serviceAddress.City,
+                        serviceAddress.Province,
+                        serviceAddress.PostalCode);
+
+                    $('#current-address').html(displayText);
+                }
+                else {
+                    $('[account-authorization-required="true"').css('visibility', 'hidden');
+                    $('#account-authorization-failure-message').css('visibility', 'visible');
+                }
+            },
+            failure: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+            }
+        });
+    });
 
     /*Stop radio button click, show/hide Select reason select*/
     $('[name="steps"]').bind('click', function () {
@@ -614,17 +667,17 @@
             /*Add additional information about mail address*/
 
             if($('[data-id="mailing-address-alternative"]').attr('checked')) {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ',' +  $('[name="select-street-container"]:checked').attr('ata-province') + ' ' + $('[data-id="code-validator"]').val();
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ',' +  $('[name="select-street-container"]:checked').attr('data-province') + ' ' + $('[data-id="code-validator"]').val();
 
                 toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
-                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ' ' +
-                            $('[data-id="country-alternative-element"]').val() + ' ' + $('[data-id="province-alternative-element"]').val() + ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
+                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ', ' +
+                            $('[data-id="province-alternative-element"]').val() + ' ' + $('[data-id="postal-code-input-alternative"]').val();
 
                 $('#from-modal').text(fromAddress);
                 $('#to-modal').text(toAddress);
 
             } else {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ' ' + $('[data-id="code-validator"]').val();
 
                 $('#from-modal, #to-modal').text(fromAddress);
             }
@@ -634,12 +687,12 @@
             /*Add additional information about mail address*/
             if ($('[data-id="mailing-address-alternative"]').attr('checked')) {
                 fromAddress = $('[data-id="street-number"]').val() + ' ' + $('[data-id="suffix"]').val() + ' ' +
-                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' + $('#city-or-town').val() + ' ' +
-                              $('[data-id="country"]').val() + ' ' + $('[data-id="province"]').val() + ', ON ' + $('[data-id="postal-code-input"]').val();
+                              $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' + $('#city-or-town').val() + ', ' +
+                              $('[data-id="country"]').val() + ' ' +  + $('[data-id="province"]').val() + ', ' + $('[data-id="postal-code-input"]').val();
 
                 toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
-                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ' ' +
-                            $('[data-id="country-alternative-element"]').val() + ' ' + $('[data-id="province-alternative-element"]').val() + ', ON ' + $('[data-id="postal-code-input-alternative"]').val();
+                            $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ', ' +
+                            $('[data-id="country-alternative-element"]').val() + ' ' + $('[data-id="province-alternative-element"]').val() + ',  ' + $('[data-id="postal-code-input-alternative"]').val();
 
                 $('#from-modal').text(fromAddress);
                 $('#to-modal').text(toAddress);
@@ -852,7 +905,7 @@
     When you click on the next sep, on Select your street
     if you have selected No one above, you will show form, in another case you will be on the select street number
     */
-    $('#newcustomers-get-address').bind('click', function () {
+    $('#newcustomers-get-address').bind('keyup', function () {
         var $this = $(this);
 
         if ($('[name="newcustomers-select-street-container"]:checked').val()) {
@@ -1304,38 +1357,6 @@
 
     /*Calendar get date*/
     $('.calendar').bind('click', function (e) {
-
-
-        /*
-
-            checkDate = function (date) {
-                var returnVal =  $.ajax({
-                                    url: 'http://vpc-ap-175:8082/WebServices/DateService.svc/IsWeekendOrHolidayDate',
-                                        type: 'GET',
-                                        dataType: 'application/json',
-                                        data: {
-                                            'date': '2016-03-01'
-                                        },
-                                        success: function (data) {
-                                        },
-                                        error: function () {
-                                        }
-                                    });
-
-                return returnVal.response;
-
-else if (renewDate) {
-                var resp = checkDate(renewDate);
-
-                if(!resp) {
-
-                    error = true;
-                }
-            }
-
-            };
-
-        */
         if (!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;
         }
@@ -1360,7 +1381,12 @@ else if (renewDate) {
                     },
                     success: function (data) {
 
+                        $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                            .find('.error-code')
+                                remove();
+
                         if(JSON.parse(data)) {
+
                             $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                                 .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Holiday/Sunday.</span></div>');
                         } else {
@@ -1450,20 +1476,16 @@ else if (renewDate) {
             e.preventDefault();
             var $this = $(this);
 
-            if ($this.attr('data-target') == "#movingoutredirect") {
-                window.location = "04_moving_out_login.html";
-            } else {
-                scroll(0, 0);
-                $($this.attr('data-target'))
-                    .dialog({
-                        autoOpen: true,
-                        resizable: false,
-                        height: 400,
-                        width: 720,
-                        modal: true,
-                        height: 440
-                    });
-            }
+            scroll(0, 0);
+            $($this.attr('data-target'))
+                .dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    height: 400,
+                    width: 720,
+                    modal: true,
+                    height: 440
+                });
         });
 
         $('#existingcustomers, #newcustomers, #moving-out')
@@ -1473,11 +1495,23 @@ else if (renewDate) {
         $('[data-id="pre-suffix"]').val($('[data-id="suffix"]').val() || '');
         $('[data-id="pre-street-number"]').val($('[data-id="street-number"]').val() || '');
 
+        $('.enbridge-form input[type="text"]').bind('change', function () {
+            var rel = $(this).attr('data-rel');
+
+            $('[data-rel="' + rel + '"]').removeClass('input-error');
+
+            $(this)
+                .closest('.set-field')
+                    .find('.error-message')
+                        .remove();
+        });
+
+
     });
 
 });
 
-// General Namespace
+/** General Namespace **/
 var Enbridge = window.Enbridge || {
     UrlServices: {
         GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces'
@@ -1514,7 +1548,7 @@ var Enbridge = window.Enbridge || {
     }
 
     function loadProvinces (data) {
-       /**/ if (data.countryCode === Enbridge.CountryCodes.CANADA) /**/
+        if (data.countryCode === Enbridge.CountryCodes.CANADA) /**/
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
     }
 
@@ -1523,11 +1557,11 @@ var Enbridge = window.Enbridge || {
 
         var $countryDropdown = $('[data-id="moving-out-country"]');
         var $countryDropdownItems=$countryDropdown.next('.enbridge-dropdown').find('li');
-        /**/
+
         $countryDropdownItems.bind('click', function (e) {
             countryServiceData.countryCode = e.target.children[0].value;
             loadProvinces(countryServiceData);
-        }); /**/
+        });
         countryServiceData.countryCode = $countryDropdown.val();
         loadProvinces(countryServiceData);
     });

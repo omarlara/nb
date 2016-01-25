@@ -1,49 +1,6 @@
 ; $(window).ready(function () {
 
     /***********************Prototyping functions***********************/
-    /*Object Keys*/
-    if (!Object.keys) {
-        Object.keys = (function() {
-            'use strict';
-            var hasOwnProperty = Object.prototype.hasOwnProperty,
-            hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
-            dontEnums = [
-              'toString',
-              'toLocaleString',
-              'valueOf',
-              'hasOwnProperty',
-              'isPrototypeOf',
-              'propertyIsEnumerable',
-              'constructor'
-            ],
-            dontEnumsLength = dontEnums.length;
-
-            return function(obj) {
-            if (typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
-            throw new TypeError('Object.keys called on non-object');
-        }
-
-        var result = [], prop, i;
-
-        for (prop in obj) {
-            if (hasOwnProperty.call(obj, prop)) {
-              result.push(prop);
-            }
-        }
-
-        if (hasDontEnumBug) {
-            for (i = 0; i < dontEnumsLength; i++) {
-                if (hasOwnProperty.call(obj, dontEnums[i])) {
-                    result.push(dontEnums[i]);
-                }
-            }
-        }
-        return result;
-        };
-        }());
-    }
-
-    /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
         validYear = dateCurrent.getFullYear() - 19;
 
@@ -282,16 +239,17 @@
             finishLastService = new Date($lastService.val()),
             now = new Date();
 
+
         if($renewDate.attr('data-required') && $lastService.attr('data-required')) {
-            if(renewDate > finishLastService) {
+            if(renewDate < finishLastService) {
                 $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is in the past.</span></div>');
                 error = true;
-            } else if(finishLastService < now) {
-                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+            } else if(renewDate < now) {
+                $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
                 error = true;
-            } else if ((finishLastService - renewDate)/86400000 < 3) {
+            } else if ((renewDate - finishLastService)/86400000 < 3) {
                 $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
                 error = true;
@@ -312,6 +270,11 @@
 
         return error;
     };
+
+
+    $('.start-date').bind('change', function() {
+        console.log('Yeeeeeee')
+    });
 
     /***********************Plugins declaration***********************/
 
@@ -516,8 +479,8 @@
 
     /***********************Flows for Dialogs***********************/
 
-
     /*Dialog - 1 - Moving out*/
+
 
     /*Stop radio button click, show/hide Select reason select*/
     $('[name="steps"]').bind('click', function () {
@@ -649,13 +612,9 @@
         /*Check if the address is provided for the back end services*/
         if ($('#confirm-address').hasClass('active-step')) {
             /*Add additional information about mail address*/
-<<<<<<< HEAD
+
             if($('[data-id="mailing-address-alternative"]').attr('checked')) {
                 fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ',' +  $('[name="select-street-container"]:checked').attr('ata-province') + ' ' + $('[data-id="code-validator"]').val();
-=======
-            if ($('[data-id="mailing-address-alternative"]').attr('checked')) {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ', ON ' + $('[data-id="code-validator"]').val();
->>>>>>> feature/moveout-entry
 
                 toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
                             $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ' ' +
@@ -1345,6 +1304,38 @@
 
     /*Calendar get date*/
     $('.calendar').bind('click', function (e) {
+
+
+        /*
+
+            checkDate = function (date) {
+                var returnVal =  $.ajax({
+                                    url: 'http://vpc-ap-175:8082/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+                                        type: 'GET',
+                                        dataType: 'application/json',
+                                        data: {
+                                            'date': '2016-03-01'
+                                        },
+                                        success: function (data) {
+                                        },
+                                        error: function () {
+                                        }
+                                    });
+
+                return returnVal.response;
+
+else if (renewDate) {
+                var resp = checkDate(renewDate);
+
+                if(!resp) {
+
+                    error = true;
+                }
+            }
+
+            };
+
+        */
         if (!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;
         }
@@ -1353,10 +1344,36 @@
             date = $this.datepicker('getDate'),
             day = date.getDate(),
             month = date.getMonth() + 1,
-            year = date.getFullYear();
+            year = date.getFullYear(),
+            dateFormated = year + '-' + month + '-' + day,
+            $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
-        $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]')
-            .val(year + '-' + month + '-' + day);
+            $inputElem .val(dateFormated);
+
+            if($inputElem.hasClass('start-date')) {
+                $.ajax({
+                    url: 'http://vpc-ap-175:8082/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+                    type: 'GET',
+                    dataType: 'application/json',
+                    data: {
+                        date: dateFormated
+                    },
+                    success: function (data) {
+
+                        if(JSON.parse(data)) {
+                            $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                                .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Holiday/Sunday.</span></div>');
+                        } else {
+                            $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                                .find('.result')
+                                    .remove();
+                        }
+                    },
+                    error: function () {
+                        console.log('Conection issue');
+                    }
+                });
+            }
     });
 
     /*Forms Reset*/

@@ -312,15 +312,11 @@
             name = elemenetNodes[0].text || '';
 
             for (var i = 0, size = elemenetNodes.length; i < size; i++) {
-                var temp = '<li class="list-item"><input type="hidden" value="' +
-                            elemenetNodes[i].value + '">' + elemenetNodes[i].text + '</li>';
+                var temp = '<li class="list-item" data-value="' + elemenetNodes[i].value + '">' + elemenetNodes[i].text + '</li>';
                 nodes.push(temp);
             }
 
-
-
             element = '<div class="enbridge-dropdown">' +
-                      '<input type="hidden" class="result">' +
                       '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
                           nodes.join('') +
                       '</ul></div>';
@@ -344,7 +340,7 @@
                         var $current = $(this),
                             $source = $(self.source),
                             text = $current.text() || '',
-                            value = $current.find('input').val() || '',
+                            value = $current.attr('data-value').val() || '',
                             $header = $element.find('.header'),
                             totalWidth = $header.width(),
                             indicatorWidth = $header.find('.indicator').width(),
@@ -1529,7 +1525,7 @@ var Enbridge = window.Enbridge || {
     var Enbridge = window.Enbridge;
 
     function populateProvinces (provinces) {
-        var i, len = provinces.length;
+        var i, len = provinces.length || 0;
         var $countryDropdown;
         var compilation = '';
 
@@ -1548,7 +1544,7 @@ var Enbridge = window.Enbridge || {
     }
 
     function loadProvinces (data) {
-        if (data.countryCode === Enbridge.CountryCodes.CANADA) /**/
+        if (data.countryCode === Enbridge.CountryCodes.CANADA)
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
     }
 

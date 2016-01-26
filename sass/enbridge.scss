@@ -11,8 +11,8 @@
 @import "./components/dialog";
 
 .tile {
-    &.home-tile {       
-        min-height: 430px;      
+    &.home-tile {
+        min-height: 430px;
     }
     .information {
         background-color: transparent;
@@ -20,8 +20,8 @@
 }
 
 .tile.green {
-    &.home-tile {       
-        min-height: 430px;      
+    &.home-tile {
+        min-height: 430px;
     }
     .control-label {
         width: 70px !important;
@@ -131,7 +131,12 @@
     }
 }
 
-[data-id="month-user-info"] + .enbridge-dropdown {
+[data-id="day-user-info"] + .enbridge-dropdown + p {
+    width: 100px;
+}
+
+[data-id="month-user-info"] + .enbridge-dropdown,
+[data-id="month-user-info"] + .enbridge-dropdown + p{
     width: 130px;
 }
 

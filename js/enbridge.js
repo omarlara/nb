@@ -361,13 +361,6 @@
                                 .attr('selected', true);
                     });
 
-            $(document).click(function (e) {
-                if ($.contains(self.element, e.target)) {
-                    return;
-                } else {
-                    $(self.element).removeClass('active');
-                }
-            });
         };
 
         $.fn.enbridgeDropdown = function (element) {
@@ -1153,7 +1146,7 @@
         if(!currentVal.postalCode()) {
             $this
                 .addClass('input-error')
-                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
+                .after('<p class="error-message ">Please enter a valid postal code (example: A1A 1A1)</p>');
             return;
         }
 

@@ -46,7 +46,7 @@
 
         address.push(streetName + ' <br /> ' + city + ', ' + province + '<br />' + postalCode);
 
-        return address.join();
+        return address.join('');
     }
 
     /*Date Formater*/
@@ -581,7 +581,14 @@
     $('#confirm-address-button').bind('click', function () {
         var city = $('[name="select-street-container"]:checked').val() || '',
             numberHouse = $('#current-number').val() || '',
-            zipCode = $('[data-id="code-validator"]').val();
+            unitNumber = $('input[data-id=pre-street-number]').val() || '',
+            suffix = $('input[data-id=pre-suffix]').val() || '',
+            streetName = $('input[name=select-street-container]:checked').val().split(', ')[0] || '',
+            zipCode = $('[data-id="code-validator"]').val(),
+            isolatedCity = city.split(', ')[1],
+            address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, isolatedCity, '', zipCode);
+
+            $('.address').last().html(address);
 
         $('#address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
     });
@@ -1442,7 +1449,7 @@
             dateFormated = year + '-' + month + '-' + day,
             $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
-            $inputElem .val(dateFormated);
+            $inputElem.val(dateFormated);
 
             if($inputElem.hasClass('start-date')) {
                 $.ajax({
@@ -1456,7 +1463,7 @@
 
                         $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                             .find('.error-code')
-                                remove();
+                                .remove();
 
                         if(JSON.parse(data)) {
 

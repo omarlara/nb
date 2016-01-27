@@ -218,6 +218,9 @@
     vertical-align: middle;
     font-style: italic;
     font-family: initial; }
+  .enbridge-content-container .information.common.summary-mod:before {
+    line-height: 1.1;
+    margin-right: 10px; }
   .enbridge-content-container .information.common:before {
     background-color: #59cbe8;
     color: white; }
@@ -1347,6 +1350,15 @@
     .enbridge-content-container .container-thankyou .tiles .tile {
       border: 1px solid #ccc;
       min-height: 380px; }
+    .enbridge-content-container .container-thankyou .tiles .small-tile {
+      min-height: 302px; }
+      .enbridge-content-container .container-thankyou .tiles .small-tile .image-container {
+        margin-bottom: -3px; }
+        .enbridge-content-container .container-thankyou .tiles .small-tile .image-container img {
+          min-height: 302px;
+          position: relative; }
+      .enbridge-content-container .container-thankyou .tiles .small-tile .text {
+        padding: 20px 10px; }
     .enbridge-content-container .container-thankyou .tiles .green {
       background-image: none; }
       .enbridge-content-container .container-thankyou .tiles .green .button-container {
@@ -1369,6 +1381,8 @@
       .enbridge-content-container .container-thankyou .tiles .green p {
         color: #4c4d4e;
         font-size: 16px; }
+        .enbridge-content-container .container-thankyou .tiles .green p.big-paragraph {
+          font-size: 26px; }
       .enbridge-content-container .container-thankyou .tiles .green img {
         width: 100%;
         margin-top: 0%;
@@ -1472,7 +1486,8 @@
       margin-bottom: 8px;
       margin-top: 15px;
       height: 90px;
-      width: 100%; }
+      width: 100%;
+      overflow: auto; }
       .enbridge-content-container .container-thankyou .info-content .improve textarea p {
         margin-top: 8px; }
     .enbridge-content-container .container-thankyou .info-content .improve .green {
@@ -1569,7 +1584,7 @@
             right: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("/AppImages/arrow_white_right.png"); }
+            background-image: url("img/arrow_white_right.png"); }
         .enbridge-content-container .accordion .accordion-item .content .validator-container .prev {
           float: left;
           width: 100px;
@@ -1583,7 +1598,7 @@
             left: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("/AppImages/arrow_white_left.png"); }
+            background-image: url("img/arrow_white_left.png"); }
       .enbridge-content-container .accordion .accordion-item .content .validator,
       .enbridge-content-container .accordion .accordion-item .content .prev {
         text-align: right !important; }
@@ -2399,7 +2414,7 @@
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 10px;
-    color: #c8102e; }
+    color: #636373 !important; }
   .ui-dialog .ui-dialog-titlebar-close {
     position: absolute;
     right: 29px;

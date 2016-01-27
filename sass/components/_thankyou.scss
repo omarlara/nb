@@ -100,10 +100,23 @@
             border: 1px solid #ccc;
             min-height: 380px;
         }
+        
+        .small-tile {
+            min-height: 302px;
+            .image-container {
+                margin-bottom: -3px;
+                img {
+                    min-height: 302px;
+                    position: relative;
+                }
+            }
+            .text {
+                padding: 20px 10px;
+            }
+        }
 
         .green {
             background-image: none;
-
             .button-container {
                 padding: 9px;
             }
@@ -134,6 +147,9 @@
             p {
                 color: $abbey;
                 font-size: 16px;
+                &.big-paragraph {
+                    font-size: 26px;
+                }
             }
 
             img {
@@ -291,8 +307,8 @@
                 margin-top: 15px;
                 height: 90px;
                 width: 100%;
-
-                p{
+                overflow: auto;
+                p {
                     margin-top: 8px;
                 }
             }

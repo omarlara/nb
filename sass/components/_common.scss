@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $mid-gray;
 
     &.no-background{
-        background-color:transparent;
+        background-color: transparent;
     }
 
     &:before {
@@ -247,6 +247,12 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     &.common {
+        &.summary-mod {
+            &:before {
+                line-height: 1.1;
+                margin-right: 10px;
+            }
+        }
         &:before {
             background-color: $turquoise-blue;
             color: white;

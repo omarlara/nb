@@ -2535,7 +2535,11 @@
 [data-id="moving-out-province"] + .enbridge-dropdown {
   margin-bottom: 15px !important; }
 
-[data-id="month-user-info"] + .enbridge-dropdown {
+[data-id="day-user-info"] + .enbridge-dropdown + p {
+  width: 100px; }
+
+[data-id="month-user-info"] + .enbridge-dropdown,
+[data-id="month-user-info"] + .enbridge-dropdown + p {
   width: 130px; }
 
 [data-id="newcustomers-country"] + .enbridge-dropdown,

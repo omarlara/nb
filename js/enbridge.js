@@ -8,7 +8,7 @@
         var value = this;
         if (!parseInt(value)) return false;
 
-        if (value >= 1900 && value <= validYear) {
+        if (value >= 1900) {
             return true;
         } else {
             return false;
@@ -312,15 +312,11 @@
             name = elemenetNodes[0].text || '';
 
             for (var i = 0, size = elemenetNodes.length; i < size; i++) {
-                var temp = '<li class="list-item"><input type="hidden" value="' +
-                            elemenetNodes[i].value + '">' + elemenetNodes[i].text + '</li>';
+                var temp = '<li class="list-item" data-value="' + elemenetNodes[i].value + '">' + elemenetNodes[i].text + '</li>';
                 nodes.push(temp);
             }
 
-
-
             element = '<div class="enbridge-dropdown">' +
-                      '<input type="hidden" class="result">' +
                       '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
                           nodes.join('') +
                       '</ul></div>';
@@ -344,7 +340,7 @@
                         var $current = $(this),
                             $source = $(self.source),
                             text = $current.text() || '',
-                            value = $current.find('input').val() || '',
+                            value = $current.attr('data-value') || '',
                             $header = $element.find('.header'),
                             totalWidth = $header.width(),
                             indicatorWidth = $header.find('.indicator').width(),
@@ -890,6 +886,83 @@
         $('[data-id="moving-out-submit"]').addClass('disabled');
     });
 
+    /*Birth Day controller*/
+
+    $('.birth-day-controller-year').bind('change', function updateFromYear() {
+        var $this = $(this),
+            year = $this.val(),
+            birthDayController = $this.attr('data-birth-month-controller'),
+            month = $('[data-id ="' + $this.attr('data-birth-month-controller') + '"]').val(),
+            day= $('[data-id ="' + birthDayController + '"]').val(),
+            options = $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .list-item'),
+            $day = $('[data-id ="' + birthDayController + '"]'),
+            availableDays = null;
+
+        if (!this.value.validYear() || !parseInt(month))
+            return;
+
+        availableDays = getTotalDays(parseInt(year), parseInt(month));
+
+        for (var total = options.length - 1; total > 0; total--) {
+            var $current = $(options[total]);
+
+            if ($current.attr('data-value') > availableDays) {
+                $current.addClass('hidden');
+            } else {
+                $current.removeClass('hidden');
+            }
+        }
+
+        if(day === '' || day <= availableDays) {
+            return;
+        } else {
+            var textCurrent = '';
+                $day.find('option:selected').removeAttr('selected');
+            textCurrent = $day.find('option:first-child').attr('selected',true).text();
+            $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .selected').text(textCurrent);
+        }
+
+    });
+
+    $('.birth-day-controller-month + .enbridge-dropdown .list-item').bind('click', function() {
+        var $this = $(this),
+            birthDayController = $this.closest('.enbridge-dropdown').prev().attr('data-birth-day-controller'),
+            year = $('[data-id="' + $this.closest('.enbridge-dropdown').prev().attr('data-birth-year-controller') + '"]').val(),
+            day= $('[data-id ="' + birthDayController + '"]').val(),
+            month = $this.attr('data-value'),
+            options = $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .list-item'),
+            $day = $('[data-id ="' + birthDayController + '"]'),
+            availableDays = null;
+
+         if (!year.validYear() || !parseInt(month))
+            return;
+
+        availableDays = getTotalDays(parseInt(year), parseInt(month));
+
+        for (var total = options.length - 1; total > 0; total--) {
+            var $current = $(options[total]);
+
+            if ($current.attr('data-value') > availableDays) {
+                $current.addClass('hidden');
+            } else {
+                $current.removeClass('hidden');
+            }
+        }
+
+        if(day === '' || day <= availableDays) {
+            return;
+        } else {
+            var textCurrent = '';
+                $day.find('option:selected').removeAttr('selected');
+                textCurrent = $day.find('option:first-child').attr('selected',true).text();
+                $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .selected').text(textCurrent);
+        }
+
+    })
+
+    function getTotalDays (year, month) {
+        return 32 - new Date(year, month - 1, 32).getDate();
+    }
 
     /*Dialog - 2 - New Customer*/
 
@@ -1536,7 +1609,7 @@ var Enbridge = window.Enbridge || {
     var Enbridge = window.Enbridge;
 
     function populateProvinces (provinces) {
-        var i, len = /*provinces.length*/0;
+        var i, len = provinces.length || 0;
         var $countryDropdown;
         var compilation = '';
 
@@ -1555,7 +1628,7 @@ var Enbridge = window.Enbridge || {
     }
 
     function loadProvinces (data) {
-        /*/if (data.countryCode === Enbridge.CountryCodes.CANADA) /**/
+        if (data.countryCode === Enbridge.CountryCodes.CANADA)
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
     }
 

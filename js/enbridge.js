@@ -302,21 +302,29 @@
 
         dropdownEnbridge.prototype.init = function () {
             var $element = $(this.source),
-                elemenetNodes = this.source.children || [],
+                id = $element.attr('data-id') + '-dropdown',
+                elementNodes = this.source.children || [],
                 nodes = [],
                 element = '',
                 name = '';
 
-            if (!elemenetNodes.length) return;
+            if (!elementNodes.length) return;
 
-            name = elemenetNodes[0].text || '';
+            this.destroy(id);
 
-            for (var i = 0, size = elemenetNodes.length; i < size; i++) {
-                var temp = '<li class="list-item" data-value="' + elemenetNodes[i].value + '">' + elemenetNodes[i].text + '</li>';
+            for (var i = 0, size = elementNodes.length; i < size; i++) {
+                var temp = '<li class="list-item" data-value="' + elementNodes[i].value + '">' + elementNodes[i].text + '</li>';
+
+                if (elementNodes[i].selected) {
+                    name = elementNodes[i].text;
+                }
+
                 nodes.push(temp);
             }
 
-            element = '<div class="enbridge-dropdown">' +
+            name = (name)? name : (elementNodes[0].text || '');
+
+            element = '<div class="enbridge-dropdown" id="' + id + '">' +
                       '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
                           nodes.join('') +
                       '</ul></div>';
@@ -332,6 +340,10 @@
 
             $element.bind('click', function () {
                 $(this).toggleClass('active');
+            });
+
+            $element.bind('mouseleave', function () {
+                this.className = 'enbridge-dropdown';
             });
 
             $element
@@ -361,14 +373,18 @@
                                 .attr('selected', true);
                     });
 
-            $(document).click(function (e) {
-                if ($.contains(self.element, e.target)) {
-                    return;
-                } else {
-                    $(self.element).removeClass('active');
-                }
-            });
         };
+
+        dropdownEnbridge.prototype.destroy = function (id) {
+            var $element = $('#' + id);
+
+            if(!$element.length)
+                return;
+
+            $element.unbind('click');
+            $element.find('.list-items .list-item').unbind('click');
+            $element.remove();
+        }
 
         $.fn.enbridgeDropdown = function (element) {
             return this.each(function () {
@@ -1153,7 +1169,7 @@
         if(!currentVal.postalCode()) {
             $this
                 .addClass('input-error')
-                .after('<p class="error-message ">Please enter a valid postal code (example: A1A1A)</p>');
+                .after('<p class="error-message ">Please enter a valid postal code (example: A1A 1A1)</p>');
             return;
         }
 
@@ -1358,6 +1374,17 @@
                     .find('.submit-button')
                         .removeClass('disabled');
             }
+
+            var city = $('[data-id=moving-out-city-or-town]').val() || '',
+                numberHouse = $('input[data-id=moving-out-street-number]').val() || '',
+                unitNumber = $('input[data-id=pre-street-number]').val() || '',
+                suffix = $('input[data-id=moving-out-suffix]').val() || '',
+                streetName = $('input[data-id=moving-out-street]').val() || '',
+                zipCode = $('[data-id=moving-out-postal-code-input]').val() || '',
+                province = $('[data-id=moving-out-province]').val() || '',
+                address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
+
+            $('#current-address').html(address);
         }
 
     });
@@ -1570,7 +1597,7 @@
 
         $('#existingcustomers, #newcustomers, #moving-out')
             .removeClass('hidden')
-            .dialog(dialogConstant);
+            .dialog(dialogConstant).parent().appendTo(jQuery("form:first"));
 
         $('[data-id="pre-suffix"]').val($('[data-id="suffix"]').val() || '');
         $('[data-id="pre-street-number"]').val($('[data-id="street-number"]').val() || '');
@@ -1609,9 +1636,10 @@ var Enbridge = window.Enbridge || {
     var Enbridge = window.Enbridge;
 
     function populateProvinces (provinces) {
-        var i, len = provinces.length || 0;
-        var $countryDropdown;
-        var compilation = '';
+        var i= 0,
+            len = provinces.length || 0,
+            $provinceDropdown = $('[data-id="moving-out-province"]'),
+            compilation = '';
 
         for (i = 0; i < len; i += 1) {
             compilation +=
@@ -1619,27 +1647,23 @@ var Enbridge = window.Enbridge || {
                     .replace(':provinceName', provinces[i].Name);
         }
 
-        // Refill the dropdown
-        $countryDropdown = $('[data-id="moving-out-country"]');
-        $countryDropdown.next('.enbridge-dropdown').remove();
-        $countryDropdown.html(compilation);
-
-        $countryDropdown.enbridgeDropdown();
+        $provinceDropdown.html(compilation);
+        $provinceDropdown.enbridgeDropdown();
     }
 
     function loadProvinces (data) {
-        if (data.countryCode === Enbridge.CountryCodes.CANADA)
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
     }
 
     $(document).ready(function () {
-        var countryServiceData = { countryCode: Enbridge.CountryCodes.CANADA };
-
-        var $countryDropdown = $('[data-id="moving-out-country"]');
-        var $countryDropdownItems=$countryDropdown.next('.enbridge-dropdown').find('li');
+        var countryServiceData = {
+                                    countryCode: Enbridge.CountryCodes.CANADA
+                                },
+            $countryDropdown = $('[data-id="moving-out-country"]'),
+            $countryDropdownItems=$countryDropdown.next('.enbridge-dropdown').find('li');
 
         $countryDropdownItems.bind('click', function (e) {
-            countryServiceData.countryCode = e.target.children[0].value;
+            countryServiceData.countryCode = $(this).attr('data-value');
             loadProvinces(countryServiceData);
         });
         countryServiceData.countryCode = $countryDropdown.val();

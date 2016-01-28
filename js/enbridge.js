@@ -1628,7 +1628,7 @@ var Enbridge = window.Enbridge || {
     }
 
     function loadProvinces (data) {
-        if (data.countryCode === Enbridge.CountryCodes.CANADA)
+        /*if (data.countryCode === Enbridge.CountryCodes.CANADA)*/
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
     }
 

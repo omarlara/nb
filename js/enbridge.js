@@ -391,7 +391,7 @@
                 (new dropdownEnbridge(this));
             });
         };
-        
+
         $(window).ready(function () {
             $('.enbridge-select').enbridgeDropdown();
             $('.enbridge-dropdown').bind('mouseleave', function () {
@@ -1366,16 +1366,14 @@
                 .addClass('processed');
 
             if ($current.next().length) {
-                $current.next().addClass('active');
-            } else {
-                var $accordion = $current.closest('.accordion').addClass('hidden'),
-                    $target = $($accordion.attr('data-target'));
+                var $nextElement = $current.next().addClass('active');
 
-                $target.removeClass('hidden');
+                if (!$nextElement.next().length) {
+                    $current.closest('.dialog')
+                        .find('.submit-button')
+                            .removeClass('disabled');
+                }
 
-                $accordion.closest('.dialog')
-                    .find('.submit-button')
-                        .removeClass('disabled');
             }
 
             var city = $('[data-id=moving-out-city-or-town]').val() || '',
@@ -1390,6 +1388,25 @@
             $('#current-address').html(address);
         }
 
+    });
+
+    /*Submit button*/
+
+    $('.dialog .submit-button').bind('click', function(e) {
+        var $this = $('#' + $(this).attr('data-item-related')),
+            $current = $this.closest('.accordion-item'),
+            $finishDate = $current.find('.finish-date'),
+            $startDate = $current.find('.start-date');
+
+        if($this.hasClass('disabled')) {
+            return false;
+        }
+
+        if (!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
+            return true;
+        } else {
+            return false;
+        }
     });
 
     /*Return to the previous step*/
@@ -1479,7 +1496,7 @@
             dateFormated = year + '-' + month + '-' + day,
             $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
-        	$inputElem.val(dateFormated);
+            $inputElem.val(dateFormated);
 
         if ($inputElem.hasClass('start-date')) {
             $.ajax({

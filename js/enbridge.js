@@ -1,4 +1,4 @@
-;$(window).ready(function () {
+; $(window).ready(function () {
 
     /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
@@ -121,6 +121,7 @@
             select = $form.find('.enbridge-select').removeClass('input-error'),
             zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
+            oneFromGroup = $form.find('.required-from-group'),
             text = $form.find('input[type="text"]');
 
         $form.find('.error-message, .error-code').remove();
@@ -248,6 +249,19 @@
                 }
             }
         }
+        if (error) {
+            for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
+                var $current = $(oneFromGroup[i]);
+
+                if ($current.find('.input-error').length < 1) {
+                    oneFromGroup.find('.input-error').removeClass('input-error');
+                    oneFromGroup.find('.error-message').remove();
+                    error = ($form.find('.input-error').length > 0);
+                    break;
+                }
+            }
+        }
+
 
         return error;
     };
@@ -322,7 +336,7 @@
                 nodes.push(temp);
             }
 
-            name = (name)? name : (elementNodes[0].text || '');
+            name = (name) ? name : (elementNodes[0].text || '');
 
             element = '<div class="enbridge-dropdown" id="' + id + '">' +
                       '<div class="header"><span class="selected">' + name + '</span><span class="indicator"></span></div><ul class="list-items">' +
@@ -378,7 +392,7 @@
         dropdownEnbridge.prototype.destroy = function (id) {
             var $element = $('#' + id);
 
-            if(!$element.length)
+            if (!$element.length)
                 return;
 
             $element.unbind('click');
@@ -455,7 +469,7 @@
                     }
 
                     $.ajax({
-                        url: 'http://vpc-ap-175:8082/WebServices/AddressService.svc/IsPostalCodeInServiceArea',
+                        url: '/WebServices/AddressService.svc/IsPostalCodeInServiceArea',
                         type: 'GET',
                         dataType: 'application/json',
                         data: {
@@ -594,6 +608,11 @@
             .appendTo(container)
             .enbridgeDropdown();
 
+    });
+
+    /*Run validator at phone required group*/
+    $('.required-from-group').find('input').bind('change', function () {
+        validator($(this).parents('.enbridge-form'));
     });
 
     /*Set Address on decline/accept step container*/
@@ -1183,7 +1202,7 @@
         }
 
         $.ajax({
-            url: 'http://vpc-ap-175:8082/WebServices/AddressService.svc/GetAddresses',
+            url: '/WebServices/AddressService.svc/GetAddresses',
             type: 'GET',
             dataType: 'application/json',
             data: {
@@ -1496,11 +1515,10 @@
             dateFormated = year + '-' + month + '-' + day,
             $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
-            $inputElem.val(dateFormated);
-
+  
         if ($inputElem.hasClass('start-date')) {
             $.ajax({
-                url: 'http://vpc-ap-175:8082/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+                url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
                 type: 'GET',
                 dataType: 'application/json',
                 data: {
@@ -1656,7 +1674,7 @@ var Enbridge = window.Enbridge || {
     var Enbridge = window.Enbridge;
 
     function populateProvinces(provinces) {
-        var i= 0,
+        var i = 0,
             len = provinces.length || 0,
             $provinceDropdown = $('[data-id="moving-out-province"]'),
             compilation = '';
@@ -1671,16 +1689,16 @@ var Enbridge = window.Enbridge || {
         $provinceDropdown.enbridgeDropdown();
     }
 
-    function loadProvinces (data) {
+    function loadProvinces(data) {
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, populateProvinces);
     }
 
     $(document).ready(function () {
         var countryServiceData = {
-                                    countryCode: Enbridge.CountryCodes.CANADA
-                                },
+            countryCode: Enbridge.CountryCodes.CANADA
+        },
             $countryDropdown = $('[data-id="moving-out-country"]'),
-            $countryDropdownItems=$countryDropdown.next('.enbridge-dropdown').find('li');
+            $countryDropdownItems = $countryDropdown.next('.enbridge-dropdown').find('li');
 
         $countryDropdownItems.bind('click', function (e) {
             countryServiceData.countryCode = $(this).attr('data-value');

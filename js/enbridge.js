@@ -1,4 +1,4 @@
-; $(window).ready(function () {
+;$(window).ready(function () {
 
     /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
@@ -259,20 +259,20 @@
             now = new Date();
 
 
-        if($renewDate.attr('data-required') && $lastService.attr('data-required')) {
-            if(renewDate < finishLastService) {
+        if ($renewDate.attr('data-required') && $lastService.attr('data-required')) {
+            if (renewDate < finishLastService) {
                 $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is in the past.</span></div>');
                 error = true;
-            } else if(renewDate < now) {
+            } else if (renewDate < now) {
                 $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
                 error = true;
-            } else if ((renewDate - finishLastService)/86400000 < 3) {
+            } else if ((renewDate - finishLastService) / 86400000 < 3) {
                 $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
                 error = true;
-            } else if (('' + finishLastService).indexOf('Sun') > - 1) {
+            } else if (('' + finishLastService).indexOf('Sun') > -1) {
                 $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
                     .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Sunday.</span></div>');
                 error = true;
@@ -391,9 +391,12 @@
                 (new dropdownEnbridge(this));
             });
         };
-
+        
         $(window).ready(function () {
             $('.enbridge-select').enbridgeDropdown();
+            $('.enbridge-dropdown').bind('mouseleave', function () {
+                this.className = 'enbridge-dropdown';
+            });
         });
 
     })(jQuery);
@@ -567,7 +570,7 @@
     if you have selected No one above, you will show form, in another case you will be on the select street number
     */
 
-    $('#get-address').bind('click', function() {
+    $('#get-address').bind('click', function () {
         var $this = $(this),
             $radio = $('#select-street-container [type="radio"]:checked'),
             ranges = $radio.attr('data-range').split(',') || ['0'],
@@ -604,7 +607,7 @@
             isolatedCity = city.split(', ')[1],
             address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, isolatedCity, '', zipCode);
 
-            $('.address').last().html(address);
+        $('.address').last().html(address);
 
         $('#address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
     });
@@ -685,8 +688,8 @@
         if ($('#confirm-address').hasClass('active-step')) {
             /*Add additional information about mail address*/
 
-            if($('[data-id="mailing-address-alternative"]').attr('checked')) {
-                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ',' +  $('[name="select-street-container"]:checked').attr('data-province') + ' ' + $('[data-id="code-validator"]').val();
+            if ($('[data-id="mailing-address-alternative"]').attr('checked')) {
+                fromAddress = $('#current-number').val() + ' ' + $('[name="select-street-container"]:checked').val() + ',' + $('[name="select-street-container"]:checked').attr('data-province') + ' ' + $('[data-id="code-validator"]').val();
 
                 toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
                             $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ', ' +
@@ -707,7 +710,7 @@
             if ($('[data-id="mailing-address-alternative"]').attr('checked')) {
                 fromAddress = $('[data-id="street-number"]').val() + ' ' + $('[data-id="suffix"]').val() + ' ' +
                               $('[data-id="street"]').val() + ' ' + $('[data-id="misc-info"]').val() + ' ' + $('#city-or-town').val() + ', ' +
-                              $('[data-id="country"]').val() + ' ' +  + $('[data-id="province"]').val() + ', ' + $('[data-id="postal-code-input"]').val();
+                              $('[data-id="country"]').val() + ' ' + +$('[data-id="province"]').val() + ', ' + $('[data-id="postal-code-input"]').val();
 
                 toAddress = $('[data-id="street-number-alternative"]').val() + ' ' + $('[data-id="suffix-alternative"]').val() + ' ' +
                             $('[data-id="street-alternative"]').val() + ' ' + $('[data-id="misc-info-alternative"]').val() + ' ' + $('[data-id="city-or-town-alternative"]').val() + ', ' +
@@ -909,7 +912,7 @@
             year = $this.val(),
             birthDayController = $this.attr('data-birth-month-controller'),
             month = $('[data-id ="' + $this.attr('data-birth-month-controller') + '"]').val(),
-            day= $('[data-id ="' + birthDayController + '"]').val(),
+            day = $('[data-id ="' + birthDayController + '"]').val(),
             options = $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .list-item'),
             $day = $('[data-id ="' + birthDayController + '"]'),
             availableDays = null;
@@ -929,28 +932,28 @@
             }
         }
 
-        if(day === '' || day <= availableDays) {
+        if (day === '' || day <= availableDays) {
             return;
         } else {
             var textCurrent = '';
-                $day.find('option:selected').removeAttr('selected');
-            textCurrent = $day.find('option:first-child').attr('selected',true).text();
+            $day.find('option:selected').removeAttr('selected');
+            textCurrent = $day.find('option:first-child').attr('selected', true).text();
             $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .selected').text(textCurrent);
         }
 
     });
 
-    $('.birth-day-controller-month + .enbridge-dropdown .list-item').bind('click', function() {
+    $('.birth-day-controller-month + .enbridge-dropdown .list-item').bind('click', function () {
         var $this = $(this),
             birthDayController = $this.closest('.enbridge-dropdown').prev().attr('data-birth-day-controller'),
             year = $('[data-id="' + $this.closest('.enbridge-dropdown').prev().attr('data-birth-year-controller') + '"]').val(),
-            day= $('[data-id ="' + birthDayController + '"]').val(),
+            day = $('[data-id ="' + birthDayController + '"]').val(),
             month = $this.attr('data-value'),
             options = $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .list-item'),
             $day = $('[data-id ="' + birthDayController + '"]'),
             availableDays = null;
 
-         if (!year.validYear() || !parseInt(month))
+        if (!year.validYear() || !parseInt(month))
             return;
 
         availableDays = getTotalDays(parseInt(year), parseInt(month));
@@ -965,18 +968,18 @@
             }
         }
 
-        if(day === '' || day <= availableDays) {
+        if (day === '' || day <= availableDays) {
             return;
         } else {
             var textCurrent = '';
-                $day.find('option:selected').removeAttr('selected');
-                textCurrent = $day.find('option:first-child').attr('selected',true).text();
-                $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .selected').text(textCurrent);
+            $day.find('option:selected').removeAttr('selected');
+            textCurrent = $day.find('option:first-child').attr('selected', true).text();
+            $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .selected').text(textCurrent);
         }
 
     })
 
-    function getTotalDays (year, month) {
+    function getTotalDays(year, month) {
         return 32 - new Date(year, month - 1, 32).getDate();
     }
 
@@ -1157,7 +1160,7 @@
 
     /*Success Zip*/
 
-    $('.new-address').keyup(function() {
+    $('.new-address').keyup(function () {
         var $this = $(this),
             currentVal = $this.val(),
             container = $this.attr('data-content'),
@@ -1166,7 +1169,7 @@
         $this.closest('.code-box')
             .find('.error-message ').remove();
 
-        if(!currentVal.postalCode()) {
+        if (!currentVal.postalCode()) {
             $this
                 .addClass('input-error')
                 .after('<p class="error-message ">Please enter a valid postal code (example: A1A 1A1)</p>');
@@ -1187,50 +1190,50 @@
                 'postalCode': currentVal
             },
             success: function (data) {
-                if(!!data) {
-                    var containerEl = container.replace('#',''),
+                if (!!data) {
+                    var containerEl = container.replace('#', ''),
                         streetObj = [],
                         keys = [],
-                        getNumbers = function getNumbers (range, init, end) {
-                                        var returnVal = [];
-                                        switch (range) {
-                                            case 0:
-                                                for(; init <= end ; init++) {
-                                                    returnVal.push(init)
-                                                }
-                                            break;
-                                            case 1:
-                                                for(; init <= end ; init++) {
-                                                    if(init%2 == 0)
-                                                        returnVal.push(init)
-                                                }
-                                            break;
-                                            case 2:
-                                                for(; init <= end ; init++) {
-                                                    if(init%2 != 0)
-                                                        returnVal.push(init)
-                                                }
-                                            break;
-                                            default:
-                                            break;
-                                        }
-                                        return returnVal;
-                                    };
+                        getNumbers = function getNumbers(range, init, end) {
+                            var returnVal = [];
+                            switch (range) {
+                                case 0:
+                                    for (; init <= end; init++) {
+                                        returnVal.push(init)
+                                    }
+                                    break;
+                                case 1:
+                                    for (; init <= end; init++) {
+                                        if (init % 2 == 0)
+                                            returnVal.push(init)
+                                    }
+                                    break;
+                                case 2:
+                                    for (; init <= end; init++) {
+                                        if (init % 2 != 0)
+                                            returnVal.push(init)
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                            return returnVal;
+                        };
 
                     data = JSON.parse(data);
 
-                    for (var size =  data.length - 1; size >= 0; size--) {
+                    for (var size = data.length - 1; size >= 0; size--) {
                         if (!streetObj[data[size].StreetName]) {
                             streetObj[data[size].StreetName] = {
                                 province: data[size].Province,
-                                city:  data[size].City,
+                                city: data[size].City,
                                 street: data[size].StreetName,
-                                ranges: getNumbers(data[size].StreetNumberRangeFilter , data[size].StreetNumberStart, data[size].StreetNumberEnd)
+                                ranges: getNumbers(data[size].StreetNumberRangeFilter, data[size].StreetNumberStart, data[size].StreetNumberEnd)
                             };
 
                             keys.push(data[size].StreetName);
                         } else {
-                            streetObj[data[size].StreetName].ranges.push( getNumbers(data[size].StreetNumberRangeFilter , data[size].StreetNumberStart, data[size].StreetNumberEnd) );
+                            streetObj[data[size].StreetName].ranges.push(getNumbers(data[size].StreetNumberRangeFilter, data[size].StreetNumberStart, data[size].StreetNumberEnd));
                         }
                     }
 
@@ -1238,13 +1241,13 @@
                         .addClass('success-field')
                         .removeClass('input-error');
 
-                    for (var i = 0, size = keys.length; i < size; i++ ) {
+                    for (var i = 0, size = keys.length; i < size; i++) {
                         var radioButton = '<input type="radio" id="' + (containerEl + '-' + i) + '" ' +
                                           'name="' + containerEl + '" value="' + streetObj[keys[i]].street + ', ' + streetObj[keys[i]].province + '" ' +
                                           'data-street = "' + streetObj[keys[i]].street + '" ' +
                                           'data-province = "' + streetObj[keys[i]].province + '" ' +
                                           'data-city = "' + streetObj[keys[i]].city + '" ' +
-                                          'data-range = "' + streetObj[keys[i]].ranges.join(',') + '" ' + ((i===0)?'checked ':' ') +
+                                          'data-range = "' + streetObj[keys[i]].ranges.join(',') + '" ' + ((i === 0) ? 'checked ' : ' ') +
                             'name="stepsContent" data-required-error="Please select yout street.">' +
                             '<label class="fake-input" for="' + (containerEl + '-' + i) + '">' + streetObj[keys[i]].street + '</label>';
                         radioContent.push(radioButton);
@@ -1261,7 +1264,7 @@
                     $(container).html(radioContent.join(''));
 
 
-                    $(container).find('input[type="radio"]').bind('click', function() {
+                    $(container).find('input[type="radio"]').bind('click', function () {
                         var name = $(this).attr('name') || '',
                             containerBox = (this.value) ? $this.attr('data-first-op') : $this.attr('data-second-op');
 
@@ -1277,8 +1280,8 @@
                         .addClass('input-error');
                 }
             },
-            error: function() {
-                 $this
+            error: function () {
+                $this
                     .removeClass('input-success success-field')
                     .addClass('input-error');
             }
@@ -1428,7 +1431,7 @@
                 $('[data-id="street-number"]').val($('[data-id="pre-street-number"]').val() || '');
 
 
-            } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val() ) {
+            } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
                 $('[data-id="newcustomers-street"], [data-id="newcustomers-city-or-town"], [data-id="newcustomers-country"], [data-id="newcustomers-province"], [data-id="newcustomers-postal-code-input"], [name="newcustomers-house-property-alternative"]')
@@ -1476,37 +1479,37 @@
             dateFormated = year + '-' + month + '-' + day,
             $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
-            $inputElem.val(dateFormated);
+        	$inputElem.val(dateFormated);
 
-            if($inputElem.hasClass('start-date')) {
-                $.ajax({
-                    url: 'http://vpc-ap-175:8082/WebServices/DateService.svc/IsWeekendOrHolidayDate',
-                    type: 'GET',
-                    dataType: 'application/json',
-                    data: {
-                        date: dateFormated
-                    },
-                    success: function (data) {
+        if ($inputElem.hasClass('start-date')) {
+            $.ajax({
+                url: 'http://vpc-ap-175:8082/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+                type: 'GET',
+                dataType: 'application/json',
+                data: {
+                    date: dateFormated
+                },
+                success: function (data) {
 
-                        $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                    $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                             .find('.error-code')
                                 .remove();
 
-                        if(JSON.parse(data)) {
+                    if (JSON.parse(data)) {
 
-                            $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                        $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                                 .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Holiday/Sunday.</span></div>');
-                        } else {
-                            $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                    } else {
+                        $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                                 .find('.result')
                                     .remove();
-                        }
-                    },
-                    error: function () {
-                        console.log('Conection issue');
                     }
-                });
-            }
+                },
+                error: function () {
+                    console.log('Conection issue');
+                }
+            });
+        }
     });
 
     /*Forms Reset*/
@@ -1631,11 +1634,11 @@ var Enbridge = window.Enbridge || {
     }
 };
 
-;(function (window, $) {
+; (function (window, $) {
 
     var Enbridge = window.Enbridge;
 
-    function populateProvinces (provinces) {
+    function populateProvinces(provinces) {
         var i= 0,
             len = provinces.length || 0,
             $provinceDropdown = $('[data-id="moving-out-province"]'),

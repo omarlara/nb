@@ -1,0 +1,82 @@
+/*Colors*/
+$we-peep: rgb(249, 229, 234);
+$deep-blush: rgb(225, 131, 150);
+$shiraz: rgb(198, 12, 48);
+$crimson: rgb(200, 16, 46);
+$abbey:rgb(76, 77, 78);
+$athens-gray: rgb(243, 244, 247);
+$athens-gray-border: rgb(235, 236, 238);
+$dawn :rgb(166, 161, 153);
+$dolphin:rgb(105, 105, 120);
+$danube:rgb(98, 174, 206);
+$eastern-blue: rgb(27, 138, 192);
+$ecru-white:rgb(244, 247, 237);
+$fuel-yellow:rgb(230, 170, 36);
+$moon-mist: rgb(221, 214, 204);
+$manatee:rgb(149, 149, 161);
+$jumbo: rgb(125, 125, 138);
+$mid-gray: rgb(99, 99, 115);
+$french-gray: rgb(185, 188, 194);
+$santas-gray: rgb(164, 164, 175);
+$suttle-gray: rgb(92, 100, 107);
+$sunglow: rgb(255, 192, 56);
+$scarpa-flow: rgb(85, 85, 96);
+$storm-gray:rgb(113, 113, 127);
+$mako: rgb(64, 72, 77);
+
+$buttercup: rgb(246, 179, 30);
+$my-sin: rgb(255, 184, 28);
+
+$torea-bay: rgb(16, 51, 187);
+$turquoise-blue: rgb(89, 203, 232);
+$lochmara: rgb(0, 125, 186);
+$blue-chill: rgb(16, 130, 176);
+
+$sushi: rgb(130, 160, 65);
+$kidnapper: rgb(233, 239, 220);
+$chelsea-cucumber: rgb(146, 176, 81);
+$chelsea-cucumber-strong: rgb(110, 123, 61);
+$pesto: rgb(109, 131, 60);
+
+$lavander: rgb(179, 106, 226);
+$swirl: rgb(220, 213, 203);
+
+/*Grids*/
+$em-base: 14px;
+
+$max-cols: 12;
+$colSize: (1/$max-cols);
+
+$normal-padding: 15px;
+$normal-margin: 15px;
+
+$min-size: 320px;
+$small-size: 769px;
+$normal-size: 993px;
+$big-size: 1201px;
+$max-size: 769px;
+
+/*Borders*/
+$common-radius: 0px;
+$normal-radius: 4px;
+
+/*Times*/
+$xss-short-transition: .15s;
+$xs-short-transition: .25s;
+$short-transition: .5s;
+$l-transition: .75s;
+$xl-transition: 1s;
+
+/*Opacity*/
+$high-opacity: 0.8;
+$medium-opacity: 0.5;
+$low-opacity: 0.2;
+
+/*Fonts*/
+$primary-font:Arial, sans-serif;
+
+/* Button */
+$button-behavior-on-link-padding-top: 6px;
+
+// Paths
+$image-base-path: '/AppImages/';

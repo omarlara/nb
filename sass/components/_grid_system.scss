@@ -1,0 +1,39 @@
+.clearfix {
+    display: block;
+    clear: both;
+    min-height: 1px;
+    min-width: 1px;
+}
+
+.enbridge-container {
+    display: block;
+    padding-right: $normal-padding;
+    padding-left: $normal-padding;
+    margin-right: 0;
+    margin-left: 0;
+    max-width:$max-size;
+
+    .row {
+        margin-right: -$normal-padding;
+        margin-left: -$normal-padding;
+
+        &:after,
+        &:before {
+            content: '';
+
+            display: table;
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            padding-left: $normal-padding;
+            padding-right: $normal-padding;
+        }
+
+    }
+    .row + .row{
+        margin-top: $normal-margin * 2;
+    }
+
+}

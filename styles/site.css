@@ -1,0 +1,2847 @@
+ 
+/* Standard CSS Document */
+
+/*resets*/
+body,button { font: normal 62.7% Arial,sans-serif; }
+button { background: transparent; border: 0; cursor: pointer; margin: 0; overflow: visible; padding: 0; }
+html,body, form , input.checkbox { margin: 0; padding: 0; }
+h1,h2,h3,h4,h5, .h5, h6,p { font-size: 1.3px; margin: 0 0 10px; padding: 0; }
+img { border: 0; }
+sup,sub { line-height: 0; }
+sup { vertical-align: 3px; }
+table { border-collapse: collapse; }
+.navigation { list-style: none; margin: 0; padding: 0; }
+.last { background:0 !important; border: 0 !important }
+
+/* global and conventions */
+h1 { font: Arial Bold; font-size:27px; color: #fff }
+h2 { font-size: 1.8em; }
+h3 { border-bottom: 1px dotted #000; color: #C60C30; font-size: 1.5em; padding-bottom: 5px; padding-left: 10px; }
+h4 { font-size: 1.5em }
+h5, .h5 { background: url(../appimages/bullet_content_lg.png) no-repeat 0 4px; display: block; font-size: 1.3em; padding: 0 0 0 10px; /*font-weight:bold*/} /*Jan 10th*/
+h6 { color: #eae4a9; font-size: 1.7em; margin-bottom: 8px; }
+.footer h6 {color:#959799; font-size:10px; font-weight:bold; margin-bottom:8px;}
+
+p,  .contentContainer a.paragraph, .contentContainer a.contentLink, ul li,  label , .sectionNav .heading, .contentTable,  .paragraph  { font-size: 1.3em; }
+.contentContainer p a   { font-size: 1em !important ;}
+a { text-decoration: none ; }
+.rightRail a, input.text { font-size: 12px; }
+body, .secondaryNav li a, .breadcrumbs li a, .printfontcontrol a, .sectionNav .navigation li a , .landingContainer p, select, .paragraph { color: #333333; }
+label { font-weight: bold }
+.hidden { display: none !important; }
+.show { display: block !important }
+.notVisible { visibility: hidden }
+.clear { clear: both }
+.ucase { text-transform: uppercase }
+.finePrint { font-size: 1em }
+.nowrap { white-space: nowrap; }
+.important { color: #C60C30; }
+.extraLineHeight { line-height: 1.4em }
+#tooltipcontainer, #tooltipcontainerMyE { background: url(../AppImages/tooltipbottom.png) no-repeat 0 100%; padding: 0 0 10px 0; position: absolute; width:351px; z-index:150; }
+.tooltipc1 { background: url(../AppImages/shadowright.png) no-repeat 100% 0; padding: 0 6px 0 0; }
+.tooltipc2 { background: #fff; border: 1px solid #576067; padding: 5px; }
+#tooltipcontainer.hometooltip, #tooltipcontainerMyE.hometooltip { background:url(../AppImages/bghometooltip.png); border: 1px solid #7a8b97; color:#333; padding: 5px; position: absolute; }
+.tooltipheader a { color:#5e9cae; float: right }
+#tooltipbody { font-size: 11px; margin:5px 0 0; }
+.tooltipclose { background: url(../AppImages/allaccountsclose.gif) no-repeat 100% 0; display: block; height: 15px; width: 15px; }
+.tooltiparrow { background:url(../AppImages/tooltiparrow.png) no-repeat; bottom:-10px; height:21px; left:20px; position:absolute; width:19px; }
+.tooltipbelow .tooltiparrow { background:url(../AppImages/tooltiparrowabove.png) no-repeat; bottom: auto; top: -15px; }
+.tooltipleft .tooltiparrow { left: 310px; }
+
+/* Override Telerik style */
+div.RadToolTip table.rtWrapper td.rtWrapperContent { font: inherit !important; }
+div.RadToolTip_Default a.rtCloseButton { background-image: url("../AppImages/allaccountsclose.gif") !important; height: 15px !important; width: 15px !important; margin: 6px 6px 0 0 !important;}
+div.RadToolTip_Default table.rtWrapper td.rtWrapperContent { padding: 5px; }
+.filebrowser ul ul li {
+    background: none !important;
+    font-size: 12px !important;
+    padding: 0 0 0 0 !important;
+}
+/* Rate File Browser tab color */
+.RadTabStrip_Black .rtsSelected span.rtsTxt {
+    color: #368BA3 !important;
+}
+
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+*:first-child+html .clearfix { zoom: 1; } /* required by IE7 to properly clear floats */
+/*a.button span, button.button span , h1, h6{ font-family:TradeGothic, Arial,sans-serif; }*/
+.inputvalue {color:#333 !important;}
+
+/******* layout area ************/
+
+.layout , .contentContainer { margin: 0 auto; width: 1003px; }
+.logo { background: url(../appimages/logo.png) no-repeat 16px 15px ; float: left ; height: 71px; margin: 0; text-indent: -10000px; width: 340px; }
+
+/* header */
+.headerContainer , .header { background: url(../appimages/header_bg.gif) repeat-x 50% 0; }
+.headerContainer, .footerContainer { width: 100% }
+.header { height: auto }
+    .header .layout { width: 972px }
+.headerElements { float: right; height: 70px; position:relative; width: 630px ; } 
+ /* .headerElements { float: right; height: 70px; width: 700px ; }*/
+
+
+.header .navigation { float: left; }
+    .header .navigation li,.footer .navigation li, .anchors .navigation li { border-left: 1px solid #fff; display: inline; padding: 0 5px; }
+    .header .navigation li.first,.footer .navigation li , .header .breadcrumbs li, .secondaryFooterMenu ul.navigation li.first , .anchors .navigation li.first { border: 0; }
+    .header .navigation li.name {border:none; color:#fff; font-weight:bold;}
+    
+/* menu myenbridgeNav */
+.myenbridgeNav { background: url(../appimages/myenbridge_menu.gif) no-repeat 0 0 #92b051; margin-bottom: 16px; padding-left:115px; position:absolute; right:0;}
+    .myenbridgeNav .navigation { float: none ; margin: 7px 10px 7px; }
+        .myenbridgeNav .navigation li a { color: #fff; }
+        
+/* searchbar */
+.searchBar { height: 25px; position:absolute; right:0; text-align: right; top:40px; width: 420px; }
+    .searchBar label { color: #fff; font-size: 12px; font-weight: bold; }
+    .searchBar span { color: #fdbf57; font-size: 13px; }
+    .searchBar input { background: #c5c8ca; border: 0; margin-right: 1px; width: 180px; }
+    .searchBar input.labelinput {color: #5a5d61;}
+    .searchBar input.nonlabel {color: #333;}
+    
+/* primaryNav */
+.primaryNav ul.navigation { margin: 14px 0 0 0; }
+    .primaryNav ul.navigation li { border-left: 2px solid #85888a; padding: 0 18px; }
+        .primaryNav ul.navigation li a { color: #fff; font-size: 12px; font-weight: bold; }
+        .primaryNav ul.navigation li.selected a , .primaryNav ul.navigation li a:hover { color: #fdbf57; }
+        
+/* homeBusinessNav styles */
+.homeBusinessNav li { background: transparent; }
+
+/* secondary Nav */
+.header .secondaryNav { float: none ; margin: 0px 0 0 43px; }
+    .header .secondaryNav li { background: url(../appimages/divider.gif) no-repeat center left; border: 0; float: left; line-height: 16px; padding: 0 ; z-index: 3; } /*The z-index deactivated for modol layer issue Jan 31st : Note Reverted back Feb 1st the zindex conflicts with IE 7.0 menu display , Feb 8th fixed with z-index 3*/
+    .header .secondaryNav li.first {background:none;}	
+.secondaryNav li a { display: block; font-size: 14px; font-weight: bold; padding: 16px 11px 11px; }
+    .secondaryNav li a:hover {background:#c60c30; color:#fff; } /*override hover background color and font color of dropdown element here*/
+.secondaryNav li.selected { background: #c60c30; } /*override selected background color of dropdown element here*/
+.secondaryNav li.selected a { color: #fff ; }
+    .secondaryNav li#home a { background: url(../AppImages/button_home.gif) no-repeat 1px 13px ; border: 0; height: 18px ; text-indent: -10000px ; width: 21px; }
+    .secondaryNav li#home.selected { background-color: transparent; }
+        .secondaryNav li#home.selected a, .secondaryNav li#home a:hover { background-image: url(../AppImages/button_home_selected.gif); }
+.dropdown { margin: 0; padding: 0; }
+    .dropdown ul,.dropdown li { list-style: none; margin: 0; padding: 0; }
+    .dropdown li { display: block; float: left; padding: 0 10px; position: relative; }
+    .dropdown a { display: block; text-decoration: none; }
+    .dropdown ul { background: #8e9296; display: none; left: 0; padding-bottom: 10px; position: absolute; z-index: 100; } /*override background color of dropdown*/
+        .dropdown ul li { float: none; padding: 0; }
+            .dropdown ul li a {  color: #ffffff ; display: -moz-inline-stack; display: inline-block; font-size: 12px; padding: 6px 11px 6px 17px; width: 130px; width: 160px; zoom: 1; } /* inline-block hack required for consistent cross-browser inline-block behaviour. zoom property required to fix layout bugs in IE7 */
+            .dropdown ul li a {  background: #8e9296; }  /* removes recurring divider.gif from dropdown list items */ 
+                .dropdown ul li a:hover {  }
+            .dropdown .widedropdown ul li a { width:200px;}
+            .dropdown ul li ul { background: #bbb; left: auto; right: -100%; top: 0; }
+    .dropdown .last { border: none; }
+
+/*final home alert*/
+.homeAlert {background:#fff9b8 url(../AppImages/icon_homealert.gif) 36px 2px no-repeat; border:1px solid #eaa5b3; color:#333333; font-size:11px; padding:4px 0 4px 65px;}
+    .homeAlert a {color:#5e9cae; font-size:13px; font-weight:bold; padding-right:5px;}
+
+/* uitility bar */
+.utilityBar { padding: 10px 0 20px 43px; }
+.header .breadcrumbs li { color: #595757; padding: 0; }
+.printfontcontrol a, .navlabel , .breadcrumbs a, .breadcrumbs span { font-size: 11px ; white-space: nowrap; }
+.navlabel { float: right; width: 75px }
+.breadcrumbs li a { background: url(../appimages/bullet_breadcrumb.gif) no-repeat 100% 4px; color: #595757; margin: 0 4px 0 0; padding-right: 10px; }
+.breadcrumbs li.selected span { background: none ; color: #333333; font-weight: bold ; padding-right: 0; }
+/*.printfontcontrol, .navprint { background: url(../AppImages/utility_bar_bg.gif) no-repeat 100% 0; }*/
+.printfontcontrol { float: right; height: 16px ; margin-right: 16px ; width: 175px;  }
+.navprint { background-position: 0 0; height:14px; padding: 0px 22px 0 24px; }
+.noPrinting .navprint { visibility: hidden; }
+.navfontsmall , .navfontbig { display: block; float: right ; height: 14px; margin: 0 0 0 1px; width: 14px; }
+
+/* section menu */
+
+.bluemenu .tabs { list-style: none; margin: 0 0 0 0px; padding: 0; }
+	.bluemenu .tabs li, .bluemenu .tabs li a { background: url(../appimages/tab_off.png) no-repeat 0 0; float: left; line-height: 19px; text-align: center; text-decoration: none; white-space: nowrap; }
+	.bluemenu .tabs li { background-position: 100% 0; }
+		.bluemenu .tabs li a { color: #fff ; font-size: 14px ; font-weight: bold; padding: 10px 6px 11px 0; width: 170px; }
+		.bluemenu .tabs li.selected a:hover, .bluemenu .tabs li a:hover { color: #333333; }
+		.bluemenu .tabs li.selected, .bluemenu .tabs li.selected a { background: #e4e7eb; color: #368ba3; }
+
+.bluemenu .secondaryNav li a:hover {background:#368ba3; color:#fff; } /*override hover background color and font color of dropdown element here*/
+.bluemenu .secondaryNav li.selected { background: #368ba3; } /*override selected background color of dropdown element here*/
+.bluemenu .bannernav .selected { background: #368ba3; }
+
+.bluemenu .secondaryNav li#home.selected a, .bluemenu .secondaryNav li#home a:hover { background-image: url(../appimages/button_home_business.gif); }
+
+
+.sectionNav { background: url(../appimages/section_bg.gif) no-repeat; float: left; margin: -120px 0 0 24px; min-height: 300px; padding: 15px 7px 15px 8px; width: 190px; }
+    .sectionNav .navigation {  }
+    .sectionNav .heading { font-weight: bold; margin: 0 0 14px 12px; }
+    .sectionNav .heading a { color:#333333; }
+    .sectionNav ul.level1 { border-top: 1px solid #d4d5d9; }
+    
+    .sectionNav .navigation li { border-color: #d4d5d9; border-style: solid; border-width: 0 0px 1px 0px; font-size:12px;}
+          .sectionNav .navigation li a { background-position: 13px 8px; margin: 0; padding: 4px 13px 4px 15px; display:block;}
+          .sectionNav .navigation li.bulletPlus>a { background: url(../AppImages/bullet_menu.png) no-repeat 5px 8px; display: block ; }
+          .sectionNav .navigation.level2 li.bulletPlus>a { background: url(../AppImages/bullet_menu.png) no-repeat 12px 8px; display: block ; }
+          .sectionNav .navigation li.bulletMinus>a { background: url(../AppImages/bullet_menu_selected.gif) no-repeat 5px 8px; display: block; }
+          .sectionNav .navigation.level2 li.bulletMinus>a { background: url(../AppImages/bullet_menu_selected.gif) no-repeat 12px 8px; display: block; }
+          .sectionNav .navigation li.bulletMinusSelected>a { background: url(../AppImages/bullet_menu_selected_homes.gif) no-repeat 5px 8px; display: block; }
+.bluemenu .sectionNav .navigation li.bulletMinusSelected>a { background: url(../AppImages/bullet_menu_selected_businesses.gif) no-repeat 5px 8px; display: block; }
+.bluemenu .sectionNav .navigation.level2 li.bulletMinusSelected>a { background: url(../AppImages/bullet_menu_selected_businesses.gif) no-repeat 12px 8px; display: block; }
+          .sectionNav .navigation li.bulletMinusSelected.selected>a { background: url(../AppImages/bullet_menu_selected_white.gif) no-repeat 5px 8px; display: block; background-color: #c60c30; }
+.bluemenu .sectionNav .navigation li.bulletMinusSelected.selected>a { background: url(../AppImages/bullet_menu_selected_white.gif) no-repeat 5px 8px; display: block; background-color: #368BA3; }
+.bluemenu .sectionNav .navigation.level2 li.bulletMinusSelected.selected>a { background: url(../AppImages/bullet_menu_selected_white.gif) no-repeat 12px 8px; display: block; background-color: #368BA3; }
+          .sectionNav .navigation li.selected>a { background: #c60c30; color: #FFFFFF; border: 0;  list-style: none outside none; display: block; }
+.bluemenu .sectionNav .navigation li.selected>a { background: #368BA3; color: #FFFFFF; border: 0;  list-style: none outside none; display: block; }
+        .sectionNav .navigation li.isparentselected a, .sectionNav .navigation li.isparentnotselected a { padding-bottom: 2px; }
+        .sectionNav .navigation li.notparent a { background-color: #c60c30; background-image: url(../AppImages/bullet_menu3.gif); color: #fff; }
+        .sectionNav .navigation li.isparentnotselected a { background-image: url(../AppImages/bullet_menu_selected.gif); background-position: 11px 9px; }
+        .sectionNav .navigation li ul { list-style: none; margin: 0; padding: 0; }
+        .sectionNav .navigation li li { border: none; }
+        .sectionNav .navigation li li a { margin: 5px 0px; padding: 4px 5px 4px 21px; }
+        .sectionNav .navigation.level2 li li a { margin: 5px 0px; padding: 4px 5px 4px 27px; }
+        .sectionNav .navigation li li.notparent a, .sectionNav .navigation li li.isparentselected a { background-color: #c60c30; background-image: url(../AppImages/bullet_menu3.gif); color: #fff; padding: 2px 13px 2px 32px; }
+        .sectionNav .navigation li li.isparentnotselected a { background-image: url(../AppImages/bullet_menu2_selected.gif); background-position: 20px 6px; }
+        .sectionNav .navigation li.selected li ul { position: relative; }
+        .sectionNav .navigation li.selected li li { padding: 0; }
+            .sectionNav .navigation li.selected li li a { background: none; margin: 3px 0; padding: 2px 10px 2px 34px; }
+            .sectionNav .navigation li.selected li li.selected a { background: #c60c30; color: #fff; }
+        .sectionNav .navigation li.selected li.isparentselected li { background: #f5f7f9; }
+        
+/* banners */
+.banner { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 128px; margin: 0 auto; width: 972px; }
+#banner_corporatecommitments { background-image: url(../AppImages/banner_3.jpg) ; }
+#banner_managingyourenergyuse { background-image: url(../AppImages/banner_1_5.jpg) ; }
+#banner_accountsandbilling { background-image: url(../AppImages/banner_2_1.jpg) ; }
+#banner_contactus { background-image: url(../AppImages/banner_contactus.jpg) ; }
+#banner_myenbridge { background-image: url(../AppImages/banner_myenbridge.jpg) ; }
+.banner.titleNarrow h1 { width:300px; margin: 33px 0 0 253px; }
+.banner.hideTitle h1 { display: none;}
+
+/* footer */
+.footer { background: none; padding: 20px 0; }
+.footerContainer , .footer { background: none; /* border-top: 1px solid #f1f1f1; */ }
+.footer .layout { width: 940px; }
+.footer .columns { float: left; margin: 0 20px 0 0; width: 152px ; }
+.footer .column3 {margin:0 20px 0 0; width:137px;}
+.myEnbridgeSection {color:#959799; font-size:10px;}
+.myEnbridgeSection li {background:url("../AppImages/bullet_footer_menu.png") no-repeat 0 4px; padding:0 0 0 10px;}
+.footer .myEnbridgeSection ul li a {background:none; display:inline; padding:0 3px;}
+.footer .moreLinks { margin: 0; }
+.footer .emergencyBeforeDig { width: 182px; }
+.footer .moreLinks { width: 237px; }
+.footer .navigation li { display: block; margin: 0 0 0 3px; }
+.footer .emergencyBeforeDig li, .footer .emergencyBeforeDig p {margin:0;}
+.footer .myEnbridgeSection li {margin:0 0 0 8px;}
+.footer a, .footer .heading, .footer p, .copyright { color: #676a6c; font-size: 10px; }
+.footer li.heading {font-weight:bold; margin-bottom: 8px;}
+.footer .emergency { color: #c60c30; }
+.footer .item { float: left; width: 119px; }
+.myEnbridgeTitle { background: url(../AppImages/footer_myenbridge_transparent.gif) no-repeat; height: 15px ; margin-top: 10px; text-indent: -10000px ; width: 73px; }
+.logoSmall { background: none; float: left ; height: 25px ; margin: -12px 7px 0 0 ; text-indent: -10000px ; width: 83px; }
+.top100 { background: url(../appimages/top100.jpg) no-repeat; float: left; height: 62px ; margin-right: 10px ; text-indent: -10000px; width: 65px; }
+.twitter { background: url(../appimages/TwitterLogo.png) no-repeat; float: left; height: 55px ; margin-right: 10px ; text-indent: -10000px; width: 65px; }
+.footer .secondaryFooterMenu { margin: 30px auto 0; width: 940px; }
+.secondaryFooterMenu ul, .copyright { float: left ; }
+.secondaryFooterMenu a.top { float: right; }
+.secondaryFooterMenu ul.navigation li { border-left: 1px solid #bbbdc1; display: inline; font-size: 10px ; padding: 0 5px; margin-left:0}
+    .secondaryFooterMenu ul.navigation li a { background: 0; color: #5e9cae; display: inline; padding: 0 ; } 
+#enbridgetop100{ width: auto; }
+#enbridgetop100 p{ margin-bottom: 0; width: 119px;} 
+#enbridgetop100 ul li{padding-left:0} 
+#enbridgetwitter { padding-top:7px; width: 144px; }
+ 
+/******* Template Layout Specific Modifiers *******/
+
+/* Home Page */
+
+/* rotating banner */
+.homePage .banner { border:none; height: 263px;  position: relative; width: 100% }
+.movingbannerwindow { height: 263px; overflow:hidden; position:relative; z-index:1;}
+.bannerContainer {position:absolute; width:100%; z-index:1;}
+.bannerContainer:first-child {z-index:3;}
+#movingbannercontainer{position:relative;zoom:1; height: 263px; overflow:hidden;}
+//.bannerelement, .bannerContainer { background: url(../AppImages/bannerbg.jpg) no-repeat 50% 0; height: 263px; } //This is inline styles as part of Tridion carousel.
+
+
+/* The following banner1-4 are in the Tridion template inline */
+//.banner1 { background-position: 50% 0px; }
+//.banner2 { background-position: 50% -263px; }
+//.banner3 { background-position: 50% -526px; }
+//.banner4 { background-position: 50% -789px; }
+
+
+.banner .layout { position: relative; width:972px; z-index:2; }
+.bannerContainer .layout { top:41px; left:60px }
+.bannerContainer h1 { text-transform: uppercase; }
+.bannerContainer .item>a{ color:#fff; font-size: 15px; font-weight: bold; text-transform: uppercase; }
+
+
+
+.bannerelement .bannerarrow { background: url(../AppImages/button_go_banner.gif) no-repeat 100% 100%; cursor: pointer; display: inline-block; height: 16px; padding-right: 18px; }
+.bannernav { height: 27px; left: 63px; position: absolute; top: 218px; width: 140px/*112px*/; }
+.bannerbtn { background: url(../AppImages/bannerbtn.png); color: #fff; display: block; float: left; font-size: 18px; height: 25px; margin-right: 1px; padding-top: 2px; text-align: center; text-decoration: none; width: 27px; }
+.bannernav .selected { background: #c60c30; }
+.homePage .contentContainer { margin-bottom: 32px; min-height:0}
+.homePage .header { height: auto; padding-bottom:10px; }
+
+/* quicklins container area */
+.quickLinksContainer , .quickLinkBottom p , .brandFeature { float: left; }
+.quickLinkBottom p  { display:block; width:500px; }
+.quickLinksContainer { margin-left: 20px ; }
+.quickLinks , .quickLinkBottom { background: url(../AppImages/quicklinks_bg.gif) no-repeat left top; margin-top: 6px ; width: 725px ; }
+.quickLinkBottom { background-position: 0 -383px; padding: 10px 40px 0 40px; width: 645px;}
+.quickLinks .items { float: left; padding: 18px 30px 18px 40px; width: 171px; }
+.quickLinks h2 { min-height: 58px; padding: 0 10px 0 85px; text-transform: uppercase; }
+.myenbridgeSignIn { background: url(../AppImages/home_myengridge_bg.gif) no-repeat left top; min-height: 227px; padding: 50px 10px 17px 14px; position: absolute; right: -4px; top: 18px; width: 221px; }
+    .myenbridgeSignIn .memberName {font-size:14px; font-weight:bold;}
+    .myenbridgeSignIn p { color: #fff; }
+    .myenbridgeSignIn ul {list-style:none; margin:12px 0 20px; padding:0;}
+    .myenbridgeSignIn li a {background: url(../appimages/bullet_menu.png) no-repeat 0 4px; color:#fff; display: block ; padding:0 0 0 12px; }
+
+body.homes-homepage .myenbridgeSignIn {right: 0;width:215px;}
+body.business-homepage .myenbridgeSignIn {right: 0;width:215px;}
+	
+/** Developer Note Nov 29th 2010**/ 
+/** Discovered that we have modified html in body area and specified a class homes-homepage **/
+/** Note This means that now when we are adding new classes we need to make a reference to it **/
+/** example "body.homes-homepage .myenbridgeSignIn" **/
+
+body.homes-homepage .myenbridgeSignIn a, body.business-homepage .myenbridgeSignIn a {color:#fff; font-size:12px; padding: 1px 32px 3px 0;} 
+
+ 
+.myenbridgeSignIn  a{color:#fff; font-size:12px;}
+.myenbridgeSignIn p {font-size:12px;color:#ffffff;vertical-align:text-bottom;margin: 0 0 2px;}
+.myenbridgeSignIn li{font-size:12px;/*background: url(../appimages/bullet_menu.png) no-repeat 0 4px;*/color:#fff; display: block ; padding:0 0 0 12px; }
+
+
+/** This has been done because need the labels not to bold automatically as it was happening on login Page*/
+.myenbridgeSignIn label{font-size:11px;font-weight:normal;}
+.myenbridgeSignIn .memberName {margin: 7px 0 0 0; }
+
+
+body.homes-homepage .myenbridgeSignIn li a {background:url("../appimages/bullet_menu.png") no-repeat scroll 0 4px transparent;color:#FFFFFF;display:block;padding:0 0 0 12px;font-size:12px;}
+
+/**.myenbridgeSignInNoCookie **/
+/** This is being created becasue li needs to display image, with out the item being a link inside the li element **/
+/** Note .myenbridgeSignIn style has the image associated with <a> element inside the <li> element**/
+/** Simply modifying the <li> element in that style would yeild 2 double bullets So this new style is being created **/
+
+body.homes-homepage .myenbridgeSignInNoCookie li a {background:url("../AppImages/bullet_menu.png") no-repeat scroll 0 4px transparent;color:#FFFFFF;display:block;padding:0 0 0 12px;}
+
+/* This was addeded to the business section missing style Feb 17th, 2011 basically we have duplicate functionality on busniess and home page noticed that these styles were missing*/
+body.business-homepage .myenbridgeSignIn li a {background:url("../appimages/bullet_menu.png") no-repeat scroll 0 4px transparent;color:#FFFFFF;display:block;padding:0 0 0 12px;font-size:12px;}
+body.business-homepage .myenbridgeSignInNoCookie li a {background:url("../appimages/bullet_menu.png") no-repeat scroll 0 4px transparent;color:#FFFFFF;display:block;padding:0 0 0 12px;}
+
+.myenbridgeSignInNoCookie{background:url("../AppImages/home_myengridge_bg.gif") no-repeat scroll left top transparent;min-height:227px;padding:50px 10px 17px 14px;position:absolute;right:0px;top:18px;width:221px;}
+.myenbridgeSignInNoCookie p {font-size:12px;color:#ffffff;vertical-align:text-bottom;margin: 0 0 2px;}
+.myenbridgeSignInNoCookie li{font-size:12px;background: url(../appimages/bullet_menu.png) no-repeat 0 4px;color:#fff; display: block ; padding:0 0 0 12px; }
+.myenbridgeSignInNoCookie ul {list-style:none outside none;margin:12px 0 15px;padding:0;}		
+.brandFeature {/* color: #fff;*/ height:184px; margin: 6px 0 0 3px; padding: 17px 21px; position: relative ; width: 202px; }
+.brandFeature a.whitebutton { bottom: 20px ; position: absolute; }
+.updateItem {background:#fff;}
+
+
+
+/** Note the items with body reference are needed for the business and home pages only **/
+/*homepage styles*/
+body.homes-homepage .header .layout {width:972px;}
+body.homes-homepage .contentContainer .contentContainer  {width:1003px}
+body.homes-homepage .bannerContainer .layout {left:60px;top:41px;}
+//body.homes-homepage .banner .layout {position:relative;width:972px;z-index:2;}
+body.homes-homepage .contentContainer {margin-bottom:15px;min-height:0;}
+.layout, .contentContainer { width: auto; } /*** ! Important for banner width ***/
+body.homes-homepage .brandFeature {width: 198px;}
+
+
+body.business-homepage .header .layout {width:972px;}
+body.business-homepage .contentContainer .contentContainer  {width:1003px}
+body.business-homepage .bannerContainer .layout {left:60px;top:41px;}
+body.business-homepage .contentContainer {margin-bottom:15px;min-height:0;}
+.layout, .contentContainer { width: auto; } /*** ! Important for banner width ***/
+body.business-homepage .brandFeature {width: 198px;}
+
+
+
+
+.brandFeature li{font-size:12px;background: url(../appimages/bullet_menu.png) no-repeat 0 4px;color:#fff; display: block ; padding:0 0 0 12px; }
+
+.brandFeature ul{margin:4px 0 0 -15px;}
+
+/***customization for brandfeature on business and home pages ****/
+
+body.business-homepage .brandFeature a {margin: 0 0 0 0; padding:0 0 0 0;}
+
+.brandFeatureContainer  a {margin: 0 0 0 0; padding:0 0 0 0;}
+
+/**This is being done to see if the brand feature box can be stripped of all teh stuff like font, size etc **/
+body.business-homepage .brandFeature {
+/*color:#FFFFFF; no color is being used here intentionally nornally you would define color in here as its done*/
+height:19x;margin:6px 0 0 3px;padding:17px 21px;position:relative;width:198px;
+}
+
+
+/** These are styles specific to the busniess home page **/
+/** The issue of the body.something.something  has been reported in ... we should not have to write this issue reported December 3rd**/
+/** We should not have to do this to access class css item issued seems to be connected to the navigation**/
+
+body.business-homepage .contentContainer .contentContainer .brandFeature .whitebutton  {
+background:url("../AppImages/button_standard.gif") repeat scroll 100% 0 transparent;
+color:#333333;
+display:inline-block;
+font-size:11px !important;
+font-weight:bold;
+line-height:23px;
+padding:0 5px;
+text-decoration:none;
+text-transform:uppercase;
+white-space:nowrap;
+}
+
+
+body.business-homepage .contentContainer .contentContainer .brandFeature .blackbutton {
+background-image:url("../AppImages/button_signin.gif");
+color:#FFFFFF;
+display:inline-block;
+font-size:11px !important;
+font-weight:bold;
+line-height:23px;
+padding:0 5px;
+text-decoration:none;
+text-transform:uppercase;
+white-space:nowrap;
+}
+
+
+/** These are styles specific to the home page**/ 
+/** These are styles specific to the busniess home page **/
+/** The issue of the body.something.something  has been reported in ... we should not have to write this issue reported December 3rd**/
+/** We should not have to do this to access class css item connected to the navigation**/
+body.homes-homepage .contentContainer .contentContainer .brandFeature .whitebutton  {background:url("../AppImages/button_standard.gif") repeat scroll 100% 0 transparent;color:#333333;display:inline-block;font-size:11px !important;font-weight:bold;line-height:23px;padding:0 5px;text-decoration:none;text-transform:uppercase;white-space:nowrap;}
+body.homes-homepage .contentContainer .contentContainer .brandFeature .blackbutton {background-image:url("../AppImages/button_signin.gif");color:#FFFFFF;display:inline-block;font-size:11px !important;font-weight:bold;line-height:23px;padding:0 5px;text-decoration:none;text-transform:uppercase;white-space:nowrap;}
+
+/****????*****/
+
+    
+/* content area */
+.contentContainer { min-height: 350px ; } /*Feb 4th old value 400px*/
+.landingContainer span { cursor:pointer;}
+
+/* right rail */
+.rightRail { float: left; margin-left: 39px; width: 207px; }
+
+/* contentPage Layout Page */
+.contentPage {  }
+    .contentPage h1 { margin: 45px 0 0 45px ; }
+    .contentPage .contentContainer { margin: 10px auto 40px; width: 972px; } 
+    .contentPage .securityBar { background: url(../AppImages/icon_lock.gif) no-repeat 0 -4px; color: #333333; float: right; margin: 135px 0 0 0; padding: 0 0 0 20px; }
+    .contentPage .myenbridgeinside .securityBar { font-size:12px; margin:10px 30px 0 0;}
+
+/* contentPage one column (standard) */
+.contentPage .content { margin: 0 ; width: 972px; }
+
+/* contentPage twoColumn (with right rail and no menu) */
+#twoColumn.contentPage .content { float: left;  margin: 0 ; width: 670px; }
+#twoColumn.contentPage .rightRail { margin: 0 0 0 10px; width: 292px; }
+    #twoColumn.contentPage .rightRail .widget { width: 259px; }
+    
+/* contentPage two Column Glossary */
+.main { width: 715px; }
+.right { width: 357px; float: right; margin-top: 20px;}
+.left { width: 358px; float: left; margin-top: 20px;}
+    
+/* Section / Subsection Landing Layout Page */
+#threeColumn.contentPage .content { float: left; margin-left: 27px; width: 470px; }
+.sectionPage .banner h1, .sectionPage .banner p { margin: 40px 0 0 40px ; width: 380px ; }
+.sectionPage.banner  p { margin-top: 10px; }
+.subSectionPage h1 { margin: 49px 0 0 253px ; width: 400px; }
+.sectionPage .sectionNav { margin-top: -50px; }
+.sectionPage .banner { height: 263px; }
+ 
+/* link / bullet styles */
+.contentContainer a, .quickLinkBottom a, .securityBar a, .contenttabscontentarea a { color: #5e9cae; }
+.footer .navigation a, a.learnMore, a.top, a.contentLink, ul.contentLink a { background: url(../appimages/bullet_menu.png) no-repeat 0 4px; display: block ; padding: 0 0 0 10px; }
+.footer .navigation a, a.learnMore { background-image: url(../AppImages/bullet_footer_menu.png); }
+a.learnMore { *display: inline; display: -moz-inline-stack; display: inline-block; zoom: 1; } /* inline-block hack required for consistent cross-browser inline-block behaviour. zoom property required to fix layout bugs in IE7 */
+a.top { background-image: url(../AppImages/bullet_top.png); color: #5e9cae; }
+ul.contentLink { margin: 0; padding: 0; }
+    ul.contentLink li { list-style: none; }
+    ul.indexpage a { background:none; padding:0;}
+    ul.indexpage ul a {background: url(../appimages/bullet_menu.png) no-repeat 0 4px; display: block ; font-size:14px; padding: 0 0 0 10px;}
+a.contentLink { display: inline-block; }
+ul.contentLink a { display: inline-block; }
+a.updates { float: right; }
+.anchors .navigation { margin-bottom: 15px; }
+    .anchors .navigation li { border-left: 1px solid #cccccc; padding: 0 10px; }
+        .anchors .navigation li.first { padding-left: 0 ; }
+ul.aligned {margin:0;padding:0 0 0 16px;}
+
+
+/*buttons - override background-image, line-height and paddings as needed*/
+a.button , a.button span, button.button span { *display: inline; background: url(../AppImages/button_standard.gif) repeat 100% 0; color: #333333; cursor:pointer; display: -moz-inline-stack; display: inline-block; font-size: 11px; font-weight: bold ; line-height: 23px; padding: 0 10px; text-decoration: none; text-transform: uppercase; white-space: nowrap; zoom: 1; } /* inline-block hack required for consistent cross-browser inline-block behaviour. zoom property required to fix layout bugs in IE7 */
+a.button span , button.button span { background-position: 0 0; padding: 0 0 0 2px; } /* inline-block hack required for consistent cross-browser inline-block behaviour. zoom property required to fix layout bugs in IE7 */
+a.signin , a.signin span { background-image: url(../AppImages/button_signin.gif); color: #fff; padding: 2px 32px 3px 0; }
+a.signin.disabled , a.signin.disabled span { background-image: url(../AppImages/button_standard.gif); color: #fff; padding: 0 10px; cursor: auto; }
+a.signin { margin-bottom: 10px; }
+a.signin span { padding: 0 0 0 20px; }
+button.go { *display: inline; *vertical-align: text-bottom; background: url(../AppImages/button_go.gif) no-repeat; border: 0; display: -moz-inline-stack; height: 20px ; margin: 0 0 0 -3px ; position: relative; text-indent: -10000px; top: -2px; vertical-align: middle; width: 20px;  } /* inline-block hack required for consistent cross-browser inline-block behaviour. zoom property required to fix layout bugs in IE7 */
+
+a.signin_register { background: url(../AppImages/button_signin_or_register.gif) no-repeat; height: 23px; width: 261px; }
+
+
+/** These two buttons have been created for usage inside the Rich Text filed components  home brand feature and side right rail widget**/
+a.whitebutton  {
+background:url("../AppImages/button_standard.gif") repeat scroll 100% 0 transparent;
+color:#333333;
+display:inline-block;
+font-size:11px !important;
+font-weight:bold;
+line-height:23px;
+padding:0 5px;
+text-decoration:none;
+text-transform:uppercase;
+white-space:nowrap;
+}
+
+
+a.blackbutton {
+background-image:url("../AppImages/button_signin.gif");
+color:#FFFFFF;
+display:inline-block;
+font-size:11px !important;
+font-weight:bold;
+line-height:23px;
+padding:0 5px;
+text-decoration:none;
+text-transform:uppercase;
+white-space:nowrap;
+}
+
+
+/*tabs - override background-image, line-height, margin and paddings as needed*/
+.tabs { list-style: none; margin: 0 0 0 0px; padding: 0; }
+    .tabs li,.tabs li a { background: url(../appimages/tab_off.png) no-repeat 0 0; float: left; line-height: 19px; text-align: center; text-decoration: none; white-space: nowrap; }
+    .tabs li { background-position: 100% 0; }
+        .tabs li a { color: #fff ; font-size: 14px ; font-weight: bold; padding: 10px 6px 11px 0; width: 170px; }
+        .tabs li.selected a:hover, .tabs li a:hover { color: #333333; }
+        .tabs li.selected,.tabs li.selected a { background: #e4e7eb; color: #c60c30; }
+        
+/*forms*/
+.form { border-collapse: collapse; border: 0; }
+    .form td { padding: 3px 5px 5px 0; vertical-align: top; }
+    .form .radio { margin: -6px 3px -3px 0; }
+    .form .checkbox { margin: -3px 3px -1px 0; }
+*:first-child+html .form .checkbox { margin: -4px 0 0 -3px; }
+* html form.checkbox { margin: 0 2px 10px -4px; }
+.form .text,.form select,.form textarea { border: 0px; margin: -3px 0 0;   }
+.form .required { color: #f00; }
+.form select{width: 300px;}
+.selectnarrowwidth select{width: 200px;} /*The style has been added to narrow down the select box , for certain forms*/
+/* tables */
+.contentTable {  }
+    .contentTable th, .contentTable td { padding:10px 30px; border: 1px solid #dedfe3 }
+    .contentTable th { background: url(../AppImages/content_table_bg.gif) repeat-x 0 0 #a4a9af; color: #fff; font-weight: bold; text-align: left }
+    .contentTable tr.odd td { background: #f5f5f5 }
+.tableData td { border: none; padding: 0; }
+
+/**This is in case if we are dealing with table with 7 cloumns The above style causes the table to float out of template**/
+.contentTableMoreColumns { font-size: 1.3em; }
+    .contentTableMoreColumnsth, .contentTableMoreColumns td { padding:10px 10px; border: 1px solid #dedfe3 ; width: 50px}
+    .contentTableMoreColumns th { background: url(../AppImages/content_table_bg.gif) repeat-x 0 0 #a4a9af; color: #fff; font-weight: bold; text-align: left }
+    .contentTableMoreColumns.odd td { background: #f5f5f5 }
+
+/* modal */
+#mask { background-color: #333; display: none; left: 0; position: absolute; top: 0; z-index: 6; }
+#dialog { position: absolute; z-index: 1000; } /** Jan 27th Checked in change by see checkin history updated the server **/
+.dialogheader { background: #72B5CC; padding: 10px 10px 15px 45px; }
+.dialogtitle { color: #fff; font-size: 24px; }
+.dialogclose { background: url(../AppImages/allaccountsclose.gif) no-repeat 100% 0; color: #fff; display: block; float: right; font-size: 11px; height: 15px; padding-right: 20px; }
+#popupcontent { background: #fff; }
+.popupcontent {margin: 3px 8px; font: 13px "Segoe UI",Arial,Sans-serif; font-size: auto;}
+.popupcontent .table {background: none repeat-x scroll 0 0 #DEE4EB; padding: 10px;}
+.popupcontent .value {font-weight: bold;}
+.popupcontent p {font: 13px Arial,Sans-serif;}
+.popupcontent a {font: 13px Arial,Sans-serif; vertical-align: top; color: #5E9CAE}
+.dialogcontainer { background: url(../AppImages/shadow_r.png) no-repeat 100% 0; margin-right: -50px; padding-right: 50px; }
+.dialogbottom , .dialogcorner { height: 50px; }
+.dialogcorner { background: url(../AppImages/shadow_br.png) no-repeat; position: absolute; right: -50px; width: 50px; }
+.dialogbottom { background: url(../AppImages/shadow_b.png) no-repeat 0 0; position: relative; }
+
+
+.modalarticle{ padding:30px 25px 50px 40px;} 
+.modalarticle a{ font-size  :  13px !important; font: normal Arial,sans-serif; color:#5E9CAE;} 
+ 
+
+ 
+ /***  WIDGETS   ****/
+/*.widget { border: 1px solid #dedfe4; margin-bottom: 9px; padding: 14px 16px 14px ; width: 173px; }  This is obsolete now use the one below*/
+.widget {
+border:1px solid #DEDFE4;
+margin-bottom:9px;
+margin-top:10px;
+padding:14px 16px;
+width:173px;
+}
+
+
+
+    .widget img, .videoWidget img { margin-bottom: 10px; }
+.questionWidget { background: #72b5cc; border: none; padding-bottom: 4px; width: 175px; }
+    .questionWidget input { border: 0px solid black; font-size: 10px; width: 150px;}
+    .questionWidget p , .rightRail .questionWidget a { color: #fff; margin-bottom: 8px; }
+    .questionWidget .questionformcontainer {border-collapse:collapse; margin-left: -8px; }
+    .questionformcontainer td {background:#fff; margin:0; padding:0}
+    .questionformcontainercontact td {background:none;}
+    .questionformcontainercontact td.textfield {background:#fff;}
+    .widget img { margin-left: -8px; }
+    .goquestion { background: url(../appimages/button_go.gif) no-repeat; display:block; height: 18px ; text-indent: -10000px; top: -2px; width: 20px; }
+.alsoSee { padding: 15px; width: 175px; }
+    .alsoSee img { margin-left: 0 }
+    
+/* login page widgets */
+
+
+.divgleft{width:30%; float:left;}
+.divgright{width:70%;float:right;}
+
+.loginWidget {color:#fff;}
+.loginWidget, .infoWidget { float: left; }
+.loginWidget { background:#92b051 url(../AppImages/signinbg.gif) no-repeat right bottom; height:345px; padding:0; width: 350px; }
+
+.loginWidget, .infoWidget { float: right; }
+
+    .loginWidget .innerWidget { color: #fff; padding: 10px 15px 0px 42px; width: 260px; }
+        .loginWidget .innerWidget , .loginWidget .innerWidget a { color: #fff; }
+    .loginWidget .loggedinHead {font-size:1.3em; margin-left:20px;}
+    .loginWidget input.text {width: 165px; }
+    .loginWidget input.labelinput {color:#ccc;}
+    .loginWidget input.nonlabel {color:#333;}
+    .loginHeader {background:url(../AppImages/signinhead.gif) no-repeat left top; height:23px; margin:20px 0 8px 42px; text-indent:-5000px; width:250px;}
+    .loggedinHeader {background-image:url(../AppImages/signinhead2.gif); margin-left:20px; width:310px;}
+.loggedinWidget .innerWidget p {font-weight:bold;}
+.infoWidget { border: 1px solid #dedfe4; height:315px; margin: 0 0 0 10px; padding: 23px 46px 5px ; width: 517px; }
+    .infoWidget .videoWidget { float: right; }
+    .infoWidget h2 {margin-bottom:20px;}
+    .infoWidget p.subhead {margin-bottom:20px;}
+    .infoWidget ul { margin: 0 0 9px; padding: 0; }
+        .infoWidget ul li { background: url(../AppImages/icons_login_page.gif) no-repeat 0 0; height: 28px; list-style: none;  padding-left: 30px; width:263px;}
+            .infoWidget ul li.first { padding-top: 5px; }
+            .infoWidget ul li.second { background-position: 0 -34px; margin-bottom:15px; }
+            .infoWidget ul li.third { background-position: 0 -60px; }
+            .infoWidget ul li.fourth { background-position: 0 -87px; }
+            .infoWidget ul li.fifth { background-position: 0 -120px; }
+
+.loginerrorcontainer { background:#fff url(../AppImages/icon_error1.gif) no-repeat 22px 13px; border:2px solid #92b051; margin:0 0 12px; padding:10px 0 0 46px; width: 300px; }
+    .loginerrorcontainer p { margin-bottom: 10px; }
+    .loginerrorcontainer strong { color: #C60C30; }
+
+
+.loginerrorcontainer {
+background:url("../AppImages/icon_error1.gif") no-repeat scroll 22px 13px #FFFFFF;
+border:2px solid #92B051;
+margin:0 0 -1;
+padding:10px 0 0 46px;
+margin:0 0 -12px; /*jan 21 updated from -2 to -12*/
+width:300px;
+}
+
+
+	
+#forgotpasswordlink { background-position: 0 3px; font-size:10px; }
+
+
+#ctl00_BodyContent_ctrlLogin1_rememberyourpassword, #ctl00_BodyContent_ctrlLogin1_widgetregisterlink, #ctl00_BodyContent_ctrlLogin1_aLearnMore, #ctl00_BodyContent_ctrlLogin1_hplSignInNow{ 
+color:#fff; 
+font-size:11px;
+text-decoration: underline;
+} 
+
+
+#ctl00_BodyContent_ctrlLogin1_rememberyourpassword{
+padding: 0 0 0 0;
+}
+
+
+#ctl00_BodyContent_ctrlLogin1_widgetregisterlink{ 
+color:#fff; 
+font-size:11px;
+text-decoration: underline;
+margin:0 0 0 0;
+} 
+
+#ctl00_BodyContent_ctrlLogin1_widgetregisterlink{
+/*vertical-align: Top;
+vertical-align: text-top;
+*/
+vertical-align: top;
+/*margin-bottom:10px;*/
+}
+
+#ctl00_BodyContent_ctrlLogin1_widgetregisterlink span{
+padding: 0 0 10px 0; 
+}
+
+
+#ctl00_BodyContent_ctrlLogin1_chkRememberMe{ 
+vertical-align:text-top;
+} 
+
+
+
+/** This special case is for 1 link that is not list , and is a plain href needed a proper bullet to appear next to it **/
+#ctl00_BodyContent_ctrlLogin1_login_lnkForgotPass{ 
+color:#fff; 
+font-size:11px;
+text-decoration: underline;
+
+background:url("../appimages/bullet_menu.png") no-repeat scroll 0 4px transparent;
+color:#FFFFFF;
+display:block;
+padding:0 0 0 12px;
+} 
+
+#remembermespecialcase{ 
+color:#fff; 
+font-size:11px;
+text-decoration: underline;
+
+background:url("../appimages/bullet_menu.png") no-repeat scroll 0 4px transparent;
+color:#FFFFFF;
+display:block;
+padding:0 0 0 12px;
+} 
+            
+/* video widget */
+.videoWidget { background: #FFFFFF /*#edeff3*/; border: none; padding: 15px 20px; width: 160px; } /* Change padding from '15px 20px' to '15px -15px' when adding Air Miles content to sign-in page */
+.rightRail .videoWidget { padding: 15px 15px; width: 177px; }
+
+/* landing page widgets */
+.landingContainer { display: block; margin-bottom: 20px;}
+    .landingContainer .item, .landingContainer img { float: left; }
+    .landingContainer .item { margin: 0 0 0 10px; width: 355px; }
+    
+	.landingContainer .noimageitem{ float: left; }  /**This was added to handle the case where there are no images on landing page but its not working as planned not used March 11th SK**/
+    .landingContainer .noimageitem{ margin: 0 0 0 10px; width: 100%; } /**This was added to handle the case where there are no images on landing page but its not working as planned not used March 11th SK**/
+	
+/* myEnbridgeCTA */
+.myEnbridgeCTA { background: url(../AppImages/myenbridge_cta.gif) no-repeat #92b051; margin: 20px 0; padding: 12px 160px 12px 40px; width: 270px; }
+    .myEnbridgeCTA h4, .myEnbridgeCTA a { color: #fff; }
+.myEnbridgeCTALoggedin {background-image:url(../AppImages/myenbridge_cta2.gif); height:134px; padding: 10px 160px 10px 40px;}
+    .myEnbridgeCTALoggedin .ctalogo {background:url(../AppImages/myenbridgelogo_cta.gif) no-repeat left top; height:25px; margin-bottom:3px; width:126px; display: block; }
+    .myEnbridgeCTALoggedin h4 {margin-bottom:6px;}
+    .myEnbridgeCTALoggedin ul {margin-bottom:4px;}
+    .myEnbridgeCTALoggedin .button {margin-bottom:0px;}
+
+	
+	/* myEnbridgeCTA */
+.myEnbridgeCTA h4, .myEnbridgeCTA a { color: #fff; }
+.myEnbridgeCTALoggedin {background-image:url(../AppImages/myenbridge_cta2.gif); height:134px; padding: 10px 160px 10px 40px;}
+	.myEnbridgeCTALoggedin .ctalogo {background:url(../AppImages/myenbridgelogo_cta.gif) no-repeat left top; height:25px; margin-bottom:3px; width:126px;}
+	.myEnbridgeCTALoggedin h4 {margin-bottom:6px;}
+	.myEnbridgeCTALoggedin ul {margin-bottom:4px;}
+	.myEnbridgeCTALoggedin .button {margin-bottom:0px;}
+	.myEnbridgeCTALoggedin .ctalogo {background:url(../AppImages/myenbridgelogo_cta.gif) no-repeat left top; height:25px; margin-bottom:7px;margin-top:2px; width:126px;}
+
+.myEnbridgeCTALoggedin {background-image:url("../AppImages/myenbridge_cta2.gif");height:105px;padding:10px 160px 10px 40px;}
+.myEnbridgeCTALoggedin .button {margin-top:3px;}
+.myEnbridgeCTALoggedin h4, .myEnbridgeCTALoggedin a { color: #fff; }
+.myEnbridgeCTA {background:url("../AppImages/myenbridge_cta.gif") no-repeat scroll 0 0 #92B051;margin:20px 0;padding:12px 160px 12px 40px;width:270px;height:68px;}
+    
+/* safety tips */
+.safetyTipsWidget { background: url(../AppImages/safety_tips_header.gif) no-repeat #edeff3; width: 209px; }
+    .safetyTipsWidget>h4 { color: #fff; margin: 0; padding: 6px 0 0px 38px; }
+    .safetyTipsWidget .item { padding: 15px; }
+    
+/* selectionBar */
+.selectionBar { border-bottom: 1px solid #dedfe4; float: right; margin: 0px 0 32px 0; padding: 0 0 12px 0 ; text-align: right; width: 705px; }
+select.selection { background: #e6ebf1; border: 2px solid #e6ebf1; font-size: 12px; }
+ 
+/***  PAGES   ****/
+ 
+/* my enbridge pages */
+.inlinenotice { background: #72B5CC; margin-bottom: 10px; padding: 10px 20px 1px; }
+.inlinenotice, .inlinenotice p { color: #fff; }
+.inlinenotice a { color: #fff; text-decoration: underline;}
+.embeddedlabel { color: #888; }
+.optionsservicescontainer input.first { width: 127px; }
+.contentlist { margin: 0; padding: 0 0 0 15px; }
+.headerextra { color: #333333; font-weight: normal; }
+.inlinedropdownlink { background: url(../AppImages/bullet_menu_selected.gif) no-repeat 100% 6px; padding-right: 12px; }
+.defaultaccountindicator { background-color: #4e565c; color: #fff; display:inline-block; font-size: 8px; font-weight:bold; line-height:1; padding: 3px; vertical-align:middle; }
+.statusactive { color: #458D0B; }
+.statusinactive { color: #333333; }
+.statusclosed { color: #c60c30; }
+.statusactive,.statusinactive,.statusclosed  {font-weight:bold;}
+#banner_myenbridgeinside { background: url(../AppImages/banner_myenbridge2.jpg); height: 70px; }
+    #banner_myenbridgeinside .securityBar { background: url(../AppImages/icon_lock_transparent.png) no-repeat 5px 0; margin-right: 20px; margin-top: 30px; }
+    #banner_myenbridgeinside .securityBar, #banner_myenbridgeinside .securityBar a { color: #fff; }
+    #banner_myenbridgeinside .securityBar a { font-weight: bold; }
+.myenbridgeinside .contentContainer { margin-top: 16px; }
+.contenttabs {position:relative; z-index:2;}
+.contenttabs li a, .customerservicetab li a { display: block; font-size: 13px; line-height: 1.2; padding: 0 20px; vertical-align: middle; width: auto; }
+.contenttabs li a { height: 25px; padding-top: 14px; }
+.contenttabs li.multilinetab a { height: 32px; padding-top: 5px; padding-bottom: 2px; }
+.contenttabs li.selected {  border: 1px solid #dedfe4; border-bottom: 0px solid; }
+.contenttabs li.selected a { background: #F3F4F7; }
+.cstab {float:right;}
+.customerservicetab { float: right; position: relative; top: 3px; }
+    .customerservicetab li, .customerservicetab li a { background-image: url(../AppImages/tab_customerservice.gif); }
+    .customerservicetab li a { color: #9DA1A6; height: 27px; padding-top: 10px; }
+.contenttabscontentarea { background: #F3F4F7; border-top: 0; border: 1px solid #dedfe4; padding: 11px 10px 10px ; position: relative; top:-1px;}
+.contenttabscontentarea h3.myE {border-bottom:1px dotted #000000; color:#C60C30; font-size:1.5em; padding-bottom:5px; padding-left:10px; }
+.bluemenu .contenttabscontentarea h3.myE {border-bottom:1px dotted #000000; color:#368BA3; font-size:1.5em; padding-bottom:5px; padding-left:10px; }
+.accountsummarycontainer, .contenttabscontentmain { float: left; }
+.accountsummarycontainer { margin-right: 10px; width: 276px; }
+.accountsummarycontainer2 { border: 1px solid #DEDFE4; padding: 15px 8px; }
+.contenttabscontentmain { width: 664px; }
+.myenbridgesection, .currentbillsummarycontainer, .gasusagesummarycontainer, .latestbillinserts { border: 1px solid #DEDFE4; padding: 15px 8px 15px 17px; }
+.gasusagereport, .paymenthistoryreport { padding: 15px 8px 15px 17px; }
+.myenbridgesection ul.contentLink { margin-bottom: 10px; }
+.contenttabscontentmain .questionWidget { min-height: 140px; }
+.accountsummarycontainer2, .myenbridgesection, .currentbillsummarycontainer,.gasusagesummarycontainer, .latestbillinserts { background: #fff; }
+.currentbillsummarycontainer,.gasusagesummarycontainer { margin-bottom: 10px; }
+/*.gasusagesummarycontainer * { font-size: 1em; }*/
+.signoutcontainer { margin: 10px auto 0; width: 223px; }
+    .signoutcontainer a { background: url(../AppImages/button_signout.gif) no-repeat; display: block; height: 27px; text-indent: -5000px; width: 223px; }
+.accountsummary,.optionssummary { border-bottom: 1px solid #EDEFF3; margin-bottom: 10px; padding-bottom: 10px; }
+.accountsummary,.optionssummary, .billingcontactsummary { padding-left: 10px; }
+.optionssummary, .billingcontactsummary { margin-top: 10px; }
+.addaccountlink a { background: url(../AppImages/icon_plus.gif) no-repeat 0 3px; padding-left: 10px; }
+.optionslist { list-style: none; margin: 0 0 10px 0; padding: 0; }
+    .optionslist li { line-height: 17px; margin-bottom: 8px; padding-left: 25px; }
+.option-billdelivery { background: url(../AppImages/icon_envelope.gif) no-repeat; }
+.option-paperless { background: url(../AppImages/icon_paperless.gif) no-repeat; }
+.option-signedup { background: url(../AppImages/icon_checkmark.gif) no-repeat; background-position:left center; }
+.option-signedup a.signin { margin-bottom: 0; }
+.option-notsignedup { background: url(../AppImages/icon_circle.gif) no-repeat; background-position:left center; }
+.option-notsignedup a.signin { margin-bottom: 0; }
+.option-pending { background: url(../AppImages/icon_circle_yellow.gif) no-repeat; background-position:left center; }
+.option-pending a.signin { margin-bottom: 0; }
+.optionsservicesmenu,.optionsservicescontainer { float: left; }
+.optionsservicesmenu { background: #FBFCFD url(../AppImages/optionsservicesmenubg.jpg) no-repeat; min-height: 536px; height: auto !important; height: 536px; margin-right: 10px;  padding: 15px 0 15px 5px; width: 160px; }
+    .optionsservicesmenu li { padding-bottom: 7px }
+    .optionsservicesmenu a { background: url(../appimages/bullet_menu.png) no-repeat 9px 6px; color: #333; display: block; line-height: 20px; padding-left: 18px; }
+    .optionsservicesmenu li.selected { background: url(../AppImages/thirdpartynoticemenushadow.png) repeat-x 0 100%; }
+        .optionsservicesmenu li.selected a { background: url(../AppImages/bullet_content.png) no-repeat 9px 6px #fff; color: #C60C30; font-weight: bold; }
+.optionsservicescontainer { width: 460px; }
+.formcontainer { background: #DEE4EB url(../AppImages/thirdpartynoticeformbg.gif) repeat-x; padding: 20px; }
+    .formcontainer label { font-weight: normal; padding-right: 5px; white-space: nowrap; }
+    h4.formname {border-bottom:1px dotted #5a5d61; margin-bottom:14px; padding-bottom:10px; font-size: 16px; }    
+    
+    /*h4.formtitle {border-bottom:1px dotted #5a5d61; margin-bottom:14px; padding-bottom:10px;}*/  /**Style has been deactivated pending deletion the dotted line is not needed Feb 7th 2011**/
+	h4.formtitle {background-color: #C7D2DC;
+    color: black;
+    padding-top: 5pt;
+    padding-left: 4pt;
+    padding-bottom: 4pt;
+	font-size:13px;  /**This was origionally 1.3 em had to be changed becasue a form third-party-notification magnifiying stuff when used inside myenbridge section it appeared fine outside of that framework Feb 23rd, 2011**/
+	}
+   
+    .formcontainer input.nonlabel {color:#333;}
+.optionsservicescontainer .text { width: 100%; }
+.optionsservicescontainer table p {font-size:11px;}
+.currentbillsummary, .moreaboutbilling, .gasusagesummary, .moreaboutgasusage, .paperlessoptions a  { float: left; }
+.currentbillsummary, .gasusagesummary { border-right: 1px solid #ebeced; padding: 0 15px 0 8px; width: 415px; }
+.currentbillsummary table, .gasusagesummary table { margin-bottom: 15px; }
+.currentbillsummary td, .gasusagesummary td { font-size: 1.2em }
+.currentbillsummary a { font-size: 1.0em !important }
+.moreaboutbilling, .moreaboutgasusage { font-size: 0.9em; padding-left: 15px; width: 168px; }
+.currentbillsummary .summarylabel, .gasusagesummary .summarylabel { padding-right: 10px; }
+.ebilloptions { background: url(../AppImages/ebilllogo.jpg) no-repeat;   min-height: 33px; height: auto !important; height: 33px;margin-bottom: 15px; padding-left: 85px; padding-top: 7px; }
+.paperlessoptions { background: url(../AppImages/icon_paper.gif) no-repeat;   min-height: 47px; height: auto !important; height: 47px; margin-bottom: 15px; padding-left: 55px; padding-top: 3px; }
+.paperlessoptions p {font-size:12px; font-weight:bold;}
+.customerupdatesticker { background: url(../AppImages/customerupdates_bg.gif) repeat-x; margin-bottom: 15px; padding: 11px 15px 15px; }
+.seeallcustomerupdateslink { float: right; }
+.customerupdatesticker p { margin: 0; }
+#customerupdate a { background: url(../appimages/bullet_menu.png) no-repeat 10px 3px; padding-left: 20px; padding-right: 5px; }
+.gasusagesummary .totals td { color: #C60C30; font-weight: bold; }
+.bluemenu .gasusagesummary .totals td { color: #368BA3; font-weight: bold; }
+.myenbridgecallouts .widget { float: left; margin-right: 12px; }
+.questionWidget a { color: #fff; }
+    .latestbillinserts td { padding-right: 38px; vertical-align: top; }
+    .latestbillinserts p { margin-bottom: 0; }
+    .latestbillinserts a { color:#333333; font-size: 9px !important; }
+    
+#allaccountsviewcontainer,#inlinedropdownlinkcontainer { position: relative; }
+#allaccountsviewcontainer{zoom:1} /* zoom is a IE-exclusive property. Used here to fix browser rendering bugs in IE6/IE7 */
+#inlinedropdownlinkcontainer { z-index: 100; }
+#allaccountsview { background: #fff; border: 1px solid #D5D5D5; left: -10px; padding: 10px; position: absolute; top: -30px; width: 545px; }
+.allaccountscloser { float: right; }
+    .allaccountscloser a { background: url(../AppImages/allaccountsclose.gif) no-repeat 100% 0; color: #333; display: block; height: 15px; line-height: 15px; padding-right: 20px; }
+.allaccountsbody { padding: 10px 0; }
+    .allaccountsbody table { border-collapse: collapse; margin: 0; padding: 0; width: 100%; }
+    .allaccountsbody td { padding: 5px 3px; }
+    .allaccountsbody .odd td { background: #F3F4F7; }
+#allaccountsmask { left: 0; position: absolute; top: 0; }
+
+.selectionBar .gobacktosection {background: url(../appimages/bullet_content_lg_left.png) no-repeat 0 8px; font-size: 14px; float: left; padding-left:10px; padding-top: 5px;}
+    
+/* interactive bill page */
+#dialog .contenttabscontainer { background: #72B5CC; padding-left: 45px; }
+#dialog li a { padding: 12px 30px 0px ; }
+#dialog li.selected a { background-color: #fff; }
+.modalContainer { margin: -42px 0 0 0; }
+#dialog .contenttabscontentarea { background: none; border: 0; padding: 31px 46px ; }
+.bill { float: left; position: relative; width: 377px; }
+.bill, #dialog .rightRail { height: 490px; }
+#dialog .rightRail { margin-left: 195px; position: relative; width: 233px; }
+.bottomInstructions { position:absolute; bottom: 0 }
+
+/**This is important class for the interactive billing it helps control the index on the billing page with out the index vs side text will be off on page 1**/
+a.icon_group {
+} /*Do not delete it */
+a.icon_bill { background: url(../AppImages/icon-bill-item-red.png) no-repeat; color: #fff; display: block; font-size: 10px; font-weight: bold; height: 17px; padding: 2px 0 0 4px ; position: absolute; width: 17px; }
+a.icon_bill_over { background: url(../AppImages/icon-bill-item-grey.png) no-repeat top right; color: #fff; display: block; font-size: 10px; font-weight: bold; height: 17px; padding: 2px 0 0 4px ; position: absolute; width: 17px;}
+
+a.icon_bill_singledigit { background: url(../AppImages/icon-bill-item-red.png) no-repeat; color: #fff; display: block; font-size: 9px; font-weight: bold; height: 17px; padding: 2px 3px 0 5px ; position: absolute; width: 17px; }
+a.icon_bill_over_singledigit { background: url(../AppImages/icon-bill-item-grey.png) no-repeat; color: #fff; display: block; font-size: 9px; font-weight: bold; height: 17px; padding: 2px 3px 0 5px ; position: absolute; width: 17px;}
+
+a.icon_bill_doubledigit { background: url(../AppImages/icon-bill-item-red.png) no-repeat; color: #fff; display: block; font-size: 9px; font-weight: bold; height: 17px; padding: 2px 0px 0 4px; position: absolute; width: 17px; }
+a.icon_bill_over_doubledigit { background: url(../AppImages/icon-bill-item-grey.png) no-repeat; color: #fff; display: block; font-size: 9px; font-weight: bold; height: 17px; padding: 2px 0px 0 4px; position: absolute; width: 17px;}
+
+#icon1 { left: 139px; top: 51px; }
+#icon2 { left: 207px; top: 62px; }
+#icon3 { left: 44px; top: 77px; }
+.interactiveCallout { background: #747678; display: none; margin-left: -15px; padding: 10px 20px; position: absolute; width: 225px; }
+    .interactiveCallout h6 { margin-top: 16px; }
+.pagination { color: #acafb4; margin-top: 25px; text-align: center; }
+.interactiveCallout a.next, .interactiveCallout a.previous { background: url(../AppImages/bullet_pagination.png) no-repeat 100% 123%; padding: 0 15px 0 0; }
+.interactiveCallout a.previous { background-position: 0 3px; padding: 0 0 0 15px; }
+.interactiveCallout p, .interactiveCallout a , .interactiveCallout .pagination { color: #fff; }
+.close { background: url(../AppImages/popup_closer.gif) no-repeat right top ; display: block; float: right; height: 15px; outline:none; text-align: left ; width: 60px; }
+.interactiveCallout .close { text-indent: -50000px; width: 15px; }
+#allaccountsviewcontainer,#inlinedropdownlinkcontainer { position: relative; }
+#inlinedropdownlinkcontainer { z-index: 100; }
+#allaccountsview { background: #fff; border: 1px solid #D5D5D5; left: -10px; padding: 10px; position: absolute; top: -30px; width: 900px; }
+.allaccountscloser { float: right; }
+    .allaccountscloser a { background: url(../AppImages/allaccountsclose.gif) no-repeat 100% 0; color: #333; display: block; height: 15px; line-height: 15px; padding-right: 20px; }
+.allaccountsbody { padding: 10px 0; }
+    .allaccountsbody table { border-collapse: collapse; margin: 0; padding: 0; width: 100%; }
+    .allaccountsbody td { padding: 5px 3px; }
+    .allaccountsbody .odd td { background: #F3F4F7; }
+#allaccountsmask { left: 0; position: absolute; top: 0; }
+/* contactus */
+.contactInformation { padding: 16px 0 0 15px; }
+.contactInEmergency { float: left; width: 322px; }
+.contactEmergencyContent { padding: 0 20px 0 10px; }
+    .contactEmergencyContent p, .contactEmergencyContent ul { padding-left: 36px; }
+    .contactEmergencyContent li { margin-left: 14px; }
+*:first-child+html .contactEmergencyContent ul { margin-left: 0px; }
+.contactGeneralQuestions { float: left; width: 320px; }
+/*h3.contactus { color: #333333; } Line below introduced Feb 8th*/ 
+h3.contactus { border-bottom: 1px dotted #000; color: #333333; font-size: 1.5em; padding-bottom: 5px; padding-left: 10px; }
+/*h3.contactusEmergency { color: #C60C30; Line below introduced Feb 8th}*/
+h3.contactusEmergency { border-bottom: 1px dotted #000; color: #C60C30; font-size: 1.5em; padding-bottom: 5px; padding-left: 10px; }
+.additionalContactsList { padding: 0 0 0 10px; }
+.contactGeneralQuestionsContent { padding: 0 0 0 10px; }
+    .contactGeneralQuestionsContent p { padding-left: 36px; }
+.contactCall { background: url(../AppImages/icons_contactus_page.gif) no-repeat 3px top; padding: 0 0 0 36px; }
+.contactEmail { background: url(../AppImages/icons_contactus_page.gif) no-repeat 3px -84px; padding: 0 0 0 36px; }
+.contactForm {background: url(../AppImages/icons_contactus_page.gif) no-repeat 3px -168px;padding: 0 0 0 36px;}
+.contactDept {background: url(../AppImages/icons_contactus_page.gif) no-repeat 3px -252px;padding: 0 0 0 36px;}
+.contentQustionWidget { font-weight: bold; margin: 30px 0 10px 0; padding: 12px 10px 12px 26px; width: auto; }
+    .contentQustionWidget label { color: #fff; font-size: 12px; }
+    .contentQustionWidget form { display: inline; }
+    .contentQustionWidget input { border: 0; margin-left: 10px; width: 190px; }
+.contactCustomerServiceProcess { background: url(../AppImages/section_bg_reverse.jpg) repeat-x left bottom #f1f3f6; padding: 25px 15px; }
+.contactServiceStep { float: left; padding: 0 10px 0 10px; width: 185px;font-size: 1.3em; }
+.contactServiceStep p{ font-size: 1.3em;}
+.contactCorporateOffices { margin-top: 12px; }
+.contactOffice { float: left; padding: 0 8px; width: 150px;font-size: 1.3em;}
+.contactOffice p{ font-size: 1.3em;}
+
+/*form error*/
+.formerror {background:#fff url(../AppImages/icon_error1.gif) no-repeat 15px 10px; font-size:11px; margin-bottom:10px; padding:10px 10px 10px 40px ;}
+    .errortitle {color:#c60c30; font-size:13px; font-weight:bold;}
+    span.errorText {vertical-align: top;}
+    .errorText div {background:url(../AppImages/icon_error2.gif) no-repeat 0px 0px; color:#c60c30; font-size:13px; padding-left:20px;}
+    .errorRow label {color:#c60c30;}
+    .errorRow .text {background:#f8c9c9; color:#333333;}
+ 
+/* languageselector */ 
+
+
+ .langselectorcontainer{background:#edeff3; float:right; margin:0 0 10px 0; padding:16px 12px}
+ .langselectorcontainer p {font-size:12px;}
+ .langselector {background-repeat:no-repeat; height:21px; padding-left:26px}
+ .langselector table{border-collapse:collapse;} 
+ .langselector td {padding:0;}
+ .langselector.pdf {background-image:url(../AppImages/icon_pdf.gif)}
+ .langselector select{font-size:9px; height:18px; width:130px}
+ .langselect option {font-size:12px;}
+ 
+ #foraccount{width:100%}
+ 
+.checkbox.mainloginremembermetext input { margin: 0px 5px 0 0; }
+.mainloginremembermetext label {font-size: 11px; font-weight: normal; display:inline-block; padding: 0 0 5px 0; vertical-align: middle; }
+
+.myenbridgeCtaSignIn {background: no-repeat scroll 0 0 #92B051;float:right;margin-bottom:16px;width:450px;}
+
+/* banners */
+.bannerSub { width: 972px; height: 200px; margin: 0 auto; border: 1px solid #ccc; background-repeat:no-repeat; background: #ccc; color:#fff}
+.bannerSub h1, .sectionPage .banner p  { margin: 20px 0 0 40px ; width:380px }
+.bannerSub h2, .sectionPage .banner p  { margin: 15px 0 0 40px ; width:380px }
+
+.sectionNav2 {margin-top:-40px}
+
+.sectionNavXXX ul.level2 {border-top:1px solid #d4d5d9; margin-left: 10px;}
+
+.alerts
+{
+	background: yellow;
+	font-weight: bold;
+	margin: 20,0,0,20;
+	padding: 10,0,0,10;
+	border: 1px;
+	border-style: solid;
+}
+.updates
+{
+	font-weight: bold;
+	margin: 20,0,0,20;
+	padding: 10,0,0,10;
+}
+
+/* Important changes */
+.banner_to_be_delete { background-color: inherit; background-repeat: inherit  ; border: auto; color: inherit; height: auto; margin: auto; }
+.banner_to_be_delete p { font-size:1em; }
+.bannerShort { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 128px; margin: 0 auto; width: 972px; }
+.bannerTall { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 263px; margin: 0 auto; width: 972px; }
+.bannerTall h1 { margin: 38px 0 0 45px}
+.bannerTall p  { margin: 20px 0 0 45px ; width:380px; font-size: 15px;}
+.bannerTall h2 { margin: 15px 0 0 40px ; width:380px }
+.bannerText h1 { color: #333333; margin: 50px 0 0 0; }
+
+.sectionNavSub {margin-top:-40px}
+
+.sectionNav .RadTreeView {
+    cursor: default;
+    white-space: inherit;
+}
+
+.sectionNav .RadTreeView .rtIn {
+    margin-left: 0px;
+    padding: 4px 0px 3px 0px;
+    text-decoration: none;
+}
+
+.sectionNav .RadTreeView li {
+    border-color: #D4D5D9;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    font-size: 12px;
+}
+.sectionNav ul li.rtFirst {
+    border-top: 1px solid #D4D5D9;
+}
+
+/* bullet margin */
+.sectionNav .RadTreeView .rtPlus, .sectionNav .RadTreeView .rtMinus {
+    margin-left: -12px;
+    margin-right: 1px;
+}
+
+.RadTreeView_Vista .rtSelected a.rtIn
+{
+	background-position: -20px;
+	background: #c60c30;
+	color: #FFFFFF;
+	border: 0;
+	list-style: none outside none;
+}
+
+.RadTreeView_Vista div.rtSelected
+{
+   background: #c60c30; color: #FFFFFF;
+}
+
+.RadTreeView_Vista div a.rtIn {
+color:#000000;
+font:12px/18px Arial,sans-serif;
+}
+
+.sectionNav .RadTreeView .rtTop, .sectionNav .RadTreeView .rtMid, .sectionNav .RadTreeView .rtBot {
+    padding: 1px 0 1px 12px;
+}
+
+.sectionNav .RadTreeView .rtUL .rtLI .rtUL {
+    padding-left: 0px;
+}
+
+.sectionNav123.RadTreeView_Vista .rtPlus, .sectionNav123 .RadTreeView_Vista .rtMinus {
+    background-image: url("/AppImages/left_nav_bullet_homes.png");
+}
+
+#ctl00_bodyTag.contentPage .content { float: left; margin-left: 27px; width: 716px; }
+
+.myenbridgecallouts .questionWidget { float: left; margin-right: 12px; min-height:113px; }
+.myenbridgecallouts .questionWidget { background: #72b5cc; border: none; width: 175px; margin: 15px 12px 9px 27px; padding:14px 16px 4px 16px; font-weight: normal;}
+.myenbridgecallouts .questionWidget label { font-weight: normal; font-size:1.3em; margin:0px 0 10px 10px; padding:0;}
+.myenbridgecallouts .questionWidget input { border: 0px solid black; font-size: 10px; width: 150px; margin-left: 0; float: left;}
+
+.breadcrumbs li.selected a { background: none ; color: #333333; font-weight: bold ; padding-right: 0; }
+.contentPage .securityBar.myenbridgeinside { font-size:12px; margin:0px 10px 10px 0;}
+.contentPage .securityBar .myenbridgeinside { font-size:12px; margin:0px 10px 10px 0;}
+
+.searchBar div { display:inline; }
+
+.bluemenu .contenttabs li a, .customerservicetab li a { display: block; font-size: 13px; line-height: 1.2; padding: 0 20px; vertical-align: middle; width: auto; }
+.bluemenu .contenttabs li.selected a { background: #F3F4F7; }
+.bluemenu .contenttabs li a { height: 25px; padding-top: 14px; }
+.bluemenu .contenttabs li.multilinetab a { height: 32px; padding-top: 5px; padding-bottom: 2px; }
+
+.bluemenu .optionsservicesmenu li.selected a { background: url(../AppImages/bullet_content_business.png) no-repeat 9px 6px #fff; color: #368BA3; font-weight: bold; }
+
+.customerupdatesticker .updateItem {background: none;}
+
+
+/**The Styles are not being picked up for the Glossary Pages **/
+.glossarytablewithrightmenu {background: none repeat scroll 0 0 #FFFFFF;border:0 solid #DEDFE4;color:#333333;float:left;margin-bottom:10px;margin-left:0;padding:15px 8px 15 px 0px;width:650px;  /*450px*/ }
+.glossarytablewithrightmenu h3 {color:#5E9CAE !important;font-size:1.0em;margin:0px 10px 0px 0px;}
+.glossarytablewithrightmenu h3 a{color:#5E9CAE /*!important*/;font-size:1.0em;margin:0px 10px 0px 0px;}
+.glossarytablewithrightmenu h3 a:link {color:#5E9CAE /*!important*/;font-size:1.0em;margin:0px 10px 0px 0px;}
+.glossarytablewithrightmenu h3 a:hover {color:#5E9CAE /*!important*/;font-size:1.0em;margin:0px 10px 0px 0px;text-decoration: underline;}
+/*.glossarytablewithrightmenu h3 a:visited  {color:#cccccc !important;font-size:1.0em;margin:0px 10px 0px 0px;}*/
+
+.glossarytablewithrightmenu .unselected { font-size:1.0em;margin:0px 10px 0px 0px;color:#848484 !important;} /*Jan 18th 2011*/
+.glossarytablewithrightmenu p {color:#black; font-size: 1.3em; margin: 0 0 5; padding: 0; }
+.glossarytablewithrightmenu  a{font-size: 1.0em; margin: 0 0 5; padding: 0;color:#333333;}
+.glossarytablewithrightmenu li a{font-size: 1.0em; /*background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;*/color:#333333; display: block ; padding:0 0 0 12px; }
+.glossarytablewithrightmenu li {font-size: 1.3em; color:#333333; }
+
+.glossarytablewithrightmenu p  a{color:#5E9CAE; font-size: 1.3em;} 
+
+/*
+.landingContainer se {
+cursor:pointer;
+}
+*/
+
+/* 
+ p.errorSummary {color:#B40404; font-size: 1.2em; font-weight:normal;}
+.errorSummary ul{color:#B40404; font-size: 1.2em; font-weight:normal; padding: 0 0 0 15px; margin: 0; }
+
+/** This is a request to reduce the font size for the errors that gets displayed on the forms pages */
+/*.errorSummary ul li {
+color:#B40404;
+font-size:1em; 
+font-weight:normal;
+}
+**/
+
+.inlinenoticequiz, .inlinenoticequiz p {
+color:#FFFFFF;
+}
+
+.inlinenoticequiz {
+background:none repeat scroll 0 0 #72B5CC;
+margin-bottom:10px;
+padding:10px 20px 1px;
+}
+
+/** This handles the li and Ul tags for the quiz **/
+.inlinenoticequiz li{
+font-size:12px;
+/*background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;*/
+color:#fff; 
+display: block ; 
+padding:0 0 0 12px; 
+}
+
+.inlinenoticequiz ul{
+margin:4px 0 0 -15px;
+}
+
+.quizgreenquestion{
+color:#green;
+}
+
+.quizgreenquestion strong{color:#38610B;}
+.quizgreenquestion h3{font-size:1.4em;}
+
+/* content area */
+.landingContainer span { cursor:pointer;}
+/** The styles below effect the appliances pages where you have two column central displays **/
+.catalogue-repeater {clear: left;float: left; /*width: 100%;position: absolute;*/}
+
+.catalogue-items-repeater {float:left;margin-bottom:20px;width:50%;height:70px}  /*Feb 1 2011 added height to repeater for appliance page*/
+
+.catalogue-items-repeater .landingContainer {font-size:1.3em;/*font-weight:bold*/;margin-left:15px; text-transform:uppercase;} /*Jan 10th no bold on riders*/
+.catalogue-items-repeater .landingContainer .item, .landingContainer img {float:left;}
+
+/* Can't do this **   when trying to fix Jan 10th no bold on riders issue , the appliances-and-equipment inherits the 1.0 fonts
+.landingContainer a {margin-left:15px; text-transform:uppercase;} 
+.landingContainer a {font-size  : 1.0em;}   Do this you will break teh appliance section
+a.landingContainer works for the riders section just fine with out effecting the appliance and equipment headers
+*/
+a.landingContainer {font-size  : 1.0em !important;} /** This is being used in riders/volume ..and needs to be 1.0em for headers discovered Jan 10th**/
+
+.catalogue-items-repeater .catalogue-repeater-title {display:block;float:left;font-size:1.3em;font-weight:bold;margin-left:15px;margin-top:2px;text-transform:uppercase;width:215px;   /*215px*/}
+/** Certain Pages which display 2 column items with images or not its used there**/
+.catalogue-items-repeater .catalogue-repeater-title-noimage {display:block;float:left;font-size:1.3em;font-weight:bold;margin-left:15px;margin-top:2px;text-transform:uppercase;width:320px;   /*215px*/}
+/** End of the styles for the 2 column appliances pages **/
+
+/* The pointer cursor was not appearing on page */
+/*.landingContainer se {cursor:pointer;} */
+
+/** This line has tobe here to prevent red color for headers for downlaod tables **/
+/*Full Page Width*/
+.content-full-width h2 {color:#C60C30;margin:0 auto 20px;width:auto; font-size: 20px;}
+
+/** Styles for the download Table **/
+.downloadtables{margin-bottom:10px;background:none repeat scroll 0 0 #FFFFFF;/*border:1px solid #DEDFE4;*/padding:15px 8px 15px 17px;color:#333333;float:left;margin-left:0px;width:100%;}  /*Feb 4th*/
+.downloadtables h3 {color:#333333;font-size:1.5em;margin:0 0 0 0;/*padding-bottom:5px;*//*padding-left:10px;*/}
+
+.downloadtables h2 {color:#333333;font-size:1.8em;margin-bottom:0px;}
+.downloadtables p {color:#333333; font-size: 1.3em; margin: 0 0 5; padding: 0; }
+.downloadtables td {height: 10px;/*border: 1px solid black;*/}
+.downloadtables tr {height: 10px;}
+.downloadtables th {height: 5px;}
+
+
+/** This style has been added because of the about us pipeline project download page**/
+/** The normal style download tables will push out all the table elements out side of the **/
+/** template breaking so these styles have been written so that the tables stay with in the confined space **/
+
+.downloadtableswithleftmenu {background:none repeat scroll 0 0 #FFFFFF;color:#333333;float:left;margin-bottom:10px;margin-left:0;padding:15px 8px 15px 0;width:100%;}
+.downloadtableswithleftmenu h3 {color:#333333;font-size:1.5em;margin:0 0 0 0;}
+.downloadtableswithleftmenu h2 {color:#333333;font-size:1.8em; /*margin-bottom:0px;*/}
+.downloadtableswithleftmenu p  {color:#black; font-size: 1.3em; margin: 0 0 5; padding: 0; }
+.downloadtableswithleftmenu td {height: 10px;/*border: 1px solid black;*/}
+.downloadtableswithleftmenu tr {height: 10px;}
+.downloadtableswithleftmenu th {height: 5px;}
+
+/*This is added for list stylation*/
+.downloadtableswithleftmenu   ul{color:#333333; display: block ; padding:0 0 0 12px; list-style: none; margin: -2px 0 10px 0;}
+.downloadtableswithleftmenu   ul li {font-size  : 1.3em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px; color:#black; display: block ; padding:0 0 0 12px; min-width: 0;}
+.downloadtableswithleftmenu   ul li a{font-size  : 1.0em;}
+.downloadtableswithleftmenu  ul li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.downloadtableswithleftmenu  ul a{font-size  : 1.3em;}
+.downloadtableswithleftmenu  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.downloadtableswithleftmenu   ul ul li {font-size  : 0.9em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.downloadtableswithleftmenu   a {font-size  : 1.3em;}
+
+/*This is added for list stylation*/ /**Modified Jan12th this is aparently effecting pages like /businesses/start-stop-move-service/unlocking-your-gas-meter.aspx**/
+.downloadtableswithleftmenu   ol{color:#333333; display: block ; padding:0 0 0 12px; /*list-style: none;*/ margin: -2px 0 10px 0;}
+.downloadtableswithleftmenu   ol li {font-size  : 1.3em; color:#333333; padding:0 0 0 1px; margin:0 0 0 25px;}  /**Margin increased to 25 from 10 for meter reading page**/
+.downloadtableswithleftmenu   ol li a{font-size  : 1.0em;}
+.downloadtableswithleftmenu  ol li a  {font-size  : 1.0em;background: none; }
+.downloadtableswithleftmenu  ol a{font-size  : 1.3em;}
+.downloadtableswithleftmenu  ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px;  background: none;}
+.downloadtableswithleftmenu   ol ul li {font-size  : 0.9em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.downloadtableswithleftmenu   a {font-size  : 1.0em;}  /** This is being used in riders/volume ..and needs to be 1.0em for headers discovered Jan 10th**/
+
+
+
+/**This is a element to move the remember me checkbox and text field used on the main login page**/
+.mainloginremembermetext {font-size: 11px; margin:-6px 10px 5px 0;}
+
+.downloadtableswithrightmenu {background:none repeat scroll 0 0 #FFFFFF;border:0 solid #DEDFE4;color:#333333;float:left;margin-bottom:10px;margin-left:0px;margin-top:-11px; padding:15px 8px 15px 0px;width:450px;}
+.downloadtableswithrightmenu h3 {color:#333333;font-size:1.5em;margin:0 0 -2px 0;}
+.downloadtableswithrightmenu h2 {color:#333333;font-size:1.8em;/*margin-bottom:0px;*/}   
+.downloadtableswithrightmenu p {color:#black; font-size: 1.3em; margin: 0 0 5; padding: 0; }
+.downloadtableswithrightmenu td {height: 10px;/*border: 1px solid black;*/}
+.downloadtableswithrightmenu tr {height: 10px;}
+.downloadtableswithrightmenu th {height: 5px;}
+/** End of Styles for the Download Pages **/
+
+/*This is added for list stylation*/
+.downloadtableswithrightmenu  ul{color:#333333; display: block ; padding:0 0 0 12px; list-style: none; margin: -2px 0 10px 0;}
+.downloadtableswithrightmenu  ul li {font-size  : 1.3em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.downloadtableswithrightmenu  ul li a{font-size  : 1.0em;}
+.downloadtableswithrightmenu  ul li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.downloadtableswithrightmenu ul a{font-size  : 1.3em;}
+.downloadtableswithrightmenu  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.downloadtableswithrightmenu  ul ul li {font-size  : 0.9em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.downloadtableswithrightmenu  a {font-size  : 1.3em;}
+
+/*This is added for list stylation*/
+.downloadtableswithrightmenu   ol{color:#333333; display: block ; padding:0 0 0 1px; /*list-style: none*/; margin: -2px 0 10px 0;}
+.downloadtableswithrightmenu   ol li {
+font-size  : 1.3em; 
+color:#333333; 
+padding:0 0 0 1px; 
+}
+
+.downloadtableswithrightmenu   ol li a{font-size  : 1.0em;}
+.downloadtableswithrightmenu  ol li a  {font-size  : 1.0em;/*list-style: none;*/background: none; }
+.downloadtableswithrightmenu  ol a{font-size  : 1.3em;}
+.downloadtableswithrightmenu  ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; /*list-style: none*/; background: none;}
+.downloadtableswithrightmenu   ol ul li {font-size  : 0.9em; /*background: url(../AppImages/bullet_menu.png) no-repeat 0 4px */;color:#333333; display: block ; padding:0 0 0 12px; /*list-style: none*/}
+.downloadtableswithrightmenu   a {font-size  : 1.0em;}  /** This is being used in riders/volume ..and needs to be 1.0em for headers discovered Jan 10th was set at 1.3 initially**/
+
+
+
+
+.bodytext h3 {color:#333333;font-size:1.5em;margin:0 0 -2px 0;}
+.bodytext h2 {color:#333333;font-size:1.8em;}
+/* To make h2 and h2 smaller for Tridion ascx in myEnbridge page */
+.myenbridgesection .bodytext h2 { font-size: 1.5em; }
+.myenbridgesection .bodytext h3 { font-size: 1.2em; }
+
+.bodytext .nextLink  {margin-top: 15px;}
+.bodytext .nextLink p {float: left; margin-right:15px;}
+.bodytext .anchors#subPageLinks {float:left;clear:both;margin-bottom:10px;}
+.bodytext .anchors#subPageLinks ul li {float:left;margin-bottom:3px;border-right:1px solid #CCCCCC;border-left: none;margin-right:10px;padding-left:0;}
+.bodytext .anchors#subPageLinks ul li.last {border:none;}
+.bodytext .sub-content {clear:left;}
+
+/*This is added for list stylation*/
+/*This is added for list stylation*/
+.bodytext  ul{color:#000000; display: block ; padding:0 0 0 12px; list-style: none; margin: -2px 0 10px 0;}/*color:#333333 note safari*/
+.bodytext  ul li {font-size  : 1.3em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px; color:#000000; display: block ; padding:0 0 0 12px; list-style: none;}  /*color:#333333 safari*/
+.bodytext  ul li a{font-size  : 1.0em;}
+.bodytext  ul li a  {font-size  : 1.0em;list-style-type:none;background: url(../AppImages/fakeJpgIE7bugnotrealimage.png) no-repeat 0 4px; }
+.bodytext  ul a{font-size  : 1.3em;}
+.bodytext  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.bodytext  ul ul li {font-size  : 0.9em; background: url(../appimages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.bodytext  a {font-size  : 1.3em;}
+
+
+
+/** Jan 10th this is masking the bullet **/
+.bodytext   ol{color:#333333; display: block ; padding:0 0 0 12px; margin: -2px 0 10px 25px;  } /*Margin was updated for the meter reading from 0 to 25 jan 17th*/
+.bodytext   ol li {font-size  : 1.3em; }
+.bodytext   ol li a{font-size  : 1.0em;}
+.bodytext   ol li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.bodytext   ol a{font-size  : 1.3em;}
+.bodytext   ol ul {font-size  : 1.1em; color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.bodytext   ol ul li {font-size  : 0.9em; /*background: url(../AppImages/bullet_menu.png) no-repeat 0 4px*/;color:#333333; display: block ; padding:0 0 0 12px; /*list-style: none;*/}
+
+.contentTable a {font-size  : 1.0em;} /**Jan 19th 2010**/
+
+/** These additions are being made for the "contracts section" Jan 21st 2011 SK**/
+.bodytext   ol ol  li{font-size  : 1.0em; color:#333333; padding:0 0 0 12px; } 
+
+
+/*.bodytext  p {margin:0 0 0 0;} This was setup for "Companies Participating" but doing this will effect the spacing for all the other "articles" so a style company table has been created*/
+.companytable p {margin:0 0 0 0;}  /**Only effects the companies particiapting section**/
+
+
+/** This was added on the 17th to fix the problem on the how to read your meter image /text wrapping keeping the image to left but its effecting other images in other areas**/
+/** So this function is being disabled Jan 18th as there are some images that have to be kept right aligned like small pdf files**/
+/*
+.bodytext img  
+{
+    margin:0 5 0 5; 
+	padding:0 0 0 0;
+    float:left;
+    margin: 0 15px 15px 0;
+}
+*/
+
+
+/** Special case being added to handle the anchor issue on privacy policy page Jan 25th before you could not add an anchor with h3 element**/
+.bodytext h3 a
+{
+color:#333333;
+font-size:1.0em;
+margin:0 0 -2px;
+border-bottom:medium none;
+padding-bottom:5px;
+padding-left:0;
+padding:0;
+}
+
+/*Listing Page*/
+.alternateodd {background-color: #FFFFFF} /*This should be white*/
+.alternateeven{background-color: #F5F5F5}
+
+/*Generic buttons used for styling form elements*/
+.genericbutton{ background-image: url(../AppImages/button_signin.gif); color: #fff; padding: 2px 1px 3px 10px; display:inline-block;font-size:11px;line-height:22px;border: 0px;font-weight:bold;}
+
+.genericinputbox{width:100%;border:0 none;margin:-3px 0 0;font-size:12px;border-collapse:collapse;height: 20px;}
+.genericlabel{font-size: 1.3em; font-weight:normal;padding-right:5px;white-space:nowrap;}
+.genericbuttonnew{ background-image: url(../AppImages/button_signin_new.gif); color: #fff; padding: 2px 1px 3px 10px; display:inline-block;font-size:11px;line-height:22px;border: 0px;font-weight:bold;}
+.formcontainer { background: #DEE4EB  repeat-x; padding: 20px; } /*needed toget rid of the gradient as it makes it hard to read the white input fields*/
+.movingbannerwindow { height: 263px; width:100%; overflow:hidden; position:relative; }
+body.homes-homepage .bannerContainer .layout {left:-160px;top:41px;width:600px;}
+body.business-homepage .bannerContainer .layout {left:-160px;top:41px;width:600px;}
+
+/**make sure these are last three untill file merge is completed**/
+.project-item .content-rptr {float: left; margin:-15px 0 -20px 0;}
+
+/** This has been created just for the login widget home and business pages**/
+.genericinputboxsmallfonts {border:0 none;border-collapse:collapse;font-size:11px;height:20px;margin:-3px 0 0;width:100%;}
+
+/** Created this cuz we need this to shift the whole table a bit to left in login widget**/
+.tablemove { width: 100%; padding: 0px; border: none; margin: 0 0px 0 0px; }
+
+
+/**?**/
+
+/* header */ 
+/* .headerElements { float: right; height: 70px; width: 700px ; } No longer is needed*/ 
+
+/* menu myenbridgeNav */
+.myenbridgeNav { background: url(../AppImages/myenbridge_menu.gif) no-repeat 0 0 #92b051; float: right; margin-bottom: 16px; padding-left:115px; width: auto;}
+
+/* secondary Nav */
+	.header .secondaryNav li.first {background:none;}
+	.secondaryNav li#home a { background: url(../appimages/button_home.gif) no-repeat 1px 13px ; border: 0; height: 18px ; text-indent: -10000px ; width: 21px; }
+	
+/* uitility bar */
+.printfontcontrol a, .navlabel , .breadcrumbs a, .breadcrumbs span { font-size: 11px ; white-space: nowrap; }
+.breadcrumbs li.selected span { background: none ; color: #333333; font-weight: bold ; padding-right: 0; }
+
+/* banners */
+.banner { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 128px; margin: 0 auto; width: 972px; }
+/*.bannerTall { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 263px; margin: 0 auto; width: 972px; } Using now the over ridden banner now*/ 
+
+
+/* Important changes */
+.banner_to_be_delete { background-color: inherit; background-repeat: inherit  ; border: auto; color: inherit; height: auto; margin: auto; }
+.banner_to_be_delete p { font-size:1em; }
+.bannerShort { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 128px; margin: 0 auto; width: 972px; }
+.bannerTall { background-repeat: no-repeat ; border: 1px solid #fff; color: #fff; height: 263px; margin: 0 auto; width: 972px; }
+.bannerTall h1 { margin: 38px 0 0 45px}
+.bannerTall p  { margin: 20px 0 0 45px ; width:380px; font-size: 15px;}
+.bannerTall h2 { margin: 15px 0 0 40px ; width:380px }
+.bannerText h1 { color: #333333; margin: 50px 0 0 0; }
+
+#banner_corporatecommitments { background-image: url(../AppImages/banner_3.jpg) ; }
+#banner_managingyourenergyuse { background-image: url(../AppImages/banner_1_5.jpg) ; }
+#banner_accountsandbilling { background-image: url(../AppImages/banner_2_1.jpg) ; }
+
+/* footer */
+.footer a, .footer .heading, .footer p, .copyright { color: #676a6c; font-size: 10px; }
+.secondaryFooterMenu ul.navigation li { border-left: 1px solid #bbbdc1; display: inline; font-size: 10px ; padding: 0 5px; margin-left:0}
+
+
+/* quicklins container area */
+.updateItem {background:#fff;}
+
+/* content area */
+.landingContainer span { cursor:pointer;}
+
+
+/***  WIDGETS   ****/
+	.questionWidget input { font-size: 12px; margin-top:1px ; } /*Jan 27th 13px*/  /**feb 7th reverted back to 10px **/
+	.questionWidget .questionformcontainer {border-collapse:collapse; margin-left: -8px; }
+	.questionformcontainer td {padding:0}
+	.goquestion { background: url(../AppImages/button_go.gif) no-repeat; display:inline; height: 18px ; text-indent: -10000px; top: -2px; width: 20px; margin: 0px 0 0 -4px ;}
+	.questionWidget .goquestion {margin-left: 0px; width:40px} /**changed it from -4px to 0**/
+	.goquestionbottom{  background: url(../AppImages/button_go.gif) no-repeat; display:inline; height: 20px ; text-indent: -10000px; top: -2px; width: 20px; margin: 0px 0 0 -4px ;min-width: 0;}
+	.questionWidget .goquestionbottom {margin-left: -3px; width:40px ; *margin-left: -8px; }
+	.questionWidget .questionformcontainer a {margin-left: 10px;}
+	.questionWidget .questionformcontainer {margin-bottom:5px;}	 
+	.questionWidget #questionform .questionformcontainer label { display: block; float: left; margin-bottom: 10px;}
+	.questionWidget #questionform .questionformcontainer input.labelinput { display: block; float: left; margin-bottom: 10px }
+	.questionWidget #questionform .questionformcontainer input.goquestion { float: left; margin-bottom: 10px;width:20px;cursor: pointer}
+	.questionWidget #questionform .questionformcontainer a.contentLink { float: left; margin-bottom: 10px }
+	.rightRail .contentQustionWidget {border:1px solid #DEDFE4;margin-bottom:9px;padding:14px 16px;margin:0 0 10px;width:173px;}
+	.rightRail .questionWidget #questionform .questionformcontainer label {display:block;float:left;font-size:13px;font-weight:normal;margin-bottom:10px;margin-left:8px;}
+	.rightRail .questionWidget #questionform .questionformcontainer input.labelinput {display:block;float:left;margin-bottom:10px;width:148px;padding-bottom:4px; font-size: 10px; }
+	.rightRail .questionWidget #questionform .questionformcontainer a.contentLink {float:left;margin-bottom:0;font-weight:normal}
+/* login page widgets */
+.infoWidget { border: 1px solid #dedfe4; height:300px; margin: 0 0 0 10px; padding: 23px 46px ; width: 517px; } /* Height changes from 300px to 320px for Air Miles content */
+
+
+/***  PAGES   ****/
+ 
+/* my enbridge pages */
+.embeddedlabel { color: #888; }
+#banner_myenbridgeinside { background: url(../AppImages/banner_myenbridge2.jpg); height: 70px; }
+	#banner_myenbridgeinside .securityBar { background: url(../AppImages/icon_lock_transparent.png) no-repeat 5px 0; margin-right: 20px; margin-top: 30px; }
+	#banner_myenbridgeinside .securityBar, #banner_myenbridgeinside .securityBar a { color: #fff; }
+	#banner_myenbridgeinside .securityBar a { font-weight: bold; }
+#allaccountsviewcontainer{zoom:1}
+
+/* interactive bill page */
+.close { background: url(../AppImages/popup_closer.gif) no-repeat right top ; display: block; float: right; height: 15px; outline:none; text-align: left ; width: 60px; }
+
+/* languageselector */ 
+ .langselectorcontainer{background:#edeff3; float:right; margin:0 0 10px 0; padding:16px 12px}
+ .langselectorcontainer p {font-size:12px;}
+ .langselector {background-repeat:no-repeat; height:21px; padding-left:26px}
+ .langselector table{border-collapse:collapse;} 
+ .langselector td {padding:0;}
+.langselector.pdf {background-image:url(../AppImages/icon_pdf.gif)}
+ .langselector select{width:130px}
+ .langselect option {font-size:12px;}
+ 
+ /*Popular Links - Homepage*/
+/*.quickLinks {background:url("../AppImages/quicklinks-bottom-border.gif") no-repeat scroll left 120% transparent;}*/
+.quickLinks .items {float:left;padding:0 0 18px;width:241px;}
+.quickLinks .items img.popular-links-img {position:absolute;z-index:0;}
+.quickLinks .items h2 {font-size:1.8em;padding:15px 50px 0 125px;position:relative;text-transform:uppercase;}
+.quickLinks .items ul {margin:0 0 0 40px;padding:0;position:relative;}
+.quickLinks .items ul li a.contentLink {font-size:1em;}
+
+
+
+ /* Content Page with no Right Rail */
+#ctl00_bodyTag.contentPage .content-no-rr {float:left;margin-left:27px;width:715px;}
+
+/* Brochure download Page with no Right Rail*/
+#ctl00_bodyTag.contentPage .brochurecontent-no-rr {float:left;margin-left:0px;width:100%;} /**Jan 19th fix for the alignment of full details page**/
+
+/* Fix for the Search Left Alignment*/
+#ctl00_bodyTag.contentPage .brochurecontent-no-rr .nullifyleftmargin {margin-left:0px;}
+
+ /*Full width page template*/
+#ctl00_bodyTag.contentPage .content-full-width {float:left;margin:0;width:100%;}
+
+ /*Three col width page template (cotact us page possinly others)*/
+#ctl00_bodyTag.contentPage .content-3-col {float:left;margin:0;width:670px;}
+#ctl00_bodyTag.contentPage .rightRail-3-col  {float:left;margin-left:39px;margin:0 0 0 10px;width:292px;}
+#ctl00_bodyTag.contentPage .rightRail-3-col  .widget-3-col {border:1px solid #DEDFE4;margin-bottom:9px;padding:14px 16px;width:259px;}
+
+/*contact page right rail widget*/
+.additionalContactsList {margin-bottom:20px;}
+
+
+
+ /*Footer FAQ*/
+.footer-faq img.footer-faq-img {float: right;}
+.footer-faq ul {padding-left: 0;margin-top: 0;margin-left: 0;}
+.footer-faq ul li {list-style-type: none;}
+.footer-faq ul li a.contentLink {font-size: 1em;}
+.footer-faq h3 {display: block; font-size: 1.3em; font-weight:bold}
+
+
+ /*FAQ*/
+.faqcategory-repeater {width:100%; margin-bottom:40px;}
+/*.faqcategory-items-repeater {float: left; width: 30%; margin-bottom: 20px;} Jan 24th */.faqcategory-items-repeater {float: left; width: 217px; margin-bottom: 20px;}
+.faqcategory-items-bg {/*background-color:#F5F5F5;*/ margin-bottom:10px; margin-right:10px; padding:10px; }
+
+/*Project List Page*/
+/*.project-item {padding: 25px; background-color: lightgrey; margin-bottom: 20px;}*/
+.project-item{padding: 25px; background-color: #F5F5F5; margin-bottom: 10px; }
+
+.project-item img.content-image {float: left; margin-right: 20px; padding-bottom: 5px;}
+.project-item .content-rptr {float: left; margin-bottom: -20px;}
+
+.details-page-content h3 {color:#333333;font-size:1.5em;margin:0 0 -2px 0;}
+.details-page-content h2 {color:#333333;font-size:1.8em;}  
+.details-page-content .nextLink  {margin-top: 15px;}
+.details-page-content .nextLink p {float: left; margin-right:15px;}
+.details-page-content .anchors#subPageLinks {float:left;clear:both;margin-bottom:10px;}
+.details-page-content .anchors#subPageLinks ul li {float:left;margin-bottom:3px;border-right:1px solid #CCCCCC;border-left: none;margin-right:10px;padding-left:0; background:none; display: inline-block;}
+.details-page-content .anchors#subPageLinks ul{width: 100%;}
+.details-page-content .anchors#subPageLinks ul li  a{white-space:nowrap;}
+.details-page-content .anchors#subPageLinks ul li.last {border:none;}
+.details-page-content .sub-content {clear:left;}
+
+/*This is added for list stylation*/
+.details-page-content  ul{color:#333333; display: block ; padding:0 0 0 12px; list-style: none; margin: -2px 0 10px 0;}
+.details-page-content  ul li {font-size  : 1.3em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px; list-style: none;min-width: 0;} 
+.details-page-content  ul li a{font-size  : 1.0em;}
+.details-page-content  ul li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.details-page-content  ul a{font-size  : 1.3em;}
+.details-page-content  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.details-page-content  ul ul li {font-size  : 0.9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.details-page-content  a {font-size  : 1.0em;} /*January 7th 2011*/
+
+
+/** These styles have been turned off because they are seemingly interfering with bullets in tables in rider section Jan 11 2011**/
+
+/*This is added for list stylation*/
+/* Jan 11 2011 - .details-page-content   ol{color:#333333; display: block ; padding:0 0 0 12px; list-style: none; margin: -2px 0 10px 0;} */
+/*Jan 11 2011 - .details-page-content  ol li {font-size  : 1.3em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px; list-style: none;} *//*jan 7th */
+
+/** Special SK NOTES** the font 1.3em Riders needs this to be 1.0 pipeline-and-construction-projects need it to be 1.0  (problem cited)**/
+
+/* Jan 11 2011 - .details-page-content  ol li a{font-size  : 1.0em;} */
+/* Jan 11 2011 - .details-page-content  ol li a  {font-size  : 1.0em;list-style-type:none;background: none; }*/
+/* Jan 11 2011 - .details-page-content  ol a{font-size  : 1.3em;}*/
+/* Jan 11 2011 - .details-page-content  ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}*/
+/* Jan 11 2011 -.details-page-content   ol ul li {font-size  : 0.9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}*/
+
+
+
+/*Override H3 from site.css*/
+h3 { border-bottom: none; color: #000; font-size: 1.5em; padding-bottom: 5px; padding-left: 0; }
+
+//.item { position: relative; width:60%; } /**Do not activate this**/
+
+/* Homepage */
+body.homes-homepage .footerContainer .footer .layout {width:940px;}
+.homes-homepage .header {height:auto;padding-bottom:10px;}
+body.business-homepage .footerContainer .footer .layout {width:940px;}
+
+
+.business-homepage .header {height:auto;padding-bottom:10px;}
+.logincontent { margin: 0 ; width: 972px; }
+.loginWidget .loggedinWidget{ float: left; } /*Logged in special Case*/
+
+/**Special Case**/
+.loggedinWidget{ float: left; } /*Logged in special Case*/
+.loggedinWidget {background:url("../AppImages/signinbg.gif") no-repeat scroll right bottom #92B051;height:348px;padding:0;width:350px;}
+.loggedinWidget, .loggedininfoWidgetinfoWidget {float:left;}
+.loggedininfoWidget {border:1px solid #DEDFE4;height:300px;margin:0 0 0 10px;padding:23px 46px;width:517px;}
+
+
+.loggedininfoWidget {float:left;}
+
+
+
+/*for HP banner*/
+/* rotating banner */
+.homes-homepage  .banner { border:none; height: 263px;  position: relative; width: 100% }
+.homes-homepage  .contentContainer { margin-bottom: 32px; min-height:0}
+.homes-homepage  .header { height: auto; padding-bottom:10px; }
+
+.business-homepage  .banner { border:none; height: 263px;  position: relative; width: 100% }
+.business-homepage  .contentContainer { margin-bottom: 32px; min-height:0}
+.business-homepage  .header { height: auto; padding-bottom:10px; }
+
+.movingbannerwindow .bannerContainer  .bannerelement a {color: #fff}
+.movingbannerwindow .bannerContainer  h1 {margin-left: 0;}
+.banner  .bannernav .bannerbtn  {color: #fff;}
+
+
+/* FAQ Page Search */
+.faq-search-widget {width: 100%;clear:left;float:left;margin-bottom: 25px} /*search field container*/
+.faq-search-widget .faq-label {float: left;}
+.faq-search-widget input.faq-search-btn {background: url(../AppImages/button_go.gif); border: 0pt none; display: -moz-inline-stack; height: 20px; margin: 0; position: relative; text-indent: -10000px; vertical-align: middle; width: 20px;float:left;}
+.faq-search-widget .faq-long-search-box {border:1px solid #CCCCCC;float:left;padding-bottom:1px;width: 300px;}	
+
+
+
+/**PipeLine and Constructions /Riders / Large Volume**/
+/**Removes the linespacing between the header and descriptor**/
+
+/** This controls the distance between the paragraph and the header**/
+.bodytextitem{
+ margin: -15px 0 0 0;
+}
+
+/* myEnbridge pages */
+
+.myEHighlightP { font-weight: bold; }
+
+.myESignedUp { color: #458D0B; }
+
+.myEAccountTable { width: 95% }
+.myEAccountTable th, .myEAccountTable td {
+    valign: middle;
+    padding: 3px 5px 3px 5px;
+}
+.myEAccountTable td>span { padding: 1px 0 0px 22px; height: 17px; display: block; }
+.myEAccountTable tr.current { font-weight: bold; }
+.myEAccountTable tr:nth-child(odd) { background: none repeat-x scroll 0 0 #DEE4EB; }
+.myEAccountTable tr:first-child { background: none repeat-x scroll 0 0 #fff; text-align: left; }
+.myEAccountTable span.option-signedup { color: #458D0B; }
+.myEAccountTable th {
+    font-weight: bold;
+    border-bottom: 1px dotted #5A5D61;
+}
+
+.myETable {
+    background: #F0F0F0 url(../AppImages/myEDivider.gif) repeat-y 370px 18px;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+.myETable>div { padding: 6px 10px; font-size: 1.2em; }
+.myETable>div.clear { display: block; }
+
+.myESectionTitle
+{
+    background: none repeat-x scroll 0 0 #DEE4EB;
+	margin: 0;
+	vertical-align: middle;
+	min-height: 18px;
+    padding: 6px 10px;
+    font-size: 1.2em;  
+}
+.myESectionTitle>div {
+    float: left;
+    font-weight: bold;
+}
+.myESectionTitle>span {
+    float: right;
+    font-size: 1.2em;  
+}
+.myESectionTitle span span { float: none; }
+
+.myEContent { float: left; width: 350px; }
+.myEContent>div, .myEContent>span { float: left; margin: 5px 0; }
+.myEContent>div { font-weight: bold; width: 120px; clear:left; }
+.myEContent>span { width: 230px; }
+.myEcontent>br { display: inline-block; }
+
+.associatedEnbridgeAccounts .myEContent>div { width: 350px; font-weight: normal; }
+.associatedEnbridgeAccounts .myEContent>div>span { float: none; }
+
+.myERemarks { float: right; width: 242px; margin: 5px 0; }
+.myEClear { content: '.'; height: 0; visibility: hidden; display: block !important; clear: both; }
+
+.myENoMargin { margin: 0 }
+
+.myEBillRadioButtonTable { width: 100%; }
+.myEBillRadioButtonTable.twoColumns td:first-child { width: 215px; }
+.myEUnbold label { font-weight: normal; }
+.optionsservicescontainer hr { margin: 5px 0 10px 0; }
+.optionsservicescontainer { font-size: 1.2em; }
+.optionsservicescontainer * { font-size: 1em; }
+.myEButton { overflow:visible; padding: 1px 5px 2px; border: none; background-image: url("../AppImages/button_signin.gif"); color: #FFFFFF; cursor: pointer; }
+.myECheckBox input { margin: 0px 3px 0 0; padding 0; height:13px; width:13px; }
+.myERadioButton input { margin: 0px 3px 0 0; padding 0; height:13px; width:13px; }
+.myERadioButton span { vertical-align: bottom; margin: 0px 0 2px 0; padding: 1px 0 0 0; display: inline-block; }
+.myERadioButton.multiLine span { display: inherit; }
+.myEBillDeliveryCol1 { float: left; padding: 0 0 0 19px; }
+.myEBillDeliveryCol2 { float: left; padding: 0 0 0 23px; }
+.myEBillDeliveryCol2 input { margin: 2px 3px 0 0; }
+.myEBillDeliveryCheckCol1 { float: left; margin: 0 2px 0 0; }
+.myEBillDeliveryCheckCol2 { float: left; margin: 2px 0 0 0; width: 430px; }
+.myEPaginationCol1 { float: left; margin: 3px 0 0 0; font-weight: bold; }
+.myEPaginationCol2 { float: right; margin: 0px 0 0 0; font-weight: bold; }
+.myEPaginationCol2 select { font-size: 0.9em; font-weight: bold; }
+
+input.txtDescForSwitchToPaper { margin: 0 0 0 20px; }
+
+.optionsservicescontainer .form td { padding: 3px 1px 5px 0; }
+
+/**This has been added to handle the display of text areas in dynamic forms**/
+#ctl00_BodyContent_DE_txtMessage { border:0px solid #000000; width:100%; height:400px; margin:0px 0; padding:3px;} 
+
+
+/** This style is applied on the riders detail pages ***/
+
+.riders ol 
+{
+    font-size: 10px; /**March 10th**/
+    color:#000000; 
+}
+
+
+/** This will handle the odd line with text case **/
+.riders li
+{
+ font-size  : 1.3em; 
+ color :#000000; 
+ margin: 5px 0 5px 0;
+ /*list-style: none; ok we need to remove this because this effect the form rate-325.aspx but does solve issue in form rate-125 so I have removed it for now*/
+ 
+}
+
+
+
+
+/** This will handle the case of UL with in a li structure**/
+.riders li ul
+{
+ margin: 0 0 0 -30px;
+}
+
+
+** This will handle the case of UL with in a li structure**/
+.riders li a
+{
+ font-size: 1.1em; 
+ color:#333333; 
+}
+
+
+
+/** This will handle the case of UL with in a li structure**/
+.riders li ul li
+{
+font-size: 0.90em; /*1.01em*/  /**These font sizes are special as once you add the item to the li element the font gets bigger then normal when you use 1.3em**/
+background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;
+color:#333333; 
+display: block ; 
+padding:0 0 0 12px; 
+list-style: none;
+margin:0 0 0 20px;  /*jan 7th2010*/
+}
+
+
+/** This will handle the case of list within list **/
+
+.riders li ul ul li
+{
+font-size: 1.0em; 
+background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;
+color:#000000; /**Orange**/
+display: block ; 
+padding:0 0 0 12px; 
+list-style: none;
+}
+
+
+.riders ol li{
+font-size: .1.3em;  /*jan 7th this was updated due to the riders and pipeline project font issue old value .78*/
+color:#333333;
+}
+/*Jan 10th updated for riders A needs font size = 1.3 for bullets*/
+
+
+
+/** Was added becasue the a links in volume rates section were not picking up the correct anchor tag styles**/
+.riders a 
+{
+ font-size: 1.01em;  /**These font sizes are special as once you add the item to the li element the font gets bigger then normal when you use 1.3em (riders and rate section)**/
+ color:#333333; 
+}
+
+.riders  p a {
+font-size: 1.3em; 
+ color:#333333; 
+}
+
+.riders  p {
+font-size: 1.01em;  /**These font sizes are special as once you add the item to the li element the font gets bigger then normal when you use 1.3em (riders and rate section)**/
+ color:#333333; 
+}
+
+
+/** This was added to handle special case occouring in Volume Rates Section Nested List Logic**/
+/** Form 325 specific display problem Special Case I.E 7.0 display of UL/LI comes off with just using riders ***/
+
+.largevolumerate ol {font-size: 1.3em; color:#333333; }
+
+/** This will handle the odd line with text case **/
+.largevolumerate li{font-size  : 1.3em; color :#333333; margin: 5px 0 5px 0;}
+
+/** This will handle the case of UL with in a li structure**/
+.largevolumerate li ul{margin: 0 0 0 10px;}
+
+/** This will handle the case of UL with in a li structure**/
+.largevolumerate li a{font-size: 1.1em; color:#333333; }
+
+/** This will handle the case of UL with in a li structure**/
+.largevolumerate li ul li{font-size: .9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;  color:#333333; display: block ; padding:0 0 0 12px; list-style: none; }
+
+/** This will handle the case of list within list **/
+.largevolumerate li ul ul li{font-size: .9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.largevolumerate ol li{font-size: 1.3em; color:#333333;}
+
+
+/** This is added to control the subscript notation on the certain pages **/
+.riders li .subscripttext  p a{
+font-size  : 1.0em;
+color:#585858;
+}
+
+.riders li .subscripttext  a{
+font-size  : 1.0em;
+color:#B40404;
+}
+
+.riders li .subscripttext  p{
+font-size  : 1.0em;
+color:#585858;
+margin: 0 0 0 25px;
+}
+
+.subscripttext p {  /**added for displaying subscript text out side of bullet sections **/
+color:#585858;
+font-size:1.1em;
+margin: 10px 25px 10px 25px;
+}
+
+/** This fixes the bottom part of riders table**/
+.ridertables h3 {color:#333333;font-size:1.3em; margin:0 0 -5px; font-weight:bolder;}
+.ridertables h2 {color:#333333;font-size:1.3em;margin-bottom:0px;}
+.ridertables p {color:#black; font-size: 1.1em; margin: 0 0 8px 8px; padding: 0; }
+.ridertables td {height: 8px;/*border: 1px solid black;*/}
+.ridertables tr {height: 8px;}
+.ridertables th {height: 5px;}
+
+
+/** Contains styles for formating lists generic styles**/
+.genericnestedlist ul
+{color:#DF0101; display: block ; padding:0 0 0 12px; list-style: none;}
+
+.genericnestedlist  ul li 
+{font-size  : 1.1em; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#DF0101; display: block ; padding:0 0 0 12px; list-style: none;}
+
+.genericnestedlist  ul li a{font-size  : 1.0em;}
+
+.genericnestedlist  ul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  : .85em;list-style-type:none;background: none; }
+
+.genericnestedlist  ul a{font-size  : 1.3em;}
+
+.genericnestedlist  ul ul {font-size  : 1.1em;color:#DF0101; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+
+.genericnestedlist  ul ul li{font-size  : 1.0em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#DF0101; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+
+.genericnestedlist ol li{
+font-size: 1.0em;  /*jan 7th this is being added to resolve the issue on pipeline and consurtuction page/riders*/
+color:#DF0101 /*was fff*/
+}
+
+
+
+
+.genericnestedlist1 ul
+{color:#DF0101; display: block ; padding:0 0 0 12px; list-style: none;}
+
+.genericnestedlist1  ul li 
+{font-size  : 1.3em; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;
+color:#DF0101; display: block ; padding:0 0 0 12px; list-style: none;
+}
+
+.genericnestedlist1  ul li a
+{font-size  : 1.0em;}
+
+.genericnestedlist1  ul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  : 1.0em;list-style-type:none;background: none; }
+
+.genericnestedlist1  ul a{font-size  : 1.3em;}
+
+.genericnestedlist1  ul ul {font-size  : 1.1em;color:#DF0101; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+
+.genericnestedlist1  ul ul li {font-size  : 1.0em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#DF0101; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+.genericnestedlist1 ol li{
+font-size: 1.0em;  /*jan 7th this is being added to resolve the issue on pipeline and consurtuction page/riders*/
+color:#DF0101 /*was fff*/
+}
+
+
+
+
+
+/** Trouble Shooting the bullets problem with the table in riders section**/
+.tableBullets ul
+{color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.tableBullets   ul li 
+{font-size  : 1.1em; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.tableBullets   ul li a{font-size  : 1.0em;}
+.tableBullets ul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  : .85em;list-style-type:none;background: none; }
+.tableBullets   ul a{font-size  : 1.3em;}
+.tableBullets  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+.tableBullets   ul ul li{font-size  : 1.0em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+.tableBullets  ol li{font-size: 1.0em; color:#333}
+.tableBullets  ol li a{font-size  : 1.0em;}
+.tableBullets  ol li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.tableBullets  ol a{font-size  : 1.3em;}
+.tableBullets  ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.tableBullets  ol ul li {font-size  : 0.9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+
+
+
+
+
+
+/** Trouble Shooting the bullets problem with the table in riders section**/
+.tableBulletsRiders ul
+{color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.tableBulletsRiders   ul li 
+{font-size  : 1.0em; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.tableBulletsRiders  ul li a{font-size  : 1.0em;}
+.tableBullets ul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  : .85em;list-style-type:none;background: none; }
+.tableBulletsRiders  ul a{font-size  : 1.3em;}
+.tableBulletsRiders  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+.tableBulletsRiders  ul ul li{font-size  : 1.0em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+.tableBulletsRiders li{font-size: 1.3em; color:#333}
+.tableBulletsRiders  ol li a{font-size  : 1.0em;}
+.tableBulletsRiders ol li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.tableBulletsRiders ol a{font-size  : 1.3em;}
+.tableBulletsRiders ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.tableBulletsRiders   ol ul li {font-size  : 0.9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+/**This working fine for riders do not change**/
+
+
+
+/*** Imp Jan 10th 2011 - Developer Sk Notes well this style is used mostly in the Tops areas , eg Safety Tips - Energy Tips , and Appliances and Equipment Section **/
+/** This is needed because these pages try to get the Stylization for the elements from the Top level Style - but that style "details-page-content" - "cannot" have a OL definition**/
+/** Because if we define the OL/UL style there it will interfere with numbered bullet's display (with in Tables we lose the numbered list display) etc Pipeline Project Pages so now we need **/
+/** The OL definition was removed on purpose out of that style Also it this will enable us to minipulate the fonts on this section if needed with out effecting other sections*/
+
+
+.TipsBullets ul
+{color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.TipsBullets   ul li 
+{font-size  : 1.3em; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.TipsBullets  ul li a{font-size  : 1.0em;}
+.TipsBullets ul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  :  1.0em; list-style-type:none; background: url(../AppImages/fakeJpgIE7bugnotrealimage.png) no-repeat 0 4px; padding:0 0 0 -5px }  /**Specically set font for the Safety Tips**/
+.TipsBullets  ul a{font-size  : 1.3em;}
+.TipsBullets  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+.TipsBullets ul ul li{font-size  : 0.9em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+.TipsBullets li{font-size: 1.3em; color:#333}
+.TipsBullets  ol li a{font-size  : 1.0em;}
+.TipsBullets ol li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.TipsBullets ol a{font-size  : 1.3em;}
+.TipsBullets ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.TipsBullets  ol ul li {font-size  : 0.9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+
+/** Tried the normal style Table Bullets but the font size on adjustment bills section is too big I can't modify the table bullets becasue that will break pipeline adn contruction table bullets**/
+.AdjustmentBillsBullets ul
+{color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.AdjustmentBillsBullets   ul li 
+{font-size  : 13px; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/  /**Feb 26th changed from em to px for correct font display was set as 1.1 em**/
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.AdjustmentBillsBullets   ul li a{font-size  : 1.0em;}
+.AdjustmentBillsBullets ul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  : .85em;list-style-type:none;background: none; }
+.AdjustmentBillsBullets   ul a{font-size  : 1.3em;}
+.AdjustmentBillsBullets  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+.AdjustmentBillsBullets  ul ul li{font-size  : 1.0em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+.AdjustmentBillsBullets  ol li{font-size: 13px; color:#333}  /**Feb 26th changed from em to px for correct font display was set as 1.0 em**/
+.AdjustmentBillsBullets  ol li a{font-size  : 1.0em;}
+.AdjustmentBillsBullets ol li a  {font-size  : 1.0em;list-style-type:none;background: none; }
+.AdjustmentBillsBullets  ol a{font-size  : 1.3em;}
+.AdjustmentBillsBullets  ol ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none; background: none;}
+.AdjustmentBillsBullets ol ul li {font-size  : 0.9em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+
+
+p.errorSummary {color:#B40404; font-size: 1.2em; font-weight:normal;}
+.errorSummary ul{color:#B40404; font-size: 1.2em; font-weight:normal; padding: 0 0 0 15px; margin: 0; list-style: none; }
+
+
+/** This is a request to reduce the font size for the errors that gets displayed on the forms pages */
+.errorSummary ul li {
+color:#B40404;
+font-size:1em; /**This was origionally 1.3em; so this has been reduced*/
+font-weight:normal;
+padding: 0 0 0 12px;
+background: url("../AppImages/error_bullet.png") no-repeat scroll 0 4px transparent;
+}
+.optionsservicescontainer .errorSummary ul li 
+{
+    font-size:0.8em; /**myEnbridge pages need a smaller font size */
+}
+
+.search-scope {float: left;width: 200px;}
+    .search-page-content {border-left:0px solid #CCCCCC;float:left;padding-left:10px;width:760px;padding-top:5px;}
+    .search-page-content-nosideborder {border-left:0px solid #CCCCCC;float:left;padding-left:10px;width:760px;padding-top:5px;}
+
+	/*Areas searched / area specific results*/
+	.search-scope table.search-areas {margin-bottom: 10px}
+	.search-scope table.search-areas tr {color:#333333;font-size:14px;height: 30px;}
+	.search-scope table.search-areas tr .search-area-label {font-size: 12px;float:left;margin-right:10px;font-weight: bold;}
+	.search-scope table.search-areas tr td {padding: 0 10px;}
+	.search-scope table.search-areas tr div {text-align: right;}
+	.search-scope table.search-areas tr a {color:#333333;font-weight: bold}
+	.search-scope table.search-areas tr a.area-spceific-results {color:#333333} /**Light blue has to be changed to black color:#5E9CAE**/
+	.search-scope table.search-areas tr a.area-spceific-results span {font-size: 12px;}
+	.search-scope table.search-areas tr.leftPanItemSelected {background-color: #72b5cc;}
+	.search-scope table.search-areas tr.leftPanItemSelected, .search-scope table.search-areas tr.leftPanItemSelected a {color: #fff;}
+	
+	/*FAQs found/not found text*/
+	.FAQ-notes {margin-bottom: 10px ;
+	         
+	            background: #DEE4EB;
+	            
+	            
+	            background:url("../AppImages/optionsservicesmenubg.jpg") no-repeat scroll 0 0 #FBFCFD;
+                height:auto !important;
+                margin-right:10px;
+                min-height:536px;
+                padding:15px 0 15px 5px;
+                width:95%;
+	            
+	            } /*main faq container*/
+	            
+	            
+	  
+	            
+	.FAQ-notes tr {float: left;margin-right: 10px;border:0px} /*faq table cell *//**added border=0 on March 1st**/
+	.FAQ-notes td{border:0px} 
+	
+	.FAQ-notes .FAQs-title {display:block;font-size:12px;font-weight:bold;margin-bottom:5px;} 
+	.FAQ-notes table {font-size:12px;border:0px}  /**added border=0 on March 1st**/
+	.FAQ-notes table td.FAQ-bullet img {position:relative;top:-2px;width:5px;}
+	.FAQ-notes table td.FAQ-text {font-size: 12px;padding-left: 5px;}
+	
+	
+	
+     /* This style has been added for support of the bullets and lists search page's left pannel**/	
+    .FAQ-notes ul{color:#333333; display: block ; padding:0 0 0 12px; list-style: none; margin:3px 0 0 -7px;}
+    .FAQ-notes   ul li 
+         {font-size  : 1.3em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px;margin:9px 3px 0 0;}
+  
+  
+    .FAQ-notes  ul li a{font-size  : 12px; }
+    .FAQ-notes ul li a   {font-size  :  1.0em; margin:3px 0 0 0;}  
+    .FAQ-notes  ul a{font-size  : 1.3em;}
+    .FAQ-notes  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+    .FAQ-notes ul ul li{font-size  : 0.9em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+	
+	
+	/** This FAQ notes style is being created to handle the top 10 control on regular FAQ page*/
+	.FAQ-notes1 {margin-bottom: 10px ;
+	            background-color:#F5F5F5;
+                height:auto !important;
+                margin-right:-2px;
+                min-height:536px;
+                padding:15px 10px 15px 5px;
+                width:100%;
+	            
+	            } /*main faq container*/
+	            
+    .FAQ-notes1 ul{color:#333333; display: block ; padding:0 0 0 12px; list-style: none; margin:3px 0 0 -7px;}
+    .FAQ-notes1   ul li 
+         {font-size  : 1.3em; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px; color:#333333; display: block ; padding:0 0 0 12px;margin:9px 3px 0 0;}
+  
+  
+    .FAQ-notes1  ul li a{font-size  : 12px; }
+    .FAQ-notes1 ul li a   {font-size  :  1.0em; margin:3px 0 0 0;}  
+    .FAQ-notes1  ul a{font-size  : 1.3em;}
+    .FAQ-notes1  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+    .FAQ-notes1 ul ul li{font-size  : 0.9em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+	.FAQ-notes1 .FAQs-title {display:block;font-size:12px;font-weight:bold;margin-bottom:25px;} 
+	            
+
+   /** Do not Change this setting effects the FAQ Jan 24th SK **/	
+  .responsecontainer{
+	 padding:0 5px 0 0;
+	min-height: 420px;   
+	 overflow: hidden; 
+    }
+
+    .bodytextfaq{  
+    font-size  :  13px;     /**The font sizes are intentionally set to 13px Jan 26th */   
+    font: normal Arial,sans-serif !important;
+    } 
+	
+    .bodytextfaq  p{  
+    font-size  :  13px;    /**The font sizes are intentionally set to 13px Jan 26th */
+    font: normal Arial,sans-serif !important;
+    } 
+	
+	.bodytextfaq ul
+    {color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+    .bodytextfaq   ul li 
+    {font-size  :  13px ; 
+     background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+    .bodytextfaq  ul li a{font-size  :  13px ; }
+    .bodytextfaq li a   
+    {font-size  :  13px ;list-style-type:none;background: none; } 
+    .bodytextfaq ul a{font-size  :  13px; }
+    .bodytextfaq ul ul {font-size  :  13px; color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+    .bodytextaq ul ul li{font-size  :  13px; background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+	 .bodytextfaq blockquote {
+	 margin-left: 30px !important; 
+	 }
+	
+    
+
+	
+	/*search again textbox / submit*/
+	.search-again {width: 100%;clear:left;float:left;margin-bottom: 10px} /*search field container*/
+   	.search-again input.search-again-btn { font-weight:bold; color:#ffffff; background: url(../AppImages/button_searchit.gif); border: 0pt none; /*display: -moz-inline-stack;*/ height: 20px; margin:0; position: relative; /*text-indent: -10000px;*/ /*vertical-align: middle;*/ width: 100px; /*float:left;*/}
+	.search-again .search-again-box {border:1px solid #CCCCCC;float:left;padding-bottom:1px;width: 500px;}	
+	/*location searched*/
+	.searched-locations{clear:left;margin-bottom: 10px} /*locations searched container*/
+	.searched-locations .searched-for-text {font-size: 12px;}
+	
+	/*pagers*/
+	.search-pager .searched-from-text {font-size: 12px;} /*pagination container*/
+	.search-pager .showing-results-text {font-size: 12px;}
+	.search-pager .pagination {font-size: 12px;}
+	.bottom-pager {border-top:2px solid #000000;clear:left;margin-bottom:0;padding-top:5px;} /*styles for top pagination*/
+	.top-pager {border-bottom:2px solid #000000;clear:left;margin-bottom:0;padding-bottom:5px;}/*styles for bottom pagination*/
+	
+	/*search results sectoio*/
+	.search-results table{width: 100%} /*main search result table*/
+	.search-results table tr td {padding: 10px; border:1px solid #CCCCCC;}
+	.search-results table tr td hr {display: none;}
+	.search-results table tr td .search-results-title-link {display:block;font-size:12px;font-weight:bold;margin-bottom:5px;}
+	.search-results table tr td .search-result-text {font-size: 12px;}
+	.search-results table tr td .search-result-url {/*color: #008000;*/font-size: 12px;} 
+	
+		/*search results sectoio*/
+.search-results table{width: 100%;}
+/*main search result table*/
+.search-results table tr td{padding: 10px;}
+.search-results table tr td hr{display: none;}
+.search-results table tr td .search-results-title-link{display: block;font-size: 12px;font-weight: bold;margin-bottom: 5px;}
+.search-results table tr td .search-result-text{font-size: 12px;}
+.search-results table tr td .search-result-url{/*color: #008000;*/font-size: 12px;}
+
+.searchpagination { color: #333333; margin-top: 25px; text-align: center; font-size: 12px; font-weight: bold}
+
+.searchpagination select{ border: 0px;}
+
+.searcharticlebody{ margin:0 0 0 210px; font-size: 1.3em;} 
+
+
+.searchBullets ul
+{color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.searchBullets   ul li 
+{font-size  : 1.3em; /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.searchBullets  ul li a{font-size  : 1.0em;}
+.searchBulletsul li a   /** This is to handle the cases when Tridion adds the <li> if you try to do <ul> text --> <li></li><ul>**/
+{font-size  :  1.0em;list-style-type:none;background: none; }  /**Specically set font for the Safety Tips**/
+.searchBullets ul a{font-size  : 1.3em;}
+.searchBullets  ul ul {font-size  : 1.1em;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+.searchBullets ul ul li{font-size  : 0.9em;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+#ctl00_BodyContent_ES_btnSearchAgain{ 
+color:#fff; 
+font-size:11px;
+font-weight:bold;
+margin:1px 0 0 0;
+padding: 1px 0 3px 0; 
+} 
+
+#ctl00_BodyContent_ctl00_lblAnswer
+{ 
+font-size:1.3em;
+} 
+
+/** SiteMap Styles**/
+.sitemapstyles {font-size:1.3px;background: none repeat scroll 0 0 #FFFFFF;border:0 solid #DEDFE4;color:#333333;float:left;margin-bottom:10px;margin-left:0;padding:15px 8px 15 px 0px;width:100%;  /*450px*/ }
+
+.site-map-repeater1 {
+float:left;
+margin-bottom:20px;
+width:50%;
+}
+
+.site-map-repeater2 {
+float:right;
+margin-bottom:20px;
+width:50%;
+}
+
+/**fix the rad control display for sitmapt  april 1st weired line issue on sitemap IE*/	
+.rtlI{
+BACKGROUND-IMAGE:none; 
+/*margin-left:1px ;*/
+padding:-20px 0 1px 20px !important;
+/*text-decoration:none;*/
+}
+
+.RadTreeView_Default .rtLines .rtLI, .RadTreeView_Default .rtLines .rtFirst .rtUL {
+line-height:0px;
+font-size:1.3px;
+}
+/**fix the rad control display for sitmapt  april 1st*/	
+
+/** Services Styles **/
+.wrapper {
+  float:left;
+  width:165px;   /**homes/start-stop-move/start-gas-service/our-service-area.aspx  Trying to blance out the TD Feb 3rd**/
+}
+
+
+.fullwidthpagealign{
+margin:0px 0 0 210px;
+}
+
+
+/** News Release Section **/
+/** The font size is intentionally being set to 13 pixels in order to remove the font increae issue being reported on the News release Section Jan 26th**/
+/** Intentionally the em sizes are being modified with the pixel values **/
+.newsrelease{  
+font-size  :  13px !important;        /**Was origionally 1.3em changed Jan 26th**/
+font: normal Arial,sans-serif !important;
+height: auto;
+padding: 5px 0 5px 10px;
+border-top: 1px #848484 solid ;
+} 
+
+.newsreleasedate{
+float:left;
+padding: 10px 0 5px 0;
+width:100px; 
+}
+
+.newsreleasedate  p{  
+font-size  :  13px !important;    /**Was origionally 1.2em Jan 26th**/
+font: normal Arial,sans-serif !important;
+} 
+
+.newsreleasedate  a{  
+font-size  :  13px  !important;   /**Was origionally 1.2em Jan 26th**/
+font: normal Arial,sans-serif !important;
+color:#5E9CAE;
+} 
+
+.newsreleasetitleandlink{
+float:left;
+padding: 10px 0 5px 28px;
+width:570px; 
+height: auto;
+}
+
+.newsreleasetitleandlink  p{  
+font-size  :  13px  !important; /**Was origionally 1.2em Jan 26th**/
+font: normal Arial,sans-serif !important;
+} 
+
+.newsreleasetitleandlink  a{  
+font-size  :  13px !important;  /**Was origionally 1.1 Jan 26them**/
+font: normal Arial,sans-serif !important;
+color:#5E9CAE;
+} 
+
+pre {
+font-size  :  13px ; /**Was origionally 1.3em Jan 26th**/
+}
+
+.bodytextnewsroom{
+font-size  :  13px ;  /**values  that works 1.2 Jan 26th**/
+}
+
+.bodytextnewsroom  p{  
+font-size  :  13px !important; /**values  that works 1.1 Jan 26th**/
+font: normal Arial,sans-serif !important;
+} 
+
+.bodytextnewsroom a{  
+font-size  :  13px !important;  /**values  that works 1.0 Jan 26th**/
+font: normal Arial,sans-serif !important;
+color:#5E9CAE;
+} 
+
+.bodytextnewsroom h3 {
+color:#333333;
+font-size:1.2em;  
+margin:0 0 -2px;
+}
+
+.bodytextnewsroom ul
+{color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.bodytextnewsroom   ul li 
+{font-size  :  13px ; 
+ background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+.bodytextnewsroom  ul li a{font-size  :  13px ; }
+.bodytextnewsroom li a   
+{font-size  :  13px ;list-style-type:none;background: none; } 
+.bodytextnewsroom ul a{font-size  :  13px; }
+.bodytextnewsroom ul ul {font-size  :  13px; ;color:#333333; display: block ; margin:0 0 0 3px;padding:0 0 0 12px; list-style: none;background: none;}
+.bodytextnewsroom ul ul li{font-size  :  13px; ;background: url(../AppImages/bullet_menu.png) no-repeat 0 4px;color:#333333; display: block ; padding:0 0 0 12px; list-style: none;}
+
+.bodytextnewsroom ol {color:#333333; padding:0 0 0 12px; }
+.bodytextnewsroom   ol li {font-size  :  13px ;color:#333333;padding:0 0 0 0px; }
+.bodytextnewsroom  ol li a{font-size  :  13px ; }
+
+
+.videoicon {
+padding: 0 0 0 135px;
+margin:0 0 0 5px;
+font-size: 13px;
+}
+
+.videoicon img{
+vertical-align:text-top;
+}
+
+span.quizanswer label
+{
+	color: #008000;
+	font-weight: bold;
+}
+
+
+/**Pileline Operation Status Styles **/
+.pipelineoperationalstatustabletext /**This is being added as the inner fonts of the tables were appearing with small font size Feb 4th**/
+{
+padding:5px;
+font-size:13px;    
+}
+
+
+.circleicon img
+{
+/*
+margin-left:40%;    /**Sk note - this approach is displaying awkwardly in I.E 7.0 SO not using this for time being 
+margin-right:40%;
+*/
+padding: 0 0 0 50px;
+}
+
+
+/** This is addded to do the section display in forms **/
+.formsectionheading
+{
+    background-color: #C7D2DC;
+    color: black;
+    padding-top: 5pt;
+    padding-left: 4pt;
+    padding-bottom: 4pt;
+}
+
+.formsectionheadingcheckbox
+{
+    background-color: #C7D2DC;
+    color: black;
+    padding-top: 5pt;
+    padding-left: 4pt;
+    padding-bottom: 4pt;
+}
+
+/** For Calculator **/
+.SummerRate { background-color: Aqua }
+.WinterRate { background-color: Yellow }
+.summerRateLegend { width: 15px; height: 15px; float: left; border: 1px solid #000000; background-color: Aqua }
+.winterRateLegend { width: 15px; height: 15px; float: left; border: 1px solid #000000; background-color: Yellow }
+
+
+
+/* video/content widget  */
+.videomaincontainer{width:970px;}
+
+.videodivleft{width:600px; float:left;}
+.videodivright{width:30%;float:right;}
+
+.videoinfoWidget { float: right; }
+.videoinfoWidget { border: 1px solid #dedfe4; height:293px; margin: 0 0 0 -120px; padding: 23px 46px 5px ; width: 320px; }
+
+    .videoinfoWidget ul { margin: 0 0 9px; padding: 0; }
+        .videoinfoWidget ul li { background: url(../AppImages/icons_login_page.gif) no-repeat 0 0; height: 28px; list-style: none;  padding-left: 30px; width:263px;}
+            .videoinfoWidget ul li.first { padding-top: 5px; }
+            .videoinfoWidget ul li.second { background-position: 0 -34px; }
+            .videoinfoWidget ul li.third { background-position: 0 -60px; }
+            .videoinfoWidget ul li.fourth { background-position: 0 -87px; }
+            .videoinfoWidget ul li.fifth { background-position: 0 -120px; }
+			
+			.videoinfoWidget  a {  
+			   font-size  :  11px !important;  
+			} 
+
+.myenbridgesection { position: relative; }
+#allaccountsviewcontainer { z-index: 1; }
+
+/* AddThis Social Media */
+
+.addthis_toolbox a 
+{
+    color: Black;
+}
+
+.at300m { margin-top: 4px !important; }
+.at300bs { margin-top: -4px !important; }
+
+			
+#divRssFeed a  
+{
+    color: Black;
+  /*  display: inline-block;
+    margin-top: -2px; */
+}
+			
+/* Poll widget  */		
+div .poll
+{
+    width: auto;
+}
+   
+.poll input[type="radio"] {
+	margin: 0 6px 0 5px;
+}
+
+.poll input[type="submit"] {
+	background-color: lightblue;
+	margin: 10px 0 8px 0;
+}
+
+/* Specific rules for poll on front/home page */
+.frontPagePoll
+{
+	width: 240px; 
+	float: right; 
+	margin-right: 15px;
+
+}
+
+.frontPagePoll h4 { font-size:12px; }
+
+.frontPagePoll label { font-weight: normal !important; }	
+
+/* Gas Distribution Flowchart */
+
+#customGasFlowComponent div.clear{ clear: both; }
+		#customGasFlowComponentWrapper{
+			height: 692px;
+			width: 700px;
+			margin-top: 20px;
+		}
+		#customGasFlowComponent{
+			height: 500px; 
+			overflow: hidden; 
+			width: 700px;
+			position: relative;
+			border: 1px solid #EBEEF3;
+			display: none;
+		}
+
+		.bg, .fg{
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: transparent url('/AppImages/bg.jpg') top left no-repeat;
+			width: 1823px;
+			height: 500px;
+			z-index: 1;
+		}
+		.bg img{
+			margin: 0 50px;
+		}
+		.fg{ 
+			background: none;
+			z-index: 2;
+		}
+		.fg .num_icon{
+			display: block;
+			width: 37px;
+			height: 36px;
+			background: transparent url('/AppImages/bg-numbers.gif') top left no-repeat;
+			text-align: center;
+			line-height: 36px;
+			color: white;
+			text-decoration: none;
+			font-weight: 700;
+			font-family: Arial, Verdana, Sans-Serif;
+			font-size: 28px;
+			cursor: pointer;
+			position: absolute;
+			z-index: 3;
+		}
+		.fg .sel{
+			background-position: -37px 0;
+			color: #f7941e;
+			z-index: 5;
+		}
+
+		#pp1{ left: 201px; top: 202px; }
+		#pp2{ left: 223px; top: 31px; }
+		#pp3{ left: 367px; top: 190px; }
+		#pp4{ left: 625px; top: 134px; }
+		#pp5{ left: 1077px; top: 133px; }
+		#pp6{ left: 664px; top: 314px; }
+		#pp7{ left: 982px; top: 324px; }
+		#pp8{ left: 1121px; top: 239px; }
+		#pp9{ left: 1379px; top: 179px; }
+
+		#customGasFlowComponent .popup{ 
+			background: transparent url('/AppImages/bg-popups.png') top left;
+			padding: 6px 15px;
+			border: 1px solid #ffe8aa;
+			display: none;
+			position: absolute;
+			z-index: 10;
+			width: 400px;
+			cursor: default;
+		}
+		#customGasFlowComponent .popup h3, #customGasFlowComponent .popup h4{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: Arial Black, Arial, Verdana, Sans-Serif;
+			text-transform: uppercase;
+			font-size: 26px;
+			border-bottom: 2px solid #f7941e;
+			padding-bottom: 6px;
+			color: #f7941e;
+			line-height: 26px;
+		}
+		#customGasFlowComponent .popup h4{
+			font-size: 18px;
+			font-family: Arial, Verdana, Sans-Serif;
+			font-weight: bold;
+			border-bottom: none;
+			margin: 6px 0;
+			padding: 0;
+			line-height: 26px;
+			text-align: left;
+			color: #000;
+		}
+		#customGasFlowComponent .popup p{
+			font-family: Arial, Verdana, Sans-Serif;
+			margin: 0 0 5px 0;
+			text-align: left;
+			color: #000;
+			font-size: 11px;
+			line-height: 14px;
+		}
+		#customGasFlowComponent .popup p a{
+			color: #f7941e;
+		}
+		#customGasFlowComponent .popup p a:hover{
+			color: #cc7b18;
+		}
+		#customGasFlowComponent .popup p a:visited{
+			color: #f7941e;
+		}
+		#customGasFlowComponent .popup .left_col, #customGasFlowComponent .popup .right_col{
+			width: 48%;
+			float: left;
+		}
+		#customGasFlowComponent .popup .left_col{
+			margin-right: 2%;
+		}
+		.stem{
+			background-color: #ffe191;
+			position: absolute;
+			display: none;
+			width: 4px;
+			height: 1px;
+			left: 200px;
+			top: 20px;
+			z-index: 4;
+		}
+		.config_btn{
+			display: block;
+			color: white !important;
+			background-color: black;
+			width: 200px;
+			height: 30px;
+			line-height: 30px;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 12px;
+		}
+		img.preload{
+			display: none;
+		}
+		#minimap{
+			width: 700px;
+			height: 192px;
+			background: transparent url('/AppImages/minimap.jpg') top left no-repeat;
+			position: relative;
+			display: none;
+		}
+		#minimap .visibleRegion{
+			display: block;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			border: 1px solid #F7941E;
+			background: transparent url('/AppImages/bg-visibleregion.png') top left;
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/AppImages/bg-visibleregion.png',sizingMethod='scale');
+		}
+		
+.tabMenu
+{
+	height: auto;
+
+}
+
+
+
+.tabMenuItemHover
+{
+	background-color: #72B5CC !important;
+	
+}
+
+.tabMenuItemStatic
+{
+	height: 40px;
+	width: 120px;
+	font-size: 13px;
+	padding: 0 10px;
+	text-align: center;
+	
+}
+
+.tabMenuItemStatic a
+{
+	color: #000000;
+	
+}
+
+.calcResults
+{
+	border: 1px solid #CCCCCC;
+	border-collapse:separate;
+	border-spacing: 3px;
+	padding: 5px;
+	table-layout:fixed;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.calcResultsCell
+{
+	padding: 6px !important;
+	text-align: center;
+}
+
+.calcResultsCell.avg
+{
+	background-color:#C7D2DC;
+}
+
+.calcResultsCell.yours
+{
+	background-color:#D1D1F0;
+}
+
+.calcResultsCell.yours.red
+{
+	background-color: #E55451;
+}
+
+.calcResultsCell.yours.green
+{
+	background-color: #90EE90;
+}
+
+.calcResultsCell.avg.number, .calcResultsCell.yours.number
+{
+	font-size: 18px;
+}
+
+.btnBackToCalc span
+{
+	color: #000000;
+    	font-size: 13px;
+    	font-weight: bold;
+    	text-decoration: underline;
+}
+
+.industrialmap_tooltip p
+{
+    color: #000000;
+    font:12px arial,sans-serif;
+    margin:10px;
+}
+
+.industrialmap_tooltip li
+{
+    color: #000000;
+    font:12px arial,sans-serif !important;
+    margin-right:10px;
+}
+
+.industrialmap_tooltip h4
+{
+    color: #000000;
+    font:15px arial,sans-serif;
+    font-weight: bold;
+    margin: 10px;
+}
+
+div.RadToolTip_Sunset table.rtWrapper td.rtWrapperContent
+{
+    filter: alpha(opacity=90);
+    -moz-opacity: .9;
+    opacity: .9;
+}
+
+.industrialmap_tooltip h5
+{
+    color: #000000;
+    font:14px arial,sans-serif;
+    background: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.industrialmap_tooltip tr, .homesafetymap_tooltip tr {
+    height: 0px;
+}
+
+.homesafetymap_tooltip p
+{
+    color: #000000;
+    font:12px arial,sans-serif;
+    margin-top:-10px;
+}
+
+.homesafetymap_tooltip li
+{
+    color: #000000;
+    font:12px arial,sans-serif !important;
+    margin-right:10px;
+}
+
+.homesafetymap_tooltip h4
+{
+    color: #000000;
+    font:15px arial,sans-serif;
+    font-weight: bold;
+    height: 33px;
+	padding-left: 40px;
+	padding-top: 9px;
+}
+
+
+.homesafetymap_tooltip h4.homesafetytip1
+{
+	background:url('../AppImages/homesafetymap-phone.png') no-repeat;
+}
+
+.homesafetymap_tooltip h4.homesafetytip2
+{
+	background:url('../AppImages/homesafetymap-log.png') no-repeat;
+}
+
+.homesafetymap_tooltip h4.homesafetytip3
+{
+	background:url('../AppImages/homesafetymap-alarm.png') no-repeat;
+}
+
+.homesafetymap_tooltip h4.homesafetytip4
+{
+	background:url('../AppImages/homesafetymap-flame.png') no-repeat;
+}
+
+.homesafetymap_tooltip h4.homesafetytip5
+{
+	background:url('../AppImages/homesafetymap-goggles.png') no-repeat;
+}
+
+.homesafetymap_tooltip h4.homesafetytip6
+{
+	background:url('../AppImages/homesafetymap-paint.png') no-repeat;
+}
+
+.homesafetymap_tooltip h4.homesafetytip7
+{
+	background:url('../AppImages/homesafetymap-meter.png') no-repeat;
+}
+
+
+.ghgResultsTable
+{
+	border: 1px solid #000000;
+	padding: 15px 15px 15px 30px;
+}
+
+.ghgResultsTable th p
+{
+	text-align:left;
+}
+
+.ghgLegendTable td
+{
+	vertical-align:middle ;
+	padding:10px;
+}
+
+.ghgLegendTable td p.numAlign
+{
+	text-align:right;
+}
+
+/** for new article preview template **/
+.articlepreview {
+	font-size: 1.3em;
+}
+/**/
+
+/* class used within Tridion RTF Areas to decrease font size in a paragraph tag*/
+p.smallText
+{
+    font-size: 1.1em;
+}
+/**/
+
+/** for new Form-style Article component template; need more bottom margin on p elements**/
+.formStyleArticleTridion p
+{
+	margin-bottom: 1em;
+}
+
+/**/

@@ -1,0 +1,30 @@
+@function getPercentage($col) {
+    @return percentage($col*$colSize);
+}
+
+@mixin setColumnSizes($colNumber, $sizePrefix) {
+    .col.#{$sizePrefix}#{$colNumber}{
+        width: getPercentage($colNumber);
+    }
+}
+
+@mixin setColumnOffset($colNumber, $size) {
+    .col.#{$size}#{$colNumber}-off{
+        margin-left: getPercentage($colNumber);
+    }
+}
+
+@mixin getGrid($sizePrefix) {
+    @for $temp from 1 through $max-cols{
+        @include setColumnSizes($temp, $sizePrefix);
+    }
+    @for $temp from 0 through $max-cols{
+        @include setColumnOffset($temp, $sizePrefix);
+    }
+}
+
+@mixin hiddenRes ($sizePrefix) {
+    .#{$sizePrefix}-hidden{
+        display: none;
+    }
+}

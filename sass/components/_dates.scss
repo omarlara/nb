@@ -1,0 +1,32 @@
+.dates-view{
+    .calendar-column{
+        width: 280px;
+        display: block;
+        margin:0 auto;
+    }
+    .calendar-column + .calendar-column{
+        float: right;
+    }
+    .headline{
+        padding:30px 22px;
+        h3{
+            font-size: 16px;
+            color:$mid-gray;
+            font-weight: 400;
+        }
+    }
+    .address-component{
+        .address{
+            padding:18px 22px;
+            background-color: $moon-mist;
+            border-radius:3px 3px 0 0;
+            color:$mid-gray;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    }
+
+    .result {
+        width: 100%;
+    }
+}

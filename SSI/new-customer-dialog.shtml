@@ -1,0 +1,856 @@
+<div class="enbridge-content-container" id="open-new-gas-account">
+    <div class="dialog success-dialog hidden" title="New Account" id="newcustomers">
+        <div class="enbridge-content-container">
+            <div class="enbridge-container">
+
+            <div class="ecru-white account down-new-account">
+                    <span class="tooltip">
+                        <span class="letter-i"></span>
+                        <span classs="content-tooltip">
+                    </span>
+                        <p class="no-margin overflow-hidden">   Use this form if natural gas is alredy installed at the property. If new natural gas service needs to be installed, please contact our Customer Connections Centre at <strong>1-888-427-8888</strong>.
+                        </p>
+                    </span>
+                </div>
+                <ul class="accordion">
+                    <li class="accordion-item active">
+                        <div class="header">1.New Customer Information</div>
+                        <div class="content">
+                            <div class="ecru-white">
+                                    <span class="tooltip">
+                                        <span class="letter-i"></span>
+                                        <span classs="content-tooltip">
+                                    </span>
+                                        <p class="no-margin">If you are an existing Enbridge Gas customer, please sign into myEnbridge to add this property to your myEnbridge Profile. If ou don't have a my Enbridge profile, <a href="#" class="link-style">register here.</a>
+                                        </p>
+                                </span>
+                            </div>
+                            <div class="enbridge-form col xs12 extra-formstyle">
+                                <label class="legend-row">Select type of device:</label>
+                                    <div class="property-info form-grid alert-info">
+
+                                    </div>
+                                    <div class="property-info form-grid forms-distance">
+
+                                        <div class="form-group pull-margin-right inputs-div-style">
+                                            <div class="set-field content-container left-radios">
+                                                <input
+                                                    type="radio"
+                                                    id="device-type-home"
+                                                    value="home"
+                                                    name="device-type"
+                                                    data-id="device-type-home"
+                                                    data-required-error="Please select your move detail."
+                                                data-required="true">
+                                                <label class="fake-input in-line radio-space" for="device-type-home">Home</label>
+
+                                                <input
+                                                    type="radio"
+                                                    id="device-type-business"
+                                                    value="home"
+                                                    name="device-type"
+                                                    data-required-error="Please select your move detail."
+                                                data-required="true">
+                                                <label class="fake-input in-line" for="device-type-business">Business</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="border-inputs"></div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label for="newcustomers-customer-name" class="descriptor">Customer Name:</label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
+                                                        id="newcustomers-customer-name"
+                                                        data-id="newcustomers-customer-name"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-customer-name"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group pull-margin-right">
+                                                <label for="newcustomers-middle-name" class="descriptor">Middle Name: </label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
+                                                        id="newcustomers-middle-name"
+                                                        data-id="newcustomers-middle-name"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-middle-name"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label for="newcustomers-last-name" class="descriptor">Last Name:</label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
+                                                        id="newcustomers-last-name"
+                                                        data-id="newcustomers-last-name"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-last-name"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row address-bar">
+                                          <div class="form-group pull-margin-right space-inputs">
+                                                <p class="align-center">
+                                                    Additional name on this account (optional):
+                                                    <span class="tooltip super">
+                                                        <span class="icon"></span>
+                                                        <span class="content-tooltip">
+                                                            <span class="cross"></span>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                                        </span>
+                                                    </span>
+                                                </p>
+                                          </div>
+                                        </div>
+
+                                        <div class="row address-bar forms-distance">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                            <label for="newcustomers-first-name-optional" class="descriptor">First:</label>
+                                            <div class="set-field">
+                                                <input
+                                                    type="text"
+                                                    class="form-control  _w150"
+                                                    id="newcustomers-first-name-optional"
+                                                    data-id="newcustomers-first-name-optional"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="newcustomers-first-name-optional"
+                                                data-required="true">
+                                            </div>
+                                            </div>
+
+                                            <div class="form-group pull-margin-right">
+                                            <label for="newcustomers-last-name-optional" class="descriptor">Last: </label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
+                                                        id="newcustomers-last-name-optional"
+                                                        data-id="newcustomers-last-name-optional"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-last-name-optional"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border-inputs"></div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label for="newcustomers-mobile-phone" class="descriptor">Mobile Phone:</label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w60"
+                                                        id="newcustomers-mobile-phone-lada"
+                                                        data-id="newcustomers-mobile-phone-lada"
+                                                    data-rel="newcustomers-mobile-phone">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w150"
+                                                        id="newcustomers-mobile-phone"
+                                                        data-id="newcustomers-mobile-phone"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-mobile-phone"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label for="newcustomers-home-phone" class="descriptor">Home Phone:</label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w60"
+                                                        id="newcustomers-home-phone-lada"
+                                                        data-id="newcustomers-home-phone-lada"
+                                                    data-rel="newcustomers-home-phone">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control _w150"
+                                                        id="newcustomers-home-phone"
+                                                        data-id="newcustomers-home-phone"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-home-phone"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label for="usr" class="descriptor">Business Phone:</label>
+                                                <div class="set-field">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="newcustomers-business-phone-lada"
+                                                        data-id="newcustomers-business-phone-lada"
+                                                    data-rel="newcustomers-business-phone">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w150"
+                                                        id="newcustomers-business-phone"
+                                                        data-id="newcustomers-business-phone"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-business-phone"
+                                                    data-required="true">
+                                                    <label for="newcustomers-business-phone-ext">ext:</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control  _w60"
+                                                        id="newcustomers-business-phone-ext"
+                                                        data-id="newcustomers-business-phone-ext"
+                                                    data-rel="newcustomers-business-phone">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label for="newcustomers-email" class="descriptor">Email:</label>
+                                                <div class="set-field">
+                                                  <input type="text" class="form-control _w320"
+                                                        id="newcustomers-email"
+                                                        data-id="newcustomers-email"
+                                                        data-pattern = "valid-email"
+                                                        data-pattern-error = "Isn't a valid mail"
+                                                        data-required-error="Please select the required information."
+                                                        data-rel="newcustomers-email"
+                                                    data-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label class="descriptor" for="newcustomers-year">Date of birth:</label>
+                                                <div class="form-group _w180 information-label-distance clear-margin-left">
+                                                    <div class="set-field">
+                                                        <select class="enbridge-select"
+                                                            id="newcustomers-month"
+                                                            data-id="newcustomers-month"
+                                                            data-required-error="Please select the required information."
+                                                            data-rel="newcustomers-month"
+                                                        data-required="true">
+                                                            <option value="">Month</option>
+                                                            <option value="1">January</option>
+                                                            <option value="2">February</option>
+                                                            <option value="3">March</option>
+                                                            <option value="4">April</option>
+                                                            <option value="5">May</option>
+                                                            <option value="6">June</option>
+                                                            <option value="7">July</option>
+                                                            <option value="8">August</option>
+                                                            <option value="9">September</option>
+                                                            <option value="10">October</option>
+                                                            <option value="11">November</option>
+                                                            <option value="12">December</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group _w100">
+                                                  <div class="set-field">
+                                                        <select class="enbridge-select"
+                                                            id="newcustomers-day"
+                                                            data-required-error="Please select the required information."
+                                                            data-rel="newcustomers-day"
+                                                        data-required="true">
+                                                            <option value="">Day</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
+                                                  </div>
+                                                </div>
+                                                <div class="form-group _w160">
+                                                    <div class="set-field">
+                                                        <input type="text" class="form-control _w60"
+                                                            placeholder="YYYY"
+                                                            id="newcustomers-year"
+                                                            data-id="newcustomers-year"
+                                                            data-pattern = "valid-year"
+                                                            data-pattern-error = "Isn't a valid year"
+                                                            data-required-error="Please select the required information."
+                                                            data-rel="newcustomers-year"
+                                                        data-required="true">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="row address-bar">
+                                            <div class="form-group pull-margin-right space-inputs">
+                                                <label class="descriptor" for="newcustomers-year">Date of birth:</label>
+                                                <div class="set-field">
+                                                    <div class="property-info display-table no-margin-bottom no-padding-left">
+                                                        <div class="cell">
+                                                            <div class="display-table no-padding-left">
+                                                                <div class="cell">
+                                                                <select class="enbridge-select"
+                                                                    id="newcustomers-month"
+                                                                    data-required-error="Please select the required information."
+                                                                    data-rel="newcustomers-month"
+                                                                data-required="true">
+                                                                    <option value="">Month</option>
+                                                                    <option value="1">January</option>
+                                                                    <option value="2">February</option>
+                                                                    <option value="3">March</option>
+                                                                    <option value="4">April</option>
+                                                                    <option value="5">May</option>
+                                                                    <option value="6">June</option>
+                                                                    <option value="7">July</option>
+                                                                    <option value="8">August</option>
+                                                                    <option value="9">September</option>
+                                                                    <option value="10">October</option>
+                                                                    <option value="11">November</option>
+                                                                    <option value="12">December</option>
+                                                                </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell">
+                                                            <div class="display-table">
+                                                                <div class="cell">
+                                                                    <select class="enbridge-select"
+                                                                        id="newcustomers-day"
+                                                                        data-required-error="Please select the required information."
+                                                                        data-rel="newcustomers-day"
+                                                                    data-required="true">
+                                                                        <option value="">Day</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell">
+                                                            <div class="set-field">
+                                                                <input type="text" class="form-control  _w100"
+                                                                    placeholder="YYYY"
+                                                                    id="newcustomers-year"
+                                                                    data-id="newcustomers-year"
+                                                                    data-pattern = "valid-year"
+                                                                    data-pattern-error = "Isn't a valid year"
+                                                                    data-required-error="Please select the required information."
+                                                                    data-rel="newcustomers-year"
+                                                                data-required="true">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div-->
+
+                                    </div>
+
+                                </div>
+
+                            <div class="validator-container">
+                                <a class="validator" href="#">NEXT</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion-item">
+                        <div class="header">2.Address Information</div>
+                        <div class="content">
+                            <div action="" class="enbridge-form" id="newcustomers-steps-flow-1">
+                                <div class="steps active-step" id="newcustomers-first-step">
+                                    <p class="strong">Please enter your new address:
+                                    <span class="tooltip">
+                                        <span class="icon address-tooltip"></span>
+                                        <span class="content-tooltip">
+                                            <span class="cross"></span>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                        </span>
+                                    </span>
+                                    </p>
+
+                                    <div class="code-box little-top form-grid">
+                                        <div class="row">
+                                           <div class="form-group">
+                                                <label for="newcustomers-code-validator">Let's start with your postal code:</label>
+                                                <input type="text"
+                                                    name="newcustomers-new-address"
+                                                    id="newcustomers-code-validator"
+                                                    data-id="newcustomers-code-validator"
+                                                    class="new-address"
+                                                    data-first-op="#newcustomers-select_your_address"
+                                                    data-second-op="#newcustomers-select_your_address_form"
+                                                data-content="#newcustomers-select-street-container">
+                                                <div class="next-step" data-next-step="#newcustomers-select_your_street"></div>
+                                           </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="steps" id="newcustomers-select_your_street">
+                                    <p class="strong">Please enter your new address:</p>
+
+                                    <div class="code-box container form-grid">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="legend-row _w140">Select your street</label>
+                                                <div class="set-field">
+                                                    <div id="newcustomers-select-street-container"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="next-step"
+                                            data-next-step=""
+                                            id="newcustomers-get-address"
+                                        data-number-dropdown="#newcustomers-data-dropdown">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="steps" id="newcustomers-select_your_address">
+                                    <p class="strong">Please enter your new address:</p>
+
+                                    <div class="code-box container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="descriptor">Select your street</p>
+                                            </div>
+                                            <div class="col" id="newcustomers-data-dropdown"></div>
+                                        </div>
+                                        <div class="next-step" data-next-step="#newcustomers-confirm-address" id="newcustomers-confirm-address-button"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="steps" id="newcustomers-confirm-address">
+                                    <p class="strong">Please enter your new address:</p>
+
+                                    <div class="code-box container">
+                                        <div class="row">
+                                            <div class="col xs7">
+                                                <span id="newcustomers-hide-message" class="middle">Is this correct?</span>
+                                                <span id="newcustomers-address-confirmation"></span>
+                                            </div>
+                                            <div class="col xs5" id="newcustomers-information-acceptance">
+                                                <button class="enbridge-btn green" id="newcustomers-info-confirmation">Yes</button>
+                                                <button class="enbridge-btn dawn" id="newcustomers-info-decline">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="newcustomers-property-info">
+                                        <input
+                                            type="radio"
+                                            id="newcustomers-rent-property"
+                                            data-id="newcustomers-rent-property"
+                                            value="rent"
+                                        name="newcustomers-house-property">
+                                        <label class="fake-input" for="newcustomers-rent-property">
+                                            I'm renting this property.
+                                        </label>
+                                        <input
+                                            type="radio"
+                                            id="newcustomers-buy-property"
+                                            data-id="newcustomers-buy-property"
+                                            value="buy"
+                                        name="newcustomers-house-property">
+                                        <label class="fake-input" for="newcustomers-buy-property">
+                                            I'm buying this property.
+                                        </label>
+
+                                        <input
+                                            type="checkbox"
+                                            id="newcustomers-mailing-address"
+                                            data-id="newcustomers-mailing-address"
+                                        value="true">
+                                        <label class="fake-input" for="newcustomers-mailing-address">My mailing address is different from my service address</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="steps" id="newcustomers-select_your_address_form">
+                                    <p class="strong">Please enter your new address:</p>
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <label for="usr" class="descriptor _w100">Street Address:</label>
+                                            <div class="set-field content-container">
+                                                <div class="content-container">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-street-number"
+                                                        class="_w60"
+                                                        data-id="newcustomers-street-number"
+                                                    data-rel="newcustomers-street">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-suffix"
+                                                        class="_w60"
+                                                        data-id="newcustomers-suffix"
+                                                    data-rel="newcustomers-street">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-street"
+                                                        class="_w220"
+                                                        data-id="newcustomers-street"
+                                                        data-required-error="Please select the required information."
+                                                    data-rel="newcustomers-street">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-misc-info"
+                                                        class="_w60"
+                                                        data-id="newcustomers-misc-info"
+                                                    data-rel="newcustomers-street">
+                                                </div>
+                                                <div>
+                                                    <label for="newcustomers-street-number" class="tiny _w60">Number</label>
+                                                    <label for="newcustomers-suffix" class="tiny _w60">Suffix</label>
+                                                    <label for="newcustomers-street" class="tiny _w220">Street</label>
+                                                    <label for="newcustomers-misc-info" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <label for="usr" class="descriptor _w100">City or Town:</label>
+                                            <div class="set-field content-container">
+                                                <input
+                                                    type="text"
+                                                    id="newcustomers-city-or-town"
+                                                    class="_w180"
+                                                    data-id="newcustomers-city-or-town"
+                                                    data-required-error="Please select the required information."
+                                                data-rel="newcustomers-city-or-town">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <div class="content-container">
+                                                <label for="usr" class="_w100">Country:</label>
+                                                <div class="set-field content-container _w180">
+                                                    <select
+                                                        class="enbridge-select"
+                                                        id="newcustomers-country"
+                                                        data-id="newcustomers-country"
+                                                    data-required-error="Please select the required information.">
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="United States">United States</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content-container">
+                                                <label for="usr" class="descriptor _w70">Province:</label>
+                                                <div class="set-field content-container _w180" data-required-error="Please select the required information.">
+                                                    <select
+                                                       class="enbridge-select"
+                                                       id="newcustomers-province"
+                                                       data-id="newcustomers-province"
+                                                    data-required-error="Please select the required information.">
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="United States">United States</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <label for="usr" class="descriptor _w100">Postal Code:</label>
+                                            <div class="set-field content-container">
+                                                <input type="text"
+                                                    id="newcustomers-postal-code-input"
+                                                    class="_w120"
+                                                    data-id="newcustomers-postal-code-input"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="postal-code-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="set-field ">
+                                        <input
+                                            type="radio"
+                                            id="newcustomers-rent-property-alternative"
+                                            value="rent"
+                                            name="newcustomers-house-property-alternative"
+                                            data-id="newcustomers-rent-property-alternative"
+                                        data-required-error="Please select the required information.">
+                                        <label class="fake-input" for="newcustomers-rent-property-alternative">
+                                            I'm renting this property.
+                                        </label>
+                                        <input
+                                            type="radio"
+                                            id="newcustomers-buy-property-alternative"
+                                            value="buy" name="newcustomers-house-property-alternative"
+                                            data-id="newcustomers-buy-property-alternative"
+                                        data-required-error="Please select the required information.">
+                                        <label class="fake-input" for="newcustomers-buy-property-alternative">
+                                            I'm buying this property.
+                                        </label>
+                                    </div>
+
+                                    <input
+                                        type="checkbox"
+                                        id="newcustomers-mailing-address-alternative"
+                                        data-id="newcustomers-mailing-address-alternative"
+                                    value="true">
+                                    <label class="fake-input" for="newcustomers-mailing-address-alternative">My mailing address is different from my service address</label>
+
+                                </div>
+
+                                <div class="hidden" id="newcustomers-manual-property-info">
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <label for="usr" class="descriptor _w100">Street Address:</label>
+                                            <div class="set-field content-container">
+                                                <div class="content-container">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-street-number-alternative"
+                                                        class="_w60"
+                                                        data-id="newcustomers-street-number-alternative"
+                                                    data-rel="newcustomers-street-alternative">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-suffix-alternative"
+                                                        class="_w60"
+                                                        data-id="newcustomers-suffix-alternative"
+                                                    data-rel="newcustomers-street-alternative">
+                                                    <input
+                                                        type="text"
+                                                        id="newcustomers-street-alternative"
+                                                        class="_w220"
+                                                        data-id="newcustomers-street-alternative"
+                                                        data-required-error="Please select the required information."
+                                                    data-rel="newcustomers-street-alternative">
+                                                    <input
+                                                        type="text"
+                                                        id="misc-info-alternative"
+                                                        class="_w60"
+                                                        data-id="misc-info-alternative"
+                                                    data-rel="newcustomers-street-alternative">
+                                                </div>
+                                                <div>
+                                                    <label for="newcustomers-street-number-alternative" class="tiny _w60">Number</label>
+                                                    <label for="newcustomers-suffix-alternative" class="tiny _w60">Suffix</label>
+                                                    <label for="newcustomers-street-alternative" class="tiny _w220">Street</label>
+                                                    <label for="misc-info-alternative" class="tiny _w60">Misc. Info <br>(e.g. Unit)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <label for="newcustomers-city-or-town-alternative" class="descriptor _w100">City or Town:</label>
+                                            <div class="set-field content-container">
+                                                <input type="text"
+                                                    id="newcustomers-city-or-town-alternative"
+                                                    class="_w180"
+                                                    data-id="newcustomers-city-or-town-alternative"
+                                                    data-required-error="Please select the required information."
+                                                data-rel="city-or-town-alternative">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <div class="content-container">
+                                                <label for="usr" class="descriptor _w100">Country:</label>
+                                                <div class="set-field content-container _w180">
+                                                    <select
+                                                        class="enbridge-select"
+                                                        id="newcustomers-select-country-alternative"
+                                                        data-id="newcustomers-select-country-alternative"
+                                                    data-required-error="Please select the required information.">
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="United States">United States</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="content-container">
+                                                <label for="usr" class="descriptor _w70">Province:</label>
+                                                <div class="set-field content-container _w180">
+                                                    <select
+                                                        class="enbridge-select"
+                                                        id="newcustomers-select-province-alternative"
+                                                        data-id="newcustomers-select-province-alternative"
+                                                    data-required-error="Please select the required information.">
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="United States">United States</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-info form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <label for="newcustomers-postal-code-input-alternative" class="descriptor _w100">Postal Code:</label>
+                                            <div class="set-field content-container">
+                                                <input type="text"
+                                                    id="newcustomers-postal-code-input-alternative"
+                                                    class="_w120"
+                                                    data-id="newcustomers-postal-code-input-alternative"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-required-error="Please select the required information."
+                                                data-rel="newcustomers-postal-code-input-alternative">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="validator-container">
+                                <a class="prev" href="#">BACK</a>
+                                <a class="validator hidden" href="#" id="newcustomers-step-address">NEXT</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion-item">
+                        <div class="header">3.Billing Service</div>
+                        <div class="content">
+                            <div class="enbridge-form">
+                                <div class=" ">
+                                    <p class="vertical-align">
+                                        Would you like to enroll your new account into the Budget Billing Plan:
+                                        <span class="tooltip super">
+                                            <span class="icon"></span>
+                                            <span class="content-tooltip">
+                                                <span class="cross"></span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt harum deserunt qui beatae tenetur, dolor fuga facere repellat, odit error illum, illo veniam ipsam ad officiis similique. Maiores deleniti, ducimus.
+                                            </span>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="property-info form-grid">
+                                    <div class="form-group pull-margin-right inputs-div-style ">
+                                        <div class="set-field content-container">
+                                            <input type="radio"
+                                                name="newcustomers-budget-billing-plan"
+                                                id="newcustomers-budget-billing-plan-yes"
+                                                value="true"
+                                                data-id="newcustomers-budget-billing-plan-yes"
+                                                data-required-error="Please select the required information."
+                                                data-rel="newcustomers-budget-billing-plan"
+                                            data-required="true">
+                                            <label class="fake-input in-line radio-space  left-distance-radio" for="newcustomers-budget-billing-plan-yes">Yes</label>
+
+                                            <input type="radio"
+                                                name="newcustomers-budget-billing-plan"
+                                                id="newcustomers-budget-billing-plan-no"
+                                                data-id="newcustomers-budget-billing-plan-no"
+                                                value="true"
+                                                data-required-error="Please select the required information."
+                                                data-rel="newcustomers-budget-billing-plan"
+                                            data-required="true">
+                                            <label class="fake-input in-line left-distance-radio" for="newcustomers-budget-billing-plan-no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="property-info form-grid">
+                                    <div class="form-group pull-margin-right alert-info col xs12">
+                                        <h2 class="billing-title">Paperless Billing</h2>
+                                        <div class="ecru-white">
+                                            <span class="tooltip">
+                                                <span class="letter-i top-billing"></span>
+                                                <span classs="content-tooltip">
+                                            </span>
+                                                <p class="no-margin overflow-hidden"> You have been automatically enrolled in the Paperless Billing Plan. This service offers online access to your bills anytime, anywhere. Learn more about paperless billing and the options you have with your myEnbridge account.
+                                                </p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="property-info form-grid forms-distance ">
+                                    <div class="form-group pull-margin-right  ">
+                                        <div class="row adress-bar">
+                                          <div class="form-group pull-margin-right space-inputs">
+                                            <label for="usr" class="width-inherit">Email:</label>
+                                            <div class="set-field">
+                                                <input type="text" class="form-control"
+                                                    id="newcustomers-email"
+                                                    data-id="newcustomers-email"
+                                                    data-pattern = "valid-email"
+                                                    data-pattern-error = "Isn't a valid mail"
+                                                    data-required-error="Please select the required information."
+                                                    data-rel="newcustomers-email"
+                                                data-required="true">
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="property-info form-grid">
+                                    <div class="form-group pull-margin-right inputs-div-style ">
+                                        <div class="set-field content-container last-note-padding">
+                                            <label for="street-number" class="tiny _w650 left-important">
+                                             <strong>Note</strong>: As a part of the activation process you will receive an email from Enbridge Gas Distribution with a link to the activation page. Plasea note that until you follow the steps in the email you will not be able to sign into myEnbridge. This is necessary to ensure you have entered a valid email address.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="validator-container">
+                                <a class="prev" href="#">BACK</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="enbridge-content-container">
+                    <div class="enbridge-container ">
+                        <div class="row">
+                            <div class="col md12 buttons text-center">
+                                <div class="col md3 xs9-off">
+                                    <a class="enbridge-btn yellow disabled submit-button  _w160">SUBMIT</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

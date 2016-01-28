@@ -1,0 +1,124 @@
+   <div class="enbridge-container no-padding">
+            <div class="row">
+                <div class="col xs6">
+                    <div class="tile green no-min">
+                        <div class="content">
+                            <h2 class="title">Existing Customers</h2>
+                            <h3 class="subtitle">
+                            Moving in/out of service &nbsp;area or adding a property.
+                            </h3>
+                            <div class="enbridge-form form-horizontal">
+                                <div class="form-group">
+                                    <label for="email-remember-input" class="control-label">Email:</label>
+                                    <div class="fields">
+                                        <input type="text" class="_w215" id="email-remember-input">
+                                    </div>
+                                </div>
+                                <div class="form-group checks">
+                                    <div class="fields">
+                                        <input type="checkbox" id="remember-email-check">
+                                        <label class="fake-input" for="remember-email-check"></label>
+                                        <label for="remember-email-check">Remember my email for next time</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-remember-input" class="control-label">Password:</label>
+                                    <div class="fields">
+                                        <input type="text" class="_w215" id="password-remember-input">
+                                    </div>
+                                </div>
+                                <div class="footer-form-group">
+                                    <ul class="list-of-links">
+                                        
+                                        <li>
+                                             <a href="#">Forgot password?</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--<a href="#" class="enbridge-btn black big-button open-dialog" id="green" data-target="#existingcustomers">SIGN IN>a>-->
+                        <div class="enbridge-btn black big-button open-dialog separated-button">
+                            <a href="" class="first-button">REGISTER</a>
+                            <a href="" class="second-button">SIGN IN</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col xs6">
+                    <div class="tile">
+                        <div class="content">
+                            <h2 class="title">New Customers</h2>
+                            <h3 class="subtitle">
+                            New customers moving within our service area.
+                        </h3>
+                            <div>
+                                <label for="">You'll need:</label>
+                                <ul>
+                                    <li>Your new address.</li>
+                                    <li>Your move-in dates.</li>
+                                </ul>
+                                <p class="information common">
+                                    If your property needs natural gas service installed, call our Customer Connections Contact Centre at <strong>1-888-427-8888</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <a href="#" class="enbridge-btn blue big-button open-dialog" id="blue" data-target="#newcustomers">
+                        OPEN NEW GAS ACCOUNT
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col xs6">
+                    <div class="tile postal-code">
+                        <div class="content">
+                            <h2 class="title">Postal Code Lookup</h2>
+                            <h3 class="subtitle">
+                            Find out if an address is in our sevice area.
+                        </h3>
+                            <div>
+                                <div class="enbridge-form">
+                                    <div class="form-grid">
+                                        <div class="form-group pull-margin-right">
+                                            <div class="set-field">
+                                                <input type="text"
+                                                    class="postal-code-verify"
+                                                    placeholder="Postal Code"
+                                                    data-pattern = "postal-code"
+                                                    data-pattern-error = "The required form is A1A1A1"
+                                                    data-success="This address is serviced by Enbridge."
+                                                    data-error="This address is serviced by Enbridge. Please contact your local munipality to find local provider."
+                                                    data-required-error="Please add your postal code."
+                                                data-required="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" class="enbridge-btn green big-button open-dialog" id="gray" data-target="#postalcode">CHECK</a>
+                    </div>
+                </div>
+                <div class="col xs6">
+                    <div class="tile">
+                        <div class="content">
+                            <h2 class="title">Moving Out</h2>
+                            <h3 class="subtitle">
+                            Moving out of our service area? Use our quick & easy move out form.
+                        </h3>
+                            <div>
+                                <label for="">You'll need:</label>
+                                <ul>
+                                    <li>A recent bill</li>
+                                    <li>Your new address</li>
+                                    <li>Your move date</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#" class="enbridge-btn yellow big-button open-dialog" id="yellow" data-target="#movingoutredirect">MOVE OUT FORM</a>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,248 @@
+.form-horizontal {
+    .checks {
+        .fields {
+            .fake-input {
+                position: absolute;
+                & + label {
+                    float: none;
+                    font-weight: normal;
+                    display: inline-block;
+                    padding-left: 18px;
+                }
+            }
+        }
+    }
+}
+
+.form-grid {
+    > .legend-row {
+        color: #636373;
+        display: block;
+        font-size: 14px !important;
+        margin: 15px 0;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    .enbridge-dropdown {
+        min-width: 100px;
+        .header {
+            height: 40px;
+        }
+        .indicator {
+            height: 38px;
+        }
+    }
+    .row + .row {
+        margin-top: 5px;
+    }
+    .row + .information {
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    .information + .legend-row{
+        margin-top: 20px;
+    }
+    .row {
+        &.divisor {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px
+        }
+        .form-group {
+            display: inline-block;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            vertical-align: top;
+            &:first-child {
+                margin-left: 20px;
+            }
+            &.information-label-distance{
+                margin-left: 45px;
+            }
+            > label {
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 0px;
+                font-weight: 400;
+                color: #636373;
+                font-size: 14px;
+                vertical-align: top;
+            }
+            &.pull-margin-right {
+                margin-right: -10px;
+            }
+            .set-field {
+                display: inline-block;
+                vertical-align: middle;
+                input,
+                select,
+                textarea {
+                    margin: 0;
+                }
+                input + input,
+                input + label {
+                    margin-left: 10px;
+                }
+
+
+
+            }
+        }
+        &.address-bar {
+            > .form-group:first-child {
+                > label {
+                    width: 110px;
+                    &.fluid-label {
+                        width: auto;
+                    }
+                    &.big {
+                        width: 200px;
+                    }
+
+                    &.small{
+                        width: 60px
+                    }
+                }
+            }
+        }
+    }
+}
+
+hr {
+    border: 1px solid red;
+    height: 10px;
+    content: 'Form';
+    display: block;
+    width: 100%;
+    background: yellow;
+    color: red;
+}
+
+.tiny {
+    font-size: 10px !important;
+    margin-bottom: 6px;
+    text-align: center;
+
+    color: #636373;
+    &.left {
+        text-align: left;
+    }
+    &.big-content {
+        max-width: 400px;
+    }
+}
+
+.content-container {
+    display: inline-block;
+    margin-right: 10px;
+
+    &.left-radios{
+        margin-left: 13px;
+    }
+}
+
+.descriptor {
+    vertical-align: top !important;
+    margin-top: 20px;
+}
+
+.pull26 {
+    margin-left: 26px;
+}
+
+.pull40 {
+    margin-left: 40px;
+}
+
+.pull55 {
+    margin-left: 55px !important;
+}
+
+._h90 {
+    height: 90px;
+}
+
+._w60 {
+    width: 60px;
+}
+
+._w70 {
+    width: 70px;
+}
+
+._w80 {
+    width: 80px;
+}
+
+._w100 {
+    width: 100px;
+}
+
+._w120 {
+    width: 120px;
+}
+
+._w130 {
+    width: 130px;
+}
+
+._w140 {
+    width: 140px;
+}
+
+._w160 {
+    width: 160px;
+}
+
+._w180 {
+    width: 180px;
+}
+
+._w200 {
+    width: 200px;
+}
+
+._w215 {
+    width: 215px;
+}
+
+._w220 {
+    width: 220px;
+}
+
+._w230 {
+    width: 230px;
+}
+
+._w250 {
+    width: 250px;
+}
+
+._w300 {
+    width: 300px;
+}
+
+._w320 {
+    width: 320px;
+}
+._w380 {
+    width: 380px;
+}
+
+._w400 {
+    width: 400px;
+}
+
+._w500 {
+    width: 500px;
+}
+
+._w600 {
+    width: 600px;
+}
+
+.pull-error-105 {
+    .error-message {
+        margin-left: 105px;
+    }
+}

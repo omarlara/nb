@@ -1,0 +1,17 @@
+@media (min-width: $big-size) {
+
+    .enbridge-container {
+        margin-left: 0;
+        margin-right: 0;
+
+        .row {
+            @include getGrid('bg');
+        }
+
+    }
+
+}
+
+@media (min-width: $big-size) {
+    @include  hiddenRes('bg');
+}

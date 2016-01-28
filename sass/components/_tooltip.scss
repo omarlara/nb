@@ -1,0 +1,171 @@
+.tooltip {
+    display: inline-block;
+    position: relative;
+    /*vertical-align: baseline !important;*/
+    .content-tooltip {
+        display: none;
+        position: absolute;
+        background-color: #f3f4f7;
+        margin-top: 15px;
+        border-radius: 5px;
+        width: 285px;
+        color: $manatee;
+        margin-left: -133px;
+        padding: 10px;
+        z-index: 3;
+        padding-right: 25px;
+        border: 1px solid #ccc;
+        box-shadow: 0px 1px 2px 0px #888888;
+        font-size: 13px;
+        margin-left: -157px\9;
+        margin-top: 35px\9;
+        line-height: 1.4;
+
+        @-moz-document url-prefix(){
+                margin-left: -152px;
+                margin-top: 37px;
+            }
+
+        .cross {
+            z-index: 500;
+            width: 20px;
+            height: 20px;
+
+            &:after {
+                content: " ";
+                background: url("img/close.png") no-repeat 0 0;
+                background-size: 100%;
+                width: 20px;
+                height: 20px;
+                display: block;
+                float: right;
+                cursor: pointer;
+                position: absolute;
+                top: 3px;
+                right: 3px;
+            }
+        }
+    }
+
+    *::-ms-backdrop, .content-tooltip {
+        margin-top: 32px;
+        margin-left: -158px;
+    }
+
+    .letter-i{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        cursor: pointer;
+        z-index: 500;
+        float: left;
+        margin-right: 9px;
+        &.top-billing{
+            margin-top: 13px;
+            margin-top: 0px\9;
+        }
+
+        &:after {
+            content: "i";
+            font-style:italic;
+            background-color: $chelsea-cucumber;
+            border-radius: 12px;
+            width: 20px;
+            text-align: center;
+            height: 20px;
+            vertical-align: middle;
+            padding-top: 2px;
+            padding-top: 1px\9;
+            color: #fff;
+            font-weight: 700;
+            float: right;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+    }
+
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        cursor: pointer;
+        z-index: 500;
+
+        &:after {
+            content: "?";
+            background-color: $chelsea-cucumber;
+            border-radius: 12px;
+            width: 20px;
+            text-align: center;
+            height: 20px;
+            vertical-align: middle;
+            padding-top: 2px;
+            color: #fff;
+            font-weight: 700;
+            float: right;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    }
+
+    @-moz-document url-prefix() {
+            .letter-i{
+                &:after{
+                    padding-top: 1px;
+                }
+            }
+
+            .icon {
+
+                &:after {
+                    padding-top: 1px;
+                }
+            }
+
+        }
+
+    .content-tooltip:before {
+        width: 0;
+        content: ' ';
+        height: 0;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        left: 133px;
+        top: 0px;
+        top: 1px\9;
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin-left: -0.5em;
+        bottom: -2em;
+        left: 56%;
+        box-sizing: border-box;
+        border: 6px solid black;
+        border-color: transparent transparent #f3f4f7 #f3f4f7;
+        transform-origin: 0 0;
+        transform: rotate(134deg);
+        box-shadow: -1px 1.5px 1px 0 rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+    }
+
+    *::-ms-backdrop, .content-tooltip:before {
+        top:1px;
+    }
+}
+
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+         .tooltip {
+                .letter-i{
+
+                    &:after {
+                        padding-top: 1px;
+                    }
+                }
+
+        }
+
+    }

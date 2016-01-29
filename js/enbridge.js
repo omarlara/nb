@@ -1,4 +1,4 @@
-; $(window).ready(function () {
+;$(window).ready(function () {
 
     /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
@@ -266,42 +266,113 @@
         return error;
     };
 
+    //Determine if a day is a business day
+    var isBusinessDay = function (dateToCheck) {
+        var formattedDate = dateToCheck.getFullYear() + "-" + (dateToCheck.getMonth() + 1) + "-" + dateToCheck.getDate();
+        var result = $.ajax({
+            type: 'GET',
+            async: false,
+            url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+            data: { date: formattedDate },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('An error occurred checking for business date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
+            }
+        }).responseText;
+
+        if (result == "true") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //Validate the selected dates.
+    //Note that return results are returned immediately to avoid web service calls.
+    //Also note the check to see if it is a holiday date happens on the on click event of a calendar.
     var dateValidator = function ($renewDate, $lastService) {
-        var error = false,
-            renewDate = new Date($renewDate.val()),
+
+        var renewDate = new Date($renewDate.val()),
+            $renewDateContainer = $('.address-component').eq(0),
+
             finishLastService = new Date($lastService.val()),
+            $finishLastServiceContainer = $('.address-component').eq(1),
             now = new Date();
 
-
-        if ($renewDate.attr('data-required') && $lastService.attr('data-required')) {
-            if (renewDate < finishLastService) {
-                $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is in the past.</span></div>');
-                error = true;
-            } else if (renewDate < now) {
-                $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
-                error = true;
-            } else if ((renewDate - finishLastService) / 86400000 < 3) {
-                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date is not far enough into the future.</span></div>');
-                error = true;
-            } else if (('' + finishLastService).indexOf('Sun') > -1) {
-                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Sunday.</span></div>');
-                error = true;
-            } else if (!renewDate) {
-                $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
-                error = true;
-            } else if (!finishLastService) {
-                $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
-                error = true;
-            }
+        if ($renewDateContainer.hasClass('no-date-selected')) {
+            $renewDateContainer.removeClass('no-date-selected');
         }
 
-        return error;
+        if ($finishLastServiceContainer.hasClass('no-date-selected')) {
+            $finishLastServiceContainer.removeClass('no-date-selected');
+        }
+
+        //Determine the type of move
+        var stepsRadio = $("input[type='radio'][name='steps']:checked");
+        if (stepsRadio.length > 0) {
+            stepsVal = stepsRadio.val();
+        }
+
+        //Determine if renew date validation is necessary (correct step on auth move page or if not auth move page)
+        var validateRenewDate = $renewDate.attr('data-required') &&
+            (stepsRadio.length <= 0 || stepsVal == 'transfer' || stepsVal == 'add');
+
+        var validateLastService = $lastService.attr('data-required') &&
+            (stepsRadio.length <= 0 || stepsVal == 'transfer' || stepsVal == 'stop');
+
+        //Ensure date is selected
+        if (validateRenewDate && !$renewDate.val() && isNaN(renewDate.valueOf())) {
+            $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
+
+            // Add border to calendar container (startDate) when user doesn't pick a date
+            if (!$renewDateContainer.hasClass('no-date-selected')) {
+                $renewDateContainer.addClass('no-date-selected');
+            }
+            return true;
+        }
+
+        //Ensure date is selected
+        if (validateLastService && !$lastService.val() && isNaN(finishLastService.valueOf())) {
+
+            $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
+
+            // Add border to calendar container (finishDate) when user doesn't pick a date
+            if (!$finishLastServiceContainer.removeClass('no-date-selected')) {
+                $finishLastServiceContainer.addClass('no-date-selected');
+            }
+
+            return true;
+        }
+
+        //Figure out the date 3 business days in the future
+        var additionalBusinessDays = 1;
+        var additionalDays = 1;
+        var minimumDate;
+        while (additionalBusinessDays < 3) {
+            minimumDate = new Date(now.getTime() + (additionalDays * 86400000));
+            if (isBusinessDay(minimumDate)) {
+                additionalBusinessDays++;
+            }
+            additionalDays++;
+        }
+
+        //Start date must be 3 business days in the future
+        if (validateRenewDate && renewDate < minimumDate) {
+            $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
+                .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must be 3 business days in the future.</span></div>');
+            return true;
+        }
+
+        //End date must be 3 business days in the future
+        if (validateLastService && finishLastService < minimumDate) {
+            $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
+                .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must be 3 business days in the future.</span></div>');
+            return true;
+        }
+
+        return false;
     };
 
     /***********************Plugins declaration***********************/
@@ -603,8 +674,7 @@
             numbers.push('<option value="' + ranges[i] + '">' + ranges[i] + '</option>');
         }
 
-
-        $('<select class="enbridge-select" id="current-number" data-id="current-number" data-required="true">' + numbers.join('') + '</select>')
+        $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
             .appendTo(container)
             .enbridgeDropdown();
 
@@ -1437,36 +1507,35 @@
             dateFormated = year + '-' + month + '-' + day,
             $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
+        $inputElem.val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
 
-        if ($inputElem.hasClass('start-date')) {
-            $.ajax({
-                url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
-                type: 'GET',
-                dataType: 'application/json',
-                data: {
-                    date: dateFormated
-                },
-                success: function (data) {
+        $.ajax({
+            url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+            type: 'GET',
+            dataType: 'application/json',
+            data: {
+                date: dateFormated
+            },
+            success: function (data) {
+
+                $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                        .find('.error-code')
+                            .remove();
+
+                if (JSON.parse(data)) {
 
                     $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                            .find('.error-code')
+                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must not be a holiday or a weekend date.</span></div>');
+                } else {
+                    $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
+                            .find('.result')
                                 .remove();
-
-                    if (JSON.parse(data)) {
-
-                        $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                                .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Holiday/Sunday.</span></div>');
-                    } else {
-                        $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                                .find('.result')
-                                    .remove();
-                    }
-                },
-                error: function () {
-                    console.log('Conection issue');
                 }
-            });
-        }
+            },
+            error: function () {
+                console.log('Conection issue');
+            }
+        });
     });
 
     /*Forms Reset*/
@@ -1485,7 +1554,7 @@
     /*Calendar section*/
     $(window).ready(function () {
         var calendar = $('.calendar'),
-            currentDate = new Date(),
+            currentDate = new Date(new Date().getTime() + (15 * 86400000)), //Move 15 days into future so that it doesn't interfere with saving and resumption
             dialogConstant = {
                 autoOpen: true,
                 resizable: false,
@@ -1501,11 +1570,20 @@
         $('[data-id="date-finish"], [data-id="date-start"]').val(currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate());
 
         for (var i = calendar.length - 1; i >= 0; i--) {
-            var $current = $(calendar[i]).click(),
-                date = $current.datepicker('getDate'),
-                day = date.getDate(),
-                month = date.getMonth() + 1,
-                year = date.getFullYear();
+
+            var $current = $(calendar[i]).click();
+            $current.datepicker("setDate", currentDate);
+            var date = $current.datepicker('getDate');
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            /**/
+            // Remove border when user doesn't pick a date
+            var $currentContainer = $current.parent().parent();
+            if ($currentContainer.hasClass('no-date-selected')) {
+                $currentContainer.removeClass('no-date-selected');
+            } /**/
 
             $($current.closest('.calendar-column').attr('data-calendar'))
                 .val(year + '-' + month + '-' + day);

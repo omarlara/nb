@@ -604,7 +604,7 @@
         }
 
 
-        $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
+        $('<select class="enbridge-select" id="current-number" data-id="current-number" data-required="true">' + numbers.join('') + '</select>')
             .appendTo(container)
             .enbridgeDropdown();
 
@@ -618,7 +618,7 @@
     /*Set Address on decline/accept step container*/
     $('#confirm-address-button').bind('click', function () {
         var city = $('[name="select-street-container"]:checked').val() || '',
-            numberHouse = $('#current-number').val() || '',
+            numberHouse = $('[data-id="current-number"]').val() || '',
             unitNumber = $('input[data-id=pre-street-number]').val() || '',
             suffix = $('input[data-id=pre-suffix]').val() || '',
             streetName = $('input[name=select-street-container]:checked').val().split(', ')[0] || '',
@@ -629,6 +629,10 @@
         $('.address').last().html(address);
 
         $('#address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
+
+        $('[data-id="street-number"]').val(numberHouse);
+        $('[data-id="suffix"]').val(suffix);
+        $('[data-id="misc-info"]').val(unitNumber);
     });
 
     /*Info Decline*/
@@ -1463,10 +1467,6 @@
                 $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
                     .attr('data-required', true);
 
-                $('[data-id="suffix"]').val($('[data-id="pre-suffix"]').val() || '');
-                $('[data-id="street-number"]').val($('[data-id="pre-street-number"]').val() || '');
-
-
             } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
                 $('#newcustomers-step-address').removeClass('hidden');
 
@@ -1515,7 +1515,7 @@
             dateFormated = year + '-' + month + '-' + day,
             $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
 
-  
+
         if ($inputElem.hasClass('start-date')) {
             $.ajax({
                 url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
@@ -1633,12 +1633,17 @@
                 });
         });
 
+        var numberHouse = $('[data-id="current-number"]').val() || '',
+            unitNumber = $('input[data-id=pre-street-number]').val() || '',
+            suffix = $('input[data-id=pre-suffix]').val() || '';
+
+        $('[data-id="street-number"]').val(numberHouse);
+        $('[data-id="suffix"]').val(suffix);
+        $('[data-id="misc-info"]').val(unitNumber);
+
         $('#existingcustomers, #newcustomers, #moving-out')
             .removeClass('hidden')
             .dialog(dialogConstant).parent().appendTo(jQuery("form:first"));
-
-        $('[data-id="pre-suffix"]').val($('[data-id="suffix"]').val() || '');
-        $('[data-id="pre-street-number"]').val($('[data-id="street-number"]').val() || '');
 
         $('.enbridge-form input[type="text"]').bind('change', function () {
             var rel = $(this).attr('data-rel');
@@ -1650,7 +1655,6 @@
                     .find('.error-message')
                         .remove();
         });
-
 
     });
 

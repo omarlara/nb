@@ -87,6 +87,8 @@
   outline: 0; }
 .enbridge-content-container .down-new-account {
   margin-bottom: 30px; }
+.enbridge-content-container .uppercase {
+  text-transform: uppercase; }
 .enbridge-content-container .dates-moving-label-top {
   margin-top: 40px !important; }
 .enbridge-content-container .text-left {

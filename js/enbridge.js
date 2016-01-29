@@ -46,7 +46,7 @@
 
         address.push(streetName + ' <br /> ' + city + ', ' + province + '<br />' + postalCode);
 
-        return address.join('');
+        return address.join('').toUpperCase();
     }
 
     /*Date Formater*/
@@ -287,7 +287,7 @@
         }
     }
 
-    //Validate the selected dates.
+    //Validate the selected dates.  
     //Note that return results are returned immediately to avoid web service calls.
     //Also note the check to see if it is a holiday date happens on the on click event of a calendar.
     var dateValidator = function ($renewDate, $lastService) {
@@ -694,18 +694,18 @@
 
     /*Set Address on decline/accept step container*/
     $('#confirm-address-button').bind('click', function () {
-        var city = $('[name="select-street-container"]:checked').val() || '',
-            numberHouse = $('[data-id="current-number"]').val() || '',
+        var city = $('[name="select-street-container"]:checked').attr('data-city') || '',
+            numberHouse = $('#current-number').val() || '',
             unitNumber = $('input[data-id=pre-street-number]').val() || '',
             suffix = $('input[data-id=pre-suffix]').val() || '',
-            streetName = $('input[name=select-street-container]:checked').val().split(', ')[0] || '',
+            streetName = $('[name="select-street-container"]:checked').attr('data-street') || '',
             zipCode = $('[data-id="code-validator"]').val(),
-            isolatedCity = city.split(', ')[1],
-            address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, isolatedCity, '', zipCode);
+            province = $('[name="select-street-container"]:checked').attr('data-province') || '',
+            address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
         $('.address').last().html(address);
 
-        $('#address-confirmation').text(numberHouse + ' ' + city + ' ' + zipCode);
+        $('#address-confirmation').html(address);
 
         $('[data-id="street-number"]').val(numberHouse);
         $('[data-id="suffix"]').val(suffix);

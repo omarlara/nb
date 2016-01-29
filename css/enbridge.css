@@ -87,6 +87,8 @@
   outline: 0; }
 .enbridge-content-container .down-new-account {
   margin-bottom: 30px; }
+.enbridge-content-container .uppercase {
+  text-transform: uppercase; }
 .enbridge-content-container .dates-moving-label-top {
   margin-top: 40px !important; }
 .enbridge-content-container .text-left {
@@ -337,7 +339,7 @@
   font-size: 13px;
   margin: 0 0 15px 0;
   padding: 12px 9px;
-  color: #ddd6cc; }
+  color: #7d7d8a; }
   .enbridge-content-container .enbridge-form input[type="color"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="date"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="datetime"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="datetime-local"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="email"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="month"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="number"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="password"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="search"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="tel"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="text"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="time"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="url"].les-margin-bottom, .enbridge-content-container .enbridge-form input[type="week"].les-margin-bottom, .enbridge-content-container .enbridge-form input:not([type]).les-margin-bottom, .enbridge-content-container .enbridge-form textarea.les-margin-bottom {
     margin-bottom: 5px; }
 .enbridge-content-container .enbridge-form input[type="color"]:focus, .enbridge-content-container .enbridge-form input[type="date"]:focus, .enbridge-content-container .enbridge-form input[type="datetime"]:focus, .enbridge-content-container .enbridge-form input[type="datetime-local"]:focus, .enbridge-content-container .enbridge-form input[type="email"]:focus, .enbridge-content-container .enbridge-form input[type="month"]:focus, .enbridge-content-container .enbridge-form input[type="number"]:focus, .enbridge-content-container .enbridge-form input[type="password"]:focus, .enbridge-content-container .enbridge-form input[type="search"]:focus, .enbridge-content-container .enbridge-form input[type="tel"]:focus, .enbridge-content-container .enbridge-form input[type="text"]:focus, .enbridge-content-container .enbridge-form input[type="time"]:focus, .enbridge-content-container .enbridge-form input[type="url"]:focus, .enbridge-content-container .enbridge-form input[type="week"]:focus, .enbridge-content-container .enbridge-form input:not([type]):focus, .enbridge-content-container .enbridge-form textarea:focus,

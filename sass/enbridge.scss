@@ -11,18 +11,12 @@
 @import "./components/dialog";
 
 .tile {
-    &.home-tile {
-        min-height: 430px;
-    }
     .information {
         background-color: transparent;
     }
 }
 
 .tile.green {
-    &.home-tile {
-        min-height: 430px;
-    }
     .control-label {
         width: 70px !important;
     }

@@ -1551,6 +1551,12 @@
 
     /*******************************Window Ready loaders ********************************/
 
+    if ($('[data-id="stop"]:checked').length) {
+        $('[data-id="stop-select"]')
+            .removeClass('hide-flow')
+            .attr('data-required', true);
+    }
+
     /*Calendar section*/
     $(window).ready(function () {
         var calendar = $('.calendar'),

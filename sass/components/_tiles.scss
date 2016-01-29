@@ -2,7 +2,7 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    min-height: 355px;
+    min-height: 396px;
     border-radius:3px;
     width: 100%;
     background-color: $moon-mist;
@@ -104,11 +104,10 @@
         background-repeat: no-repeat;
         background-position: 112px 84px;
         background-size: 79%;
-         min-height: 220px;
         &.no-min {
              min-height: 356px;
         }
-       
+
 
         h3 {
             color:#fff !important;
@@ -132,10 +131,10 @@
             display: block;
             margin: 44px auto 0 auto;
             width: 200px;
-            text-align: center;     
-            & + .error-message {        
-                margin: 5px auto;       
-                width: 200px;       
+            text-align: center;
+            & + .error-message {
+                margin: 5px auto;
+                width: 200px;
             }
         }
     }
@@ -144,8 +143,8 @@
         font-size: 13px;
         color: #007dba;
         text-decoration: none;
-        &.text-left {       
-            text-align: left;       
+        &.text-left {
+            text-align: left;
         }
         .list-of-links {
             list-style: none;

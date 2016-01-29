@@ -887,7 +887,7 @@
   border: 1px solid #ddd6cc;
   display: inline-block;
   position: relative;
-  min-height: 355px;
+  min-height: 396px;
   border-radius: 3px;
   width: 100%;
   background-color: #ddd6cc;
@@ -966,8 +966,7 @@
     background-image: url("img/en-tile-bg.png");
     background-repeat: no-repeat;
     background-position: 112px 84px;
-    background-size: 79%;
-    min-height: 220px; }
+    background-size: 79%; }
     .enbridge-content-container .tile.green.no-min {
       min-height: 356px; }
     .enbridge-content-container .tile.green h3 {
@@ -2450,13 +2449,9 @@
       margin: 0;
       width: auto; }
 
-.tile.home-tile {
-  min-height: 430px; }
 .tile .information {
   background-color: transparent; }
 
-.tile.green.home-tile {
-  min-height: 430px; }
 .tile.green .control-label {
   width: 70px !important; }
 .tile.green .fields {

@@ -20,7 +20,7 @@
     }
 
     String.prototype.postalCode = function () {
-        return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(this);
+        return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/i.test(this);
     }
 
     String.prototype.PhoneFormat = function () {

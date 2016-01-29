@@ -1010,7 +1010,7 @@
     $('.birth-day-controller-year').bind('change', function updateFromYear() {
         var $this = $(this),
             year = $this.val(),
-            birthDayController = $this.attr('data-birth-month-controller'),
+            birthDayController = $this.attr('data-birth-day-controller'),
             month = $('[data-id ="' + $this.attr('data-birth-month-controller') + '"]').val(),
             day = $('[data-id ="' + birthDayController + '"]').val(),
             options = $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .list-item'),
@@ -1033,7 +1033,8 @@
         }
 
         if (day === '' || day <= availableDays) {
-            return;
+            $('[data-id ="' + birthDayController + '"] + .enbridge-dropdown .selected').text(day);
+
         } else {
             var textCurrent = '';
             $day.find('option:selected').removeAttr('selected');
@@ -1557,6 +1558,18 @@
             .attr('data-required', true);
     }
 
+    if ($('[data-id="country"]').val() != 'CA') {
+        $('[data-id="postal-code-input"]').removeAttr('data-pattern');
+    }
+
+    if ($('[data-id="country-alternative-element"]').val() != 'CA') {
+        $('[data-id="postal-code-input-alternative"]').removeAttr('data-pattern');
+    }
+
+    if ($('[data-rel="country-alternative-element"]').val() != 'CA') {
+        $('[data-id="postal-code-input-alternative"]').removeAttr('data-pattern');
+    }
+
     /*Calendar section*/
     $(window).ready(function () {
         var calendar = $('.calendar'),
@@ -1683,23 +1696,6 @@ var Enbridge = window.Enbridge || {
 
     var Enbridge = window.Enbridge;
 
-/*
-    function populateProvinces(provinces) {
-        var i = 0,
-            len = provinces.length || 0,
-            $provinceDropdown = $('[data-id="moving-out-province"]'),
-            compilation = '';
-
-        for (i = 0; i < len; i += 1) {
-            compilation +=
-                Enbridge.Templates.PROVINCE.replace(':provinceCode', provinces[i].Code)
-                    .replace(':provinceName', provinces[i].Name);
-        }
-
-        $provinceDropdown.html(compilation);
-        $provinceDropdown.enbridgeDropdown();
-    }
-*/
     function loadProvinces(data, id) {
         $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, function populateProvinces (provinces) {
             var i = 0,

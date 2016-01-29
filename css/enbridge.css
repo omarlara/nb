@@ -1282,6 +1282,9 @@
   color: #636373;
   font-size: 16px;
   line-height: 1.4; }
+.enbridge-content-container .dates-view .address-component.no-date-selected {
+  border: 1px solid #ff0000;
+  padding: 1px; }
 .enbridge-content-container .dates-view .result {
   width: 100%; }
 .enbridge-content-container.content-thankyou {
@@ -1766,6 +1769,9 @@
   color: #636373;
   font-size: 16px;
   line-height: 1.4; }
+.enbridge-content-container .dates-view .address-component.no-date-selected {
+  border: 1px solid #ff0000;
+  padding: 1px; }
 .enbridge-content-container .dates-view .result {
   width: 100%; }
 .enbridge-content-container .form-horizontal .checks .fields .fake-input {

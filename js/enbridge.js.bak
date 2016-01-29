@@ -621,7 +621,12 @@
             numbers.push('<option value="' + ranges[i] + '">' + ranges[i] + '</option>');
         }
 
+<<<<<<< Updated upstream
+
+        $('<select class="enbridge-select" id="current-number" data-id="current-number" data-required="true">' + numbers.join('') + '</select>')
+=======
         $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
+>>>>>>> Stashed changes
             .appendTo(container)
             .enbridgeDropdown();
 

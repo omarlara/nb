@@ -23,6 +23,11 @@
             color:$mid-gray;
             font-size: 16px;
             line-height: 1.4;
+
+        }
+        &.no-date-selected {
+            border: $no-valid-date-border-props;
+            padding: 1px;
         }
     }
 

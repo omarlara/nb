@@ -615,6 +615,13 @@
         validator($(this).parents('.enbridge-form'));
     });
 
+    /*New account entry business input variation*/
+    $('input[name=device-type]').bind('change', function () {
+        var accountType = $('input[name=device-type]:checked').val();
+        $('input[class$="inputs-container"]').hide().find('input').addClass('ignore');
+        $('.' + accountType + '-inputs-container').show().find('input').removeClass('ignore');
+    });
+
     /*Set Address on decline/accept step container*/
     $('#confirm-address-button').bind('click', function () {
         var city = $('[name="select-street-container"]:checked').val() || '',

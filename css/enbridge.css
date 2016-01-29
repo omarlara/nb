@@ -1827,6 +1827,8 @@
     .enbridge-content-container .form-grid .row .form-group .set-field input + input,
     .enbridge-content-container .form-grid .row .form-group .set-field input + label {
       margin-left: 10px; }
+.enbridge-content-container .form-grid .row.address-bar.business-inputs-container {
+  display: none; }
 .enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label {
   width: 110px; }
   .enbridge-content-container .form-grid .row.address-bar > .form-group:first-child > label.fluid-label {
@@ -2392,6 +2394,7 @@
   margin: auto !important;
   right: 0 !important;
   left: 0 !important;
+  top: 100px !important;
   padding: 20px;
   outline: 0;
   border: 1px solid #DEDFE4;

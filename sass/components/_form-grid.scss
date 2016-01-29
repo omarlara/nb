@@ -89,6 +89,9 @@
             }
         }
         &.address-bar {
+            &.business-inputs-container {
+                display: none;
+            }
             > .form-group:first-child {
                 > label {
                     width: 110px;

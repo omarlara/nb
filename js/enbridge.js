@@ -122,7 +122,7 @@
             zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
             oneFromGroup = $form.find('.required-from-group'),
-            text = $form.find('input[type="text"]');
+            text = $form.find('input[type="text"]:not(.ignore)');
 
         $form.find('.error-message, .error-code').remove();
         $form.find('.input-error').removeClass('input-error');
@@ -613,6 +613,13 @@
     /*Run validator at phone required group*/
     $('.required-from-group').find('input').bind('change', function () {
         validator($(this).parents('.enbridge-form'));
+    });
+
+    /*New account entry business input variation*/
+    $('input[name=device-type]').bind('change', function () {
+        var accountType = $('input[name=device-type]:checked').val();
+        $('div[class$="inputs-container"]').hide().find('input').addClass('ignore');
+        $('.' + accountType + '-inputs-container').show().find('input').removeClass('ignore input-error').parent().find('.error-message').remove();
     });
 
     /*Set Address on decline/accept step container*/
@@ -1415,13 +1422,13 @@
 
     /*Submit button*/
 
-    $('.dialog .submit-button').bind('click', function(e) {
+    $('.dialog .submit-button').bind('click', function (e) {
         var $this = $('#' + $(this).attr('data-item-related')),
             $current = $this.closest('.accordion-item'),
             $finishDate = $current.find('.finish-date'),
             $startDate = $current.find('.start-date');
 
-        if($this.hasClass('disabled')) {
+        if ($this.hasClass('disabled')) {
             return false;
         }
 

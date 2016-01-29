@@ -1030,47 +1030,6 @@
         $('#moving-out-summary-mobile-phone').text($('[data-id="moving-out-mobile-phone-lada"]').val() + ' ' + $('[data-id="moving-out-mobile-phone"]').val());
     });
 
-    /*
-    When you click on the next sep, on Select your street
-    if you have selected No one above, you will show form, in another case you will be on the select street number
-    */
-    $('#newcustomers-get-address').bind('keyup', function () {
-        var $this = $(this);
-
-        if ($('[name="newcustomers-select-street-container"]:checked').val()) {
-            $.ajax({
-                url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
-                type: 'POST',
-                dataType: 'json',
-                data: {},
-                complete: function (xhr, status) {
-                    var jsonObj = null;
-                    if (!xhr || xhr.status != 200 || !xhr.response) {
-                        console.log(xhr);
-                    } else {
-                        jsonObj = JSON.parse(xhr.response);
-
-                        if (jsonObj.numbers) {
-                            var numbers = [],
-                                container = '#newcustomers-data-dropdown';
-
-                            $(container).html('');
-
-                            for (var i = 0, size = jsonObj.numbers.length; i < size; i++) {
-                                numbers.push('<option value="' + jsonObj.numbers[i] + '">' + jsonObj.numbers[i] + '</option>');
-                            }
-
-                            $('<select class="enbridge-select" id="newcustomers-current-number" data-required="true">' + numbers.join('') + '</select>')
-                                .appendTo(container)
-                                .enbridgeDropdown();
-
-                        }
-                    }
-                }
-            });
-
-        }
-    });
 
     /*Add alternative mailer address*/
     $('[data-id="newcustomers-mailing-address-alternative"], [data-id="newcustomers-mailing-address"]').change(function () {
@@ -1316,50 +1275,6 @@
                     .addClass('input-error');
             }
         });
-    });
-
-    /*Postal Code*/
-    $('.postal-code-verify').keyup(function (e) {
-        e.stopPropagation();
-        var $this = $(this).removeClass('input-sucess input-error');
-
-        $this.closest('.set-field')
-            .find('.error-message, .result')
-                .remove();
-
-        if (!($this.attr('data-pattern') === 'postal-code')) return;
-
-        if ($this.val().postalCode()) {
-            $this.addClass('input-sucess');
-
-            $.ajax({
-                url: 'http://beta.json-generator.com/api/json/get/N1wJ1FaUl',
-                complete: function (xhr, status) {
-                    $this.closest('.set-field')
-                        .find('.error-message, .result')
-                            .remove();
-
-                    if (!xhr || xhr.status != 200) {
-                        $this
-                            .addClass('input-error')
-                            .closest('.set-field')
-                                .append('<p class="result error-code">' + $this.attr('data-error') + '</p>');
-                    } else {
-                        $this
-                            .removeClass('input-error')
-                            .closest('.set-field')
-                                .append('<p class="result success-code">' + $this.attr('data-success') + '</p>');
-                    }
-                }
-            });
-
-        } else {
-            $this
-                .addClass('input-error')
-                .closest('.set-field')
-                    .append('<p class="error-message">' + $this.attr('data-pattern-error') + '</p>');
-        }
-
     });
 
     /***********************Accordion***********************/

@@ -456,6 +456,12 @@
                         $source
                             .find('option[value="' + value + '"]')
                                 .attr('selected', true);
+
+            var value = this.getAttribute('data-value');
+                        var $copyToHidden = $('input[type="hidden"][data-assoc="' + self.source.getAttribute('data-id') + '"]');
+                        if ($copyToHidden.length > 0) {
+                          $copyToHidden.val(value);
+                        }
                     });
 
         };
@@ -1574,6 +1580,7 @@
     $(window).ready(function () {
         var calendar = $('.calendar'),
             currentDate = new Date(new Date().getTime() + (15 * 86400000)), //Move 15 days into future so that it doesn't interfere with saving and resumption
+            confirmDialog = '',
             dialogConstant = {
                 autoOpen: true,
                 resizable: false,
@@ -1581,10 +1588,35 @@
                 width: 720,
                 modal: true,
                 height: 440,
-                top: 29
+                top: 29,
+                beforeClose: function (e) {
+                    if (confirmDialog !== '') {
+                        confirmDialog.dialog('destroy');
+                    }
+                    confirmDialog = $('.confirm-dialog-close')
+                    .dialog({
+                        autoOpen: true,
+                        resizable: false,
+                        dialogClass: 'confirm-dialog-close',
+                        width: 430,
+                        top: 200,
+                        modal: true,
+                        height: 440
+                    });
+                    $('.confirm-not-dialog').bind('click', function (e) {
+                        e.preventDefault();
+                        confirmDialog.dialog('close');
+                        return false;
+                    });
+                    return false;
+                }
             };
 
         calendar.datepicker();
+
+        $('.confirm-yes-dialog').bind('click', function () {
+            window.location = '/homes/start-stop-move/moving/index.aspx';
+        });
 
         $('[data-id="date-finish"], [data-id="date-start"]').val(currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate());
 
@@ -1697,7 +1729,7 @@ var Enbridge = window.Enbridge || {
     var Enbridge = window.Enbridge;
 
     function loadProvinces(data, id) {
-        $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, function populateProvinces (provinces) {
+        $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, function populateProvinces(provinces) {
             var i = 0,
                 len = provinces.length || 0,
                 $provinceDropdown = $('[data-id="' + id + '"]'),
@@ -1721,7 +1753,7 @@ var Enbridge = window.Enbridge || {
             $countryDropdown = $('[data-id="country"], [data-id="moving-out-country"], [data-id="country-alternative-element"]'),
             $countryDropdownItems = $countryDropdown.next('.enbridge-dropdown').find('li');
 
-        for(var i = $countryDropdown.length - 1; i >= 0; i--) {
+        for (var i = $countryDropdown.length - 1; i >= 0; i--) {
             var $currentDropdown = $($countryDropdown[i]);
 
             if ($currentDropdown.attr('data-province-rel')) {
@@ -1742,7 +1774,7 @@ var Enbridge = window.Enbridge || {
 
         $countryDropdownItems.bind('click', function (e) {
             var relationId = $(this).closest('.enbridge-dropdown').attr('data-province-rel'),
-                postalCode = $(this).closest('.enbridge-dropdown').attr('data-postal-code-rel')|| '';
+                postalCode = $(this).closest('.enbridge-dropdown').attr('data-postal-code-rel') || '';
 
             countryServiceData.countryCode = $(this).attr('data-value');
             loadProvinces(countryServiceData, relationId);

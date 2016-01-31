@@ -131,6 +131,21 @@
     background: $athens-gray;
     z-index: -1;
 
+    &.confirm-dialog-close {
+        top: 30% !important;
+        .enbridge-content-container {
+            .content {
+                width: 100% !important;
+                margin-left: 0 !important;
+                .strong {
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+
     .tooltip .icon {
         &.address-tooltip{
             &:after {

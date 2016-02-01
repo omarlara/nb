@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -117,6 +118,28 @@ module.exports = function (grunt) {
             prod: {
                 tasks: ['watch:prod']
             }
+        },
+        concat: {
+            options: {
+                process: function (src, path) {
+                    return '// ' + path.replace('src/', '') + '\n' 
+                        + src;
+                }
+            },
+            dist: {
+                src: [
+                    'src/bootstrap.js',
+                    'src/prototype.js',
+                    'src/common.js',
+                    'src/utils.js',
+                    'src/calendar.js',
+                    'src/plugins/**/*.js',
+                    'src/flows/**/*.js',
+                    'src/services/**/*.js'
+                ],
+                dest: 'js/enbridge.js'
+            }
+
         }
     });
 

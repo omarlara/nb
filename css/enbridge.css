@@ -1818,6 +1818,11 @@
     vertical-align: top; }
   .enbridge-content-container .form-grid .row .form-group.pull-margin-right {
     margin-right: -10px; }
+  .enbridge-content-container .form-grid .row .form-group .form-paragraph-business {
+    margin-top: 10px;
+    white-space: nowrap; }
+    .enbridge-content-container .form-grid .row .form-group .form-paragraph-business.offset-input {
+      margin-left: 115px; }
   .enbridge-content-container .form-grid .row .form-group .set-field {
     display: inline-block;
     vertical-align: middle; }
@@ -1887,8 +1892,8 @@
   width: 140px; }
 .enbridge-content-container ._w160 {
   width: 160px; }
-.enbridge-content-container ._w170 {
-  width: 160px; }
+.enbridge-content-container ._w175 {
+  width: 175px; }
 .enbridge-content-container ._w180 {
   width: 180px; }
 .enbridge-content-container ._w200 {

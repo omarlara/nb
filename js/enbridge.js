@@ -694,7 +694,7 @@
     /*New account entry business input variation*/
     $('input[name=device-type]').bind('change', function () {
         var accountType = $('input[name=device-type]:checked').val();
-        $('div[class$="inputs-container"]').hide().find('input').addClass('ignore');
+        $('div[class*="inputs-container"]').hide().find('input').addClass('ignore');
         $('.' + accountType + '-inputs-container').show().find('input').removeClass('ignore input-error').parent().find('.error-message').remove();
     });
 

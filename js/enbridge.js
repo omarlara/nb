@@ -1580,7 +1580,15 @@
     $(window).ready(function () {
         var calendar = $('.calendar'),
             currentDate = new Date(new Date().getTime() + (15 * 86400000)), //Move 15 days into future so that it doesn't interfere with saving and resumption
-            confirmDialog = '',
+            confirmDialog = $('.confirm-dialog-close').dialog({
+                autoOpen: false,
+                resizable: false,
+                dialogClass: 'confirm-dialog-close',
+                width: 430,
+                top: 200,
+                modal: true,
+                height: 440
+            }),
             dialogConstant = {
                 autoOpen: true,
                 resizable: false,
@@ -1590,9 +1598,7 @@
                 height: 440,
                 top: 29,
                 beforeClose: function (e) {
-                    if (confirmDialog !== '') {
-                        confirmDialog.dialog('destroy');
-                    }
+                    confirmDialog.dialog('destroy');
                     confirmDialog = $('.confirm-dialog-close')
                     .dialog({
                         autoOpen: true,

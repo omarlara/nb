@@ -11,7 +11,6 @@ var Enbridge = window.Enbridge || {
         CANADA: 'CA'
     }
 };
-
 /*******************************Window Ready loaders ********************************/
 ;$(window).ready(function () {
     if ($('[data-id="stop"]:checked').length) {

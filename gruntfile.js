@@ -16,9 +16,11 @@ module.exports = function (grunt) {
                     '*.{htm,html}',
                     'sass/*.{scss,sass}',
                     'sass/**/*.{scss,sass}',
-                    'sass/**/**/*.{scss,sass}'
-                    ],
-                tasks: ['sass:dist'],
+                    'sass/**/**/*.{scss,sass}',
+                    'src/**.js',
+                    'src/**/**.js',
+                ],
+                tasks: ['sass:dist', 'concat:dist'],
                 options: {
                     livereload: true
                 }
@@ -28,8 +30,10 @@ module.exports = function (grunt) {
                     '*.{htm,html}',
                     'sass/*.{scss,sass}',
                     'sass/**/*.{scss,sass}',
-                    'sass/**/**/*.{scss,sass}'
-                    ],
+                    'sass/**/**/*.{scss,sass}',
+                    'src/**.js',
+                    'src/**/**.js',
+                ],
                 tasks: ['sass:dist', 'cssmin'],
                 options: {
                     livereload: true

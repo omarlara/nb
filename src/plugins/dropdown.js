@@ -113,4 +113,4 @@ $.fn.enbridgeDropdown = function (element) {
         });
     });
 
-})(jQuery);
+}(jQuery));

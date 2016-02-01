@@ -11,6 +11,7 @@ var Enbridge = window.Enbridge || {
         CANADA: 'CA'
     }
 };
+
 /*******************************Window Ready loaders ********************************/
 ;$(window).ready(function () {
     if ($('[data-id="stop"]:checked').length) {
@@ -244,6 +245,7 @@ String.prototype.PhoneFormat = function () {
         $('input[name="' + name + '"]').removeClass('input-success input-error');
     });
 } (jQuery));
+
 // utils.js
 /***********************General functions***********************/
 
@@ -692,7 +694,7 @@ $.fn.enbridgeDropdown = function (element) {
         });
     });
 
-})(jQuery);
+}(jQuery));
 
 // flows/accordion.js
 /***********************Accordion***********************/
@@ -1412,7 +1414,7 @@ $.fn.enbridgeDropdown = function (element) {
 
 // services/zip.js
 /*Success Zip*/
-(function ($)) {
+(function ($) {
     $('.new-address').keyup(function () {
         var $this = $(this),
             currentVal = $this.val(),

@@ -1,5 +1,5 @@
 /*Success Zip*/
-(function ($)) {
+(function ($) {
     $('.new-address').keyup(function () {
         var $this = $(this),
             currentVal = $this.val(),

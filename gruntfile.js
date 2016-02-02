@@ -57,7 +57,8 @@ module.exports = function (grunt) {
                     ext: '.css'
                 }],
                 options: {
-                    sourcemap: false,
+                    sourcemap: 'none',
+                    style: 'compressed',
                     noCache: false
                 }
             }

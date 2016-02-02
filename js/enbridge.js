@@ -27,7 +27,18 @@
         return /^\d{3,3}(\-)\d{4,4}\d$/.test(this);
     }
 
-
+    Date.prototype.addDays = function (number) {
+            var result = true,
+                currentDate = this.getDate();
+            if(!parseInt(number)) {
+                result = false;
+            }
+            
+            this.setDate(currentDate + number);
+            
+            return result;
+    }
+    
     /***********************General functions***********************/
 
     /* Format a date for display in a literal */
@@ -249,6 +260,7 @@
                 }
             }
         }
+        
         if (error) {
             for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
                 var $current = $(oneFromGroup[i]);
@@ -261,11 +273,104 @@
                 }
             }
         }
-
-
+        
         return error;
     };
 
+
+    /*Date validator*/
+
+    var dateValidator = (function () {
+        var $lastDay = null,
+            $renewDay = null,
+            last = null,
+            renew = null,
+            validationType = null,
+            dateValidation = null;
+
+        dateValidation = (function (){
+                            var now = new Date(),
+                                additionalBusinessDays = 0,
+                                minimumDate = new Date(),
+                                minDays = 0,
+                                constants = {
+                                    dayInMilliseconds: 86400000  /**dayInMilliseconds -> 1000 * 60 * 60 * 24 = 86400000*/
+                                },
+                                result = {},
+                                isBusinessDay = function (dateToCheck) {
+                                    var year  = dateToCheck.getFullYear(),
+                                        month = dateToCheck.getMonth() + 1,
+                                        day   = dateToCheck.getDate(),
+                                        formattedDate = year + '-' + month + '-' + day,
+                                        result = null;
+
+                                        result = $.ajax({
+                                                type: 'GET',
+                                                async: false,
+                                                url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+                                                data: {date: formattedDate},
+                                                error: function (jqXHR, textStatus, errorThrown) {
+                                                    console.log('An error occurred checking for business date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
+                                                }
+                                            });
+                                    return (result.responseText && result.responseText == 'true')? true: false;
+                                };
+
+                            while (additionalBusinessDays <= 3) {
+                                if (isBusinessDay(minimumDate)) {
+                                    additionalBusinessDays++;
+                                }
+                                
+                                minimumDate.addDays(1);
+                            }
+                            
+                            function endDate (endDate) {
+                                return (endDate > minimumDate)? true: false;
+                            }
+
+                            function validInterval (renewDate, endDate) {
+                                return ((renewDate - endDate) >= (additionalBusinessDays * constants.intervalDays))? true: false;
+                            }
+
+                            return {
+                                validEndDate: endDate,
+                                validInterval: validInterval
+                            }
+                         })();
+
+        function set (lastDay, renewDay, type) {
+            $lastDay = lastDay;
+            $renewDay = renewDay;
+            validationType = type;
+
+            last = new Date($lastDay.val());
+            renew = new Date($renewDay.val());
+        }
+
+        function validation () {
+            switch (validationType) {
+                case 'finish':
+                    if(!dateValidation.validEndDate()) {
+                        console.log('End date is near!');
+                        return false;
+                    }
+                break;
+                case 'transfer':
+                    
+                break;
+                case 'finish': default:
+                    
+                break;
+            }
+        }
+
+        return {
+            set: set,
+            validation: validation
+        }
+
+    })();
+/*
     //Determine if a day is a business day
     var isBusinessDay = function (dateToCheck) {
         var formattedDate = dateToCheck.getFullYear() + "-" + (dateToCheck.getMonth() + 1) + "-" + dateToCheck.getDate();
@@ -287,7 +392,7 @@
         }
     }
 
-    //Validate the selected dates.  
+    //Validate the selected dates.
     //Note that return results are returned immediately to avoid web service calls.
     //Also note the check to see if it is a holiday date happens on the on click event of a calendar.
     var dateValidator = function ($renewDate, $lastService) {
@@ -374,6 +479,8 @@
 
         return false;
     };
+
+
 
     /***********************Plugins declaration***********************/
 
@@ -644,7 +751,7 @@
     /*Stop radio button click, show/hide Select reason select*/
     $('[name="steps"]').bind('click', function () {
         var $element = $('[data-id="stop-select"]');
-
+        
         if (this.value === 'stop') {
             $element
                 .removeClass('hide-flow')
@@ -654,6 +761,8 @@
                 .addClass('hide-flow')
                 .removeAttr('data-required');
         }
+        
+        $('#calendar-move-entry').attr('data-validation', this.value);
     });
 
     /*
@@ -1379,10 +1488,13 @@
         e.preventDefault();
 
         var $current = $(this).closest('.accordion-item'),
+            validationType = $current.find('.calendar-container').attr('data-validation'),
             $finishDate = $current.find('.finish-date'),
             $startDate = $current.find('.start-date');
+            
+            dateValidator.set($startDate, $finishDate, validationType);
 
-        if (!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
+        if (!validator($current.find('.enbridge-form')) && dateValidator.validation()) {
             $current
                 .removeClass('active')
                 .addClass('processed');

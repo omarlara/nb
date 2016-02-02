@@ -605,7 +605,11 @@
 
     /*Dialog - 1 - Moving out*/
 
-    $('[account-authorization="bill"]').keyup(function () {
+    $('[account-authorization="bill"]').bind('change', function () {
+        authCall.call(this);
+    });
+
+    var authCall = function () {
         var $this = $(this),
             accountNumber = $('[data-id="moving-out-account-number"]').val(),
             postalCode = $('[data-id="moving-out-postal-code"]').val(),
@@ -643,7 +647,7 @@
                 console.log(jqXHR);
             }
         });
-    });
+    };
 
     /*Stop radio button click, show/hide Select reason select*/
     $('[name="steps"]').bind('click', function () {

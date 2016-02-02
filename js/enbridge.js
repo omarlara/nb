@@ -599,6 +599,10 @@
 
     /***********************Flows for Dialogs***********************/
 
+    $('.container-thankyou').find('.dislike').bind('click', function () {
+        $(this).parent().find('.improve').removeClass('hidden');
+    });
+
     /*Dialog - 1 - Moving out*/
 
     $('[account-authorization="bill"]').keyup(function () {

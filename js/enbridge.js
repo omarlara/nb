@@ -598,9 +598,28 @@
 
 
     /***********************Flows for Dialogs***********************/
-
+    /*Show feedback inputs if dislike*/
     $('.container-thankyou').find('.dislike').bind('click', function () {
         $(this).parent().find('.improve').removeClass('hidden');
+    });
+
+    /*Update currentAddress ASP literal on select account*/
+    $('#account-select-dropdown').find('.list-item').bind('click', function () {
+        var accountType = $(this).attr('data-value');
+        $.ajax({
+            type: 'GET',
+            url: '/WebServices/GasAccountService.svc/GetCustomerDetails',
+            data: { accountNumber: accountType },
+            contentType: 'application/json',
+            success: function (data) {
+                data = data.ServiceAddress;
+                var address = formatDisplayStreet(data.Unit, data.StreetNumber, data.Suffix, data.StreetName, data.City, data.Province, data.PostalCode);
+                $('#current-address-literal').find('.address').html(address);
+            },
+            error: function (xhr, error) {
+                console.log(error);
+            }
+        });
     });
 
     /*Dialog - 1 - Moving out*/

@@ -1605,6 +1605,8 @@
         text-align: right !important; }
       .enbridge-content-container .accordion .accordion-item .content .enbridge-dropdown {
         margin-bottom: 0; }
+      .enbridge-content-container .accordion .accordion-item .content #account-select-dropdown {
+        margin: 20px 0; }
     .enbridge-content-container .accordion .accordion-item:not(.active) > .header {
       background-color: #f3f4f7;
       color: #b9bcc2; }

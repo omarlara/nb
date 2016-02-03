@@ -189,9 +189,10 @@
         .opener {
             font-size: 11px;
             padding: 11px $normal-padding;
-
             cursor: pointer;
-
+            .info-span {
+                vertical-align: sub;
+            }
             i {
                 border-radius: 50%;
                 display: inline-block;

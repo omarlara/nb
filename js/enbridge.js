@@ -1,3 +1,17 @@
+/** General Namespace **/
+var Enbridge = window.Enbridge || {
+    UrlServices: {
+        GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces'
+    },
+    Templates: {
+        PROVINCE: '<option value=":provinceCode">:provinceName</option>'
+    },
+    CountryCodes: {
+        CANADA: 'CA'
+    },
+    Plugins: {}
+};
+
 ;$(window).ready(function () {
 
     /***********************Prototyping functions***********************/
@@ -133,7 +147,8 @@
             zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
             oneFromGroup = $form.find('.required-from-group'),
-            text = $form.find('input[type="text"]:not(.ignore)');
+            text = $form.find('input[type="text"]:not(.ignore)'),
+            ageValidatorElements = $form.find('[data-validate-age=""]');
 
         $form.find('.error-message, .error-code').remove();
         $form.find('.input-error').removeClass('input-error');
@@ -258,6 +273,15 @@
                     default:
                         break;
                 }
+            }
+        }
+
+        // Age Validator
+        for (var i = ageValidatorElements.length - 1; i >= 0; i -= 1) {
+            var $ageValidator = new Enbridge.Plugins.AgeValidator($(ageValidatorElements[i]));
+            if (!$ageValidator.isValid()) {
+                error = true;
+                break;
             }
         }
 
@@ -711,9 +735,28 @@
     })(jQuery);
 
     /***********************Flows for Dialogs***********************/
-
+    /*Show feedback inputs if dislike*/
     $('.container-thankyou').find('.dislike').bind('click', function () {
         $(this).parent().find('.improve').removeClass('hidden');
+    });
+
+    /*Update currentAddress ASP literal on select account*/
+    $('#account-select-dropdown').find('.list-item').bind('click', function () {
+        var accountType = $(this).attr('data-value');
+        $.ajax({
+            type: 'GET',
+            url: '/WebServices/GasAccountService.svc/GetCustomerDetails',
+            data: { accountNumber: accountType },
+            contentType: 'application/json',
+            success: function (data) {
+                data = data.ServiceAddress;
+                var address = formatDisplayStreet(data.Unit, data.StreetNumber, data.Suffix, data.StreetName, data.City, data.Province, data.PostalCode);
+                $('#current-address-literal').find('.address').html(address);
+            },
+            error: function (xhr, error) {
+                console.log(error);
+            }
+        });
     });
 
     /*Dialog - 1 - Moving out*/
@@ -1766,16 +1809,18 @@
                 .val(year + '-' + month + '-' + day);
         }
 
-        $('.tooltip .icon').bind('click', function () {
+        $('.tooltip .icon').bind('click', function (e) {
             $(this).next()
                 .addClass('active-tooltip')
                 .show();
+            e.stopPropagation();
         });
 
-        $('.tooltip .cross').bind('click', function () {
+        $('.tooltip .cross').bind('click', function (e) {
             $(this).closest('.content-tooltip')
                 .removeClass('active-tooltip')
                 .hide();
+            e.stopPropagation();
         });
 
         $('.modalopen').bind('click', function (e) {
@@ -1836,19 +1881,6 @@
     });
 
 });
-
-/** General Namespace **/
-var Enbridge = window.Enbridge || {
-    UrlServices: {
-        GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces'
-    },
-    Templates: {
-        PROVINCE: '<option value=":provinceCode">:provinceName</option>'
-    },
-    CountryCodes: {
-        CANADA: 'CA'
-    }
-};
 
 ; (function (window, $) {
 
@@ -1918,3 +1950,55 @@ var Enbridge = window.Enbridge || {
 
     });
 } (window, jQuery));
+
+Enbridge.Plugins.AgeValidator = (function ($) {
+  var AgeValidator = function($el) {
+    var $_el = $el;
+    var _date;
+
+    function validate(expectedAge) {
+      var now = Date.now();
+
+      // Years of the person
+      return (now - _date.valueOf()) / (365 * 24 * 3600 * 1000) >= expectedAge;
+    };
+
+    this.setDate = function(year, month, day) {
+      _date = new Date(year, month - 1, day);
+    };
+
+    this.isValid = function(expectedAge) {
+      expectedAge = expectedAge || $_el.attr('data-validate-age-greater-than');
+
+      var messageError = '<p class="error-message">' + $_el.attr('data-validate-age-error-message') + '</p>';
+
+      // Add error message
+      if (!validate(parseInt(expectedAge, 10))) {
+        $_el.append(messageError);
+        return false;
+      }
+
+      return true;
+    };
+
+    // Set
+    var dayId = $_el.attr('data-validate-age-day') || '';
+    var $day = $_el.find('[data-id="' + dayId + '"]');
+    if ($day.length < 1) return;
+
+    var monthId = $_el.attr('data-validate-age-month') || '';
+    var $month = $_el.find('[data-id="' + monthId + '"]');
+    if ($month.length < 1) return;
+
+    var yearId = $_el.attr('data-validate-age-year') || '';
+    var $year = $_el.find('[data-id="' + yearId + '"]');
+    if ($year.length < 1) return;
+
+    this.setDate(
+      parseInt($year.val(), 10),
+      parseInt($month.val(), 10),
+      parseInt($day.val(), 10)
+    );
+  }
+  return AgeValidator;
+}(jQuery));

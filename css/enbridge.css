@@ -424,6 +424,8 @@
     font-size: 11px;
     padding: 11px 15px;
     cursor: pointer; }
+    .enbridge-content-container .enbridge-form .zip-code-tool .opener .info-span {
+      vertical-align: sub; }
     .enbridge-content-container .enbridge-form .zip-code-tool .opener i {
       border-radius: 50%;
       display: inline-block;
@@ -1623,6 +1625,8 @@
         text-align: right !important; }
       .enbridge-content-container .accordion .accordion-item .content .enbridge-dropdown {
         margin-bottom: 0; }
+      .enbridge-content-container .accordion .accordion-item .content #account-select-dropdown {
+        margin: 20px 0; }
     .enbridge-content-container .accordion .accordion-item:not(.active) > .header {
       background-color: #f3f4f7;
       color: #b9bcc2; }
@@ -2068,7 +2072,7 @@
     cursor: pointer;
     z-index: 500; }
     .enbridge-content-container .tooltip .icon:after {
-      content: "?";
+      content: '?';
       background-color: #92b051;
       border-radius: 12px;
       width: 20px;
@@ -2081,6 +2085,13 @@
       float: right;
       cursor: pointer;
       font-size: 14px; }
+    .enbridge-content-container .tooltip .icon.info {
+      margin-left: 5px; }
+      .enbridge-content-container .tooltip .icon.info:after {
+        content: 'i';
+        font-style: italic;
+        font-family: initial;
+        margin: 0; }
 @-moz-document url-prefix() {
   .enbridge-content-container .tooltip .letter-i:after {
     padding-top: 1px; }

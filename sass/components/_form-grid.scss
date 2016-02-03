@@ -71,6 +71,13 @@
             &.pull-margin-right {
                 margin-right: -10px;
             }
+            .form-paragraph-business {
+                margin-top: 10px;
+                white-space: nowrap;
+                &.offset-input {
+                    margin-left: 115px;
+                }
+            }
             .set-field {
                 display: inline-block;
                 vertical-align: middle;
@@ -197,8 +204,8 @@ hr {
     width: 160px;
 }
 
-._w170 {
-    width: 160px;
+._w175 {
+    width: 175px;
 }
 
 ._w180 {

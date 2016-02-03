@@ -724,9 +724,17 @@
 
     /***********************Flows for Dialogs***********************/
 
+    $('.container-thankyou').find('.dislike').bind('click', function () {
+        $(this).parent().find('.improve').removeClass('hidden');
+    });
+
     /*Dialog - 1 - Moving out*/
 
-    $('[account-authorization="bill"]').keyup(function () {
+    $('[account-authorization="bill"]').bind('change', function () {
+        authCall.call(this);
+    });
+
+    var authCall = function () {
         var $this = $(this),
             accountNumber = $('[data-id="moving-out-account-number"]').val(),
             postalCode = $('[data-id="moving-out-postal-code"]').val(),
@@ -764,7 +772,7 @@
                 console.log(jqXHR);
             }
         });
-    });
+    };
 
     /*Stop radio button click, show/hide Select reason select*/
     $('[name="steps"]').bind('click', function () {
@@ -821,7 +829,7 @@
     /*New account entry business input variation*/
     $('input[name=device-type]').bind('change', function () {
         var accountType = $('input[name=device-type]:checked').val();
-        $('div[class$="inputs-container"]').hide().find('input').addClass('ignore');
+        $('div[class*="inputs-container"]').hide().find('input').addClass('ignore');
         $('.' + accountType + '-inputs-container').show().find('input').removeClass('ignore input-error').parent().find('.error-message').remove();
     });
 

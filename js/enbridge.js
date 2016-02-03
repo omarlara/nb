@@ -1673,16 +1673,18 @@
                 .val(year + '-' + month + '-' + day);
         }
 
-        $('.tooltip .icon').bind('click', function () {
+        $('.tooltip .icon').bind('click', function (e) {
             $(this).next()
                 .addClass('active-tooltip')
                 .show();
+            e.stopPropagation();
         });
 
-        $('.tooltip .cross').bind('click', function () {
+        $('.tooltip .cross').bind('click', function (e) {
             $(this).closest('.content-tooltip')
                 .removeClass('active-tooltip')
                 .hide();
+            e.stopPropagation();
         });
 
         $('.modalopen').bind('click', function (e) {

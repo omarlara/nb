@@ -14,7 +14,7 @@
             return false;
         }
     }
-
+    
     String.prototype.validEmail = function () {
         return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(this);
     }
@@ -286,7 +286,11 @@
             last = null,
             renew = null,
             validationType = null,
-            dateValidation = null;
+            dateValidation = null,
+            error = {
+                businessDay: 'Date must be 3 business days in the future.',
+                validDay: 'Holiday/Sunday.'
+            };
 
         dateValidation = (function (){
                             var now = new Date(),
@@ -331,10 +335,15 @@
                             function validInterval (renewDate, endDate) {
                                 return ((renewDate - endDate) >= (additionalBusinessDays * constants.intervalDays))? true: false;
                             }
+                            
+                            function isBussinesDay (date) {
+                                return isBussinesDay();
+                            }
 
                             return {
                                 validEndDate: endDate,
-                                validInterval: validInterval
+                                validInterval: validInterval,
+                                isBussinesDay: isBusinessDay
                             }
                          })();
 
@@ -349,9 +358,16 @@
 
         function validation () {
             switch (validationType) {
-                case 'finish':
+                case 'stop':
                     if(!dateValidation.validEndDate()) {
-                        console.log('End date is near!');
+                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
+                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
+                        return false;
+                    }
+                    
+                    if(!dateValidation.isBussinesDay(last)) {
+                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
+                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
                         return false;
                     }
                 break;
@@ -362,6 +378,8 @@
                     
                 break;
             }
+            
+            return true;
         }
 
         return {
@@ -1675,6 +1693,9 @@
             .removeClass('hide-flow')
             .attr('data-required', true);
     }
+    //http://www.wikihow.com/Clear-Your-Browser's-Cache
+    $('[name="steps"]:checked').val() || ''
+    $('#calendar-move-entry').attr('data-validation', ($('[name="steps"]:checked').val() || '' ));
 
     if ($('[data-id="country"]').val() != 'CA') {
         $('[data-id="postal-code-input"]').removeAttr('data-pattern');

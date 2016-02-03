@@ -99,6 +99,7 @@
             width: 100%;
         }
         [data-time-type="start"] {
+            display: none;
             width: 0;
         }
     }
@@ -106,6 +107,7 @@
     &[data-validation="add"] {
         [data-time-type="finish"] {
             width: 0;
+            display: none;
         }
         [data-time-type="start"] {
             width: 100%;

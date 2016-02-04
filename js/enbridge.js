@@ -1560,16 +1560,17 @@ var Enbridge = window.Enbridge || {
 
             }
 
-            var city = $('[data-id=moving-out-city-or-town]').val() || '',
-                numberHouse = $('input[data-id=moving-out-street-number]').val() || '',
-                unitNumber = $('input[data-id=pre-street-number]').val() || '',
-                suffix = $('input[data-id=moving-out-suffix]').val() || '',
-                streetName = $('input[data-id=moving-out-street]').val() || '',
-                zipCode = $('[data-id=moving-out-postal-code-input]').val() || '',
-                province = $('[data-id=moving-out-province]').val() || '',
+            var city = $('[data-id$="city-or-town"]').val() || '',
+                numberHouse = $('input[data-id="street-number"]').val() || '',
+                unitNumber = $('input[data-id="pre-street-number"]').val() || '',
+                suffix = $('input[data-id="suffix"]').val() || '',
+                streetName = $('input[data-id$="street"]').val() || '',
+                zipCode = $('[data-id$="postal-code-input"]').val() || '',
+                province = $('[data-id$="province"]').val() || '',
                 address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
             $('#current-address').html(address);
+            $('.address:last').html(address);
         }
 
     });

@@ -143,10 +143,10 @@ var Enbridge = window.Enbridge || {
     var validator = function formValidator($form) {
         var error = false,
             radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
-            select = $form.find('.enbridge-select').removeClass('input-error'),
+            select = $form.find('.enbridge-select:not(.ignore)').removeClass('input-error'),
             zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
-            oneFromGroup = $form.find('.required-from-group'),
+            oneFromGroup = $form.find('.required-from-group:visible'),
             text = $form.find('input[type="text"]:not(.ignore)'),
             ageValidatorElements = $form.find('[data-validate-age=""]');
 
@@ -499,19 +499,15 @@ var Enbridge = window.Enbridge || {
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
                         return false;
                     }
-
                 break;
             }
-
-            return true;
-        }
 
         return {
             set: set,
             validation: validation
         }
 
-    })();
+    }());
 
     /***********************Plugins declaration***********************/
 
@@ -595,10 +591,10 @@ var Enbridge = window.Enbridge || {
                             .find('option[value="' + value + '"]')
                                 .attr('selected', true);
 
-            var value = this.getAttribute('data-value');
+                        var value = this.getAttribute('data-value');
                         var $copyToHidden = $('input[type="hidden"][data-assoc="' + self.source.getAttribute('data-id') + '"]');
                         if ($copyToHidden.length > 0) {
-                          $copyToHidden.val(value);
+                            $copyToHidden.val(value);
                         }
                     });
 
@@ -860,8 +856,8 @@ var Enbridge = window.Enbridge || {
     /*New account entry business input variation*/
     $('input[name=device-type]').bind('change', function () {
         var accountType = $('input[name=device-type]:checked').val();
-        $('div[class*="inputs-container"]').hide().find('input').addClass('ignore');
-        $('.' + accountType + '-inputs-container').show().find('input').removeClass('ignore input-error').parent().find('.error-message').remove();
+        $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
+        $('.' + accountType + '-inputs-container').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
     });
 
     /*Set Address on decline/accept step container*/
@@ -1698,7 +1694,7 @@ var Enbridge = window.Enbridge || {
                 if (JSON.parse(data)) {
 
                     $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must not be a holiday or a weekend date.</span></div>');
+                            .append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Date must not be a holiday or a weekend date.</span></div>');
                 } else {
                     $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                             .find('.result')
@@ -1769,6 +1765,7 @@ var Enbridge = window.Enbridge || {
                 beforeClose: function (e) {
                     confirmDialog.dialog('destroy');
                     confirmDialog = $('.confirm-dialog-close')
+                    .removeClass('hidden')
                     .dialog({
                         autoOpen: true,
                         resizable: false,
@@ -1804,6 +1801,12 @@ var Enbridge = window.Enbridge || {
             var day = date.getDate();
             var month = date.getMonth() + 1;
             var year = date.getFullYear();
+
+
+
+
+
+
 
             $($current.closest('.calendar-column').attr('data-calendar'))
                 .val(year + '-' + month + '-' + day);

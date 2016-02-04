@@ -416,6 +416,10 @@ var Enbridge = window.Enbridge || {
         }
 
         function validation () {
+            if (!$lastDay || !$renewDay || !validationType) {
+                return true;
+            }
+            
             switch (validationType) {
                 case 'stop':
                     if(!dateValidation.isDateInPast(last)) {
@@ -501,13 +505,14 @@ var Enbridge = window.Enbridge || {
                     }
                 break;
             }
+        }
 
         return {
             set: set,
             validation: validation
         }
 
-    }());
+    })();
 
     /***********************Plugins declaration***********************/
 

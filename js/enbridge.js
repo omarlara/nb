@@ -132,10 +132,10 @@ var Enbridge = window.Enbridge || {
     var validator = function formValidator($form) {
         var error = false,
             radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
-            select = $form.find('.enbridge-select').removeClass('input-error'),
+            select = $form.find('.enbridge-select:not(.ignore)').removeClass('input-error'),
             zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
             newAddress = $form.find('.new-address'),
-            oneFromGroup = $form.find('.required-from-group'),
+            oneFromGroup = $form.find('.required-from-group:visible'),
             text = $form.find('input[type="text"]:not(.ignore)'),
             ageValidatorElements = $form.find('[data-validate-age=""]');
 
@@ -305,10 +305,10 @@ var Enbridge = window.Enbridge || {
         }).responseText;
 
         if (result == "true") {
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
 
@@ -318,19 +318,19 @@ var Enbridge = window.Enbridge || {
     var dateValidator = function ($renewDate, $lastService) {
 
         var renewDate = new Date($renewDate.val()),
-            $renewDateContainer = $('.address-component').eq(0),
+
 
             finishLastService = new Date($lastService.val()),
-            $finishLastServiceContainer = $('.address-component').eq(1),
+
             now = new Date();
 
-        if ($renewDateContainer.hasClass('no-date-selected')) {
-            $renewDateContainer.removeClass('no-date-selected');
-        }
 
-        if ($finishLastServiceContainer.hasClass('no-date-selected')) {
-            $finishLastServiceContainer.removeClass('no-date-selected');
-        }
+
+
+
+
+
+
 
         //Determine the type of move
         var stepsRadio = $("input[type='radio'][name='steps']:checked");
@@ -345,31 +345,31 @@ var Enbridge = window.Enbridge || {
         var validateLastService = $lastService.attr('data-required') &&
             (stepsRadio.length <= 0 || stepsVal == 'transfer' || stepsVal == 'stop');
 
-        //Ensure date is selected
-        if (validateRenewDate && !$renewDate.val() && isNaN(renewDate.valueOf())) {
-            $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
 
-            // Add border to calendar container (startDate) when user doesn't pick a date
-            if (!$renewDateContainer.hasClass('no-date-selected')) {
-                $renewDateContainer.addClass('no-date-selected');
-            }
-            return true;
-        }
 
-        //Ensure date is selected
-        if (validateLastService && !$lastService.val() && isNaN(finishLastService.valueOf())) {
 
-            $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
-                    .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Missing Date.</span></div>');
 
-            // Add border to calendar container (finishDate) when user doesn't pick a date
-            if (!$finishLastServiceContainer.removeClass('no-date-selected')) {
-                $finishLastServiceContainer.addClass('no-date-selected');
-            }
 
-            return true;
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Figure out the date 3 business days in the future
         var additionalBusinessDays = 1;
@@ -386,14 +386,14 @@ var Enbridge = window.Enbridge || {
         //Start date must be 3 business days in the future
         if (validateRenewDate && renewDate < minimumDate) {
             $('[data-calendar*="' + $renewDate.attr('data-id') + '"]')
-                .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must be 3 business days in the future.</span></div>');
+                .append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Date must be 3 business days in the future.</span></div>');
             return true;
         }
 
         //End date must be 3 business days in the future
         if (validateLastService && finishLastService < minimumDate) {
             $('[data-calendar*="' + $lastService.attr('data-id') + '"]')
-                .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must be 3 business days in the future.</span></div>');
+                .append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Date must be 3 business days in the future.</span></div>');
             return true;
         }
 
@@ -482,10 +482,10 @@ var Enbridge = window.Enbridge || {
                             .find('option[value="' + value + '"]')
                                 .attr('selected', true);
 
-            var value = this.getAttribute('data-value');
+                        var value = this.getAttribute('data-value');
                         var $copyToHidden = $('input[type="hidden"][data-assoc="' + self.source.getAttribute('data-id') + '"]');
                         if ($copyToHidden.length > 0) {
-                          $copyToHidden.val(value);
+                            $copyToHidden.val(value);
                         }
                     });
 
@@ -746,8 +746,8 @@ var Enbridge = window.Enbridge || {
     /*New account entry business input variation*/
     $('input[name=device-type]').bind('change', function () {
         var accountType = $('input[name=device-type]:checked').val();
-        $('div[class*="inputs-container"]').hide().find('input').addClass('ignore');
-        $('.' + accountType + '-inputs-container').show().find('input').removeClass('ignore input-error').parent().find('.error-message').remove();
+        $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
+        $('.' + accountType + '-inputs-container').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
     });
 
     /*Set Address on decline/accept step container*/
@@ -1584,7 +1584,7 @@ var Enbridge = window.Enbridge || {
                 if (JSON.parse(data)) {
 
                     $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>Date must not be a holiday or a weekend date.</span></div>');
+                            .append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Date must not be a holiday or a weekend date.</span></div>');
                 } else {
                     $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
                             .find('.result')
@@ -1652,6 +1652,7 @@ var Enbridge = window.Enbridge || {
                 beforeClose: function (e) {
                     confirmDialog.dialog('destroy');
                     confirmDialog = $('.confirm-dialog-close')
+                    .removeClass('hidden')
                     .dialog({
                         autoOpen: true,
                         resizable: false,
@@ -1687,12 +1688,12 @@ var Enbridge = window.Enbridge || {
             var month = date.getMonth() + 1;
             var year = date.getFullYear();
 
-            /**/
-            // Remove border when user doesn't pick a date
-            var $currentContainer = $current.parent().parent();
-            if ($currentContainer.hasClass('no-date-selected')) {
-                $currentContainer.removeClass('no-date-selected');
-            } /**/
+
+
+
+
+
+
 
             $($current.closest('.calendar-column').attr('data-calendar'))
                 .val(year + '-' + month + '-' + day);

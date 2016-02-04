@@ -1729,7 +1729,7 @@ var Enbridge = window.Enbridge || {
             .removeClass('hide-flow')
             .attr('data-required', true);
     }
-    //http://www.wikihow.com/Clear-Your-Browser's-Cache
+
     $('[name="steps"]:checked').val() || ''
     $('#calendar-move-entry').attr('data-validation', ($('[name="steps"]:checked').val() || '' ));
 

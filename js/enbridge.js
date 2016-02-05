@@ -12,7 +12,7 @@ var Enbridge = window.Enbridge || {
     Plugins: {}
 };
 
-;$(window).ready(function () {
+; $(window).ready(function () {
 
     /***********************Prototyping functions***********************/
     var dateCurrent = new Date(),
@@ -42,15 +42,15 @@ var Enbridge = window.Enbridge || {
     }
 
     Date.prototype.addDays = function (number) {
-            var result = true,
+        var result = true,
                 currentDate = this.getDate();
-            if(!parseInt(number)) {
-                result = false;
-            }
+        if (!parseInt(number)) {
+            result = false;
+        }
 
-            this.setDate(currentDate + number);
+        this.setDate(currentDate + number);
 
-            return result;
+        return result;
     }
 
     /***********************General functions***********************/
@@ -317,8 +317,8 @@ var Enbridge = window.Enbridge || {
                 past: 'Day is in the past.'
             };
 
-        dateValidation = (function (){
-                            var now = new Date(),
+        dateValidation = (function () {
+            var now = new Date(),
                                 additionalBusinessDays = 0,
                                 minimumDate = new Date(),
                                 minDays = 0,
@@ -327,86 +327,86 @@ var Enbridge = window.Enbridge || {
                                 },
                                 result = {},
                                 isBusinessDay = function (dateToCheck) {
-                                    var year  = dateToCheck.getFullYear(),
+                                    var year = dateToCheck.getFullYear(),
                                         month = dateToCheck.getMonth() + 1,
-                                        day   = dateToCheck.getDate(),
+                                        day = dateToCheck.getDate(),
                                         formattedDate = year + '-' + month + '-' + day,
                                         result = null;
 
-                                        result = $.ajax({
-                                                type: 'GET',
-                                                async: false,
-                                                url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
-                                                data: {date: formattedDate},
-                                                error: function (jqXHR, textStatus, errorThrown) {
-                                                    console.log('An error occurred checking for business date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
-                                                }
-                                            });
-                                    return (result.responseText && result.responseText == 'true')? false: true;
+                                    result = $.ajax({
+                                        type: 'GET',
+                                        async: false,
+                                        url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+                                        data: { date: formattedDate },
+                                        error: function (jqXHR, textStatus, errorThrown) {
+                                            console.log('An error occurred checking for business date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
+                                        }
+                                    });
+                                    return (result.responseText && result.responseText == 'true') ? false : true;
                                 };
 
-                            while (additionalBusinessDays < 3) {
-                                if (isBusinessDay(minimumDate)) {
-                                    additionalBusinessDays++;
-                                }
+            while (additionalBusinessDays < 3) {
+                if (isBusinessDay(minimumDate)) {
+                    additionalBusinessDays++;
+                }
 
-                                minimumDate.addDays(1);
-                            }
-                            
-                            function isDateInPast (date) {
-                                return  ((date.getMonth() > now.getMonth) || (date.getDate() >= now.getDate()))?true: false;
-                            }
-                            
-                            function startDate (startDate) {
-                                return (startDate > minimumDate)? true: false;
-                            }
+                minimumDate.addDays(1);
+            }
 
-                            function endDate (endDate) {
-                                return (endDate > minimumDate)? true: false;
-                            }
+            function isDateInPast(date) {
+                return ((date.getMonth() > now.getMonth) || (date.getDate() >= now.getDate())) ? true : false;
+            }
 
-                            function validInterval (renewDate, endDate) {
-                                return ((renewDate - endDate) >= (additionalBusinessDays * constants.intervalDays))? true: false;
-                            }
+            function startDate(startDate) {
+                return (startDate > minimumDate) ? true : false;
+            }
 
-                            function isBussinesDate (date) {
-                                return isBussinesDay(date);
-                            }
-                            
-                            function getDifference (end, start) {
-                                var counter = 0
-                                    loop = true;
-                                if (start <=  end) {
-                                    return false;
-                                }
-                                
-                                while (loop) {
-                                    if (end < start) {
-                                        end.addDays(1);
-                                        if (isBusinessDay(end)) {
-                                            counter += 1;
-                                        }
-                                    } else {
-                                        if (counter >= 3) {
-                                            return true;
-                                        } else {
-                                            return false;
-                                        }
-                                    }
-                                }
-                            }
+            function endDate(endDate) {
+                return (endDate > minimumDate) ? true : false;
+            }
 
-                            return {
-                                isDateInPast: isDateInPast,
-                                validEndDate: endDate,
-                                validStartDate: startDate,
-                                validInterval: validInterval,
-                                isBusinessDay: isBusinessDay,
-                                getDifference: getDifference
-                            }
-                         })();
+            function validInterval(renewDate, endDate) {
+                return ((renewDate - endDate) >= (additionalBusinessDays * constants.intervalDays)) ? true : false;
+            }
 
-        function set (lastDay, renewDay, type) {
+            function isBussinesDate(date) {
+                return isBussinesDay(date);
+            }
+
+            function getDifference(end, start) {
+                var counter = 0
+                loop = true;
+                if (start <= end) {
+                    return false;
+                }
+
+                while (loop) {
+                    if (end < start) {
+                        end.addDays(1);
+                        if (isBusinessDay(end)) {
+                            counter += 1;
+                        }
+                    } else {
+                        if (counter >= 3) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return {
+                isDateInPast: isDateInPast,
+                validEndDate: endDate,
+                validStartDate: startDate,
+                validInterval: validInterval,
+                isBusinessDay: isBusinessDay,
+                getDifference: getDifference
+            }
+        })();
+
+        function set(lastDay, renewDay, type) {
             $lastDay = lastDay;
             $renewDay = renewDay;
             validationType = type;
@@ -422,88 +422,88 @@ var Enbridge = window.Enbridge || {
             
             switch (validationType) {
                 case 'stop':
-                    if(!dateValidation.isDateInPast(last)) {
+                    if (!dateValidation.isDateInPast(last)) {
                         $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.isBusinessDay(last)) {
+
+                    if (!dateValidation.isBusinessDay(last)) {
                         $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.validEndDate(last)) {
+
+                    if (!dateValidation.validEndDate(last)) {
                         $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
                         return false;
                     }
 
-                break;
+                    break;
                 case 'transfer':
-                    if(!dateValidation.isDateInPast(last)) {
+                    if (!dateValidation.isDateInPast(last)) {
                         $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.isBusinessDay(last)) {
+
+                    if (!dateValidation.isBusinessDay(last)) {
                         $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.validEndDate(last)) {
+
+                    if (!dateValidation.validEndDate(last)) {
                         $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.isDateInPast(renew)) {
+
+                    if (!dateValidation.isDateInPast(renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.isBusinessDay(renew)) {
+
+                    if (!dateValidation.isBusinessDay(renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
                         return false;
                     }
-                                        
-                    if(!dateValidation.validStartDate(renew)) {
+
+                    if (!dateValidation.validStartDate(renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.getDifference(last, renew)) {
+
+                    if (!dateValidation.getDifference(last, renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
                         return false;
                     }
-                                        
-                break;
+
+                    break;
                 case 'add': default:
-                    if(!dateValidation.isDateInPast(renew)) {
+                    if (!dateValidation.isDateInPast(renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
                         return false;
                     }
-                    
-                    if(!dateValidation.isBusinessDay(renew)) {
+
+                    if (!dateValidation.isBusinessDay(renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
                         return false;
                     }
-                                        
-                    if(!dateValidation.validStartDate(renew)) {
+
+                    if (!dateValidation.validStartDate(renew)) {
                         $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
                             .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
                         return false;
                     }
-                break;
+                    break;
             }
         }
 
@@ -1565,16 +1565,17 @@ var Enbridge = window.Enbridge || {
 
             }
 
-            var city = $('[data-id=moving-out-city-or-town]').val() || '',
-                numberHouse = $('input[data-id=moving-out-street-number]').val() || '',
-                unitNumber = $('input[data-id=pre-street-number]').val() || '',
-                suffix = $('input[data-id=moving-out-suffix]').val() || '',
-                streetName = $('input[data-id=moving-out-street]').val() || '',
-                zipCode = $('[data-id=moving-out-postal-code-input]').val() || '',
-                province = $('[data-id=moving-out-province]').val() || '',
+            var city = $('[data-id$="city-or-town"]').val() || '',
+                numberHouse = $('input[data-id="street-number"]').val() || '',
+                unitNumber = $('input[data-id="pre-street-number"]').val() || '',
+                suffix = $('input[data-id="suffix"]').val() || '',
+                streetName = $('input[data-id$="street"]').val() || '',
+                zipCode = $('[data-id$="postal-code-input"]').val() || '',
+                province = $('[data-id$="province"]').val() || '',
                 address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
             $('#current-address').html(address);
+            $('.address:last').html(address);
         }
 
     });
@@ -1732,7 +1733,7 @@ var Enbridge = window.Enbridge || {
     }
 
     $('[name="steps"]:checked').val() || ''
-    $('#calendar-move-entry').attr('data-validation', ($('[name="steps"]:checked').val() || '' ));
+    $('#calendar-move-entry').attr('data-validation', ($('[name="steps"]:checked').val() || ''));
 
     if ($('[data-id="country"]').val() != 'CA') {
         $('[data-id="postal-code-input"]').removeAttr('data-pattern');
@@ -1801,7 +1802,7 @@ var Enbridge = window.Enbridge || {
 
             var $current = $(calendar[i]).click();
             $current.datepicker("setDate", currentDate);
-            
+
             var date = $current.datepicker('getDate');
             var day = date.getDate();
             var month = date.getMonth() + 1;
@@ -1960,53 +1961,53 @@ var Enbridge = window.Enbridge || {
 } (window, jQuery));
 
 Enbridge.Plugins.AgeValidator = (function ($) {
-  var AgeValidator = function($el) {
-    var $_el = $el;
-    var _date;
+    var AgeValidator = function ($el) {
+        var $_el = $el;
+        var _date;
 
-    function validate(expectedAge) {
-      var now = Date.now();
+        function validate(expectedAge) {
+            var now = Date.now();
 
-      // Years of the person
-      return (now - _date.valueOf()) / (365 * 24 * 3600 * 1000) >= expectedAge;
-    };
+            // Years of the person
+            return (now - _date.valueOf()) / (365 * 24 * 3600 * 1000) >= expectedAge;
+        };
 
-    this.setDate = function(year, month, day) {
-      _date = new Date(year, month - 1, day);
-    };
+        this.setDate = function (year, month, day) {
+            _date = new Date(year, month - 1, day);
+        };
 
-    this.isValid = function(expectedAge) {
-      expectedAge = expectedAge || $_el.attr('data-validate-age-greater-than');
+        this.isValid = function (expectedAge) {
+            expectedAge = expectedAge || $_el.attr('data-validate-age-greater-than');
 
-      var messageError = '<p class="error-message">' + $_el.attr('data-validate-age-error-message') + '</p>';
+            var messageError = '<p class="error-message">' + $_el.attr('data-validate-age-error-message') + '</p>';
 
-      // Add error message
-      if (!validate(parseInt(expectedAge, 10))) {
-        $_el.append(messageError);
-        return false;
-      }
+            // Add error message
+            if (!validate(parseInt(expectedAge, 10))) {
+                $_el.append(messageError);
+                return false;
+            }
 
-      return true;
-    };
+            return true;
+        };
 
-    // Set
-    var dayId = $_el.attr('data-validate-age-day') || '';
-    var $day = $_el.find('[data-id="' + dayId + '"]');
-    if ($day.length < 1) return;
+        // Set
+        var dayId = $_el.attr('data-validate-age-day') || '';
+        var $day = $_el.find('[data-id="' + dayId + '"]');
+        if ($day.length < 1) return;
 
-    var monthId = $_el.attr('data-validate-age-month') || '';
-    var $month = $_el.find('[data-id="' + monthId + '"]');
-    if ($month.length < 1) return;
+        var monthId = $_el.attr('data-validate-age-month') || '';
+        var $month = $_el.find('[data-id="' + monthId + '"]');
+        if ($month.length < 1) return;
 
-    var yearId = $_el.attr('data-validate-age-year') || '';
-    var $year = $_el.find('[data-id="' + yearId + '"]');
-    if ($year.length < 1) return;
+        var yearId = $_el.attr('data-validate-age-year') || '';
+        var $year = $_el.find('[data-id="' + yearId + '"]');
+        if ($year.length < 1) return;
 
-    this.setDate(
+        this.setDate(
       parseInt($year.val(), 10),
       parseInt($month.val(), 10),
       parseInt($day.val(), 10)
     );
-  }
-  return AgeValidator;
-}(jQuery));
+    }
+    return AgeValidator;
+} (jQuery));

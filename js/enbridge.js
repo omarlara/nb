@@ -64,7 +64,7 @@ var Enbridge = window.Enbridge || {
             address.push(unitNumber + ' - ');
         }
 
-        address.push(streetNumber);
+        address.push(streetNumber + ' ');
 
         if (!!suffix) {
             address.push(suffix + ' ');
@@ -302,218 +302,36 @@ var Enbridge = window.Enbridge || {
         return error;
     };
 
-
-    /*Date validator*/
-
-    var dateValidator = (function () {
-        var $lastDay = null,
-            $renewDay = null,
-            last = null,
-            renew = null,
-            validationType = null,
-            dateValidation = null,
-            error = {
-                businessDay: 'Date must be 3 business days in the future.',
-                validDay: 'Holiday/Sunday.',
-                past: 'Day is in the past.'
-            };
-
-        dateValidation = (function () {
-            var now = new Date(),
-                                additionalBusinessDays = 0,
-                                minimumDate = new Date(),
-                                minDays = 0,
-                                constants = {
-                                    dayInMilliseconds: 86400000  /**dayInMilliseconds -> 1000 * 60 * 60 * 24 = 86400000*/
-                                },
-                                result = {},
-                                isBusinessDay = function (dateToCheck) {
-                                    var year = dateToCheck.getFullYear(),
-                                        month = dateToCheck.getMonth() + 1,
-                                        day = dateToCheck.getDate(),
-                                        formattedDate = year + '-' + month + '-' + day,
-                                        result = null;
-
-                                    result = $.ajax({
-                                        type: 'GET',
-                                        async: false,
-                                        url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
-                                        data: { date: formattedDate },
-                                        error: function (jqXHR, textStatus, errorThrown) {
-                                            console.log('An error occurred checking for business date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
-                                        }
-                                    });
-                                    return (result.responseText && result.responseText == 'true') ? false : true;
-                                };
-
-            while (additionalBusinessDays < 3) {
-                if (isBusinessDay(minimumDate)) {
-                    additionalBusinessDays++;
-                }
-
-                minimumDate.addDays(1);
+    //Determine if a day is a business day
+    var isBusinessDay = function (dateToCheck) {
+        var formattedDate = dateToCheck.getFullYear() + "-" + (dateToCheck.getMonth() + 1) + "-" + dateToCheck.getDate();
+        var result = $.ajax({
+            type: 'GET',
+            async: false,
+            url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+            data: { date: formattedDate },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('An error occurred checking for business date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
             }
+        }).responseText;
 
-            function isDateInPast(date) {
-                return ((date.getMonth() > now.getMonth) || (date.getDate() >= now.getDate())) ? true : false;
-            }
-
-            function startDate(startDate) {
-                return (startDate > minimumDate) ? true : false;
-            }
-
-            function endDate(endDate) {
-                return (endDate > minimumDate) ? true : false;
-            }
-
-            function validInterval(renewDate, endDate) {
-                return ((renewDate - endDate) >= (additionalBusinessDays * constants.intervalDays)) ? true : false;
-            }
-
-            function isBussinesDate(date) {
-                return isBussinesDay(date);
-            }
-
-            function getDifference(end, start) {
-                var counter = 0
-                loop = true;
-                if (start <= end) {
-                    return false;
-                }
-
-                while (loop) {
-                    if (end < start) {
-                        end.addDays(1);
-                        if (isBusinessDay(end)) {
-                            counter += 1;
-                        }
-                    } else {
-                        if (counter >= 3) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            return {
-                isDateInPast: isDateInPast,
-                validEndDate: endDate,
-                validStartDate: startDate,
-                validInterval: validInterval,
-                isBusinessDay: isBusinessDay,
-                getDifference: getDifference
-            }
-        })();
-
-        function set(lastDay, renewDay, type) {
-            $lastDay = lastDay;
-            $renewDay = renewDay;
-            validationType = type;
-
-            last = new Date($lastDay.val());
-            renew = new Date($renewDay.val());
+        if (result == "true") {
+            return false;
         }
-
-        function validation () {
-            if (!$lastDay || !$renewDay || !validationType) {
-                return true;
-            }
-            
-            switch (validationType) {
-                case 'stop':
-                    if (!dateValidation.isDateInPast(last)) {
-                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.isBusinessDay(last)) {
-                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.validEndDate(last)) {
-                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
-                        return false;
-                    }
-
-                    break;
-                case 'transfer':
-                    if (!dateValidation.isDateInPast(last)) {
-                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.isBusinessDay(last)) {
-                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.validEndDate(last)) {
-                        $('[data-calendar*="' + $lastDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.isDateInPast(renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.isBusinessDay(renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.validStartDate(renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.getDifference(last, renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
-                        return false;
-                    }
-
-                    break;
-                case 'add': default:
-                    if (!dateValidation.isDateInPast(renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.past + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.isBusinessDay(renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span> ' + error.validDay + '</span></div>');
-                        return false;
-                    }
-
-                    if (!dateValidation.validStartDate(renew)) {
-                        $('[data-calendar*="' + $renewDay.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="../../AppImages/error.png"><span>' + error.businessDay + '</span></div>');
-                        return false;
-                    }
-                    break;
-            }
+        else {
+            return true;
         }
+    }
 
-        return {
-            set: set,
-            validation: validation
+    //Validate the dates.  Return true if not valid.  
+    var dateValidator = function () {
+        //Make sure all the calendars have valid dates or have not yet been validated.
+        //The calendar on click event would have performed the actual validation
+        var dateControls = $('[data-id="date-finish"][data-valid="false"], [data-id="date-start"][data-valid="false"], [data-id="moving-out-date"][data-valid="false"]')
+        if (dateControls.length > 0) {
+            return true;
         }
-
-    })();
+    }
 
     /***********************Plugins declaration***********************/
 
@@ -778,6 +596,35 @@ var Enbridge = window.Enbridge || {
             postalCode = $('[data-id="moving-out-postal-code"]').val(),
             name = $('[data-id="moving-out-name"]').val();
 
+        //Remove existing warnings
+        $this.removeClass('input-error');
+
+        if ($this.next().hasClass('error-message')) {
+            $this.next().remove();
+        }
+
+        //Validate that fields are correct first.  This will avoid unnecessary service calls.
+        if ($this.is('[data-id="moving-out-postal-code"]') && postalCode && !postalCode.postalCode()) {
+            $this
+                .addClass('input-error')
+                .after('<p class="error-message ">Please enter a valid postal code (example: A1A 1A1).</p>');
+            return;
+        }
+
+        if ($this.is('[data-id="moving-out-account-number"]') && accountNumber && accountNumber.trim().length < 12) {
+            $this
+                .addClass('input-error')
+                .after('<p class="error-message ">Please enter a 12 digit account number.</p>');
+            return;
+        }
+
+        if ($this.is('[data-id="moving-out-name"]') && name && name.length <= 0) {
+            $this
+                .addClass('input-error')
+                .after('<p class="error-message ">Please enter a valid name.</p>');
+            return;
+        }
+
         $.ajax({
             type: 'POST',
             url: Enbridge.UrlServices.VALIDATE_CUSTOMER_AND_GET_DATA,
@@ -800,7 +647,7 @@ var Enbridge = window.Enbridge || {
                         serviceAddress.PostalCode);
 
                     $('#current-address').html(displayText);
-
+                    
                     // Populate address entries
                     var $city = $('[data-id$="city-or-town"]'),
                         $numberHouse = $('input[data-id$="street-number"]'),
@@ -1576,9 +1423,9 @@ var Enbridge = window.Enbridge || {
             $finishDate = $current.find('.finish-date'),
             $startDate = $current.find('.start-date');
 
-            dateValidator.set($finishDate, $startDate, validationType);
-
-        if (!validator($current.find('.enbridge-form')) && dateValidator.validation()) {
+        //Validate dates on the page.  Do date validation first since do not want to lose validation messages for dates as 
+        //validator deletes all error messages.
+        if (!dateValidator() && !validator($current.find('.enbridge-form'))) {
             $current
                 .removeClass('active')
                 .addClass('processed');
@@ -1625,7 +1472,9 @@ var Enbridge = window.Enbridge || {
             return false;
         }
 
-        if (!validator($current.find('.enbridge-form')) && !dateValidator($startDate, $finishDate)) {
+        //Validate forms.  Do date validation first since do not want to lose validation messages for dates as 
+        //validator deletes all error messages.
+        if (!dateValidator() && !validator($current.find('.enbridge-form'))) {
             return true;
         } else {
             return false;
@@ -1701,7 +1550,8 @@ var Enbridge = window.Enbridge || {
             .addClass('hidden');
     })
 
-    /*Calendar get date*/
+    //Execute date validations and get the calendar date
+    //Note that return results are returned immediately to avoid web service calls.
     $('.calendar').bind('click', function (e) {
         if (!(e.target.className.indexOf('ui-datepicker-today') && parseInt(e.target.textContent))) {
             return;
@@ -1713,35 +1563,79 @@ var Enbridge = window.Enbridge || {
             month = date.getMonth() + 1,
             year = date.getFullYear(),
             dateFormated = year + '-' + month + '-' + day,
-            $inputElem = $('[data-id="' + $this.closest('.calendar-column').attr('data-calendar') + '"]');
+            $calendarColumn = $this.closest('.calendar-column'),
+            dataCalendar = $calendarColumn.attr('data-calendar'),
+            $inputElem = $('[data-id="' + dataCalendar + '"]'),
+            now = new Date();
+
+        //Reset errors
+        $inputElem.attr('data-valid', 'true');
+        $calendarColumn.find('.error-code').remove();
 
         $inputElem.val(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
 
+        //Validations that are only for move out dates
+        if (dataCalendar == 'date-finish' || dataCalendar == 'moving-out-date') {
+            //Can never backdate a move out date
+            if (date < now) {
+                $inputElem.attr('data-valid', 'false');
+                $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Whoops! Your move-out date cannot be in the past.</span></div>');
+                return;
+            }
+
+            //Figure out the date 3 business days in the future
+            var additionalBusinessDays = 1;
+            var additionalDays = 1;
+            var minimumDate;
+            while (additionalBusinessDays < 3) {
+                minimumDate = new Date(now.getTime() + (additionalDays * 86400000));
+                if (minimumDate.getDay() != 0 && minimumDate.getDay() != 6 && isBusinessDay(minimumDate)) {
+                    additionalBusinessDays++;
+                }
+                additionalDays++;
+            }
+
+            //Show a warning if the selected date is not 3 business days in the future
+            if (date < minimumDate) {
+                $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date is in less than 3 business days. No worries, it just means that your final meter reading will need to be estimated.</span></div>');
+                return;
+            }
+        }
+
+        //Move in date validation
+        else {
+            //Warning if move in date is in the past
+            if (date < now) {
+                $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Whoops! It looks like your move in date is in the past. Check it again to make sure it’s correct. If so, you are taking full responsibility for the date selected.</span></div>');
+                return;
+            }
+        }
+
+        //Validations for both move out and move in
+
+        //Determine if it's on a sunday or holiday
+        if (date.getDay() == 0) {
+            $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move date is a Sunday or Holiday. No worries, your move will be processed on the following business day.</span></div>');
+            return;
+        }
+
         $.ajax({
-            url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+            url: '/WebServices/DateService.svc/IsSundayOrHolidayDate',
             type: 'GET',
             dataType: 'application/json',
             data: {
                 date: dateFormated
             },
             success: function (data) {
-
-                $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                        .find('.error-code')
-                            .remove();
-
                 if (JSON.parse(data)) {
+                    $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move date is a Sunday or Holiday. No worries, your move will be processed on the following business day.</span></div>');
 
-                    $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                            .append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Date must not be a holiday or a weekend date.</span></div>');
                 } else {
-                    $('[data-calendar="' + $inputElem.attr('data-id') + '"]')
-                            .find('.result')
-                                .remove();
+                    $calendarColumn.find('.result').remove();
                 }
             },
-            error: function () {
-                console.log('Conection issue');
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('An error occurred checking for a Sunday or Holiday date.' + textStatus + ' : ' + errorThrown + ' : ' + jqXHR.responseText);
             }
         });
     });
@@ -2044,3 +1938,4 @@ Enbridge.Plugins.AgeValidator = (function ($) {
     }
     return AgeValidator;
 } (jQuery));
+

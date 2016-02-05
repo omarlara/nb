@@ -741,6 +741,11 @@ var Enbridge = window.Enbridge || {
         $(this).parent().find('.improve').removeClass('hidden');
     });
 
+    /*Sync email inputs*/
+    $('[data-id=newcustomers-email]').bind('change', function () {
+        $('[data-id=newcustomers-email]').val(this.value);
+    });
+
     /*Update currentAddress ASP literal on select account*/
     $('#account-select-dropdown').find('.list-item').bind('click', function () {
         var accountType = $(this).attr('data-value');

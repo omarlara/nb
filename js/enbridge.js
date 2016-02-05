@@ -1,10 +1,11 @@
 /** General Namespace **/
 var Enbridge = window.Enbridge || {
     UrlServices: {
-        GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces'
+        GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces',
+        VALIDATE_CUSTOMER_AND_GET_DATA: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData'
     },
     Templates: {
-        PROVINCE: '<option value=":provinceCode">:provinceName</option>'
+        PROVINCE: '<option value=":provinceCode" :wasPicked>:provinceName</option>'
     },
     CountryCodes: {
         CANADA: 'CA'
@@ -779,7 +780,7 @@ var Enbridge = window.Enbridge || {
 
         $.ajax({
             type: 'POST',
-            url: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData',
+            url: Enbridge.UrlServices.VALIDATE_CUSTOMER_AND_GET_DATA,
             data: JSON.stringify({ AccountNumber: accountNumber, FullName: name, PostalCode: postalCode }),
             contentType: "application/json",
             success: function (result) {
@@ -799,7 +800,30 @@ var Enbridge = window.Enbridge || {
                         serviceAddress.PostalCode);
 
                     $('#current-address').html(displayText);
+
+                    // Populate address entries
+                    var $city = $('[data-id$="city-or-town"]'),
+                        $numberHouse = $('input[data-id$="street-number"]'),
+                        $unitNumber = $('input[data-id$="pre-street-number"]'),
+                        $suffix = $('input[data-id$="suffix"]'),
+                        $streetName = $('input[data-id$="street"]'),
+                        $zipCode = $('[data-id$="postal-code-input"]');
+
+                    $city.val(serviceAddress.City);
+                    $numberHouse.val(serviceAddress.StreetNumber);
+                    $unitNumber.val(serviceAddress.Unit);
+                    $suffix.val(serviceAddress.Suffix);
+                    $streetName.val(serviceAddress.StreetName);
+                    $zipCode.val(serviceAddress.PostalCode);
+                    
+                    loadProvinces({ 
+                            countryCode: serviceAddress.Country 
+                        }, 
+                        'moving-out-province',
+                        serviceAddress.Province
+                    );
                 }
+
                 else {
                     $('[account-authorization-required="true"').css('visibility', 'hidden');
                     $('#account-authorization-failure-message').css('visibility', 'visible');
@@ -1896,32 +1920,32 @@ var Enbridge = window.Enbridge || {
 
 });
 
-; (function (window, $) {
+function loadProvinces(data, id, pickProvince) {
+    $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, function populateProvinces(provinces) {
+        var i = 0,
+            len = provinces.length || 0,
+            $provinceDropdown = $('[data-id="' + id + '"]'),
+            compilation = '';
 
+        for (i = 0; i < len; i += 1) {
+            compilation +=
+                Enbridge.Templates.PROVINCE.replace(':provinceCode', provinces[i].Code)
+                    .replace(':provinceName', provinces[i].Name)
+                    .replace(':wasPicked', (!!pickProvince && pickProvince === provinces[i].Code ? 'selected' : ''))
+        }
+
+        $provinceDropdown.html(compilation);
+        $provinceDropdown.enbridgeDropdown();
+    });
+}
+
+; (function (window, $) {
     var Enbridge = window.Enbridge;
 
-    function loadProvinces(data, id) {
-        $.getJSON(Enbridge.UrlServices.GET_PROVINCES, data, function populateProvinces(provinces) {
-            var i = 0,
-                len = provinces.length || 0,
-                $provinceDropdown = $('[data-id="' + id + '"]'),
-                compilation = '';
-
-            for (i = 0; i < len; i += 1) {
-                compilation +=
-                    Enbridge.Templates.PROVINCE.replace(':provinceCode', provinces[i].Code)
-                        .replace(':provinceName', provinces[i].Name);
-            }
-
-            $provinceDropdown.html(compilation);
-            $provinceDropdown.enbridgeDropdown();
-        });
-    }
-
     $(document).ready(function () {
-        var countryServiceData = {
-            countryCode: Enbridge.CountryCodes.CANADA
-        },
+            var countryServiceData = {
+                countryCode: Enbridge.CountryCodes.CANADA
+            },
             $countryDropdown = $('[data-id="country"], [data-id="moving-out-country"], [data-id="country-alternative-element"]'),
             $countryDropdownItems = $countryDropdown.next('.enbridge-dropdown').find('li');
 
@@ -1955,7 +1979,7 @@ var Enbridge = window.Enbridge || {
                 return;
             }
 
-            if ($(this).attr('data-value') === 'CA') {
+            if ($(this).attr('data-value') === Enbridge.CountryCodes.CANADA) {
                 $('[data-id="' + postalCode + '"]').attr('data-pattern', 'postal-code');
             } else {
                 $('[data-id="' + postalCode + '"]').removeAttr('data-pattern');

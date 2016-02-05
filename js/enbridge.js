@@ -1604,7 +1604,11 @@ var Enbridge = window.Enbridge || {
                 address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
             $('#current-address').html(address);
-            $('.address:last').html(address);
+
+            // Populate address, just for MoveOutEntry form
+            if ($('#moving-out-form').length > 0) {
+                $('.address:last').html(address);
+            }
         }
 
     });

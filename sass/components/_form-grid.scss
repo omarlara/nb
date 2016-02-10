@@ -136,6 +136,11 @@ hr {
     color: #636373;
     &.left {
         text-align: left;
+        &.big-content {
+            float: left;
+            width: 358px;
+            margin-top: 20px;
+        }
     }
     &.big-content {
         max-width: 400px;

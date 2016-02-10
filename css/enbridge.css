@@ -842,7 +842,8 @@
       position: relative; }
       .enbridge-content-container .enbridge-btn.big-button.couple-btn.left, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.left.validator-container, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.left.validator,
       .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.left.prev {
-        border-radius: 0 0 0 3px; }
+        border-radius: 0 0 0 3px;
+        float: left; }
       .enbridge-content-container .enbridge-btn.big-button.couple-btn.right, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.validator-container, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.validator,
       .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.right.prev {
         border-radius: 0 0 3px 0; }
@@ -906,7 +907,8 @@
       font-size: 32px;
       margin: 0 0 12px;
       letter-spacing: -1px;
-      font-weight: 400; }
+      font-weight: 400;
+      color: #636373; }
     .enbridge-content-container .tile > .content .subtitle {
       display: block;
       font-size: 23px;
@@ -917,10 +919,14 @@
       color: #636373; }
     .enbridge-content-container .tile > .content ul {
       list-style-position: inside;
-      padding-left: 10px;
-      margin-top: 0; }
+      padding-left: 0;
+      margin-top: 0;
+      list-style-type: disc; }
       .enbridge-content-container .tile > .content ul li {
-        font-size: 14px; }
+        font-size: 14px;
+        color: #636373;
+        background: none;
+        display: list-item; }
     .enbridge-content-container .tile > .content label {
       font-weight: normal;
       font-size: 14px; }
@@ -973,7 +979,7 @@
     background-size: 79%; }
     .enbridge-content-container .tile.green.no-min {
       min-height: 356px; }
-    .enbridge-content-container .tile.green h3 {
+    .enbridge-content-container .tile.green h3, .enbridge-content-container .tile.green .title {
       color: #fff !important; }
   .enbridge-content-container .tile.tile-generic {
     color: #40484d; }
@@ -1898,6 +1904,10 @@
   color: #636373; }
   .enbridge-content-container .tiny.left {
     text-align: left; }
+    .enbridge-content-container .tiny.left.big-content {
+      float: left;
+      width: 358px;
+      margin-top: 20px; }
   .enbridge-content-container .tiny.big-content {
     max-width: 400px; }
 .enbridge-content-container .content-container {

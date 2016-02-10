@@ -38,6 +38,14 @@ var Enbridge = window.Enbridge || {
         return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/i.test(this);
     }
 
+    String.prototype.validPhone = function () {
+        return /^(\d[\- \ \ .]{0,1}){6}(\d)$/i.test(this);
+    }
+
+    String.prototype.validLada = function () {
+        return /^\d{3}$/i.test(this);
+    }
+
     String.prototype.PhoneFormat = function () {
         return /^\d{3,3}(\-)\d{4,4}\d$/.test(this);
     }
@@ -243,6 +251,26 @@ var Enbridge = window.Enbridge || {
                 switch (pattern) {
                     case 'postal-code':
                         if (!$current.val().postalCode()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                        break;
+                    case 'valid-lada':
+                        if (!$current.val().validLada()) {
+                            $('[data-rel="' + $current.attr('data-rel') + '"]')
+                                .addClass('input-error');
+
+                            $current.closest('.set-field')
+                                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                            error = true;
+                        }
+                        break;
+                    case 'valid-phone':
+                        if (!$current.val().validPhone()) {
                             $('[data-rel="' + $current.attr('data-rel') + '"]')
                                 .addClass('input-error');
 

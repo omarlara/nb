@@ -355,6 +355,13 @@ $(window).ready(function() {
       this.addMethods();
     }
 
+    function copyToHiddenInput (source, value) {
+      var $hiddenInput = $('input[type="hidden"][data-assoc="' + source.getAttribute('data-id') + '"]');
+      if ($hiddenInput.length > 0) {
+        $hiddenInput.val(value);
+      }
+    }
+
     dropdownEnbridge.prototype.init = function() {
       var $element = $(this.source),
         id = $element.attr('data-id') + '-dropdown',
@@ -387,6 +394,8 @@ $(window).ready(function() {
       $element.after(element);
 
       this.element = this.source.nextElementSibling;
+
+      copyToHiddenInput (this.source, this.source.value);
     };
 
     dropdownEnbridge.prototype.addMethods = function addMethods() {
@@ -427,13 +436,8 @@ $(window).ready(function() {
             .find('option[value="' + value + '"]')
             .attr('selected', true);
 
-          var value = this.getAttribute('data-value');
-          var $copyToHidden = $('input[type="hidden"][data-assoc="' + self.source.getAttribute('data-id') + '"]');
-          if ($copyToHidden.length > 0) {
-            $copyToHidden.val(value);
-          }
+          copyToHiddenInput (self.source, value);
         });
-
     };
 
     dropdownEnbridge.prototype.destroy = function(id) {

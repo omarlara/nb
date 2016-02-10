@@ -13,6 +13,11 @@ var Enbridge = window.Enbridge || {
     Plugins: {}
 };
 
+/* Populate like/dislike hidden value */
+function setLikeDislike(value) {
+     $("#hdnLikeDislike").val(value);
+ };
+
 ; $(window).ready(function () {
 
     /***********************Prototyping functions***********************/
@@ -55,7 +60,6 @@ var Enbridge = window.Enbridge || {
     }
 
     /***********************General functions***********************/
-
     /* Format a date for display in a literal */
     function formatDisplayStreet(unitNumber, streetNumber, suffix, streetName, city, province, postalCode) {
         var address = [];
@@ -648,7 +652,10 @@ var Enbridge = window.Enbridge || {
 
                     $('#current-address').html(displayText);
                     
+                    $('#move-out-current-address').html(displayText);
+
                     // Populate address entries
+                    /* Fixed the issue of populating the currrent address as the new address for unanthenticated move out
                     var $city = $('[data-id$="city-or-town"]'),
                         $numberHouse = $('input[data-id$="street-number"]'),
                         $unitNumber = $('input[data-id$="pre-street-number"]'),
@@ -669,6 +676,7 @@ var Enbridge = window.Enbridge || {
                         'moving-out-province',
                         serviceAddress.Province
                     );
+                    */
                 }
 
                 else {
@@ -756,9 +764,17 @@ var Enbridge = window.Enbridge || {
 
         $('#address-confirmation').html(address);
 
+        //Update the text boxes for service address.  The code behinds read out of these controls so
+        //they must always contain the service address selected by the user.
         $('[data-id="street-number"]').val(numberHouse);
         $('[data-id="suffix"]').val(suffix);
         $('[data-id="misc-info"]').val(unitNumber);
+        $('[data-id="street"]').val(streetName);
+        $('[data-id="city-or-town"]').val(city);
+        $('[data-id="country"]').val('CA');
+        $('[data-id="province"]').val(province);
+        $('input[type="hidden"][data-assoc="province"]').val(province);
+        $('[data-id="postal-code-input"]').val(zipCode);
     });
 
     /*Info Decline*/
@@ -1451,11 +1467,16 @@ var Enbridge = window.Enbridge || {
                 address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
             $('#current-address').html(address);
+            
+            //Fix the new address display when manually type in address
+            $('#new-address-display').html(address);
 
             // Populate address, just for MoveOutEntry form
-            if ($('#moving-out-form').length > 0) {
-                $('.address:last').html(address);
-            }
+            
+            //Fixed the MoveOutEntry display new address issue, it should display the old address when validate the account details
+            //if ($('#moving-out-form').length > 0) {
+            //  $('.address:last').html(address);
+            //}
         }
 
     });
@@ -1734,13 +1755,7 @@ var Enbridge = window.Enbridge || {
             var day = date.getDate();
             var month = date.getMonth() + 1;
             var year = date.getFullYear();
-
-
-
-
-
-
-
+            
             $($current.closest('.calendar-column').attr('data-calendar'))
                 .val(year + '-' + month + '-' + day);
         }
@@ -1791,15 +1806,7 @@ var Enbridge = window.Enbridge || {
                 });
         });
 
-        var numberHouse = $('[data-id="current-number"]').val() || '',
-            unitNumber = $('input[data-id=pre-street-number]').val() || '',
-            suffix = $('input[data-id=pre-suffix]').val() || '';
-
-        $('[data-id="street-number"]').val(numberHouse);
-        $('[data-id="suffix"]').val(suffix);
-        $('[data-id="misc-info"]').val(unitNumber);
-
-        $('#existingcustomers, #newcustomers, #moving-out')
+        $('#existingcustomers, #newcustomers, #moving-out, #existingcustomers-summary')
             .removeClass('hidden')
             .dialog(dialogConstant).parent().appendTo(jQuery("form:first"));
 
@@ -1883,6 +1890,28 @@ function loadProvinces(data, id, pickProvince) {
                 $('[data-id="' + postalCode + '"]').removeAttr('data-pattern');
             }
         });
+               
+                $("#sendProccessFeedbackButton").click(
+                    function () {
+                try {
+                    var target = $("#feedbackFormName").val();
+                    var rating = $("#hdnLikeDislike").val();
+                    var message = $("#textFeedbackMessage").val();
+                    if (!message.trim()) { alert("please enter your comments"); return false; }
+                    $.ajax({
+                        type: 'POST',
+                        url: '/WebServices/FeedbackService.svc/SendProcessFeedback',
+                        data: JSON.stringify({ Target: target, Rating: rating, Message: message }),
+                        contentType: "application/json",
+                        error: function () {
+                            console.log('Error on the service');
+                                                }
+                                              });
+                            }
+                catch (e) {
+                    handleException(e);
+                }
+            });
 
     });
 } (window, jQuery));

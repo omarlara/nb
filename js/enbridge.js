@@ -46,7 +46,7 @@ $(window).ready(function() {
   };
 
   String.prototype.validPhone = function () {
-    return /^(\d[\- \ \ .]{0,1}){6}(\d)$/i.test(this);
+    return /^(\d[\- \ \ .]{0,1}){6}\d$/g.test(this);
   };
 
   String.prototype.validLada = function () {
@@ -272,20 +272,20 @@ $(window).ready(function() {
         case 'valid-lada':
             if (!$current.val().validLada()) {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
-                .addClass('input-error');
+                .addClass('input-error pattern-error');
 
               $current.closest('.set-field')
-                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                .append('<p class="error-message pattern-error-message">' + $current.attr('data-pattern-error') + '</p>');
               error = true;
             }
             break;
         case 'valid-phone':
             if (!$current.val().validPhone()) {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
-                .addClass('input-error');
+                .addClass('input-error pattern-error');
 
               $current.closest('.set-field')
-                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+                .append('<p class="error-message pattern-error-message">' + $current.attr('data-pattern-error') + '</p>');
               error = true;
             }
             break;
@@ -329,8 +329,8 @@ $(window).ready(function() {
         var $current = $(oneFromGroup[i]);
 
         if ($current.find('.input-error').length < 1) {
-          oneFromGroup.find('.input-error').removeClass('input-error');
-          oneFromGroup.find('.error-message').remove();
+          oneFromGroup.find('.input-error:not(.pattern-error)').removeClass('input-error');
+          oneFromGroup.find('.error-message:not(.pattern-error-message)').remove();
           error = ($form.find('.input-error').length > 0);
           break;
         }

@@ -1133,7 +1133,7 @@
 .enbridge-content-container .tiles-top {
   margin-top: 30px; }
 .enbridge-content-container .move-summary {
-  min-height: 380px;
+  min-height: 380px !important;
   background-image: url("img/family.jpg");
   background-repeat: no-repeat;
   background-size: cover;

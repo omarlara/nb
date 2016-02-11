@@ -346,7 +346,7 @@ $(window).ready(function() {
     var result = $.ajax({
       type: 'GET',
       async: false,
-      url: '/WebServices/DateService.svc/IsWeekendOrHolidayDate',
+      url: '/WebServices/DateService.svc/IsSundayOrHolidayDate',
       data: {
         date: formattedDate
       },
@@ -1033,6 +1033,15 @@ $(window).ready(function() {
   });
 
   /*Start Over*/
+  $('#new-account-entry-start-over').bind('click', function () {
+    var $form = $('.accordion').find('input').val('');
+    $form.find('.accordion-item').removeClass('processed active');
+    $form.find('.accordion-item')[0].className += ' active';
+    $form.find('#steps-flow-1').find('.steps').removeClass('active-step');
+    $form.find('#first-step').addClass('active-step');
+    $form.find('.success-field').removeClass('success-field');
+  });
+
   $('#new-account-start-over').bind('click', function() {
     var $form = $('#form-new-account').removeClass('hidden');
 
@@ -1642,6 +1651,10 @@ $(window).ready(function() {
       $inputElem = $('[data-id="' + dataCalendar + '"]'),
       now = new Date();
 
+      
+    //Since you only want to compare the dates and not the times
+    now.setHours(0, 0, 0, 0);
+
     //Reset errors
     $inputElem.attr('data-valid', 'true');
     $calendarColumn.find('.error-code').remove();
@@ -1658,12 +1671,12 @@ $(window).ready(function() {
       }
 
       //Figure out the date 3 business days in the future
-      var additionalBusinessDays = 1;
-      var additionalDays = 1;
+      var additionalBusinessDays = 0;
+      var additionalDays = 0;
       var minimumDate;
-      while (additionalBusinessDays < 3) {
+      while (additionalBusinessDays <= 3) {
         minimumDate = new Date(now.getTime() + (additionalDays * 86400000));
-        if (minimumDate.getDay() != 0 && minimumDate.getDay() != 6 && isBusinessDay(minimumDate)) {
+        if (minimumDate.getDay() != 0 && isBusinessDay(minimumDate)) {
           additionalBusinessDays++;
         }
         additionalDays++;

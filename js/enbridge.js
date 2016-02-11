@@ -1034,7 +1034,8 @@ $(window).ready(function() {
 
   /*Start Over*/
   $('#new-account-entry-start-over').bind('click', function () {
-    var $form = $('.accordion').find('input').val('');
+    var $form = $('.accordion');
+    $form.find('input').val('');
     $form.find('.accordion-item').removeClass('processed active');
     $form.find('.accordion-item')[0].className += ' active';
     $form.find('#steps-flow-1').find('.steps').removeClass('active-step');

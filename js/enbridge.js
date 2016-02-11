@@ -754,7 +754,7 @@ $(window).ready(function() {
 
   /*
   When you click on the next sep, on Select your street
-  if you have selected None of the above, you will show form, in another case you will be on the select street number
+  if you have selected No one above, you will show form, in another case you will be on the select street number
   */
 
   $('#get-address').bind('click', function() {
@@ -1444,7 +1444,7 @@ $(window).ready(function() {
             'data-city = " " ' +
             'data-range = "0" ' +
             'name="stepsContent" data-required-error="Please select yout street.">' +
-            '<label class="fake-input" for="' + (containerEl + '-No') + '">None of the above</label>');
+            '<label class="fake-input" for="' + (containerEl + '-No') + '">No one above</label>');
 
           $(container).html(radioContent.join(''));
 

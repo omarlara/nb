@@ -11,7 +11,23 @@ var Enbridge = window.Enbridge || {
   CountryCodes: {
     CANADA: 'CA'
   },
-  Plugins: {}
+  TrackingUrls: {
+    AUTHENTICATED_FLOW: 'Moves/MoveEntry.aspx',
+    AUTHENTICATED_FLOW_SUMMARY: 'Moves/MoveSummary.aspx',
+    AUTHENTICATED_FLOW_SUCCESS: 'Moves/MoveThanks.aspx',
+
+    OPEN_NEW_GAS_ACCOUNT_FLOW: '/homes/start-stop-move/moving/newaccountentry.aspx',
+    OPEN_NEW_GAS_ACCOUNT_FLOW_SUMMARY: '/homes/start-stop-move/moving/newaccountsummary.aspx',
+    OPEN_NEW_GAS_ACCOUNT_FLOW_SUCCESS: '/homes/start-stop-move/moving/newaccountthanks.aspx',
+
+    MOVE_OUT_FORM_FLOW: '/homes/start-stop-move/moving/move-out-entry.aspx',
+    MOVE_OUT_FORM_FLOW_SUMMARY: '/homes/start-stop-move/moving/move-out-summary.aspx',
+    MOVE_OUT_FORM_FLOW_SUCESSS: '/homes/start-stop-move/moving/move-out-thanks.aspx'
+  },
+  Plugins: {},
+  Events: {
+    TRACK_IN_WEBTRENDS: 'Enbridge.Events.trackInWebTrends'
+  }
 };
 
 /* Populate like/dislike hidden value */
@@ -754,7 +770,7 @@ $(window).ready(function() {
 
   /*
   When you click on the next sep, on Select your street
-  if you have selected No one above, you will show form, in another case you will be on the select street number
+  if you have selected None of the above, you will show form, in another case you will be on the select street number
   */
 
   $('#get-address').bind('click', function() {
@@ -1444,7 +1460,7 @@ $(window).ready(function() {
             'data-city = " " ' +
             'data-range = "0" ' +
             'name="stepsContent" data-required-error="Please select yout street.">' +
-            '<label class="fake-input" for="' + (containerEl + '-No') + '">No one above</label>');
+            '<label class="fake-input" for="' + (containerEl + '-No') + '">None of the above</label>');
 
           $(container).html(radioContent.join(''));
 
@@ -1540,6 +1556,8 @@ $(window).ready(function() {
       //if ($('#moving-out-form').length > 0) {
       //  $('.address:last').html(address);
       //}
+      // Track in webtrends when move forward
+      $('.accordion').trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
     }
 
   });
@@ -1799,6 +1817,7 @@ $(window).ready(function() {
           $('.confirm-not-dialog').bind('click', function(e) {
             e.preventDefault();
             confirmDialog.dialog('close');
+
             return false;
           });
           return false;
@@ -1808,6 +1827,9 @@ $(window).ready(function() {
     calendar.datepicker();
 
     $('.confirm-yes-dialog').bind('click', function() {
+      // Track in webtrends when user closes the modal
+      dcsMultiTrack('DCS.dcsuri','/moves-form/close.html','WT.ti','Moves%20-%20Close','WT.z_engage','Close_Event','WT.z_UserStatus','UnAuth');
+      // Redirect
       window.location = '/homes/start-stop-move/moving/index.aspx';
     });
 
@@ -2041,3 +2063,176 @@ Enbridge.Plugins.AgeValidator = (function($) {
   }
   return AgeValidator;
 }(jQuery));
+
+Enbridge.Plugins.AccordionWizard = window.Enbridge.Plugins.AccordionWizard || {
+    // Know which is the current step (active step) in wizard
+    getCurrentStep: function ($accordion) {
+      if ($accordion.length < 1) {
+        return -1;
+      }
+      var $accordionItems = $accordion.find('.accordion-item');
+      var i, len, accordionItem;
+      for (i = 0, len = $accordionItems.length; i < len; i += 1) {
+        accordionItem = $accordionItems.get(i);
+        if (accordionItem.className.indexOf('active') >= 0) {
+          return (i + 1);
+        }
+      }
+      return -1;
+    }
+};
+/******************************* Webtrends implementation ********************************/
+
+// Flag to don't track in webtrends repeated steps
+Enbridge.currentStep = -1;
+function trackWebTrendsHandler () {
+  var step = Enbridge.Plugins.AccordionWizard.getCurrentStep($('.accordion')),
+      url = document.URL;
+
+  // Auth Summary Step
+  if (url.indexOf(Enbridge.TrackingUrls.AUTHENTICATED_FLOW_SUMMARY) >= 0) {
+      dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/summary.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Summary_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Summary','WT.si_x', '5');
+  }
+  // Auth Move Successs Step
+  if (url.indexOf(Enbridge.TrackingUrls.AUTHENTICATED_FLOW_SUCCESS) >= 0) {
+      dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/success.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Move_Success_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Success','WT.si_x', '6','WT.si_c', '1');
+  }
+
+  // UnAuth Move Out Summary Step
+  if (url.indexOf(Enbridge.TrackingUrls.MOVE_OUT_FORM_FLOW_SUMMARY) >= 0) {
+    dcsMultiTrack('DCS.dcsuri','/moves-form/close-account/summary.html','WT.si_n', 'Move_Out_Form_Flow','WT.si_p', 'UnAuth_Move_Out_Summary_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Close%20Account%20-%20Summary','WT.si_x', '5');
+  }
+  // UnAuth Move Out Successs Step
+  if (url.indexOf(Enbridge.TrackingUrls.MOVE_OUT_FORM_FLOW_SUCESSS) >= 0) {
+    dcsMultiTrack('DCS.dcsuri','/moves-form/close-account/success.html','WT.si_n', 'Move_Out_Form_Flow','WT.si_p', 'UnAuth_Move_Out_Success_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Close%20Account%20-%20Success','WT.si_x', '6','WT.si_cs', '1');
+  }
+
+  // Open new gas account - Summary Step
+  if (url.indexOf(Enbridge.TrackingUrls.OPEN_NEW_GAS_ACCOUNT_FLOW_SUMMARY) >= 0) {
+    dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/summary.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Summary_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Summary','WT.si_x', '5');
+  }
+  // Open new gas account - Successs Step
+  if (url.indexOf(Enbridge.TrackingUrls.OPEN_NEW_GAS_ACCOUNT_FLOW_SUCCESS) >= 0) {
+      dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/success.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Move_Success_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Success','WT.si_x', '6','WT.si_c', '1');
+  }
+
+  // Do not repeat step
+  if (step > Enbridge.currentStep) Enbridge.currentStep = step;
+  else return;
+
+  // Move form
+  if (url.indexOf(Enbridge.TrackingUrls.AUTHENTICATED_FLOW) >= 0) {
+    switch (step) {
+      case 1:
+          // Auth Move Details Step
+          dcsMultiTrack('DCS.dcsuri','/moves-form/authenticated/details.html','WT.si_n', 'Authenticated_Flow','WT.si_p', 'Auth_Move_Details_Step','WT.z_UserStatus','Auth','WT.ti','Moves%20-%20Authenticated%20-%20Details','WT.si_x', '1');
+          break;
+    }
+  }
+
+  // Moveout form
+  if (url.indexOf(Enbridge.TrackingUrls.MOVE_OUT_FORM_FLOW) >= 0) {
+    switch (step) {
+      case 1:
+          // UnAuth Move Out Account Info Step
+          dcsMultiTrack('DCS.dcsuri','/moves-form/close-account/account-info.html','WT.si_n', 'Move_Out_Form_Flow','WT.si_p', 'UnAuth_Move_Out_Account_Info_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Close%20Account%20-%20Account%20Info','WT.si_x', '1');
+          break;
+    }
+  }
+
+  // Newaccount entry
+  if (url.indexOf(Enbridge.TrackingUrls.OPEN_NEW_GAS_ACCOUNT_FLOW) >= 0) {
+    switch (step) {
+      case 1:
+          // New Customer Info Step"
+          dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/customer-info.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Cust_Info_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Customer%20Info','WT.si_x', '1');
+          break;
+    }
+  }
+}
+
+function trackAccordionWizardStepsInWebTrends (e) {
+    if (e && e.stopPropagation) {
+      e.stopPropagation();
+    }
+
+    var step = Enbridge.Plugins.AccordionWizard.getCurrentStep($('.accordion')),
+    url = document.URL;
+
+    // Do not repeat step
+    if (step > Enbridge.currentStep) Enbridge.currentStep = step;
+    else return;
+
+    // Move form
+    if (url.indexOf(Enbridge.TrackingUrls.AUTHENTICATED_FLOW) >= 0) {
+      switch (step) {
+        case 2:
+            dcsMultiTrack('DCS.dcsuri','/moves-form/authenticated/address.html','WT.si_n', 'Authenticated_Flow','WT.si_p', 'Auth_New_Address_Step','WT.z_UserStatus','Auth','WT.ti','Moves%20-%20Authenticated%20-%20New%20Address','WT.si_x', '2');
+            break;
+        case 3:
+            // Auth Dates Step
+            dcsMultiTrack('DCS.dcsuri','/moves-form/authenticated/dates.html','WT.si_n', 'Authenticated_Flow','WT.si_p', 'Auth_Dates_Step','WT.z_UserStatus','Auth','WT.ti','Moves%20-%20Authenticated%20-%20Dates','WT.si_x', '3');
+            break;
+        case 4:
+            // Auth Your Info Step
+            dcsMultiTrack('DCS.dcsuri','/moves-form/authenticated/your-info.html','WT.si_n', 'Authenticated_Flow','WT.si_p', 'Auth_Your_Info_Step','WT.z_UserStatus','Auth','WT.ti','Moves%20-%20Authenticated%20-%20Your%20Info','WT.si_x', '4');
+            break;
+      }
+    }
+
+    // Moveout form
+    if (url.indexOf(Enbridge.TrackingUrls.MOVE_OUT_FORM_FLOW) >= 0) {
+      switch (step) {
+        case 2:
+            // UnAuth Move Out New Address Step
+            dcsMultiTrack('DCS.dcsuri','/moves-form/close-account/address.html','WT.si_n', 'Move_Out_Form_Flow','WT.si_p', 'UnAuth_Move_Out_Address_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Close%20Account%20-%20Address','WT.si_x', '2');
+            break;
+        case 3:
+            // UnAuth Move Out Dates Step
+            dcsMultiTrack('DCS.dcsuri','/moves-form/close-account/dates.html','WT.si_n', 'Move_Out_Form_Flow','WT.si_p', 'UnAuth_Move_Out_Dates_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Close%20Account%20-%20Dates','WT.si_x', '3');
+            break;
+        case 4:
+            // UnAuth Move Out Your Info Step
+            dcsMultiTrack('DCS.dcsuri','/moves-form/close-account/your-info.html','WT.si_n', 'Move_Out_Form_Flow','WT.si_p', 'UnAuth_Your_Info_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Close%20Account%20-%20Your%20Info','WT.si_x', '4');
+            break;
+      }
+    }
+
+    // Newaccount entry
+    if (url.indexOf(Enbridge.TrackingUrls.OPEN_NEW_GAS_ACCOUNT_FLOW) >= 0) {
+      switch (step) {
+        case 2:
+            // New Customer Address Step"
+            dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/address.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Address_Info_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Address%20Info','WT.si_x', '2');
+            break;
+        case 3:
+            // New Customer Dates Step"
+            dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/dates.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Dates_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Dates','WT.si_x', '3');
+            break;
+        case 4:
+            // New Customer Your Info Step"
+            dcsMultiTrack('DCS.dcsuri','/moves-form/open-account/billing-services.html','WT.si_n', 'Open_New_Gas_Account_Flow','WT.si_p', 'New_Billing_Services_Step','WT.z_UserStatus','UnAuth','WT.ti','Moves%20-%20Open%20Account%20-%20Billing%20Services','WT.si_x', '4');
+            break;
+      }
+    }
+}
+
+$(document).bind(Enbridge.Events.TRACK_IN_WEBTRENDS, trackWebTrendsHandler);
+
+$(document).ready(function () {
+  // Track steps in accordion wizard (flows) to webtrends
+  $('.accordion')
+    .bind(Enbridge.Events.TRACK_IN_WEBTRENDS, trackAccordionWizardStepsInWebTrends);
+
+  // Track "save & return later" to webtrends
+  $('.enbridge-container .enbridge-btn:contains("SAVE & RETURN LATER")').click(function () {
+    dcsMultiTrack('DCS.dcsuri','/moves-form/save-and-return-later.html','WT.ti','Moves%20-%20Save%20and%20Return%20Later','WT.z_engage','Start_Over_Event','WT.z_UserStatus','Auth');
+  });
+
+  // Track "cancel" (or Start over) to webtrends
+  $('[id$="-start-over"]').bind('click', function () {
+    dcsMultiTrack('DCS.dcsuri','/moves-form/cancel.html','WT.ti','Moves%20-%20Cancel','WT.z_engage','Cancel_Saved_Move_Event','WT.z_UserStatus','Auth');
+  });
+
+  $(document).trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
+});

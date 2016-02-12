@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thanks! We’ll take it from here</title>
+    <title>Your Message Subject or Title</title>
     <style>
       .table-button a {
         color: #ffffff !important;
@@ -28,7 +28,7 @@
                     <tr>
                       <td width="200" colspan="3" valign="top" style="font-family:Arial, Sans-serif; background-color:#92b051; padding:20px">
                         <img style="font-family:Arial, Sans-serif; display: block; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; " class="image_fix" src="http://xdmty-nb.azurewebsites.net/email/images/myenbridge_big.png" alt="Your alt text" title="Your title text"
-                        width="114" height="24" />
+                        width="x" height="x" />
                       </td>
                     </tr>
                     <tr></tr>
@@ -47,28 +47,43 @@
                           </table>
                       </td>
                     </tr>
+                    <tr>
+                      <td style="padding: 0px 20px">
+                        <!-- aqui pon el texto, dude-->
+                        <p>
+                          <font color="#444444">
+                            <p style="font-size: 13px; ">
+                              Welcome  Messaging, <br />
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                              Molestias eaque corporis excepturi maxime unde, nemo quidem 
+                              ipsum dolorum ex sit sunt ipsam . Link to
+                              <a href="#" style="color:#3637FE">Welcome Package.</a>
+                            </p>
+                            <p style="font-size: 13px; ">
+                              Sincerely,
+                            </p>
+                          </font>
+                        </p>
+                        <p style="font-size: 13px;">
+                          <font color="#444444">
+                           <strong><label for="">Your Enbridge Team</label>
+                            </strong>
+                        </font>
+                        </p>
+                      </td>
+                    </tr>
                     <tr style="">
                       <td style="border-collapse:collapse;  padding: 20px;">
                         <table style=" background-color:#92b051; width: 100%">
                           <tr>
                             <td style=" margin-left: 20px; padding:5px 20px" align="">
                               <p style="font-family:Arial, Sans-serif; text-align: left">
-                                <font color="#ffffff">
-                                  <p style="font-family:Arial, Sans-serif; color:#ffffff; font-size:14px;">
-                                    Welcome! It’s your team at Enbridge. Just want to confirm that we’re setting up your new account. We know moving can be a real pain, so we’re going to make this part as painless as possible, so you can get back to packing. (And if you’ve done that already, congrats!)
-                                  </p>
-                                  <p style="font-family:Arial, Sans-serif; color:#ffffff; font-size:14px;">
-                                    We’ll be activating your new account for <strong>123 anywhere St., Anycity, ON</strong> on <strong>October 12th, 2016</strong>. You’ll see a one-time $25 setup fee to cover the costs associated with processing your move on your new bill. We’re also setting up your online myEnbridge profile and will email you shortly to set your password.
-                                  </p>
-                                  <p style="font-family:Arial, Sans-serif; color:#ffffff; font-size:14px;">
-                                    While we can’t bring a casserole to welcome you to the neighbourhood, we do want to offer you a <a href="">Warm Welcome</a> with some helpful tips for new customers. 
-                                  </p>
-                                  <p style="font-family:Arial, Sans-serif; color:#ffffff; font-size:14px;">
-                                    And that’s it! Thank you for using our online service options! You’ve picked the easiest and fastest way to get it done. 
-                                  </p>
-                                  <p style="font-family:Arial, Sans-serif; color:#ffffff; font-size:14px;">
-                                    Your Enbridge Team
-                                  </p>
+                                <font color="#ffffff" style="font-size:14px; ">
+                                    Thanks for submitting your move request to us. <br /><br />
+                                    We've happy to set up your account for <strong>321 New St.</strong> <br />
+                                    for <strong>October 20th 2015.</strong>
+                                    <br /><br />
+                                    Thank you for using our online srvice options!
                                 </font>
                               </p>
                             </td>
@@ -123,6 +138,22 @@
                       </td>
                     </tr>
                     <tr>
+                      <td style="font-family:Arial, Sans-serif; padding:20px 20px 0px 20px; text-align:center">
+                        <table width="100%" style="font-family:Arial, Sans-serif; border-collapse: collapse;">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <img class="image_fix" src="http://xdmty-nb.azurewebsites.net/email/images/icon.png" alt="Your alt text" title="Your title text" width="20" height="19" style="font-family:Arial, Sans-serif; outline: none;text-decoration: none;-ms-interpolation-mode: bicubic; display: block; float:left; margin-top: -2px;"
+                                />
+                              </td>
+                              <td style="font-family:Arial, Sans-serif; font-size:11px; color:#555; text-align:left">If you need to change anything, just <a href="#"><font color="#555">login to myEnbridge</font></a> to send us your updates. You can make changes up to five days before your move.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
                       <td>
                         &nbsp;
                       </td>
@@ -144,9 +175,7 @@
                           <tr>
                             <td align="center" style="text-align: left; padding-left: 35px; padding-right: 35px; padding-top:8px">
                               <font color="#444" ; face="arial">
-                                <p>
-                                  
-                                </p>
+                                [Instructions for myEnbridge onboarding-set users expectations about when their myEnbridge account will be activated and what notifications they will receive, etc.]
                               </font>
                             </td>
                           </tr>
@@ -203,6 +232,25 @@
                       </td>
                     </tr>
                     <tr>
+<<<<<<< HEAD
+=======
+                      <td style="font-family:Arial, Sans-serif; padding:0 20px 20px 20px;">
+                        <table cellspacing="0" border="0" width="100%" style="font-family:Arial, Sans-serif; line-height:1.2; border-collapse: collapse;">
+                          <tbody>
+                            <tr>
+                              <td style="font-family:Arial, Sans-serif; padding:0 10px 10px 0;" valign="top">
+                                <img width="17" height="17" src="http://xdmty-nb.azurewebsites.net/email/images/success.png" />
+                              </td>
+                              <td style="font-family:Arial, Sans-serif; padding:0 0 10px ;font-size:13px; color:#555; text-align:left" valign="top">
+                                Your account will be charged a $25 fee.
+                                <br />
+                              </td>
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+>>>>>>> 3f8741c81dcd144688236afad73082dc57560b61
                       <td style="border-collapse:collapse; font-family:Arial, Sans-serif; background-color:#333; padding:20px; text-align:Center; outline: none;text-decoration: none; -ms-interpolation-mode: bicubic;">
                         <table align="center" style="border-collapse:collapse">
                           <tr>
@@ -225,23 +273,39 @@
                             <tr>
                               <td>
                                 <a href="#" style="font-family:Arial, Sans-serif; color:#555555 !important; font-weight:600; text-decoration:none">
+<<<<<<< HEAD
                                   <font color="#555555">Follow Enbridge on Twitter</font>
+=======
+                                  <font color="#555555">Follow Enbidge on Twitter</font>
                                 </a>
                               </td>
                             </tr>
+                            <tr>
+                              <td style="font-family:Arial, Sans-serif; padding:5px 0 10px 0">
+                                <img width="24" height="3" src="http://xdmty-nb.azurewebsites.net/email/images/separator.png" alt="Your alt text" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <a href="#" style="font-family:Arial, Sans-serif; color:#007DBA !important; font-weight:600;  text-decoration:none">
+                                  <font color="#007DBA">Manage your email preferences</font>
+>>>>>>> 3f8741c81dcd144688236afad73082dc57560b61
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+<<<<<<< HEAD
+=======
+                              <td style="font-family:Arial, Sans-serif; padding:5px 0 0px 0">
+                                <img width="24" height="3" style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" src="http://xdmty-nb.azurewebsites.net/email/images/separator.png" alt="Your alt text" />
+                              </td>
+                            </tr>
+                            <tr>
+>>>>>>> 3f8741c81dcd144688236afad73082dc57560b61
                               <td> <font color="#ffffff">&nbsp;</font></td>
                             </tr>
                             <tr>
                               <td>
-                                <!-- <p>
-                                  While we can’t bring a casserole to welcome you to the neighbourhood, we do want to offer you a <a href="#">Warm Welcome</a> with some helpful tips for new customers.
-                                </p>
-                                <p>
-                                  And that’s it! Thank you for using our online service options! You’ve picked the easiest and fastest way to get it done. 
-                                </p>
-                                <p>
-                                  Your Enbridge Team
-                                </p> -->
                                 <p>
                                   2016 EGDI
                                 </p>

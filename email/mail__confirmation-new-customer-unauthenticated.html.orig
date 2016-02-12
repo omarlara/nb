@@ -203,6 +203,25 @@
                       </td>
                     </tr>
                     <tr>
+<<<<<<< HEAD
+=======
+                      <td style="font-family:Arial, Sans-serif; padding:0 20px 20px 20px;">
+                        <table cellspacing="0" border="0" width="100%" style="font-family:Arial, Sans-serif; line-height:1.2; border-collapse: collapse;">
+                          <tbody>
+                            <tr>
+                              <td style="font-family:Arial, Sans-serif; padding:0 10px 10px 0;" valign="top">
+                                <img width="17" height="17" src="http://xdmty-nb.azurewebsites.net/email/images/success.png" />
+                              </td>
+                              <td style="font-family:Arial, Sans-serif; padding:0 0 10px ;font-size:13px; color:#555; text-align:left" valign="top">
+                                Your account will be charged a $25 fee.
+                                <br />
+                              </td>
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+>>>>>>> 3f8741c81dcd144688236afad73082dc57560b61
                       <td style="border-collapse:collapse; font-family:Arial, Sans-serif; background-color:#333; padding:20px; text-align:Center; outline: none;text-decoration: none; -ms-interpolation-mode: bicubic;">
                         <table align="center" style="border-collapse:collapse">
                           <tr>
@@ -225,10 +244,35 @@
                             <tr>
                               <td>
                                 <a href="#" style="font-family:Arial, Sans-serif; color:#555555 !important; font-weight:600; text-decoration:none">
+<<<<<<< HEAD
                                   <font color="#555555">Follow Enbridge on Twitter</font>
                                 </a>
                               </td>
                             </tr>
+=======
+                                  <font color="#555555">Follow Enbidge on Twitter</font>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-family:Arial, Sans-serif; padding:5px 0 10px 0">
+                                <img width="24" height="3" src="http://xdmty-nb.azurewebsites.net/email/images/separator.png" alt="Your alt text" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <a href="#" style="font-family:Arial, Sans-serif; color:#007DBA !important; font-weight:600;  text-decoration:none">
+                                  <font color="#007DBA">Manage your email preferences</font>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-family:Arial, Sans-serif; padding:5px 0 0px 0">
+                                <img width="24" height="3" style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" src="http://xdmty-nb.azurewebsites.net/email/images/separator.png" alt="Your alt text" />
+                              </td>
+                            </tr>
+                            <tr>
+>>>>>>> 3f8741c81dcd144688236afad73082dc57560b61
                               <td> <font color="#ffffff">&nbsp;</font></td>
                             </tr>
                             <tr>

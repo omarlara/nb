@@ -11,6 +11,9 @@ var Enbridge = window.Enbridge || {
   CountryCodes: {
     CANADA: 'CA'
   },
+  ProvinceCodes: {
+    ONTARIO: 'ON'
+  },
   TrackingUrls: {
     AUTHENTICATED_FLOW: 'Moves/MoveEntry.aspx',
     AUTHENTICATED_FLOW_SUMMARY: 'Moves/MoveSummary.aspx',
@@ -808,6 +811,17 @@ $(window).ready(function() {
     var accountType = $('input[name=device-type]:checked').val();
     $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
     $('.' + accountType + '-inputs-container').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
+    
+    if (accountType == "business")
+    {
+      $('#bbpDisplayDiv').css('visibility', 'hidden');
+      $('#bbpRadioDiv').css('visibility', 'hidden');
+      $("input[name=newcustomers-budget-billing-plan][value='no']").attr('checked', 'checked');
+    } else {
+      $('#bbpDisplayDiv').css('visibility', 'visible');
+      $('#bbpRadioDiv').css('visibility', 'visible');
+    }
+    
   });
 
   /*Set Address on decline/accept step container*/
@@ -1960,7 +1974,12 @@ function loadProvinces(data, id, pickProvince) {
       }
 
       countryServiceData.countryCode = $currentDropdown.val();
-      loadProvinces(countryServiceData, $currentDropdown.attr('data-province-rel'));
+
+      if (countryServiceData.countryCode == Enbridge.CountryCodes.CANADA) {
+        loadProvinces(countryServiceData, $currentDropdown.attr('data-province-rel'), Enbridge.ProvinceCodes.ONTARIO);
+      } else {
+        loadProvinces(countryServiceData, $currentDropdown.attr('data-province-rel'));
+      }
     }
 
     $countryDropdownItems.bind('click', function(e) {
@@ -1968,7 +1987,12 @@ function loadProvinces(data, id, pickProvince) {
         postalCode = $(this).closest('.enbridge-dropdown').attr('data-postal-code-rel') || '';
 
       countryServiceData.countryCode = $(this).attr('data-value');
-      loadProvinces(countryServiceData, relationId);
+      
+      if (countryServiceData.countryCode == Enbridge.CountryCodes.CANADA) {
+        loadProvinces(countryServiceData, relationId, Enbridge.ProvinceCodes.ONTARIO);
+      } else {
+        loadProvinces(countryServiceData, relationId);
+      }
 
       if (!postalCode) {
         return;
@@ -2000,12 +2024,17 @@ function loadProvinces(data, id, pickProvince) {
               Message: message
             }),
             contentType: "application/json",
+            success: function(){
+              window.location = '/homes/start-stop-move/moving/index.aspx';
+            },
             error: function() {
               console.log('Error on the service');
+              window.location = '/homes/start-stop-move/moving/index.aspx';
             }
           });
+
         } catch (e) {
-          handleException(e);
+          console.log("Feedback email failed")
         }
       });
 

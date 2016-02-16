@@ -56,6 +56,14 @@ $(window).ready(function() {
     }
   };
 
+  String.prototype.toBoolean = function () {
+    switch(this.toLowerCase().trim()){
+        case 'true': case 'yes': case '1': return true;
+        case 'false': case 'no': case '0': case null: return false;
+        default: return Boolean(this);
+    }
+}
+
   String.prototype.validEmail = function() {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/.test(this);
   };
@@ -574,13 +582,15 @@ $(window).ready(function() {
             data: {
               'postalCode': currentCode
             },
-            success: function(data) {
+            success: function (data) {
+              data = data.toBoolean();
               if (!!data) {
                 $element
                   .addClass('success-zip')
                   .find('.result')
                   .html('<img src="../../AppImages/success.png"> <span>' + success + '</span>')
-                  .addClass('success-code');
+                  .addClass('success-code')
+                  .removeClass('error-code');
 
                 $('[data-id="transfer"]')
                   .attr('checked', true);

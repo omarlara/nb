@@ -3,7 +3,8 @@
 var Enbridge = window.Enbridge || {
   UrlServices: {
     GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces',
-    VALIDATE_CUSTOMER_AND_GET_DATA: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData'
+    VALIDATE_CUSTOMER_AND_GET_DATA: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData',
+    VALIDATE_PHONE_BLACKLIST: '/WebServices/PhoneService.svc/IsPhoneNumberBlacklisted'
   },
   Templates: {
     PROVINCE: '<option value=":provinceCode" :wasPicked>:provinceName</option>'
@@ -76,7 +77,7 @@ $(window).ready(function() {
     return /^\d{12}$/i.test(this);
   }
 
-  String.prototype.validPhone = function () {
+  String.prototype.validPhoneFormat = function () {
     return /^(\d[\- \ \ .]{0,1}){6}\d$/g.test(this);
   };
 
@@ -321,12 +322,36 @@ $(window).ready(function() {
             }
             break;
         case 'valid-phone':
-            if (!$current.val().validPhone()) {
+            var _self = $current,
+                value = _self.val();
+            if (value.validPhoneFormat()) {
+              $.ajax({
+                type: 'GET',
+                url: Enbridge.UrlServices.VALIDATE_PHONE_BLACKLIST,
+                data: { phoneNumber: value},
+                async: false,
+                success: function (data) {
+                  _self.closest('.set-field').find('.pattern-error-message').remove();
+                  _self.removeClass('input-error pattern-error');
+                  if (data) {
+                    $('[data-rel="' + _self.attr('data-rel') + '"]')
+                      .addClass('input-error pattern-error');
+
+                    _self.closest('.set-field')
+                      .append('<p class="error-message pattern-error-message">Uh-oh! It looks like the phone number you\'ve entered is in the blacklist, which means it\'s from a cell phone reported stolen. Please check the number you entered and try again.</p>');
+                    error = true;
+                  }
+                },
+                error: function (xhr, error) {
+                  throw 'Error on request';
+                }
+              });
+            } else {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
                 .addClass('input-error pattern-error');
 
               $current.closest('.set-field')
-                .append('<p class="error-message pattern-error-message">' + $current.attr('data-pattern-error') + '</p>');
+                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
               error = true;
             }
             break;

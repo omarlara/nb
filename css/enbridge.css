@@ -536,6 +536,8 @@
   font-size: 10px !important;
   margin-top: 5px;
   color: red; }
+  .enbridge-content-container .error-message.pattern-error-message {
+    max-width: 520px; }
 .enbridge-content-container .enbridge-dropdown {
   display: block;
   position: relative;

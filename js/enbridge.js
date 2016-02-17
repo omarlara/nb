@@ -72,6 +72,10 @@ $(window).ready(function() {
     return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/i.test(this);
   };
 
+  String.prototype.isValidAccount = function () {
+    return /^\d{12}$/i.test(this);
+  }
+
   String.prototype.validPhone = function () {
     return /^(\d[\- \ \ .]{0,1}){6}\d$/g.test(this);
   };
@@ -288,6 +292,16 @@ $(window).ready(function() {
         switch (pattern) {
           case 'postal-code':
             if (!$current.val().postalCode()) {
+              $('[data-rel="' + $current.attr('data-rel') + '"]')
+                .addClass('input-error');
+
+              $current.closest('.set-field')
+                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+              error = true;
+            }
+            break;
+        case 'account-number':
+            if (!$current.val().trim().isValidAccount()) {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
                 .addClass('input-error');
 
@@ -662,108 +676,6 @@ $(window).ready(function() {
 
   /*Dialog - 1 - Moving out*/
 
-  $('[account-authorization="bill"]').bind('change', function() {
-    authCall.call(this);
-  });
-
-  var authCall = function() {
-    var $this = $(this),
-      accountNumber = $('[data-id="moving-out-account-number"]').val(),
-      postalCode = $('[data-id="moving-out-postal-code"]').val(),
-      name = $('[data-id="moving-out-name"]').val();
-
-    //Remove existing warnings
-    $this.removeClass('input-error');
-
-    if ($this.next().hasClass('error-message')) {
-      $this.next().remove();
-    }
-
-    //Validate that fields are correct first.  This will avoid unnecessary service calls.
-    if ($this.is('[data-id="moving-out-postal-code"]') && postalCode && !postalCode.postalCode()) {
-      $this
-        .addClass('input-error')
-        .after('<p class="error-message ">Please enter a valid postal code (example: A1A 1A1).</p>');
-      return;
-    }
-
-    if ($this.is('[data-id="moving-out-account-number"]') && accountNumber && accountNumber.trim().length < 12) {
-      $this
-        .addClass('input-error')
-        .after('<p class="error-message ">Please enter a 12 digit account number.</p>');
-      return;
-    }
-
-    if ($this.is('[data-id="moving-out-name"]') && name && name.length <= 0) {
-      $this
-        .addClass('input-error')
-        .after('<p class="error-message ">Please enter a valid name.</p>');
-      return;
-    }
-
-    $.ajax({
-      type: 'POST',
-      url: Enbridge.UrlServices.VALIDATE_CUSTOMER_AND_GET_DATA,
-      data: JSON.stringify({
-        AccountNumber: accountNumber,
-        FullName: name,
-        PostalCode: postalCode
-      }),
-      contentType: "application/json",
-      success: function(result) {
-        if (!!result) {
-          var displayText = null,
-            serviceAddress = result.ServiceAddress;
-          $('[account-authorization-required="true"').css('visibility', 'visible');
-          $('#account-authorization-failure-message').css('visibility', 'hidden');
-
-          displayText = formatDisplayStreet(
-            serviceAddress.Unit,
-            serviceAddress.StreetNumber,
-            serviceAddress.Suffix,
-            serviceAddress.StreetName,
-            serviceAddress.City,
-            serviceAddress.Province,
-            serviceAddress.PostalCode);
-
-          $('#current-address').html(displayText);
-
-          $('#move-out-current-address').html(displayText);
-
-          // Populate address entries
-          /* Fixed the issue of populating the currrent address as the new address for unanthenticated move out
-          var $city = $('[data-id$="city-or-town"]'),
-              $numberHouse = $('input[data-id$="street-number"]'),
-              $unitNumber = $('input[data-id$="pre-street-number"]'),
-              $suffix = $('input[data-id$="suffix"]'),
-              $streetName = $('input[data-id$="street"]'),
-              $zipCode = $('[data-id$="postal-code-input"]');
-
-          $city.val(serviceAddress.City);
-          $numberHouse.val(serviceAddress.StreetNumber);
-          $unitNumber.val(serviceAddress.Unit);
-          $suffix.val(serviceAddress.Suffix);
-          $streetName.val(serviceAddress.StreetName);
-          $zipCode.val(serviceAddress.PostalCode);
-                    
-          loadProvinces({ 
-                  countryCode: serviceAddress.Country 
-              }, 
-              'moving-out-province',
-              serviceAddress.Province
-          );
-          */
-        } else {
-          $('[account-authorization-required="true"').css('visibility', 'hidden');
-          $('#account-authorization-failure-message').css('visibility', 'visible');
-        }
-      },
-      failure: function(jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR);
-      }
-    });
-  };
-
   /*Stop radio button click, show/hide Select reason select*/
   $('[name="steps"]').bind('click', function() {
     var $element = $('[data-id="stop-select"]');
@@ -813,7 +725,16 @@ $(window).ready(function() {
 
   /*Run validator at phone required group*/
   $('.required-from-group').find('input').bind('change', function() {
-    validator($(this).parents('.enbridge-form'));
+    var oneFromGroup = $('.required-from-group:visible');
+    for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
+      var $current = $(oneFromGroup[i]);
+
+      if ($current.find('.input-error').length < 1) {
+        oneFromGroup.find('.input-error:not(.pattern-error)').removeClass('input-error');
+        oneFromGroup.find('.error-message:not(.pattern-error-message)').remove();
+        break;
+      }
+    }
   });
 
   /*New account entry business input variation*/
@@ -1534,7 +1455,7 @@ $(window).ready(function() {
   });
 
   /*Run validations for each section*/
-  $('.accordion .accordion-item .validator').bind('click', function(e) {
+  $('.accordion .accordion-item .validator').bind('click', function (e) {
     e.preventDefault();
 
     var $current = $(this).closest('.accordion-item'),
@@ -1545,45 +1466,90 @@ $(window).ready(function() {
     //Validate dates on the page.  Do date validation first since do not want to lose validation messages for dates as 
     //validator deletes all error messages.
     if (!dateValidator() && !validator($current.find('.enbridge-form'))) {
+      if ($(this).attr('data-id') === 'authenticate-validator') {
+        var accountNumber = $('[data-id="moving-out-account-number"]').val(),
+          postalCode = $('[data-id="moving-out-postal-code"]').val(),
+          name = $('[data-id="moving-out-name"]').val();
+        $('input:visible').removeClass('input-error').next('error-message').remove();
+
+        $.ajax({
+          type: 'POST',
+          url: Enbridge.UrlServices.VALIDATE_CUSTOMER_AND_GET_DATA,
+          data: JSON.stringify({
+            AccountNumber: accountNumber,
+            FullName: name,
+            PostalCode: postalCode
+          }),
+          contentType: "application/json",
+          success: function (result) {
+            if (!!result) {
+              var displayText = null,
+                serviceAddress = result.ServiceAddress;
+              $('#account-authorization-failure-message').css('visibility', 'hidden');
+
+              displayText = formatDisplayStreet(
+                serviceAddress.Unit,
+                serviceAddress.StreetNumber,
+                serviceAddress.Suffix,
+                serviceAddress.StreetName,
+                serviceAddress.City,
+                serviceAddress.Province,
+                serviceAddress.PostalCode);
+
+              $('#current-address').html(displayText);
+
+              $('#move-out-current-address').html(displayText);
+              postValidation();
+            } else {
+              $('#account-authorization-failure-message').css('visibility', 'visible');
+            }
+          },
+          failure: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+          }
+        });
+      } else {
+        postValidation();
+      } 
+    }
+    function postValidation () {
       $current
-        .removeClass('active')
-        .addClass('processed');
+          .removeClass('active')
+          .addClass('processed');
 
-      if ($current.next().length) {
-        var $nextElement = $current.next().addClass('active');
+        if ($current.next().length) {
+          var $nextElement = $current.next().addClass('active');
 
-        if (!$nextElement.next().length) {
-          $current.closest('.dialog')
-            .find('.submit-button')
-            .removeClass('disabled');
+          if (!$nextElement.next().length) {
+            $current.closest('.dialog')
+              .find('.submit-button')
+              .removeClass('disabled');
+          }
         }
 
-      }
+        var city = $('[data-id$="city-or-town"]').val() || '',
+          numberHouse = $('input[data-id="street-number"]').val() || '',
+          unitNumber = $('input[data-id="pre-street-number"]').val() || '',
+          suffix = $('input[data-id="suffix"]').val() || '',
+          streetName = $('input[data-id$="street"]').val() || '',
+          zipCode = $('[data-id$="postal-code-input"]').val() || '',
+          province = $('[data-id$="province"]').val() || '',
+          address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
-      var city = $('[data-id$="city-or-town"]').val() || '',
-        numberHouse = $('input[data-id="street-number"]').val() || '',
-        unitNumber = $('input[data-id="pre-street-number"]').val() || '',
-        suffix = $('input[data-id="suffix"]').val() || '',
-        streetName = $('input[data-id$="street"]').val() || '',
-        zipCode = $('[data-id$="postal-code-input"]').val() || '',
-        province = $('[data-id$="province"]').val() || '',
-        address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
+        $('#current-address').html(address);
 
-      $('#current-address').html(address);
+        //Fix the new address display when manually type in address
+        $('#new-address-display').html(address);
 
-      //Fix the new address display when manually type in address
-      $('#new-address-display').html(address);
+        // Populate address, just for MoveOutEntry form
 
-      // Populate address, just for MoveOutEntry form
-
-      //Fixed the MoveOutEntry display new address issue, it should display the old address when validate the account details
-      //if ($('#moving-out-form').length > 0) {
-      //  $('.address:last').html(address);
-      //}
-      // Track in webtrends when move forward
-      $('.accordion').trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
+        //Fixed the MoveOutEntry display new address issue, it should display the old address when validate the account details
+        //if ($('#moving-out-form').length > 0) {
+        //  $('.address:last').html(address);
+        //}
+        // Track in webtrends when move forward
+        $('.accordion').trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
     }
-
   });
 
   /*Submit button*/

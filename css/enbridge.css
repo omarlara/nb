@@ -537,7 +537,7 @@
   margin-top: 5px;
   color: red; }
   .enbridge-content-container .error-message.pattern-error-message {
-    max-width: 520px; }
+    max-width: 510px; }
 .enbridge-content-container .enbridge-dropdown {
   display: block;
   position: relative;
@@ -783,10 +783,20 @@
         background-image: url("img/like-complete.png");
         margin-top: -4px;
         margin-right: 10px; }
-      .enbridge-content-container .enbridge-btn.social-media.like:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:hover:before,
-      .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:hover:before {
-        background-position: left bottom;
-        background-image: url("img/like-complete.png"); }
+      .enbridge-content-container .enbridge-btn.social-media.like:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:disabled,
+      .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:disabled {
+        opacity: 0.5;
+        cursor: default; }
+        .enbridge-content-container .enbridge-btn.social-media.like:disabled:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:disabled:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:disabled:hover,
+        .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:disabled:hover {
+          color: #636373; }
+      .enbridge-content-container .enbridge-btn.social-media.like:not(:disabled):hover, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:not(:disabled):hover, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:not(:disabled):hover,
+      .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:not(:disabled):hover {
+        color: #007dba; }
+        .enbridge-content-container .enbridge-btn.social-media.like:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:not(:disabled):hover:before,
+        .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:not(:disabled):hover:before {
+          background-position: left bottom;
+          background-image: url("img/like-complete.png"); }
     .enbridge-content-container .enbridge-btn.social-media.dislike, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator,
     .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev {
       color: #636373; }
@@ -801,10 +811,20 @@
         background-image: url("img/dislike-complete.png");
         margin-top: 1px;
         margin-right: 10px; }
-      .enbridge-content-container .enbridge-btn.social-media.dislike:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:hover:before,
-      .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:hover:before {
-        background-position: left bottom;
-        background-image: url("img/dislike-complete.png"); }
+      .enbridge-content-container .enbridge-btn.social-media.dislike:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:disabled,
+      .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:disabled {
+        opacity: 0.5;
+        cursor: default; }
+        .enbridge-content-container .enbridge-btn.social-media.dislike:disabled:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:disabled:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:disabled:hover,
+        .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:disabled:hover {
+          color: #636373; }
+      .enbridge-content-container .enbridge-btn.social-media.dislike:not(:disabled):hover, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:not(:disabled):hover, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:not(:disabled):hover,
+      .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:not(:disabled):hover {
+        color: #007dba; }
+        .enbridge-content-container .enbridge-btn.social-media.dislike:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:not(:disabled):hover:before,
+        .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:not(:disabled):hover:before {
+          background-position: left bottom;
+          background-image: url("img/dislike-complete.png"); }
     .enbridge-content-container .enbridge-btn.social-media:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator-container:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator:hover,
     .enbridge-content-container .accordion .accordion-item .content .social-media.prev:hover {
       background-color: #f3f4f7;

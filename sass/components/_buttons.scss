@@ -34,14 +34,9 @@
     -webkit-transition: background-color 0.5s;
     -moz-transition: background-color 0.5s;
     transition: background-color 0.5s;
-
-    
-
-
     &.green {
         &:not(.disabled) {
             background-color: $chelsea-cucumber;
-
             &:hover,
             &:active {
                 background-color: darken($chelsea-cucumber, 10%);
@@ -84,9 +79,6 @@
             background-color: $dawn;
         }
     }
-    
-    
-
     &.black {
         background-color: $mako;
         background: #5D656C;
@@ -141,7 +133,6 @@
             }
         }
     }
-
     &.blue {
         background-color: $lochmara;
 
@@ -167,11 +158,8 @@
         text-transform: none;
         padding-top: 12px;
         line-height: 1.2;
-
         color: $lochmara;
-
         &.like {
-            //background-color: $moon-mist;
             color: $mid-gray;
             &:before {
                 content: '';
@@ -184,11 +172,20 @@
                 margin-top: -4px;
                 margin-right: 10px;
             }
-            &:hover{
-                &:before{
-                //content:url('img/like-hover_03.png');
-                    background-position: left bottom;
-                    background-image: url('img/like-complete.png');
+            &:disabled {
+                opacity: 0.5;
+                cursor: default;
+                &:hover {
+                    color: $mid-gray;
+                }
+            }
+            &:not(:disabled) {
+                &:hover {
+                    color: $lochmara;
+                    &:before{
+                        background-position: left bottom;
+                        background-image: url('img/like-complete.png');
+                    }
                 }
             }
         }
@@ -206,10 +203,20 @@
                 margin-top: 1px;
                 margin-right: 10px;
             }
-            &:hover {
-                &:before {
-                    background-position: left bottom;
-                    background-image: url('img/dislike-complete.png');
+            &:disabled {
+                opacity: 0.5;
+                cursor: default;
+                &:hover {
+                    color: $mid-gray;
+                }
+            }
+            &:not(:disabled) {
+                &:hover {
+                    color: $lochmara;
+                    &:before {
+                        background-position: left bottom;
+                        background-image: url('img/dislike-complete.png');
+                    }
                 }
             }
         }

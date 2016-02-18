@@ -199,7 +199,7 @@ $(window).ready(function() {
       newAddress = $form.find('.new-address'),
       oneFromGroup = $form.find('.required-from-group:visible'),
       text = $form.find('input[type="text"]:not(.ignore)'),
-      ageValidatorElements = $form.find('[data-validate-age=""]');
+      ageValidatorElements = $form.find('[data-validate-age=""]:not(.ignore)');
 
     $form.find('.error-message, .error-code').remove();
     $form.find('.input-error').removeClass('input-error');
@@ -381,15 +381,6 @@ $(window).ready(function() {
       }
     }
 
-    // Age Validator
-    for (var i = ageValidatorElements.length - 1; i >= 0; i -= 1) {
-      var $ageValidator = new Enbridge.Plugins.AgeValidator($(ageValidatorElements[i]));
-      if (!$ageValidator.isValid()) {
-        error = true;
-        break;
-      }
-    }
-
     if (error) {
       for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
         var $current = $(oneFromGroup[i]);
@@ -399,6 +390,29 @@ $(window).ready(function() {
           oneFromGroup.find('.error-message:not(.pattern-error-message)').remove();
           error = ($form.find('.input-error').length > 0);
           break;
+        }
+      }
+    }
+    if (!error) {
+      // Age Validator
+      var $item = '',
+          isCheckable = true,
+          dateItem = '';
+      for (var i = ageValidatorElements.length - 1; i >= 0; i -= 1) {
+        $item = $(ageValidatorElements[i]);
+        dateItem = $item.find('select, input');
+        for (var j = dateItem.length - 1; j >= 0; j -= 1) {
+          if ($(dateItem[j]).val() === '') {
+            isCheckable = false;
+            break;
+          }
+        }
+        if (isCheckable) {
+          var $ageValidator = new Enbridge.Plugins.AgeValidator($item);
+          if (!$ageValidator.isValid()) {
+            error = true;
+            break;
+          }
         }
       }
     }
@@ -669,12 +683,29 @@ $(window).ready(function() {
 
   /***********************Flows for Dialogs***********************/
   /*Show feedback inputs if dislike*/
-  $('.container-thankyou').find('.dislike').bind('click', function() {
+  $('.container-thankyou').find('.dislike').bind('click', function () {
     $(this).parent().find('.improve').removeClass('hidden');
   });
 
+  $('.container-thankyou').find('.like').bind('click', function () {
+    var _self = $(this),
+        _parent = _self.parent();
+    _self.attr('disabled', 'disabled');
+    _parent.find('.improve').addClass('hidden');
+    _parent.find('.liked-container').removeClass('hidden');
+  });
+
+  $('.container-thankyou').find('.enbridge-btn.green').bind('click', function () {
+    var _self = $(this),
+        _parent = $('.container-thankyou');
+    _self.attr('disabled', 'disabled').addClass('disabled');
+    _parent.find('textarea').attr('disabled', 'disabled');
+    _parent.find('.dislike').attr('disabled', 'disabled');
+    _parent.find('.liked-container').removeClass('hidden');
+  });
+
   /*Sync email inputs*/
-  $('[data-id=newcustomers-email]').bind('change', function() {
+  $('[data-id=newcustomers-email]').bind('change', function () {
     $('[data-id=newcustomers-email]').val(this.value);
   });
 
@@ -766,7 +797,8 @@ $(window).ready(function() {
   $('input[name=device-type]').bind('change', function() {
     var accountType = $('input[name=device-type]:checked').val();
     $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
-    $('.' + accountType + '-inputs-container').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
+    $('[data-validate-age=""]').addClass('ignore');
+    $('.' + accountType + '-inputs-container').removeClass('ignore').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
     
     if (accountType == "business")
     {
@@ -2025,12 +2057,12 @@ function loadProvinces(data, id, pickProvince) {
               Message: message
             }),
             contentType: "application/json",
-            success: function(){
-              window.location = '/homes/start-stop-move/moving/index.aspx';
+            success: function() {
+              //window.location = '/homes/start-stop-move/moving/index.aspx';
             },
             error: function() {
               console.log('Error on the service');
-              window.location = '/homes/start-stop-move/moving/index.aspx';
+              //window.location = '/homes/start-stop-move/moving/index.aspx';
             }
           });
 

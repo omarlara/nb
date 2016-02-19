@@ -3,7 +3,8 @@
 var Enbridge = window.Enbridge || {
   UrlServices: {
     GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces',
-    VALIDATE_CUSTOMER_AND_GET_DATA: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData'
+    VALIDATE_CUSTOMER_AND_GET_DATA: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData',
+    VALIDATE_PHONE_BLACKLIST: '/WebServices/PhoneService.svc/IsPhoneNumberBlacklisted'
   },
   Templates: {
     PROVINCE: '<option value=":provinceCode" :wasPicked>:provinceName</option>'
@@ -72,7 +73,11 @@ $(window).ready(function() {
     return /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/i.test(this);
   };
 
-  String.prototype.validPhone = function () {
+  String.prototype.isValidAccount = function () {
+    return /^\d{12}$/i.test(this);
+  }
+
+  String.prototype.validPhoneFormat = function () {
     return /^(\d[\- \ \ .]{0,1}){6}\d$/g.test(this);
   };
 
@@ -194,7 +199,7 @@ $(window).ready(function() {
       newAddress = $form.find('.new-address'),
       oneFromGroup = $form.find('.required-from-group:visible'),
       text = $form.find('input[type="text"]:not(.ignore)'),
-      ageValidatorElements = $form.find('[data-validate-age=""]');
+      ageValidatorElements = $form.find('[data-validate-age=""]:not(.ignore)');
 
     $form.find('.error-message, .error-code').remove();
     $form.find('.input-error').removeClass('input-error');
@@ -296,6 +301,16 @@ $(window).ready(function() {
               error = true;
             }
             break;
+        case 'account-number':
+            if (!$current.val().trim().isValidAccount()) {
+              $('[data-rel="' + $current.attr('data-rel') + '"]')
+                .addClass('input-error');
+
+              $current.closest('.set-field')
+                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
+              error = true;
+            }
+            break;
         case 'valid-lada':
             if (!$current.val().validLada()) {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
@@ -307,12 +322,36 @@ $(window).ready(function() {
             }
             break;
         case 'valid-phone':
-            if (!$current.val().validPhone()) {
+            var _self = $current,
+                value = _self.val();
+            if (value.validPhoneFormat()) {
+              $.ajax({
+                type: 'GET',
+                url: Enbridge.UrlServices.VALIDATE_PHONE_BLACKLIST,
+                data: { phoneNumber: value},
+                async: false,
+                success: function (data) {
+                  _self.closest('.set-field').find('.pattern-error-message').remove();
+                  _self.removeClass('input-error pattern-error');
+                  if (data) {
+                    $('[data-rel="' + _self.attr('data-rel') + '"]')
+                      .addClass('input-error pattern-error');
+
+                    _self.closest('.set-field')
+                      .append('<p class="error-message pattern-error-message">Uh-oh! It looks like the phone number you\'ve entered is in the blacklist, which means it\'s from a cell phone reported stolen. Please check the number you entered and try again.</p>');
+                    error = true;
+                  }
+                },
+                error: function (xhr, error) {
+                  throw 'Error on request';
+                }
+              });
+            } else {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
                 .addClass('input-error pattern-error');
 
               $current.closest('.set-field')
-                .append('<p class="error-message pattern-error-message">' + $current.attr('data-pattern-error') + '</p>');
+                .append('<p class="error-message">' + $current.attr('data-pattern-error') + '</p>');
               error = true;
             }
             break;
@@ -342,15 +381,6 @@ $(window).ready(function() {
       }
     }
 
-    // Age Validator
-    for (var i = ageValidatorElements.length - 1; i >= 0; i -= 1) {
-      var $ageValidator = new Enbridge.Plugins.AgeValidator($(ageValidatorElements[i]));
-      if (!$ageValidator.isValid()) {
-        error = true;
-        break;
-      }
-    }
-
     if (error) {
       for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
         var $current = $(oneFromGroup[i]);
@@ -360,6 +390,29 @@ $(window).ready(function() {
           oneFromGroup.find('.error-message:not(.pattern-error-message)').remove();
           error = ($form.find('.input-error').length > 0);
           break;
+        }
+      }
+    }
+    if (!error) {
+      // Age Validator
+      var $item = '',
+          isCheckable = true,
+          dateItem = '';
+      for (var i = ageValidatorElements.length - 1; i >= 0; i -= 1) {
+        $item = $(ageValidatorElements[i]);
+        dateItem = $item.find('select, input');
+        for (var j = dateItem.length - 1; j >= 0; j -= 1) {
+          if ($(dateItem[j]).val() === '') {
+            isCheckable = false;
+            break;
+          }
+        }
+        if (isCheckable) {
+          var $ageValidator = new Enbridge.Plugins.AgeValidator($item);
+          if (!$ageValidator.isValid()) {
+            error = true;
+            break;
+          }
         }
       }
     }
@@ -630,12 +683,29 @@ $(window).ready(function() {
 
   /***********************Flows for Dialogs***********************/
   /*Show feedback inputs if dislike*/
-  $('.container-thankyou').find('.dislike').bind('click', function() {
+  $('.container-thankyou').find('.dislike').bind('click', function () {
     $(this).parent().find('.improve').removeClass('hidden');
   });
 
+  $('.container-thankyou').find('.like').bind('click', function () {
+    var _self = $(this),
+        _parent = _self.parent();
+    _self.attr('disabled', 'disabled');
+    _parent.find('.improve').addClass('hidden');
+    _parent.find('.liked-container').removeClass('hidden');
+  });
+
+  $('.container-thankyou').find('.enbridge-btn.green').bind('click', function () {
+    var _self = $(this),
+        _parent = $('.container-thankyou');
+    _self.attr('disabled', 'disabled').addClass('disabled');
+    _parent.find('textarea').attr('disabled', 'disabled');
+    _parent.find('.dislike').attr('disabled', 'disabled');
+    _parent.find('.liked-container').removeClass('hidden');
+  });
+
   /*Sync email inputs*/
-  $('[data-id=newcustomers-email]').bind('change', function() {
+  $('[data-id=newcustomers-email]').bind('change', function () {
     $('[data-id=newcustomers-email]').val(this.value);
   });
 
@@ -661,108 +731,6 @@ $(window).ready(function() {
   });
 
   /*Dialog - 1 - Moving out*/
-
-  $('[account-authorization="bill"]').bind('change', function() {
-    authCall.call(this);
-  });
-
-  var authCall = function() {
-    var $this = $(this),
-      accountNumber = $('[data-id="moving-out-account-number"]').val(),
-      postalCode = $('[data-id="moving-out-postal-code"]').val(),
-      name = $('[data-id="moving-out-name"]').val();
-
-    //Remove existing warnings
-    $this.removeClass('input-error');
-
-    if ($this.next().hasClass('error-message')) {
-      $this.next().remove();
-    }
-
-    //Validate that fields are correct first.  This will avoid unnecessary service calls.
-    if ($this.is('[data-id="moving-out-postal-code"]') && postalCode && !postalCode.postalCode()) {
-      $this
-        .addClass('input-error')
-        .after('<p class="error-message ">Please enter a valid postal code (example: A1A 1A1).</p>');
-      return;
-    }
-
-    if ($this.is('[data-id="moving-out-account-number"]') && accountNumber && accountNumber.trim().length < 12) {
-      $this
-        .addClass('input-error')
-        .after('<p class="error-message ">Please enter a 12 digit account number.</p>');
-      return;
-    }
-
-    if ($this.is('[data-id="moving-out-name"]') && name && name.length <= 0) {
-      $this
-        .addClass('input-error')
-        .after('<p class="error-message ">Please enter a valid name.</p>');
-      return;
-    }
-
-    $.ajax({
-      type: 'POST',
-      url: Enbridge.UrlServices.VALIDATE_CUSTOMER_AND_GET_DATA,
-      data: JSON.stringify({
-        AccountNumber: accountNumber,
-        FullName: name,
-        PostalCode: postalCode
-      }),
-      contentType: "application/json",
-      success: function(result) {
-        if (!!result) {
-          var displayText = null,
-            serviceAddress = result.ServiceAddress;
-          $('[account-authorization-required="true"').css('visibility', 'visible');
-          $('#account-authorization-failure-message').css('visibility', 'hidden');
-
-          displayText = formatDisplayStreet(
-            serviceAddress.Unit,
-            serviceAddress.StreetNumber,
-            serviceAddress.Suffix,
-            serviceAddress.StreetName,
-            serviceAddress.City,
-            serviceAddress.Province,
-            serviceAddress.PostalCode);
-
-          $('#current-address').html(displayText);
-
-          $('#move-out-current-address').html(displayText);
-
-          // Populate address entries
-          /* Fixed the issue of populating the currrent address as the new address for unanthenticated move out
-          var $city = $('[data-id$="city-or-town"]'),
-              $numberHouse = $('input[data-id$="street-number"]'),
-              $unitNumber = $('input[data-id$="pre-street-number"]'),
-              $suffix = $('input[data-id$="suffix"]'),
-              $streetName = $('input[data-id$="street"]'),
-              $zipCode = $('[data-id$="postal-code-input"]');
-
-          $city.val(serviceAddress.City);
-          $numberHouse.val(serviceAddress.StreetNumber);
-          $unitNumber.val(serviceAddress.Unit);
-          $suffix.val(serviceAddress.Suffix);
-          $streetName.val(serviceAddress.StreetName);
-          $zipCode.val(serviceAddress.PostalCode);
-                    
-          loadProvinces({ 
-                  countryCode: serviceAddress.Country 
-              }, 
-              'moving-out-province',
-              serviceAddress.Province
-          );
-          */
-        } else {
-          $('[account-authorization-required="true"').css('visibility', 'hidden');
-          $('#account-authorization-failure-message').css('visibility', 'visible');
-        }
-      },
-      failure: function(jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR);
-      }
-    });
-  };
 
   /*Stop radio button click, show/hide Select reason select*/
   $('[name="steps"]').bind('click', function() {
@@ -813,14 +781,24 @@ $(window).ready(function() {
 
   /*Run validator at phone required group*/
   $('.required-from-group').find('input').bind('change', function() {
-    validator($(this).parents('.enbridge-form'));
+    var oneFromGroup = $('.required-from-group:visible');
+    for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
+      var $current = $(oneFromGroup[i]);
+
+      if ($current.find('.input-error').length < 1) {
+        oneFromGroup.find('.input-error:not(.pattern-error)').removeClass('input-error');
+        oneFromGroup.find('.error-message:not(.pattern-error-message)').remove();
+        break;
+      }
+    }
   });
 
   /*New account entry business input variation*/
   $('input[name=device-type]').bind('change', function() {
     var accountType = $('input[name=device-type]:checked').val();
     $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
-    $('.' + accountType + '-inputs-container').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
+    $('[data-validate-age=""]').addClass('ignore');
+    $('.' + accountType + '-inputs-container').removeClass('ignore').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
     
     if (accountType == "business")
     {
@@ -1534,7 +1512,7 @@ $(window).ready(function() {
   });
 
   /*Run validations for each section*/
-  $('.accordion .accordion-item .validator').bind('click', function(e) {
+  $('.accordion .accordion-item .validator').bind('click', function (e) {
     e.preventDefault();
 
     var $current = $(this).closest('.accordion-item'),
@@ -1545,45 +1523,90 @@ $(window).ready(function() {
     //Validate dates on the page.  Do date validation first since do not want to lose validation messages for dates as 
     //validator deletes all error messages.
     if (!dateValidator() && !validator($current.find('.enbridge-form'))) {
+      if ($(this).attr('data-id') === 'authenticate-validator') {
+        var accountNumber = $('[data-id="moving-out-account-number"]').val(),
+          postalCode = $('[data-id="moving-out-postal-code"]').val(),
+          name = $('[data-id="moving-out-name"]').val();
+        $('input:visible').removeClass('input-error').next('error-message').remove();
+
+        $.ajax({
+          type: 'POST',
+          url: Enbridge.UrlServices.VALIDATE_CUSTOMER_AND_GET_DATA,
+          data: JSON.stringify({
+            AccountNumber: accountNumber,
+            FullName: name,
+            PostalCode: postalCode
+          }),
+          contentType: "application/json",
+          success: function (result) {
+            if (!!result) {
+              var displayText = null,
+                serviceAddress = result.ServiceAddress;
+              $('#account-authorization-failure-message').css('visibility', 'hidden');
+
+              displayText = formatDisplayStreet(
+                serviceAddress.Unit,
+                serviceAddress.StreetNumber,
+                serviceAddress.Suffix,
+                serviceAddress.StreetName,
+                serviceAddress.City,
+                serviceAddress.Province,
+                serviceAddress.PostalCode);
+
+              $('#current-address').html(displayText);
+
+              $('#move-out-current-address').html(displayText);
+              postValidation();
+            } else {
+              $('#account-authorization-failure-message').css('visibility', 'visible');
+            }
+          },
+          failure: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+          }
+        });
+      } else {
+        postValidation();
+      } 
+    }
+    function postValidation () {
       $current
-        .removeClass('active')
-        .addClass('processed');
+          .removeClass('active')
+          .addClass('processed');
 
-      if ($current.next().length) {
-        var $nextElement = $current.next().addClass('active');
+        if ($current.next().length) {
+          var $nextElement = $current.next().addClass('active');
 
-        if (!$nextElement.next().length) {
-          $current.closest('.dialog')
-            .find('.submit-button')
-            .removeClass('disabled');
+          if (!$nextElement.next().length) {
+            $current.closest('.dialog')
+              .find('.submit-button')
+              .removeClass('disabled');
+          }
         }
 
-      }
+        var city = $('[data-id$="city-or-town"]').val() || '',
+          numberHouse = $('input[data-id="street-number"]').val() || '',
+          unitNumber = $('input[data-id="pre-street-number"]').val() || '',
+          suffix = $('input[data-id="suffix"]').val() || '',
+          streetName = $('input[data-id$="street"]').val() || '',
+          zipCode = $('[data-id$="postal-code-input"]').val() || '',
+          province = $('[data-id$="province"]').val() || '',
+          address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
 
-      var city = $('[data-id$="city-or-town"]').val() || '',
-        numberHouse = $('input[data-id="street-number"]').val() || '',
-        unitNumber = $('input[data-id="pre-street-number"]').val() || '',
-        suffix = $('input[data-id="suffix"]').val() || '',
-        streetName = $('input[data-id$="street"]').val() || '',
-        zipCode = $('[data-id$="postal-code-input"]').val() || '',
-        province = $('[data-id$="province"]').val() || '',
-        address = formatDisplayStreet(unitNumber, numberHouse, suffix, streetName, city, province, zipCode);
+        $('#current-address').html(address);
 
-      $('#current-address').html(address);
+        //Fix the new address display when manually type in address
+        $('#new-address-display').html(address);
 
-      //Fix the new address display when manually type in address
-      $('#new-address-display').html(address);
+        // Populate address, just for MoveOutEntry form
 
-      // Populate address, just for MoveOutEntry form
-
-      //Fixed the MoveOutEntry display new address issue, it should display the old address when validate the account details
-      //if ($('#moving-out-form').length > 0) {
-      //  $('.address:last').html(address);
-      //}
-      // Track in webtrends when move forward
-      $('.accordion').trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
+        //Fixed the MoveOutEntry display new address issue, it should display the old address when validate the account details
+        //if ($('#moving-out-form').length > 0) {
+        //  $('.address:last').html(address);
+        //}
+        // Track in webtrends when move forward
+        $('.accordion').trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
     }
-
   });
 
   /*Submit button*/
@@ -2034,12 +2057,12 @@ function loadProvinces(data, id, pickProvince) {
               Message: message
             }),
             contentType: "application/json",
-            success: function(){
-              window.location = '/homes/start-stop-move/moving/index.aspx';
+            success: function() {
+              //window.location = '/homes/start-stop-move/moving/index.aspx';
             },
             error: function() {
               console.log('Error on the service');
-              window.location = '/homes/start-stop-move/moving/index.aspx';
+              //window.location = '/homes/start-stop-move/moving/index.aspx';
             }
           });
 

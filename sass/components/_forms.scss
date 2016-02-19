@@ -372,6 +372,8 @@
 .error-message {
     font-size: 10px !important;
     margin-top: 5px;
-
     color: red;
+    &.pattern-error-message {
+        max-width: 510px;
+    }
 }

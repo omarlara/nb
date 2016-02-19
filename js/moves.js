@@ -359,7 +359,7 @@ $(window).ready(function() {
                       .addClass('input-error pattern-error');
 
                     _self.closest('.set-field')
-                      .append('<p class="error-message pattern-error-message">Uh-oh! It looks like the phone number you\'ve entered is in the blacklist, which means it\'s from a cell phone reported stolen. Please check the number you entered and try again.</p>');
+                      .append('<p class="error-message pattern-error-message">Uh-oh! It looks like the phone number you\'ve entered is not valid. Please check the number you entered and try again.</p>');
                     error = true;
                   }
                 },
@@ -726,8 +726,8 @@ $(window).ready(function() {
   });
 
   /*Sync email inputs*/
-  $('[data-id=newcustomers-email]').bind('change', function () {
-    $('[data-id=newcustomers-email]').val(this.value);
+  $('[data-id=newcustomers-email], [data-id=newcustomers-email-business]').bind('change', function () {
+    $('[data-id=newcustomers-email-billing]').val(this.value);
   });
 
   /*Update currentAddress ASP literal on select account*/

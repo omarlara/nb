@@ -281,13 +281,34 @@ $(window).ready(function() {
       var $current = $(text[i]),
         pattern = $current.attr('data-pattern') || '';
 
-      if ($current.attr('data-required') && !$current.val()) {
-        $('[data-rel="' + $current.attr('data-rel') + '"]')
-          .addClass('input-error');
+      // Required when other input were populated
+      if ($current.attr('data-required')) {
+        var attributes = $current[0].attributes;
 
-        $current.closest('.set-field')
-          .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
-        error = true;
+        $.each(attributes, function (index, attr) {
+          if (attr.name.indexOf('data-rel') >= 0) {
+            var $rel = 
+              $('[data-rel="' + attr.value + '"]');
+            
+            if ($rel.attr('data-optional') && $rel.val() && !$current.val()) {
+              $current.addClass('input-error');
+              $current.closest('.set-field')
+                .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+
+              error = true;
+              return;
+            } else if ($rel.attr('data-optional') && !$rel.val()) {
+              error = false;
+            } else if (!$current.val()) {
+              // Is empty
+              $rel.addClass('input-error');
+
+              $current.closest('.set-field')
+                .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+              error = true;
+            }
+          }
+        });
       }
       if (!!$current.val()) {
         switch (pattern) {
@@ -338,7 +359,7 @@ $(window).ready(function() {
                       .addClass('input-error pattern-error');
 
                     _self.closest('.set-field')
-                      .append('<p class="error-message pattern-error-message">Uh-oh! It looks like the phone number you\'ve entered is in the blacklist, which means it\'s from a cell phone reported stolen. Please check the number you entered and try again.</p>');
+                      .append('<p class="error-message pattern-error-message">Uh-oh! It looks like the phone number you\'ve entered is not valid. Please check the number you entered and try again.</p>');
                     error = true;
                   }
                 },
@@ -705,8 +726,8 @@ $(window).ready(function() {
   });
 
   /*Sync email inputs*/
-  $('[data-id=newcustomers-email]').bind('change', function () {
-    $('[data-id=newcustomers-email]').val(this.value);
+  $('[data-id=newcustomers-email], [data-id=newcustomers-email-business]').bind('change', function () {
+    $('[data-id=newcustomers-email-billing]').val(this.value);
   });
 
   /*Update currentAddress ASP literal on select account*/

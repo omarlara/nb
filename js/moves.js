@@ -281,13 +281,34 @@ $(window).ready(function() {
       var $current = $(text[i]),
         pattern = $current.attr('data-pattern') || '';
 
-      if ($current.attr('data-required') && !$current.val()) {
-        $('[data-rel="' + $current.attr('data-rel') + '"]')
-          .addClass('input-error');
+      // Required when other input were populated
+      if ($current.attr('data-required')) {
+        var attributes = $current[0].attributes;
 
-        $current.closest('.set-field')
-          .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
-        error = true;
+        $.each(attributes, function (index, attr) {
+          if (attr.name.indexOf('data-rel') >= 0) {
+            var $rel = 
+              $('[data-rel="' + attr.value + '"]');
+            
+            if ($rel.attr('data-optional') && $rel.val() && !$current.val()) {
+              $current.addClass('input-error');
+              $current.closest('.set-field')
+                .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+
+              error = true;
+              return;
+            } else if ($rel.attr('data-optional') && !$rel.val()) {
+              error = false;
+            } else if (!$current.val()) {
+              // Is empty
+              $rel.addClass('input-error');
+
+              $current.closest('.set-field')
+                .append('<p class="error-message">' + $current.attr('data-required-error') + '</p>');
+              error = true;
+            }
+          }
+        });
       }
       if (!!$current.val()) {
         switch (pattern) {

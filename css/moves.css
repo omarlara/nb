@@ -1156,7 +1156,7 @@
   margin-top: 30px; }
 .enbridge-content-container .move-summary {
   min-height: 380px !important;
-  background-image: url("img/summary01.jpg");
+  background-image: url("/AppImages/summary01.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #fff; }
@@ -1183,9 +1183,9 @@
   .enbridge-content-container .move-summary .text-after {
     padding: 0 28px; }
   .enbridge-content-container .move-summary.bg01 {
-    background-image: url("img/summary01.jpg"); }
+    background-image: url("/AppImages/summary01.png"); }
   .enbridge-content-container .move-summary.bg02 {
-    background-image: url("img/summary02.jpg"); }
+    background-image: url("/AppImages/summary02.png"); }
 .enbridge-content-container .your-information {
   min-height: 354px;
   margin-top: 6%;

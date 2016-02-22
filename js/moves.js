@@ -1558,11 +1558,16 @@ $(window).ready(function() {
             FullName: name,
             PostalCode: postalCode
           }),
-          contentType: "application/json",
+          contentType: 'application/json',
           success: function (result) {
             if (!!result) {
               var displayText = null,
-                serviceAddress = result.ServiceAddress;
+                serviceAddress = result.ServiceAddress,
+                dateOfBirth = result.DateOfBirthAsIso8601;
+
+              if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
+                $('[data-id=birthday-account-div]').hide();
+              }
               $('#account-authorization-failure-message').css('visibility', 'hidden');
 
               displayText = formatDisplayStreet(

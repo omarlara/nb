@@ -101,6 +101,8 @@ $(window).ready(function() {
     return result;
   };
 
+  
+
   /***********************General functions***********************/
   /* Format a date for display in a literal */
   function formatDisplayStreet(unitNumber, streetNumber, suffix, streetName, city, province, postalCode) {
@@ -190,6 +192,9 @@ $(window).ready(function() {
     return dateValue;
   }
 
+  /** Utils */
+  
+
   /*Validators*/
   var validator = function formValidator($form) {
     var error = false,
@@ -277,6 +282,7 @@ $(window).ready(function() {
       }
     }
 
+    var lengthValidator = null;
     for (var i = text.length - 1; i >= 0; i--) {
       var $current = $(text[i]),
         pattern = $current.attr('data-pattern') || '';
@@ -323,7 +329,7 @@ $(window).ready(function() {
             }
             break;
         case 'account-number':
-            if (!$current.val().trim().isValidAccount()) {
+            if (!$current.val().replace(/\s+/g, '').isValidAccount()) {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
                 .addClass('input-error');
 
@@ -400,7 +406,26 @@ $(window).ready(function() {
             break;
         }
       }
+      // Length Validator
+      if (!!$current.attr('data-max-length')) {
+        if (!!lengthValidator) {
+          lengthValidator = null;
+        }
+        lengthValidator = new Enbridge.Plugins.LengthValidator(
+          $current
+        );
+        maxLength = parseInt($current.attr('data-max-length'), 10);
+        if (!lengthValidator.isValid(maxLength)) {
+          if (!$current.hasClass('input-error')) {
+            $current.addClass('input-error');
+          }
+          $current.closest('.set-field')
+            .append('<p class="error-message">' + ($current.attr('data-max-length-error') || 'Length error!') + '</p>');
+          error = true;
+        }
+      }
     }
+
 
     if (error) {
       for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
@@ -436,6 +461,7 @@ $(window).ready(function() {
           }
         }
       }
+
     }
 
     return error;
@@ -2136,6 +2162,10 @@ Enbridge.Plugins.AgeValidator = (function($) {
     };
 
     // Set
+    if (!$el) {
+      return;
+    }
+
     var dayId = $_el.attr('data-validate-age-day') || '';
     var $day = $_el.find('[data-id="' + dayId + '"]');
     if ($day.length < 1) return;
@@ -2174,6 +2204,27 @@ Enbridge.Plugins.AccordionWizard = window.Enbridge.Plugins.AccordionWizard || {
       return -1;
     }
 };
+Enbridge.Plugins.LengthValidator = Enbridge.Plugins.LengthValidator || (function ($) {
+  var LengthValidator = function ($el) {
+    this._value = '';
+    this.$_el = $el;
+
+    this.isValid = function (maxLength) {
+      return (this._value.length <= maxLength );
+    };
+
+    this.setValue = function (value) {
+      this._value = value;
+    };
+
+    if (!this.$_el) {
+      return;
+    }
+
+    this.setValue(this.$_el.val());
+  };
+  return LengthValidator;
+}(jQuery));
 /******************************* Webtrends implementation ********************************/
 
 // Flag to don't track in webtrends repeated steps

@@ -2,7 +2,7 @@
     border: 1px solid $moon-mist;
     display: inline-block;
     position: relative;
-    min-height: 396px;
+    min-height: 400px;
     border-radius:3px;
     width: 100%;
     background-color: $moon-mist;
@@ -132,6 +132,7 @@
         color: $mako;
     }
     &.postal-code {
+        background: url('/AppImages/temporary-fourth-tile.jpg');
         input[type='text']{
             display: block;
             margin: 44px auto 0 auto;

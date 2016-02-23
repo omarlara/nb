@@ -101,6 +101,8 @@ $(window).ready(function() {
     return result;
   };
 
+  
+
   /***********************General functions***********************/
   /* Format a date for display in a literal */
   function formatDisplayStreet(unitNumber, streetNumber, suffix, streetName, city, province, postalCode) {
@@ -189,6 +191,9 @@ $(window).ready(function() {
 
     return dateValue;
   }
+
+  /** Utils */
+  
 
   /*Validators*/
   var validator = function formValidator($form) {
@@ -421,6 +426,7 @@ $(window).ready(function() {
       }
     }
 
+
     if (error) {
       for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
         var $current = $(oneFromGroup[i]);
@@ -455,6 +461,7 @@ $(window).ready(function() {
           }
         }
       }
+
     }
 
     return error;
@@ -462,6 +469,11 @@ $(window).ready(function() {
 
   //Determine if a day is a business day
   var isBusinessDay = function(dateToCheck) {
+    //If it's Sunday, avoid a service call
+    if(dateToCheck.getDay() == 0){
+        return false;
+    }
+
     var formattedDate = dateToCheck.getFullYear() + "-" + (dateToCheck.getMonth() + 1) + "-" + dateToCheck.getDate();
     var result = $.ajax({
       type: 'GET',
@@ -1801,7 +1813,12 @@ $(window).ready(function() {
         $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date is in less than 3 business days. No worries, it just means that your final meter reading will need to be estimated.</span></div>');
         return;
       }
-
+      //Show a warning if the selected date is before a day that is not a business day
+      var dayAfterSelected = new Date(date.getTime() + 86400000);
+      if(date.getDay() == 6 || !isBusinessDay(dayAfterSelected)) {
+        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date that is before a day that is not a business day. No worries, it just means that your final meter reading read the next business day.</span></div>');
+        return;      
+      } 
     }
 
     //Move in date validation

@@ -1827,7 +1827,7 @@ $(window).ready(function() {
     else {
       //Warning if move in date is in the past
       if (date < now) {
-        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Whoops! It looks like your move in date is in the past. Check it again to make sure it’s correct. If so, you are taking full responsibility for the date selected.</span></div>');
+        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Whoops! It looks like your move in date is in the past. Check it again to make sure it\'s correct. If so, you are taking full responsibility for the date selected.</span></div>');
         return;
       }
     }

@@ -101,8 +101,6 @@ $(window).ready(function() {
     return result;
   };
 
-  
-
   /***********************General functions***********************/
   /* Format a date for display in a literal */
   function formatDisplayStreet(unitNumber, streetNumber, suffix, streetName, city, province, postalCode) {
@@ -191,9 +189,6 @@ $(window).ready(function() {
 
     return dateValue;
   }
-
-  /** Utils */
-  
 
   /*Validators*/
   var validator = function formValidator($form) {
@@ -426,7 +421,6 @@ $(window).ready(function() {
       }
     }
 
-
     if (error) {
       for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
         var $current = $(oneFromGroup[i]);
@@ -461,7 +455,6 @@ $(window).ready(function() {
           }
         }
       }
-
     }
 
     return error;
@@ -1808,6 +1801,7 @@ $(window).ready(function() {
         $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date is in less than 3 business days. No worries, it just means that your final meter reading will need to be estimated.</span></div>');
         return;
       }
+
     }
 
     //Move in date validation
@@ -1868,6 +1862,7 @@ $(window).ready(function() {
   }
 
   $('label[for=device-type-home]').trigger('click');
+  $('label[for=newcustomers-budget-billing-plan-yes]').trigger('click');
 
   $('[name="steps"]:checked').val() || ''
   $('#calendar-move-entry').attr('data-validation', ($('[name="steps"]:checked').val() || ''));

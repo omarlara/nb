@@ -201,7 +201,7 @@ $(window).ready(function() {
       radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
       select = $form.find('.enbridge-select:not(.ignore)').removeClass('input-error'),
       zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
-      newAddress = $form.find('.new-address'),
+      newAddress = $form.find('.new-address:visible'),
       oneFromGroup = $form.find('.required-from-group:visible'),
       text = $form.find('input[type="text"]:not(.ignore)'),
       ageValidatorElements = $form.find('[data-validate-age=""]:not(.ignore)');
@@ -1642,6 +1642,45 @@ $(window).ready(function() {
               .find('.submit-button')
               .removeClass('disabled');
           }
+
+          /* Move to a different step */
+          /* Set "data-go-to-step" flag, to move to different step */
+          var $nextButton = $current.find('.validator');
+          if (!!$('[data-id="stop-select"]').val() && $('input#stop[type="radio"]:checked').length > 0) {
+            $nextButton.attr('data-go-to-step', 'select_your_address_form');
+          } else {
+            $nextButton.attr('data-go-to-step', '');
+          }
+
+          /* Set active the step you will visit */
+          var goToStep, $step;
+          goToStep = $nextButton.attr('data-go-to-step');
+          $nextElement.find('.steps').each(function (index, step) {
+            $step = $(step, $nextElement);
+
+            if ($step.hasClass('active-step')) {
+              $step.removeClass('active-step');
+            }
+
+            // if the flag is unavailable, keep moving to the established next step
+            if (!goToStep && 0 === index) {
+              if (!$step.hasClass('active-step')) {
+                $step.addClass('active-step');
+              }
+              if (!$('.validator', $nextElement).hasClass('hidden')) {
+                $('.validator', $nextElement).addClass('hidden');
+              }
+            } else if (!!goToStep && goToStep === $step.attr('id')) {
+              // Move to established according the flag
+              if (!$step.hasClass('active-step')) {
+                $step.addClass('active-step');
+              }
+              if ($('.validator', $nextElement).hasClass('hidden')) {
+                $('.validator', $nextElement).removeClass('hidden');
+              }
+            }
+          });
+          /**/
         }
 
         var city = $('[data-id$="city-or-town"]').val() || '',

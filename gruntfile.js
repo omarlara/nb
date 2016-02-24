@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -15,9 +16,11 @@ module.exports = function (grunt) {
                     '*.{htm,html}',
                     'sass/*.{scss,sass}',
                     'sass/**/*.{scss,sass}',
-                    'sass/**/**/*.{scss,sass}'
+                    'sass/**/**/*.{scss,sass}',
+                    'src/**/*.js',
+                    'src/**/**/*.js'
                     ],
-                tasks: ['sass:dist'],
+                tasks: ['sass:dist', 'concat:dev'],
                 options: {
                     livereload: true
                 }
@@ -27,7 +30,7 @@ module.exports = function (grunt) {
                     '*.{htm,html}',
                     'sass/*.{scss,sass}',
                     'sass/**/*.{scss,sass}',
-                    'sass/**/**/*.{scss,sass}'
+                    'sass/**/**/*.{scss,sass}',
                     ],
                 tasks: ['sass:dist', 'cssmin'],
                 options: {
@@ -116,6 +119,16 @@ module.exports = function (grunt) {
             },
             prod: {
                 tasks: ['watch:prod']
+            }
+        },
+        concat: {
+            options: {
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                '<%= grunt.template.today("yyyy-mm-dd") %>*/\n'
+            },
+            dev: {
+                src: ['src/**.js', 'src/utils/**.js', 'src/plugins/**.js', 'src/prototype/**.js'],
+                dest: 'js/enbridge.js'
             }
         }
     });

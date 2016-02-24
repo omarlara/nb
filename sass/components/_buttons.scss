@@ -263,14 +263,13 @@
             top: 4px;
         }
         &.couple-btn {
-            width: 50%;     
-            position: relative;     
+            width: 50%;
             &.left {        
-                border-radius: 0 0 0 3px;    
-                float: left;   
+                border-radius: 0 0 0 3px;
             }       
             &.right {       
-                border-radius: 0 0 3px 0;       
+                border-radius: 0 0 3px 0;
+                left: 50%;    
                 &:before {      
                     content: ' | ';     
                     left: 5px;      

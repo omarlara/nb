@@ -101,6 +101,8 @@ $(window).ready(function() {
     return result;
   };
 
+  
+
   /***********************General functions***********************/
   /* Format a date for display in a literal */
   function formatDisplayStreet(unitNumber, streetNumber, suffix, streetName, city, province, postalCode) {
@@ -190,13 +192,16 @@ $(window).ready(function() {
     return dateValue;
   }
 
+  /** Utils */
+  
+
   /*Validators*/
   var validator = function formValidator($form) {
     var error = false,
       radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
       select = $form.find('.enbridge-select:not(.ignore)').removeClass('input-error'),
       zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
-      newAddress = $form.find('.new-address'),
+      newAddress = $form.find('.new-address:visible'),
       oneFromGroup = $form.find('.required-from-group:visible'),
       text = $form.find('input[type="text"]:not(.ignore)'),
       ageValidatorElements = $form.find('[data-validate-age=""]:not(.ignore)');
@@ -277,6 +282,7 @@ $(window).ready(function() {
       }
     }
 
+    var lengthValidator = null;
     for (var i = text.length - 1; i >= 0; i--) {
       var $current = $(text[i]),
         pattern = $current.attr('data-pattern') || '';
@@ -323,7 +329,7 @@ $(window).ready(function() {
             }
             break;
         case 'account-number':
-            if (!$current.val().trim().isValidAccount()) {
+            if (!$current.val().replace(/\s+/g, '').isValidAccount()) {
               $('[data-rel="' + $current.attr('data-rel') + '"]')
                 .addClass('input-error');
 
@@ -400,7 +406,26 @@ $(window).ready(function() {
             break;
         }
       }
+      // Length Validator
+      if (!!$current.attr('data-max-length')) {
+        if (!!lengthValidator) {
+          lengthValidator = null;
+        }
+        lengthValidator = new Enbridge.Plugins.LengthValidator(
+          $current
+        );
+        maxLength = parseInt($current.attr('data-max-length'), 10);
+        if (!lengthValidator.isValid(maxLength)) {
+          if (!$current.hasClass('input-error')) {
+            $current.addClass('input-error');
+          }
+          $current.closest('.set-field')
+            .append('<p class="error-message">' + ($current.attr('data-max-length-error') || 'Length error!') + '</p>');
+          error = true;
+        }
+      }
     }
+
 
     if (error) {
       for (var i = oneFromGroup.length - 1; i >= 0; i -= 1) {
@@ -436,6 +461,7 @@ $(window).ready(function() {
           }
         }
       }
+
     }
 
     return error;
@@ -443,6 +469,11 @@ $(window).ready(function() {
 
   //Determine if a day is a business day
   var isBusinessDay = function(dateToCheck) {
+    //If it's Sunday, avoid a service call
+    if(dateToCheck.getDay() == 0){
+        return false;
+    }
+
     var formattedDate = dateToCheck.getFullYear() + "-" + (dateToCheck.getMonth() + 1) + "-" + dateToCheck.getDate();
     var result = $.ajax({
       type: 'GET',
@@ -666,8 +697,10 @@ $(window).ready(function() {
                   .addClass('success-code')
                   .removeClass('error-code');
 
-                $('[data-id="transfer"]')
+                $('[data-id=transfer]')
                   .attr('checked', true);
+
+                $('[data-id=code-validator]').val(currentCode).trigger('keyup');
               } else {
                 $element
                   .find('.result')
@@ -816,20 +849,23 @@ $(window).ready(function() {
 
   /*New account entry business input variation*/
   $('input[name=device-type]').bind('change', function() {
-    var accountType = $('input[name=device-type]:checked').val();
+    var accountType = $('input[name=device-type]:checked').val(),
+        tooltipText = '';
     $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
     $('[data-validate-age=""]').addClass('ignore');
     $('.' + accountType + '-inputs-container').removeClass('ignore').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
     
-    if (accountType == "business")
-    {
+    if (accountType === 'business') {
       $('#bbpDisplayDiv').css('visibility', 'hidden');
       $('#bbpRadioDiv').css('visibility', 'hidden');
+      tooltipText = 'This person will have full access to your account. This should be someone who has signing authority with your company, such as a co-owner, manager or accountant.'
       $("input[name=newcustomers-budget-billing-plan][value='no']").attr('checked', 'checked');
     } else {
+      tooltipText = 'This person will also have full access to this account. So it needs to be your spouse or someone you trust, such as a friend or family member.'
       $('#bbpDisplayDiv').css('visibility', 'visible');
       $('#bbpRadioDiv').css('visibility', 'visible');
     }
+    $('#additional-name-tooltip').text(tooltipText);
     
   });
 
@@ -1558,11 +1594,16 @@ $(window).ready(function() {
             FullName: name,
             PostalCode: postalCode
           }),
-          contentType: "application/json",
+          contentType: 'application/json',
           success: function (result) {
             if (!!result) {
               var displayText = null,
-                serviceAddress = result.ServiceAddress;
+                serviceAddress = result.ServiceAddress,
+                dateOfBirth = result.DateOfBirthAsIso8601;
+
+              if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
+                $('[data-id=birthday-account-div]').hide();
+              }
               $('#account-authorization-failure-message').css('visibility', 'hidden');
 
               displayText = formatDisplayStreet(
@@ -1603,6 +1644,45 @@ $(window).ready(function() {
               .find('.submit-button')
               .removeClass('disabled');
           }
+
+          /* Move to a different step */
+          /* Set "data-go-to-step" flag, to move to different step */
+          var $nextButton = $current.find('.validator');
+          if (!!$('[data-id="stop-select"]').val() && $('input#stop[type="radio"]:checked').length > 0) {
+            $nextButton.attr('data-go-to-step', 'select_your_address_form');
+          } else {
+            $nextButton.attr('data-go-to-step', '');
+          }
+
+          /* Set active the step you will visit */
+          var goToStep, $step;
+          goToStep = $nextButton.attr('data-go-to-step');
+          $nextElement.find('.steps').each(function (index, step) {
+            $step = $(step, $nextElement);
+
+            if ($step.hasClass('active-step')) {
+              $step.removeClass('active-step');
+            }
+
+            // if the flag is unavailable, keep moving to the established next step
+            if (!goToStep && 0 === index) {
+              if (!$step.hasClass('active-step')) {
+                $step.addClass('active-step');
+              }
+              if (!$('.validator', $nextElement).hasClass('hidden')) {
+                $('.validator', $nextElement).addClass('hidden');
+              }
+            } else if (!!goToStep && goToStep === $step.attr('id')) {
+              // Move to established according the flag
+              if (!$step.hasClass('active-step')) {
+                $step.addClass('active-step');
+              }
+              if ($('.validator', $nextElement).hasClass('hidden')) {
+                $('.validator', $nextElement).removeClass('hidden');
+              }
+            }
+          });
+          /**/
         }
 
         var city = $('[data-id$="city-or-town"]').val() || '',
@@ -1774,13 +1854,19 @@ $(window).ready(function() {
         $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date is in less than 3 business days. No worries, it just means that your final meter reading will need to be estimated.</span></div>');
         return;
       }
+      //Show a warning if the selected date is before a day that is not a business day
+      var dayAfterSelected = new Date(date.getTime() + 86400000);
+      if(date.getDay() == 6 || !isBusinessDay(dayAfterSelected)) {
+        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date that is before a day that is not a business day. No worries, it just means that your final meter reading read the next business day.</span></div>');
+        return;      
+      } 
     }
 
     //Move in date validation
     else {
       //Warning if move in date is in the past
       if (date < now) {
-        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Whoops! It looks like your move in date is in the past. Check it again to make sure it’s correct. If so, you are taking full responsibility for the date selected.</span></div>');
+        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>Whoops! It looks like your move in date is in the past. Check it again to make sure it\'s correct. If so, you are taking full responsibility for the date selected.</span></div>');
         return;
       }
     }
@@ -1832,6 +1918,9 @@ $(window).ready(function() {
       .removeClass('hide-flow')
       .attr('data-required', true);
   }
+
+  $('label[for=device-type-home]').trigger('click');
+  $('label[for=newcustomers-budget-billing-plan-yes]').trigger('click');
 
   $('[name="steps"]:checked').val() || ''
   $('#calendar-move-entry').attr('data-validation', ($('[name="steps"]:checked').val() || ''));
@@ -2126,6 +2215,10 @@ Enbridge.Plugins.AgeValidator = (function($) {
     };
 
     // Set
+    if (!$el) {
+      return;
+    }
+
     var dayId = $_el.attr('data-validate-age-day') || '';
     var $day = $_el.find('[data-id="' + dayId + '"]');
     if ($day.length < 1) return;
@@ -2164,6 +2257,27 @@ Enbridge.Plugins.AccordionWizard = window.Enbridge.Plugins.AccordionWizard || {
       return -1;
     }
 };
+Enbridge.Plugins.LengthValidator = Enbridge.Plugins.LengthValidator || (function ($) {
+  var LengthValidator = function ($el) {
+    this._value = '';
+    this.$_el = $el;
+
+    this.isValid = function (maxLength) {
+      return (this._value.length <= maxLength );
+    };
+
+    this.setValue = function (value) {
+      this._value = value;
+    };
+
+    if (!this.$_el) {
+      return;
+    }
+
+    this.setValue(this.$_el.val());
+  };
+  return LengthValidator;
+}(jQuery));
 /******************************* Webtrends implementation ********************************/
 
 // Flag to don't track in webtrends repeated steps

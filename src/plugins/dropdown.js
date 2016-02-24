@@ -1,9 +1,10 @@
+/* globals Enbridge */
 (function($) {
-  function dropdownEnbridge(element) {
+  Enbridge.Plugins.Dropdown = function (element) {
     this.source = element;
     this.init();
     this.addMethods();
-  }
+  };
 
   function copyToHiddenInput(source, value) {
     var $hiddenInput = $('input[type="hidden"][data-assoc="' + source.getAttribute('data-id') + '"]');
@@ -12,7 +13,7 @@
     }
   }
 
-  dropdownEnbridge.prototype.init = function() {
+  Enbridge.Plugins.Dropdown.prototype.init = function() {
     var $element = $(this.source),
       id = $element.attr('data-id') + '-dropdown',
       elementNodes = this.source.children || [],
@@ -20,11 +21,13 @@
       element = '',
       name = '';
 
-    if (!elementNodes.length) return;
+    if (elementNodes.length < 1) {
+      return;
+    }
 
     this.destroy(id);
 
-    for (var i = 0, size = elementNodes.length; i < size; i++) {
+    for (var i = 0, size = elementNodes.length; i < size; i+=1) {
       var temp = '<li class="list-item" data-value="' + elementNodes[i].value + '">' + elementNodes[i].text + '</li>';
 
       if (elementNodes[i].selected) {
@@ -48,7 +51,7 @@
     copyToHiddenInput(this.source, this.source.value);
   };
 
-  dropdownEnbridge.prototype.addMethods = function addMethods() {
+  Enbridge.Plugins.Dropdown.prototype.addMethods = function addMethods() {
     var self = this,
       $element = $(this.element);
 
@@ -90,21 +93,22 @@
       });
   };
 
-  dropdownEnbridge.prototype.destroy = function(id) {
+  Enbridge.Plugins.Dropdown.prototype.destroy = function(id) {
     var $element = $('#' + id);
 
-    if (!$element.length)
+    if ($element.length < 1) {
       return;
+    }
 
     $element.unbind('click');
     $element.find('.list-items .list-item').unbind('click');
     $element.remove();
   };
-  Enbridge.Plugins.Dropdown = dropdownEnbridge;
 
-  $.fn.enbridgeDropdown = function(element) {
+  $.fn.enbridgeDropdown = function() {
     return this.each(function() {
-      (new dropdownEnbridge(this));
+      var enbridgeDropdownPlugin = new Enbridge.Plugins.Dropdown(this);
+      return enbridgeDropdownPlugin;
     });
   };
 }(jQuery));

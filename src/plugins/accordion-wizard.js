@@ -1,3 +1,4 @@
+/* globals Enbridge */
 Enbridge.Plugins.AccordionWizard = window.Enbridge.Plugins.AccordionWizard || {
     // Know which is the current step (active step) in wizard
     getCurrentStep: function ($accordion) {

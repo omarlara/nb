@@ -1,3 +1,5 @@
+/* globals Enbridge */
+
 window.Enbridge.DateUtils = window.Enbridge.DateUtils || {};
 
 Enbridge.DateUtils.addDaysToDate = function(date, number) {
@@ -14,7 +16,7 @@ Enbridge.DateUtils.addDaysToDate = function(date, number) {
 };
 
 /*Date Formater*/
-function dateFormater(stringDate) {
+Enbridge.DateUtils.dateFormater = function (stringDate) {
   var splitDates = stringDate.split('-'),
     dateValue = '';
 
@@ -80,10 +82,8 @@ function dateFormater(stringDate) {
   }
 
   return dateValue;
-}
-Enbridge.DateUtils.dateFormater = dateFormater;
+};
 
-function getTotalDays(year, month) {
-    return 32 - new Date(year, month - 1, 32).getDate();
-}
-Enbridge.DateUtils.getTotalDays = getTotalDays;
+Enbridge.DateUtils.getTotalDays = function (year, month) {
+  return 32 - new Date(year, month - 1, 32).getDate();
+};

@@ -1,7 +1,11 @@
+/* globals Enbridge */
+
 window.Enbridge.ValidateUtils = window.Enbridge.ValidateUtils || {};
 
 Enbridge.ValidateUtils.isValidYear = function(value) {
-  if (!parseInt(value, 10)) return false;
+  if (!parseInt(value, 10)) {
+    return false;
+  }
 
   return value >= 1900;
 };
@@ -31,9 +35,9 @@ Enbridge.ValidateUtils.isValidPhoneFormat = function(value) {
 };
 
 //Determine if a day is a business day
-var isBusinessDay = function(dateToCheck) {
+Enbridge.ValidateUtils.isBusinessDay = function(dateToCheck) {
     //If it's Sunday, avoid a service call
-    if(dateToCheck.getDay() == 0){
+    if(0 === dateToCheck.getDay()) {
         return false;
     }
 
@@ -50,10 +54,5 @@ var isBusinessDay = function(dateToCheck) {
       }
     }).responseText;
 
-    if (result == "true") {
-      return false;
-    } else {
-      return true;
-    }
+    return (result !== "true");
 };
-Enbridge.ValidateUtils.isBusinessDay = isBusinessDay;

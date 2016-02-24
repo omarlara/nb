@@ -1,16 +1,19 @@
+/* globals Enbridge */
 (function ($) {
-  function CodeTool(element) {
+  Enbridge.Plugins.CodeTool = function (element) {
     this.element = element;
 
     this.addMethods();
-  }
-  CodeTool.prototype.restart = function() {
+  };
+  Enbridge.Plugins.CodeTool.prototype.restart = function() {
+    var $element = $(this.element);
+
     $element
       .removeClass('opened required')
       .addClass('closed');
   };
 
-  CodeTool.prototype.addMethods = function() {
+  Enbridge.Plugins.CodeTool.prototype.addMethods = function() {
     var $element = $(this.element);
 
     $element.find('.opener')
@@ -28,9 +31,7 @@
 
         var currentCode = $element.find('input[type="text"]').val() || '',
           success = 'Your new address is serviced by Enbridge.',
-          error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
-          request = null,
-          result = null;
+          error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.';
 
         if (!currentCode.postalCode()) {
           $element
@@ -90,11 +91,11 @@
 
       });
   };
-  Enbridge.Plugins.CodeTool = CodeTool;
 
-  $.fn.codeTool = function(element) {
+  $.fn.codeTool = function() {
     return this.each(function() {
-      (new CodeTool(this));
+      var codeToolPlugin = new Enbridge.Plugins.CodeTool(this);
+      return codeToolPlugin;
     });
   };
 })(jQuery);

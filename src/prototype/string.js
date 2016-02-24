@@ -1,3 +1,5 @@
+/* globals Enbridge */
+
 String.prototype.toBoolean = function() {
   return Enbridge.Utils.stringToBoolean(this);
 };

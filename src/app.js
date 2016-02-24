@@ -1,4 +1,4 @@
-var Enbridge = window.Enbridge || {
+window.Enbridge = window.Enbridge || {
   UrlServices: {
     GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces',
     VALIDATE_CUSTOMER_AND_GET_DATA: '/WebServices/GasAccountService.svc/ValidateCustomerAndGetData',

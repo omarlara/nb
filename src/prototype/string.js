@@ -1,9 +1,9 @@
-String.prototype.validYear = function() {
-  return Enbridge.ValidateUtils.isValidYear(this);
+String.prototype.toBoolean = function() {
+  return Enbridge.Utils.stringToBoolean(this);
 };
 
-String.prototype.toBoolean = function() {
-  return Enbridge.ValidateUtils.stringToBoolean(this);
+String.prototype.validYear = function() {
+  return Enbridge.ValidateUtils.isValidYear(this);
 };
 
 String.prototype.validEmail = function() {

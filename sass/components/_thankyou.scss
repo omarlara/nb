@@ -37,7 +37,7 @@
 
     &:hover {
         &:before {
-            content: url('img/dislike-complete.png');
+            content: url('/AppImages/dislike-complete.png');
         }
     }
 }
@@ -160,7 +160,7 @@
         }
 
         .girl-image {
-            background-image: url('img/thankyou.jpg');
+            background-image: url('/AppImages/thankyou.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             width: 100%;
@@ -168,7 +168,7 @@
         }
         .generic {
             background-color: #fff;
-             background-image: url('img/thankyou.jpg');
+             background-image: url('/AppImages/thankyou.jpg');
             background-repeat: no-repeat;
             background-size: 100% auto;
             padding: 0;
@@ -194,7 +194,7 @@
                     float: right;
                     padding: 0%;
                     margin: -7px 0px 0px 0px;
-                    background-image: url("img/arrow_yellow.png");
+                    background-image: url("/AppImages/arrow_yellow.png");
                     top: 2.5px;
                 }
             }
@@ -341,7 +341,7 @@
                 font-weight: 400;
 
                 &:before {
-                    content: url("img/icon-yellow.png");
+                    content: url("/AppImages/icon-yellow.png");
                     display: block;
                     float: left;
                     position: relative;

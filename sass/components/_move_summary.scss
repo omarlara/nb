@@ -177,7 +177,7 @@
         padding-bottom: 30px;
     }
     .arrow {
-        background-image: url("img/arrow-02.png");
+        background-image: url("/AppImages/arrow-02.png");
         background-size: 100%;
         background-repeat: no-repeat;
         height: 221px;
@@ -190,10 +190,10 @@
         padding: 0 28px;
     }
     &.bg01 {
-        background-image: url("#{$image-base-path}/summary01.jpg");
+        background-image: url("/AppImages/summary01.jpg");
     }
     &.bg02 {
-        background-image: url("#{$image-base-path}/summary02.jpg");
+        background-image: url("/AppImages/summary02.jpg");
     }
 }
 
@@ -264,7 +264,7 @@
         margin-bottom: 25px;
         color: $mid-gray;
         &:before {
-            content: url("img/checked_03.png");
+            content: url("/AppImages/checked_03.png");
             display: block;
             float: left;
             margin-right: 5px;

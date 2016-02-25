@@ -6,7 +6,7 @@
         float: left;
         width: 11px;
         height: 20px;
-        background: url('img/white-arrow-left.png') no-repeat 0 0;
+        background: url('/AppImages/white-arrow-left.png') no-repeat 0 0;
         span{
             display: none;
         }
@@ -20,7 +20,7 @@
 
     .ui-datepicker-next{
         float: right;
-        background: url("img/white-arrow.png") no-repeat center -1px;
+        background: url("/AppImages/white-arrow.png") no-repeat center -1px;
     }
 
     .ui-datepicker-title{

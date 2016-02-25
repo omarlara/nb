@@ -27,7 +27,7 @@
 
                 height: 20px;
                 width: 20px;
-                background-image: url('img/arrow_athens_gray.png');
+                background-image: url('/AppImages/arrow_athens_gray.png');
             }
         }
 
@@ -93,7 +93,7 @@
                             height: 20px;
                             width: 20px;
 
-                            background-image: url('img/arrow_white_right.png');
+                            background-image: url('/AppImages/arrow_white_right.png');
 
                         }
                     }
@@ -114,7 +114,7 @@
                             height: 20px;
                             width: 20px;
 
-                            background-image: url('img/arrow_white_left.png');
+                            background-image: url('/AppImages/arrow_white_left.png');
 
                         }
                     }
@@ -160,7 +160,7 @@
                 color: white;
                 cursor: pointer;
                 &:after {
-                    background-image: url('img/arrow_white_right.png');
+                    background-image: url('/AppImages/arrow_white_right.png');
                 }
             }
         }
@@ -170,7 +170,7 @@
             font-weight: 500;
             >.header {
                 &:after {
-                    background-image: url('img/arrow_white_bottom.png');
+                    background-image: url('/AppImages/arrow_white_bottom.png');
                     top: 5px;
                 }
             }
@@ -270,7 +270,7 @@
             top: 45%;
         }
         background-color: $chelsea-cucumber;
-        background-image: url('img/arrow_white_right.png');
+        background-image: url('/AppImages/arrow_white_right.png');
         background-repeat: no-repeat;
         background-position: 12px 11px;
 

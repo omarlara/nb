@@ -445,7 +445,7 @@
       right: 15px;
       height: 20px;
       width: 20px;
-      background-image: url("img/arrow_athens_gray.png"); }
+      background-image: url("/AppImages/arrow_athens_gray.png"); }
   .enbridge-content-container .enbridge-form .zip-code-tool .tool {
     display: block;
     padding: 0 15px; }
@@ -688,7 +688,7 @@
       opacity: 0.92; }
     .enbridge-content-container .enbridge-btn.black.big-button:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .black.big-button.validator:after,
     .enbridge-content-container .accordion .accordion-item .content .black.big-button.prev:after {
-      background-image: url("img/arrow_yellow.png"); }
+      background-image: url("/AppImages/arrow_yellow.png"); }
     .enbridge-content-container .enbridge-btn.black.separated-button, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator,
     .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev {
       cursor: auto;
@@ -710,7 +710,7 @@
         padding: 5px 30px 0px 1px;
         margin-left: 23px;
         cursor: pointer !important;
-        background-image: url("img/arrow_yellow.png") !important;
+        background-image: url("/AppImages/arrow_yellow.png") !important;
         background-repeat: no-repeat;
         background-position: 98px 4px; }
         .enbridge-content-container .enbridge-btn.black.separated-button .first-button:hover, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container .first-button:hover, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator .first-button:hover,
@@ -732,7 +732,7 @@
         float: right;
         padding: 5px 31px 0px 0px;
         cursor: pointer !important;
-        background-image: url("img/white-arrow.png") !important;
+        background-image: url("/AppImages/white-arrow.png") !important;
         background-repeat: no-repeat;
         background-position: 82px 7px;
         margin-left: 0px;
@@ -742,7 +742,7 @@
           opacity: 0.92; }
       .enbridge-content-container .enbridge-btn.black.separated-button:after, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .black.separated-button.validator:after,
       .enbridge-content-container .accordion .accordion-item .content .black.separated-button.prev:after {
-        background-image: url("img/pipe.png");
+        background-image: url("/AppImages/pipe.png");
         background-repeat: no-repeat;
         background-size: 31%;
         margin-left: 6px; }
@@ -780,7 +780,7 @@
         height: 22px;
         background-position: left top;
         background-repeat: no-repeat;
-        background-image: url("img/like-complete.png");
+        background-image: url("/AppImages/like-complete.png");
         margin-top: -4px;
         margin-right: 10px; }
       .enbridge-content-container .enbridge-btn.social-media.like:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:disabled,
@@ -796,7 +796,7 @@
         .enbridge-content-container .enbridge-btn.social-media.like:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator-container:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.like.validator:not(:disabled):hover:before,
         .enbridge-content-container .accordion .accordion-item .content .social-media.like.prev:not(:disabled):hover:before {
           background-position: left bottom;
-          background-image: url("img/like-complete.png"); }
+          background-image: url("/AppImages/like-complete.png"); }
     .enbridge-content-container .enbridge-btn.social-media.dislike, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator,
     .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev {
       color: #636373; }
@@ -808,7 +808,7 @@
         height: 22px;
         background-position: left top;
         background-repeat: no-repeat;
-        background-image: url("img/dislike-complete.png");
+        background-image: url("/AppImages/dislike-complete.png");
         margin-top: 1px;
         margin-right: 10px; }
       .enbridge-content-container .enbridge-btn.social-media.dislike:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:disabled, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:disabled,
@@ -824,7 +824,7 @@
         .enbridge-content-container .enbridge-btn.social-media.dislike:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator-container:not(:disabled):hover:before, .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.validator:not(:disabled):hover:before,
         .enbridge-content-container .accordion .accordion-item .content .social-media.dislike.prev:not(:disabled):hover:before {
           background-position: left bottom;
-          background-image: url("img/dislike-complete.png"); }
+          background-image: url("/AppImages/dislike-complete.png"); }
     .enbridge-content-container .enbridge-btn.social-media:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator-container:hover, .enbridge-content-container .accordion .accordion-item .content .social-media.validator:hover,
     .enbridge-content-container .accordion .accordion-item .content .social-media.prev:hover {
       background-color: #f3f4f7;
@@ -852,7 +852,7 @@
       position: absolute;
       display: inline-block;
       margin-left: 10px;
-      background: url("img/white-arrow.png") no-repeat transparent;
+      background: url("/AppImages/white-arrow.png") no-repeat transparent;
       background-size: 100% auto;
       width: 20px;
       height: 20px;
@@ -881,11 +881,11 @@
         color: #f6b31e; }
       .enbridge-content-container .enbridge-btn.big-button.couple-btn.white-font:after, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.white-font.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.white-font.validator:after,
       .enbridge-content-container .accordion .accordion-item .content .big-button.couple-btn.white-font.prev:after {
-        background-image: url("img/arrow_white.png"); }
+        background-image: url("/AppImages/arrow_white.png"); }
     .enbridge-content-container .enbridge-btn.big-button.arrow-link:after, .enbridge-content-container .accordion .accordion-item .content .big-button.arrow-link.validator-container:after, .enbridge-content-container .accordion .accordion-item .content .big-button.arrow-link.validator:after,
     .enbridge-content-container .accordion .accordion-item .content .big-button.arrow-link.prev:after {
       top: 2px;
-      background-image: url("img/arrow_white.png"); }
+      background-image: url("/AppImages/arrow_white.png"); }
   .enbridge-content-container .enbridge-btn.small-button-arrow, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator-container, .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.validator,
   .enbridge-content-container .accordion .accordion-item .content .small-button-arrow.prev {
     position: static !important;
@@ -897,7 +897,7 @@
       position: absolute;
       display: inline-block;
       margin-left: 10px;
-      background: url("img/white-arrow.png") no-repeat transparent;
+      background: url("/AppImages/white-arrow.png") no-repeat transparent;
       background-size: 100% auto;
       width: 20px;
       height: 20px;
@@ -994,7 +994,7 @@
   .enbridge-content-container .tile.green {
     background-color: #92b051;
     color: #fff !important;
-    background-image: url("img/en-tile-bg.png");
+    background-image: url("/AppImages/en-tile-bg.png");
     background-repeat: no-repeat;
     background-position: 112px 84px;
     background-size: 79%; }
@@ -1174,7 +1174,7 @@
     position: relative;
     padding-bottom: 30px; }
   .enbridge-content-container .move-summary .arrow {
-    background-image: url("img/arrow-02.png");
+    background-image: url("/AppImages/arrow-02.png");
     background-size: 100%;
     background-repeat: no-repeat;
     height: 221px;
@@ -1239,7 +1239,7 @@
     margin-bottom: 25px;
     color: #636373; }
     .enbridge-content-container .features p.checked:before {
-      content: url("img/checked_03.png");
+      content: url("/AppImages/checked_03.png");
       display: block;
       float: left;
       margin-right: 5px; }
@@ -1250,7 +1250,7 @@
   float: left;
   width: 11px;
   height: 20px;
-  background: url("img/white-arrow-left.png") no-repeat 0 0; }
+  background: url("/AppImages/white-arrow-left.png") no-repeat 0 0; }
   .enbridge-content-container .calendar .ui-datepicker-prev span,
   .enbridge-content-container .calendar .ui-datepicker-next span {
     display: none; }
@@ -1258,7 +1258,7 @@
   color: #92b051 !important; }
 .enbridge-content-container .calendar .ui-datepicker-next {
   float: right;
-  background: url("img/white-arrow.png") no-repeat center -1px; }
+  background: url("/AppImages/white-arrow.png") no-repeat center -1px; }
 .enbridge-content-container .calendar .ui-datepicker-title {
   text-align: center; }
 .enbridge-content-container .calendar .ui-datepicker-calendar {
@@ -1363,7 +1363,7 @@
   margin-top: -1px;
   line-height: 0; }
 .enbridge-content-container .dislike:hover:before {
-  content: url("img/dislike-complete.png"); }
+  content: url("/AppImages/dislike-complete.png"); }
 .enbridge-content-container .like:before {
   display: block;
   float: left;
@@ -1444,14 +1444,14 @@
         margin-top: 0%;
         position: absolute; }
     .enbridge-content-container .container-thankyou .tiles .girl-image {
-      background-image: url("img/thankyou.jpg");
+      background-image: url("/AppImages/thankyou.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       height: 174px; }
     .enbridge-content-container .container-thankyou .tiles .generic {
       background-color: #fff;
-      background-image: url("img/thankyou.jpg");
+      background-image: url("/AppImages/thankyou.jpg");
       background-repeat: no-repeat;
       background-size: 100% auto;
       padding: 0; }
@@ -1471,7 +1471,7 @@
           float: right;
           padding: 0%;
           margin: -7px 0px 0px 0px;
-          background-image: url("img/arrow_yellow.png");
+          background-image: url("/AppImages/arrow_yellow.png");
           top: 2.5px; }
       .enbridge-content-container .container-thankyou .tiles .generic h1 {
         color: #ffc038;
@@ -1565,7 +1565,7 @@
         font-size: 18px;
         font-weight: 400; }
         .enbridge-content-container .container-thankyou .info-content .did-you-know .title:before {
-          content: url("img/icon-yellow.png");
+          content: url("/AppImages/icon-yellow.png");
           display: block;
           float: left;
           position: relative;
@@ -1594,7 +1594,7 @@
         right: 15px;
         height: 20px;
         width: 20px;
-        background-image: url("img/arrow_athens_gray.png"); }
+        background-image: url("/AppImages/arrow_athens_gray.png"); }
     .enbridge-content-container .accordion .accordion-item .content {
       padding: 15px 15px 45px 15px;
       border-left: 1px solid #ddd6cc;
@@ -1640,7 +1640,7 @@
             right: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("img/arrow_white_right.png"); }
+            background-image: url("/AppImages/arrow_white_right.png"); }
         .enbridge-content-container .accordion .accordion-item .content .validator-container .prev {
           float: left;
           width: 100px;
@@ -1654,7 +1654,7 @@
             left: 15px;
             height: 20px;
             width: 20px;
-            background-image: url("img/arrow_white_left.png"); }
+            background-image: url("/AppImages/arrow_white_left.png"); }
       .enbridge-content-container .accordion .accordion-item .content .validator,
       .enbridge-content-container .accordion .accordion-item .content .prev {
         text-align: right !important; }
@@ -1674,12 +1674,12 @@
       color: white;
       cursor: pointer; }
       .enbridge-content-container .accordion .accordion-item:first-child:not(.processed):not(.active) > .header:after {
-        background-image: url("img/arrow_white_right.png"); }
+        background-image: url("/AppImages/arrow_white_right.png"); }
     .enbridge-content-container .accordion .accordion-item.active {
       border-color: white;
       font-weight: 500; }
       .enbridge-content-container .accordion .accordion-item.active > .header:after {
-        background-image: url("img/arrow_white_bottom.png");
+        background-image: url("/AppImages/arrow_white_bottom.png");
         top: 5px; }
       .enbridge-content-container .accordion .accordion-item.active > .header {
         color: white; }
@@ -1734,7 +1734,7 @@
     top: 50%;
     margin-top: -20px;
     background-color: #92b051;
-    background-image: url("img/arrow_white_right.png");
+    background-image: url("/AppImages/arrow_white_right.png");
     background-repeat: no-repeat;
     background-position: 12px 11px;
     cursor: pointer; }
@@ -1753,7 +1753,7 @@
   float: left;
   width: 11px;
   height: 20px;
-  background: url("img/white-arrow-left.png") no-repeat 0 0; }
+  background: url("/AppImages/white-arrow-left.png") no-repeat 0 0; }
   .enbridge-content-container .calendar .ui-datepicker-prev span,
   .enbridge-content-container .calendar .ui-datepicker-next span {
     display: none; }
@@ -1761,7 +1761,7 @@
   color: #92b051 !important; }
 .enbridge-content-container .calendar .ui-datepicker-next {
   float: right;
-  background: url("img/white-arrow.png") no-repeat center -1px; }
+  background: url("/AppImages/white-arrow.png") no-repeat center -1px; }
 .enbridge-content-container .calendar .ui-datepicker-title {
   text-align: center; }
 .enbridge-content-container .calendar .ui-datepicker-calendar {
@@ -2066,7 +2066,7 @@
       height: 20px; }
       .enbridge-content-container .tooltip .content-tooltip .cross:after {
         content: " ";
-        background: url("img/close.png") no-repeat 0 0;
+        background: url("/AppImages/close.png") no-repeat 0 0;
         background-size: 100%;
         width: 20px;
         height: 20px;
@@ -2530,7 +2530,7 @@
     width: 23px;
     height: 23px;
     margin: -10px -10px 0 0;
-    background: url("img/close.png") no-repeat 0 0; }
+    background: url("/AppImages/close.png") no-repeat 0 0; }
     .ui-dialog .ui-dialog-titlebar-close span {
       display: none; }
   .ui-dialog .accordion-footer {

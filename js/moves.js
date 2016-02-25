@@ -198,7 +198,7 @@ $(window).ready(function() {
   /*Validators*/
   var validator = function formValidator($form) {
     var error = false,
-      radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
+      radio = $form.find('input[type="radio"]:not(.ignore)').removeClass('input-error input-success'),
       select = $form.find('.enbridge-select:not(.ignore)').removeClass('input-error'),
       zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
       newAddress = $form.find('.new-address:visible'),
@@ -794,10 +794,12 @@ $(window).ready(function() {
       $element
         .removeClass('hide-flow')
         .attr('data-required', true);
+      $('[name=house-property-alternative]').addClass('ignore').parent().hide();
     } else {
       $element
         .addClass('hide-flow')
         .removeAttr('data-required');
+      $('[name=house-property-alternative]').removeClass('ignore').parent().show();
     }
 
     $('#calendar-move-entry').attr('data-validation', this.value);
@@ -1435,8 +1437,8 @@ $(window).ready(function() {
 
   /*Success Zip*/
 
-  $('.new-address').keyup(function() {
-    var $this = $(this),
+  $('[data-next-step=#select_your_street]').bind('click', function() {
+    var $this = $(this).parent().find('.new-address'),
       currentVal = $this.val(),
       container = $this.attr('data-content'),
       radioContent = [];
@@ -1461,10 +1463,11 @@ $(window).ready(function() {
       url: '/WebServices/AddressService.svc/GetAddresses',
       type: 'GET',
       dataType: 'application/json',
+      async: false,
       data: {
         'postalCode': currentVal
       },
-      success: function(data) {
+      success: function (data) {
         if (!!data) {
           var containerEl = container.replace('#', ''),
             streetObj = [],

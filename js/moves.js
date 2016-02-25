@@ -850,20 +850,35 @@ $(window).ready(function() {
   /*New account entry business input variation*/
   $('input[name=device-type]').bind('change', function() {
     var accountType = $('input[name=device-type]:checked').val(),
-        tooltipText = '';
+        tooltipText = '',
+        $bbpDisplayDiv = $('#bbpDisplayDiv'),
+        $bbpRadioDiv = $('#bbpRadioDiv');
+
     $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
     $('[data-validate-age=""]').addClass('ignore');
     $('.' + accountType + '-inputs-container').removeClass('ignore').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
     
     if (accountType === 'business') {
-      $('#bbpDisplayDiv').css('visibility', 'hidden');
-      $('#bbpRadioDiv').css('visibility', 'hidden');
-      tooltipText = 'This person will have full access to your account. This should be someone who has signing authority with your company, such as a co-owner, manager or accountant.'
+      if (!$bbpDisplayDiv.hasClass('hidden')) {
+        $bbpDisplayDiv.addClass('hidden');
+      }
+      if (!$bbpRadioDiv.hasClass('hidden')) {
+        $bbpRadioDiv.addClass('hidden');
+      }
+
+      tooltipText = 'This person will have full access to your account. This should be someone who has signing authority with your company, such as a co-owner, manager or accountant.';
+
       $("input[name=newcustomers-budget-billing-plan][value='no']").attr('checked', 'checked');
     } else {
-      tooltipText = 'This person will also have full access to this account. So it needs to be your spouse or someone you trust, such as a friend or family member.'
-      $('#bbpDisplayDiv').css('visibility', 'visible');
-      $('#bbpRadioDiv').css('visibility', 'visible');
+      tooltipText = 'This person will also have full access to this account. So it needs to be your spouse or someone you trust, such as a friend or family member.';
+
+      if ($bbpDisplayDiv.hasClass('hidden')) {
+        $bbpDisplayDiv.removeClass('hidden');
+      }
+
+      if ($bbpRadioDiv.hasClass('hidden')) {
+        $bbpRadioDiv.removeClass('hidden');
+      }
     }
     $('#additional-name-tooltip').text(tooltipText);
     
@@ -1602,7 +1617,9 @@ $(window).ready(function() {
                 dateOfBirth = result.DateOfBirthAsIso8601;
 
               if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
-                $('[data-id=birthday-account-div]').hide();
+                $('[data-id=birthday-account-div]')
+                  .hide()
+                  .find('input[type="text"], select').addClass('ignore');
               }
               $('#account-authorization-failure-message').css('visibility', 'hidden');
 

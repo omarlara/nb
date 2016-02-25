@@ -157,7 +157,7 @@
 
 .move-summary {
     min-height: 380px !important;
-    background-image: url("#{$image-base-path}/summary01.png");
+    background-image: url("#{$image-base-path}/summary01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #fff;
@@ -190,10 +190,10 @@
         padding: 0 28px;
     }
     &.bg01 {
-        background-image: url("#{$image-base-path}/summary01.png");
+        background-image: url("#{$image-base-path}/summary01.jpg");
     }
     &.bg02 {
-        background-image: url("#{$image-base-path}/summary02.png");
+        background-image: url("#{$image-base-path}/summary02.jpg");
     }
 }
 
@@ -205,6 +205,12 @@
     .infotitle {
         padding: 21px 0px 0px 21px;
         padding-left: 21px !important;
+        .subtitle {
+            &.white {
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
     }
     .addressstye {
         @extends .addressstye;

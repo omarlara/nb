@@ -205,6 +205,12 @@
     .infotitle {
         padding: 21px 0px 0px 21px;
         padding-left: 21px !important;
+        .subtitle {
+            &.white {
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
     }
     .addressstye {
         @extends .addressstye;

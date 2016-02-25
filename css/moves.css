@@ -1195,6 +1195,9 @@
   .enbridge-content-container .your-information .infotitle {
     padding: 21px 0px 0px 21px;
     padding-left: 21px !important; }
+    .enbridge-content-container .your-information .infotitle .subtitle.white {
+      color: #fff;
+      text-transform: uppercase; }
   .enbridge-content-container .your-information .addressstye {
     @extends .addressstye; }
   .enbridge-content-container .your-information .addresstile {

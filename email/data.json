@@ -1,0 +1,48 @@
+{
+    "title": "Your Message Subject or Title",
+    "url": {
+        "imgPath": "https://www.enbridgegas.com/AppImages/Emails/Moves/"
+    },
+    "header": {
+        "color": "#92b051",
+        "padding": "20px",
+        "img": {
+            "src": "myenbridge_big.png",
+            "width": 114,
+            "height": 24
+        }
+    },
+    "greetings": {
+        "img": "AI_Image.jpg",
+        "title": "Hi John,",
+        "subtitle": "We received your move request."
+    },
+    "movebox": {
+        "title": "Move Summary",
+        "subtitle": "From:",
+        "details": "Service Starting:",
+        "bgColor": "#7E7B86",
+        "titleColor": "#59cbe8",
+        "subtitleColor": "#59cbe8",
+        "align": "left",
+        "img": "family.jpg",
+        "width": 230
+    },
+    "font": {
+        "face": "Arial, sans-serif",
+        "size": "14px"
+    },
+    "colors": {
+        "title": "#555555",
+        "text": "#ffffff",
+        "link": "#1d87a4",
+        "text-bg": "#92b051"
+    },
+    "links": {
+        "securityDeposit": "https://www.enbridgegas.com/businesses/customer-service/frequently-asked-questions.aspx?InputQuestion=Why+are+you+charging+me+a+security+deposit%3f+(Business)&TypeId=1"
+    },
+    "padding": "20px",
+    "width": 440,
+    "align": "center",
+    "borderProps": "1px solid #ccc"
+}

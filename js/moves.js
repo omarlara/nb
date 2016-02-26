@@ -769,13 +769,21 @@ $(window).ready(function() {
     $.ajax({
       type: 'GET',
       url: '/WebServices/GasAccountService.svc/GetCustomerDetails',
+      async: false,
       data: {
         accountNumber: accountType
       },
       contentType: 'application/json',
-      success: function(data) {
-        data = data.ServiceAddress;
-        var address = formatDisplayStreet(data.Unit, data.StreetNumber, data.Suffix, data.StreetName, data.City, data.Province, data.PostalCode);
+      success: function (data) {
+        var serviceAddress = data.ServiceAddress,
+            dateOfBirth = data.DateOfBirthAsIso8601;
+
+        if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
+          $('[data-id=birthday-account-div]')
+            .hide()
+            .find('input[type="text"], select').addClass('ignore');
+        }
+        var address = formatDisplayStreet(serviceAddress.Unit, serviceAddress.StreetNumber, serviceAddress.Suffix, serviceAddress.StreetName, serviceAddress.City, serviceAddress.Province, data.PostalCode);
         $('#current-address-literal').find('.address').html(address);
       },
       error: function(xhr, error) {
@@ -1438,10 +1446,15 @@ $(window).ready(function() {
   /*Success Zip*/
 
   $('[data-next-step=#select_your_street]').bind('click', function() {
-    var $this = $(this).parent().find('.new-address'),
+    var _self = $(this),
+      form = _self.parents('#steps-flow-1'),
+      $this = _self.parent().find('.new-address'),
       currentVal = $this.val(),
       container = $this.attr('data-content'),
       radioContent = [];
+
+    form.find('input, select').addClass('ignore');
+    form.find('[data-id=code-validator]').removeClass('ignore');
 
     $this.closest('.code-box')
       .find('.error-message ').remove();
@@ -1784,13 +1797,13 @@ $(window).ready(function() {
         $('#step-address').removeClass('hidden');
 
         $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
-          .attr('data-required', true);
+          .attr('data-required', true).removeClass('ignore');
 
       } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
         $('#newcustomers-step-address').removeClass('hidden');
 
         $('[data-id="newcustomers-street"], [data-id="newcustomers-city-or-town"], [data-id="newcustomers-country"], [data-id="newcustomers-province"], [data-id="newcustomers-postal-code-input"], [name="newcustomers-house-property-alternative"]')
-          .attr('data-required', true);
+          .attr('data-required', true).removeClass('ignore');
       }
     }
   });

@@ -21,5 +21,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-sass": "^1.1.0",
     "node-bourbon": "^4.2.3"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.5"
   }
 }

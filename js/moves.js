@@ -660,7 +660,7 @@ $(window).ready(function() {
 
           var currentCode = $element.find('input[type="text"]').val() || '',
             success = 'Your new address is serviced by Enbridge.',
-            error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provicer. You may still proceed in order to let us know when you are moving out.',
+            error = 'Your new address is not serviced by Enbridge. Please contact your local municipality to find a local provider. You may still proceed in order to let us know when you are moving out.',
             request = null,
             result = null;
 
@@ -1513,6 +1513,8 @@ $(window).ready(function() {
 
           data = JSON.parse(data);
 
+          $this.parents('.steps').find('.zip-code-error').hide();
+
           for (var size = data.length - 1; size >= 0; size--) {
             if (!streetObj[data[size].StreetName]) {
               streetObj[data[size].StreetName] = {
@@ -1564,11 +1566,11 @@ $(window).ready(function() {
 
             $('input[name="' + name + '"]').removeClass('input-success input-error');
           });
-
         } else {
           $this
             .removeClass('input-success success-field')
             .addClass('input-error');
+          $this.parents('.steps').find('.zip-code-error').show();
         }
       },
       error: function() {

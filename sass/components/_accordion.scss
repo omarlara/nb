@@ -216,7 +216,17 @@
         display: block;
     }
 }
-
+.zip-code-error {
+    border-radius: $normal-radius;
+    margin: 0 auto;
+    padding: $normal-padding;
+    width: 480px;
+    margin-top: 15px;
+    background-color: $we-peep;
+    border: 1px solid $deep-blush;
+    color: $deep-blush;
+    display: none;
+}
 .code-box {
     border-radius: $normal-radius;
     display: block;
@@ -249,9 +259,9 @@
     }
 
     .center-label{
-            padding-right: 0px !important;
-            height: 50px;
-            padding-top: 15px;
+        padding-right: 0px !important;
+        height: 50px;
+        padding-top: 15px;
     }
 
     .next-step {

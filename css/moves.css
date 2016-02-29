@@ -1698,6 +1698,16 @@
   display: none; }
 .enbridge-content-container .steps.active-step {
   display: block; }
+.enbridge-content-container .zip-code-error {
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: 15px;
+  width: 480px;
+  margin-top: 15px;
+  background-color: #f9e5ea;
+  border: 1px solid #e18396;
+  color: #e18396;
+  display: none; }
 .enbridge-content-container .code-box {
   border-radius: 4px;
   display: block;

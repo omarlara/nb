@@ -3,12 +3,27 @@
 <html>
     <head>
         <title>Enbridge - Email templates</title>
+        <script>
+            (function () {
+                document.addEventListener('DOMContentLoaded', function () {
+                    var preview = document.getElementById('preview');
+                    preview.addEventListener('load', function (e) {
+                        var loadedUrl = preview.contentWindow.location.href;
+                        var newTitle = loadedUrl.match(/\/mail_([A-Za-z_-]+).\html$/);
+                        if (!!newTitle[1]) {
+                            document.title = newTitle[1];
+                        }
+                    }, false);
+                });
+            }());
+        </script>
     </head>
-    <frameset cols="20%, 80%">
-        <frame name="side" src="templates-available.html"></frame>
-        <frame name="preview" src="readytodeploy/mail_confirm_business_add_address.html"></frame>
-        <noframes>
-            <p>Email templates's preview</p>
-        </noframes>
-    </frameset>
+        <frameset cols="30%, 70%">
+            <frame id="side" name="side" src="templates-available.html"></frame>
+            <frame id="preview" name="preview" src="readytodeploy/mail_confirm_business_add_address.html">
+            </frame>
+            <noframes>
+                <p>Email templates's preview</p>
+            </noframes>
+        </frameset>
 </html>

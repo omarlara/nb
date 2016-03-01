@@ -1,4 +1,5 @@
-/*! moves - v1.0.0 - 2016-02-24*/
+/*! moves - v1.0.0 - 2016-03-01*/
+// Source: src/app.js
 window.Enbridge = window.Enbridge || {
   UrlServices: {
     GET_PROVINCES: '/WebServices/AddressService.svc/GetProvinces',
@@ -33,6 +34,7 @@ window.Enbridge = window.Enbridge || {
   }
 };
 
+// Source: src/utils/date-utils.js
 /* globals Enbridge */
 
 window.Enbridge.DateUtils = window.Enbridge.DateUtils || {};
@@ -123,6 +125,7 @@ Enbridge.DateUtils.getTotalDays = function (year, month) {
   return 32 - new Date(year, month - 1, 32).getDate();
 };
 
+// Source: src/utils/service-utils.js
 /* globals Enbridge */
 
 window.Enbridge.ServiceUtils = window.Enbridge.ServiceUtils || {};
@@ -285,6 +288,7 @@ Enbridge.ServiceUtils.trackWebTrendsHandler = function () {
   }
 };
 
+// Source: src/utils/utils.js
 /* globals Enbridge */
 
 Enbridge.Utils = Enbridge.Utils || {};
@@ -327,6 +331,7 @@ Enbridge.Utils.formatDisplayStreet = function (unitNumber, streetNumber, suffix,
   return address.join('').toUpperCase();
 };
 
+// Source: src/utils/validate-utils.js
 /* globals Enbridge */
 
 window.Enbridge.ValidateUtils = window.Enbridge.ValidateUtils || {};
@@ -386,6 +391,7 @@ Enbridge.ValidateUtils.isBusinessDay = function(dateToCheck) {
     return (result !== "true");
 };
 
+// Source: src/plugins/accordion-wizard.js
 /* globals Enbridge */
 Enbridge.Plugins.AccordionWizard = window.Enbridge.Plugins.AccordionWizard || {
     // Know which is the current step (active step) in wizard
@@ -405,6 +411,7 @@ Enbridge.Plugins.AccordionWizard = window.Enbridge.Plugins.AccordionWizard || {
     }
 };
 
+// Source: src/plugins/age-validator.js
 /* globals Enbridge */
 Enbridge.Plugins.AgeValidator = function($el) {
   var $_el = $el;
@@ -465,6 +472,7 @@ Enbridge.Plugins.AgeValidator = function($el) {
   );
 };
 
+// Source: src/plugins/codetool.js
 /* globals Enbridge */
 (function ($) {
   Enbridge.Plugins.CodeTool = function (element) {
@@ -567,6 +575,7 @@ Enbridge.Plugins.AgeValidator = function($el) {
   };
 })(jQuery);
 
+// Source: src/plugins/date-validator.js
 //Validate the dates.  Return true if not valid.  
 /* globals Enbridge */
 Enbridge.Plugins.DateValidator = function() {
@@ -578,6 +587,7 @@ Enbridge.Plugins.DateValidator = function() {
   }
 };
 
+// Source: src/plugins/dropdown.js
 /* globals Enbridge */
 (function($) {
   Enbridge.Plugins.Dropdown = function (element) {
@@ -693,6 +703,7 @@ Enbridge.Plugins.DateValidator = function() {
   };
 }(jQuery));
 
+// Source: src/plugins/length-validator.js
 /* globals Enbridge */
 Enbridge.Plugins.LengthValidator = Enbridge.Plugins.LengthValidator || function ($el) {
   this._value = '';
@@ -713,11 +724,12 @@ Enbridge.Plugins.LengthValidator = Enbridge.Plugins.LengthValidator || function 
   this.setValue(this.$_el.val());
 };
 
+// Source: src/plugins/validator.js
 /* globals Enbridge */
 (function ($) {
   Enbridge.Plugins.Validator = function formValidator($form) {
     var error = false,
-      radio = $form.find('input[type="radio"]:not(.ignore)').removeClass('input-error input-success'),
+      radio = $form.find('input[type="radio"]').removeClass('input-error input-success'),
       select = $form.find('.enbridge-select:not(.ignore)').removeClass('input-error'),
       zipTool = $form.find('.zip-code-tool.[data-required="true"]').removeClass('success-field'),
       newAddress = $form.find('.new-address:visible'),
@@ -998,11 +1010,13 @@ Enbridge.Plugins.LengthValidator = Enbridge.Plugins.LengthValidator || function 
   };
 }(jQuery));
 
+// Source: src/prototype/date.js
 /* globals Enbridge */
 Date.prototype.addDays = function(number) {
   return Enbridge.DateUtils.addDaysToDate(this, number);
 };
 
+// Source: src/prototype/string.js
 /* globals Enbridge */
 
 String.prototype.toBoolean = function() {
@@ -1037,6 +1051,7 @@ String.prototype.PhoneFormat = function() {
   return Enbridge.ValidateUtils.isValidPhoneFormat(this);
 };
 
+// Source: src/bootstrap.js
 /* globals Enbridge */
 $(window).ready(function() {
 
@@ -1080,21 +1095,13 @@ $(window).ready(function() {
     $.ajax({
       type: 'GET',
       url: '/WebServices/GasAccountService.svc/GetCustomerDetails',
-      async: false,
       data: {
         accountNumber: accountType
       },
       contentType: 'application/json',
-      success: function (data) {
-        var serviceAddress = data.ServiceAddress,
-            dateOfBirth = data.DateOfBirthAsIso8601;
-
-        if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
-          $('[data-id=birthday-account-div]')
-            .hide()
-            .find('input[type="text"], select').addClass('ignore');
-        }
-        var address = formatDisplayStreet(serviceAddress.Unit, serviceAddress.StreetNumber, serviceAddress.Suffix, serviceAddress.StreetName, serviceAddress.City, serviceAddress.Province, data.PostalCode);
+      success: function(data) {
+        data = data.ServiceAddress;
+        var address = Enbridge.Utils.formatDisplayStreet(data.Unit, data.StreetNumber, data.Suffix, data.StreetName, data.City, data.Province, data.PostalCode);
         $('#current-address-literal').find('.address').html(address);
       },
       error: function(xhr, error) {
@@ -1113,12 +1120,10 @@ $(window).ready(function() {
       $element
         .removeClass('hide-flow')
         .attr('data-required', true);
-      $('[name=house-property-alternative]').addClass('ignore').parent().hide();
     } else {
       $element
         .addClass('hide-flow')
         .removeAttr('data-required');
-      $('[name=house-property-alternative]').removeClass('ignore').parent().show();
     }
 
     $('#calendar-move-entry').attr('data-validation', this.value);
@@ -1169,35 +1174,20 @@ $(window).ready(function() {
   /*New account entry business input variation*/
   $('input[name=device-type]').bind('change', function() {
     var accountType = $('input[name=device-type]:checked').val(),
-        tooltipText = '',
-        $bbpDisplayDiv = $('#bbpDisplayDiv'),
-        $bbpRadioDiv = $('#bbpRadioDiv');
-
+      tooltipText = '';
     $('div[class*="inputs-container"]').hide().find('input, select').addClass('ignore');
     $('[data-validate-age=""]').addClass('ignore');
     $('.' + accountType + '-inputs-container').removeClass('ignore').show().find('input, select').removeClass('ignore input-error').parent().find('.error-message').remove();
 
     if (accountType === 'business') {
-      if (!$bbpDisplayDiv.hasClass('hidden')) {
-        $bbpDisplayDiv.addClass('hidden');
-      }
-      if (!$bbpRadioDiv.hasClass('hidden')) {
-        $bbpRadioDiv.addClass('hidden');
-      }
-
+      $('#bbpDisplayDiv').css('visibility', 'hidden');
+      $('#bbpRadioDiv').css('visibility', 'hidden');
       tooltipText = 'This person will have full access to your account. This should be someone who has signing authority with your company, such as a co-owner, manager or accountant.';
-
       $("input[name=newcustomers-budget-billing-plan][value='no']").attr('checked', 'checked');
     } else {
       tooltipText = 'This person will also have full access to this account. So it needs to be your spouse or someone you trust, such as a friend or family member.';
-
-      if ($bbpDisplayDiv.hasClass('hidden')) {
-        $bbpDisplayDiv.removeClass('hidden');
-      }
-
-      if ($bbpRadioDiv.hasClass('hidden')) {
-        $bbpRadioDiv.removeClass('hidden');
-      }
+      $('#bbpDisplayDiv').css('visibility', 'visible');
+      $('#bbpRadioDiv').css('visibility', 'visible');
     }
     $('#additional-name-tooltip').text(tooltipText);
 
@@ -1751,16 +1741,11 @@ $(window).ready(function() {
 
   /*Success Zip*/
 
-  $('[data-next-step=#select_your_street]').bind('click', function() {
-    var _self = $(this),
-      form = _self.parents('#steps-flow-1'),
-      $this = _self.parent().find('.new-address'),
+  $('.new-address').keyup(function() {
+    var $this = $(this),
       currentVal = $this.val(),
       container = $this.attr('data-content'),
       radioContent = [];
-
-    form.find('input, select').addClass('ignore');
-    form.find('[data-id=code-validator]').removeClass('ignore');
 
     $this.closest('.code-box')
       .find('.error-message ').remove();
@@ -1782,11 +1767,10 @@ $(window).ready(function() {
       url: '/WebServices/AddressService.svc/GetAddresses',
       type: 'GET',
       dataType: 'application/json',
-      async: false,
       data: {
         'postalCode': currentVal
       },
-      success: function (data) {
+      success: function(data) {
         if (!!data) {
           var containerEl = container.replace('#', ''),
             streetObj = [],
@@ -1821,9 +1805,7 @@ $(window).ready(function() {
 
           data = JSON.parse(data);
 
-          $this.parents('.steps').find('.zip-code-error').hide();
-
-          for (var size = data.length - 1; size >= 0; size--) {
+          for (var size = data.length - 1; size >= 0; size-=1) {
             if (!streetObj[data[size].StreetName]) {
               streetObj[data[size].StreetName] = {
                 province: data[size].Province,
@@ -1875,11 +1857,11 @@ $(window).ready(function() {
 
             $('input[name="' + name + '"]').removeClass('input-success input-error');
           });
+
         } else {
           $this
             .removeClass('input-success success-field')
             .addClass('input-error');
-          $this.parents('.steps').find('.zip-code-error').show();
         }
       },
       error: function() {
@@ -2018,9 +2000,7 @@ $(window).ready(function() {
                 dateOfBirth = result.DateOfBirthAsIso8601;
 
               if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
-                $('[data-id=birthday-account-div]')
-                  .hide()
-                  .find('input[type="text"], select').addClass('ignore');
+                $('[data-id=birthday-account-div]').hide();
               }
               $('#account-authorization-failure-message').css('visibility', 'hidden');
 
@@ -2103,13 +2083,13 @@ $(window).ready(function() {
         $('#step-address').removeClass('hidden');
 
         $('[data-id="street"], [data-id="city-or-town"], [data-id="country"], [data-id="province"], [data-id="postal-code-input"], [name="house-property-alternative"]')
-          .attr('data-required', true).removeClass('ignore');
+          .attr('data-required', true);
 
       } else if (this.id === 'newcustomers-get-address' && !$('[name=newcustomers-select-street-container]:checked').val()) {
         $('#newcustomers-step-address').removeClass('hidden');
 
         $('[data-id="newcustomers-street"], [data-id="newcustomers-city-or-town"], [data-id="newcustomers-country"], [data-id="newcustomers-province"], [data-id="newcustomers-postal-code-input"], [name="newcustomers-house-property-alternative"]')
-          .attr('data-required', true).removeClass('ignore');
+          .attr('data-required', true);
       }
     }
   });

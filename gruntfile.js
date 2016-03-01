@@ -128,6 +128,10 @@ module.exports = function (grunt) {
         },
         concat: {
             options: {
+                process: function (src, filepath) {
+                    return '// Source: ' + filepath + '\n' +
+                        src;
+                },
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                 '<%= grunt.template.today("yyyy-mm-dd") %>*/\n'
             },

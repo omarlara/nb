@@ -10,8 +10,12 @@ var files = fs.readdirSync(partialRoute);
 var compileTemplate = function  (file) {
     var source = fs.readFileSync(file, 'utf-8');
 
-    var outputDir = process.argv[3] || 'email/output/';
-    var outputFile = outputDir + path.basename(file).replace(/\.hbs$/, '.html')
+    var output = process.argv[3] || 'email/output/';
+    
+    var outputFile = path.resolve(
+        output,
+        path.basename(file.replace(/\.hbs$/, '.html'))
+    );
 
     var settings = process.argv[4] || 'email/settings.json';
 

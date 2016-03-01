@@ -1,0 +1,35 @@
+{{#*inline "messagecontent"}}
+  <p style="font-size: {{ font.size }}; margin-top: 0;">We&rsquo;ve just finished processing your move request and wanted to let you know you&rsquo;re good to go! We know you&rsquo;re probably up to your neck in boxes and packing tape, so we&rsquo;ll keep it quick. </p>
+  <p style="font-size: {{ font.size }};">We&rsquo;ve got your new account for <b>123 anywhere St., Anycity, ON</b> set to start on <b>October 12, 2016</b>. You&rsquo;ll see a one-time $25 setup fee to cover the costs associated with processing your move on your new bill.</p>
+  <p style="font-size: {{ font.size }};">While we can&rsquo;t bring a casserole to welcome you to the neighbourhood, we do want to offer you a <a href="{{ links.warmWelcome }}" style="text-decoration: none; font-weight: 600;"><font color="{{ colors.link }}">Warm Welcome</font></a> with some helpful tips for new customers.</p>
+  <p style="font-size: {{ font.size }};">Thanks again for using our online service options! You&rsquo;ve picked the easiest and fastest way to get it done. </p>
+  <p style="font-size: {{ font.size }}; margin-bottom: 0;">Your Enbridge Team</p>
+{{/inline}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <table width="{{ width }}" align="{{ align }}" style="border: {{borderProps }};" cellspacing="0">
+      <tbody>
+        {{> _header img=images.header }}
+        {{> _greetings title='Hi John,' subtitle='Your move has been processed.' img=images.residential }}
+        {{> _message }}
+        {{> _hr }}
+        <tr>
+          <td style="padding: 10px 20px 20px">
+            <table width="100%" style="background:url('{{ imgPath }}/{{ images.movebox }}') no-repeat top right">
+              {{> _movebox align='left' title='Summary' subtitle='Moving Out Of:' content='123 Fake St Toronto, ON M2M 2M2' details='Service Ending:' date='October 12, 2016' }}
+            </table>
+          </td>
+        </tr>
+        {{> _hr }}
+        {{> _yourinformation }}
+        {{> _footer }}
+      </tbody>
+    </table>
+  </body>
+</html>

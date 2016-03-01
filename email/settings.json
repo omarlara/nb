@@ -1,0 +1,39 @@
+{
+    "title": "Your Message Subject or Title",
+    "imgPath": "https://www.enbridgegas.com/AppImages/Emails/Moves",
+    "movebox": {
+        "bgColor": "#7E7B86",
+        "width": 230,
+        "titleColor": "#59cbe8",
+        "subtitleColor": "#59cbe8"
+    },
+    "font": {
+        "face": "Arial, sans-serif",
+        "size": "14px"
+    },
+    "colors": {
+        "title": "#555555",
+        "header": "#92b051",
+        "text": "#ffffff",
+        "link": "#1d87a4",
+        "text-bg": "#92b051"
+    },
+    "links": {
+        "warmWelcome": "https://www.enbridgegas.com/homes/start-stop-move/open-new-enbridge-account/new-customer-tips.aspx",
+        "securityDeposit": "https://www.enbridgegas.com/businesses/customer-service/frequently-asked-questions.aspx?InputQuestion=Why+are+you+charging+me+a+security+deposit%3f+(Business)&TypeId=1"
+    },
+    "images": {
+        "header": "myenbridge_big.png",
+        "info": "icon.png",
+        "movebox": "family.jpg",
+        "business": "42826844-analyzing.jpg",
+        "residential": "AI_Image.jpg",
+        "footer": "logofooter.png",
+        "twitter": "twitter.png"
+    },
+    "padding": "20px",
+    "width": 440,
+    "align": "center",
+    "borderProps": "1px solid #ccc",
+    "copyright": "2016 Enbridge Gas Distribution Inc."
+}

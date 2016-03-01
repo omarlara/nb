@@ -1,0 +1,35 @@
+{{#*inline "messagecontent"}}
+  <p style="font-size: {{ font.size }}; margin-top: 0;">We&rsquo;ve got your updated move info. We know how busy you must be with all the packing and planning, so thanks for taking the time to send that!</p>
+  <p style="font-size: {{ font.size }};">We&rsquo;ll now set up your new account for <b>123 anywhere St., Anycity, ON</b> on <b>October 12, 2016</b>. If you need to change anything else, just <a href="" style="text-decoration: none; font-weight: 600;"><font color="{{ colors.link }}">login to myEnbridge</font></a> to send us your updates. Remember, you can still make changes up to five days before your move.</p>
+  <p style="font-size: {{ font.size }};">Thanks again for using our online service options!</p>
+  <p style="font-size: {{ font.size }}; margin-bottom: 0;">Your Enbridge Team</p>
+{{/inline}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <table width="{{ width }}" align="{{ align }}" style="border: {{ borderProps }};" cellspacing="0">
+      <tbody>
+        {{> _header img=images.header }}
+        {{> _greetings title='Hi John,' subtitle='We received your update!' img=images.residential }}
+        {{> _message }}
+        {{> _hr }}
+        <tr>
+          <td style="padding: 10px 20px 20px">
+            <table width="100%" style="background:url('{{ imgPath }}/{{ images.movebox }}') no-repeat top right">
+              {{> _movebox align='left' title='Summary' subtitle='New Address:' content='123 Fake St Toronto, ON M2M 2M2' details='Service Starting:' date='October 12, 2016' }}
+            </table>
+          </td>
+        </tr>
+        {{> _info }}
+        {{> _signin }}
+        {{> _yourinformation }}
+        {{> _footer }}
+      </tbody>
+    </table>
+  </body>
+</html>

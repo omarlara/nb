@@ -1,0 +1,41 @@
+{{#*inline "messagecontent"}}
+  <p style="font-size:{{ font.size }}; margin-top: 0;">
+    Wow, time sure flies! Looks like your move to <b>123 anywhere St., Anycity, ON</b> on <b>October 12, 2016</b> is just a week away.
+  </p>
+  <p style="font-size:{{ font.size }};">
+    If you need to change any info about your move, not to worry... just
+    <a href="" style="text-decoration: none; font-weight: 600;">
+      <font color="{{ colors.link }}">login to myEnbridge</font>
+    </a> in the next two days to send us your updates.
+  </p>
+  <p style="font-size:{{ font.size }};">
+    Quick reminder that you&rsquo;ll see a one-time $25 setup fee on your new bill to cover the costs associated with processing your move.
+  </p>
+  <p style="font-size:{{ font.size }};">
+    And you&rsquo;re all done! With all the things on your to-do list, we hope we could at least make this part easy for you. We hope the rest of your move goes smoothly. Thanks again for using our online service options!
+  </p>
+  <p style="font-size:{{ font.size }}; margin-bottom: 0;">
+    Your Enbridge Team
+  </p>
+{{/inline}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <table width="{{ width }}" align="{{ align }}" style="border: {{ borderProps }};" cellspacing="0">
+      <tbody>
+        {{> _header img=images.header }}
+        {{> _greetings title='Hi John,' subtitle='You are moving soon!' img=images.residential }}
+        {{> _message }}
+        {{> _info }}
+        {{> _signin }}
+        {{> _blankrow }}
+        {{> _footer }}
+      </tbody>
+    </table>
+  </body>
+</html>

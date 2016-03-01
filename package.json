@@ -6,7 +6,9 @@
   "scripts": {
     "startDev": "grunt dev",
     "startQA": "grunt qa",
-    "startProd": "grunt prod"
+    "startProd": "grunt prod",
+    "buildTemplates": "node compiler email/templates",
+    "QATemplates" : "node templatesavailable"
   },
   "author": "",
   "license": "ISC",

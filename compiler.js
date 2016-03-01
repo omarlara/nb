@@ -4,7 +4,8 @@ var fs = require('fs');
 var path = require('path');
 
 var handlebars = require('handlebars');
-var files = fs.readdirSync('partials');
+
+var files = fs.readdirSync(partialRoute);
 
 var compileTemplate = function  (file) {
     var source = fs.readFileSync(file, 'utf-8');
@@ -12,7 +13,7 @@ var compileTemplate = function  (file) {
     var outputDir = process.argv[3] || 'email/output/';
     var outputFile = outputDir + path.basename(file).replace(/\.hbs$/, '.html')
 
-    var settings = process.argv[4] || 'settings.json';
+    var settings = process.argv[4] || 'email/settings.json';
 
     var template = handlebars.compile(source);
     var context = JSON.parse(fs.readFileSync(settings, 'utf8'));
@@ -38,7 +39,6 @@ var walkIntoPath = function (dir, callback) {
         }
     });
 };
-
 
 // Create partial templates
 walkIntoPath(partialRoute, function (file) {

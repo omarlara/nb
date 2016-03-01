@@ -1,0 +1,23 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "forin": true,
+    "latedef": true,
+    "nonew": true,
+    "undef": true,
+    "unused": true,
+    "plusplus": true,
+    "predef": [
+        "window",
+        "document",
+        "jQuery",
+        "$",
+        "console",
+        "dcsMultiTrack",
+        "alert",
+        "scroll"
+    ],
+    "funcscope": true,
+    "loopfunc": true,
+    "debug": true
+}

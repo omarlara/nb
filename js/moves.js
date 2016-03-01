@@ -778,7 +778,7 @@ $(window).ready(function() {
         var serviceAddress = data.ServiceAddress,
             dateOfBirth = data.DateOfBirthAsIso8601;
 
-        if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
+        if (dateOfBirth !== null && dateOfBirth !== '0000-00-00') {
           $('[data-id=birthday-account-div]')
             .hide()
             .find('input[type="text"], select').addClass('ignore');
@@ -1634,7 +1634,7 @@ $(window).ready(function() {
                 serviceAddress = result.ServiceAddress,
                 dateOfBirth = result.DateOfBirthAsIso8601;
 
-              if (dateOfBirth === null || dateOfBirth === '0000-00-00') {
+              if (dateOfBirth !== null && dateOfBirth !== '0000-00-00') {
                 $('[data-id=birthday-account-div]')
                   .hide()
                   .find('input[type="text"], select').addClass('ignore');

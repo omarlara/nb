@@ -596,7 +596,7 @@ $(window).ready(function() {
             .find('option[value="' + value + '"]')
             .attr('selected', true);
 
-          copyToHiddenInput (self.source, value);
+          copyToHiddenInput(self.source, value);
         });
     };
 
@@ -824,7 +824,8 @@ $(window).ready(function() {
       ranges = $radio.attr('data-range').split(',') || ['0'],
       numbers = [],
       container = '#data-dropdown',
-      street = $('[data-id="street"]').val();
+      street = $('[data-id="street"]').val(),
+      streetNumberP = $('[data-id=street-number]').val() || '';
 
     if (street === $radio.attr('data-street')) {
       $('[data-id="city-or-town"]').val($radio.attr('data-city'));
@@ -840,7 +841,10 @@ $(window).ready(function() {
     $('<select class="enbridge-select" id="current-number" data-required="true">' + numbers.join('') + '</select>')
       .appendTo(container)
       .enbridgeDropdown();
-
+    
+    $('#current-number').val(streetNumberP)
+      .next().find('[data-value=' + streetNumberP + ']').trigger('click')
+      .parents('.enbridge-dropdown').removeClass('active');
   });
 
   /*Run validator at phone required group*/
@@ -1143,7 +1147,7 @@ $(window).ready(function() {
     $form.find('.success-field').removeClass('success-field');
   });
 
-  $('#new-account-start-over').bind('click', function() {
+  $('[data-id="startOverMoveButton"]').bind('click', function() {
     var $form = $('#form-new-account').removeClass('hidden');
 
     $form.find('.accordion-item')
@@ -2014,9 +2018,18 @@ $(window).ready(function() {
           });
           return false;
         }
-      };
+      },
+      preSuffixP = $('[data-id=suffix]').val() || '';
+      preStreetP = $('[data-id=misc-info]').val() || '',
+      finishDateP = $('[data-id=date-finish]').val(),
+      startDateP = $('[data-id=date-start]').val(),
+      moveOutDate = $('[data-id=moving-out-date]').val()
+      currentDateString = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
 
     calendar.datepicker();
+
+    $('[data-id=pre-suffix]').val(preSuffixP);
+    $('[data-id=pre-street-number]').val(preStreetP);
 
     $('.confirm-yes-dialog').bind('click', function() {
       // Track in webtrends when user closes the modal
@@ -2025,12 +2038,35 @@ $(window).ready(function() {
       window.location = '/homes/start-stop-move/moving/index.aspx';
     });
 
-    $('[data-id="date-finish"], [data-id="date-start"]').val(currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate());
+    if ($('[data-id=date-finish]').val() !== undefined) { /*MoveEntry*/
+      if (finishDateP === '' && startDateP === '') {
+        finishDateP = currentDate;
+        startDateP = currentDate;
+        $('[data-id=date-finish], [data-id=date-start]').val(currentDateString);
+      } else {
+        finishDateP = new Date($('[data-id=date-finish]').val());
+        startDateP = new Date($('[data-id=date-start]').val());
+      }
+    } else if ($('[data-id=date-start]').val() !== undefined) { /*NewAccountEntry*/
+      if (startDateP === '') {
+        startDateP = currentDate;
+        $('[data-id=date-start]').val(currentDateString);
+      } else {
+        startDateP = new Date($('[data-id=date-start]').val());
+      }
+    }
+    if ($('[data-id=moving-out-date]').val() !== undefined) { /*MoveOutEntry*/
+      if (moveOutDate !== '') {
+        moveOutDate = new Date($('[data-id=moving-out-date]').val());
+      } else {
+        moveOutDate = currentDate;
+      }
+    }
 
     for (var i = calendar.length - 1; i >= 0; i--) {
 
       var $current = $(calendar[i]).click();
-      $current.datepicker("setDate", currentDate);
+      $current.datepicker('setDate', currentDate);
 
       var date = $current.datepicker('getDate');
       var day = date.getDate();
@@ -2040,6 +2076,10 @@ $(window).ready(function() {
       $($current.closest('.calendar-column').attr('data-calendar'))
         .val(year + '-' + month + '-' + day);
     }
+
+    $('[data-calendar=moving-out-date]').find('.calendar').datepicker('setDate', moveOutDate);
+    $('[data-calendar=date-finish]').find('.calendar').datepicker('setDate', finishDateP);
+    $('[data-calendar=date-start]').find('.calendar').datepicker('setDate', startDateP);
 
     $('.tooltip .icon').bind('click', function(e) {
       $(this).next()
@@ -2313,6 +2353,68 @@ Enbridge.Plugins.LengthValidator = Enbridge.Plugins.LengthValidator || (function
   };
   return LengthValidator;
 }(jQuery));
+
+Enbridge.Plugins.Normalizer = (function ($) {
+  function getMax($elements) {
+    var max = -1;
+    var height = 0;
+
+    var i, len = $elements.length;
+
+    for (i = 0; i < len; i += 1) {
+      height = $elements[i].clientHeight;
+      if (max < height) {
+        max = height;
+      }
+    }
+
+    return max;
+  }
+
+  var Normalizer = function($el) {
+    this.$_el = $el;
+    this.$_elements = [];
+
+    this.setElements = function(elements) {
+      this.$_elements = elements;
+    };
+
+    this.reset = function() {
+      this.setElements([]);
+    };
+
+    this.getElements = function() {
+      return this.$_elements;
+    };
+
+    this.execute = function() {
+      var height = getMax(this.$_elements);
+      var i, len;
+      for (i = 0, len = this.$_elements.length; i < len; i += 1) {
+        this.$_elements[i].style.height = height + 'px';
+      }
+    };
+  };
+
+  return Normalizer;
+}(jQuery));
+
+$(document).ready(function () {
+  $.fn.normalizer = function(options) {
+    return this.each(function(i, elem) {
+      var $elem = $(elem);
+
+      var normalize = new Enbridge.Plugins.Normalizer($elem);
+
+      var elements = $elem.find('[data-normalize=""], [data-normalize="true"]');
+      normalize.setElements(elements);
+
+      normalize.execute();
+    });
+  };
+
+  $('[data-normalize-height]').normalizer();
+});
 /******************************* Webtrends implementation ********************************/
 
 // Flag to don't track in webtrends repeated steps
@@ -2468,3 +2570,4 @@ $(document).ready(function () {
 
   $(document).trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
 });
+

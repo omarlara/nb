@@ -2571,3 +2571,61 @@ $(document).ready(function () {
   $(document).trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
 });
 
+Enbridge.Plugins.Normalizer = (function ($) {
+  function getMax($elements) {
+    var max = -1;
+    var height = 0;
+
+    var i, len = $elements.length;
+
+    for (i = 0; i < len; i += 1) {
+      height = $elements[i].clientHeight;
+      if (max < height) {
+        max = height;
+      }
+    }
+
+    return max;
+  }
+
+  var Normalizer = function($el) {
+    this.$_el = $el;
+    this.$_elements = [];
+
+    this.setElements = function(elements) {
+      this.$_elements = elements;
+    };
+
+    this.reset = function() {
+      this.setElements([]);
+    };
+
+    this.getElements = function() {
+      return this.$_elements;
+    };
+
+    this.execute = function() {
+      var height = getMax(this.$_elements);
+      this.$_elements.css('height', height + 'px');
+    };
+  };
+
+  return Normalizer;
+}(jQuery));
+
+$(document).ready(function () {
+  $.fn.normalizer = function(options) {
+    return this.each(function(i, elem) {
+      var $elem = $(elem);
+
+      var normalize = new Enbridge.Plugins.Normalizer($elem);
+
+      var elements = $elem.find('[data-normalize=""], [data-normalize="true"]');
+      normalize.setElements(elements);
+
+      normalize.execute();
+    });
+  };
+
+  $('[data-normalize-height]').normalizer();
+});

@@ -284,6 +284,13 @@
   float: right !important; }
 .enbridge-content-container .min-weight-summary {
   min-height: 330px !important; }
+.enbridge-content-container .absolute {
+  position: absolute; }
+.enbridge-content-container .relative {
+  position: relative; }
+.enbridge-content-container .absolute.set-to-bottom {
+  bottom: 0;
+  padding-bottom: 5px; }
 .enbridge-content-container .clearfix {
   display: block;
   clear: both;

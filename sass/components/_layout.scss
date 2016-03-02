@@ -1,0 +1,13 @@
+
+$positions: (absolute, relative);
+@each $p in $positions {
+    .#{$p} {
+        position: #{$p};
+    }
+}
+
+$set-to-bottom-padding: 5px;
+.absolute.set-to-bottom {
+    bottom: 0;
+    padding-bottom: $set-to-bottom-padding;
+}

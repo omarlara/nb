@@ -15,8 +15,10 @@
         "title": "#555555",
         "header": "#92b051",
         "text": "#ffffff",
-        "link": "#1d87a4",
-        "text-bg": "#92b051"
+        "link": "#766c61",
+        "secondaryLink": "#1d87a4",
+        "text-bg": "#92b051",
+        "footerBg": "#E2E2E2"
     },
     "links": {
         "warmWelcome": "https://www.enbridgegas.com/homes/start-stop-move/open-new-enbridge-account/new-customer-tips.aspx",

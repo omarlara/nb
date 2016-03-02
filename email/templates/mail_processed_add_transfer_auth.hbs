@@ -5,8 +5,8 @@
   <p style="font-size:{{ font.size }};">
     We&rsquo;ve got your new account for <b>123 anywhere St., Anycity, ON</b> set to start on <b>October 12, 2016</b>. If you need to change anything,
     <a href="#" style="font-family:Arial, Sans-serif; font-weight:600; text-decoration:none">
-      <font color="#1d87a4">login to myEnbridge</font>
-    </a> to send us your updates. Remember, you can still make changes up to five days before your move.
+      <font color="{{ colors.link }}">login to myEnbridge</font>
+    </a> to send us your updates. Remember, you can still make changes up to five business days before your move.
   </p>
   <p style="font-size:{{ font.size }};">
     Thanks for using our online service options! You&rsquo;ve picked the easiest and fastest way to get it done.
@@ -32,10 +32,15 @@
         <tr>
           <td style="padding: 10px 20px 20px">
             <table width="100%" style="background:url('{{ imgPath }}/{{ images.movebox }}') no-repeat top right">
-              {{> _movebox align='left' title='Summary' subtitle='New Address:' content='123 Fake St<br>Toronto, ON<br>M2M 2M2' details='Service Starting:' date='October 12, 2016' }}
+              <tr>
+                <td>
+                  {{> _movebox align='left' title='Summary' subtitle='New Address:' content='123 Fake St<br>Toronto, ON<br>M2M 2M2' details='Service Starting:' date='October 12, 2016' }}
+                </td>
+              </tr>
             </table>
           </td>
         </tr>
+        {{> _hr }}
         {{> _info }}
         {{> _signin }}
         {{> _yourinformation }}

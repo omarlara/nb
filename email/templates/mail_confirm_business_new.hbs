@@ -4,7 +4,7 @@
   <p style="font-size: {{ font.size }};">We&rsquo;ll be activating your new business account for <b>123 anywhere St., Anycity, ON</b> on <b>October 12, 2016</b>. We&rsquo;re also setting up your online myEnbridge account and will send you an email
     shortly to set your password. It&rsquo;s possible that your company will need to pay a
     <a href="{{ links.securitydeposit }}" style="text-decoration: none; font-weight: bold;">
-      <font color="#1d87a4">security deposit</font>
+      <font color="{{ colors.link }}">security deposit</font>
     </a> for your new account. </p>
   <p style="font-size: {{ font.size }};">Thank you for using our online service options! You&rsquo;ve picked the easiest and fastest way to get it done. </p>
   <p style="font-size: {{ font.size }}; margin-bottom: 0;">Your Enbridge Team</p>
@@ -26,7 +26,11 @@
         <tr>
           <td style="padding: 10px 20px 20px">
             <table width="100%" style="background:url('{{ imgPath }}/{{ images.movebox }}') no-repeat top right">
-              {{> _movebox align='left' title='Summary' subtitle='To:' content='123 Fake St<br>Toronto, ON<br>M2M 2M2' details='Service Starting:' date='October 12, 2016' }}
+              <tr>
+                <td>
+                  {{> _movebox align='left' title='Summary' subtitle='To:' content='123 Fake St<br>Toronto, ON<br>M2M 2M2' details='Service Starting:' date='October 12, 2016' }}
+                </td>
+              </tr>
             </table>
           </td>
         </tr>

@@ -1,20 +1,20 @@
 <tr>
-  <td bgcolor="#333333" align="center" style="padding: 20px; -ms-interpolation-mode: bicubic;">
-    <img style="-ms-interpolation-mode: bicubic; " src="{{ imgPath }}/{{ images.footer }}" alt="Your alt text" width="130" height="38">
+  <td bgcolor="#333333" align="center" style="padding: {{ padding }}; -ms-interpolation-mode: bicubic;">
+    <img style="-ms-interpolation-mode: bicubic; " src="{{ imgPath }}/{{ images.footer }}" width="130" height="38">
   </td>
 </tr>
 <tr>
-  <td bgcolor="#E2E2E2" style="border-bottom:8px solid #92b051; padding: 20px;">
+  <td bgcolor="{{ colors.footerBg }}" style="border-bottom:8px solid #92b051; padding: {{ padding }};">
     <table width="100%" cellspacing="0" cellpadding="0">
       <tbody>
         <tr>
           <td align="center">
-            <img width="42" height="42" src="{{ imgPath }}/{{ images.twitter }}" style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" alt="Your alt text">
+            <img width="42" height="42" src="{{ imgPath }}/{{ images.twitter }}" style="font-family:Arial, Sans-serif; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" 
           </td>
         </tr>
         <tr>
           <td align="center">
-            <a href="#" style="font-weight:600; text-decoration:none; font-size: 14px;">
+            <a href="#" style="font-weight:600; text-decoration:none; font-size: {{ font.size }};">
               <font color="#555555" face="Arial, Sans-serif">Follow Us on Twitter!</font>
             </a>
           </td>
@@ -24,9 +24,9 @@
         </tr>
         <tr>
           <td align="center">
-            <font face="Arial, Sans-serif" style="font-size: 14px">
+            <font face="Arial, Sans-serif" style="font-size: {{ font.size }}">
               <p>&copy; {{ copyright }}</p>
-              <p>All rights reserved</p>
+              <p>All rights reserved.</p>
             </font>
           </td>
         </tr>

@@ -959,7 +959,7 @@ $(window).ready(function() {
       .addClass('xs5')
       .removeClass('xs12');
 
-    $('#property-info').show();
+    $('#property-info').show().find('[name="house-property"]').removeClass('ignore');
     $('#step-address').removeClass('hidden');
     $('input[name="house-property"]').attr('data-required', true);
   });
@@ -1876,23 +1876,6 @@ $(window).ready(function() {
         return;
       }
 
-      //Figure out the date 3 business days in the future
-      var additionalBusinessDays = 0;
-      var additionalDays = 0;
-      var minimumDate;
-      while (additionalBusinessDays <= 3) {
-        minimumDate = new Date(now.getTime() + (additionalDays * 86400000));
-        if (minimumDate.getDay() != 0 && isBusinessDay(minimumDate)) {
-          additionalBusinessDays++;
-        }
-        additionalDays++;
-      }
-
-      //Show a warning if the selected date is not 3 business days in the future
-      if (date < minimumDate) {
-        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move-out date is in less than 3 business days. No worries, it just means that your final meter reading will need to be estimated.</span></div>');
-        return;
-      }
       //Show a warning if the selected date is before a day that is not a business day
       var dayAfterSelected = new Date(date.getTime() + 86400000);
       if(date.getDay() == 6 || !isBusinessDay(dayAfterSelected)) {
@@ -1911,6 +1894,24 @@ $(window).ready(function() {
     }
 
     //Validations for both move out and move in
+    
+    //Figure out the date 3 business days in the future
+    var additionalBusinessDays = 0;
+    var additionalDays = 0;
+    var minimumDate;
+    while (additionalBusinessDays <= 3) {
+    minimumDate = new Date(now.getTime() + (additionalDays * 86400000));
+    if (minimumDate.getDay() != 0 && isBusinessDay(minimumDate)) {
+        additionalBusinessDays++;
+    }
+    additionalDays++;
+    }
+
+    //Show a warning if the selected date is not 3 business days in the future
+    if (date < minimumDate) {
+        $calendarColumn.append('<div class="result error-code"><img src="/AppImages/exclamation-02.png"><span>It looks like your move date is in less than 3 business days. No worries, it just means that your meter reading will need to be estimated.</span></div>');
+        return;
+    }
 
     //Determine if it's on a sunday or holiday
     if (date.getDay() == 0) {
@@ -2571,61 +2572,3 @@ $(document).ready(function () {
   $(document).trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
 });
 
-Enbridge.Plugins.Normalizer = (function ($) {
-  function getMax($elements) {
-    var max = -1;
-    var height = 0;
-
-    var i, len = $elements.length;
-
-    for (i = 0; i < len; i += 1) {
-      height = $elements[i].clientHeight;
-      if (max < height) {
-        max = height;
-      }
-    }
-
-    return max;
-  }
-
-  var Normalizer = function($el) {
-    this.$_el = $el;
-    this.$_elements = [];
-
-    this.setElements = function(elements) {
-      this.$_elements = elements;
-    };
-
-    this.reset = function() {
-      this.setElements([]);
-    };
-
-    this.getElements = function() {
-      return this.$_elements;
-    };
-
-    this.execute = function() {
-      var height = getMax(this.$_elements);
-      this.$_elements.css('height', height + 'px');
-    };
-  };
-
-  return Normalizer;
-}(jQuery));
-
-$(document).ready(function () {
-  $.fn.normalizer = function(options) {
-    return this.each(function(i, elem) {
-      var $elem = $(elem);
-
-      var normalize = new Enbridge.Plugins.Normalizer($elem);
-
-      var elements = $elem.find('[data-normalize=""], [data-normalize="true"]');
-      normalize.setElements(elements);
-
-      normalize.execute();
-    });
-  };
-
-  $('[data-normalize-height]').normalizer();
-});

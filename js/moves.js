@@ -29,6 +29,7 @@ var Enbridge = window.Enbridge || {
     MOVE_OUT_FORM_FLOW_SUCESSS: '/homes/start-stop-move/moving/move-out-thanks.aspx'
   },
   Plugins: {},
+  Utils: {},
   Events: {
     TRACK_IN_WEBTRENDS: 'Enbridge.Events.trackInWebTrends'
   }
@@ -1476,6 +1477,9 @@ $(window).ready(function() {
       $this.next().remove();
     }
 
+    currentVal = Enbridge.Utils.sanitizePostalCode(currentVal);
+    $this.val(currentVal);
+
     $.ajax({
       url: '/WebServices/AddressService.svc/GetAddresses',
       type: 'GET',
@@ -1637,12 +1641,41 @@ $(window).ready(function() {
               var displayText = null,
                 serviceAddress = result.ServiceAddress,
                 dateOfBirth = result.DateOfBirthAsIso8601;
+                homePhone = result.HomePhone;
+                mobilePhone = result.MobilePhone;
+                businessPhone = result.BusinessPhone;
 
               if (dateOfBirth !== null && dateOfBirth !== '0000-00-00') {
+                $('[data-id="moving-out-your-day"]').val(dateOfBirth.substring(8,10));
+                $('[data-id="moving-out-your-month"]').val(dateOfBirth.substring(5,7)) 
+                $('[data-id="moving-out-your-year"]').val(dateOfBirth.substring(0,4));
+
                 $('[data-id=birthday-account-div]')
                   .hide()
                   .find('input[type="text"], select').addClass('ignore');
+              } else {
+                /* in case user start over and type in another account */
+                $('[data-id=birthday-account-div]')
+                  .show()
+                  .find('input[type="text"], select').removeClass('ignore');
               }
+              
+              if (homePhone !== null) {
+                $('[data-id="moving-out-home-phone-lada"]').val(homePhone.AreaCode);
+                $('[data-id="moving-out-home-phone"]').val(homePhone.Number);
+              }
+              
+              if (mobilePhone !== null) {
+                $('[data-id="moving-out-mobile-phone-lada"]').val(mobilePhone.AreaCode);
+                $('[data-id="moving-out-mobile-phone"]').val(mobilePhone.Number);
+              }
+              
+              if (businessPhone !== null) {
+                $('[data-id="moving-out-business-phone-lada"]').val(businessPhone.AreaCode);
+                $('[data-id="moving-out-business-phone"]').val(businessPhone.Number);
+                $('[data-id="moving-out-business-phone-ext"]').val(businessPhone.Extension);
+              }
+              
               $('#account-authorization-failure-message').css('visibility', 'hidden');
 
               displayText = formatDisplayStreet(
@@ -2572,3 +2605,16 @@ $(document).ready(function () {
   $(document).trigger(Enbridge.Events.TRACK_IN_WEBTRENDS);
 });
 
+
+/***/
+function sanitizePostalCode(input, applyUpperCase) {
+  if (input.postalCode()) {
+    input = input.substr(0, 3) + (input.indexOf(' ') >= 0 ? '': ' ') + input.substr(3);
+    if (!!applyUpperCase) {
+       return input.toUpperCase();
+    }
+    return input;
+  }
+  return false;
+}
+Enbridge.Utils.sanitizePostalCode = sanitizePostalCode;
